@@ -25,12 +25,20 @@ class Business extends Model
     }
 
 
-
     /**
      * Get the clubs related to this business
      */
     public function clubs()
     {
         return $this->hasMany('App\Models\Club');
+    }
+
+
+    /**
+     * Get the clubs related to this business
+     */
+    public function type()
+    {
+        return $this->hasOne('App\Models\BusinessType');
     }
 }
