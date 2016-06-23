@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './home.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './home.component', './job.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, home_component_1;
+    var core_1, router_deprecated_1, home_component_1, job_component_1;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
             },
             function (home_component_1_1) {
                 home_component_1 = home_component_1_1;
+            },
+            function (job_component_1_1) {
+                job_component_1 = job_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -37,7 +40,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                     }),
                     router_deprecated_1.RouteConfig([
                         { path: '/', name: 'Root', component: home_component_1.HomeComponent, useAsDefault: true },
-                        { path: '/home', name: 'Home', redirectTo: ['Root'] }]), 
+                        { path: '/home', name: 'Home', redirectTo: ['Root'] },
+                        { path: '/job/:jobId/', name: 'ShowJob', component: job_component_1.JobComponent }
+                    ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;

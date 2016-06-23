@@ -7,6 +7,7 @@ import { ROUTER_PROVIDERS,
 
 // Components
 import { HomeComponent } from './home.component';
+import { JobComponent } from './job.component';
 
 @Component({
     directives:[RouterLink,
@@ -19,7 +20,9 @@ import { HomeComponent } from './home.component';
 
 @RouteConfig([
     { path: '/', name: 'Root', component: HomeComponent, useAsDefault: true },
-    { path: '/home', name: 'Home', redirectTo: ['Root'] }])
+    { path: '/home', name: 'Home', redirectTo: ['Root'] },
+    { path: '/job/:jobId/', name: 'ShowJob', component: JobComponent }
+])
 
 
 export class AppComponent {

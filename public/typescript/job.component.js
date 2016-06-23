@@ -11,7 +11,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service']
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_deprecated_1, job_service_1;
-    var HomeComponent;
+    var JobComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -24,26 +24,29 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service']
                 job_service_1 = job_service_1_1;
             }],
         execute: function() {
-            HomeComponent = (function () {
-                function HomeComponent(jobService) {
+            JobComponent = (function () {
+                function JobComponent(routeParams, jobService) {
+                    this.routeParams = routeParams;
                     this.jobService = jobService;
                     var __this = this;
-                    jobService.getAllJobs().subscribe(function (res) {
-                        __this.jobs = res.json();
+                    this.jobId = routeParams.get("jobId");
+                    console.log('job id is : ' + this.jobId);
+                    jobService.getJob(this.jobId).subscribe(function (res) {
+                        console.log(res.text());
                     });
                 }
-                HomeComponent = __decorate([
+                JobComponent = __decorate([
                     core_1.Component({
                         providers: [job_service_1.JobService],
-                        directives: [router_deprecated_1.RouterLink],
-                        selector: 'home',
-                        templateUrl: '../templates/home.component.html',
+                        inputs: ['jobId'],
+                        selector: 'job',
+                        templateUrl: '../templates/job.component.html',
                     }), 
-                    __metadata('design:paramtypes', [job_service_1.JobService])
-                ], HomeComponent);
-                return HomeComponent;
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, job_service_1.JobService])
+                ], JobComponent);
+                return JobComponent;
             }());
-            exports_1("HomeComponent", HomeComponent);
+            exports_1("JobComponent", JobComponent);
         }
     }
 });

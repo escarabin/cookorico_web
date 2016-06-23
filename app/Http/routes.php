@@ -18,5 +18,5 @@ Route::get('/sign-up', 'UserController@signUo')->name('signup');
 Route::get('/pricing', 'PricingControl@showProfile')->name('profile');
 
 // Jobs
-Route::get('/job/{id}', 'JobController@show')->name('showJob');
-Route::get('/jobs/all', 'JobController@getAll')->name('showJob');
+Route::get('/job/{id}', 'JobController@get')->name('showJob');
+Route::get('/jobs/all', 'JobController@getAll')->name('getAllJobs');

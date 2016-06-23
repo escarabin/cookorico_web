@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router-deprecated';
 import { APP_BASE_HREF } from '@angular/common';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { RouterLink } from '@angular/router-deprecated';
 
 // Services
 import { JobService } from './job.service';
 
 @Component({
-    directives: [RouterLink],
     providers: [JobService],
+    directives: [RouterLink],
     selector: 'home',
     templateUrl: '../templates/home.component.html',
 })

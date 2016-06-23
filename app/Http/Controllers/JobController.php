@@ -14,13 +14,11 @@ class JobController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function get($id)
     {
         $job = Job::find($id);
 
-        return view('job', [
-            'job' => $job
-        ]);
+        return $job;
     }
 
     public function getAll() {
