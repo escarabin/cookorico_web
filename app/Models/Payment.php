@@ -23,4 +23,13 @@ class Payment extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+
+    /**
+     * Get the type of pricing plan was bought
+     */
+    public function pricingPlan()
+    {
+        return $this->hasOne('App\Models\PricingPlan');
+    }
 }
