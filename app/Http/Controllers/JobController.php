@@ -22,4 +22,10 @@ class JobController extends Controller
             'job' => $job
         ]);
     }
+
+    public function getAll() {
+        $jobs = Job::all();
+
+        return $jobs;
+    }
 }

@@ -19,3 +19,4 @@ Route::get('/pricing', 'PricingControl@showProfile')->name('profile');
 
 // Jobs
 Route::get('/job/{id}', 'JobController@show')->name('showJob');
+Route::get('/job/get_all', 'JobController@getAll')->name('showJob');

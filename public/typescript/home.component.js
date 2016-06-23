@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './home.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './job.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, home_component_1;
-    var AppComponent;
+    var core_1, router_deprecated_1, job_service_1;
+    var HomeComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -20,29 +20,26 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
             },
-            function (home_component_1_1) {
-                home_component_1 = home_component_1_1;
+            function (job_service_1_1) {
+                job_service_1 = job_service_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            HomeComponent = (function () {
+                function HomeComponent(jobService) {
+                    this.jobService = jobService;
                 }
-                AppComponent = __decorate([
+                HomeComponent = __decorate([
                     core_1.Component({
-                        directives: [router_deprecated_1.RouterLink,
-                            router_deprecated_1.RouterOutlet,
-                            home_component_1.HomeComponent],
-                        selector: 'app',
-                        templateUrl: '/templates/app.component.html'
-                    }),
-                    router_deprecated_1.RouteConfig([
-                        { path: '/', name: 'Root', component: home_component_1.HomeComponent, useAsDefault: true },
-                        { path: '/home', name: 'Home', redirectTo: ['Root'] }]), 
-                    __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                        directives: [router_deprecated_1.RouterLink],
+                        providers: [job_service_1.JobService],
+                        selector: 'home',
+                        templateUrl: '../templates/home.component.html',
+                    }), 
+                    __metadata('design:paramtypes', [job_service_1.JobService])
+                ], HomeComponent);
+                return HomeComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("HomeComponent", HomeComponent);
         }
     }
 });

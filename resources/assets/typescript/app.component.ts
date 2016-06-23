@@ -1,7 +1,27 @@
 import { Component } from '@angular/core';
+import { ROUTER_PROVIDERS,
+    Router,
+    RouteConfig,
+    RouterLink,
+    RouterOutlet } from '@angular/router-deprecated';
+
+// Components
+import { HomeComponent } from './home.component';
 
 @Component({
-    selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>'
+    directives:[RouterLink,
+        RouterOutlet,
+        HomeComponent],
+    selector: 'app',
+    templateUrl: '/templates/app.component.html'
 })
-export class AppComponent { }
+
+
+@RouteConfig([
+    { path: '/', name: 'Root', component: HomeComponent, useAsDefault: true },
+    { path: '/home', name: 'Home', redirectTo: ['Root'] }])
+
+
+export class AppComponent {
+
+}
