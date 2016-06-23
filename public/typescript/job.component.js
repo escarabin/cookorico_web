@@ -30,7 +30,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service']
                     this.jobService = jobService;
                     var __this = this;
                     this.jobId = routeParams.get("jobId");
-                    jobService.getJob(this.jobId).subscribe(function (res) {
+                    jobService.getJob(__this.jobId).subscribe(function (res) {
                         __this.job = res.json();
                     });
                 }

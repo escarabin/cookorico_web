@@ -1,7 +1,12 @@
 <ul>
-    <li>
+    <li *ngIf="!user">
         <a (click)="signInModal.show()">
             Connexion
+        </a>
+    </li>
+    <li *ngIf="user">
+        <a (click)="logout()">
+            Déconnexion
         </a>
     </li>
     <li>
@@ -27,15 +32,31 @@
                 <h4 class="modal-title">Connexion</h4>
             </div>
             <div class="modal-body">
-                <form class="row" method="post" action="#" #loginForm="ngForm">
+                <form class="row"
+                      method="post"
+                      action="#"
+                      #loginForm="ngForm">
                     <div class="col-md-12">
-                        <input type="text" class="form-control" required name="email"/>
+                        <input type="text"
+                               class="form-control"
+                               ngControl="email"
+                               [(ngModel)]="email"
+                               required
+                               name="email"/>
                     </div>
                     <div class="col-md-12">
-                        <input type="password" class="form-control" required name="password"/>
+                        <input type="password"
+                               class="form-control"
+                               ngControl="password"
+                               [(ngModel)]="password"
+                               required
+                               name="password"/>
                     </div>
                     <div class="col-md-12">
-                        <input type="submit" class="form-control" value="Connexion">
+                        <input type="button"
+                               class="form-control"
+                               value="Connexion"
+                               (click)="login()">
                     </div>
                 </form>
             </div>

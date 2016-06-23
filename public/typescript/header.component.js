@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', 'ng2-bootstrap'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', 'ng2-bootstrap', './user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, router_deprecated_1, ng2_bootstrap_1;
+    var core_1, common_1, router_deprecated_1, ng2_bootstrap_1, user_service_1;
     var HeaderComponent;
     return {
         setters:[
@@ -25,21 +25,45 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
             },
             function (ng2_bootstrap_1_1) {
                 ng2_bootstrap_1 = ng2_bootstrap_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
             }],
         execute: function() {
             HeaderComponent = (function () {
-                function HeaderComponent() {
+                function HeaderComponent(userService) {
+                    this.userService = userService;
+                    this.user = localStorage.user;
                 }
+                HeaderComponent.prototype.login = function () {
+                    var __this = this;
+                    this.userService.login(__this.email, __this.password).subscribe(function (res) {
+                        var user = res.json();
+                        console.log('user', user);
+                        if (res.json()) {
+                            // Logged in
+                            localStorage.setItem('user', JSON.stringify(user));
+                        }
+                        else {
+                            // Failed signing in, clear user object in localStorage
+                            localStorage.removeItem('user');
+                        }
+                    });
+                };
+                HeaderComponent.prototype.logout = function () {
+                    localStorage.removeItem('user');
+                };
                 HeaderComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../templates/header.component.html',
                         selector: 'header',
+                        providers: [user_service_1.UserService],
                         viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
                         directives: [router_deprecated_1.RouterLink,
                             ng2_bootstrap_1.MODAL_DIRECTVES,
                             common_1.CORE_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [user_service_1.UserService])
                 ], HeaderComponent);
                 return HeaderComponent;
             }());

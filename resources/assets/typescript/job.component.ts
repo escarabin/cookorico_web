@@ -14,7 +14,7 @@ import { JobService } from './job.service';
 })
 
 export class JobComponent {
-    jobId:number;
+    jobId:string;
     job: any;
 
     constructor(private routeParams: RouteParams,
@@ -22,7 +22,7 @@ export class JobComponent {
         let __this = this;
         this.jobId = routeParams.get("jobId");
 
-        jobService.getJob(this.jobId).subscribe((res: Response) => {
+        jobService.getJob(__this.jobId).subscribe((res: Response) => {
             __this.job = res.json();
         });
     }

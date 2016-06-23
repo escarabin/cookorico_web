@@ -16,9 +16,10 @@ export class UserService {
      * @returns {Observable<Response>}
      */
 
-    signIn(email, password) {
+    login(email, password) {
         let __this = this;
 
-        return this.http.request(__this.signInUrl + email + '/' + password);
+        console.log(__this.signInUrl + email + '/' + password);
+        return this.http.get(__this.signInUrl + email + '/' + password);
     }
 }
