@@ -12,6 +12,10 @@
 */
 
 Route::get('/', 'HomeController@show')->name('home');
+
 Route::get('/profile/{userId}', 'UserController@showProfile')->name('profile');
 Route::get('/sign-up', 'UserController@signUo')->name('signup');
 Route::get('/pricing', 'PricingControl@showProfile')->name('profile');
+
+// Jobs
+Route::get('/job/{id}', 'JobController@show')->name('showJob');
