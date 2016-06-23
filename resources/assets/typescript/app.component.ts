@@ -7,6 +7,7 @@ import { ROUTER_PROVIDERS,
 // Components
 import { HomeComponent } from './home.component';
 import { JobComponent } from './job.component';
+import { PostComponent } from './post.component';
 import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
 
@@ -22,7 +23,8 @@ import { FooterComponent } from './footer.component';
 
 @RouteConfig([
     { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true },
-    { path: '/job/:jobId/', name: 'ShowJob', component: JobComponent }
+    { path: '/job/:jobId/', name: 'ShowJob', component: JobComponent },
+    { path: '/post/:postId/', name: 'ShowPost', component: PostComponent }
 ])
 
 

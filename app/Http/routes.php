@@ -23,3 +23,7 @@ Route::get('/jobs/all', 'JobController@getAll')->name('getAllJobs');
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')->name('signIn');
 Route::get('/sign-up', 'UserController@signUp')->name('signup');
+
+// Posts
+Route::get('/post/{id}', 'PostController@get')->name('getPost');
+Route::get('/posts/all', 'PostController@getAll')->name('getAllPosts');

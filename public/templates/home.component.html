@@ -5,3 +5,11 @@
         </li>
     </a>
 </ul>
+
+<ul *ngFor="let post of posts">
+    <a [routerLink]="['ShowPost', { postId: post.id }]">
+        <li>
+            {{ post.title }}
+        </li>
+    </a>
+</ul>

@@ -43,7 +43,7 @@ export class HeaderComponent {
                 // Failed signing in, clear user object in localStorage
                 localStorage.removeItem('user');
             }
-            
+
             this.user = localStorage.getItem('user');
         });
     }

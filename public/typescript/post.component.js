@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './job.service', './post.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './post.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, job_service_1, post_service_1;
-    var HomeComponent;
+    var core_1, router_deprecated_1, post_service_1;
+    var PostComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -20,38 +20,32 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service',
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
             },
-            function (job_service_1_1) {
-                job_service_1 = job_service_1_1;
-            },
             function (post_service_1_1) {
                 post_service_1 = post_service_1_1;
             }],
         execute: function() {
-            HomeComponent = (function () {
-                function HomeComponent(jobService, postService) {
-                    this.jobService = jobService;
+            PostComponent = (function () {
+                function PostComponent(routeParams, postService) {
+                    this.routeParams = routeParams;
                     this.postService = postService;
                     var __this = this;
-                    jobService.getAllJobs().subscribe(function (res) {
-                        __this.jobs = res.json();
-                    });
-                    postService.getAllPosts().subscribe(function (res) {
-                        __this.posts = res.json();
+                    this.postId = routeParams.get("postId");
+                    postService.getPost(__this.postId).subscribe(function (res) {
+                        __this.post = res.json();
                     });
                 }
-                HomeComponent = __decorate([
+                PostComponent = __decorate([
                     core_1.Component({
-                        providers: [job_service_1.JobService,
-                            post_service_1.PostService],
-                        directives: [router_deprecated_1.RouterLink],
-                        selector: 'home',
-                        templateUrl: '../templates/home.component.html',
+                        providers: [post_service_1.PostService],
+                        inputs: ['postId'],
+                        selector: 'post',
+                        templateUrl: '../templates/post.component.html',
                     }), 
-                    __metadata('design:paramtypes', [job_service_1.JobService, post_service_1.PostService])
-                ], HomeComponent);
-                return HomeComponent;
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, post_service_1.PostService])
+                ], PostComponent);
+                return PostComponent;
             }());
-            exports_1("HomeComponent", HomeComponent);
+            exports_1("PostComponent", PostComponent);
         }
     }
 });
