@@ -32,4 +32,13 @@ class Job extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+
+    /**
+     * Get the job's type
+     */
+    public function type()
+    {
+        return $this->hasOne('App\Models\JobType');
+    }
 }
