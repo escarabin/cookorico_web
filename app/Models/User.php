@@ -40,4 +40,13 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\UserType');
     }
+
+
+    /**
+     * Get user's type
+     */
+    public function languages()
+    {
+        return $this->hasMany('App\Models\Language');
+    }
 }
