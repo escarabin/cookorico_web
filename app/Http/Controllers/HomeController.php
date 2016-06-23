@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\JobType;
+use App\Models\JobNaming;
 
 class HomeController extends Controller
 {
@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function show()
     {
-        $jobTypeList = JobType::all();
+        $jobTypeList = JobNaming::all();
 
         return view('home', [
             'jobTypeList' => $jobTypeList

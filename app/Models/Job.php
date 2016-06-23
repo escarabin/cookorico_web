@@ -24,7 +24,6 @@ class Job extends Model
         return $this->belongsTo('App\Models\Business');
     }
 
-
     /**
      * Get the user that posted the job offer
      */
@@ -33,6 +32,13 @@ class Job extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    /**
+     * Get the job's type
+     */
+    public function naming()
+    {
+        return $this->hasOne('App\Models\JobNaming');
+    }
 
     /**
      * Get the job's type
