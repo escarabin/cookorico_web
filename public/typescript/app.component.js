@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './home.component', './job.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './home.component', './job.component', './header.component', './footer.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, home_component_1, job_component_1;
+    var core_1, router_deprecated_1, home_component_1, job_component_1, header_component_1, footer_component_1;
     var AppComponent;
     return {
         setters:[
@@ -25,6 +25,12 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
             },
             function (job_component_1_1) {
                 job_component_1 = job_component_1_1;
+            },
+            function (header_component_1_1) {
+                header_component_1 = header_component_1_1;
+            },
+            function (footer_component_1_1) {
+                footer_component_1 = footer_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -32,15 +38,15 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                 }
                 AppComponent = __decorate([
                     core_1.Component({
-                        directives: [router_deprecated_1.RouterLink,
-                            router_deprecated_1.RouterOutlet,
-                            home_component_1.HomeComponent],
+                        directives: [router_deprecated_1.RouterOutlet,
+                            home_component_1.HomeComponent,
+                            header_component_1.HeaderComponent,
+                            footer_component_1.FooterComponent],
                         selector: 'app',
                         templateUrl: '/templates/app.component.html'
                     }),
                     router_deprecated_1.RouteConfig([
-                        { path: '/', name: 'Root', component: home_component_1.HomeComponent, useAsDefault: true },
-                        { path: '/home', name: 'Home', redirectTo: ['Root'] },
+                        { path: '/', name: 'Home', component: home_component_1.HomeComponent, useAsDefault: true },
                         { path: '/job/:jobId/', name: 'ShowJob', component: job_component_1.JobComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
