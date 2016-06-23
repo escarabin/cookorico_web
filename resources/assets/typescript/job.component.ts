@@ -22,10 +22,8 @@ export class JobComponent {
         let __this = this;
         this.jobId = routeParams.get("jobId");
 
-        console.log('job id is : ' + this.jobId);
-
         jobService.getJob(this.jobId).subscribe((res: Response) => {
-            console.log(res.text());
+            __this.job = res.json();
         });
     }
 }
