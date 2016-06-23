@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\JobType;
+
 class HomeController extends Controller
 {
     /**
@@ -14,6 +16,10 @@ class HomeController extends Controller
      */
     public function show()
     {
-        return view('home');
+        $jobTypeList = JobType::all();
+
+        return view('home', [
+            'jobTypeList' => $jobTypeList
+        ]);
     }
 }
