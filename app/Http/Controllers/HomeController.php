@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class HomeController extends Controller
 {
     /**
      * Show the profile for the given user.
@@ -13,8 +12,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function showProfile($id)
+    public function show()
     {
-        return view('user.profile', ['user' => User::findOrFail($id)]);
+        return view('home');
     }
 }
