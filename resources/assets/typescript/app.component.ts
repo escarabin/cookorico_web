@@ -12,9 +12,9 @@ import { FooterComponent } from './footer.component';
 
 @Component({
     directives:[RouterOutlet,
-        HomeComponent,
-        HeaderComponent,
-        FooterComponent],
+                HomeComponent,
+                HeaderComponent,
+                FooterComponent],
     selector: 'app',
     templateUrl: '/templates/app.component.html'
 })

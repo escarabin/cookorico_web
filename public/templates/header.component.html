@@ -1,3 +1,14 @@
-<a [routerLink]="['Home']">
-    Accueil
-</a>
+<ul>
+    <li>
+        <a (click)="signInModal.show()">
+            Connexion
+        </a>
+    </li>
+    <li>
+        <a [routerLink]="['SignIn']">
+            Accueil
+        </a>
+    </li>
+</ul>
+
+<sign-in-modal></sign-in-modal>
