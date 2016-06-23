@@ -23,4 +23,14 @@ class Business extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+
+
+    /**
+     * Get the clubs related to this business
+     */
+    public function clubs()
+    {
+        return $this->hasMany('App\Models\Club');
+    }
 }
