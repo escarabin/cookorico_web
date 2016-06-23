@@ -13,6 +13,7 @@ elixir(function(mix) {
     mix.copy('node_modules/zone.js/dist', 'public/zone.js/dist');
     mix.copy('node_modules/reflect-metadata', 'public/reflect-metadata');
     mix.copy('node_modules/ng2-bootstrap', 'public/ng2-bootstrap');
+    mix.copy('node_modules/moment', 'public/moment');
     mix.copy('systemjs.config.js', 'public/systemjs.config.js');
 
     mix.typescript('app.js','public/','/**/*.ts',{

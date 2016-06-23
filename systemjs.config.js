@@ -11,7 +11,9 @@
     '@angular':                   '@angular',
     'angular2-in-memory-web-api': 'angular2-in-memory-web-api',
     'rxjs':                       'rxjs',
-    'zone.js':                    'zone.js'
+    'zone.js':                    'zone.js',
+    'ng2-bootstrap':              'ng2-bootstrap',
+    'moment':                     'moment'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -20,6 +22,8 @@
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
     'zone.js':                    { main: 'dist/index.js', defaultExtension: 'js' },
+    'ng2-bootstrap':              { main: 'ng2-bootstrap.js', defaultExtension: 'js' },
+    'moment':                     { main: 'moment.js', defaultExtension: 'js' }
   };
 
   var ngPackageNames = [
@@ -32,7 +36,7 @@
     'platform-browser-dynamic',
     'router',
     'router-deprecated',
-    'upgrade',
+    'upgrade'
   ];
 
   // Individual files (~300 requests):

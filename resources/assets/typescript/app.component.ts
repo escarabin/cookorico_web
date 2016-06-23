@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { ROUTER_PROVIDERS,
     Router,
     RouteConfig,
@@ -27,5 +27,10 @@ import { FooterComponent } from './footer.component';
 
 
 export class AppComponent {
+    viewContainerRef: any;
 
+    public constructor(viewContainerRef:ViewContainerRef) {
+        // You need this small hack in order to catch application root view container ref
+        this.viewContainerRef = viewContainerRef;
+    }
 }

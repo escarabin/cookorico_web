@@ -34,7 +34,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent() {
+                function AppComponent(viewContainerRef) {
+                    // You need this small hack in order to catch application root view container ref
+                    this.viewContainerRef = viewContainerRef;
                 }
                 AppComponent = __decorate([
                     core_1.Component({
@@ -49,7 +51,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                         { path: '/', name: 'Home', component: home_component_1.HomeComponent, useAsDefault: true },
                         { path: '/job/:jobId/', name: 'ShowJob', component: job_component_1.JobComponent }
                     ]), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [core_1.ViewContainerRef])
                 ], AppComponent);
                 return AppComponent;
             }());
