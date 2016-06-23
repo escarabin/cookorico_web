@@ -33,6 +33,13 @@ class User extends Authenticatable
     }
 
     /**
+     * Get user's civility
+     */
+    public function civility()
+    {
+        return $this->hasOne('App\Models\Civility');
+    }
+    /**
      * Get user's state
      */
     public function status()
