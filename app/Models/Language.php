@@ -14,4 +14,12 @@ class Language extends Model
     protected $fillable = [
         'title'
     ];
+
+    /**
+     * Get user's who speaks this language
+     */
+    public function languages()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
 }

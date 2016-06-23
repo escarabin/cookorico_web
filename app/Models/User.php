@@ -32,7 +32,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Business');
     }
 
-
     /**
      * Get user's type
      */
@@ -41,12 +40,11 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\UserType');
     }
 
-
     /**
-     * Get user's type
+     * Get user's spoken languages
      */
     public function languages()
     {
-        return $this->hasMany('App\Models\Language');
+        return $this->belongsToMany('App\Models\Language');
     }
 }

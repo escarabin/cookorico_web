@@ -1,3 +1,3 @@
-@foreach ($jobTypeList as $jobType)
-    {{ $jobType->title }}<br />
+@foreach ($userLanguages as $lang)
+    {{ $lang->title }}<br />
 @endforeach

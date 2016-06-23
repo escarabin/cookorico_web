@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\JobNaming;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -16,10 +16,10 @@ class HomeController extends Controller
      */
     public function show()
     {
-        $jobTypeList = JobNaming::all();
+        $user = User::find(1);
 
         return view('home', [
-            'jobTypeList' => $jobTypeList
+            'userLanguages' => $user->languages
         ]);
     }
 }
