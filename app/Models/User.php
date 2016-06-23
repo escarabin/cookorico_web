@@ -33,6 +33,13 @@ class User extends Authenticatable
     }
 
     /**
+     * Get user's state
+     */
+    public function state()
+    {
+        return $this->hasOne('App\Models\UserState');
+    }
+    /**
      * Get businesses that this user owns
      */
     public function businesses()
