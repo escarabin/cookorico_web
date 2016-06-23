@@ -22,14 +22,26 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
             }],
         execute: function() {
             JobService = (function () {
-                // Using Angular DI we use the HTTP service
                 function JobService(http) {
                     this.http = http;
                     this.allJobsListingUrl = '/jobs/all';
+                    this.showJobListingUrl = '/job/';
                 }
+                /**
+                 * Listing all jobs
+                 * @returns {Observable<Response>}
+                 */
                 JobService.prototype.getAllJobs = function () {
                     var __this = this;
                     return this.http.request(__this.allJobsListingUrl);
+                };
+                /**
+                 * Returns specific job
+                 * @param id
+                 */
+                JobService.prototype.getJob = function (jobId) {
+                    var __this = this;
+                    return this.http.request(__this.showJobListingUrl + jobId);
                 };
                 JobService = __decorate([
                     core_1.Injectable(), 
