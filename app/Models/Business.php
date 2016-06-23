@@ -12,7 +12,7 @@ class Business extends Model
      * @var array
      */
     protected $fillable = [
-        'title'
+        'title', 'lat', 'lon', 'adress'
     ];
 
 
