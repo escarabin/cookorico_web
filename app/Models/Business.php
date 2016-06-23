@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserType extends Model
+class Business extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -14,4 +14,13 @@ class UserType extends Model
     protected $fillable = [
         'title'
     ];
+
+
+    /**
+     * Get the user that owns this business
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

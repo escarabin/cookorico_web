@@ -23,4 +23,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get businesses that this user owns
+     */
+    public function businesses()
+    {
+        return $this->hasMany('App\Models\Business');
+    }
+
+
+    /**
+     * Get user's type
+     */
+    public function userType()
+    {
+        return $this->hasOne('App\Models\UserType');
+    }
 }
