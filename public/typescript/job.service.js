@@ -22,7 +22,9 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 function JobService() {
                 }
                 JobService.prototype.getAllJobs = function () {
-                    return ['test', 'test 2'];
+                    return [
+                        { 'title': 'test' },
+                        { 'title': 'test2' }];
                 };
                 JobService = __decorate([
                     core_1.Injectable(), 

@@ -13,7 +13,9 @@ import { JobService } from './job.service';
 })
 
 export class HomeComponent {
-    constructor(private jobService: JobService) {
+    jobs: any;
 
+    constructor(private jobService: JobService) {
+        this.jobs = jobService.getAllJobs();
     }
 }
