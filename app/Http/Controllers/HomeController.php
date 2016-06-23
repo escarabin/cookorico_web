@@ -19,7 +19,7 @@ class HomeController extends Controller
         $user = User::find(1);
 
         return view('home', [
-            'userLanguages' => $user->languages
+            'userDiplomas' => $user->diplomas
         ]);
     }
 }

@@ -25,6 +25,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get user's type
+     */
+    public function type()
+    {
+        return $this->hasOne('App\Models\UserType');
+    }
+
+    /**
      * Get businesses that this user owns
      */
     public function businesses()
@@ -33,18 +41,18 @@ class User extends Authenticatable
     }
 
     /**
-     * Get user's type
-     */
-    public function userType()
-    {
-        return $this->hasOne('App\Models\UserType');
-    }
-
-    /**
      * Get user's spoken languages
      */
     public function languages()
     {
         return $this->belongsToMany('App\Models\Language');
+    }
+
+    /**
+     * Get user's spoken languages
+     */
+    public function diplomas()
+    {
+        return $this->belongsToMany('App\Models\Diploma');
     }
 }

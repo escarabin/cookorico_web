@@ -1,3 +1,3 @@
-@foreach ($userLanguages as $lang)
-    {{ $lang->title }}<br />
+@foreach ($userDiplomas as $diploma)
+    {{ $diploma->title }}<br />
 @endforeach
