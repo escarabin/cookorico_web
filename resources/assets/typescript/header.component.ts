@@ -24,7 +24,7 @@ export class HeaderComponent {
     user: any;
 
     constructor (private userService: UserService) {
-        this.user = localStorage.user;
+        this.user = localStorage.getItem('user');
     }
 
     login() {
@@ -43,10 +43,13 @@ export class HeaderComponent {
                 // Failed signing in, clear user object in localStorage
                 localStorage.removeItem('user');
             }
+            
+            this.user = localStorage.getItem('user');
         });
     }
 
     logout() {
         localStorage.removeItem('user');
+        this.user = localStorage.getItem('user');
     }
 }
