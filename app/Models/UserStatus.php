@@ -4,8 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserState extends Model
+class UserStatus extends Model
 {
+
+    protected $table = 'user_status';
+
     /**
      * The attributes that are mass assignable.
      *
