@@ -27,7 +27,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service']
             HomeComponent = (function () {
                 function HomeComponent(jobService) {
                     this.jobService = jobService;
-                    this.jobs = jobService.getAllJobs();
+                    var __this = this;
+                    jobService.getAllJobs().subscribe(function (res) {
+                        __this.jobs = res.json();
+                    });
                 }
                 HomeComponent = __decorate([
                     core_1.Component({

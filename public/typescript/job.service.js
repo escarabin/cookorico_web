@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,25 +10,30 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, http_1;
     var JobService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             JobService = (function () {
-                function JobService() {
+                // Using Angular DI we use the HTTP service
+                function JobService(http) {
+                    this.http = http;
+                    this.allJobsListingUrl = '/jobs/all';
                 }
                 JobService.prototype.getAllJobs = function () {
-                    return [
-                        { 'title': 'test' },
-                        { 'title': 'test2' }];
+                    var __this = this;
+                    return this.http.request(__this.allJobsListingUrl);
                 };
                 JobService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], JobService);
                 return JobService;
             }());
