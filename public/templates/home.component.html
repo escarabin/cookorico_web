@@ -12,11 +12,19 @@
         <div class="col-md-3 input-container">
             <select class="form-control">
                 <option disabled selected>Type de poste</option>
+                <option *ngFor="let jobType of jobTypes"
+                        value="{{ jobType.id }}">
+                    {{ jobType.title }}
+                </option>
             </select>
         </div>
         <div class="col-md-3 input-container">
             <select class="form-control">
                 <option disabled selected>Type de contrat</option>
+                <option *ngFor="let contractType of contractTypes"
+                        value="{{ contractType.id }}">
+                    {{ contractType.title }}
+                </option>
             </select>
         </div>
         <div class="col-md-3 input-container">
