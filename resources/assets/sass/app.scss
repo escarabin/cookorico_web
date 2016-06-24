@@ -1,1 +1,8 @@
 @import "header";
+@import "variables";
+
+body {
+  background-color: $mainBgColor;
+  font-family: $mainFontFamily;
+  -webkit-font-smoothing: antialiased;
+}

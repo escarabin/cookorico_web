@@ -1,7 +1,28 @@
+@import "variables";
+
 header {
-  color: red;
+  background: white;
+  width: 100%;
+  padding: 15px;
 }
 
 header .logo {
+  background-image: url('/img/oechr_logo.png');
+  background-size: cover;
+  width: 250px;
+  height: 75px;
+}
 
+header ul li {
+  list-style-type: none;
+  float: left;
+  padding: 20px;
+}
+
+header ul li a {
+  color: $mainTextColor;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-weight: 600;
 }
