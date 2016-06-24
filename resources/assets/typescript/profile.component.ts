@@ -13,8 +13,9 @@ import { UserService } from './user.service';
 })
 
 export class ProfileComponent {
-    constructor(private routeParams: RouteParams,
-                private userService: UserService) {
-        let __this = this;
+    user: any;
+
+    constructor(private userService: UserService) {
+        this.user = JSON.parse(localStorage.getItem('user'));
     }
 }

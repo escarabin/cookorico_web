@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', './user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,25 +10,21 @@ System.register(['@angular/core', '@angular/router-deprecated', './user.service'
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1;
+    var core_1, user_service_1;
     var ProfileComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
-            },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             }],
         execute: function() {
             ProfileComponent = (function () {
-                function ProfileComponent(routeParams, userService) {
-                    this.routeParams = routeParams;
+                function ProfileComponent(userService) {
                     this.userService = userService;
-                    var __this = this;
+                    this.user = JSON.parse(localStorage.getItem('user'));
                 }
                 ProfileComponent = __decorate([
                     core_1.Component({
@@ -36,7 +32,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './user.service'
                         selector: 'profile',
                         templateUrl: '../templates/profile.component.html',
                     }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, user_service_1.UserService])
+                    __metadata('design:paramtypes', [user_service_1.UserService])
                 ], ProfileComponent);
                 return ProfileComponent;
             }());

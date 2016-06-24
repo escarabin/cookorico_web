@@ -33,7 +33,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
             HeaderComponent = (function () {
                 function HeaderComponent(userService) {
                     this.userService = userService;
-                    this.user = localStorage.getItem('user');
+                    this.user = JSON.parse(localStorage.getItem('user'));
                 }
                 HeaderComponent.prototype.login = function () {
                     var _this = this;
@@ -49,12 +49,12 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                             // Failed signing in, clear user object in localStorage
                             localStorage.removeItem('user');
                         }
-                        _this.user = localStorage.getItem('user');
+                        _this.user = JSON.parse(localStorage.getItem('user'));
                     });
                 };
                 HeaderComponent.prototype.logout = function () {
                     localStorage.removeItem('user');
-                    this.user = localStorage.getItem('user');
+                    this.user = JSON.parse(localStorage.getItem('user'));
                 };
                 HeaderComponent = __decorate([
                     core_1.Component({

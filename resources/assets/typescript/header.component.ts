@@ -24,7 +24,7 @@ export class HeaderComponent {
     user: any;
 
     constructor (private userService: UserService) {
-        this.user = localStorage.getItem('user');
+        this.user = JSON.parse(localStorage.getItem('user'));
     }
 
     login() {
@@ -44,12 +44,12 @@ export class HeaderComponent {
                 localStorage.removeItem('user');
             }
 
-            this.user = localStorage.getItem('user');
+            this.user = JSON.parse(localStorage.getItem('user'));
         });
     }
 
     logout() {
         localStorage.removeItem('user');
-        this.user = localStorage.getItem('user');
+        this.user = JSON.parse(localStorage.getItem('user'));
     }
 }
