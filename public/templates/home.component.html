@@ -1,25 +1,27 @@
-<div class="heading">
-    <h1>Le premier réseau d'emploi dans l'Ouest sans intermediaires</h1>
+<div class="heading"
+     [ngStyle]="{'height': innerHeight}"
+     (window:resize)="fitMainDivToWindow()">
+    <h1 [ngStyle]="{'margin-top': innerHeight / 9}">Le premier réseau d'emploi dans l'Ouest sans intermediaires</h1>
     <h2>spécialisé pour l'emploi des cafés, hôtels, restaurants, spas & camping</h2>
     <div class="job-search row">
         <div class="col-md-3">
             <select class="form-control">
-                <option>Région</option>
+                <option disabled selected>Région</option>
             </select>
         </div>
         <div class="col-md-3">
             <select class="form-control">
-                <option>Type de poste</option>
+                <option disabled selected>Type de poste</option>
             </select>
         </div>
         <div class="col-md-3">
             <select class="form-control">
-                <option>Type de contrat</option>
+                <option disabled selected>Type de contrat</option>
             </select>
         </div>
         <div class="col-md-3">
             <button class="btn btn-primary find-btn">
-                Trouver un job &nbsp; <span class="fa fa-arrow-right"></span>
+                Trouver un job &nbsp; <span class="fa fa-angle-right"></span>
             </button>
         </div>
     </div>

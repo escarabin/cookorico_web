@@ -46,6 +46,17 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service',
                         __this.clubs = res.json();
                     });
                 }
+                HomeComponent.prototype.ngOnInit = function (event) {
+                    this.fitMainDivToWindow();
+                };
+                HomeComponent.prototype.fitMainDivToWindow = function () {
+                    if (window.innerHeight > 400) {
+                        this.innerHeight = window.innerHeight;
+                    }
+                    else {
+                        this.innerHeight = 300;
+                    }
+                };
                 HomeComponent = __decorate([
                     core_1.Component({
                         providers: [job_service_1.JobService,

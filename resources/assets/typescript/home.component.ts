@@ -21,6 +21,7 @@ export class HomeComponent {
     jobs: any;
     posts: any;
     clubs: any;
+    innerHeight: number;
 
     constructor(private jobService: JobService,
                 private postService: PostService,
@@ -38,5 +39,17 @@ export class HomeComponent {
         clubService.getAllClubs().subscribe((res: Response) => {
             __this.clubs = res.json();
         });
+    }
+
+    ngOnInit(event) {
+        this.fitMainDivToWindow();
+    }
+    fitMainDivToWindow() {
+        if (window.innerHeight > 400) {
+            this.innerHeight = window.innerHeight;
+        }
+        else {
+            this.innerHeight = 300;
+        }
     }
 }
