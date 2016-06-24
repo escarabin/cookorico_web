@@ -8,11 +8,11 @@ header {
 }
 
 header .logo {
-  background-image: url('/img/oechr_logo.png');
-  background-size: cover;
-  background-position: center center;
+  background-image: url("/img/oechr_logo.png");
+  background-size: 100%;
+  background-position: center top;
   width: 250px;
-  height: 80px;
+  height: 60px;
 }
 
 header ul li {
