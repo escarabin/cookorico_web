@@ -1,1 +1,1 @@
-{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA","file":"app.css","sourceRoot":"/source/","sourcesContent":[]}
+{"version":3,"sources":["header.scss"],"names":[],"mappings":"AAAA;EACE,WAAW,EACZ","file":"app.css","sourcesContent":["header {\n  color: red;\n}\n\nheader .logo {\n\n}"],"sourceRoot":"/source/"}
