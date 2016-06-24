@@ -1,3 +1,5 @@
+Offres d'emploi
+<br /><br />
 <ul>
     <a [routerLink]="['ShowJob', { jobId: job.id }]"
        *ngFor="let job of jobs">
@@ -6,6 +8,10 @@
         </li>
     </a>
 </ul>
+
+<br /><br />
+Actualités
+<br /><br />
 
 <ul>
     <a [routerLink]="['ShowPost', { postId: post.id }]"
@@ -24,6 +30,7 @@ Ils nous font confiance
     <a [routerLink]="['ShowClub', { clubId: club.id }]"
        *ngFor="let club of clubs">
         <li>
+            <img src="/uploads/club/logo/{{ club.logoFile }}"/><br />
             {{ club.title }}
         </li>
     </a>
