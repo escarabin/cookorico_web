@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Response } from '@angular/http';
 import { RouteParams, RouterLink }
     from '@angular/router-deprecated';
 

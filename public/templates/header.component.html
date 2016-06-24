@@ -4,6 +4,12 @@
             Connexion
         </a>
     </li>
+    <li>
+        <a [routerLink]="['SignUp']">
+            S'inscrire
+        </a>
+    </li>
+
     <li *ngIf="user">
         <a (click)="logout()">
             Déconnexion
@@ -14,6 +20,7 @@
             Mon compte
         </a>
     </li>
+
     <li>
         <a [routerLink]="['Home']">
             Accueil
