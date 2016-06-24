@@ -22,6 +22,8 @@ export class HeaderComponent {
     email: string;
     password: string;
     user: any;
+    forgotPassword: boolean = false;
+    loading: boolean = false;
 
     constructor (private userService: UserService) {
         this.user = JSON.parse(localStorage.getItem('user'));

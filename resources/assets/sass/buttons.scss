@@ -1,7 +1,8 @@
-.btn-primary {
+.btn-primary, input[type=button] {
   font-family: $mainMediumFontFamily;
   border-radius: $mainBorderRadius;
   background-color: $mainBlueColor;
+  color: white;
   border: none;
   height: 40px;
 }

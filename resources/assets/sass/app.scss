@@ -3,6 +3,7 @@
 @import "buttons";
 @import "header";
 @import "home";
+@import "sign-in-modal";
 
 body {
   background-color: $mainBgColor;
@@ -25,4 +26,8 @@ ul {
 
 a:hover {
   text-decoration: none;
+}
+
+.modal-backdrop {
+  z-index: 9;
 }

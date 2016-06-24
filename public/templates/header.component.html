@@ -43,6 +43,7 @@
      class="modal fade"
      tabindex="-1"
      role="dialog"
+     id="sign-in-modal"
      aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-sm">
@@ -51,7 +52,16 @@
                 <form class="row"
                       method="post"
                       action="#"
+                      *ngIf="!forgotPassword"
                       #loginForm="ngForm">
+                    <div class="col-md-12 google-login"
+                         *ngIf="!forgotPassword">
+                        <span class="fa fa-google"></span>  &nbsp; Google
+                    </div>
+                    <div class="col-md-12 fb-login"
+                         *ngIf="!forgotPassword">
+                        <span class="fa fa-facebook"></span> &nbsp; Facebook
+                    </div>
                     <div class="col-md-12">
                         <input type="text"
                                class="form-control"
@@ -68,11 +78,61 @@
                                required
                                name="password"/>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6 col-sm-6 col-xs-6 remember-me">
+                        <label>
+                            <input type="checkbox"/> &nbsp; Remember me
+                        </label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 forgot-password"
+                         (click)="forgotPassword=!forgotPassword">
+                        <a href="#">Forgot your password ?</a>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <button data-dismiss="modal"
+                                class="close-modal"
+                                *ngIf="!forgotPassword">
+                            Close
+                        </button>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <span class="fa fa-spin fa-spinner loading" *ngIf="loading"></span>
                         <input type="button"
+                               (click)="login()"
+                               value="Sign in" *ngIf="!loading"/>
+                    </div>
+                </form>
+                <form action="#"
+                      method="post"
+                      *ngIf="forgotPassword"
+                      (submit)="resetPassword()"
+                      #forgotPwdForm="ngForm"
+                      class="row">
+                    <div class="col-md-12">
+                        <input type="text"
+                               [(ngModel)]="email"
+                               ngControl="email"
+                               required
                                class="form-control"
-                               value="Connexion"
-                               (click)="login()">
+                               placeholder="Email"/>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <input type="button"
+                               class="back-to-login"
+                               (click)="forgotPassword=!forgotPassword"
+                               *ngIf="forgotPassword"
+                               value="Back to login"/>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6"
+                         *ngIf="!isPasswordReset && !loading">
+                        <input type="button"
+                               value="Reset password"/>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 email-sent">
+                        <span class="fa fa-spin fa-spinner" *ngIf="loading"></span>
+                        <span *ngIf="isPasswordReset && !loading">
+                            <span class="fa fa-check" ></span> &nbsp;
+                            New password sent
+                        </span>
                     </div>
                 </form>
             </div>

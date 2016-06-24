@@ -33,6 +33,8 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
             HeaderComponent = (function () {
                 function HeaderComponent(userService) {
                     this.userService = userService;
+                    this.forgotPassword = false;
+                    this.loading = false;
                     this.user = JSON.parse(localStorage.getItem('user'));
                 }
                 HeaderComponent.prototype.login = function () {
