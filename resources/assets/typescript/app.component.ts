@@ -11,6 +11,7 @@ import { PostComponent } from './post.component';
 import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
 import { ProfileComponent } from './profile.component';
+import { ClubComponent } from './club.component';
 
 @Component({
     directives:[RouterOutlet,
@@ -26,6 +27,7 @@ import { ProfileComponent } from './profile.component';
     { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true },
     { path: '/job/:jobId/', name: 'ShowJob', component: JobComponent },
     { path: '/post/:postId/', name: 'ShowPost', component: PostComponent },
+    { path: '/club/:clubId', name: 'ShowClub', component: ClubComponent },
     { path: '/profile/', name: 'Profile', component: ProfileComponent }
 ])
 

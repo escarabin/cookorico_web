@@ -1,13 +1,15 @@
-<ul *ngFor="let job of jobs">
-    <a [routerLink]="['ShowJob', { jobId: job.id }]">
+<ul>
+    <a [routerLink]="['ShowJob', { jobId: job.id }]"
+       *ngFor="let job of jobs">
         <li>
             {{ job.title }}
         </li>
     </a>
 </ul>
 
-<ul *ngFor="let post of posts">
-    <a [routerLink]="['ShowPost', { postId: post.id }]">
+<ul>
+    <a [routerLink]="['ShowPost', { postId: post.id }]"
+       *ngFor="let post of posts">
         <li>
             {{ post.title }}
         </li>
@@ -19,7 +21,10 @@ Ils nous font confiance
 <br /><br />
 
 <ul>
-    <li *ngFor="let club of clubs">
-        {{ club.title }}
-    </li>
+    <a [routerLink]="['ShowClub', { clubId: club.id }]"
+       *ngFor="let club of clubs">
+        <li>
+            {{ club.title }}
+        </li>
+    </a>
 </ul>
