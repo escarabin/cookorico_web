@@ -27,3 +27,7 @@ Route::get('/sign-up', 'UserController@signUp')->name('signup');
 // Posts
 Route::get('/post/{id}', 'PostController@get')->name('getPost');
 Route::get('/posts/all', 'PostController@getAll')->name('getAllPosts');
+
+// Clubs
+Route::get('/club/{id}', 'ClubController@get')->name('getClub');
+Route::get('/clubs/all', 'ClubController@getAll')->name('getAllClubs');
