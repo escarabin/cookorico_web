@@ -89,9 +89,9 @@ home .heading {
   background-position: center top; }
 
 home .heading .job-search {
-  max-width: 750px;
+  max-width: 950px;
   margin: auto;
-  margin-top: 25px;
+  margin-top: 50px;
   padding: 25px;
   background: rgba(255, 255, 255, 0.45);
   border-radius: 3px; }

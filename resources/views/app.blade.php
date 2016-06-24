@@ -8,6 +8,7 @@
           crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
 
     <!-- Polyfill(s) for older browsers -->
     <script src="es6-shim/es6-shim.min.js"></script>
