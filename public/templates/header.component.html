@@ -9,6 +9,11 @@
             Déconnexion
         </a>
     </li>
+    <li *ngIf="user">
+        <a [routerLink]="['Profile']">
+            Mon compte
+        </a>
+    </li>
     <li>
         <a [routerLink]="['Home']">
             Accueil
