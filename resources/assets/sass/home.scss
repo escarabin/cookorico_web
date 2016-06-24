@@ -18,9 +18,19 @@ home .heading .job-search {
   max-width: 950px;
   margin: auto;
   margin-top: 50px;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.45);
+  padding: 10px;
+  background: #333438;
   border-radius: $mainBorderRadius;
+}
+
+home .heading .job-search .input-container {
+  padding: 0;
+}
+
+home .heading .job-search select {
+  border-radius: 0;
+  -webkit-appearance: none;
+  border-right: 1px solid #333438;
 }
 
 home .heading .find-btn {
