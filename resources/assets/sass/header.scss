@@ -1,28 +1,45 @@
 @import "variables";
 
 header {
-  background: white;
   width: 100%;
   padding: 15px;
+  position: fixed;
+  z-index: 10;
 }
 
 header .logo {
   background-image: url('/img/oechr_logo.png');
   background-size: cover;
+  background-position: center center;
   width: 250px;
-  height: 75px;
+  height: 80px;
 }
 
 header ul li {
-  list-style-type: none;
-  float: left;
-  padding: 20px;
+  float: right;
+  padding: 30px;
 }
 
 header ul li a {
-  color: $mainTextColor;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  color: white;
+  letter-spacing: 1px;
   cursor: pointer;
+  font-weight: 400;
+}
+
+header ul li.recruiter_btn a {
+  border: 2px solid white;
+  border-radius: $mainBorderRadius;
+  padding: 10px 15px 10px 15px;
   font-weight: 600;
 }
+
+header ul li.recruiter_btn a:hover {
+  background: white;
+  color: $mainDarkTextColor;
+}
+
+header ul li a:hover {
+  color: white;
+}
+

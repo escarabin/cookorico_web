@@ -1,0 +1,28 @@
+home {
+  width: 100%;
+  display: block;
+}
+
+home .heading {
+  color: white;
+  text-align: center;
+  padding-top: 250px;
+  padding-bottom: 100px;
+  width: 100%;
+  background-image: url('/img/home_bg.jpg');
+  background-size: cover;
+  background-position: center top;
+}
+
+home .heading .job-search {
+  max-width: 750px;
+  margin: auto;
+  margin-top: 25px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: $mainBorderRadius;
+}
+
+home .heading .find-btn {
+  width: 100%;
+}

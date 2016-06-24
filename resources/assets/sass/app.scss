@@ -1,8 +1,29 @@
-@import "header";
 @import "variables";
+@import "forms";
+@import "buttons";
+@import "header";
+@import "home";
 
 body {
   background-color: $mainBgColor;
   font-family: $mainFontFamily;
+  color: $mainDarkTextColor;
   -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+
+}
+
+h2 {
+  font-weight: 200;
+  font-size: 1.7em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a:hover {
+  text-decoration: none;
 }

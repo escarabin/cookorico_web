@@ -7,9 +7,15 @@
 
     <div class="col-md-9">
     <ul>
+        <!-- User is connected -->
+        <li *ngIf="!user" class="recruiter_btn">
+            <a [routerLink]="['SignUp']">
+                Espace recruteur
+            </a>
+        </li>
         <li *ngIf="!user">
             <a (click)="signInModal.show()">
-                Connexion
+                Se connecter
             </a>
         </li>
         <li *ngIf="!user">
@@ -18,6 +24,7 @@
             </a>
         </li>
 
+        <!-- User is not connected -->
         <li *ngIf="user">
             <a (click)="logout()">
                 Déconnexion
