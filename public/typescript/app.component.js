@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './home.component', './job.component', './post.component', './header.component', './footer.component', './profile.component', './club.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './home.component', './job.component', './post.component', './header.component', './footer.component', './profile.component', './club.component', './sign-up.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, home_component_1, job_component_1, post_component_1, header_component_1, footer_component_1, profile_component_1, club_component_1;
+    var core_1, router_deprecated_1, home_component_1, job_component_1, post_component_1, header_component_1, footer_component_1, profile_component_1, club_component_1, sign_up_component_1;
     var AppComponent;
     return {
         setters:[
@@ -40,6 +40,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
             },
             function (club_component_1_1) {
                 club_component_1 = club_component_1_1;
+            },
+            function (sign_up_component_1_1) {
+                sign_up_component_1 = sign_up_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -61,7 +64,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                         { path: '/job/:jobId/', name: 'ShowJob', component: job_component_1.JobComponent },
                         { path: '/post/:postId/', name: 'ShowPost', component: post_component_1.PostComponent },
                         { path: '/club/:clubId', name: 'ShowClub', component: club_component_1.ClubComponent },
-                        { path: '/profile/', name: 'Profile', component: profile_component_1.ProfileComponent }
+                        { path: '/profile/', name: 'Profile', component: profile_component_1.ProfileComponent },
+                        { path: '/sign-up/', name: 'SignUp', component: sign_up_component_1.SignUpComponent }
                     ]), 
                     __metadata('design:paramtypes', [core_1.ViewContainerRef])
                 ], AppComponent);
