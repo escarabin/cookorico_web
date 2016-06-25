@@ -66,7 +66,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                     router_deprecated_1.RouteConfig([
                         { path: '/', name: 'Home', component: home_component_1.HomeComponent, useAsDefault: true },
                         { path: '/job/:jobId/', name: 'ShowJob', component: job_component_1.JobComponent },
-                        { path: '/jobs/search/{stateId}/{jobNamingId}/{contractTypeId}/{searchText}', name: 'SearchJobs', component: search_component_1.SearchComponent },
+                        { path: '/jobs/search/:stateId/:jobNamingId/:contractTypeId/:searchText', name: 'SearchJobs', component: search_component_1.SearchComponent },
                         { path: '/post/:postId/', name: 'ShowPost', component: post_component_1.PostComponent },
                         { path: '/club/:clubId', name: 'ShowClub', component: club_component_1.ClubComponent },
                         { path: '/profile/', name: 'Profile', component: profile_component_1.ProfileComponent },

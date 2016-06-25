@@ -29,10 +29,10 @@
         </div>
         <div class="col-md-3 input-container">
             <a [routerLink]="['SearchJobs',
-                                { stateId: this.stateId,
-                                  jobNamingId: this.jobNamingId,
-                                  contractTypeId: this.contractTypeId,
-                                  searchText: null,
+                                { stateId: stateId,
+                                  jobNamingId: jobNamingId,
+                                  contractTypeId: contractTypeId,
+                                  searchText: searchText
                                 }]">
                 <button class="btn btn-primary find-btn">
                     Trouver un job &nbsp; <span class="fa fa-angle-right"></span>

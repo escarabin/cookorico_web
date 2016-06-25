@@ -29,7 +29,7 @@ import { SearchComponent } from './search.component';
 @RouteConfig([
     { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true },
     { path: '/job/:jobId/', name: 'ShowJob', component: JobComponent },
-    { path: '/jobs/search/{stateId}/{jobNamingId}/{contractTypeId}/{searchText}', name: 'SearchJobs', component: SearchComponent },
+    { path: '/jobs/search/:stateId/:jobNamingId/:contractTypeId/:searchText', name: 'SearchJobs', component: SearchComponent },
     { path: '/post/:postId/', name: 'ShowPost', component: PostComponent },
     { path: '/club/:clubId', name: 'ShowClub', component: ClubComponent },
     { path: '/profile/', name: 'Profile', component: ProfileComponent },
