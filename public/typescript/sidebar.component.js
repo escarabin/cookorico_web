@@ -25,6 +25,7 @@ System.register(['@angular/core', './user.service'], function(exports_1, context
                 function SidebarComponent(userService) {
                     this.userService = userService;
                     this.user = JSON.parse(localStorage.getItem('user'));
+                    this.userProfilePicturePath = 'url(/uploads/user/pp/' + this.user.id + '.jpg)';
                 }
                 SidebarComponent = __decorate([
                     core_1.Component({

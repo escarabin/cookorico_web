@@ -1,4 +1,7 @@
 <!-- User is connected -->
-<div *ngIf="user">
+<div *ngIf="user" class="user_infos">
+    <div class="profile_picture"
+         [ngStyle]="{'background-image': userProfilePicturePath}">
+    </div>
     {{ user.firstName }} {{ user.lastName }}
 </div>

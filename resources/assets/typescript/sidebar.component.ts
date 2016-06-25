@@ -11,8 +11,10 @@ import { UserService } from './user.service';
 
 export class SidebarComponent {
     user: any;
+    userProfilePicturePath: string;
 
     constructor(private userService: UserService) {
         this.user = JSON.parse(localStorage.getItem('user'));
+        this.userProfilePicturePath = 'url(/uploads/user/pp/' + this.user.id + '.jpg)';
     }
 }
