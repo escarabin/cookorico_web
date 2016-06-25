@@ -1,10 +1,9 @@
-@import "variables";
-
 header {
   width: 100%;
   padding: 15px;
   position: fixed;
   z-index: 10;
+  background-color: $mainBlueColor;
 }
 
 header .logo {
