@@ -201,4 +201,7 @@ a:hover {
 .modal-backdrop {
   z-index: 9; }
 
+#main {
+  padding-top: 100px; }
+
 /*# sourceMappingURL=app.css.map */

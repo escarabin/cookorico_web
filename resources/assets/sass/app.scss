@@ -4,6 +4,8 @@
 @import "header";
 @import "home";
 @import "sign-in-modal";
+@import "sidebar";
+@import "job-search-results";
 
 body {
   background-color: $mainBgColor;
@@ -30,4 +32,8 @@ a:hover {
 
 .modal-backdrop {
   z-index: 9;
+}
+
+#main {
+  padding-top: 100px;
 }
