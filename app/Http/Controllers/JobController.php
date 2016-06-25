@@ -35,9 +35,12 @@ class JobController extends Controller
      * @param $stateId
      * @param $jobNamingId
      * @param $contractTypeId
+     * @param $searchText
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function search($stateId, $jobNamingId, $contractTypeId) {
+    public function search($stateId, $jobNamingId, $contractTypeId, $searchText) {
+        $jobs = Job::all();
 
+        return $jobs;
     }
 }

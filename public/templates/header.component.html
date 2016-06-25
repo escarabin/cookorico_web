@@ -63,6 +63,7 @@
                     </div>
                     <div class="col-md-12">
                         <input type="text"
+                               placeholder="Email"
                                class="form-control"
                                ngControl="email"
                                [(ngModel)]="email"
@@ -71,6 +72,7 @@
                     </div>
                     <div class="col-md-12">
                         <input type="password"
+                               placeholder="Mot de passe"
                                class="form-control"
                                ngControl="password"
                                [(ngModel)]="password"
@@ -79,25 +81,25 @@
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6 remember-me">
                         <label>
-                            <input type="checkbox"/> &nbsp; Remember me
+                            <input type="checkbox"/> &nbsp; Se souvenir de moi
                         </label>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6 forgot-password"
                          (click)="forgotPassword=!forgotPassword">
-                        <a href="#">Forgot your password ?</a>
+                        <a href="#">Mot de passe oublié ?</a>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6">
                         <button (click)="signInModal.hide()"
                                 class="close-modal"
                                 *ngIf="!forgotPassword">
-                            Close
+                            Fermer
                         </button>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6">
                         <span class="fa fa-spin fa-spinner loading" *ngIf="loading"></span>
                         <input type="button"
                                (click)="login()"
-                               value="Sign in" *ngIf="!loading"/>
+                               value="Se connecter" *ngIf="!loading"/>
                     </div>
                 </form>
                 <form action="#"
@@ -119,18 +121,18 @@
                                class="back-to-login"
                                (click)="forgotPassword=!forgotPassword"
                                *ngIf="forgotPassword"
-                               value="Back to login"/>
+                               value="Retour"/>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6"
                          *ngIf="!isPasswordReset && !loading">
                         <input type="button"
-                               value="Reset password"/>
+                               value="Envoyer"/>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6 email-sent">
                         <span class="fa fa-spin fa-spinner" *ngIf="loading"></span>
                         <span *ngIf="isPasswordReset && !loading">
                             <span class="fa fa-check" ></span> &nbsp;
-                            New password sent
+                            Un mail vous a été envoyé
                         </span>
                     </div>
                 </form>
