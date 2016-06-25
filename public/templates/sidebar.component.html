@@ -3,5 +3,11 @@
     <div class="profile_picture"
          [ngStyle]="{'background-image': userProfilePicturePath}">
     </div>
-    {{ user.firstName }} {{ user.lastName }}
+    <br />
+    {{ user.firstName }} {{ user.lastName }}<br /><br />
+    <a [routerLink]="['Profile']">
+        <button class="btn btn-primary">
+            Compléter votre profil
+        </button>
+    </a>
 </div>

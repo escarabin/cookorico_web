@@ -111,6 +111,10 @@ home .heading .job-search select {
 home .heading .find-btn {
   width: 100%; }
 
+search {
+  padding-top: 100px;
+  display: block; }
+
 #sign-in-modal .modal-dialog {
   max-width: 400px;
   width: 100%; }
@@ -180,9 +184,13 @@ home .heading .find-btn {
   margin-top: 15px;
   margin-left: -10px; }
 
+sidebar .user_infos {
+  text-align: center; }
+
 sidebar .user_infos .profile_picture {
   width: 50px;
   height: 50px;
+  margin: auto;
   background-size: cover;
   background-position: center center;
   border-radius: 50%; }
@@ -207,8 +215,5 @@ a:hover {
 
 .modal-backdrop {
   z-index: 9; }
-
-#main {
-  padding-top: 100px; }
 
 /*# sourceMappingURL=app.css.map */

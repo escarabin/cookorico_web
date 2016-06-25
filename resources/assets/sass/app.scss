@@ -3,6 +3,7 @@
 @import "buttons";
 @import "header";
 @import "home";
+@import "search";
 @import "sign-in-modal";
 @import "sidebar";
 @import "job-search-results";
@@ -32,8 +33,4 @@ a:hover {
 
 .modal-backdrop {
   z-index: 9;
-}
-
-#main {
-  padding-top: 100px;
 }

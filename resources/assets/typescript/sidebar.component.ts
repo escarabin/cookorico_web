@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router-deprecated'
 
 // Services
 import { UserService } from './user.service';
 
 @Component({
     providers: [UserService],
+    directives: [RouterLink],
     selector: 'sidebar',
     templateUrl: '../templates/sidebar.component.html',
 })

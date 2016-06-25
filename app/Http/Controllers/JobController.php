@@ -9,10 +9,9 @@ use App\Models\Job;
 class JobController extends Controller
 {
     /**
-     * Show the profile for the given user.
-     *
-     * @param  int  $id
-     * @return Response
+     * Get one specific job
+     * @param $id
+     * @return mixed
      */
     public function get($id)
     {
@@ -21,12 +20,23 @@ class JobController extends Controller
         return $job;
     }
 
+    /**
+     * Get all job
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function getAll() {
         $jobs = Job::all();
 
         return $jobs;
     }
 
+    /**
+     * Search for jobs
+     * @param $stateId
+     * @param $jobNamingId
+     * @param $contractTypeId
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function search($stateId, $jobNamingId, $contractTypeId) {
 
     }
