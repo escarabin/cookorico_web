@@ -6,6 +6,7 @@ export class ReferenceService {
     allStatesListingUrl = '/states/all';
     allContractTypesListingUrl = '/contract_types/all';
     allJobTypesListingUrl = '/job_types/all';
+    allJobNamingsListingUrl = '/job_namings/all';
 
     constructor(private http: Http) {
 
@@ -39,5 +40,16 @@ export class ReferenceService {
         let __this = this;
 
         return this.http.request(__this.allJobTypesListingUrl);
+    }
+
+
+    /**
+     * Listing all job namings
+     * @returns {Observable<Response>}
+     */
+    getAllJobNamings() {
+        let __this = this;
+
+        return this.http.request(__this.allJobNamingsListingUrl);
     }
 }

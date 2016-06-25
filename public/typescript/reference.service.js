@@ -27,6 +27,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.allStatesListingUrl = '/states/all';
                     this.allContractTypesListingUrl = '/contract_types/all';
                     this.allJobTypesListingUrl = '/job_types/all';
+                    this.allJobNamingsListingUrl = '/job_namings/all';
                 }
                 /**
                  * Listing all states (régions in fr)
@@ -51,6 +52,14 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 ReferenceService.prototype.getAllJobTypes = function () {
                     var __this = this;
                     return this.http.request(__this.allJobTypesListingUrl);
+                };
+                /**
+                 * Listing all job namings
+                 * @returns {Observable<Response>}
+                 */
+                ReferenceService.prototype.getAllJobNamings = function () {
+                    var __this = this;
+                    return this.http.request(__this.allJobNamingsListingUrl);
                 };
                 ReferenceService = __decorate([
                     core_1.Injectable(), 

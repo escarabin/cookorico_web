@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 
 use App\Models\ContractType;
+use App\Models\JobNaming;
 use App\Models\JobType;
 
 class ReferenceController extends Controller
@@ -19,5 +20,12 @@ class ReferenceController extends Controller
         $jobTypes = JobType::all();
 
         return $jobTypes;
+    }
+
+
+    public function getAllJobNamings() {
+        $jobNamings = JobNaming::all();
+
+        return $jobNamings;
     }
 }

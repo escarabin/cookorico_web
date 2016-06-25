@@ -25,8 +25,12 @@ export class HomeComponent {
     clubs: any;
     states: any;
     contractTypes: any;
-    jobTypes: any;
+    jobNamings: any;
     innerHeight: number;
+
+    contractTypeId: string;
+    jobNamingId: string;
+    stateId: string;
 
     constructor(private jobService: JobService,
                 private postService: PostService,
@@ -50,9 +54,13 @@ export class HomeComponent {
             __this.contractTypes = res.json();
         });
 
-        referenceService.getAllJobTypes().subscribe((res: Response) => {
-            __this.jobTypes = res.json();
+        referenceService.getAllJobNamings().subscribe((res: Response) => {
+            __this.jobNamings = res.json();
         });
+    }
+
+    logVars() {
+        console.log(this.contractTypeId, this.jobNamingId, this.stateId);
     }
 
     ngOnInit(event) {

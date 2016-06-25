@@ -52,10 +52,13 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service',
                     referenceService.getAllContractTypes().subscribe(function (res) {
                         __this.contractTypes = res.json();
                     });
-                    referenceService.getAllJobTypes().subscribe(function (res) {
-                        __this.jobTypes = res.json();
+                    referenceService.getAllJobNamings().subscribe(function (res) {
+                        __this.jobNamings = res.json();
                     });
                 }
+                HomeComponent.prototype.logVars = function () {
+                    console.log(this.contractTypeId, this.jobNamingId, this.stateId);
+                };
                 HomeComponent.prototype.ngOnInit = function (event) {
                     this.fitMainDivToWindow();
                 };

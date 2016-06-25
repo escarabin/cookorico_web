@@ -24,6 +24,8 @@ Route::get('/job/{id}', 'JobController@get')
     ->name('showJob');
 Route::get('/jobs/all', 'JobController@getAll')
     ->name('getAllJobs');
+Route::get('/jobs/search/{state}/{jobNaming}/{contract_type}/{text}', 'JobController@getAll')
+    ->name('searchJobs');
 
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
@@ -48,5 +50,7 @@ Route::get('/states/all', 'ReferenceController@getAllStates')
     ->name('getAllClubs');
 Route::get('/job_types/all', 'ReferenceController@getAllJobTypes')
     ->name('getAllJobTypes');
+Route::get('/job_namings/all', 'ReferenceController@getAllJobNamings')
+    ->name('getAllJobNamings');
 Route::get('/contract_types/all', 'ReferenceController@getAllContractTypes')
     ->name('getAllContractTypes');

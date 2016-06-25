@@ -12,9 +12,9 @@
         <div class="col-md-3 input-container">
             <select class="form-control">
                 <option disabled selected>Type de poste</option>
-                <option *ngFor="let jobType of jobTypes"
-                        value="{{ jobType.id }}">
-                    {{ jobType.title }}
+                <option *ngFor="let jobNaming of jobNamings"
+                        value="{{ jobNaming.id }}">
+                    {{ jobNaming.title }}
                 </option>
             </select>
         </div>
@@ -28,7 +28,7 @@
             </select>
         </div>
         <div class="col-md-3 input-container">
-            <button class="btn btn-primary find-btn">
+            <button class="btn btn-primary find-btn" (click)="logVars()">
                 Trouver un job &nbsp; <span class="fa fa-angle-right"></span>
             </button>
         </div>
