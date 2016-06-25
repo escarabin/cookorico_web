@@ -26,4 +26,8 @@ class JobController extends Controller
 
         return $jobs;
     }
+
+    public function search($stateId, $jobNamingId, $contractTypeId) {
+
+    }
 }

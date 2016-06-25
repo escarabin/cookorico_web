@@ -28,9 +28,16 @@
             </select>
         </div>
         <div class="col-md-3 input-container">
-            <button class="btn btn-primary find-btn" (click)="logVars()">
-                Trouver un job &nbsp; <span class="fa fa-angle-right"></span>
-            </button>
+            <a [routerLink]="['SearchJobs',
+                                { stateId: this.stateId,
+                                  jobNamingId: this.jobNamingId,
+                                  contractTypeId: this.contractTypeId,
+                                  searchText: null,
+                                }]">
+                <button class="btn btn-primary find-btn">
+                    Trouver un job &nbsp; <span class="fa fa-angle-right"></span>
+                </button>
+            </a>
         </div>
     </div>
 </div>

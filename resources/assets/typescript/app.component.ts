@@ -13,12 +13,14 @@ import { FooterComponent } from './footer.component';
 import { ProfileComponent } from './profile.component';
 import { ClubComponent } from './club.component';
 import { SignUpComponent } from './sign-up.component';
+import { SearchComponent } from './search.component';
 
 @Component({
     directives:[RouterOutlet,
                 HomeComponent,
                 HeaderComponent,
-                FooterComponent],
+                FooterComponent,
+                SearchComponent],
     selector: 'app',
     templateUrl: '/templates/app.component.html'
 })
@@ -27,6 +29,7 @@ import { SignUpComponent } from './sign-up.component';
 @RouteConfig([
     { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true },
     { path: '/job/:jobId/', name: 'ShowJob', component: JobComponent },
+    { path: '/jobs/search/{stateId}/{jobNamingId}/{contractTypeId}/{searchText}', name: 'SearchJobs', component: SearchComponent },
     { path: '/post/:postId/', name: 'ShowPost', component: PostComponent },
     { path: '/club/:clubId', name: 'ShowClub', component: ClubComponent },
     { path: '/profile/', name: 'Profile', component: ProfileComponent },
