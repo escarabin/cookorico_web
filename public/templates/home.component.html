@@ -8,19 +8,15 @@
     </div>
 </div>
 
-Offres d'emploi
+<h2>Offres d'emploi</h2>
 <br /><br />
-<ul>
-    <a [routerLink]="['ShowJob', { jobId: job.id }]"
-       *ngFor="let job of jobs">
-        <li>
-            {{ job.title }}
-        </li>
-    </a>
-</ul>
+
+<job-preview *ngFor="let job of jobs"
+             [job]="job">
+</job-preview>
 
 <br /><br />
-Actualités
+<h2>Actualités</h2>
 <br /><br />
 
 <ul>
@@ -33,7 +29,7 @@ Actualités
 </ul>
 
 <br /><br />
-Ils nous font confiance
+<h2>Ils nous font confiance</h2>
 <br /><br />
 
 <ul>

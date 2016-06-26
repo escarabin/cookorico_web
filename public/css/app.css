@@ -201,7 +201,8 @@ job-search-sidebar ul li .title-container {
 
 job-preview {
   display: block;
-  border-bottom: 1px solid #DDD; }
+  border-bottom: 1px solid #DDD;
+  padding: 25px; }
 
 job-preview .title h4 {
   margin-bottom: 5px; }
@@ -212,7 +213,8 @@ job-preview .business_name {
 
 job-search-results {
   background: white;
-  display: block; }
+  display: block;
+  border-radius: 3px; }
 
 body {
   background-color: #f7f7f8;

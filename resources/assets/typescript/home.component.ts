@@ -9,14 +9,16 @@ import { PostService } from './post.service';
 import { ClubService } from './club.service';
 
 // Components
-import { JobSearchBarComponent } from './job-search-bar.component'
+import { JobSearchBarComponent } from './job-search-bar.component';
+import { JobPreviewComponent } from './job-preview.component';
 
 @Component({
     providers: [JobService,
                 PostService,
                 ClubService],
     directives: [RouterLink,
-                JobSearchBarComponent],
+                JobSearchBarComponent,
+                JobPreviewComponent],
     selector: 'home',
     templateUrl: '../templates/home.component.html',
 })
