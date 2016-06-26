@@ -96,6 +96,10 @@ home .heading .job-search select {
 home .heading .find-btn {
   width: 100%; }
 
+job {
+  padding-top: 150px;
+  display: block; }
+
 search {
   padding-top: 150px;
   display: block; }
