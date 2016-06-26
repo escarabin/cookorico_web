@@ -48,12 +48,19 @@ class Job extends Model
         return $this->hasOne('App\Models\JobType');
     }
 
-
     /**
      * Get the job's type
      */
     public function state()
     {
         return $this->hasOne('App\Models\State');
+    }
+
+    /**
+     * Get the job's required study level
+     */
+    public function studyLevel()
+    {
+        return $this->hasOne('App\Models\StudyLevel');
     }
 }
