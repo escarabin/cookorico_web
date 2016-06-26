@@ -7,7 +7,7 @@ import { UserService } from './user.service';
 @Component({
     providers: [UserService],
     directives: [RouterLink],
-    selector: 'sidebar',
+    selector: 'user-sidebar',
     templateUrl: '../templates/user-sidebar.component.html',
 })
 

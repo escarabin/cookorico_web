@@ -6,7 +6,8 @@
 @import "job";
 @import "search";
 @import "sign-in-modal";
-@import "sidebar";
+@import "user-sidebar";
+@import "job-search-sidebar";
 @import "job-search-results";
 
 body {
@@ -22,6 +23,10 @@ h1 {
 
 h2 {
   font-size: 1.7em;
+}
+
+h3 {
+  font-size: 1.3em;
 }
 
 ul {

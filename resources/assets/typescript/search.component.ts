@@ -5,11 +5,11 @@ import { RouteParams, RouterLink }
 // Components
 import { JobSearchBarComponent } from './job-search-bar.component'
 import { JobSearchResultsComponent } from './job-search-results.component'
-import { UserSidebarComponent } from './user-sidebar.component'
+import { JobSearchSidebarComponent } from './job-search-sidebar.component'
 
 @Component({
     directives: [JobSearchResultsComponent,
-                 UserSidebarComponent,
+                 JobSearchSidebarComponent,
                  JobSearchBarComponent],
     templateUrl: '../templates/search.component.html',
     selector: 'search',

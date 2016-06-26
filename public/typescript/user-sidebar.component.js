@@ -34,7 +34,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './user.service'
                     core_1.Component({
                         providers: [user_service_1.UserService],
                         directives: [router_deprecated_1.RouterLink],
-                        selector: 'sidebar',
+                        selector: 'user-sidebar',
                         templateUrl: '../templates/user-sidebar.component.html',
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService])
