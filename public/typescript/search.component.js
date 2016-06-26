@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './job-search-bar.component', './job-search-results.component', './sidebar.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './job-search-bar.component', './job-search-results.component', './user-sidebar.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './job-search-ba
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, job_search_bar_component_1, job_search_results_component_1, sidebar_component_1;
+    var core_1, router_deprecated_1, job_search_bar_component_1, job_search_results_component_1, user_sidebar_component_1;
     var SearchComponent;
     return {
         setters:[
@@ -26,8 +26,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './job-search-ba
             function (job_search_results_component_1_1) {
                 job_search_results_component_1 = job_search_results_component_1_1;
             },
-            function (sidebar_component_1_1) {
-                sidebar_component_1 = sidebar_component_1_1;
+            function (user_sidebar_component_1_1) {
+                user_sidebar_component_1 = user_sidebar_component_1_1;
             }],
         execute: function() {
             SearchComponent = (function () {
@@ -37,7 +37,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './job-search-ba
                 SearchComponent = __decorate([
                     core_1.Component({
                         directives: [job_search_results_component_1.JobSearchResultsComponent,
-                            sidebar_component_1.SidebarComponent,
+                            user_sidebar_component_1.UserSidebarComponent,
                             job_search_bar_component_1.JobSearchBarComponent],
                         templateUrl: '../templates/search.component.html',
                         selector: 'search',

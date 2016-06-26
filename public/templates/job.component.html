@@ -1,3 +1,16 @@
-<div *ngIf="job">
-    {{ job.content }}
+<div class="row">
+    <div class="col-md-3">
+        <input type="text"
+               placeholder="Lieu"/>
+        <input type="text"
+               placeholder="Mots-clés"/>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="job">
+            {{ job.content }}
+        </div>
+    </div>
+    <div class="col-md-3">
+
+    </div>
 </div>

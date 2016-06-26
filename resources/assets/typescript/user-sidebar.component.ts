@@ -8,10 +8,10 @@ import { UserService } from './user.service';
     providers: [UserService],
     directives: [RouterLink],
     selector: 'sidebar',
-    templateUrl: '../templates/sidebar.component.html',
+    templateUrl: '../templates/user-sidebar.component.html',
 })
 
-export class SidebarComponent {
+export class UserSidebarComponent {
     user: any;
     userProfilePicturePath: string;
 
