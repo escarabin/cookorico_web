@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ContractType;
 use App\Models\JobNaming;
 use App\Models\JobType;
+use App\Models\StudyLevel;
 
 class ReferenceController extends Controller
 {
@@ -27,5 +28,11 @@ class ReferenceController extends Controller
         $jobNamings = JobNaming::all();
 
         return $jobNamings;
+    }
+
+    public function getAllStudyLevels() {
+        $studyLevels = StudyLevel::all();
+
+        return $studyLevels;
     }
 }

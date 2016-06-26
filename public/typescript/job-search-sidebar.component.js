@@ -34,6 +34,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './reference.ser
                     referenceService.getAllJobNamings().subscribe(function (res) {
                         __this.jobNamings = res.json();
                     });
+                    referenceService.getAllStudyLevels().subscribe(function (res) {
+                        __this.studyLevels = res.json();
+                    });
                 }
                 JobSearchSidebarComponent = __decorate([
                     core_1.Component({

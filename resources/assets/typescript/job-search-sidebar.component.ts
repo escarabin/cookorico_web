@@ -14,6 +14,7 @@ import { ReferenceService } from './reference.service';
 export class JobSearchSidebarComponent {
     contractTypes: any;
     jobNamings: any;
+    studyLevels: any;
 
     constructor(private referenceService: ReferenceService) {
         let __this = this;
@@ -24,6 +25,10 @@ export class JobSearchSidebarComponent {
 
         referenceService.getAllJobNamings().subscribe((res: Response) => {
             __this.jobNamings = res.json();
+        });
+
+        referenceService.getAllStudyLevels().subscribe((res: Response) => {
+            __this.studyLevels = res.json();
         });
     }
 }

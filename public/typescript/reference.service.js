@@ -28,6 +28,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.allContractTypesListingUrl = '/contract_types/all';
                     this.allJobTypesListingUrl = '/job_types/all';
                     this.allJobNamingsListingUrl = '/job_namings/all';
+                    this.allStudyLevelsListingUrl = '/study_levels/all';
                 }
                 /**
                  * Listing all states (régions in fr)
@@ -60,6 +61,14 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 ReferenceService.prototype.getAllJobNamings = function () {
                     var __this = this;
                     return this.http.request(__this.allJobNamingsListingUrl);
+                };
+                /**
+                 * Listing all study levels
+                 * @returns {Observable<Response>}
+                 */
+                ReferenceService.prototype.getAllStudyLevels = function () {
+                    var __this = this;
+                    return this.http.request(__this.allStudyLevelsListingUrl);
                 };
                 ReferenceService = __decorate([
                     core_1.Injectable(), 
