@@ -1,25 +1,45 @@
 <div class="row">
     <div class="col-md-12">
-        <input type="text"
-               class="form-control"
-               placeholder="Mots-clés"/>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <span class="fa fa-search"></span>
+            </span>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Mots-clés"/>
+        </div>
     </div>
     <div class="col-md-12">
-        <h3><span class="fa fa-sticky-note-o"></span> &nbsp; Région</h3>
+        <h3><span class="fa fa-map-pin"></span> &nbsp; Région</h3>
     </div>
     <div class="col-md-12">
         <h3><span class="fa fa-sticky-note-o"></span> &nbsp; Type de contrat</h3>
         <ul>
             <li *ngFor="let contractType of contractTypes">
-                {{ contractType.title }}
+                    <div class="row">
+                        <div class="col-md-2 checkbox-container">
+                            <input type="checkbox"/>
+                        </div>
+                        <div class="col-md-10 title-container">
+                            {{ contractType.title }}
+                        </div>
+                    </div>
             </li>
         </ul>
     </div>
     <div class="col-md-12">
-        <h3><span class="fa fa-sticky-note-o"></span> &nbsp; Type de poste</h3>
+        <h3><span class="fa fa-user"></span> &nbsp; Type de poste</h3>
         <ul>
-            <li *ngFor="let jobNaming of jobNamings">
-                {{ jobNaming.title }}
+            <li *ngFor="let jobNaming of jobNamings"
+                [class.group]="jobNaming.is_naming_group">
+                    <div class="row">
+                        <div class="col-md-2 checkbox-container">
+                            <input type="checkbox"/>
+                        </div>
+                        <div class="col-md-10 title-container">
+                            {{ jobNaming.title }}
+                        </div>
+                    </div>
             </li>
         </ul>
     </div>

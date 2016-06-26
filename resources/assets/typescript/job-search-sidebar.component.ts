@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router-deprecated'
+import { RouterLink, Response } from '@angular/router-deprecated'
 
 // Components
 import { ReferenceService } from './reference.service';

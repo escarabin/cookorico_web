@@ -1,3 +1,19 @@
-job-search-sidebar  {
+job-search-sidebar label {
+  font-weight: inherit;
+}
 
+job-search-sidebar ul  {
+  padding-left: 0;
+}
+
+job-search-sidebar ul li  {
+  padding: 5px 0;
+}
+
+job-search-sidebar ul li.group  {
+  font-family: $mainBoldFontFamily;
+}
+
+job-search-sidebar ul li .title-container {
+  padding-left: 0;
 }
