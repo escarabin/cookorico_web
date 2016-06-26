@@ -1,6 +1,8 @@
 <div class="row">
     <div class="col-md-12">
         <h2>Résultats de recherche</h2>
-
+        <job-preview *ngFor="let job of jobs"
+                     [job]="job">
+        </job-preview>
     </div>
 </div>

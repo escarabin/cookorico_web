@@ -4,8 +4,12 @@ import { Response } from '@angular/router-deprecated';
 // Services
 import { JobService } from './job.service';
 
+// Componets
+import { JobPreviewComponent } from './job-preview.component';
+
 @Component({
     selector: 'job-search-results',
+    directives: [JobPreviewComponent],
     providers: [JobService],
     templateUrl: '../templates/job-search-results.component.html',
 })
@@ -18,6 +22,7 @@ export class JobSearchResultsComponent {
 
         jobService.getAllJobs().subscribe((res: Response) => {
             __this.jobs = res.json();
+            console.log(this.jobs);
         });
     }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'job-preview',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 })
 
 export class JobPreviewComponent {
+    @Input('job') job:any;
     constructor() {
 
     }

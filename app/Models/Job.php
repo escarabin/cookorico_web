@@ -37,7 +37,7 @@ class Job extends Model
      */
     public function naming()
     {
-        return $this->hasOne('App\Models\JobNaming');
+        return $this->belongsTo('App\Models\JobNaming');
     }
 
     /**
@@ -45,7 +45,7 @@ class Job extends Model
      */
     public function type()
     {
-        return $this->hasOne('App\Models\JobType');
+        return $this->belongsTo('App\Models\JobType');
     }
 
     /**
@@ -53,7 +53,7 @@ class Job extends Model
      */
     public function state()
     {
-        return $this->hasOne('App\Models\State');
+        return $this->belongsTo('App\Models\State');
     }
 
     /**
@@ -61,6 +61,6 @@ class Job extends Model
      */
     public function studyLevel()
     {
-        return $this->hasOne('App\Models\StudyLevel');
+        return $this->belongsTo('App\Models\StudyLevel');
     }
 }

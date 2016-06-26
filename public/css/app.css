@@ -199,6 +199,10 @@ job-search-sidebar ul li.group {
 job-search-sidebar ul li .title-container {
   padding-left: 0; }
 
+job-search-results {
+  background: white;
+  display: block; }
+
 body {
   background-color: #f7f7f8;
   font-family: "Avenir Book", sans-serif;

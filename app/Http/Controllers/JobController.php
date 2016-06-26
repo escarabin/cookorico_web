@@ -27,6 +27,16 @@ class JobController extends Controller
     public function getAll() {
         $jobs = Job::all();
 
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        foreach ($jobs as $job) {
+            $job->business = $job->business;
+            $job->user = $job->user;
+            $job->naming = $job->naming;
+            $job->type = $job->type;
+            $job->state = $job->state;
+            $job->studyLevel = $job->studyLevel;
+        }
+
         return $jobs;
     }
 
