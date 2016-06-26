@@ -199,6 +199,17 @@ job-search-sidebar ul li.group {
 job-search-sidebar ul li .title-container {
   padding-left: 0; }
 
+job-preview {
+  display: block;
+  border-bottom: 1px solid #DDD; }
+
+job-preview .title h4 {
+  margin-bottom: 5px; }
+
+job-preview .business_name {
+  font-size: 1.2em;
+  margin-bottom: 5px; }
+
 job-search-results {
   background: white;
   display: block; }
@@ -217,6 +228,9 @@ h2 {
 
 h3 {
   font-size: 1.3em; }
+
+h4 {
+  font-family: "Avenir Heavy", sans-serif; }
 
 ul {
   list-style-type: none; }
