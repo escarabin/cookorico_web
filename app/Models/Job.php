@@ -76,7 +76,7 @@ class Job extends Model
     /**
      * Get the job's required experience level
      */
-    public function xpLevel()
+    public function jobXpLevel()
     {
         return $this->belongsTo('App\Models\JobXpLevel');
     }

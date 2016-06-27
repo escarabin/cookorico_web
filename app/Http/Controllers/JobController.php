@@ -29,7 +29,7 @@ class JobController extends Controller
         $job->state = $job->state;
         $job->studyLevel = $job->studyLevel;
         $job->contractType = $job->contractType;
-        $job->xpLevel = $job->xpLevel;
+        $job->jobXpLevel = $job->jobXpLevel;
         $job->languages = $job->languages;
 
         return $job;
@@ -52,7 +52,7 @@ class JobController extends Controller
             $job->state = $job->state;
             $job->studyLevel = $job->studyLevel;
             $job->contractType = $job->contractType;
-            $job->xpLevel = $job->xpLevel;
+            $job->jobXpLevel = $job->jobXpLevel;
             $job->languages = $job->languages;
         }
 

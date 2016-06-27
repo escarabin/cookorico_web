@@ -24,6 +24,12 @@
                 <span *ngIf="job.is_hosting_employee">Oui</span>
                 <span *ngIf="!job.is_hosting_employee">Non</span>
             </div>
+            <div class="col-md-6" *ngIf="job.end_date">
+                Langues :
+                <span *ngFor="let language of job.languages">
+                    {{ language.title }},
+                </span>
+            </div>
             <div class="col-md-6">
                 Début du contrat :
                 <span *ngIf="job.is_urgent">
