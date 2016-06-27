@@ -30,7 +30,6 @@ export class HomeComponent {
     posts: any;
     clubs: any;
     innerHeight: number;
-    public isStudyLevelCollapsed:boolean = false;
 
     constructor(private jobService: JobService,
                 private postService: PostService,

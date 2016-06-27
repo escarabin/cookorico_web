@@ -16,6 +16,9 @@ export class JobSearchSidebarComponent {
     contractTypes: any;
     jobNamings: any;
     studyLevels: any;
+    public isStudyLevelCollapsed:boolean = true;
+    public isContractTypeCollapsed:boolean = true;
+    public isJobNamingCollapsed:boolean = true;
 
     constructor(private referenceService: ReferenceService) {
         let __this = this;

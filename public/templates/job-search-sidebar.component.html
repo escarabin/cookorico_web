@@ -12,36 +12,34 @@
     <div class="col-md-12">
         <h3><span class="fa fa-map-pin"></span> &nbsp; Région</h3>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="studyLevelCollapseHeading">
-            <h4 class="panel-title">
-                <a (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
-                    <h3><span class="fa fa-list"></span> &nbsp; Niveau d'étude</h3>
-                </a>
-            </h4>
-        </div>
-        <div [collapse]="isStudyLevelCollapsed">
-            <div class="col-md-12">
-                <ul>
-                    <li *ngFor="let studyLevel of studyLevels">
-                        <div class="row">
-                            <div class="col-md-2 checkbox-container">
-                                <input type="checkbox"/>
-                            </div>
-                            <div class="col-md-10 title-container">
-                                {{ studyLevel.title }}
-                            </div>
+    <div class="col-md-12">
+        <h3 (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
+            <span class="fa fa-list"></span> &nbsp; Niveau d'étude
+        </h3>
+        <div [collapse]="isStudyLevelCollapsed"
+             class="col-md-12">
+            <ul>
+                <li *ngFor="let studyLevel of studyLevels">
+                    <div class="row">
+                        <div class="col-md-2 checkbox-container">
+                            <input type="checkbox"/>
                         </div>
-                    </li>
-                </ul>
-            </div>
+                        <div class="col-md-10 title-container">
+                            {{ studyLevel.title }}
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
-
     <div class="col-md-12">
-        <h3><span class="fa fa-sticky-note-o"></span> &nbsp; Type de contrat</h3>
-        <ul>
-            <li *ngFor="let contractType of contractTypes">
+        <h3 (click)="isContractTypeCollapsed = !isContractTypeCollapsed">
+            <span class="fa fa-sticky-note-o"></span> &nbsp; Type de contrat
+        </h3>
+        <div [collapse]="isContractTypeCollapsed"
+             class="col-md-12">
+            <ul>
+                <li *ngFor="let contractType of contractTypes">
                     <div class="row">
                         <div class="col-md-2 checkbox-container">
                             <input type="checkbox"/>
@@ -50,23 +48,29 @@
                             {{ contractType.title }}
                         </div>
                     </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="col-md-12">
-        <h3><span class="fa fa-user"></span> &nbsp; Type de poste</h3>
-        <ul>
-            <li *ngFor="let jobNaming of jobNamings"
-                [class.group]="jobNaming.is_naming_group">
-                    <div class="row">
-                        <div class="col-md-2 checkbox-container">
-                            <input type="checkbox"/>
+        <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
+            <span class="fa fa-sticky-note-o"></span> &nbsp; Type de poste
+        </h3>
+        <div [collapse]="isContractTypeCollapsed"
+             class="col-md-12">
+            <ul>
+                <li *ngFor="let jobNaming of jobNamings"
+                    [class.group]="jobNaming.is_naming_group">
+                        <div class="row">
+                            <div class="col-md-2 checkbox-container">
+                                <input type="checkbox"/>
+                            </div>
+                            <div class="col-md-10 title-container">
+                                {{ jobNaming.title }}
+                            </div>
                         </div>
-                        <div class="col-md-10 title-container">
-                            {{ jobNaming.title }}
-                        </div>
-                    </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

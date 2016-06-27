@@ -30,6 +30,9 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
             JobSearchSidebarComponent = (function () {
                 function JobSearchSidebarComponent(referenceService) {
                     this.referenceService = referenceService;
+                    this.isStudyLevelCollapsed = true;
+                    this.isContractTypeCollapsed = true;
+                    this.isJobNamingCollapsed = true;
                     var __this = this;
                     referenceService.getAllContractTypes().subscribe(function (res) {
                         __this.contractTypes = res.json();

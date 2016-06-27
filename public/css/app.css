@@ -196,6 +196,9 @@ sidebar .user_infos .profile_picture {
   background-position: center center;
   border-radius: 50%; }
 
+job-search-sidebar h3 {
+  cursor: pointer; }
+
 job-search-sidebar label {
   font-weight: inherit; }
 
