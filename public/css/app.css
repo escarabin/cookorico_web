@@ -216,6 +216,9 @@ job-search-results {
   display: block;
   border-radius: 3px; }
 
+job-search-results h2 {
+  padding-left: 20px; }
+
 body {
   background-color: #f7f7f8;
   font-family: "Avenir Book", sans-serif;
