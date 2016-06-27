@@ -33,14 +33,14 @@
                     {{ job.start_date }}
                 </span>
             </div>
-            <div class="col-md-6">
-                Fin du contrat :
-                <span *ngIf="job.start_date">
-                    {{ job.end_date }}
-                </span>
+            <div class="col-md-6" *ngIf="job.end_date">
+                Fin du contrat : {{ job.end_date }}
             </div>
             <!--<div class="col-md-6">
-                {{ job.type.title }}
+                Offre : {{ job.type.title }}
+            </div>
+            <div class="col-md-6">
+                Offre : {{ job.type.title }}
             </div>-->
             <div class="col-md-6">
                 Niveau d'études : {{ job.studyLevel.title }}
