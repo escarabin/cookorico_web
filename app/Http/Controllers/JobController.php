@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 
 use App\Models\Job;
+use App\Models\StudyLevel;
+
+use Log;
 
 class JobController extends Controller
 {
@@ -19,6 +22,7 @@ class JobController extends Controller
 
         // Necesseray Laravel's workaround to return relationship values inside JSON
         $job->business = $job->business;
+        $job->business->type = $job->business->type;
         $job->user = $job->user;
         $job->naming = $job->naming;
         $job->type = $job->type;
@@ -39,6 +43,7 @@ class JobController extends Controller
         // Necesseray Laravel's workaround to return relationship values inside JSON
         foreach ($jobs as $job) {
             $job->business = $job->business;
+            $job->business->type = $job->business->type;
             $job->user = $job->user;
             $job->naming = $job->naming;
             $job->type = $job->type;

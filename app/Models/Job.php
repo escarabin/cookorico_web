@@ -67,7 +67,7 @@ class Job extends Model
     /**
      * Get the job's required study level
      */
-    public function requiredStudyLevel()
+    public function studyLevel()
     {
         return $this->belongsTo('App\Models\StudyLevel');
     }

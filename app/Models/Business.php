@@ -39,6 +39,6 @@ class Business extends Model
      */
     public function type()
     {
-        return $this->hasOne('App\Models\BusinessType');
+        return $this->belongsTo('App\Models\BusinessType');
     }
 }

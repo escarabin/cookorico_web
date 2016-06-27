@@ -4,7 +4,9 @@
     </div>
     <div class="col-md-6">
         <div *ngIf="job">
-            <h2>{{ job.title }}</h2>
+            <div class="col-md-12 title">
+                <h2>{{ job.title }}</h2>
+            </div>
             <div class="col-md-12 business">
                 <div class="name">{{ job.business.title }}</div>
                 <div class="adress">{{ job.business.adress }}</div>
@@ -22,12 +24,27 @@
                 <span *ngIf="job.is_hosting_employee">Oui</span>
                 <span *ngIf="!job.is_hosting_employee">Non</span>
             </div>
-            <!--<div class="col-md-6">
-                {{ job.type.title }}
+            <div class="col-md-6">
+                Début du contrat :
+                <span *ngIf="job.is_urgent">
+                    Dés que possible
+                </span>
+                <span *ngIf="job.start_date">
+                    {{ job.start_date }}
+                </span>
             </div>
             <div class="col-md-6">
-                {{ job.requiredStudyLevel.title }}
+                Fin du contrat :
+                <span *ngIf="job.start_date">
+                    {{ job.end_date }}
+                </span>
+            </div>
+            <!--<div class="col-md-6">
+                {{ job.type.title }}
             </div>-->
+            <div class="col-md-6">
+                Niveau d'études : {{ job.studyLevel.title }}
+            </div>
             <div class="col-md-12">
                 {{ job.content }}
             </div>
