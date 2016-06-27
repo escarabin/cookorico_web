@@ -41,6 +41,14 @@ class Job extends Model
     }
 
     /**
+     * Get the job's contract type
+     */
+    public function contractType()
+    {
+        return $this->belongsTo('App\Models\ContractType');
+    }
+
+    /**
      * Get the job's type
      */
     public function type()
@@ -59,7 +67,7 @@ class Job extends Model
     /**
      * Get the job's required study level
      */
-    public function studyLevel()
+    public function requiredStudyLevel()
     {
         return $this->belongsTo('App\Models\StudyLevel');
     }

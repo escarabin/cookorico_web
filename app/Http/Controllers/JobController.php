@@ -17,6 +17,15 @@ class JobController extends Controller
     {
         $job = Job::find($id);
 
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        $job->business = $job->business;
+        $job->user = $job->user;
+        $job->naming = $job->naming;
+        $job->type = $job->type;
+        $job->state = $job->state;
+        $job->studyLevel = $job->studyLevel;
+        $job->contractType = $job->contractType;
+
         return $job;
     }
 
@@ -35,6 +44,7 @@ class JobController extends Controller
             $job->type = $job->type;
             $job->state = $job->state;
             $job->studyLevel = $job->studyLevel;
+            $job->contractType = $job->contractType;
         }
 
         return $jobs;

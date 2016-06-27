@@ -26,12 +26,10 @@ System.register(['@angular/core', './job.service', './job-preview.component'], f
         execute: function() {
             JobSearchResultsComponent = (function () {
                 function JobSearchResultsComponent(jobService) {
-                    var _this = this;
                     this.jobService = jobService;
                     var __this = this;
                     jobService.getAllJobs().subscribe(function (res) {
                         __this.jobs = res.json();
-                        console.log(_this.jobs);
                     });
                 }
                 JobSearchResultsComponent = __decorate([

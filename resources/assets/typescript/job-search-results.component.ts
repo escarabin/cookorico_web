@@ -22,7 +22,6 @@ export class JobSearchResultsComponent {
 
         jobService.getAllJobs().subscribe((res: Response) => {
             __this.jobs = res.json();
-            console.log(this.jobs);
         });
     }
 }

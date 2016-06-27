@@ -32,6 +32,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service']
                     this.jobId = routeParams.get("jobId");
                     jobService.getJob(__this.jobId).subscribe(function (res) {
                         __this.job = res.json();
+                        console.log(__this.job);
                     });
                 }
                 JobComponent = __decorate([

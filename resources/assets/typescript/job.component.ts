@@ -24,6 +24,7 @@ export class JobComponent {
 
         jobService.getJob(__this.jobId).subscribe((res: Response) => {
             __this.job = res.json();
+            console.log(__this.job);
         });
     }
 }
