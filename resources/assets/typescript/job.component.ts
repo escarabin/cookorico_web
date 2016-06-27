@@ -16,10 +16,12 @@ import { JobService } from './job.service';
 export class JobComponent {
     jobId:string;
     job: any;
+    user: any;
 
     constructor(private routeParams: RouteParams,
                 private jobService: JobService) {
         let __this = this;
+        this.user = JSON.parse(localStorage.getItem('user'));
         this.jobId = routeParams.get("jobId");
 
         jobService.getJob(__this.jobId).subscribe((res: Response) => {

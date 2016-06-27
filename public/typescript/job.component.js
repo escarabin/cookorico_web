@@ -29,6 +29,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service']
                     this.routeParams = routeParams;
                     this.jobService = jobService;
                     var __this = this;
+                    this.user = JSON.parse(localStorage.getItem('user'));
                     this.jobId = routeParams.get("jobId");
                     jobService.getJob(__this.jobId).subscribe(function (res) {
                         __this.job = res.json();

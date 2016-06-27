@@ -20,6 +20,9 @@
                 Contrat : {{ job.contractType.title }}
             </div>
             <div class="col-md-6">
+                Niveau d'expérience : {{ job.jobXpLevel.title }}
+            </div>
+            <div class="col-md-6">
                 Logé :
                 <span *ngIf="job.is_hosting_employee">Oui</span>
                 <span *ngIf="!job.is_hosting_employee">Non</span>
@@ -55,6 +58,12 @@
                 {{ job.content }}
             </div>
 
+            <div class="col-md-12"
+                 *ngIf="!user || user.user_type_id == 3">
+                <button class="btn btn-primary">
+                    Postuler à cette offre
+                </button>
+            </div>
             <br />
         </div>
     </div>
