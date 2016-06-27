@@ -44,6 +44,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service',
                     this.jobService = jobService;
                     this.postService = postService;
                     this.clubService = clubService;
+                    this.isStudyLevelCollapsed = false;
                     var __this = this;
                     jobService.getAllJobs().subscribe(function (res) {
                         __this.jobs = res.json();

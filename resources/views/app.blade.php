@@ -13,6 +13,8 @@
     <!-- Polyfill(s) for older browsers -->
     <script src="es6-shim/es6-shim.min.js"></script>
 
+    <script src="ng2-bootstrap/ng2-bootstrap.js"></script>
+
     <script src="zone.js/dist/zone.js"></script>
     <script src="reflect-metadata/Reflect.js"></script>
     <script src="systemjs/dist/system.src.js"></script>

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './reference.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap', './reference.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './reference.ser
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1;
+    var core_1, router_deprecated_1, ng2_bootstrap_1, reference_service_1;
     var JobSearchSidebarComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './reference.ser
             },
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
+            },
+            function (ng2_bootstrap_1_1) {
+                ng2_bootstrap_1 = ng2_bootstrap_1_1;
             },
             function (reference_service_1_1) {
                 reference_service_1 = reference_service_1_1;
@@ -40,7 +43,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './reference.ser
                 }
                 JobSearchSidebarComponent = __decorate([
                     core_1.Component({
-                        directives: [router_deprecated_1.RouterLink],
+                        directives: [router_deprecated_1.RouterLink, ng2_bootstrap_1.CollapseDirective],
                         providers: [reference_service_1.ReferenceService],
                         selector: 'job-search-sidebar',
                         templateUrl: '../templates/job-search-sidebar.component.html',

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink, Response } from '@angular/router-deprecated'
+import { CollapseDirective } from 'ng2-bootstrap';
 
 // Components
 import { ReferenceService } from './reference.service';
 
 @Component({
-    directives: [RouterLink],
+    directives: [RouterLink, CollapseDirective],
     providers: [ReferenceService],
     selector: 'job-search-sidebar',
     templateUrl: '../templates/job-search-sidebar.component.html',
