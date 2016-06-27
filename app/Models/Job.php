@@ -63,4 +63,12 @@ class Job extends Model
     {
         return $this->belongsTo('App\Models\StudyLevel');
     }
+
+    /**
+     * Get the job's required study level
+     */
+    public function languages()
+    {
+        return $this->belongsToMany('App\Models\Language');
+    }
 }
