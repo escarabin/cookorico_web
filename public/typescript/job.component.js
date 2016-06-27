@@ -39,6 +39,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service']
                 JobComponent = __decorate([
                     core_1.Component({
                         providers: [job_service_1.JobService],
+                        directives: [router_deprecated_1.RouterLink],
                         inputs: ['jobId'],
                         selector: 'job',
                         templateUrl: '../templates/job.component.html',

@@ -19,14 +19,9 @@
 <h2>Actualités</h2>
 <br /><br />
 
-<ul>
-    <a [routerLink]="['ShowPost', { postId: post.id }]"
-       *ngFor="let post of posts">
-        <li>
-            {{ post.title }}
-        </li>
-    </a>
-</ul>
+<post-preview *ngFor="let post of posts"
+             [post]="post">
+</post-preview>
 
 <br /><br />
 <h2>Ils nous font confiance</h2>

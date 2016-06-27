@@ -33,7 +33,8 @@ import { SearchComponent } from './search.component';
     { path: '/post/:postId/', name: 'ShowPost', component: PostComponent },
     { path: '/club/:clubId', name: 'ShowClub', component: ClubComponent },
     { path: '/profile/', name: 'Profile', component: ProfileComponent },
-    { path: '/sign-up/', name: 'SignUp', component: SignUpComponent }
+    { path: '/sign-up/', name: 'SignUp', component: SignUpComponent },
+    { path: '/apply/', name: 'Apply', component: SignUpComponent },
 ])
 
 

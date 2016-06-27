@@ -8,6 +8,7 @@ import { JobService } from './job.service';
 
 @Component({
     providers: [JobService],
+    directives: [RouterLink],
     inputs: ['jobId'],
     selector: 'job',
     templateUrl: '../templates/job.component.html',

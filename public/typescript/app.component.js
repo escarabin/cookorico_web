@@ -70,7 +70,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                         { path: '/post/:postId/', name: 'ShowPost', component: post_component_1.PostComponent },
                         { path: '/club/:clubId', name: 'ShowClub', component: club_component_1.ClubComponent },
                         { path: '/profile/', name: 'Profile', component: profile_component_1.ProfileComponent },
-                        { path: '/sign-up/', name: 'SignUp', component: sign_up_component_1.SignUpComponent }
+                        { path: '/sign-up/', name: 'SignUp', component: sign_up_component_1.SignUpComponent },
+                        { path: '/apply/', name: 'Apply', component: sign_up_component_1.SignUpComponent },
                     ]), 
                     __metadata('design:paramtypes', [core_1.ViewContainerRef])
                 ], AppComponent);

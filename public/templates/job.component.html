@@ -59,10 +59,21 @@
             </div>
 
             <div class="col-md-12"
-                 *ngIf="!user || user.user_type_id == 3">
-                <button class="btn btn-primary">
-                    Postuler à cette offre
-                </button>
+                 *ngIf="user && user.user_type_id == 3">
+                <a [routerLink]="['Apply']">
+                    <button class="btn btn-primary">
+                        Postuler à cette offre
+                    </button>
+                </a>
+            </div>
+
+            <div class="col-md-12"
+                 *ngIf="!user">
+                <a [routerLink]="['SignUp']">
+                    <button class="btn btn-primary">
+                        Postuler à cette offre
+                    </button>
+                </a>
             </div>
             <br />
         </div>

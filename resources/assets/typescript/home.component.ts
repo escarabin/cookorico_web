@@ -11,6 +11,7 @@ import { ClubService } from './club.service';
 // Components
 import { JobSearchBarComponent } from './job-search-bar.component';
 import { JobPreviewComponent } from './job-preview.component';
+import { PostPreviewComponent } from './post-preview.component';
 
 @Component({
     providers: [JobService,
@@ -18,7 +19,8 @@ import { JobPreviewComponent } from './job-preview.component';
                 ClubService],
     directives: [RouterLink,
                 JobSearchBarComponent,
-                JobPreviewComponent],
+                JobPreviewComponent,
+                PostPreviewComponent],
     selector: 'home',
     templateUrl: '../templates/home.component.html',
 })

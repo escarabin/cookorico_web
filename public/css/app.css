@@ -104,6 +104,18 @@ search {
   padding-top: 150px;
   display: block; }
 
+post-preview {
+  display: block;
+  border-bottom: 1px solid #DDD;
+  padding: 25px; }
+
+post-preview .title h4 {
+  margin-bottom: 5px; }
+
+post-preview .created_at {
+  font-size: 1.2em;
+  margin-bottom: 5px; }
+
 #sign-in-modal .modal-dialog {
   max-width: 400px;
   width: 100%; }

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './job.service', './post.service', './club.service', './job-search-bar.component', './job-preview.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './job.service', './post.service', './club.service', './job-search-bar.component', './job-preview.component', './post-preview.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, job_service_1, post_service_1, club_service_1, job_search_bar_component_1, job_preview_component_1;
+    var core_1, router_deprecated_1, job_service_1, post_service_1, club_service_1, job_search_bar_component_1, job_preview_component_1, post_preview_component_1;
     var HomeComponent;
     return {
         setters:[
@@ -34,6 +34,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service',
             },
             function (job_preview_component_1_1) {
                 job_preview_component_1 = job_preview_component_1_1;
+            },
+            function (post_preview_component_1_1) {
+                post_preview_component_1 = post_preview_component_1_1;
             }],
         execute: function() {
             HomeComponent = (function () {
@@ -70,7 +73,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service',
                             club_service_1.ClubService],
                         directives: [router_deprecated_1.RouterLink,
                             job_search_bar_component_1.JobSearchBarComponent,
-                            job_preview_component_1.JobPreviewComponent],
+                            job_preview_component_1.JobPreviewComponent,
+                            post_preview_component_1.PostPreviewComponent],
                         selector: 'home',
                         templateUrl: '../templates/home.component.html',
                     }), 
