@@ -54,4 +54,15 @@ class UserController extends Controller
 
         return $experiences;
     }
+
+    public function getEducation() {
+        $education = Auth::user()->education;
+
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        foreach ($education as $study) {
+            $education->diploma = $education->diploma;
+        }
+
+        return $education;
+    }
 }
