@@ -8,6 +8,7 @@ import { UserService } from './user.service';
 
 @Component({
     providers: [UserService],
+    directives: [RouterLink],
     selector: 'profile',
     templateUrl: '../templates/profile.component.html',
 })
