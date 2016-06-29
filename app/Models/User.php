@@ -83,6 +83,6 @@ class User extends Authenticatable
      */
     public function experiences()
     {
-        return $this->hasMany('App\Models\Experiences');
+        return $this->hasMany('App\Models\Experience');
     }
 }
