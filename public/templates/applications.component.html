@@ -6,7 +6,7 @@
         <li *ngFor="let application of applications">
             <a [routerLink]="['ShowJob', { jobId: application.job.id }]">
                 {{ application.job.title }}
-            </a>
+            </a><br />
         </li>
     </ul>
 </div>

@@ -26,6 +26,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.http = http;
                     this.signInUrl = '/sign-in/';
                     this.getApplicationsUrl = '/applications/all';
+                    this.getExperiencesUrl = '/experiences/all';
                 }
                 /**
                  * Sign user in
@@ -40,11 +41,17 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 };
                 /**
                  * Get user's job applications
-                 * @param userId
                  */
                 UserService.prototype.getApplications = function () {
                     var __this = this;
                     return this.http.get(__this.getApplicationsUrl);
+                };
+                /**
+                 * Get user's work experiences
+                 */
+                UserService.prototype.getExperiences = function () {
+                    var __this = this;
+                    return this.http.get(__this.getExperiencesUrl);
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 

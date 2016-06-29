@@ -5,6 +5,7 @@ import { HTTP_PROVIDERS, Http } from '@angular/http';
 export class UserService {
     signInUrl = '/sign-in/';
     getApplicationsUrl = '/applications/all';
+    getExperiencesUrl = '/experiences/all';
 
     constructor(private http: Http) {
 
@@ -26,11 +27,19 @@ export class UserService {
 
     /**
      * Get user's job applications
-     * @param userId
      */
     getApplications() {
         let __this = this;
 
         return this.http.get(__this.getApplicationsUrl);
+    }
+
+    /**
+     * Get user's work experiences
+     */
+    getExperiences() {
+        let __this = this;
+
+        return this.http.get(__this.getExperiencesUrl);
     }
 }
