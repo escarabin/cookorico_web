@@ -64,8 +64,8 @@ import { AlertsComponent } from "./alerts.component";
     { path: '/education/:studyId', name: 'ShowStudy', component: EducationComponent },
 
     // Alerts
-    { path: '/alerts/all', name: 'Education', component: AlertsComponent },
-    { path: '/alert/:alertId', name: 'ShowStudy', component: AlertsComponent },
+    { path: '/alerts/all', name: 'Alerts', component: AlertsComponent },
+    { path: '/alert/:alertId', name: 'ShowAlert', component: AlertsComponent },
 ])
 
 
