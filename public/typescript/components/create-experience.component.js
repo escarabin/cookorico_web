@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1;
+    var core_1, router_deprecated_1, reference_service_1;
     var CreateExperienceComponent;
     return {
         setters:[
@@ -20,22 +20,28 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
             },
-            function (user_service_1_1) {
-                user_service_1 = user_service_1_1;
+            function (reference_service_1_1) {
+                reference_service_1 = reference_service_1_1;
             }],
         execute: function() {
             CreateExperienceComponent = (function () {
-                function CreateExperienceComponent(userService) {
-                    this.userService = userService;
+                function CreateExperienceComponent(referenceService) {
+                    this.referenceService = referenceService;
+                    var __this = this;
+                    this.referenceService.getAllJobNamings().subscribe(function (res) {
+                        __this.jobNamings = res.json();
+                    });
                 }
+                CreateExperienceComponent.prototype.submitExperience = function () {
+                };
                 CreateExperienceComponent = __decorate([
                     core_1.Component({
                         selector: 'create-experience',
-                        providers: [user_service_1.UserService],
+                        providers: [reference_service_1.ReferenceService],
                         directives: [router_deprecated_1.RouterLink],
                         templateUrl: '../templates/create-experience.component.html'
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService])
                 ], CreateExperienceComponent);
                 return CreateExperienceComponent;
             }());

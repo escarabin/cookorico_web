@@ -3,17 +3,36 @@ import { Response } from '@angular/http';
 import { RouterLink } from '@angular/router-deprecated';
 
 // Services
-import { UserService } from './../services/user.service';
+import { ReferenceService } from './../services/reference.service';
 
 @Component({
     selector: 'create-experience',
-    providers: [UserService],
+    providers: [ReferenceService],
     directives: [RouterLink],
     templateUrl: '../templates/create-experience.component.html'
 })
 
 export class CreateExperienceComponent {
-    constructor(private userService: UserService) {
+    jobNamings: any;
+    submitExperienceUrl: string;
+
+    // Form data
+    jobId: string;
+    business: string;
+    startDate: string;
+    endDate: string;
+    place: string;
+    description: string;
+
+    constructor(private referenceService: ReferenceService) {
+        let __this = this;
+
+        this.referenceService.getAllJobNamings().subscribe((res: Response) => {
+            __this.jobNamings = res.json();
+        })
+    }
+
+    submitExperience() {
 
     }
 }

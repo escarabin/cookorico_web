@@ -1,3 +1,60 @@
 <div class="col-md-12">
     <h2>Ajouter une expérience à votre profil</h2>
 </div>
+
+<div class="col-md-12">
+    <form>
+        <div class="col-md-6">
+            <label>Poste</label>
+            <select name="job"
+                    [(ngModel)]="jobId"
+                    class="form-control">
+                <option disabled selected>-- Poste --</option>
+                <option *ngFor="let jobNaming of jobNamings"
+                        value="{{ jobNaming.id }}">
+                    {{ jobNaming.title }}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label>Établissement</label>
+            <input type="text"
+                   [(ngModel)]="business"
+                   class="form-control"
+                   placeholder="Établissement"/>
+        </div>
+        <div class="col-md-3">
+            <label>Date de début</label>
+            <input type="date"
+                   [(ngModel)]="startDate"
+                   class="form-control"
+                   placeholder="Date de début"/>
+        </div>
+        <div class="col-md-3">
+            <label>Date de fin</label>
+            <input type="date"
+                   class="form-control"
+                   placeholder="Date de fin"/>
+        </div>
+        <div class="col-md-6">
+            <label>Lieu</label>
+            <input type="date"
+                   [(ngModel)]="endDate"
+                   class="form-control"
+                   placeholder="Lieu"/>
+        </div>
+        <div class="col-md-12">
+            <label>Description</label>
+            <textarea name="description"
+                      [(ngModel)]="description"
+                      class="form-control"
+                      placeholder="Description"></textarea>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-primary"
+                    (click)="submitExperience()">
+                Sauvegarder
+            </button>
+        </div>
+    </form>
+</div>

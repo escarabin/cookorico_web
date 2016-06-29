@@ -66,6 +66,8 @@ Route::get('/applications/all', 'UserController@getApplications')
 // Experiences
 Route::get('/experiences/all', 'UserController@getExperiences')
     ->name('getAllExperiences');
+Route::get('/experience/create', 'UserController@createExperience')
+    ->name('createExperience');
 
 // Education
 Route::get('/education/all', 'UserController@getEducation')
