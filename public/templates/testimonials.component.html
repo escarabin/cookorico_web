@@ -1,0 +1,12 @@
+<div class="col-md-12">
+    <h2>Mes recommandations</h2>
+</div>
+<div class="col-md-12">
+    <ul>
+        <li *ngFor="let testimonial of testimonials">
+            <a>
+                {{ testimonial.jobNaming.title }}
+            </a><br />
+        </li>
+    </ul>
+</div>

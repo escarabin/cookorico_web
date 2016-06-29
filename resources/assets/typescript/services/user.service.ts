@@ -8,6 +8,8 @@ export class UserService {
     getExperiencesUrl = '/experiences/all';
     getEducationUrl = '/education/all';
     getAlertsUrl = '/alerts/all';
+    getTestimonialsUrl = '/testimonials/all';
+    getCreatedTestimonialsUrl = '/created_testimonials/all';
 
     constructor(private http: Http) {
 
@@ -61,5 +63,23 @@ export class UserService {
         let __this = this;
 
         return this.http.get(__this.getAlertsUrl);
+    }
+
+    /**
+     * Get user's testimonials
+     */
+    getTestimonials() {
+        let __this = this;
+
+        return this.http.get(__this.getTestimonialsUrl);
+    }
+
+    /**
+     * Get user's created testimonials
+     */
+    getCreatedTestimonials() {
+        let __this = this;
+
+        return this.http.get(__this.getCreatedTestimonialsUrl);
     }
 }

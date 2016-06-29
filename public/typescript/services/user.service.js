@@ -29,6 +29,8 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.getExperiencesUrl = '/experiences/all';
                     this.getEducationUrl = '/education/all';
                     this.getAlertsUrl = '/alerts/all';
+                    this.getTestimonialsUrl = '/testimonials/all';
+                    this.getCreatedTestimonialsUrl = '/created_testimonials/all';
                 }
                 /**
                  * Sign user in
@@ -68,6 +70,20 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 UserService.prototype.getAlerts = function () {
                     var __this = this;
                     return this.http.get(__this.getAlertsUrl);
+                };
+                /**
+                 * Get user's testimonials
+                 */
+                UserService.prototype.getTestimonials = function () {
+                    var __this = this;
+                    return this.http.get(__this.getTestimonialsUrl);
+                };
+                /**
+                 * Get user's created testimonials
+                 */
+                UserService.prototype.getCreatedTestimonials = function () {
+                    var __this = this;
+                    return this.http.get(__this.getCreatedTestimonialsUrl);
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 

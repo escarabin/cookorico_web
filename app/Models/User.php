@@ -101,4 +101,20 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Alert');
     }
+
+    /**
+     * Get user's testimonials
+     */
+    public function testimonials()
+    {
+        return $this->hasMany('App\Models\Testimonial', 'employee_user_id');
+    }
+
+    /**
+     * Get testimonials created by this user
+     */
+    public function createdTestimonials()
+    {
+        return $this->hasMany('App\Models\Testimonial', 'recruiter_user_id');
+    }
 }

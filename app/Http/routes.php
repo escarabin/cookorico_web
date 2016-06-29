@@ -74,3 +74,9 @@ Route::get('/education/all', 'UserController@getEducation')
 // Alerts
 Route::get('/alerts/all', 'UserController@getAlerts')
     ->name('getAlerts');
+
+// Testimonials
+Route::get('/testimonials/all', 'UserController@getTestimonials')
+    ->name('getTestimonials');
+Route::get('/created_testimonials/all', 'UserController@getCreatedTestimonials')
+    ->name('getCreatedTestimonials');

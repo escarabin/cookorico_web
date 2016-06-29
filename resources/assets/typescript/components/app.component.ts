@@ -19,6 +19,7 @@ import { ApplicationsComponent } from "./applications.component";
 import { ExperiencesComponent } from "./experiences.component";
 import { EducationComponent } from "./education.component";
 import { AlertsComponent } from "./alerts.component";
+import { TestimonialsComponent } from "./testimonials.component";
 
 @Component({
     directives:[RouterOutlet,
@@ -28,7 +29,8 @@ import { AlertsComponent } from "./alerts.component";
                 SearchComponent,
                 NewApplicationFormComponent,
                 ApplicationsComponent,
-                ExperiencesComponent],
+                ExperiencesComponent,
+                TestimonialsComponent],
     selector: 'app',
     templateUrl: '/templates/app.component.html'
 })
@@ -66,6 +68,10 @@ import { AlertsComponent } from "./alerts.component";
     // Alerts
     { path: '/alerts/all', name: 'Alerts', component: AlertsComponent },
     { path: '/alert/:alertId', name: 'ShowAlert', component: AlertsComponent },
+
+    // Testimonials
+    { path: '/testimonials/all', name: 'Testimonials', component: TestimonialsComponent },
+    { path: '/testimonials/:testimonialId', name: 'Testimonial', component: TestimonialsComponent },
 ])
 
 

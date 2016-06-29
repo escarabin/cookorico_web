@@ -92,4 +92,38 @@ class UserController extends Controller
 
         return $alerts;
     }
+
+    /**
+     * Get user's testimonials
+     * @return mixed
+     */
+    public function getTestimonials() {
+        $testimonials = Auth::user()->testimonials;
+
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        foreach ($testimonials as $testimonial) {
+            $testimonial->jobNaming = $testimonial->jobNaming;
+            $testimonial->recruiter = $testimonial->recruiter;
+            $testimonial->employee = $testimonial->employee;
+        }
+
+        return $testimonials;
+    }
+
+    /**
+     * Get user's created testimonials
+     * @return mixed
+     */
+    public function getCreatedTestimonials() {
+        $testimonials = Auth::user()->createdTestimonials;
+
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        foreach ($testimonials as $testimonial) {
+            $testimonial->jobNaming = $testimonial->jobNaming;
+            $testimonial->recruiter = $testimonial->recruiter;
+            $testimonial->employee = $testimonial->employee;
+        }
+
+        return $testimonials;
+    }
 }
