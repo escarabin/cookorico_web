@@ -1,0 +1,12 @@
+<div class="col-md-12">
+    <h2>Mes alertes emploi</h2>
+</div>
+<div class="col-md-12">
+    <ul>
+        <li *ngFor="let alert of alerts">
+            <a>
+                {{ alert.jobNaming.title }}
+            </a><br />
+        </li>
+    </ul>
+</div>
