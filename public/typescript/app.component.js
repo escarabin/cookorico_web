@@ -75,7 +75,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                         { path: '/club/:clubId', name: 'ShowClub', component: club_component_1.ClubComponent },
                         { path: '/profile/', name: 'Profile', component: profile_component_1.ProfileComponent },
                         { path: '/sign-up/', name: 'SignUp', component: sign_up_component_1.SignUpComponent },
-                        { path: '/apply/:jobId', name: 'Apply', component: new_application_form_component_1.NewApplicationFormComponent }
+                        { path: '/apply/:jobId', name: 'Apply', component: new_application_form_component_1.NewApplicationFormComponent },
+                        { path: '/profile/applications', name: 'Applications', component: ApplicationcComponent }
                     ]), 
                     __metadata('design:paramtypes', [core_1.ViewContainerRef])
                 ], AppComponent);

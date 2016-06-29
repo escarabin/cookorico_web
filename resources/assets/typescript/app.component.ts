@@ -15,6 +15,7 @@ import { ClubComponent } from './club.component';
 import { SignUpComponent } from './sign-up.component';
 import { SearchComponent } from './search.component';
 import { NewApplicationFormComponent } from './new-application-form.component';
+import { Applications } from './applications.component';
 
 @Component({
     directives:[RouterOutlet,
