@@ -1,9 +1,9 @@
 <div class="col-md-12" *ngIf="user.user_type_id==2">
-    Recruteur
+    <h2>Recruteur</h2>
 </div>
 
 <div class="col-md-12" *ngIf="user.user_type_id==3">
-    Candidat
+    <h2>Candidat</h2>
     <div class="col-md-12">
         <a [routerLink]="['Applications']">
             Mes candidatures

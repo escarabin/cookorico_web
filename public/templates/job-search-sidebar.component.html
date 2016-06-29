@@ -8,59 +8,67 @@
                    class="form-control"
                    placeholder="Mots-clés"/>
         </div>
-    </div>
-    <div class="col-md-12">
-        <h3><span class="fa fa-map-pin"></span> &nbsp; Région</h3>
-    </div>
-    <div class="col-md-12">
-        <h3 (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
-            <span class="fa fa-list"></span> &nbsp; Niveau d'étude
-        </h3>
-        <div [collapse]="isStudyLevelCollapsed"
-             class="col-md-12">
-            <ul>
-                <li *ngFor="let studyLevel of studyLevels">
-                    <div class="row">
-                        <div class="col-md-2 checkbox-container">
-                            <input type="checkbox"/>
-                        </div>
-                        <div class="col-md-10 title-container">
-                            {{ studyLevel.title }}
-                        </div>
-                    </div>
-                </li>
-            </ul>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon">
+                <span class="fa fa-location-arrow"></span>
+            </span>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Localisation"/>
         </div>
     </div>
     <div class="col-md-12">
-        <h3 (click)="isContractTypeCollapsed = !isContractTypeCollapsed">
-            <span class="fa fa-sticky-note-o"></span> &nbsp; Type de contrat
-        </h3>
-        <div [collapse]="isContractTypeCollapsed"
-             class="col-md-12">
-            <ul>
-                <li *ngFor="let contractType of contractTypes">
-                    <div class="row">
-                        <div class="col-md-2 checkbox-container">
-                            <input type="checkbox"/>
+        <br />
+        <div class="col-md-12">
+            <h3 (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
+                <span class="fa fa-list"></span> &nbsp; Niveau d'étude
+            </h3>
+            <div [collapse]="isStudyLevelCollapsed"
+                 class="col-md-12">
+                <ul>
+                    <li *ngFor="let studyLevel of studyLevels">
+                        <div class="row">
+                            <div class="col-md-2 checkbox-container">
+                                <input type="checkbox"/>
+                            </div>
+                            <div class="col-md-10 title-container">
+                                {{ studyLevel.title }}
+                            </div>
                         </div>
-                        <div class="col-md-10 title-container">
-                            {{ contractType.title }}
-                        </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="col-md-12">
-        <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
-            <span class="fa fa-sticky-note-o"></span> &nbsp; Type de poste
-        </h3>
-        <div [collapse]="isJobNamingCollapsed"
-             class="col-md-12">
-            <ul>
-                <li *ngFor="let jobNaming of jobNamings"
-                    [class.group]="jobNaming.is_naming_group">
+        <div class="col-md-12">
+            <h3 (click)="isContractTypeCollapsed = !isContractTypeCollapsed">
+                <span class="fa fa-sticky-note-o"></span> &nbsp; Type de contrat
+            </h3>
+            <div [collapse]="isContractTypeCollapsed"
+                 class="col-md-12">
+                <ul>
+                    <li *ngFor="let contractType of contractTypes">
+                        <div class="row">
+                            <div class="col-md-2 checkbox-container">
+                                <input type="checkbox"/>
+                            </div>
+                            <div class="col-md-10 title-container">
+                                {{ contractType.title }}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
+                <span class="fa fa-user"></span> &nbsp; Type de poste
+            </h3>
+            <div [collapse]="isJobNamingCollapsed"
+                 class="col-md-12">
+                <ul>
+                    <li *ngFor="let jobNaming of jobNamings"
+                        [class.group]="jobNaming.is_naming_group">
                         <div class="row">
                             <div class="col-md-2 checkbox-container">
                                 <input type="checkbox"/>
@@ -69,8 +77,9 @@
                                 {{ jobNaming.title }}
                             </div>
                         </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
