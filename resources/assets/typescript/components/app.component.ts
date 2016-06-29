@@ -1,8 +1,5 @@
 import { Component, ViewContainerRef } from '@angular/core';
-import { ROUTER_PROVIDERS,
-    Router,
-    RouteConfig,
-    RouterOutlet } from '@angular/router-deprecated';
+import { Router, RouteConfig, RouterOutlet } from '@angular/router-deprecated';
 
 // Components
 import { HomeComponent } from './home.component';
@@ -15,11 +12,6 @@ import { ClubComponent } from './club.component';
 import { SignUpComponent } from './sign-up.component';
 import { SearchComponent } from './search.component';
 import { NewApplicationFormComponent } from './new-application-form.component';
-import { ApplicationsComponent } from "./applications.component";
-import { ExperiencesComponent } from "./experiences.component";
-import { EducationComponent } from "./education.component";
-import { AlertsComponent } from "./alerts.component";
-import { TestimonialsComponent } from "./testimonials.component";
 
 @Component({
     directives:[RouterOutlet,
@@ -27,10 +19,7 @@ import { TestimonialsComponent } from "./testimonials.component";
                 HeaderComponent,
                 FooterComponent,
                 SearchComponent,
-                NewApplicationFormComponent,
-                ApplicationsComponent,
-                ExperiencesComponent,
-                TestimonialsComponent],
+                NewApplicationFormComponent],
     selector: 'app',
     templateUrl: '/templates/app.component.html'
 })
@@ -42,7 +31,9 @@ import { TestimonialsComponent } from "./testimonials.component";
 
     // Jobs
     { path: '/job/:jobId/', name: 'ShowJob', component: JobComponent },
-    { path: '/jobs/search/:stateId/:jobNamingId/:contractTypeId/:searchText', name: 'SearchJobs', component: SearchComponent },
+    { path: '/jobs/search/:stateId/:jobNamingId/:contractTypeId/:searchText',
+        name: 'SearchJobs', component: SearchComponent },
+    { path: '/apply/:jobId', name: 'Apply', component: NewApplicationFormComponent },
 
     // Posts
     { path: '/post/:postId/', name: 'ShowPost', component: PostComponent },
@@ -52,26 +43,7 @@ import { TestimonialsComponent } from "./testimonials.component";
 
     // User
     { path: '/sign-up/', name: 'SignUp', component: SignUpComponent },
-    { path: '/profile/', name: 'Profile', component: ProfileComponent },
-
-    // Experiences
-    { path: '/profile/experiences', name: 'Experiences', component: ExperiencesComponent },
-
-    // Applications
-    { path: '/profile/applications', name: 'Applications', component: ApplicationsComponent },
-    { path: '/apply/:jobId', name: 'Apply', component: NewApplicationFormComponent },
-
-    // Education
-    { path: '/education/all', name: 'Education', component: EducationComponent },
-    { path: '/education/:studyId', name: 'ShowStudy', component: EducationComponent },
-
-    // Alerts
-    { path: '/alerts/all', name: 'Alerts', component: AlertsComponent },
-    { path: '/alert/:alertId', name: 'ShowAlert', component: AlertsComponent },
-
-    // Testimonials
-    { path: '/testimonials/all', name: 'Testimonials', component: TestimonialsComponent },
-    { path: '/testimonials/:testimonialId', name: 'Testimonial', component: TestimonialsComponent },
+    { path: '/profile/...', name: 'Profile', component: ProfileComponent }
 ])
 
 

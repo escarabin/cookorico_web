@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component', "./applications.component", "./experiences.component", "./education.component", "./alerts.component", "./testimonials.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1;
+    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1;
     var ProfileComponent;
     return {
         setters:[
@@ -25,6 +25,21 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             },
             function (user_sidebar_component_1_1) {
                 user_sidebar_component_1 = user_sidebar_component_1_1;
+            },
+            function (applications_component_1_1) {
+                applications_component_1 = applications_component_1_1;
+            },
+            function (experiences_component_1_1) {
+                experiences_component_1 = experiences_component_1_1;
+            },
+            function (education_component_1_1) {
+                education_component_1 = education_component_1_1;
+            },
+            function (alerts_component_1_1) {
+                alerts_component_1 = alerts_component_1_1;
+            },
+            function (testimonials_component_1_1) {
+                testimonials_component_1 = testimonials_component_1_1;
             }],
         execute: function() {
             ProfileComponent = (function () {
@@ -35,10 +50,29 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                 ProfileComponent = __decorate([
                     core_1.Component({
                         providers: [user_service_1.UserService],
-                        directives: [router_deprecated_1.RouterLink, user_sidebar_component_1.UserSidebarComponent],
+                        directives: [router_deprecated_1.RouterLink,
+                            router_deprecated_1.RouterOutlet,
+                            user_sidebar_component_1.UserSidebarComponent],
                         selector: 'profile',
                         templateUrl: '../templates/profile.component.html',
-                    }), 
+                    }),
+                    router_deprecated_1.RouteConfig([
+                        // Root
+                        { path: '/show', name: 'Show', component: experiences_component_1.ExperiencesComponent, useAsDefault: true },
+                        // Experiences
+                        { path: '/experiences/all', name: 'Experiences', component: experiences_component_1.ExperiencesComponent },
+                        // Applications
+                        { path: '/applications/all', name: 'Applications', component: applications_component_1.ApplicationsComponent },
+                        // Education
+                        { path: '/education/all', name: 'Education', component: education_component_1.EducationComponent },
+                        { path: '/education/:studyId', name: 'ShowStudy', component: education_component_1.EducationComponent },
+                        // Alerts
+                        { path: '/alerts/all', name: 'Alerts', component: alerts_component_1.AlertsComponent },
+                        { path: '/alert/:alertId', name: 'ShowAlert', component: alerts_component_1.AlertsComponent },
+                        // Testimonials
+                        { path: '/testimonials/all', name: 'Testimonials', component: testimonials_component_1.TestimonialsComponent },
+                        { path: '/testimonials/:testimonialId', name: 'Testimonial', component: testimonials_component_1.TestimonialsComponent },
+                    ]), 
                     __metadata('design:paramtypes', [user_service_1.UserService])
                 ], ProfileComponent);
                 return ProfileComponent;
