@@ -6,6 +6,7 @@ import { JobService } from './job.service';
 
 @Component({
     directives: [RouterLink],
+    providers: [JobService],
     selector: 'new-application-form',
     templateUrl: '../templates/new-application-form.component.html',
 })
@@ -21,10 +22,8 @@ export class NewApplicationFormComponent {
 
     submitApplication() {
         let __this = this;
-        this.jobService.apply(__this.jobId).subscribe((res: Response) => {
-            let user = res.json();
-
-            console.log('user', user);
+        this.jobService.apply(__this.jobId, __this.comment).subscribe((res: Response) => {
+            console.log(res.json());
         });
     }
 }

@@ -32,14 +32,14 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service']
                 }
                 NewApplicationFormComponent.prototype.submitApplication = function () {
                     var __this = this;
-                    this.jobService.apply(__this.jobId).subscribe(function (res) {
-                        var user = res.json();
-                        console.log('user', user);
+                    this.jobService.apply(__this.jobId, __this.comment).subscribe(function (res) {
+                        console.log(res.json());
                     });
                 };
                 NewApplicationFormComponent = __decorate([
                     core_1.Component({
                         directives: [router_deprecated_1.RouterLink],
+                        providers: [job_service_1.JobService],
                         selector: 'new-application-form',
                         templateUrl: '../templates/new-application-form.component.html',
                     }), 

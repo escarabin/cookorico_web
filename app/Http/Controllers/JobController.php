@@ -8,6 +8,7 @@ use App\Models\Job;
 use App\Models\StudyLevel;
 use App\Models\Application;
 
+use Illuminate\Support\Facades\App;
 use Log;
 
 class JobController extends Controller
@@ -72,5 +73,15 @@ class JobController extends Controller
         $jobs = Job::all();
 
         return $jobs;
+    }
+
+    public function apply($userId, $jobId, $comment) {
+        $newApplication = new Application;
+
+        $newApplication->user_id -> $userId;
+        $newApplication->job_id -> $jobId;
+        $newApplication->job_id -> $comment;
+
+        $newApplication->save();
     }
 }
