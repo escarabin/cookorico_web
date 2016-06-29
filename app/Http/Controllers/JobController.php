@@ -75,10 +75,10 @@ class JobController extends Controller
         return $jobs;
     }
 
-    public function apply($jobId, $userId, $comment) {
+    public function apply($jobId, $comment) {
         $newApplication = new Application;
 
-        $newApplication->user_id = $userId;
+        $newApplication->user_id = Auth::user()->id;
         $newApplication->job_id = $jobId;
         $newApplication->comment = $comment;
 

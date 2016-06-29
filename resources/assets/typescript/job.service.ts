@@ -42,6 +42,6 @@ export class JobService {
     apply(jobId, comment) {
         let __this = this;
 
-        return this.http.request(__this.applyJobUrl + jobId + '/' + this.user.id + '/' + comment);
+        return this.http.request(__this.applyJobUrl + jobId + '/' + comment);
     }
 }
