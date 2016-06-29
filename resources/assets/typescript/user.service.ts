@@ -28,7 +28,7 @@ export class UserService {
      * Get user's job applications
      * @param userId
      */
-    getApplications(userId) {
+    getApplications() {
         let __this = this;
 
         return this.http.get(__this.getApplicationsUrl);

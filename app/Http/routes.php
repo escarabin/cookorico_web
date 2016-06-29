@@ -58,3 +58,7 @@ Route::get('/contract_types/all', 'ReferenceController@getAllContractTypes')
     ->name('getAllContractTypes');
 Route::get('/study_levels/all', 'ReferenceController@getAllStudyLevels')
     ->name('getAllStudyLevels');
+
+// Applications
+Route::get('/applications/all', 'UserController@getApplications')
+    ->name('getAllApplications');

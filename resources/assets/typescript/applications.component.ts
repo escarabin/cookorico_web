@@ -13,6 +13,6 @@ export class ApplicationsComponent {
     applications: any;
 
     constructor(private userService: UserService) {
-
+        this.applications = this.userService.getApplications();
     }
 }

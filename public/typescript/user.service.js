@@ -42,7 +42,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                  * Get user's job applications
                  * @param userId
                  */
-                UserService.prototype.getApplications = function (userId) {
+                UserService.prototype.getApplications = function () {
                     var __this = this;
                     return this.http.get(__this.getApplicationsUrl);
                 };
