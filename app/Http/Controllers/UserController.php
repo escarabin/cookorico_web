@@ -33,6 +33,12 @@ class UserController extends Controller
 
         $applications = Application::where('user_id', $user->id)->get();
 
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        foreach ($applications as $application) {
+            $application->job = $application->job;
+            $application->user = $application->user;
+        }
+
         return $applications;
     }
 }

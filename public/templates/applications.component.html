@@ -4,7 +4,9 @@
 <div class="col-md-12">
     <ul>
         <li *ngFor="let application of applications">
-
+            <a [routerLink]="['ShowJob', { jobId: application.job.id }]">
+                {{ application.job.title }}
+            </a>
         </li>
     </ul>
 </div>
