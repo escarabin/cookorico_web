@@ -23,6 +23,10 @@ home .heading .job-search {
   border-radius: $mainBorderRadius;
 }
 
+home .heading .job-search select {
+  border: none;
+}
+
 home .heading .job-search .input-container {
   padding: 0;
 }
