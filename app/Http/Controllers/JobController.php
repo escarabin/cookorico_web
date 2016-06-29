@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
+use Auth;
 
 use App\Models\Job;
 use App\Models\StudyLevel;
 use App\Models\Application;
-
-use Illuminate\Support\Facades\App;
-use Log;
 
 class JobController extends Controller
 {

@@ -53,7 +53,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                  */
                 JobService.prototype.apply = function (jobId, comment) {
                     var __this = this;
-                    return this.http.request(__this.applyJobUrl + jobId + '/' + this.user.id + '/' + comment);
+                    return this.http.request(__this.applyJobUrl + jobId + '/' + comment);
                 };
                 JobService = __decorate([
                     core_1.Injectable(), 
