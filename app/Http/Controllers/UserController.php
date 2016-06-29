@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Application;
 use Auth;
 
 use App\Models\User;
@@ -25,5 +26,13 @@ class UserController extends Controller
             // Authentication passed...
             return $user;
         }
+    }
+
+    public function getApplications() {
+        $user = Auth::user();
+
+        $applications = Application::where('user_id', $user->id);
+
+        return $applications;
     }
 }
