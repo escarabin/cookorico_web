@@ -28,6 +28,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.getApplicationsUrl = '/applications/all';
                     this.getExperiencesUrl = '/experiences/all';
                     this.getEducationUrl = '/education/all';
+                    this.getAlertsUrl = '/alerts/all';
                 }
                 /**
                  * Sign user in
@@ -60,6 +61,13 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 UserService.prototype.getEducation = function () {
                     var __this = this;
                     return this.http.get(__this.getEducationUrl);
+                };
+                /**
+                 * Get user's new job alerts
+                 */
+                UserService.prototype.getAlerts = function () {
+                    var __this = this;
+                    return this.http.get(__this.getAlertsUrl);
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 
