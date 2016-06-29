@@ -16,6 +16,7 @@ import { SignUpComponent } from './sign-up.component';
 import { SearchComponent } from './search.component';
 import { NewApplicationFormComponent } from './new-application-form.component';
 import { ApplicationsComponent } from "./applications.component";
+import { ExperiencesComponent } from "./experiences.component";
 
 @Component({
     directives:[RouterOutlet,
@@ -39,7 +40,8 @@ import { ApplicationsComponent } from "./applications.component";
     { path: '/profile/', name: 'Profile', component: ProfileComponent },
     { path: '/sign-up/', name: 'SignUp', component: SignUpComponent },
     { path: '/apply/:jobId', name: 'Apply', component: NewApplicationFormComponent },
-    { path: '/profile/applications', name: 'Applications', component: ApplicationsComponent }
+    { path: '/profile/applications', name: 'Applications', component: ApplicationsComponent },
+    { path: '/profile/experiences', name: 'Experiences', component: ExperiencesComponent },
 ])
 
 
