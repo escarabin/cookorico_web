@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CORE_DIRECTIVES } from '@angular/common';
-import { RouterLink } from '@angular/router-deprecated';
+import { Router, RouterLink } from '@angular/router-deprecated';
 import { Response } from '@angular/http';
 
 import { MODAL_DIRECTVES, BS_VIEW_PROVIDERS } from 'ng2-bootstrap';
@@ -25,7 +25,8 @@ export class HeaderComponent {
     forgotPassword: boolean = false;
     loading: boolean = false;
 
-    constructor (private userService: UserService) {
+    constructor (private userService: UserService,
+                 private router: Router) {
         this.user = JSON.parse(localStorage.getItem('user'));
     }
 
@@ -34,8 +35,6 @@ export class HeaderComponent {
 
         this.userService.login(__this.email, __this.password).subscribe((res: Response) => {
             let user = res.json();
-
-            console.log('user', user);
 
             if (res.json()) {
                 // Logged in
@@ -53,5 +52,6 @@ export class HeaderComponent {
     logout() {
         localStorage.removeItem('user');
         this.user = JSON.parse(localStorage.getItem('user'));
+        this.router.navigate(['Home']);
     }
 }

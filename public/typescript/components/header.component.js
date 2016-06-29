@@ -31,8 +31,9 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
             }],
         execute: function() {
             HeaderComponent = (function () {
-                function HeaderComponent(userService) {
+                function HeaderComponent(userService, router) {
                     this.userService = userService;
+                    this.router = router;
                     this.forgotPassword = false;
                     this.loading = false;
                     this.user = JSON.parse(localStorage.getItem('user'));
@@ -42,7 +43,6 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     var __this = this;
                     this.userService.login(__this.email, __this.password).subscribe(function (res) {
                         var user = res.json();
-                        console.log('user', user);
                         if (res.json()) {
                             // Logged in
                             localStorage.setItem('user', JSON.stringify(user));
@@ -57,6 +57,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                 HeaderComponent.prototype.logout = function () {
                     localStorage.removeItem('user');
                     this.user = JSON.parse(localStorage.getItem('user'));
+                    this.router.navigate(['Home']);
                 };
                 HeaderComponent = __decorate([
                     core_1.Component({
@@ -68,7 +69,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                             ng2_bootstrap_1.MODAL_DIRECTVES,
                             common_1.CORE_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService])
+                    __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.Router])
                 ], HeaderComponent);
                 return HeaderComponent;
             }());
