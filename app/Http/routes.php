@@ -62,3 +62,7 @@ Route::get('/study_levels/all', 'ReferenceController@getAllStudyLevels')
 // Applications
 Route::get('/applications/all', 'UserController@getApplications')
     ->name('getAllApplications');
+
+// Experiences
+Route::get('/experiences/all', 'UserController@getExperiences')
+    ->name('getAllExperiences');
