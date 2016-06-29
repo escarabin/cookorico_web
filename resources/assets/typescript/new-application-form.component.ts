@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouteParams, Response } from '@angular/router-deprecated'
+import { Router, RouterLink, RouteParams, Response } from '@angular/router-deprecated'
 
 // Services
 import { JobService } from './job.service';
@@ -16,14 +16,15 @@ export class NewApplicationFormComponent {
     comment: string;
 
     constructor(private routeParams: RouteParams,
-                private jobService: JobService) {
+                private jobService: JobService,
+                private router: Router) {
         this.jobId = routeParams.get("jobId");
     }
 
     submitApplication() {
         let __this = this;
         this.jobService.apply(__this.jobId, __this.comment).subscribe((res: Response) => {
-            console.log(res.json());
+            this.router.navigate(['Applications']);
         });
     }
 }

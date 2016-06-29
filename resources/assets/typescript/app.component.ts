@@ -15,7 +15,7 @@ import { ClubComponent } from './club.component';
 import { SignUpComponent } from './sign-up.component';
 import { SearchComponent } from './search.component';
 import { NewApplicationFormComponent } from './new-application-form.component';
-import { Applications } from './applications.component';
+import { ApplicationsComponent } from "./applications.component";
 
 @Component({
     directives:[RouterOutlet,
@@ -23,7 +23,8 @@ import { Applications } from './applications.component';
                 HeaderComponent,
                 FooterComponent,
                 SearchComponent,
-                NewApplicationFormComponent],
+                NewApplicationFormComponent,
+                ApplicationsComponent],
     selector: 'app',
     templateUrl: '/templates/app.component.html'
 })
@@ -38,7 +39,7 @@ import { Applications } from './applications.component';
     { path: '/profile/', name: 'Profile', component: ProfileComponent },
     { path: '/sign-up/', name: 'SignUp', component: SignUpComponent },
     { path: '/apply/:jobId', name: 'Apply', component: NewApplicationFormComponent },
-    { path: '/profile/applications', name: 'Applications', component: ApplicationcComponent }
+    { path: '/profile/applications', name: 'Applications', component: ApplicationsComponent }
 ])
 
 

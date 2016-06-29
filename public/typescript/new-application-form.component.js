@@ -25,15 +25,17 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service']
             }],
         execute: function() {
             NewApplicationFormComponent = (function () {
-                function NewApplicationFormComponent(routeParams, jobService) {
+                function NewApplicationFormComponent(routeParams, jobService, router) {
                     this.routeParams = routeParams;
                     this.jobService = jobService;
+                    this.router = router;
                     this.jobId = routeParams.get("jobId");
                 }
                 NewApplicationFormComponent.prototype.submitApplication = function () {
+                    var _this = this;
                     var __this = this;
                     this.jobService.apply(__this.jobId, __this.comment).subscribe(function (res) {
-                        console.log(res.json());
+                        _this.router.navigate(['Applications']);
                     });
                 };
                 NewApplicationFormComponent = __decorate([
@@ -43,7 +45,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './job.service']
                         selector: 'new-application-form',
                         templateUrl: '../templates/new-application-form.component.html',
                     }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, job_service_1.JobService])
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, job_service_1.JobService, router_deprecated_1.Router])
                 ], NewApplicationFormComponent);
                 return NewApplicationFormComponent;
             }());
