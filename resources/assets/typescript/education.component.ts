@@ -18,7 +18,7 @@ export class EducationComponent {
     constructor(private userService: UserService) {
         let __this = this;
 
-        this.userService.getGraduateStudies().subscribe((res: Response) => {
+        this.userService.getEducation().subscribe((res: Response) => {
             __this.studies = res.json();
         });
     }

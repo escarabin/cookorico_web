@@ -6,6 +6,7 @@ export class UserService {
     signInUrl = '/sign-in/';
     getApplicationsUrl = '/applications/all';
     getExperiencesUrl = '/experiences/all';
+    getEducationUrl = '/education/all';
 
     constructor(private http: Http) {
 
@@ -41,5 +42,14 @@ export class UserService {
         let __this = this;
 
         return this.http.get(__this.getExperiencesUrl);
+    }
+
+    /**
+     * Get user's work experiences
+     */
+    getEducation() {
+        let __this = this;
+
+        return this.http.get(__this.getEducationUrl);
     }
 }
