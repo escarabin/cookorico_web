@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component', "./applications.component", "./experiences.component", "./education.component", "./alerts.component", "./testimonials.component"], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component', "./applications.component", "./experiences.component", "./education.component", "./alerts.component", "./testimonials.component", "./create-experience.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1;
+    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1;
     var ProfileComponent;
     return {
         setters:[
@@ -40,6 +40,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             },
             function (testimonials_component_1_1) {
                 testimonials_component_1 = testimonials_component_1_1;
+            },
+            function (create_experience_component_1_1) {
+                create_experience_component_1 = create_experience_component_1_1;
             }],
         execute: function() {
             ProfileComponent = (function () {
@@ -61,6 +64,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         { path: '/show', name: 'Show', component: experiences_component_1.ExperiencesComponent, useAsDefault: true },
                         // Experiences
                         { path: '/experiences/all', name: 'Experiences', component: experiences_component_1.ExperiencesComponent },
+                        { path: '/experience/create', name: 'CreateExperience', component: create_experience_component_1.CreateExperienceComponent },
                         // Applications
                         { path: '/applications/all', name: 'Applications', component: applications_component_1.ApplicationsComponent },
                         // Education

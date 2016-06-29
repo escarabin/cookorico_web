@@ -15,6 +15,7 @@ import { ExperiencesComponent } from "./experiences.component";
 import { EducationComponent } from "./education.component";
 import { AlertsComponent } from "./alerts.component";
 import { TestimonialsComponent } from "./testimonials.component";
+import { CreateExperienceComponent } from "./create-experience.component";
 
 @Component({
     providers: [UserService],
@@ -35,6 +36,7 @@ import { TestimonialsComponent } from "./testimonials.component";
 
     // Experiences
     { path: '/experiences/all', name: 'Experiences', component: ExperiencesComponent },
+    { path: '/experience/create', name: 'CreateExperience', component: CreateExperienceComponent },
 
     // Applications
     { path: '/applications/all', name: 'Applications', component: ApplicationsComponent },

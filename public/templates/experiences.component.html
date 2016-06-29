@@ -1,6 +1,7 @@
 <div class="col-md-12">
     <h2>Experiences</h2>
 </div>
+
 <div class="col-md-12">
     <ul>
         <li *ngFor="let experience of experiences">
@@ -9,4 +10,10 @@
             </a><br />
         </li>
     </ul>
+</div>
+
+<div class="col-md-12">
+    <button class="btn btn-primary" [routerLink]="['CreateExperience']">
+        Ajouter une expérience
+    </button>
 </div>
