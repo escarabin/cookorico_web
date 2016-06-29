@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Application;
+use App\Models\Experience;
 use Auth;
 
 use App\Models\User;
@@ -40,5 +41,21 @@ class UserController extends Controller
         }
 
         return $applications;
+    }
+
+
+    public function getExperiences() {
+        $user = Auth::user();
+
+        $experiences = Experience::where('user_id', $user->id)->get();
+
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        foreach ($experiences as $experience) {
+            $experience->jobNaming = $experience->jobNaming;
+            $experience->user = $experience->user;
+            $experience->business = $experience->business;
+        }
+
+        return $experiences;
     }
 }
