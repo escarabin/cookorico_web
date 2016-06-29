@@ -77,4 +77,19 @@ class UserController extends Controller
 
         return $education;
     }
+
+    /**
+     * Get user's new job alerts
+     * @return mixed
+     */
+    public function getAlerts() {
+        $alerts = Auth::user()->alerts;
+
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        foreach ($alerts as $alert) {
+            $alert->jobNaming = $alert->jobNaming;
+        }
+
+        return $alerts;
+    }
 }
