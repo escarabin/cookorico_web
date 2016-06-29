@@ -4,7 +4,7 @@
 <div class="col-md-12">
     <ul>
         <li *ngFor="let experience of experiences">
-            <a [routerLink]="['ShowExperience', { experienceId: experience.id }]">
+            <a>
                 {{ experience.jobNaming.title }}
             </a><br />
         </li>

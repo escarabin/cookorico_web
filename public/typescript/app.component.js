@@ -76,16 +76,23 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                         templateUrl: '/templates/app.component.html'
                     }),
                     router_deprecated_1.RouteConfig([
+                        // Root
                         { path: '/', name: 'Home', component: home_component_1.HomeComponent, useAsDefault: true },
+                        // Jobs
                         { path: '/job/:jobId/', name: 'ShowJob', component: job_component_1.JobComponent },
                         { path: '/jobs/search/:stateId/:jobNamingId/:contractTypeId/:searchText', name: 'SearchJobs', component: search_component_1.SearchComponent },
+                        // Posts
                         { path: '/post/:postId/', name: 'ShowPost', component: post_component_1.PostComponent },
+                        // Clubs
                         { path: '/club/:clubId', name: 'ShowClub', component: club_component_1.ClubComponent },
-                        { path: '/profile/', name: 'Profile', component: profile_component_1.ProfileComponent },
+                        // User
                         { path: '/sign-up/', name: 'SignUp', component: sign_up_component_1.SignUpComponent },
-                        { path: '/apply/:jobId', name: 'Apply', component: new_application_form_component_1.NewApplicationFormComponent },
+                        { path: '/profile/', name: 'Profile', component: profile_component_1.ProfileComponent },
+                        // Experiences
+                        { path: '/profile/experiences', name: 'Experiences', component: experiences_component_1.ExperiencesComponent },
+                        // Applications
                         { path: '/profile/applications', name: 'Applications', component: applications_component_1.ApplicationsComponent },
-                        { path: '/profile/experiences', name: 'Experiences', component: experiences_component_1.ExperiencesComponent }
+                        { path: '/apply/:jobId', name: 'Apply', component: new_application_form_component_1.NewApplicationFormComponent },
                     ]), 
                     __metadata('design:paramtypes', [core_1.ViewContainerRef])
                 ], AppComponent);
