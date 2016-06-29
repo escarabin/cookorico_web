@@ -222,6 +222,9 @@ job-search-sidebar h3 {
   text-transform: uppercase;
   font-family: "Avenir Medium", sans-serif; }
 
+job-search-sidebar .collapse {
+  padding: 0; }
+
 job-search-sidebar label {
   font-weight: inherit; }
 
@@ -229,9 +232,15 @@ job-search-sidebar ul {
   padding-left: 0; }
 
 job-search-sidebar ul li {
-  padding: 5px 0;
+  padding: 5px 10px 5px 0;
   font-family: "Avenir Medium", sans-serif;
-  color: #6d6d6d; }
+  color: #6d6d6d;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-radius: 3px; }
+
+job-search-sidebar ul li:hover {
+  background: white; }
 
 job-search-sidebar ul li.group {
   font-family: "Avenir Heavy", sans-serif; }
