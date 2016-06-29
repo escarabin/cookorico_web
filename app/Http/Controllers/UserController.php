@@ -31,7 +31,7 @@ class UserController extends Controller
     public function getApplications() {
         $user = Auth::user();
 
-        $applications = Application::where('user_id', $user->id);
+        $applications = Application::where('user_id', $user->id)->get();
 
         return $applications;
     }
