@@ -26,7 +26,7 @@ Route::get('/jobs/all', 'JobController@getAll')
     ->name('getAllJobs');
 Route::get('/jobs/search/{stateId?}/{jobNamingId?}/{contractTypeId?}/{searchText?}', 'JobController@search')
     ->name('searchJobs');
-Route::get('/job/apply/{id}', 'JobController@apply')
+Route::get('/job/apply/{jobId}/{userId}/{comment}', 'JobController@apply')
     ->name('applyJob');
 
 // User

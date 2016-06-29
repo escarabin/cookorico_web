@@ -75,13 +75,15 @@ class JobController extends Controller
         return $jobs;
     }
 
-    public function apply($userId, $jobId, $comment) {
+    public function apply($jobId, $userId, $comment) {
         $newApplication = new Application;
 
-        $newApplication->user_id -> $userId;
-        $newApplication->job_id -> $jobId;
-        $newApplication->job_id -> $comment;
+        $newApplication->user_id = $userId;
+        $newApplication->job_id = $jobId;
+        $newApplication->comment = $comment;
 
         $newApplication->save();
+
+        return $newApplication;
     }
 }

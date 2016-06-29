@@ -7,9 +7,10 @@ export class JobService {
     showJobListingUrl = '/job/';
     applyJobUrl = '/job/apply/';
     jobId: number;
+    user: any;
 
     constructor(private http: Http) {
-
+        this.user = JSON.parse(localStorage.getItem('user'));
     }
 
     /**
@@ -38,9 +39,9 @@ export class JobService {
      * @param jobId
      * @returns {Observable<Response>}
      */
-    apply(jobId) {
+    apply(jobId, comment) {
         let __this = this;
 
-        return this.http.request(__this.applyJobUrl + jobId);
+        return this.http.request(__this.applyJobUrl + jobId + '/' + this.user.id + '/' + comment);
     }
 }
