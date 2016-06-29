@@ -75,6 +75,14 @@ class User extends Authenticatable
      */
     public function applications()
     {
-        return $this->belongsToMany('App\Models\Application');
+        return $this->hasMany('App\Models\Application');
+    }
+
+    /**
+     * Get user's work experiences
+     */
+    public function experiences()
+    {
+        return $this->hasMany('App\Models\Experiences');
     }
 }

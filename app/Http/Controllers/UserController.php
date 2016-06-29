@@ -30,9 +30,7 @@ class UserController extends Controller
     }
 
     public function getApplications() {
-        $user = Auth::user();
-
-        $applications = Application::where('user_id', $user->id)->get();
+        $applications = Auth::user()->applications;
 
         // Necesseray Laravel's workaround to return relationship values inside JSON
         foreach ($applications as $application) {
@@ -45,9 +43,7 @@ class UserController extends Controller
 
 
     public function getExperiences() {
-        $user = Auth::user();
-
-        $experiences = Experience::where('user_id', $user->id)->get();
+        $experiences = Auth::user()->experiences;
 
         // Necesseray Laravel's workaround to return relationship values inside JSON
         foreach ($experiences as $experience) {
