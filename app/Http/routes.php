@@ -70,3 +70,7 @@ Route::get('/experiences/all', 'UserController@getExperiences')
 // Education
 Route::get('/education/all', 'UserController@getEducation')
     ->name('getEducation');
+
+// Alerts
+Route::get('/alerts/all', 'UserController@getAlerts')
+    ->name('getAlerts');
