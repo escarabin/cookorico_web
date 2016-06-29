@@ -25,7 +25,8 @@ import { ExperiencesComponent } from "./experiences.component";
                 FooterComponent,
                 SearchComponent,
                 NewApplicationFormComponent,
-                ApplicationsComponent],
+                ApplicationsComponent,
+                ExperiencesComponent],
     selector: 'app',
     templateUrl: '/templates/app.component.html'
 })
@@ -41,7 +42,7 @@ import { ExperiencesComponent } from "./experiences.component";
     { path: '/sign-up/', name: 'SignUp', component: SignUpComponent },
     { path: '/apply/:jobId', name: 'Apply', component: NewApplicationFormComponent },
     { path: '/profile/applications', name: 'Applications', component: ApplicationsComponent },
-    { path: '/profile/experiences', name: 'Experiences', component: ExperiencesComponent },
+    { path: '/profile/experiences', name: 'Experiences', component: ExperiencesComponent }
 ])
 
 

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './home.component', './job.component', './post.component', './header.component', './footer.component', './profile.component', './club.component', './sign-up.component', './search.component', './new-application-form.component', "./applications.component"], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './home.component', './job.component', './post.component', './header.component', './footer.component', './profile.component', './club.component', './sign-up.component', './search.component', './new-application-form.component', "./applications.component", "./experiences.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, home_component_1, job_component_1, post_component_1, header_component_1, footer_component_1, profile_component_1, club_component_1, sign_up_component_1, search_component_1, new_application_form_component_1, applications_component_1;
+    var core_1, router_deprecated_1, home_component_1, job_component_1, post_component_1, header_component_1, footer_component_1, profile_component_1, club_component_1, sign_up_component_1, search_component_1, new_application_form_component_1, applications_component_1, experiences_component_1;
     var AppComponent;
     return {
         setters:[
@@ -52,6 +52,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
             },
             function (applications_component_1_1) {
                 applications_component_1 = applications_component_1_1;
+            },
+            function (experiences_component_1_1) {
+                experiences_component_1 = experiences_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -67,7 +70,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                             footer_component_1.FooterComponent,
                             search_component_1.SearchComponent,
                             new_application_form_component_1.NewApplicationFormComponent,
-                            applications_component_1.ApplicationsComponent],
+                            applications_component_1.ApplicationsComponent,
+                            experiences_component_1.ExperiencesComponent],
                         selector: 'app',
                         templateUrl: '/templates/app.component.html'
                     }),
@@ -80,7 +84,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                         { path: '/profile/', name: 'Profile', component: profile_component_1.ProfileComponent },
                         { path: '/sign-up/', name: 'SignUp', component: sign_up_component_1.SignUpComponent },
                         { path: '/apply/:jobId', name: 'Apply', component: new_application_form_component_1.NewApplicationFormComponent },
-                        { path: '/profile/applications', name: 'Applications', component: applications_component_1.ApplicationsComponent }
+                        { path: '/profile/applications', name: 'Applications', component: applications_component_1.ApplicationsComponent },
+                        { path: '/profile/experiences', name: 'Experiences', component: experiences_component_1.ExperiencesComponent }
                     ]), 
                     __metadata('design:paramtypes', [core_1.ViewContainerRef])
                 ], AppComponent);
