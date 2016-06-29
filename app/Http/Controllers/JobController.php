@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Job;
 use App\Models\StudyLevel;
+use App\Models\Application;
 
 use Log;
 

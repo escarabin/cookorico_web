@@ -100,6 +100,10 @@ job {
   padding-top: 150px;
   display: block; }
 
+new-application-form {
+  display: block;
+  padding-top: 150px; }
+
 search {
   padding-top: 150px;
   display: block; }

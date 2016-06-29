@@ -14,13 +14,15 @@ import { ProfileComponent } from './profile.component';
 import { ClubComponent } from './club.component';
 import { SignUpComponent } from './sign-up.component';
 import { SearchComponent } from './search.component';
+import { NewApplicationFormComponent } from './new-application-form.component';
 
 @Component({
     directives:[RouterOutlet,
                 HomeComponent,
                 HeaderComponent,
                 FooterComponent,
-                SearchComponent],
+                SearchComponent,
+                NewApplicationFormComponent],
     selector: 'app',
     templateUrl: '/templates/app.component.html'
 })
@@ -34,7 +36,7 @@ import { SearchComponent } from './search.component';
     { path: '/club/:clubId', name: 'ShowClub', component: ClubComponent },
     { path: '/profile/', name: 'Profile', component: ProfileComponent },
     { path: '/sign-up/', name: 'SignUp', component: SignUpComponent },
-    { path: '/apply/', name: 'Apply', component: SignUpComponent },
+    { path: '/apply/:jobId', name: 'Apply', component: NewApplicationFormComponent }
 ])
 
 

@@ -60,7 +60,7 @@
 
             <div class="col-md-12"
                  *ngIf="user && user.user_type_id == 3">
-                <a [routerLink]="['Apply']">
+                <a [routerLink]="['Apply', { jobId: jobId }]">
                     <button class="btn btn-primary">
                         Postuler à cette offre
                     </button>
@@ -69,7 +69,7 @@
 
             <div class="col-md-12"
                  *ngIf="!user">
-                <a [routerLink]="['SignUp']">
+                <a [routerLink]="['Apply', { jobId: jobId }]">
                     <button class="btn btn-primary">
                         Postuler à cette offre
                     </button>

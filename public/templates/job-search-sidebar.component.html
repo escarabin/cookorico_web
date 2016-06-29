@@ -56,7 +56,7 @@
         <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
             <span class="fa fa-sticky-note-o"></span> &nbsp; Type de poste
         </h3>
-        <div [collapse]="isContractTypeCollapsed"
+        <div [collapse]="isJobNamingCollapsed"
              class="col-md-12">
             <ul>
                 <li *ngFor="let jobNaming of jobNamings"
