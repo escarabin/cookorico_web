@@ -10,6 +10,7 @@ export class UserService {
     getAlertsUrl = '/alerts/all';
     getTestimonialsUrl = '/testimonials/all';
     getCreatedTestimonialsUrl = '/created_testimonials/all';
+    createExperienceUrl = '/experience/create';
 
     constructor(private http: Http) {
 
@@ -81,5 +82,28 @@ export class UserService {
         let __this = this;
 
         return this.http.get(__this.getCreatedTestimonialsUrl);
+    }
+
+    /**
+     * Create new work experience
+     * @param jobId
+     * @param businessId
+     * @param startDate
+     * @param endDate
+     * @param place
+     * @param description
+     * @returns {Observable<Response>}
+     */
+    createExperience(jobNamingId, businessId, startDate, endDate, place, description) {
+        let __this = this;
+
+        return this.http.get(
+            __this.createExperienceUrl + '/' +
+            jobNamingId + '/' +
+            businessId + '/' +
+            startDate + '/' +
+            endDate + '/' +
+            place + '/' +
+            description);
     }
 }

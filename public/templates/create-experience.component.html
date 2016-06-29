@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <label>Poste</label>
             <select name="job"
-                    [(ngModel)]="jobId"
+                    [(ngModel)]="jobNamingId"
                     class="form-control">
                 <option disabled selected>-- Poste --</option>
                 <option *ngFor="let jobNaming of jobNamings"
@@ -19,7 +19,7 @@
         <div class="col-md-6">
             <label>Établissement</label>
             <input type="text"
-                   [(ngModel)]="business"
+                   [(ngModel)]="businessId"
                    class="form-control"
                    placeholder="Établissement"/>
         </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="col-md-6">
             <label>Lieu</label>
-            <input type="date"
+            <input type="text"
                    [(ngModel)]="endDate"
                    class="form-control"
                    placeholder="Lieu"/>

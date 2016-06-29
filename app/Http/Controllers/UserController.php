@@ -126,4 +126,30 @@ class UserController extends Controller
 
         return $testimonials;
     }
+
+
+    /**
+     * Create new work experience
+     * @param $jobId
+     * @param $businessId
+     * @param $startDate
+     * @param $endDate
+     * @param $place
+     * @param $description
+     */
+    public function createExperience($jobNamingId, $businessId, $startDate, $endDate, $adress, $description) {
+        $user_id = Auth::user()->id;
+
+        $experience = new Experience;
+
+        $experience->user_id = $user_id;
+        $experience->job_naming_id = $jobNamingId;
+        $experience->business_id = $businessId;
+        $experience->start_date = $startDate;
+        $experience->end_date = $endDate;
+        $experience->adress = $adress;
+        $experience->description = $description;
+
+        $experience->save();
+    }
 }

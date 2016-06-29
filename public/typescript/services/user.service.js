@@ -31,6 +31,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.getAlertsUrl = '/alerts/all';
                     this.getTestimonialsUrl = '/testimonials/all';
                     this.getCreatedTestimonialsUrl = '/created_testimonials/all';
+                    this.createExperienceUrl = '/experience/create';
                 }
                 /**
                  * Sign user in
@@ -84,6 +85,26 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 UserService.prototype.getCreatedTestimonials = function () {
                     var __this = this;
                     return this.http.get(__this.getCreatedTestimonialsUrl);
+                };
+                /**
+                 * Create new work experience
+                 * @param jobId
+                 * @param businessId
+                 * @param startDate
+                 * @param endDate
+                 * @param place
+                 * @param description
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.createExperience = function (jobNamingId, businessId, startDate, endDate, place, description) {
+                    var __this = this;
+                    return this.http.get(__this.createExperienceUrl + '/' +
+                        jobNamingId + '/' +
+                        businessId + '/' +
+                        startDate + '/' +
+                        endDate + '/' +
+                        place + '/' +
+                        description);
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 
