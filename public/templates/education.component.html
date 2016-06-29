@@ -1,0 +1,12 @@
+<div class="col-md-12">
+    <h2>Mes formations</h2>
+</div>
+<div class="col-md-12">
+    <ul>
+        <li *ngFor="let study of studies">
+            <a>
+                {{ study.diploma.title }}
+            </a><br />
+        </li>
+    </ul>
+</div>
