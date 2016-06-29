@@ -55,7 +55,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     return this.http.get(__this.getExperiencesUrl);
                 };
                 /**
-                 * Get user's work experiences
+                 * Get user's education
                  */
                 UserService.prototype.getEducation = function () {
                     var __this = this;

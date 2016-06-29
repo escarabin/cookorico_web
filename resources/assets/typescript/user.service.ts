@@ -45,7 +45,7 @@ export class UserService {
     }
 
     /**
-     * Get user's work experiences
+     * Get user's education
      */
     getEducation() {
         let __this = this;
