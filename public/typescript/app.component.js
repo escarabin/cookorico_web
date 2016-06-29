@@ -97,8 +97,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                         { path: '/profile/applications', name: 'Applications', component: applications_component_1.ApplicationsComponent },
                         { path: '/apply/:jobId', name: 'Apply', component: new_application_form_component_1.NewApplicationFormComponent },
                         // Education
-                        { path: '/studies/all', name: 'Studies', component: education_component_1.EducationComponent },
-                        { path: '/study/:studyId', name: 'ShowStudy', component: education_component_1.EducationComponent },
+                        { path: '/education/all', name: 'Education', component: education_component_1.EducationComponent },
+                        { path: '/education/:studyId', name: 'ShowStudy', component: education_component_1.EducationComponent },
                     ]), 
                     __metadata('design:paramtypes', [core_1.ViewContainerRef])
                 ], AppComponent);
