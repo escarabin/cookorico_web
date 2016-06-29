@@ -1,10 +1,18 @@
 import { Component } from '@angular/core';
 
+// Services
+import { UserService } from './user.service';
+
 @Component({
-    selector: 'profile',
+    selector: 'applications',
+    providers: [UserService],
     templateUrl: '../templates/applications.component.html',
 })
 
 export class ApplicationsComponent {
+    applications: any;
 
+    constructor(private userService: UserService) {
+
+    }
 }

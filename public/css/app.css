@@ -200,6 +200,10 @@ sidebar .user_infos .profile_picture {
   background-position: center center;
   border-radius: 50%; }
 
+applications {
+  padding-top: 150px;
+  display: block; }
+
 job-search-sidebar h3 {
   cursor: pointer; }
 

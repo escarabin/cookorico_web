@@ -4,6 +4,7 @@ import { HTTP_PROVIDERS, Http } from '@angular/http';
 @Injectable()
 export class UserService {
     signInUrl = '/sign-in/';
+    getApplicationsUrl = '/applications/all';
 
     constructor(private http: Http) {
 
@@ -21,5 +22,15 @@ export class UserService {
 
         console.log(__this.signInUrl + email + '/' + password);
         return this.http.get(__this.signInUrl + email + '/' + password);
+    }
+
+    /**
+     * Get user's job applications
+     * @param userId
+     */
+    getApplications(userId) {
+        let __this = this;
+
+        return this.http.get(__this.getApplicationsUrl);
     }
 }

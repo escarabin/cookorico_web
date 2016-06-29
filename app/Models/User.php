@@ -69,4 +69,13 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Diploma');
     }
+
+
+    /**
+     * Get user's job applications
+     */
+    public function applications()
+    {
+        return $this->belongsToMany('App\Models\Application');
+    }
 }
