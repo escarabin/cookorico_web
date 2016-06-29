@@ -36,7 +36,8 @@ import { NewApplicationFormComponent } from './new-application-form.component';
     { path: '/club/:clubId', name: 'ShowClub', component: ClubComponent },
     { path: '/profile/', name: 'Profile', component: ProfileComponent },
     { path: '/sign-up/', name: 'SignUp', component: SignUpComponent },
-    { path: '/apply/:jobId', name: 'Apply', component: NewApplicationFormComponent }
+    { path: '/apply/:jobId', name: 'Apply', component: NewApplicationFormComponent },
+    { path: '/profile/applications', name: 'Applications', component: ApplicationcComponent }
 ])
 
 
