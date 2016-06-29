@@ -18,6 +18,7 @@ import { NewApplicationFormComponent } from './new-application-form.component';
 import { ApplicationsComponent } from "./applications.component";
 import { ExperiencesComponent } from "./experiences.component";
 import { EducationComponent } from "./education.component";
+import { AlertsComponent } from "./alerts.component";
 
 @Component({
     directives:[RouterOutlet,
@@ -61,6 +62,10 @@ import { EducationComponent } from "./education.component";
     // Education
     { path: '/education/all', name: 'Education', component: EducationComponent },
     { path: '/education/:studyId', name: 'ShowStudy', component: EducationComponent },
+
+    // Alerts
+    { path: '/alerts/all', name: 'Education', component: AlertsComponent },
+    { path: '/alert/:alertId', name: 'ShowStudy', component: AlertsComponent },
 ])
 
 
