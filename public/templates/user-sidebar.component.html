@@ -1,13 +1,42 @@
 <!-- User is connected -->
-<div *ngIf="user" class="user_infos">
-    <div class="profile_picture"
-         [ngStyle]="{'background-image': userProfilePicturePath}">
+<div *ngIf="user" class="user_infos row">
+    <div class="col-md-12">
+        <div class="profile_picture"
+             [ngStyle]="{'background-image': userProfilePicturePath}">
+        </div>
+        <br />
+        {{ user.firstName }} {{ user.lastName }}<br /><br />
+        <a [routerLink]="['Profile']">
+            <button class="btn btn-primary">
+                Compléter mon profil
+            </button>
+        </a>
     </div>
-    <br />
-    {{ user.firstName }} {{ user.lastName }}<br /><br />
-    <a [routerLink]="['Profile']">
-        <button class="btn btn-primary">
-            Compléter votre profil
-        </button>
-    </a>
+    <div *ngIf="user.user_type_id==3">
+        <div class="col-md-12">
+            <a [routerLink]="['Applications']">
+                Mes experiences
+            </a>
+        </div>
+        <div class="col-md-12">
+            <a [routerLink]="['Applications']">
+                Ma formation
+            </a>
+        </div>
+        <div class="col-md-12">
+            <a [routerLink]="['Applications']">
+                Mes candidatures
+            </a>
+        </div>
+        <div class="col-md-12">
+            <a [routerLink]="['Applications']">
+                Mes alertes
+            </a>
+        </div>
+        <div class="col-md-12">
+            <a [routerLink]="['Applications']">
+                Mes recommandations
+            </a>
+        </div>
+    </div>
 </div>

@@ -6,9 +6,12 @@ import { RouteParams, RouterLink }
 // Services
 import { UserService } from './user.service';
 
+// Components
+import { UserSidebarComponent } from './user-sidebar.component';
+
 @Component({
     providers: [UserService],
-    directives: [RouterLink],
+    directives: [RouterLink, UserSidebarComponent],
     selector: 'profile',
     templateUrl: '../templates/profile.component.html',
 })

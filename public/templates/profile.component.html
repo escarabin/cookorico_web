@@ -1,12 +1,12 @@
-<div class="col-md-12" *ngIf="user.user_type_id==2">
-    <h2>Recruteur</h2>
+<div class="col-md-3">
+    <user-sidebar></user-sidebar>
 </div>
+<div class="col-md-9">
+    <div class="col-md-12" *ngIf="user.user_type_id==2">
+        <h2>Recruteur</h2>
+    </div>
 
-<div class="col-md-12" *ngIf="user.user_type_id==3">
-    <h2>Candidat</h2>
-    <div class="col-md-12">
-        <a [routerLink]="['Applications']">
-            Mes candidatures
-        </a>
+    <div class="col-md-12" *ngIf="user.user_type_id==3">
+        <h2>Candidat</h2>
     </div>
 </div>

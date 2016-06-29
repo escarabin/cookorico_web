@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './user.service', './user-sidebar.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './user.service'
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1;
+    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1;
     var ProfileComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './user.service'
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
+            },
+            function (user_sidebar_component_1_1) {
+                user_sidebar_component_1 = user_sidebar_component_1_1;
             }],
         execute: function() {
             ProfileComponent = (function () {
@@ -32,7 +35,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './user.service'
                 ProfileComponent = __decorate([
                     core_1.Component({
                         providers: [user_service_1.UserService],
-                        directives: [router_deprecated_1.RouterLink],
+                        directives: [router_deprecated_1.RouterLink, user_sidebar_component_1.UserSidebarComponent],
                         selector: 'profile',
                         templateUrl: '../templates/profile.component.html',
                     }), 
