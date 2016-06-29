@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Response } from '@angular/http'
 
 // Services
 import { UserService } from './user.service';
@@ -13,6 +14,10 @@ export class ApplicationsComponent {
     applications: any;
 
     constructor(private userService: UserService) {
-        this.applications = this.userService.getApplications();
+        let __this = this;
+
+        this.userService.getApplications().subscribe((res: Response) => {
+            __this.applications = res.json();
+        });
     }
 }

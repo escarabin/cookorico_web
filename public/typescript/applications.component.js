@@ -24,7 +24,10 @@ System.register(['@angular/core', './user.service'], function(exports_1, context
             ApplicationsComponent = (function () {
                 function ApplicationsComponent(userService) {
                     this.userService = userService;
-                    this.applications = this.userService.getApplications();
+                    var __this = this;
+                    this.userService.getApplications().subscribe(function (res) {
+                        __this.applications = res.json();
+                    });
                 }
                 ApplicationsComponent = __decorate([
                     core_1.Component({

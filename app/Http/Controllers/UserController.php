@@ -20,6 +20,8 @@ class UserController extends Controller
         $user = User::where('email', $email)->first();
 
         if ($user) {
+            Auth::loginUsingId($user->id);
+
             // Authentication passed...
             return $user;
         }
