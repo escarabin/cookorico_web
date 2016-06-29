@@ -23,4 +23,12 @@ class Alert extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    /**
+     * Get the alert's job naming
+     */
+    public function jobNaming()
+    {
+        return $this->belongsTo('App\Models\JobNaming');
+    }
 }
