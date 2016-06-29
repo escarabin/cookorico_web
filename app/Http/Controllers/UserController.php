@@ -29,6 +29,10 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * Get user's applications
+     * @return mixed
+     */
     public function getApplications() {
         $applications = Auth::user()->applications;
 
@@ -42,6 +46,10 @@ class UserController extends Controller
     }
 
 
+    /**
+     * Get user's work experiences
+     * @return mixed
+     */
     public function getExperiences() {
         $experiences = Auth::user()->experiences;
 
@@ -55,6 +63,10 @@ class UserController extends Controller
         return $experiences;
     }
 
+    /**
+     * Get user's education
+     * @return mixed
+     */
     public function getEducation() {
         $education = Auth::user()->education;
 
