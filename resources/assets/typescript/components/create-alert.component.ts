@@ -20,6 +20,7 @@ export class CreateAlertComponent {
 
     // Form data
     jobNamingId: string;
+    alertFrequencyId: string;
     title: string;
     place: string;
 
@@ -39,5 +40,11 @@ export class CreateAlertComponent {
     submitAlert() {
         let __this = this;
 
+        this.userService.createAlert(__this.alertFrequencyId,
+            __this.title,
+            __this.jobNamingId,
+            __this.place).subscribe((res: Response) => {
+            console.log(res.json());
+        })
     }
 }

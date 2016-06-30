@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Application;
-use App\Models\Experience;
-use App\Models\Study;
 use Auth;
 use Log;
 
 use App\Models\User;
+use App\Models\Application;
+use App\Models\Experience;
+use App\Models\Study;
+use App\Models\Alert;
 
 class UserController extends Controller
 {
@@ -180,8 +181,34 @@ class UserController extends Controller
 
         $study->save();
 
-        Log::info($study);
-
         return $study;
+    }
+
+
+    /**
+     * Create new job alert
+     * @param $diplomaId
+     * @param $businessId
+     * @param $startDate
+     * @param $endDate
+     * @param $place
+     * @param $description
+     */
+    public function createAlert($alertFrequencyId, $title, $jobNamingId, $place) {
+        $user_id = Auth::user()->id;
+
+        $alert = new Alert;
+
+        $alert->user_id = $user_id;
+        $alert->alert_frequency_id = $alertFrequencyId;
+        $alert->title = $title;
+        $alert->job_naming_id = $jobNamingId;
+        $alert->place = $place;
+
+        $alert->save();
+
+        Log::info($alert);
+
+        return $alert;
     }
 }
