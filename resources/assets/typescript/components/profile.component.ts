@@ -50,6 +50,7 @@ import { CreateStudyComponent } from "./create-study.component";
     // Alerts
     { path: '/alerts/all', name: 'Alerts', component: AlertsComponent },
     { path: '/alert/:alertId', name: 'ShowAlert', component: AlertsComponent },
+    { path: '/alert/create', name: 'CreateAlert', component: AlertsComponent },
 
     // Testimonials
     { path: '/testimonials/all', name: 'Testimonials', component: TestimonialsComponent },

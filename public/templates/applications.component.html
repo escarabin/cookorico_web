@@ -1,6 +1,7 @@
 <div class="col-md-12">
     <h2>Candidatures</h2>
 </div>
+
 <div class="col-md-12">
     <ul>
         <li *ngFor="let application of applications">
@@ -9,4 +10,11 @@
             </a><br />
         </li>
     </ul>
+</div>
+
+<div class="col-md-12">
+    <button class="btn btn-primary"
+            [routerLink]="['/ShowAllJobs']">
+        Trouver une offre
+    </button>
 </div>

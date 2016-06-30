@@ -1,6 +1,7 @@
 <div class="col-md-12">
     <h2>Mes alertes emploi</h2>
 </div>
+
 <div class="col-md-12">
     <ul>
         <li *ngFor="let alert of alerts">
@@ -9,4 +10,12 @@
             </a><br />
         </li>
     </ul>
+</div>
+
+
+<div class="col-md-12">
+    <button class="btn btn-primary"
+            [routerLink]="['/Profile/CreateAlert']">
+        Mettre une alerte en place
+    </button>
 </div>

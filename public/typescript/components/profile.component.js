@@ -77,6 +77,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         // Alerts
                         { path: '/alerts/all', name: 'Alerts', component: alerts_component_1.AlertsComponent },
                         { path: '/alert/:alertId', name: 'ShowAlert', component: alerts_component_1.AlertsComponent },
+                        { path: '/alert/create', name: 'CreateAlert', component: alerts_component_1.AlertsComponent },
                         // Testimonials
                         { path: '/testimonials/all', name: 'Testimonials', component: testimonials_component_1.TestimonialsComponent },
                         { path: '/testimonials/:testimonialId', name: 'Testimonial', component: testimonials_component_1.TestimonialsComponent },

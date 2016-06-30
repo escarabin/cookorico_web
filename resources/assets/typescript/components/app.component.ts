@@ -31,6 +31,7 @@ import { NewApplicationFormComponent } from './new-application-form.component';
 
     // Jobs
     { path: '/job/:jobId/', name: 'ShowJob', component: JobComponent },
+    { path: '/jobs/search/', name: 'ShowAllJobs', component: SearchComponent },
     { path: '/jobs/search/:stateId/:jobNamingId/:contractTypeId/:searchText',
         name: 'SearchJobs', component: SearchComponent },
     { path: '/apply/:jobId', name: 'Apply', component: NewApplicationFormComponent },
