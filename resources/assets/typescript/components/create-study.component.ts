@@ -17,7 +17,7 @@ export class CreateStudyComponent {
     diplomas: any;
 
     // Form data
-    jobNamingId: string;
+    diplomaId: string;
     businessId: string;
     startDate: string;
     endDate: string;
@@ -30,12 +30,19 @@ export class CreateStudyComponent {
 
         this.referenceService.getAllDiplomas().subscribe((res: Response) => {
             __this.diplomas = res.json();
-
-            console.log(__this.diplomas);
         });
     }
 
     submitStudy() {
         let __this = this;
+
+        this.userService.createStudy(__this.diplomaId,
+            __this.businessId,
+            __this.startDate,
+            __this.endDate,
+            __this.place,
+            __this.description).subscribe((res: Response) => {
+            console.log(res.json());
+        })
     }
 }

@@ -5,14 +5,14 @@
 <div class="col-md-12">
     <form>
         <div class="col-md-6">
-            <label>Poste</label>
+            <label>Diplôme</label>
             <select name="job"
-                    [(ngModel)]="jobNamingId"
+                    [(ngModel)]="diplomaId"
                     class="form-control">
-                <option disabled selected>-- Poste --</option>
-                <option *ngFor="let jobNaming of jobNamings"
-                        value="{{ jobNaming.id }}">
-                    {{ jobNaming.title }}
+                <option disabled selected>-- Diplôme --</option>
+                <option *ngFor="let diploma of diplomas"
+                        value="{{ diploma.id }}">
+                    {{ diploma.title }}
                 </option>
             </select>
         </div>
@@ -52,7 +52,7 @@
         </div>
         <div class="col-md-12">
             <button class="btn btn-primary"
-                    (click)="submitExperience()">
+                    (click)="submitStudy()">
                 Sauvegarder
             </button>
         </div>

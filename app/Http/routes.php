@@ -72,6 +72,8 @@ Route::get('/experience/create/{jobNamingId}/{businessId}/{startDate}/{endDate}/
 // Education
 Route::get('/education/all', 'UserController@getEducation')
     ->name('getEducation');
+Route::get('/study/create/{diplomaId}/{businessId}/{startDate}/{endDate}/{adress}/{description}', 'UserController@createStudy')
+    ->name('createStudy');
 
 // Alerts
 Route::get('/alerts/all', 'UserController@getAlerts')

@@ -34,11 +34,13 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     var __this = this;
                     this.referenceService.getAllDiplomas().subscribe(function (res) {
                         __this.diplomas = res.json();
-                        console.log(__this.diplomas);
                     });
                 }
                 CreateStudyComponent.prototype.submitStudy = function () {
                     var __this = this;
+                    this.userService.createStudy(__this.diplomaId, __this.businessId, __this.startDate, __this.endDate, __this.place, __this.description).subscribe(function (res) {
+                        console.log(res.json());
+                    });
                 };
                 CreateStudyComponent = __decorate([
                     core_1.Component({

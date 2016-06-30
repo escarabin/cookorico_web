@@ -32,6 +32,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.getTestimonialsUrl = '/testimonials/all';
                     this.getCreatedTestimonialsUrl = '/created_testimonials/all';
                     this.createExperienceUrl = '/experience/create';
+                    this.createStudyUrl = '/study/create';
                 }
                 /**
                  * Sign user in
@@ -41,7 +42,6 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                  */
                 UserService.prototype.login = function (email, password) {
                     var __this = this;
-                    console.log(__this.signInUrl + email + '/' + password);
                     return this.http.get(__this.signInUrl + email + '/' + password);
                 };
                 /**
@@ -88,7 +88,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 };
                 /**
                  * Create new work experience
-                 * @param jobId
+                 * @param jobNamingId
                  * @param businessId
                  * @param startDate
                  * @param endDate
@@ -100,6 +100,26 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     var __this = this;
                     return this.http.get(__this.createExperienceUrl + '/' +
                         jobNamingId + '/' +
+                        businessId + '/' +
+                        startDate + '/' +
+                        endDate + '/' +
+                        place + '/' +
+                        description);
+                };
+                /**
+                 * Create new study
+                 * @param diplomaId
+                 * @param businessId
+                 * @param startDate
+                 * @param endDate
+                 * @param place
+                 * @param description
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.createStudy = function (diplomaId, businessId, startDate, endDate, place, description) {
+                    var __this = this;
+                    return this.http.get(__this.createStudyUrl + '/' +
+                        diplomaId + '/' +
                         businessId + '/' +
                         startDate + '/' +
                         endDate + '/' +
