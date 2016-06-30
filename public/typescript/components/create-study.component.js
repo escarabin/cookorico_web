@@ -32,8 +32,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.referenceService = referenceService;
                     this.userService = userService;
                     var __this = this;
-                    this.referenceService.getAllJobNamings().subscribe(function (res) {
+                    this.referenceService.getAllDiplomas().subscribe(function (res) {
                         __this.diplomas = res.json();
+                        console.log(__this.diplomas);
                     });
                 }
                 CreateStudyComponent.prototype.submitStudy = function () {

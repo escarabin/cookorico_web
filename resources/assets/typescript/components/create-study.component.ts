@@ -28,9 +28,11 @@ export class CreateStudyComponent {
                 private userService: UserService) {
         let __this = this;
 
-        this.referenceService.getAllJobNamings().subscribe((res: Response) => {
+        this.referenceService.getAllDiplomas().subscribe((res: Response) => {
             __this.diplomas = res.json();
-        })
+
+            console.log(__this.diplomas);
+        });
     }
 
     submitStudy() {
