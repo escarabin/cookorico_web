@@ -51,12 +51,12 @@
         </div>
         <div class="col-md-12">
             <button class="btn btn-primary"
-                    *ngIf="alertId"
+                    *ngIf="alert.id"
                     (click)="saveAlertChanges()">
                 Sauvegarder
             </button>
             <button class="btn btn-primary"
-                    *ngIf="!alertId"
+                    *ngIf="!alert.id"
                     (click)="createAlert()">
                 Créer
             </button>

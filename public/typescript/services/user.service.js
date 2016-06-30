@@ -35,6 +35,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.createStudyUrl = '/study/create';
                     this.createAlertUrl = '/alert/create';
                     this.getAlertUrl = '/alert';
+                    this.saveAlertChangesUrl = '/alert/save_changes/';
                 }
                 /**
                  * Sign user in
@@ -148,7 +149,21 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                         alert.alert_frequency_id + '/' +
                         alert.title + '/' +
                         alert.job_naming_id + '/' +
-                        alert.area + '/');
+                        alert.place + '/');
+                };
+                /**
+                 * Save changes to an exisiting job alert
+                 * @param alert
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.saveAlertChanges = function (alert) {
+                    var __this = this;
+                    return this.http.get(__this.saveAlertChangesUrl + '/' +
+                        alert.id + '/' +
+                        alert.alert_frequency_id + '/' +
+                        alert.title + '/' +
+                        alert.job_naming_id + '/' +
+                        alert.place + '/');
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 

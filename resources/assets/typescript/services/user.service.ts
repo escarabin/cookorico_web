@@ -14,6 +14,7 @@ export class UserService {
     createStudyUrl = '/study/create';
     createAlertUrl = '/alert/create';
     getAlertUrl = '/alert';
+    saveAlertChangesUrl = '/alert/save_changes/';
 
     constructor(private http: Http) {
 
@@ -156,6 +157,23 @@ export class UserService {
             alert.alert_frequency_id + '/' +
             alert.title + '/' +
             alert.job_naming_id + '/' +
-            alert.area + '/');
+            alert.place + '/');
+    }
+
+    /**
+     * Save changes to an exisiting job alert
+     * @param alert
+     * @returns {Observable<Response>}
+     */
+    saveAlertChanges(alert) {
+        let __this = this;
+
+        return this.http.get(
+            __this.saveAlertChangesUrl + '/' +
+            alert.id + '/' +
+            alert.alert_frequency_id + '/' +
+            alert.title + '/' +
+            alert.job_naming_id + '/' +
+            alert.place + '/');
     }
 }

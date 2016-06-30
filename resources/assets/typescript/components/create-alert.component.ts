@@ -19,19 +19,18 @@ import { Alert } from './../models/alert'
 export class CreateAlertComponent {
     jobNamings: any;
     alertFrequencies: any;
-    alertId: number;
-    alert = new Alert('', '', '', '');
+    alert = new Alert(null, '', '', '', '');
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
                 private routeParams: RouteParams) {
         let __this = this;
 
-        this.alertId = routeParams.get("alertId");
+        this.alert.id = routeParams.get("alertId");
 
-        if (this.alertId) {
+        if (this.alert.id) {
             // Editing a specific alert, let's retrieve it's data
-            this.userService.getAlert(__this.alertId).subscribe((res: Response) => {
+            this.userService.getAlert(__this.alert.id).subscribe((res: Response) => {
                 __this.alert = res.json();
             });
         }
@@ -49,11 +48,15 @@ export class CreateAlertComponent {
         let __this = this;
 
         this.userService.createAlert(__this.alert).subscribe((res: Response) => {
-            console.log(res.json());
-        })
+
+        });
     }
 
     saveAlertChanges() {
+        let __this = this;
 
+        this.userService.saveAlertChanges(__this.alert).subscribe((res: Response) => {
+
+        });
     }
 }

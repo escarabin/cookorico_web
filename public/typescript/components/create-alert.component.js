@@ -35,12 +35,12 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.routeParams = routeParams;
-                    this.alert = new alert_1.Alert('', '', '', '');
+                    this.alert = new alert_1.Alert(null, '', '', '', '');
                     var __this = this;
-                    this.alertId = routeParams.get("alertId");
-                    if (this.alertId) {
+                    this.alert.id = routeParams.get("alertId");
+                    if (this.alert.id) {
                         // Editing a specific alert, let's retrieve it's data
-                        this.userService.getAlert(__this.alertId).subscribe(function (res) {
+                        this.userService.getAlert(__this.alert.id).subscribe(function (res) {
                             __this.alert = res.json();
                         });
                     }
@@ -54,10 +54,12 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 CreateAlertComponent.prototype.createAlert = function () {
                     var __this = this;
                     this.userService.createAlert(__this.alert).subscribe(function (res) {
-                        console.log(res.json());
                     });
                 };
                 CreateAlertComponent.prototype.saveAlertChanges = function () {
+                    var __this = this;
+                    this.userService.saveAlertChanges(__this.alert).subscribe(function (res) {
+                    });
                 };
                 CreateAlertComponent = __decorate([
                     core_1.Component({

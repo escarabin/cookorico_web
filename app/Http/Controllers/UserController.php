@@ -194,7 +194,6 @@ class UserController extends Controller
         return $study;
     }
 
-
     /**
      * Create new job alert
      * @param $diplomaId
@@ -217,7 +216,28 @@ class UserController extends Controller
 
         $alert->save();
 
-        Log::info($alert);
+        return $alert;
+    }
+
+    /**
+     * Save alert changes
+     * @param $alertId
+     * @param $diplomaId
+     * @param $businessId
+     * @param $startDate
+     * @param $endDate
+     * @param $place
+     * @param $description
+     */
+    public function saveAlertChanges($alertId, $alertFrequencyId, $title, $jobNamingId, $place) {
+        $alert = Alert::find($alertId);
+
+        $alert->alert_frequency_id = $alertFrequencyId;
+        $alert->title = $title;
+        $alert->job_naming_id = $jobNamingId;
+        $alert->place = $place;
+
+        $alert->save();
 
         return $alert;
     }
