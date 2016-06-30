@@ -39,4 +39,12 @@ class Testimonial extends Model
     {
         return $this->belongsTo('App\Models\JobNaming');
     }
+
+    /**
+     * Get the testimonial's business
+     */
+    public function business()
+    {
+        return $this->belongsTo('App\Models\Business');
+    }
 }

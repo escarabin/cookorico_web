@@ -119,6 +119,7 @@ class UserController extends Controller
             $testimonial->jobNaming = $testimonial->jobNaming;
             $testimonial->recruiter = $testimonial->recruiter;
             $testimonial->employee = $testimonial->employee;
+            $testimonial->business = $testimonial->business;
         }
 
         return $testimonials;
