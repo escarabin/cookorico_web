@@ -20,8 +20,10 @@ profile .profile-router {
   background: white;
   padding: 0;
   border-radius: $mainBorderRadius;
-  -webkit-box-shadow: 0 0 0 2px rgba(226,231,238,0.25);
-  box-shadow: 0 0 0 2px rgba(226,231,238,0.25);
+  -moz-box-shadow: $mainBoxShadow;
+  -webkit-box-shadow: $mainBoxShadow;
+  -o-box-shadow: $mainBoxShadow;
+  box-shadow: $mainBoxShadow;
 }
 
 profile .page-title-container h3 {
@@ -48,7 +50,7 @@ profile .list-container ul {
 }
 
 profile .list-container ul li {
-  padding: 10px 20px 20px 20px;
+  padding: 5px 20px 20px 20px;
   border-bottom: 1px solid #e4e4e4;
 }
 
@@ -60,8 +62,8 @@ profile .list-container ul a:nth-child(odd) li {
   background: white;
 }
 
-profile .list-container ul li:hover {
-  background-color: whitesmoke;
+profile .list-container ul a li:hover {
+  background-color: ghostwhite;
 }
 
 profile .list-container ul a {
@@ -74,6 +76,30 @@ profile .list-container ul li h3 {
   padding-bottom: 5px;
 }
 
+profile .list-container ul li .date {
+  float: right;
+  color: #a9a9a9;
+  font-family: $mainMediumFontFamily;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
 profile .header-container {
   padding: 0;
+}
+
+
+profile .header-container .create-btn-container {
+  text-align: center;
+  padding: 0;
+  border-bottom: 1px solid #CCC;
+  height: 70px;
+}
+
+profile .header-container .create-btn-container button {
+  border: 0;
+  width: 100%;
+  height: 69px;
+  border-radius: 0;
+  font-size: 1.25em;
 }

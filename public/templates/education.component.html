@@ -1,5 +1,10 @@
-<div class="col-md-12">
-    <h2>Mes formations</h2>
+<div class="col-md-12 header-container">
+    <div class="col-md-12 create-btn-container">
+        <button class="btn btn-primary"
+                [routerLink]="['/Profile/CreateStudy']">
+            <span class="fa fa-plus"></span> &nbsp; Ajouter une formation
+        </button>
+    </div>
 </div>
 
 <div class="col-md-12 list-container">
@@ -11,11 +16,4 @@
             </li>
         </a>
     </ul>
-</div>
-
-<div class="col-md-12">
-    <button class="btn btn-primary"
-            [routerLink]="['/Profile/CreateStudy']">
-        Ajouter une formation
-    </button>
 </div>
