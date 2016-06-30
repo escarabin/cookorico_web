@@ -48,11 +48,12 @@ export class CreateAlertComponent {
     createAlert() {
         let __this = this;
 
-        this.userService.createAlert(__this.alert.alert_frequency_id,
-            __this.alert.title,
-            __this.alert.job_naming_id,
-            __this.alert.place).subscribe((res: Response) => {
+        this.userService.createAlert(__this.alert).subscribe((res: Response) => {
             console.log(res.json());
         })
+    }
+
+    saveAlertChanges() {
+
     }
 }

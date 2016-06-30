@@ -139,19 +139,16 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 };
                 /**
                  * Create new job alert
-                 * @param alertFrequencyId
-                 * @param title
-                 * @param jobNamingId
-                 * @param area
+                 * @param alert
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.createAlert = function (alertFrequencyId, title, jobNamingId, area) {
+                UserService.prototype.createAlert = function (alert) {
                     var __this = this;
                     return this.http.get(__this.createAlertUrl + '/' +
-                        alertFrequencyId + '/' +
-                        title + '/' +
-                        jobNamingId + '/' +
-                        area + '/');
+                        alert.alert_frequency_id + '/' +
+                        alert.title + '/' +
+                        alert.job_naming_id + '/' +
+                        alert.area + '/');
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 

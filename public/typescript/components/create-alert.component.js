@@ -53,9 +53,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 }
                 CreateAlertComponent.prototype.createAlert = function () {
                     var __this = this;
-                    this.userService.createAlert(__this.alert.alert_frequency_id, __this.alert.title, __this.alert.job_naming_id, __this.alert.place).subscribe(function (res) {
+                    this.userService.createAlert(__this.alert).subscribe(function (res) {
                         console.log(res.json());
                     });
+                };
+                CreateAlertComponent.prototype.saveAlertChanges = function () {
                 };
                 CreateAlertComponent = __decorate([
                     core_1.Component({

@@ -6,9 +6,9 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Alert = (function () {
-                function Alert(jobNamingId, alertFrequencyId, title, place) {
-                    this.jobNamingId = jobNamingId;
-                    this.alertFrequencyId = alertFrequencyId;
+                function Alert(job_naming_id, alert_frequency_id, title, place) {
+                    this.job_naming_id = job_naming_id;
+                    this.alert_frequency_id = alert_frequency_id;
                     this.title = title;
                     this.place = place;
                 }

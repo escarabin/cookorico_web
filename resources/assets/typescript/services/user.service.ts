@@ -145,20 +145,17 @@ export class UserService {
 
     /**
      * Create new job alert
-     * @param alertFrequencyId
-     * @param title
-     * @param jobNamingId
-     * @param area
+     * @param alert
      * @returns {Observable<Response>}
      */
-    createAlert(alertFrequencyId, title, jobNamingId, area) {
+    createAlert(alert) {
         let __this = this;
 
         return this.http.get(
             __this.createAlertUrl + '/' +
-            alertFrequencyId + '/' +
-            title + '/' +
-            jobNamingId + '/' +
-            area + '/');
+            alert.alert_frequency_id + '/' +
+            alert.title + '/' +
+            alert.job_naming_id + '/' +
+            alert.area + '/');
     }
 }
