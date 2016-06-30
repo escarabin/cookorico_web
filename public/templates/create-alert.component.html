@@ -56,9 +56,21 @@
             <h3>
                 <span class="fa fa-clock-o"></span> &nbsp;
                 Être alerté
-                <span class="dynamic_data">{{ alert.alert_frequency_id }}</span>
+                <span class="dynamic_data text-lowercase">
+                    <span *ngFor="let alertFrequency of alertFrequencies">
+                        <span *ngIf="alertFrequency.id == alert.alert_frequency_id">
+                            {{ alertFrequency.title }}
+                        </span>
+                    </span>
+                </span>
                 des offres de
-                <span class="dynamic_data">{{ alert.job_naming_id }}</span>
+                <span class="dynamic_data text-lowercase">
+                    <span *ngFor="let jobNaming of jobNamings">
+                        <span *ngIf="jobNaming.id == alert.job_naming_id">
+                            {{ jobNaming.title }}
+                        </span>
+                    </span>
+                </span>
                 autour de
                 <span class="dynamic_data">{{ alert.place }}</span>
             </h3>
