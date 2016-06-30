@@ -35,7 +35,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                     var _this = this;
                     var __this = this;
                     this.jobService.apply(__this.jobId, __this.comment).subscribe(function (res) {
-                        _this.router.navigate(['Applications']);
+                        _this.router.navigate(['/Profile/Applications']);
                     });
                 };
                 __decorate([

@@ -24,7 +24,7 @@ export class NewApplicationFormComponent {
     submitApplication() {
         let __this = this;
         this.jobService.apply(__this.jobId, __this.comment).subscribe((res: Response) => {
-            this.router.navigate(['Applications']);
+            this.router.navigate(['/Profile/Applications']);
         });
     }
 }
