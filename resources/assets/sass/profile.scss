@@ -52,6 +52,14 @@ profile .list-container ul li {
   border-bottom: 1px solid #e4e4e4;
 }
 
+profile .list-container ul a li {
+  background: whitesmoke;
+}
+
+profile .list-container ul a:nth-child(odd) li {
+  background: white;
+}
+
 profile .list-container ul li:hover {
   background-color: whitesmoke;
 }
