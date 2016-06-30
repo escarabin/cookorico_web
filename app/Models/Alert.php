@@ -38,8 +38,4 @@ class Alert extends Model
     {
         return $this->belongsTo('App\Models\JobNaming');
     }
-
-    public function getStartDateAttribute($value) {
-        return 'test'.$value;
-    }
 }

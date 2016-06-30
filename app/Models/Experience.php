@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Experience extends Model
 {
@@ -31,5 +32,27 @@ class Experience extends Model
     public function jobNaming()
     {
         return $this->belongsTo('App\Models\JobNaming');
+    }
+
+    /**
+     * Parsing experience start date
+     * @param $value
+     * @return string
+     */
+    public function getStartDateAttribute($value) {
+        $carbonDate = Carbon::parse($value);
+
+        return $carbonDate->toDateString();
+    }
+
+    /**
+     * Parsing experience end date
+     * @param $value
+     * @return string
+     */
+    public function getEndDateAttribute($value) {
+        $carbonDate = Carbon::parse($value);
+
+        return $carbonDate->toDateString();
     }
 }
