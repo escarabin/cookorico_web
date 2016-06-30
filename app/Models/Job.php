@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Job extends Model
 {
@@ -87,5 +88,28 @@ class Job extends Model
     public function languages()
     {
         return $this->belongsToMany('App\Models\Language');
+    }
+
+
+    /**
+     * Parse job start date
+     * @param $value
+     * @return string
+     */
+    public function getStartDateAttribute($value) {
+        $carbonDate = Carbon::parse($value);
+
+        return $carbonDate->toDateString();
+    }
+
+    /**
+     * Parse job end date
+     * @param $value
+     * @return string
+     */
+    public function getEndDateAttribute($value) {
+        $carbonDate = Carbon::parse($value);
+
+        return $carbonDate->toDateString();
     }
 }

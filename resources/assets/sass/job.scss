@@ -13,6 +13,16 @@ job .job-content {
   box-shadow: $mainBoxShadow;
 }
 
+job .business .logo {
+  float: left;
+  margin-right: 20px;
+}
+
+job .business .logo img {
+  max-width: 80px;
+  max-height: 80px;
+}
+
 job .job-info {
   margin-bottom: 20px;
   margin-top: 20px;

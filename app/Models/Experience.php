@@ -35,7 +35,7 @@ class Experience extends Model
     }
 
     /**
-     * Parsing experience start date
+     * Parse experience start date
      * @param $value
      * @return string
      */
@@ -46,7 +46,7 @@ class Experience extends Model
     }
 
     /**
-     * Parsing experience end date
+     * Parse experience end date
      * @param $value
      * @return string
      */
