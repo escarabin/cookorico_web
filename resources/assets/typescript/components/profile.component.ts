@@ -16,6 +16,7 @@ import { EducationComponent } from "./education.component";
 import { AlertsComponent } from "./alerts.component";
 import { TestimonialsComponent } from "./testimonials.component";
 import { CreateExperienceComponent } from "./create-experience.component";
+import { CreateStudyComponent } from "./create-study.component";
 
 @Component({
     providers: [UserService],
@@ -44,6 +45,7 @@ import { CreateExperienceComponent } from "./create-experience.component";
     // Education
     { path: '/education/all', name: 'Education', component: EducationComponent },
     { path: '/education/:studyId', name: 'ShowStudy', component: EducationComponent },
+    { path: '/education/create', name: 'CreateStudy', component: CreateStudyComponent },
 
     // Alerts
     { path: '/alerts/all', name: 'Alerts', component: AlertsComponent },

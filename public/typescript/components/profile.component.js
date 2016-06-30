@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component', "./applications.component", "./experiences.component", "./education.component", "./alerts.component", "./testimonials.component", "./create-experience.component"], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component', "./applications.component", "./experiences.component", "./education.component", "./alerts.component", "./testimonials.component", "./create-experience.component", "./create-study.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1;
+    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1, create_study_component_1;
     var ProfileComponent;
     return {
         setters:[
@@ -43,6 +43,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             },
             function (create_experience_component_1_1) {
                 create_experience_component_1 = create_experience_component_1_1;
+            },
+            function (create_study_component_1_1) {
+                create_study_component_1 = create_study_component_1_1;
             }],
         execute: function() {
             ProfileComponent = (function () {
@@ -70,6 +73,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         // Education
                         { path: '/education/all', name: 'Education', component: education_component_1.EducationComponent },
                         { path: '/education/:studyId', name: 'ShowStudy', component: education_component_1.EducationComponent },
+                        { path: '/education/create', name: 'CreateStudy', component: create_study_component_1.CreateStudyComponent },
                         // Alerts
                         { path: '/alerts/all', name: 'Alerts', component: alerts_component_1.AlertsComponent },
                         { path: '/alert/:alertId', name: 'ShowAlert', component: alerts_component_1.AlertsComponent },
