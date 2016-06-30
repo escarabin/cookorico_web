@@ -2,6 +2,7 @@ job-preview {
   display: block;
   border-bottom: 1px solid #DDD;
   padding: 25px;
+  background: white;
 }
 
 job-preview .title h4 {
@@ -13,6 +14,9 @@ job-preview .business_name {
   margin-bottom: 5px;
 }
 
-job-preview .business_adress {
-
+job-preview .logo img {
+  max-width: 90px;
+  max-height: 90px;
+  float: left;
+  margin-right: 30px;
 }

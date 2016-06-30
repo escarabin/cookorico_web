@@ -268,7 +268,8 @@ job-search-sidebar ul li .title-container {
 job-preview {
   display: block;
   border-bottom: 1px solid #DDD;
-  padding: 25px; }
+  padding: 25px;
+  background: white; }
 
 job-preview .title h4 {
   margin-bottom: 5px; }
@@ -276,6 +277,12 @@ job-preview .title h4 {
 job-preview .business_name {
   font-size: 1.2em;
   margin-bottom: 5px; }
+
+job-preview .logo img {
+  max-width: 90px;
+  max-height: 90px;
+  float: left;
+  margin-right: 30px; }
 
 job-search-results {
   background: white;

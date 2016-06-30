@@ -1,11 +1,17 @@
+<div class="logo">
+    <img src="/uploads/business/logo/{{ job.business.id }}.jpg"/>
+</div>
+
 <div class="title">
     <a [routerLink]="['ShowJob', { jobId: job.id }]">
         <h4>{{ job.title }}</h4>
     </a>
 </div>
+
 <div class="business_name">
     {{ job.business.title }}
 </div>
+
 <div class="business_adress">
     {{ job.business.adress }}
 </div>
