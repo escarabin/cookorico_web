@@ -288,6 +288,7 @@ profile .profile-router {
 
 profile h3 {
   padding: 25px;
+  border-top: 1px solid #DDD;
   border-bottom: 1px solid #DDD;
   color: #a4acb3;
   text-align: center; }
