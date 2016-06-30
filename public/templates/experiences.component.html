@@ -11,8 +11,12 @@
     <ul>
         <a>
             <li *ngFor="let experience of experiences">
+                <div class="logo">
+                    <img src="/uploads/business/logo/{{ experience.business.logoFile }}"
+                         *ngIf="experience.business.logoFile"/>
+                </div>
                 <h3>{{ experience.jobNaming.title }}</h3>
-                {{ experience.business.title }} - {{ experience.business.adress }}
+                {{ experience.business.title }}
                  <span class="date">
                     {{ experience.start_date }} &nbsp;
                     <span class="fa fa-arrow-right"></span> &nbsp;
