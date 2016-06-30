@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\AlertFrequency;
 use App\Models\ContractType;
 use App\Models\Diploma;
 use App\Models\JobNaming;
@@ -41,5 +42,11 @@ class ReferenceController extends Controller
         $diplomas = Diploma::all();
 
         return $diplomas;
+    }
+
+    public function getAllAlertFrequencies() {
+        $alertFrequencies = AlertFrequency::all();
+
+        return $alertFrequencies;
     }
 }
