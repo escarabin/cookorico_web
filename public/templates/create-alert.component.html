@@ -4,7 +4,19 @@
 
 <div class="col-md-12">
     <form>
-        <div class="col-md-12">
+        <div class="col-md-6">
+            <label>Fréquence</label>
+            <select name="alertFrequencyId"
+                    [(ngModel)]="alertFrequencyId"
+                    class="form-control">
+                <option disabled selected>-- Fréquence --</option>
+                <option *ngFor="let alertFrequency of alertFrequencies"
+                        value="{{ alertFrequency.id }}">
+                    {{ alertFrequency.title }}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-6">
             <label>Titre</label>
             <input type="text"
                    name="title"
