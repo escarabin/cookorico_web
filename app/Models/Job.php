@@ -112,4 +112,15 @@ class Job extends Model
 
         return $carbonDate->toDateString();
     }
+
+    /**
+     * Parse job end date
+     * @param $value
+     * @return string
+     */
+    public function getCreatedAtAttribute($value) {
+        $carbonDate = Carbon::parse($value);
+
+        return $carbonDate->toDateString();
+    }
 }
