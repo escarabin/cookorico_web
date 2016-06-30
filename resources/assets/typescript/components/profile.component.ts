@@ -17,6 +17,7 @@ import { AlertsComponent } from "./alerts.component";
 import { TestimonialsComponent } from "./testimonials.component";
 import { CreateExperienceComponent } from "./create-experience.component";
 import { CreateStudyComponent } from "./create-study.component";
+import { CreateAlertComponent } from "./create-alert.component";
 
 @Component({
     providers: [UserService],
@@ -50,7 +51,7 @@ import { CreateStudyComponent } from "./create-study.component";
     // Alerts
     { path: '/alerts/all', name: 'Alerts', component: AlertsComponent },
     { path: '/alert/:alertId', name: 'ShowAlert', component: AlertsComponent },
-    { path: '/alert/create', name: 'CreateAlert', component: AlertsComponent },
+    { path: '/alert/create', name: 'CreateAlert', component: CreateAlertComponent },
 
     // Testimonials
     { path: '/testimonials/all', name: 'Testimonials', component: TestimonialsComponent },

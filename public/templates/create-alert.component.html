@@ -1,0 +1,42 @@
+<div class="col-md-12">
+    <h2>Créer une alerte</h2>
+</div>
+
+<div class="col-md-12">
+    <form>
+        <div class="col-md-12">
+            <label>Titre</label>
+            <input type="text"
+                   name="title"
+                   [(ngModel)]="title"
+                   placeholder="Titre de votre alerte (ex : Chef cuisinier - CDI)"
+                   class="form-control"/>
+        </div>
+        <div class="col-md-6">
+            <label>Poste</label>
+            <select name="job"
+                    [(ngModel)]="jobNamingId"
+                    class="form-control">
+                <option disabled selected>-- Poste --</option>
+                <option *ngFor="let jobNaming of jobNamings"
+                        value="{{ jobNaming.id }}">
+                    {{ jobNaming.title }}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label>Zone de recherche</label>
+            <input type="text"
+                   name="place"
+                   [(ngModel)]="placeId"
+                   placeholder="Zone de recherche (ex : Bretagne)"
+                   class="form-control"/>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-primary"
+                    (click)="submitAlert()">
+                Sauvegarder
+            </button>
+        </div>
+    </form>
+</div>
