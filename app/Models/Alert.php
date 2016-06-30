@@ -15,13 +15,20 @@ class Alert extends Model
         'title', 'content'
     ];
 
-
     /**
      * Get the user that created the alert
      */
     public function user()
     {
         return $this->belongsTo('App\Models\User');
+    }
+
+    /**
+     * Get the frequency of alert
+     */
+    public function alertFrequency()
+    {
+        return $this->belongsTo('App\Models\AlertFrequency');
     }
 
     /**

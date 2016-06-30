@@ -91,6 +91,7 @@ class UserController extends Controller
         // Necesseray Laravel's workaround to return relationship values inside JSON
         foreach ($alerts as $alert) {
             $alert->jobNaming = $alert->jobNaming;
+            $alert->alertFrequency = $alert->alertFrequency;
         }
 
         return $alerts;

@@ -2,13 +2,14 @@
     <h2>Mes formations</h2>
 </div>
 
-<div class="col-md-12">
+<div class="col-md-12 list-container">
     <ul>
-        <li *ngFor="let study of studies">
-            <a>
-                {{ study.diploma.title }}
-            </a><br />
-        </li>
+        <a>
+            <li *ngFor="let study of studies">
+                <h3>{{ study.diploma.title }}</h3>
+                <br />
+            </li>
+        </a>
     </ul>
 </div>
 

@@ -25,6 +25,11 @@
   border-left: 0;
   color: #9c9c9c; }
 
+label {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 1px; }
+
 .btn-primary, input[type=button] {
   font-family: "Avenir Medium", sans-serif;
   border-radius: 4px;
@@ -279,14 +284,15 @@ profile form .btn-primary.submit {
   margin-top: 25px; }
 
 profile form label {
-  margin-top: 15px; }
+  margin-top: 25px; }
 
 profile .profile-router {
   background: white;
-  padding-bottom: 40px;
-  border-radius: 4px; }
+  padding: 0;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px rgba(226, 231, 238, 0.25); }
 
-profile h3 {
+profile .page-title-container h3 {
   padding: 25px;
   border-top: 1px solid #DDD;
   border-bottom: 1px solid #DDD;
@@ -297,11 +303,50 @@ profile h3 .dynamic_data {
   font-family: "Avenir Medium", sans-serif;
   color: #1a1f38; }
 
+profile .list-container {
+  padding: 0; }
+
+profile .list-container ul {
+  padding: 0;
+  margin-bottom: 0; }
+
+profile .list-container ul li {
+  padding: 10px 20px 20px 20px;
+  border-bottom: 1px solid #e4e4e4; }
+
+profile .list-container ul li:hover {
+  background-color: whitesmoke; }
+
+profile .list-container ul a {
+  color: #333; }
+
+profile .list-container ul li h3 {
+  font-family: "Avenir Medium", sans-serif;
+  color: #1a1f38;
+  padding-bottom: 5px; }
+
+profile .header-container {
+  padding: 0; }
+
 experiences {
   display: block; }
 
 alerts {
   display: block; }
+
+alerts .create-btn-container {
+  border-left: 1px solid #CCC; }
+
+alerts .title-container, alerts .create-btn-container {
+  border-bottom: 1px solid #CCC;
+  height: 70px; }
+
+alerts ul li .frequency {
+  float: right;
+  color: #a9a9a9;
+  font-family: "Avenir Medium", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9em; }
 
 testimonials {
   display: block; }
