@@ -12,6 +12,11 @@
         <a>
             <li *ngFor="let study of studies">
                 <h3>{{ study.diploma.title }}</h3>
+                <span class="date">
+                    {{ study.start_date }} &nbsp;
+                    <span class="fa fa-arrow-right"></span> &nbsp;
+                    {{ study.end_date }}
+                </span>
                 <br />
             </li>
         </a>
