@@ -51,7 +51,8 @@
                    placeholder="Zone de recherche (ex : Bretagne)"
                    class="form-control"/>
         </div>
-        <div class="col-md-12 page-title-container">
+        <div class="col-md-12 page-title-container"
+             *ngIf="alertForm.valid">
             <h3>
                 <span class="fa fa-clock-o"></span> &nbsp;
                 Être alerté
