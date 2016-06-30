@@ -1,9 +1,11 @@
 <div class="col-md-12">
-    <form>
+    <form #alertForm="ngForm">
         <div class="col-md-6">
             <label>Fréquence</label>
             <select name="alertFrequencyId"
+                    required
                     [(ngModel)]="alert.alert_frequency_id"
+                    ngControl="alert.alert_frequency_id"
                     class="form-control">
                 <option disabled selected>-- Fréquence --</option>
                 <option *ngFor="let alertFrequency of alertFrequencies"
@@ -18,6 +20,7 @@
             <input type="text"
                    name="title"
                    [(ngModel)]="alert.title"
+                   ngControl="alert.title"
                    value="alert.title"
                    placeholder="Titre de votre alerte (ex : Chef cuisinier - CDI)"
                    class="form-control"/>
@@ -25,7 +28,9 @@
         <div class="col-md-6">
             <label>Poste</label>
             <select name="job"
+                    required
                     [(ngModel)]="alert.job_naming_id"
+                    ngControl="alert.job_naming_id"
                     class="form-control">
                 <option disabled>-- Poste --</option>
                 <option *ngFor="let jobNaming of jobNamings"
@@ -38,8 +43,10 @@
         <div class="col-md-6">
             <label>Zone de recherche</label>
             <input type="text"
+                   required
                    name="place"
                    [(ngModel)]="alert.place"
+                   ngControl="alert.place"
                    value="alert.place"
                    placeholder="Zone de recherche (ex : Bretagne)"
                    class="form-control"/>
@@ -58,7 +65,6 @@
         <div class="col-md-6 hidden-xs hidden-sm">
             <a [routerLink]="['/Profile/Alerts']">
                 <button class="btn btn-default back-btn"
-                        *ngIf="alert.id"
                         (click)="saveAlertChanges()">
                     <span class="fa fa-arrow-left"></span> &nbsp; Retour aux alertes
                 </button>
@@ -66,11 +72,13 @@
         </div>
         <div class="col-md-6">
             <button class="btn btn-primary submit-btn"
+                    [disabled]="!alertForm.valid"
                     *ngIf="alert.id"
                     (click)="saveAlertChanges()">
                 Sauvegarder
             </button>
-            <button class="btn btn-primary submit"
+            <button class="btn btn-primary submit-btn"
+                    [disabled]="!alertForm.valid"
                     *ngIf="!alert.id"
                     (click)="createAlert()">
                 Créer
