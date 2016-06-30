@@ -335,9 +335,6 @@ alerts {
   display: block; }
 
 alerts .create-btn-container {
-  border-left: 1px solid #CCC; }
-
-alerts .title-container, alerts .create-btn-container {
   border-bottom: 1px solid #CCC;
   height: 70px; }
 
@@ -347,6 +344,16 @@ alerts ul li .frequency {
   font-family: "Avenir Medium", sans-serif;
   text-transform: uppercase;
   font-size: 0.9em; }
+
+alerts .create-btn-container {
+  text-align: center;
+  padding: 0; }
+
+alerts .create-btn-container button {
+  border: 0;
+  width: 100%;
+  height: 69px;
+  border-radius: 0; }
 
 testimonials {
   display: block; }
