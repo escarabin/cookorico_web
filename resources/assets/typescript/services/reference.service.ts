@@ -9,6 +9,7 @@ export class ReferenceService {
     allJobNamingsListingUrl = '/job_namings/all';
     allStudyLevelsListingUrl = '/study_levels/all';
     allDiplomasListingUrl = '/diplomas/all';
+    getAlertFrequenciesListingUrl = '/alert_frequencies/all';
 
     constructor(private http: Http) {
 
@@ -72,5 +73,15 @@ export class ReferenceService {
         let __this = this;
 
         return this.http.request(__this.allDiplomasListingUrl);
+    }
+
+    /**
+     * Listing all possible alert frequencies
+     * @returns {Observable<Response>}
+     */
+    getAlertFrequencies() {
+        let __this = this;
+
+        return this.http.request(__this.getAlertFrequenciesListingUrl);
     }
 }
