@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink } from '@angular/router-deprecated';
+import { RouterLink, RouteParams } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
+
+// Models
+import { Alert } from './../models/alert'
 
 @Component({
     selector: 'create-alert',
@@ -14,19 +17,24 @@ import { UserService } from './../services/user.service';
 })
 
 export class CreateAlertComponent {
-    // References arrays
     jobNamings: any;
     alertFrequencies: any;
-
-    // Form data
-    jobNamingId: string;
-    alertFrequencyId: string;
-    title: string;
-    place: string;
+    alertId: number;
+    alert = new Alert('', '', '', '');
 
     constructor(private referenceService: ReferenceService,
-                private userService: UserService) {
+                private userService: UserService,
+                private routeParams: RouteParams) {
         let __this = this;
+
+        this.alertId = routeParams.get("alertId");
+
+        if (this.alertId) {
+            // Editing a specific alert, let's retrieve it's data
+            this.userService.getAlert(__this.alertId).subscribe((res: Response) => {
+                __this.alert = res.json();
+            });
+        }
 
         this.referenceService.getAllJobNamings().subscribe((res: Response) => {
             __this.jobNamings = res.json();
@@ -37,13 +45,13 @@ export class CreateAlertComponent {
         });
     }
 
-    submitAlert() {
+    createAlert() {
         let __this = this;
 
-        this.userService.createAlert(__this.alertFrequencyId,
-            __this.title,
-            __this.jobNamingId,
-            __this.place).subscribe((res: Response) => {
+        this.userService.createAlert(__this.alert.alert_frequency_id,
+            __this.alert.title,
+            __this.alert.job_naming_id,
+            __this.alert.place).subscribe((res: Response) => {
             console.log(res.json());
         })
     }

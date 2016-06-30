@@ -34,6 +34,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.createExperienceUrl = '/experience/create';
                     this.createStudyUrl = '/study/create';
                     this.createAlertUrl = '/alert/create';
+                    this.getAlertUrl = '/alert';
                 }
                 /**
                  * Sign user in
@@ -72,6 +73,15 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 UserService.prototype.getAlerts = function () {
                     var __this = this;
                     return this.http.get(__this.getAlertsUrl);
+                };
+                /**
+                 * Get user specific job alert
+                 * @param alertId
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.getAlert = function (alertId) {
+                    var __this = this;
+                    return this.http.get(__this.getAlertUrl + '/' + alertId);
                 };
                 /**
                  * Get user's testimonials

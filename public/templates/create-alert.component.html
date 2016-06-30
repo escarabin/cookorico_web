@@ -1,5 +1,6 @@
 <div class="col-md-12">
-    <h2>Créer une alerte</h2>
+    <h2 *ngIf="!alertId">Créer une alerte</h2>
+    <h2 *ngIf="alertId">Modifier une alerte</h2>
 </div>
 
 <div class="col-md-12">
@@ -7,10 +8,11 @@
         <div class="col-md-6">
             <label>Fréquence</label>
             <select name="alertFrequencyId"
-                    [(ngModel)]="alertFrequencyId"
+                    [(ngModel)]="alert.alert_frequency_id"
                     class="form-control">
                 <option disabled selected>-- Fréquence --</option>
                 <option *ngFor="let alertFrequency of alertFrequencies"
+                        [selected]="alertFrequency.id == alert.alert_frequency_id"
                         value="{{ alertFrequency.id }}">
                     {{ alertFrequency.title }}
                 </option>
@@ -20,17 +22,19 @@
             <label>Titre</label>
             <input type="text"
                    name="title"
-                   [(ngModel)]="title"
+                   [(ngModel)]="alert.title"
+                   value="alert.title"
                    placeholder="Titre de votre alerte (ex : Chef cuisinier - CDI)"
                    class="form-control"/>
         </div>
         <div class="col-md-6">
             <label>Poste</label>
             <select name="job"
-                    [(ngModel)]="jobNamingId"
+                    [(ngModel)]="alert.job_naming_id"
                     class="form-control">
-                <option disabled selected>-- Poste --</option>
+                <option disabled>-- Poste --</option>
                 <option *ngFor="let jobNaming of jobNamings"
+                        [selected]="jobNaming.id == alert.job_naming_id"
                         value="{{ jobNaming.id }}">
                     {{ jobNaming.title }}
                 </option>
@@ -40,14 +44,21 @@
             <label>Zone de recherche</label>
             <input type="text"
                    name="place"
-                   [(ngModel)]="place"
+                   [(ngModel)]="alert.place"
+                   value="alert.place"
                    placeholder="Zone de recherche (ex : Bretagne)"
                    class="form-control"/>
         </div>
         <div class="col-md-12">
             <button class="btn btn-primary"
-                    (click)="submitAlert()">
+                    *ngIf="alertId"
+                    (click)="saveAlertChanges()">
                 Sauvegarder
+            </button>
+            <button class="btn btn-primary"
+                    *ngIf="!alertId"
+                    (click)="createAlert()">
+                Créer
             </button>
         </div>
     </form>

@@ -82,7 +82,7 @@ class UserController extends Controller
     }
 
     /**
-     * Get user's new job alerts
+     * Get user's job alerts
      * @return mixed
      */
     public function getAlerts() {
@@ -94,6 +94,16 @@ class UserController extends Controller
         }
 
         return $alerts;
+    }
+
+    /**
+     * Get user's specific job alerts
+     * @return mixed
+     */
+    public function getAlert($alertId) {
+        $alert = Alert::find($alertId);
+
+        return $alert;
     }
 
     /**

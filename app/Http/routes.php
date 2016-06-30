@@ -80,6 +80,8 @@ Route::get('/study/create/{diplomaId}/{businessId}/{startDate}/{endDate}/{adress
 // Alerts
 Route::get('/alerts/all', 'UserController@getAlerts')
     ->name('getAlerts');
+Route::get('/alert/{alertId}', 'UserController@getAlert')
+    ->name('getAlert');
 Route::get('/alert/create/{alertFrequencyId}/{title}/{jobNamingId}/{place}', 'UserController@createAlert')
     ->name('getAlerts');
 

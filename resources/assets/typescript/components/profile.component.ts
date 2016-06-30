@@ -52,6 +52,7 @@ import { CreateAlertComponent } from "./create-alert.component";
     { path: '/alerts/all', name: 'Alerts', component: AlertsComponent },
     { path: '/alert/:alertId', name: 'ShowAlert', component: AlertsComponent },
     { path: '/alert/create', name: 'CreateAlert', component: CreateAlertComponent },
+    { path: '/alert/edit/:alertId', name: 'EditAlert', component: CreateAlertComponent },
 
     // Testimonials
     { path: '/testimonials/all', name: 'Testimonials', component: TestimonialsComponent },

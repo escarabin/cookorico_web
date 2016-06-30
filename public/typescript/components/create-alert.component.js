@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../models/alert'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, alert_1;
     var CreateAlertComponent;
     return {
         setters:[
@@ -25,13 +25,25 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
+            },
+            function (alert_1_1) {
+                alert_1 = alert_1_1;
             }],
         execute: function() {
             CreateAlertComponent = (function () {
-                function CreateAlertComponent(referenceService, userService) {
+                function CreateAlertComponent(referenceService, userService, routeParams) {
                     this.referenceService = referenceService;
                     this.userService = userService;
+                    this.routeParams = routeParams;
+                    this.alert = new alert_1.Alert('', '', '', '');
                     var __this = this;
+                    this.alertId = routeParams.get("alertId");
+                    if (this.alertId) {
+                        // Editing a specific alert, let's retrieve it's data
+                        this.userService.getAlert(__this.alertId).subscribe(function (res) {
+                            __this.alert = res.json();
+                        });
+                    }
                     this.referenceService.getAllJobNamings().subscribe(function (res) {
                         __this.jobNamings = res.json();
                     });
@@ -39,9 +51,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         __this.alertFrequencies = res.json();
                     });
                 }
-                CreateAlertComponent.prototype.submitAlert = function () {
+                CreateAlertComponent.prototype.createAlert = function () {
                     var __this = this;
-                    this.userService.createAlert(__this.alertFrequencyId, __this.title, __this.jobNamingId, __this.place).subscribe(function (res) {
+                    this.userService.createAlert(__this.alert.alert_frequency_id, __this.alert.title, __this.alert.job_naming_id, __this.alert.place).subscribe(function (res) {
                         console.log(res.json());
                     });
                 };
@@ -52,7 +64,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         directives: [router_deprecated_1.RouterLink],
                         templateUrl: '../templates/create-alert.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, router_deprecated_1.RouteParams])
                 ], CreateAlertComponent);
                 return CreateAlertComponent;
             }());

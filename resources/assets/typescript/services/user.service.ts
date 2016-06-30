@@ -13,6 +13,7 @@ export class UserService {
     createExperienceUrl = '/experience/create';
     createStudyUrl = '/study/create';
     createAlertUrl = '/alert/create';
+    getAlertUrl = '/alert';
 
     constructor(private http: Http) {
 
@@ -65,6 +66,17 @@ export class UserService {
         let __this = this;
 
         return this.http.get(__this.getAlertsUrl);
+    }
+
+    /**
+     * Get user specific job alert
+     * @param alertId
+     * @returns {Observable<Response>}
+     */
+    getAlert(alertId) {
+        let __this = this;
+
+        return this.http.get(__this.getAlertUrl + '/' + alertId);
     }
 
     /**
