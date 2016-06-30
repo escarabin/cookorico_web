@@ -38,6 +38,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                         _this.router.navigate(['Applications']);
                     });
                 };
+                __decorate([
+                    core_1.Input, 
+                    __metadata('design:type', String)
+                ], NewApplicationFormComponent.prototype, "jobId", void 0);
                 NewApplicationFormComponent = __decorate([
                     core_1.Component({
                         directives: [router_deprecated_1.RouterLink],

@@ -9,7 +9,14 @@
         Commentaire
     </textarea>
 </div>
-<div class="col-md-12">
+<div class="col-md-6 back-btn-container">
+    <a [routerLink]="['/ShowAllJobs']">
+        <button class="btn btn-default">
+            <span class="fa fa-arrow-left"></span> &nbsp; Retour à la recherche
+        </button>
+    </a>
+</div>
+<div class="col-md-6 apply-btn-container">
     <button (click)="submitApplication()"
             class="btn btn-primary">
         Postuler

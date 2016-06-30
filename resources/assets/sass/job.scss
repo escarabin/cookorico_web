@@ -3,6 +3,11 @@ job {
   display: block;
 }
 
+job .job-title {
+  text-align: center;
+  margin-top: 20px;
+}
+
 job .job-content {
   background: white;
   padding-bottom: 20px;
@@ -13,17 +18,26 @@ job .job-content {
   box-shadow: $mainBoxShadow;
 }
 
-job .business .logo {
+job .job-content .description {
+  padding-top: 20px;
+}
+
+job .job-content .business {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+job .job-content .business .logo {
   float: left;
   margin-right: 20px;
 }
 
-job .business .logo img {
+job .job-content .business .logo img {
   max-width: 80px;
   max-height: 80px;
 }
 
-job .job-info {
+job .job-content .job-info {
   margin-bottom: 20px;
   margin-top: 20px;
   border-left: 1px solid #CCC;

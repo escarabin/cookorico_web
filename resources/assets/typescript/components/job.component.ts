@@ -7,12 +7,14 @@ import { RouteParams, RouterLink }
 import { JobService } from './../services/job.service';
 
 // Components
-import { UserSidebarComponent } from './user-sidebar.component'
 import { JobSearchSidebarComponent } from './job-search-sidebar.component'
+import { NewApplicationFormComponent } from './new-application-form.component'
 
 @Component({
     providers: [JobService],
-    directives: [RouterLink, JobSearchSidebarComponent],
+    directives: [RouterLink,
+                JobSearchSidebarComponent,
+                NewApplicationFormComponent],
     inputs: ['jobId'],
     selector: 'job',
     templateUrl: '../templates/job.component.html',

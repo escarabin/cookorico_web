@@ -36,6 +36,9 @@ label {
   font-size: 0.8em;
   letter-spacing: 1px; }
 
+button {
+  height: 60px; }
+
 .btn-primary, input[type=button] {
   font-family: "Avenir Medium", sans-serif;
   border-radius: 4px;
@@ -121,6 +124,10 @@ job {
   padding-top: 150px;
   display: block; }
 
+job .job-title {
+  text-align: center;
+  margin-top: 20px; }
+
 job .job-content {
   background: white;
   padding-bottom: 20px;
@@ -128,15 +135,22 @@ job .job-content {
   -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
   box-shadow: 0px 0px 40px 0px #d8d8d8; }
 
-job .business .logo {
+job .job-content .description {
+  padding-top: 20px; }
+
+job .job-content .business {
+  margin-top: 25px;
+  margin-bottom: 25px; }
+
+job .job-content .business .logo {
   float: left;
   margin-right: 20px; }
 
-job .business .logo img {
+job .job-content .business .logo img {
   max-width: 80px;
   max-height: 80px; }
 
-job .job-info {
+job .job-content .job-info {
   margin-bottom: 20px;
   margin-top: 20px;
   border-left: 1px solid #CCC;
@@ -144,8 +158,17 @@ job .job-info {
   width: 45%; }
 
 new-application-form {
-  display: block;
-  padding-top: 150px; }
+  display: inline-block;
+  padding-top: 40px; }
+
+new-application-form .back-btn-container,
+new-application-form .apply-btn-container {
+  margin-top: 15px; }
+
+new-application-form .back-btn-container button,
+new-application-form .apply-btn-container button {
+  width: 100%;
+  height: 60px; }
 
 search {
   max-width: 1100px;

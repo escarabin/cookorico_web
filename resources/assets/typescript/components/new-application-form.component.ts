@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router, RouterLink, RouteParams, Response } from '@angular/router-deprecated'
 
 // Services
@@ -12,7 +12,7 @@ import { JobService } from './../services/job.service';
 })
 
 export class NewApplicationFormComponent {
-    jobId:string;
+    @Input jobId:string;
     comment: string;
 
     constructor(private routeParams: RouteParams,

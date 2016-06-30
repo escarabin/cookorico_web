@@ -4,7 +4,7 @@
     </div>
     <div class="col-md-6 job-content">
         <div *ngIf="job">
-            <div class="col-md-12 title">
+            <div class="col-md-12 job-title">
                 <h2>{{ job.title }}</h2>
             </div>
             <div class="col-md-12 business">
@@ -57,28 +57,11 @@
             <div class="col-md-6 job-info education">
                 <label>Niveau d'études :</label> {{ job.studyLevel.title }}
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 description">
                 {{ job.content }}
             </div>
 
-            <div class="col-md-12"
-                 *ngIf="user && user.user_type_id == 3">
-                <a [routerLink]="['Apply', { jobId: jobId }]">
-                    <button class="btn btn-primary">
-                        Postuler à cette offre
-                    </button>
-                </a>
-            </div>
-
-            <div class="col-md-12"
-                 *ngIf="!user">
-                <a [routerLink]="['Apply', { jobId: jobId }]">
-                    <button class="btn btn-primary">
-                        Postuler à cette offre
-                    </button>
-                </a>
-            </div>
-            <br />
+            <new-application-form [jobId]="job.id"></new-application-form>
         </div>
     </div>
     <div class="col-md-3">
