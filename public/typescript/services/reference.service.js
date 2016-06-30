@@ -30,6 +30,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.allJobNamingsListingUrl = '/job_namings/all';
                     this.allStudyLevelsListingUrl = '/study_levels/all';
                     this.allDiplomasListingUrl = '/diplomas/all';
+                    this.getAlertFrequenciesListingUrl = '/alert_frequencies/all';
                 }
                 /**
                  * Listing all states (régions in fr)
@@ -78,6 +79,14 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 ReferenceService.prototype.getAllDiplomas = function () {
                     var __this = this;
                     return this.http.request(__this.allDiplomasListingUrl);
+                };
+                /**
+                 * Listing all possible alert frequencies
+                 * @returns {Observable<Response>}
+                 */
+                ReferenceService.prototype.getAllAlertFrequencies = function () {
+                    var __this = this;
+                    return this.http.request(__this.getAlertFrequenciesListingUrl);
                 };
                 ReferenceService = __decorate([
                     core_1.Injectable(), 

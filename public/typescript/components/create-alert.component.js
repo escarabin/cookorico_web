@@ -35,6 +35,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.referenceService.getAllJobNamings().subscribe(function (res) {
                         __this.jobNamings = res.json();
                     });
+                    this.referenceService.getAllAlertFrequencies().subscribe(function (res) {
+                        __this.alertFrequencies = res.json();
+                    });
                 }
                 CreateAlertComponent.prototype.submitAlert = function () {
                     var __this = this;

@@ -79,7 +79,7 @@ export class ReferenceService {
      * Listing all possible alert frequencies
      * @returns {Observable<Response>}
      */
-    getAlertFrequencies() {
+    getAllAlertFrequencies() {
         let __this = this;
 
         return this.http.request(__this.getAlertFrequenciesListingUrl);

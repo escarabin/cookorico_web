@@ -14,7 +14,9 @@ import { UserService } from './../services/user.service';
 })
 
 export class CreateAlertComponent {
+    // References arrays
     jobNamings: any;
+    alertFrequencies: any;
 
     // Form data
     jobNamingId: string;
@@ -27,7 +29,11 @@ export class CreateAlertComponent {
 
         this.referenceService.getAllJobNamings().subscribe((res: Response) => {
             __this.jobNamings = res.json();
-        })
+        });
+
+        this.referenceService.getAllAlertFrequencies().subscribe((res: Response) => {
+            __this.alertFrequencies = res.json();
+        });
     }
 
     submitAlert() {

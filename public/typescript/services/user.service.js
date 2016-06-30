@@ -33,6 +33,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.getCreatedTestimonialsUrl = '/created_testimonials/all';
                     this.createExperienceUrl = '/experience/create';
                     this.createStudyUrl = '/study/create';
+                    this.createAlertUrl = '/alert/create';
                 }
                 /**
                  * Sign user in
@@ -125,6 +126,22 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                         endDate + '/' +
                         place + '/' +
                         description);
+                };
+                /**
+                 * Create new job alert
+                 * @param alertFrequencyId
+                 * @param title
+                 * @param jobNamingId
+                 * @param area
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.createAlert = function (alertFrequencyId, title, jobNamingId, area) {
+                    var __this = this;
+                    return this.http.get(__this.createAlertUrl + '/' +
+                        alertFrequencyId + '/' +
+                        title + '/' +
+                        jobNamingId + '/' +
+                        area + '/');
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 
