@@ -2,3 +2,34 @@ profile {
   padding-top: $mainPagePaddingTop;
   display: block;
 }
+
+profile h2 {
+  text-align: center;
+}
+
+profile form .btn-primary.submit {
+  width: 100%;
+  margin-top: 25px;
+}
+
+profile form label {
+  margin-top: 15px;
+}
+
+profile .profile-router {
+  background: white;
+  padding-bottom: 40px;
+  border-radius: $mainBorderRadius;
+}
+
+profile h3 {
+  padding: 25px;
+  border-bottom: 1px solid #DDD;
+  color: #a4acb3;
+  text-align: center;
+}
+
+profile h3 .dynamic_data {
+  font-family: $mainMediumFontFamily;
+  color: $mainBlueColor;
+}

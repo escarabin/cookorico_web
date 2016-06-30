@@ -1,6 +1,17 @@
 <div class="col-md-12">
+    <h3>
+        <span class="fa fa-clock-o"></span> &nbsp;
+        Être alerté
+        <span class="dynamic_data">{{ alert.alert_frequency_id }}</span>
+        des offres de
+        <span class="dynamic_data">{{ alert.job_naming_id }}</span>
+        autour de
+        <span class="dynamic_data">{{ alert.place }}</span>
+    </h3>
+</div>
+<div class="col-md-12">
     <h2 *ngIf="!alert.id">Créer une alerte</h2>
-    <h2 *ngIf="alert.id">Modifier une alerte</h2>
+    <h2 *ngIf="alert.id">Modifier l'alerte</h2>
 </div>
 
 <div class="col-md-12">
@@ -50,12 +61,12 @@
                    class="form-control"/>
         </div>
         <div class="col-md-12">
-            <button class="btn btn-primary"
+            <button class="btn btn-primary submit"
                     *ngIf="alert.id"
                     (click)="saveAlertChanges()">
                 Sauvegarder
             </button>
-            <button class="btn btn-primary"
+            <button class="btn btn-primary submit"
                     *ngIf="!alert.id"
                     (click)="createAlert()">
                 Créer
