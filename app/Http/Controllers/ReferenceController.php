@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 
 use App\Models\ContractType;
+use App\Models\Diploma;
 use App\Models\JobNaming;
 use App\Models\JobType;
 use App\Models\StudyLevel;
@@ -34,5 +35,11 @@ class ReferenceController extends Controller
         $studyLevels = StudyLevel::all();
 
         return $studyLevels;
+    }
+
+    public function getAllDiplomas() {
+        $diplomas = Diploma::all();
+
+        return $diplomas;
     }
 }

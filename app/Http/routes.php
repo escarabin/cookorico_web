@@ -82,3 +82,7 @@ Route::get('/testimonials/all', 'UserController@getTestimonials')
     ->name('getTestimonials');
 Route::get('/created_testimonials/all', 'UserController@getCreatedTestimonials')
     ->name('getCreatedTestimonials');
+
+// Diplomas
+Route::get('/diplomas/all', 'ReferenceController@getAllDiplomas')
+    ->name('getAllDiplomas');

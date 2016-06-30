@@ -8,6 +8,7 @@ export class ReferenceService {
     allJobTypesListingUrl = '/job_types/all';
     allJobNamingsListingUrl = '/job_namings/all';
     allStudyLevelsListingUrl = '/study_levels/all';
+    allDiplomasListingUrl = '/diplomas/all';
 
     constructor(private http: Http) {
 
@@ -43,7 +44,6 @@ export class ReferenceService {
         return this.http.request(__this.allJobTypesListingUrl);
     }
 
-
     /**
      * Listing all job namings
      * @returns {Observable<Response>}
@@ -54,7 +54,6 @@ export class ReferenceService {
         return this.http.request(__this.allJobNamingsListingUrl);
     }
 
-
     /**
      * Listing all study levels
      * @returns {Observable<Response>}
@@ -63,5 +62,15 @@ export class ReferenceService {
         let __this = this;
 
         return this.http.request(__this.allStudyLevelsListingUrl);
+    }
+
+    /**
+     * Listing all diplomas
+     * @returns {Observable<Response>}
+     */
+    getAllDiplomas() {
+        let __this = this;
+
+        return this.http.request(__this.allDiplomasListingUrl);
     }
 }
