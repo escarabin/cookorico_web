@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-3">
-
+        <job-search-sidebar></job-search-sidebar>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 job-content">
         <div *ngIf="job">
             <div class="col-md-12 title">
                 <h2>{{ job.title }}</h2>
@@ -13,28 +13,28 @@
             </div>
 
             <div class="col-md-12 created_at">
-                Publiée le {{ job.created_at }}
+                <span class="fa fa-calendar-o"></span> &nbsp; {{ job.created_at }}
             </div>
 
-            <div class="col-md-6">
-                Contrat : {{ job.contractType.title }}
+            <div class="col-md-6 job-info contract_type">
+                <label>Contrat :</label> {{ job.contractType.title }}
             </div>
-            <div class="col-md-6">
-                Niveau d'expérience : {{ job.jobXpLevel.title }}
+            <div class="col-md-6 job-info xp_level">
+                <label>Niveau d'expérience :</label> {{ job.jobXpLevel.title }}
             </div>
-            <div class="col-md-6">
-                Logé :
+            <div class="col-md-6 job-info hosting">
+                <label>Logé :</label>
                 <span *ngIf="job.is_hosting_employee">Oui</span>
                 <span *ngIf="!job.is_hosting_employee">Non</span>
             </div>
-            <div class="col-md-6" *ngIf="job.end_date">
-                Langues :
+            <div class="col-md-6 job-info languages" *ngIf="job.end_date">
+                <label>Langues :</label>
                 <span *ngFor="let language of job.languages">
                     {{ language.title }},
                 </span>
             </div>
-            <div class="col-md-6">
-                Début du contrat :
+            <div class="col-md-6 job-info start_date">
+                <label>Début du contrat :</label>
                 <span *ngIf="job.is_urgent">
                     Dés que possible
                 </span>
@@ -42,8 +42,8 @@
                     {{ job.start_date }}
                 </span>
             </div>
-            <div class="col-md-6" *ngIf="job.end_date">
-                Fin du contrat : {{ job.end_date }}
+            <div class="col-md-6 job-info end_date" *ngIf="job.end_date">
+                <label>Fin du contrat :</label> {{ job.end_date }}
             </div>
             <!--<div class="col-md-6">
                 Offre : {{ job.type.title }}
@@ -51,8 +51,8 @@
             <div class="col-md-6">
                 Offre : {{ job.type.title }}
             </div>-->
-            <div class="col-md-6">
-                Niveau d'études : {{ job.studyLevel.title }}
+            <div class="col-md-6 job-info education">
+                <label>Niveau d'études :</label> {{ job.studyLevel.title }}
             </div>
             <div class="col-md-12">
                 {{ job.content }}

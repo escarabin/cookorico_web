@@ -121,6 +121,20 @@ job {
   padding-top: 150px;
   display: block; }
 
+job .job-content {
+  background: white;
+  padding-bottom: 20px;
+  border-radius: 4px;
+  -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
+  box-shadow: 0px 0px 40px 0px #d8d8d8; }
+
+job .job-info {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-left: 1px solid #CCC;
+  margin-left: 15px;
+  width: 45%; }
+
 new-application-form {
   display: block;
   padding-top: 150px; }

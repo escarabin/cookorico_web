@@ -2,3 +2,21 @@ job {
   padding-top: $mainPagePaddingTop;
   display: block;
 }
+
+job .job-content {
+  background: white;
+  padding-bottom: 20px;
+  border-radius: $mainBorderRadius;
+  -moz-box-shadow: $mainBoxShadow;
+  -webkit-box-shadow: $mainBoxShadow;
+  -o-box-shadow: $mainBoxShadow;
+  box-shadow: $mainBoxShadow;
+}
+
+job .job-info {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-left: 1px solid #CCC;
+  margin-left: 15px;
+  width: 45%;
+}
