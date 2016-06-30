@@ -299,9 +299,11 @@ profile {
 profile h2 {
   text-align: center; }
 
-profile form .btn-primary.submit {
+profile form .submit-btn, profile form .back-btn {
   width: 100%;
-  margin-top: 25px; }
+  margin-top: 25px;
+  margin-bottom: 30px;
+  height: 60px; }
 
 profile form label {
   margin-top: 25px; }
