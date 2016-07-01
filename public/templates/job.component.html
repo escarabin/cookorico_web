@@ -31,7 +31,7 @@
                 <span *ngIf="!job.is_hosting_employee">Non</span>
             </div>
             <div class="col-md-6 job-info start_date">
-                <label>Début du contrat :</label>
+                <label>Début :</label>
                 <span *ngIf="job.is_urgent">
                     Dés que possible
                 </span>
@@ -40,7 +40,7 @@
                 </span>
             </div>
             <div class="col-md-6 job-info end_date" *ngIf="job.end_date">
-                <label>Fin du contrat :</label> {{ job.end_date }}
+                <label>Fin :</label> {{ job.end_date }}
             </div>
             <div class="col-md-6 job-info languages" *ngIf="job.end_date">
                 <label>Langues :</label>

@@ -43,6 +43,7 @@ class UserController extends Controller
         foreach ($applications as $application) {
             $application->job = $application->job;
             $application->user = $application->user;
+            $application->job->business = $application->job->business;
         }
 
         return $applications;

@@ -12,6 +12,9 @@
         <a *ngFor="let application of applications"
            [routerLink]="['/ShowJob', { jobId: application.job.id }]">
             <li>
+                <div class="logo">
+                    <img src="/uploads/business/logo/{{ application.job.business.logoFile }}"/>
+                </div>
                 <h3>{{ application.job.title }}</h3>
                 <span class="date">
                     <span class="fa fa-calendar-o"></span> &nbsp;

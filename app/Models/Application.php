@@ -23,7 +23,6 @@ class Application extends Model
         return $this->belongsTo('App\Models\Job');
     }
 
-
     /**
      * Get the user that submitted the application
      */
