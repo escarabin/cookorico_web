@@ -11,6 +11,9 @@
     <ul>
         <a>
             <li *ngFor="let testimonial of testimonials">
+                <div class="logo">
+                    <img src="/uploads/business/logo/{{ testimonial.business.logoFile }}"/>
+                </div>
                 <h3>{{ testimonial.jobNaming.title }}</h3>
                 {{ testimonial.business.title }}
                 <br />
