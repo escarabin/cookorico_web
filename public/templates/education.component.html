@@ -11,6 +11,9 @@
     <ul>
         <a>
             <li *ngFor="let study of studies">
+                <div class="logo">
+                    <img src="/uploads/business/logo/{{ study.business.logoFile }}"/>
+                </div>
                 <h3>{{ study.diploma.title }}</h3>
                 <span class="date">
                     {{ study.start_date }} &nbsp;

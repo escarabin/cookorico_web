@@ -77,6 +77,7 @@ class UserController extends Controller
         // Necesseray Laravel's workaround to return relationship values inside JSON
         foreach ($education as $study) {
             $study->diploma = $study->diploma;
+            $study->business = $study->business;
         }
 
         return $education;

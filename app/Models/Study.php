@@ -35,6 +35,14 @@ class Study extends Model
     }
 
     /**
+     * Get the business
+     */
+    public function business()
+    {
+        return $this->belongsTo('App\Models\Business');
+    }
+
+    /**
      * Parsing study start date
      * @param $value
      * @return string
