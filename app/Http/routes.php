@@ -60,6 +60,8 @@ Route::get('/study_levels/all', 'ReferenceController@getAllStudyLevels')
     ->name('getAllStudyLevels');
 Route::get('/alert_frequencies/all', 'ReferenceController@getAllAlertFrequencies')
     ->name('getAllAlertFrequencies');
+Route::get('/business_types/all', 'ReferenceController@getAllBusinessTypes')
+    ->name('getAllBusinessTypes');
 
 // Applications
 Route::get('/applications/all', 'UserController@getApplications')
