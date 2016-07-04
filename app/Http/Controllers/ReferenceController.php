@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 
 use App\Models\AlertFrequency;
+use App\Models\BusinessType;
 use App\Models\ContractType;
 use App\Models\Diploma;
 use App\Models\JobNaming;
@@ -48,5 +49,11 @@ class ReferenceController extends Controller
         $alertFrequencies = AlertFrequency::all();
 
         return $alertFrequencies;
+    }
+
+    public function getAllBusinessTypes() {
+        $businessTypes = BusinessType::all();
+
+        return $businessTypes;
     }
 }
