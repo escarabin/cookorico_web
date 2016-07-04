@@ -28,10 +28,13 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             }],
         execute: function() {
             CreateBusinessComponent = (function () {
-                // Form data
                 function CreateBusinessComponent(referenceService, userService) {
                     this.referenceService = referenceService;
                     this.userService = userService;
+                    var __this = this;
+                    this.referenceService.getAllBusinessTypes().subscribe(function (res) {
+                        __this.businessTypes = res.json();
+                    });
                 }
                 CreateBusinessComponent.prototype.submitBusiness = function () {
                 };

@@ -14,11 +14,15 @@ import { UserService } from './../services/user.service';
 })
 
 export class CreateBusinessComponent {
-    // Form data
+    businessTypes: any;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService) {
+        let __this = this;
 
+        this.referenceService.getAllBusinessTypes().subscribe((res: Response) => {
+            __this.businessTypes = res.json();
+        })
     }
 
     submitBusiness() {
