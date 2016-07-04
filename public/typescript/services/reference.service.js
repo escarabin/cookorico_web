@@ -31,6 +31,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.allStudyLevelsListingUrl = '/study_levels/all';
                     this.allDiplomasListingUrl = '/diplomas/all';
                     this.getAlertFrequenciesListingUrl = '/alert_frequencies/all';
+                    this.getAllBusinessTypesListingUrl = '/business_types/all';
                 }
                 /**
                  * Listing all states (régions in fr)
@@ -87,6 +88,14 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 ReferenceService.prototype.getAllAlertFrequencies = function () {
                     var __this = this;
                     return this.http.request(__this.getAlertFrequenciesListingUrl);
+                };
+                /**
+                 * Listing all possible business types
+                 * @returns {Observable<Response>}
+                 */
+                ReferenceService.prototype.getAllBusinessTypes = function () {
+                    var __this = this;
+                    return this.http.request(__this.getAllBusinessTypesListingUrl);
                 };
                 ReferenceService = __decorate([
                     core_1.Injectable(), 

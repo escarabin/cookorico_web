@@ -10,7 +10,7 @@ import { UserService } from './../services/user.service';
     selector: 'create-business',
     providers: [ReferenceService, UserService],
     directives: [RouterLink],
-    templateUrl: '../templates/create-experience.component.html'
+    templateUrl: '../templates/create-business.component.html'
 })
 
 export class CreateBusinessComponent {

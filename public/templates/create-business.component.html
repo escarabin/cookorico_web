@@ -1,0 +1,20 @@
+<div class="col-md-12">
+    <h2>Référencer un nouvel établissement</h2>
+</div>
+
+<div class="col-md-12">
+    <form>
+        <div class="col-md-6">
+            <label>Type</label>
+            <select name="type"
+                    [(ngModel)]="businessTypeId"
+                    class="form-control">
+                <option disabled selected>-- Type --</option>
+                <option *ngFor="let businessType of businessTypes"
+                        value="{{ businessType.id }}">
+                    {{ businessType.title }}
+                </option>
+            </select>
+        </div>
+    </form>
+</div>

@@ -10,6 +10,7 @@ export class ReferenceService {
     allStudyLevelsListingUrl = '/study_levels/all';
     allDiplomasListingUrl = '/diplomas/all';
     getAlertFrequenciesListingUrl = '/alert_frequencies/all';
+    getAllBusinessTypesListingUrl = '/business_types/all';
 
     constructor(private http: Http) {
 
@@ -83,5 +84,15 @@ export class ReferenceService {
         let __this = this;
 
         return this.http.request(__this.getAlertFrequenciesListingUrl);
+    }
+
+    /**
+     * Listing all possible business types
+     * @returns {Observable<Response>}
+     */
+    getAllBusinessTypes() {
+        let __this = this;
+
+        return this.http.request(__this.getAllBusinessTypesListingUrl);
     }
 }
