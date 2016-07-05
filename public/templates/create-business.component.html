@@ -5,9 +5,17 @@
 <div class="col-md-12">
     <form>
         <div class="col-md-6">
+            <label>Adresse</label>
+            <input type="text"
+                   class="form-control"
+                   required
+                   placeholder="Adresse"/>
+        </div>
+        <div class="col-md-6">
             <label>Type</label>
             <select name="type"
                     [(ngModel)]="businessTypeId"
+                    required
                     class="form-control">
                 <option disabled selected>-- Type --</option>
                 <option *ngFor="let businessType of businessTypes"
@@ -15,6 +23,12 @@
                     {{ businessType.title }}
                 </option>
             </select>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-primary submit"
+                    (click)="submitBusiness()">
+                Sauvegarder
+            </button>
         </div>
     </form>
 </div>
