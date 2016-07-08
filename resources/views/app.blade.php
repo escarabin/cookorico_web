@@ -7,6 +7,8 @@
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
           crossorigin="anonymous">
 
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
 

@@ -8,10 +8,9 @@
             <label>Adresse</label>
             <input type="text"
                    class="form-control"
-                   required
                    [(ngModel)]="adress"
-                   (input)="getGoogleMapsAdress()"
-                   placeholder="Adresse"/>
+                   (setAddress)="getAdress($event)"
+                   googleplace/>
         </div>
         <div class="col-md-6">
             <label>Type</label>

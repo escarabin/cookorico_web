@@ -24,7 +24,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
             LocationService = (function () {
                 function LocationService(http) {
                     this.http = http;
-                    this.googlePlacesApiUrl = "http://maps.googleapis.com/maps/api/place/autocomplete/json";
+                    this.googlePlacesApiUrl = "https://maps.googleapis.com/maps/api/place/autocomplete/json";
                     this.googlePlacesApiKey = "AIzaSyCHNaCGgnmz-39ECIEo65ozW96VJSIH9yI";
                     this.googlePlacesApiSettings = "&types=geocode&language=fr";
                 }

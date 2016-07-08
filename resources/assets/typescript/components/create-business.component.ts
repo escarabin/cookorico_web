@@ -7,16 +7,18 @@ import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
 import { LocationService } from './../services/location.service';
 
+import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
+
 @Component({
     selector: 'create-business',
     providers: [ReferenceService, UserService, LocationService],
-    directives: [RouterLink],
+    directives: [RouterLink, GoogleplaceDirective],
     templateUrl: '../templates/create-business.component.html'
 })
 
 export class CreateBusinessComponent {
     businessTypes: any;
-    adress: string;
+    public adress : Object;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
@@ -32,9 +34,11 @@ export class CreateBusinessComponent {
         console.log('submitting');
     }
 
-    getGoogleMapsAdress() {
-        this.locationService.autocompleteAdress(this.adress).subscribe((res: Response) => {
-            console.log(res.json());
-        })
+    getAdress(place:Object) {
+        this.adress = place['formatted_address'];
+        var location = place['geometry']['location'];
+        var lat =  location.lat();
+        var lng = location.lng();
+        console.log("Address Object", place);
     }
 }

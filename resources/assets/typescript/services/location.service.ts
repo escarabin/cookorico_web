@@ -4,7 +4,7 @@ import http = require("request");
 
 @Injectable()
 export class LocationService {
-    googlePlacesApiUrl = "http://maps.googleapis.com/maps/api/place/autocomplete/json";
+    googlePlacesApiUrl = "https://maps.googleapis.com/maps/api/place/autocomplete/json";
     googlePlacesApiKey = "AIzaSyCHNaCGgnmz-39ECIEo65ozW96VJSIH9yI";
     googlePlacesApiSettings = "&types=geocode&language=fr";
 

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', 'angular2-google-map-auto-complete/directives/googleplace.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, googleplace_directive_1;
     var CreateBusinessComponent;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             },
             function (location_service_1_1) {
                 location_service_1 = location_service_1_1;
+            },
+            function (googleplace_directive_1_1) {
+                googleplace_directive_1 = googleplace_directive_1_1;
             }],
         execute: function() {
             CreateBusinessComponent = (function () {
@@ -43,16 +46,18 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 CreateBusinessComponent.prototype.submitBusiness = function () {
                     console.log('submitting');
                 };
-                CreateBusinessComponent.prototype.getGoogleMapsAdress = function () {
-                    this.locationService.autocompleteAdress(this.adress).subscribe(function (res) {
-                        console.log(res.json());
-                    });
+                CreateBusinessComponent.prototype.getAdress = function (place) {
+                    this.adress = place['formatted_address'];
+                    var location = place['geometry']['location'];
+                    var lat = location.lat();
+                    var lng = location.lng();
+                    console.log("Address Object", place);
                 };
                 CreateBusinessComponent = __decorate([
                     core_1.Component({
                         selector: 'create-business',
                         providers: [reference_service_1.ReferenceService, user_service_1.UserService, location_service_1.LocationService],
-                        directives: [router_deprecated_1.RouterLink],
+                        directives: [router_deprecated_1.RouterLink, googleplace_directive_1.GoogleplaceDirective],
                         templateUrl: '../templates/create-business.component.html'
                     }), 
                     __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, location_service_1.LocationService])
