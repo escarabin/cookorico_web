@@ -18,7 +18,14 @@ import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directiv
 
 export class CreateBusinessComponent {
     businessTypes: any;
-    public adress : Object;
+    phone: string;
+    city: string;
+    postalCode: string;
+    email: string;
+    fullAdress: string;
+    website: string;
+    description: string;
+    public adress: Object;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
@@ -39,6 +46,7 @@ export class CreateBusinessComponent {
         var location = place['geometry']['location'];
         var lat =  location.lat();
         var lng = location.lng();
+
         console.log("Address Object", place);
     }
 }

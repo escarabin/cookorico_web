@@ -4,13 +4,41 @@
 
 <div class="col-md-12">
     <form>
-        <div class="col-md-6">
-            <label>Adresse</label>
+        <div class="col-md-12">
+            <label>Nom de votre établissement</label>
             <input type="text"
                    class="form-control"
                    [(ngModel)]="adress"
                    (setAddress)="getAdress($event)"
                    googleplace/>
+        </div>
+        <div class="col-md-6">
+            <label>Adresse</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Adresse"
+                   [(ngModel)]="fullAdress"/>
+        </div>
+        <div class="col-md-6">
+            <label>Code postal</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Code postal"
+                   [(ngModel)]="postalCode"/>
+        </div>
+        <div class="col-md-6">
+            <label>Ville</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Ville"
+                   [(ngModel)]="city"/>
+        </div>
+        <div class="col-md-6">
+            <label>Site web</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Site web"
+                   [(ngModel)]="website"/>
         </div>
         <div class="col-md-6">
             <label>Type</label>
@@ -25,8 +53,36 @@
                 </option>
             </select>
         </div>
+        <div class="col-md-6">
+            <label>Téléphone</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Téléphone"
+                   [(ngModel)]="phone"/>
+        </div>
+        <div class="col-md-6">
+            <label>Email</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Email"
+                   [(ngModel)]="email"/>
+        </div>
         <div class="col-md-12">
-            <button class="btn btn-primary submit"
+            <label>Description</label>
+            <textarea class="form-control"
+                      [(ngModel)]="description"
+                      placeholder="Votre établissement en quelques lignes"></textarea>
+        </div>
+        <div class="col-md-6 hidden-xs hidden-sm">
+            <a [routerLink]="['/Profile/Businesses']">
+                <button class="btn btn-default back-btn">
+                    <span class="fa fa-arrow-left"></span> &nbsp;
+                    Retour aux établissements
+                </button>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary submit-btn"
                     (click)="submitBusiness()">
                 Sauvegarder
             </button>
