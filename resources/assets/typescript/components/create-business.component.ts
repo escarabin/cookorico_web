@@ -26,6 +26,11 @@ export class CreateBusinessComponent {
     }
 
     submitBusiness() {
+        console.log('submitting');
+    }
 
+    getGoogleMapsAdress() {
+
+        console.log('finding adress...');
     }
 }

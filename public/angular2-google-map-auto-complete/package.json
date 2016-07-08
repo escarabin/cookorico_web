@@ -1,0 +1,93 @@
+{
+  "_args": [
+    [
+      "angular2-google-map-auto-complete",
+      "/Applications/MAMP/htdocs/oechr"
+    ]
+  ],
+  "_from": "angular2-google-map-auto-complete@latest",
+  "_id": "angular2-google-map-auto-complete@1.0.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/angular2-google-map-auto-complete",
+  "_nodeVersion": "4.4.4",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/angular2-google-map-auto-complete-1.0.4.tgz_1466507218233_0.9045162482652813"
+  },
+  "_npmUser": {
+    "email": "rajan.gunasekaran@ameexusa.com",
+    "name": "rajan-g"
+  },
+  "_npmVersion": "2.15.1",
+  "_phantomChildren": {
+    "when": "3.7.7"
+  },
+  "_requested": {
+    "name": "angular2-google-map-auto-complete",
+    "raw": "angular2-google-map-auto-complete",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular2-google-map-auto-complete/-/angular2-google-map-auto-complete-1.0.4.tgz",
+  "_shasum": "9bbd3b46b96958595fec3d36849200fc59bd2f09",
+  "_shrinkwrap": null,
+  "_spec": "angular2-google-map-auto-complete",
+  "_where": "/Applications/MAMP/htdocs/oechr",
+  "author": {
+    "name": "Rajan G"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.12",
+    "es6-shim": "^0.35.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "systemjs": "0.19.25",
+    "zone.js": "0.6.6"
+  },
+  "description": "google map auto complete directive for angular2",
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.2.0",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "9bbd3b46b96958595fec3d36849200fc59bd2f09",
+    "tarball": "https://registry.npmjs.org/angular2-google-map-auto-complete/-/angular2-google-map-auto-complete-1.0.4.tgz"
+  },
+  "gitHead": "370548dd825dcedb85b61a4112be46e4a16579cd",
+  "keywords": [
+    "angular2-google-map-auto-complete",
+    "angular2-google-place-auto-complete",
+    "ng2-google-map-auto-complete",
+    "ng2-google-place-auto-complete",
+    "google-place-auto-complete"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "email": "rajan.gunasekaran@ameexusa.com",
+      "name": "rajan-g"
+    }
+  ],
+  "name": "angular2-google-map-auto-complete",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "lite": "lite-server",
+    "postinstall": "typings install",
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings"
+  },
+  "version": "1.0.4"
+}

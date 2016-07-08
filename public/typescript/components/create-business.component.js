@@ -37,6 +37,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     });
                 }
                 CreateBusinessComponent.prototype.submitBusiness = function () {
+                    console.log('submitting');
+                };
+                CreateBusinessComponent.prototype.getGoogleMapsAdress = function () {
+                    console.log('finding adress...');
                 };
                 CreateBusinessComponent = __decorate([
                     core_1.Component({
