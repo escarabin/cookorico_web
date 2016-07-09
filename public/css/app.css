@@ -15,11 +15,11 @@
   src: url("/fonts/Avenir-Heavy.ttf"); }
 
 .form-control {
-  height: 40px; }
+  height: 40px;
+  box-shadow: none; }
 
 .input-group-addon:first-child {
-  background: white;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+  background: white; }
 
 .input-group input {
   border-left: 0;

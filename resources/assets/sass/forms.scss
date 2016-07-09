@@ -1,11 +1,10 @@
 .form-control {
   height: 40px;
+  box-shadow: none;
 }
 
 .input-group-addon:first-child {
   background: white;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 }
 
 .input-group input {

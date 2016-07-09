@@ -98,3 +98,7 @@ Route::get('/created_testimonials/all', 'UserController@getCreatedTestimonials')
 // Diplomas
 Route::get('/diplomas/all', 'ReferenceController@getAllDiplomas')
     ->name('getAllDiplomas');
+
+// Businesses
+Route::get('/business/create/{name}/{adress}/{postalCode}/{city}/{website}/{typeId}/{phone}/{email}/{description}', 'BusinessController@create')
+    ->name('getAllDiplomas');
