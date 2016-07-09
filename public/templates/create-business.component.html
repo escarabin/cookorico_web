@@ -15,6 +15,7 @@
         <div class="col-md-6">
             <label>Adresse</label>
             <input type="text"
+                   required
                    class="form-control"
                    placeholder="Adresse"
                    [(ngModel)]="fullAdress"/>
@@ -22,6 +23,7 @@
         <div class="col-md-6">
             <label>Code postal</label>
             <input type="text"
+                   required
                    class="form-control"
                    placeholder="Code postal"
                    [(ngModel)]="postalCode"/>
@@ -29,6 +31,7 @@
         <div class="col-md-6">
             <label>Ville</label>
             <input type="text"
+                   required
                    class="form-control"
                    placeholder="Ville"
                    [(ngModel)]="city"/>
@@ -43,6 +46,7 @@
         <div class="col-md-6">
             <label>Type</label>
             <select name="type"
+                    required
                     [(ngModel)]="businessTypeId"
                     required
                     class="form-control">
@@ -56,6 +60,7 @@
         <div class="col-md-6">
             <label>Téléphone</label>
             <input type="text"
+                   required
                    class="form-control"
                    placeholder="Téléphone"
                    [(ngModel)]="phone"/>
@@ -63,6 +68,7 @@
         <div class="col-md-6">
             <label>Email</label>
             <input type="text"
+                   required
                    class="form-control"
                    placeholder="Email"
                    [(ngModel)]="email"/>

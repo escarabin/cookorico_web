@@ -18,6 +18,7 @@ import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directiv
 
 export class CreateBusinessComponent {
     businessTypes: any;
+    businessTypeId: number;
     phone: string;
     city: string;
     postalCode: string;
@@ -25,6 +26,8 @@ export class CreateBusinessComponent {
     fullAdress: string;
     website: string;
     description: string;
+    lat: number;
+    lon: number;
     public adress: Object;
 
     constructor(private referenceService: ReferenceService,
@@ -42,10 +45,32 @@ export class CreateBusinessComponent {
     }
 
     getAdress(place:Object) {
-        this.adress = place['formatted_address'];
         var location = place['geometry']['location'];
-        var lat =  location.lat();
-        var lng = location.lng();
+        this.lat =  location.lat();
+        this.lon = location.lng();
+
+        this.phone = place['formatted_phone_number'];
+        this.website = place['website'];
+        this.fullAdress = place['formatted_address'];
+        this.city = place['address_components'][2]['long_name'];
+        this.adress = place['name'];
+
+        // Get business's type
+        if (place['types'].indexOf('restaurant')) {
+            this.businessTypeId = 2;
+        }
+        else if (place['types'].indexOf('lodging')) {
+            this.businessTypeId = 1;
+        }
+        else if (place['types'].indexOf('campground')) {
+            this.businessTypeId = 6;
+        }
+        else if (place['types'].indexOf('cafe') || place['types'].indexOf('bar')) {
+            this.businessTypeId = 8;
+        }
+        else {
+            this.businessTypeId = 9;
+        }
 
         console.log("Address Object", place);
     }
