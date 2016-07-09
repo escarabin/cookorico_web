@@ -41,7 +41,7 @@ export class CreateBusinessComponent {
     }
 
     submitBusiness() {
-        console.log('submitting');
+
     }
 
     getAdress(place:Object) {
@@ -71,7 +71,5 @@ export class CreateBusinessComponent {
         else {
             this.businessTypeId = 9;
         }
-
-        console.log("Address Object", place);
     }
 }

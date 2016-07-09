@@ -44,7 +44,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     });
                 }
                 CreateBusinessComponent.prototype.submitBusiness = function () {
-                    console.log('submitting');
                 };
                 CreateBusinessComponent.prototype.getAdress = function (place) {
                     var location = place['geometry']['location'];
@@ -71,7 +70,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     else {
                         this.businessTypeId = 9;
                     }
-                    console.log("Address Object", place);
                 };
                 CreateBusinessComponent = __decorate([
                     core_1.Component({
