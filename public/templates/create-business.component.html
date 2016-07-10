@@ -12,6 +12,15 @@
                    (setAddress)="getAdress($event)"
                    googleplace/>
         </div>
+        <div class="col-md-12" id="business-photos">
+            <div class="col-md-4"
+                 *ngFor="let photo of photos">
+                <div class="photo-preview"
+                     [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+
+                </div>
+            </div>
+        </div>
         <div class="col-md-6">
             <label>Adresse</label>
             <input type="text"
@@ -69,6 +78,7 @@
             <label>Email</label>
             <input type="text"
                    required
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                    class="form-control"
                    placeholder="Email"
                    [(ngModel)]="email"/>

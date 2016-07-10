@@ -10,7 +10,9 @@ export class BusinessService {
     }
 
     create(name, adress, postalCode, city, website, typeId, phone, email, description) {
-        let completeUrl = this.createBusinessUrl + '/' +
+        console.log('creating business');
+
+        let completeUrl = this.createBusinessUrl +
             name + '/' +
             adress + '/' +
             postalCode + '/' +

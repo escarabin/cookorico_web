@@ -27,7 +27,8 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.createBusinessUrl = "/business/create/";
                 }
                 BusinessService.prototype.create = function (name, adress, postalCode, city, website, typeId, phone, email, description) {
-                    var completeUrl = this.createBusinessUrl + '/' +
+                    console.log('creating business');
+                    var completeUrl = this.createBusinessUrl +
                         name + '/' +
                         adress + '/' +
                         postalCode + '/' +

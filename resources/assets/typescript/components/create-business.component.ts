@@ -6,12 +6,16 @@ import { RouterLink } from '@angular/router-deprecated';
 import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
 import { LocationService } from './../services/location.service';
+import { BusinessService } from './../services/business.service';
 
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
 
 @Component({
     selector: 'create-business',
-    providers: [ReferenceService, UserService, LocationService],
+    providers: [ReferenceService,
+                UserService,
+                LocationService,
+                BusinessService],
     directives: [RouterLink, GoogleplaceDirective],
     templateUrl: '../templates/create-business.component.html'
 })
@@ -28,20 +32,18 @@ export class CreateBusinessComponent {
     description: string;
     lat: number;
     lon: number;
+    photos = [];
     public adress: Object;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
+                private businessService: BusinessService,
                 private locationService: LocationService) {
         let __this = this;
 
         this.referenceService.getAllBusinessTypes().subscribe((res: Response) => {
             __this.businessTypes = res.json();
         })
-    }
-
-    submitBusiness() {
-
     }
 
     getAdress(place:Object) {
@@ -52,8 +54,13 @@ export class CreateBusinessComponent {
         this.phone = place['formatted_phone_number'];
         this.website = place['website'];
         this.fullAdress = place['formatted_address'];
-        this.city = place['address_components'][2]['long_name'];
         this.adress = place['name'];
+
+        // Loop through photos to get url
+        for (let i = 0; i < place['photos'].length; i++) {
+            let photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });
+            this.photos.push(photoUrl);
+        }
 
         // Get business's type
         if (place['types'].indexOf('restaurant')) {
@@ -71,5 +78,22 @@ export class CreateBusinessComponent {
         else {
             this.businessTypeId = 9;
         }
+
+        this.city = place['address_components'][2]['long_name'];
+    }
+
+    submitBusiness() {
+        let __this = this;
+        this.businessService.create(__this.adress,
+            __this.fullAdress,
+            __this.postalCode,
+            __this.city,
+            __this.website,
+            __this.businessTypeId,
+            __this.phone,
+            __this.email,
+            __this.description).subscribe((res: Response) => {
+            console.log(res.json());
+        })
     }
 }
