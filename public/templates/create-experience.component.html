@@ -50,8 +50,16 @@
                       class="form-control"
                       placeholder="Description"></textarea>
         </div>
-        <div class="col-md-12">
-            <button class="btn btn-primary submit"
+        <div class="col-md-6 hidden-xs hidden-sm">
+            <a [routerLink]="['/Profile/Experiences']">
+                <button class="btn btn-default back-btn">
+                    <span class="fa fa-arrow-left"></span> &nbsp;
+                    Retour aux expériences
+                </button>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary submit-btn"
                     (click)="submitExperience()">
                 Sauvegarder
             </button>
