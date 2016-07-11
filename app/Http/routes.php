@@ -102,3 +102,5 @@ Route::get('/diplomas/all', 'ReferenceController@getAllDiplomas')
 // Businesses
 Route::get('/business/create/{name}/{lat}/{lon}/{adress}/{postalCode}/{city}/{website?}/{typeId}/{phone}/{email}/{description?}', 'BusinessController@create')
     ->name('getAllDiplomas');
+Route::get('/businesses/all/', 'UserController@getBusinesses')
+    ->name('getAllBusinesses');

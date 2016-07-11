@@ -128,6 +128,22 @@ class UserController extends Controller
     }
 
     /**
+     * Get user's businesses
+     * @return mixed
+     */
+    public function getBusinesses() {
+        $businesses = Auth::user()->businesses;
+
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        foreach ($businesses as $business) {
+            $business->type = $business->type;
+            $business->clubs = $business->clubs;
+        }
+
+        return $businesses;
+    }
+
+    /**
      * Get user's created testimonials
      * @return mixed
      */
