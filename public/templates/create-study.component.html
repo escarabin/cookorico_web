@@ -3,7 +3,8 @@
         <div class="col-md-6">
             <label>Diplôme</label>
             <select name="job"
-                    [(ngModel)]="diplomaId"
+                    required
+                    [(ngModel)]="study.diploma_id"
                     class="form-control">
                 <option disabled selected>-- Diplôme --</option>
                 <option *ngFor="let diploma of diplomas"
@@ -15,34 +16,38 @@
         <div class="col-md-6">
             <label>Établissement</label>
             <input type="text"
-                   [(ngModel)]="businessId"
+                   required
+                   [(ngModel)]="study.business_id"
                    class="form-control"
                    placeholder="Établissement"/>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6">
             <label>Date de début</label>
             <input type="date"
-                   [(ngModel)]="startDate"
+                   required
+                   [(ngModel)]="study.start_date"
                    class="form-control"
                    placeholder="Date de début"/>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6">
             <label>Date de fin</label>
             <input type="date"
+                   required
                    class="form-control"
                    placeholder="Date de fin"/>
         </div>
         <div class="col-md-6">
             <label>Lieu</label>
             <input type="text"
-                   [(ngModel)]="endDate"
+                   required
+                   [(ngModel)]="study.end_date"
                    class="form-control"
                    placeholder="Lieu"/>
         </div>
         <div class="col-md-12">
             <label>Description</label>
             <textarea name="description"
-                      [(ngModel)]="description"
+                      [(ngModel)]="study.description"
                       class="form-control"
                       placeholder="Description"></textarea>
         </div>

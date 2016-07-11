@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../models/study'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, study_1;
     var CreateStudyComponent;
     return {
         setters:[
@@ -25,12 +25,16 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
+            },
+            function (study_1_1) {
+                study_1 = study_1_1;
             }],
         execute: function() {
             CreateStudyComponent = (function () {
                 function CreateStudyComponent(referenceService, userService) {
                     this.referenceService = referenceService;
                     this.userService = userService;
+                    this.study = new study_1.Study();
                     var __this = this;
                     this.referenceService.getAllDiplomas().subscribe(function (res) {
                         __this.diplomas = res.json();
@@ -38,7 +42,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 }
                 CreateStudyComponent.prototype.submitStudy = function () {
                     var __this = this;
-                    this.userService.createStudy(__this.diplomaId, __this.businessId, __this.startDate, __this.endDate, __this.place, __this.description).subscribe(function (res) {
+                    this.userService.createStudy(__this.study.diploma_id, __this.study.business_id, __this.study.start_date, __this.study.end_date, __this.study.adress, __this.study.description).subscribe(function (res) {
                         console.log(res.json());
                     });
                 };
