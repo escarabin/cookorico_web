@@ -7,6 +7,7 @@ import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
 import { LocationService } from './../services/location.service';
 import { BusinessService } from './../services/business.service';
+import { FileUploadService } from './../services/file-upload.service';
 
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
 
@@ -15,7 +16,8 @@ import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directiv
     providers: [ReferenceService,
                 UserService,
                 LocationService,
-                BusinessService],
+                BusinessService,
+                FileUploadService],
     directives: [RouterLink, GoogleplaceDirective],
     templateUrl: '../templates/create-business.component.html'
 })
@@ -38,6 +40,7 @@ export class CreateBusinessComponent {
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
                 private businessService: BusinessService,
+                private fileUploadService: FileUploadService,
                 private locationService: LocationService) {
         let __this = this;
 
