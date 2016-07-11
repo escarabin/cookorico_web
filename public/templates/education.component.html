@@ -9,8 +9,9 @@
 
 <div class="col-md-12 list-container">
     <ul>
-        <a>
-            <li *ngFor="let study of studies">
+        <a *ngFor="let study of studies"
+           [routerLink]="['/Profile/EditStudy', { studyId: study.id }]">
+            <li>
                 <div class="logo">
                     <img src="/uploads/business/logo/{{ study.business.logoFile }}"/>
                 </div>

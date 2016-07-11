@@ -48,7 +48,7 @@ import { BusinessesComponent } from "./businesses.component";
 
     // Education
     { path: '/education/all', name: 'Education', component: EducationComponent },
-    { path: '/education/:studyId', name: 'ShowStudy', component: EducationComponent },
+    { path: '/education/edit/:studyId', name: 'EditStudy', component: CreateStudyComponent },
     { path: '/education/create', name: 'CreateStudy', component: CreateStudyComponent },
 
     // Alerts

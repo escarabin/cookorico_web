@@ -82,7 +82,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         { path: '/applications/all', name: 'Applications', component: applications_component_1.ApplicationsComponent },
                         // Education
                         { path: '/education/all', name: 'Education', component: education_component_1.EducationComponent },
-                        { path: '/education/:studyId', name: 'ShowStudy', component: education_component_1.EducationComponent },
+                        { path: '/education/edit/:studyId', name: 'EditStudy', component: create_study_component_1.CreateStudyComponent },
                         { path: '/education/create', name: 'CreateStudy', component: create_study_component_1.CreateStudyComponent },
                         // Alerts
                         { path: '/alerts/all', name: 'Alerts', component: alerts_component_1.AlertsComponent },
