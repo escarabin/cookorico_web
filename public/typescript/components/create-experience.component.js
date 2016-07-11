@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../models/experience'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../models/experience'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, experience_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, googleplace_directive_1, experience_1;
     var CreateExperienceComponent;
     return {
         setters:[
@@ -25,6 +25,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
+            },
+            function (googleplace_directive_1_1) {
+                googleplace_directive_1 = googleplace_directive_1_1;
             },
             function (experience_1_1) {
                 experience_1 = experience_1_1;
@@ -48,9 +51,14 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         __this.jobNamings = res.json();
                     });
                 }
+                CreateExperienceComponent.prototype.parseAdress = function (place) {
+                    var location = place['geometry']['location'];
+                    this.experience.lat = location.lat();
+                    this.experience.lon = location.lng();
+                };
                 CreateExperienceComponent.prototype.submitExperience = function () {
                     var __this = this;
-                    this.userService.createExperience(__this.experience.job_naming_id, __this.experience.business_id, __this.experience.start_date, __this.experience.end_date, __this.experience.adress, __this.experience.description).subscribe(function (res) {
+                    this.userService.createExperience(__this.experience.job_naming_id, __this.experience.business_id, __this.experience.start_date, __this.experience.end_date, __this.experience.adress, __this.experience.lat, __this.experience.lon, __this.experience.description).subscribe(function (res) {
                         console.log(res.json());
                     });
                 };
@@ -58,7 +66,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     core_1.Component({
                         selector: 'create-experience',
                         providers: [reference_service_1.ReferenceService, user_service_1.UserService],
-                        directives: [router_deprecated_1.RouterLink],
+                        directives: [router_deprecated_1.RouterLink, googleplace_directive_1.GoogleplaceDirective],
                         templateUrl: '../templates/create-experience.component.html'
                     }), 
                     __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, router_deprecated_1.RouteParams])

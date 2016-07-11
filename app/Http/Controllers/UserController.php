@@ -187,10 +187,12 @@ class UserController extends Controller
      * @param $businessId
      * @param $startDate
      * @param $endDate
-     * @param $place
+     * @param $adress
+     * @param $lat
+     * @param $lon
      * @param $description
      */
-    public function createExperience($jobNamingId, $businessId, $startDate, $endDate, $adress, $description) {
+    public function createExperience($jobNamingId, $businessId, $startDate, $endDate, $adress, $lat, $lon, $description) {
         $user_id = Auth::user()->id;
 
         $experience = new Experience;
@@ -201,6 +203,8 @@ class UserController extends Controller
         $experience->start_date = $startDate;
         $experience->end_date = $endDate;
         $experience->adress = $adress;
+        $experience->lat = $adress;
+        $experience->lon = $adress;
         $experience->description = $description;
 
         $experience->save();

@@ -6,18 +6,22 @@ import { RouterLink, RouteParams } from '@angular/router-deprecated';
 import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
 
+// Directives
+import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
+
 // Models
 import { Experience } from './../models/experience';
 
 @Component({
     selector: 'create-experience',
     providers: [ReferenceService, UserService],
-    directives: [RouterLink],
+    directives: [RouterLink, GoogleplaceDirective],
     templateUrl: '../templates/create-experience.component.html'
 })
 
 export class CreateExperienceComponent {
     jobNamings: any;
+    public adress: Object;
     experience:Experience = new Experience();
 
     constructor(private referenceService: ReferenceService,
@@ -39,6 +43,12 @@ export class CreateExperienceComponent {
         })
     }
 
+    parseAdress(place:Object) {
+        var location = place['geometry']['location'];
+        this.experience.lat =  location.lat();
+        this.experience.lon = location.lng();
+    }
+
     submitExperience() {
         let __this = this;
 
@@ -47,6 +57,8 @@ export class CreateExperienceComponent {
             __this.experience.start_date,
             __this.experience.end_date,
             __this.experience.adress,
+            __this.experience.lat,
+            __this.experience.lon,
             __this.experience.description).subscribe((res: Response) => {
             console.log(res.json());
         })

@@ -137,11 +137,13 @@ export class UserService {
      * @param businessId
      * @param startDate
      * @param endDate
-     * @param place
+     * @param adress
+     * @param lat
+     * @param lon
      * @param description
      * @returns {Observable<Response>}
      */
-    createExperience(jobNamingId, businessId, startDate, endDate, place, description) {
+    createExperience(jobNamingId, businessId, startDate, endDate, adress, lat, lon, description) {
         let __this = this;
 
         return this.http.get(
@@ -150,7 +152,9 @@ export class UserService {
             businessId + '/' +
             startDate + '/' +
             endDate + '/' +
-            place + '/' +
+            adress + '/' +
+            lat + '/' +
+            lon + '/' +
             description);
     }
 

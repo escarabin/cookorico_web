@@ -33,12 +33,14 @@
                    class="form-control"
                    placeholder="Date de fin"/>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <label>Lieu</label>
             <input type="text"
                    [(ngModel)]="experience.adress"
                    class="form-control"
-                   placeholder="Lieu"/>
+                   placeholder="Lieu"
+                   (setAddress)="parseAdress($event)"
+                   googleplace/>
         </div>
         <div class="col-md-12">
             <label>Description</label>
