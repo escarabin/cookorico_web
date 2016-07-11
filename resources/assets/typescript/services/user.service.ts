@@ -8,6 +8,7 @@ export class UserService {
     getExperiencesUrl = '/experiences/all';
     getEducationUrl = '/education/all';
     getAlertsUrl = '/alerts/all';
+    getBusinessesUrl = '/businesses/all';
     getTestimonialsUrl = '/testimonials/all';
     getCreatedTestimonialsUrl = '/created_testimonials/all';
     createExperienceUrl = '/experience/create';
@@ -96,6 +97,15 @@ export class UserService {
         let __this = this;
 
         return this.http.get(__this.getCreatedTestimonialsUrl);
+    }
+
+    /**
+     * Get user's businesses
+     */
+    getBusinesses() {
+        let __this = this;
+
+        return this.http.get(__this.getBusinessesUrl);
     }
 
     /**
