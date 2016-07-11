@@ -85,10 +85,13 @@ export class CreateBusinessComponent {
     submitBusiness() {
         let __this = this;
         this.businessService.create(__this.adress,
+            __this.lat,
+            __this.lon,
             __this.fullAdress,
             __this.postalCode,
             __this.city,
-            __this.website,
+            // Encode url in order to pass it as a parameter
+            __this.website.replace('/', '--'),
             __this.businessTypeId,
             __this.phone,
             __this.email,

@@ -26,10 +26,12 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.http = http;
                     this.createBusinessUrl = "/business/create/";
                 }
-                BusinessService.prototype.create = function (name, adress, postalCode, city, website, typeId, phone, email, description) {
+                BusinessService.prototype.create = function (name, lat, lon, adress, postalCode, city, website, typeId, phone, email, description) {
                     console.log('creating business');
                     var completeUrl = this.createBusinessUrl +
                         name + '/' +
+                        lat + '/' +
+                        lon + '/' +
                         adress + '/' +
                         postalCode + '/' +
                         city + '/' +

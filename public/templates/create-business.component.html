@@ -4,14 +4,6 @@
 
 <div class="col-md-12">
     <form>
-        <div class="col-md-12">
-            <label>Nom de votre établissement</label>
-            <input type="text"
-                   class="form-control"
-                   [(ngModel)]="adress"
-                   (setAddress)="getAdress($event)"
-                   googleplace/>
-        </div>
         <div class="col-md-12" id="business-photos">
             <div class="col-md-4"
                  *ngFor="let photo of photos">
@@ -20,6 +12,14 @@
 
                 </div>
             </div>
+        </div>
+        <div class="col-md-12">
+            <label>Nom de votre établissement</label>
+            <input type="text"
+                   class="form-control"
+                   [(ngModel)]="adress"
+                   (setAddress)="getAdress($event)"
+                   googleplace/>
         </div>
         <div class="col-md-6">
             <label>Adresse</label>

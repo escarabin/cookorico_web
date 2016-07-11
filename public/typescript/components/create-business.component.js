@@ -81,7 +81,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 };
                 CreateBusinessComponent.prototype.submitBusiness = function () {
                     var __this = this;
-                    this.businessService.create(__this.adress, __this.fullAdress, __this.postalCode, __this.city, __this.website, __this.businessTypeId, __this.phone, __this.email, __this.description).subscribe(function (res) {
+                    this.businessService.create(__this.adress, __this.lat, __this.lon, __this.fullAdress, __this.postalCode, __this.city, 
+                    // Encode url in order to pass it as a parameter
+                    __this.website.replace('/', '--'), __this.businessTypeId, __this.phone, __this.email, __this.description).subscribe(function (res) {
                         console.log(res.json());
                     });
                 };

@@ -20,6 +20,8 @@ class BusinessController extends Controller
      * @param $description
      */
     public function create($name,
+                           $lat,
+                           $lon,
                            $adress,
                            $postalCode,
                            $city,
@@ -32,11 +34,13 @@ class BusinessController extends Controller
 
         $business->title = $name;
         $business->adress = $adress;
+        $business->lat = $lat;
+        $business->lon = $lon;
         $business->city = $city;
         $business->email = $email;
         $business->phone = $phone;
         $business->postalCode = $postalCode;
-        $business->website = $website;
+        $business->website = str_replace('--', '/', $website);
         $business->description = $description;
         $business->business_type_id = $typeId;
 
