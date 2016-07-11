@@ -41,6 +41,7 @@ import { BusinessesComponent } from "./businesses.component";
     // Experiences
     { path: '/experiences/all', name: 'Experiences', component: ExperiencesComponent },
     { path: '/experience/create', name: 'CreateExperience', component: CreateExperienceComponent },
+    { path: '/experience/edit/:experienceId', name: 'EditExperience', component: CreateExperienceComponent },
 
     // Applications
     { path: '/applications/all', name: 'Applications', component: ApplicationsComponent },

@@ -77,6 +77,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         // Experiences
                         { path: '/experiences/all', name: 'Experiences', component: experiences_component_1.ExperiencesComponent },
                         { path: '/experience/create', name: 'CreateExperience', component: create_experience_component_1.CreateExperienceComponent },
+                        { path: '/experience/edit/:experienceId', name: 'EditExperience', component: create_experience_component_1.CreateExperienceComponent },
                         // Applications
                         { path: '/applications/all', name: 'Applications', component: applications_component_1.ApplicationsComponent },
                         // Education

@@ -9,7 +9,7 @@
 
 <div class="col-md-12 list-container">
     <ul>
-        <a>
+        <a [routerLink]="['/Profile/EditExperience', { experienceId: experience.id }]">
             <li *ngFor="let experience of experiences">
                 <div class="logo">
                     <img src="/uploads/business/logo/{{ experience.business.logoFile }}"

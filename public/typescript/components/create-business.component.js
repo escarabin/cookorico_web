@@ -51,7 +51,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.locationService = locationService;
                     this.routeParams = routeParams;
                     this.business = new business_1.Business();
-                    this.photos = [];
                     var __this = this;
                     this.business.id = routeParams.get("businessId");
                     if (this.business.id) {
@@ -64,7 +63,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         __this.businessTypes = res.json();
                     });
                 }
-                CreateBusinessComponent.prototype.getAdress = function (place) {
+                CreateBusinessComponent.prototype.parseAdress = function (place) {
                     var location = place['geometry']['location'];
                     this.business.lat = location.lat();
                     this.business.lon = location.lng();
@@ -93,7 +92,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     else {
                         this.business.business_type_id = 9;
                     }
-                    this.city = place['address_components'][2]['long_name'];
+                    this.business.city = place['address_components'][2]['long_name'];
                 };
                 CreateBusinessComponent.prototype.submitBusiness = function () {
                     var __this = this;
