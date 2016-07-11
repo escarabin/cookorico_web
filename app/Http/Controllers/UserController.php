@@ -69,6 +69,16 @@ class UserController extends Controller
     }
 
     /**
+     * Get user's specific work experience
+     * @return mixed
+     */
+    public function getExperience($experienceId) {
+        $experience = Experience::find($experienceId);
+
+        return $experience;
+    }
+
+    /**
      * Get user's education
      * @return mixed
      */

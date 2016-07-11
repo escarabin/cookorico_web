@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <label>Poste</label>
             <select name="job"
-                    [(ngModel)]="jobNamingId"
+                    [(ngModel)]="experience.job_naming_id"
                     class="form-control">
                 <option disabled selected>-- Poste --</option>
                 <option *ngFor="let jobNaming of jobNamings"
@@ -19,33 +19,34 @@
         <div class="col-md-6">
             <label>Établissement</label>
             <input type="text"
-                   [(ngModel)]="businessId"
+                   [(ngModel)]="experience.business_id"
                    class="form-control"
                    placeholder="Établissement"/>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6">
             <label>Date de début</label>
             <input type="date"
-                   [(ngModel)]="startDate"
+                   [(ngModel)]="experience.start_date"
                    class="form-control"
                    placeholder="Date de début"/>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6">
             <label>Date de fin</label>
             <input type="date"
+                   [(ngModel)]="experience.end_date"
                    class="form-control"
                    placeholder="Date de fin"/>
         </div>
         <div class="col-md-6">
             <label>Lieu</label>
             <input type="text"
-                   [(ngModel)]="endDate"
+                   [(ngModel)]="experience.adress"
                    class="form-control"
                    placeholder="Lieu"/>
         </div>
         <div class="col-md-12">
             <label>Description</label>
-            <textarea name="description"
+            <textarea name="experience.description"
                       [(ngModel)]="description"
                       class="form-control"
                       placeholder="Description"></textarea>

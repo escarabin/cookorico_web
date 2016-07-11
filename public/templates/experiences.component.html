@@ -9,8 +9,9 @@
 
 <div class="col-md-12 list-container">
     <ul>
-        <a [routerLink]="['/Profile/EditExperience', { experienceId: experience.id }]">
-            <li *ngFor="let experience of experiences">
+        <a *ngFor="let experience of experiences"
+           [routerLink]="['/Profile/EditExperience', { experienceId: experience.id }]">
+            <li>
                 <div class="logo">
                     <img src="/uploads/business/logo/{{ experience.business.logoFile }}"
                          *ngIf="experience.business.logoFile"/>

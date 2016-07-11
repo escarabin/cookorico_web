@@ -6,6 +6,7 @@ export class UserService {
     signInUrl = '/sign-in/';
     getApplicationsUrl = '/applications/all';
     getExperiencesUrl = '/experiences/all';
+    getExperienceUrl = '/experience';
     getEducationUrl = '/education/all';
     getAlertsUrl = '/alerts/all';
     getBusinessesUrl = '/businesses/all';
@@ -51,6 +52,17 @@ export class UserService {
         let __this = this;
 
         return this.http.get(__this.getExperiencesUrl);
+    }
+
+    /**
+     * Get user's specific experience
+     * @param experienceId
+     * @returns {Observable<Response>}
+     */
+    getExperience(experienceId) {
+        let __this = this;
+
+        return this.http.get(__this.getExperienceUrl + '/' + experienceId);
     }
 
     /**

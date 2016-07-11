@@ -27,6 +27,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.signInUrl = '/sign-in/';
                     this.getApplicationsUrl = '/applications/all';
                     this.getExperiencesUrl = '/experiences/all';
+                    this.getExperienceUrl = '/experience';
                     this.getEducationUrl = '/education/all';
                     this.getAlertsUrl = '/alerts/all';
                     this.getBusinessesUrl = '/businesses/all';
@@ -62,6 +63,15 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 UserService.prototype.getExperiences = function () {
                     var __this = this;
                     return this.http.get(__this.getExperiencesUrl);
+                };
+                /**
+                 * Get user's specific experience
+                 * @param experienceId
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.getExperience = function (experienceId) {
+                    var __this = this;
+                    return this.http.get(__this.getExperienceUrl + '/' + experienceId);
                 };
                 /**
                  * Get user's education

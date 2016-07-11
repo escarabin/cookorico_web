@@ -70,6 +70,8 @@ Route::get('/applications/all', 'UserController@getApplications')
 // Experiences
 Route::get('/experiences/all', 'UserController@getExperiences')
     ->name('getAllExperiences');
+Route::get('/experience/{experienceId}', 'UserController@getExperience')
+    ->name('getExperience');
 Route::get('/experience/create/{jobNamingId}/{businessId}/{startDate}/{endDate}/{adress}/{description}', 'UserController@createExperience')
     ->name('createExperience');
 

@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink } from '@angular/router-deprecated';
+import { RouterLink, RouteParams } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
+
+// Models
+import { Experience } from './../models/experience';
 
 @Component({
     selector: 'create-experience',
@@ -15,18 +18,21 @@ import { UserService } from './../services/user.service';
 
 export class CreateExperienceComponent {
     jobNamings: any;
-
-    // Form data
-    jobNamingId: string;
-    businessId: string;
-    startDate: string;
-    endDate: string;
-    place: string;
-    description: string;
+    experience:Experience = new Experience();
 
     constructor(private referenceService: ReferenceService,
-                private userService: UserService) {
+                private userService: UserService,
+                private routeParams: RouteParams) {
         let __this = this;
+
+        this.experience.id = routeParams.get("experienceId");
+
+        if (this.experience.id) {
+            // Editing a specific experience, let's retrieve it's data
+            this.userService.getExperience(__this.experience.id).subscribe((res: Response) => {
+                __this.experience = res.json();
+            });
+        }
 
         this.referenceService.getAllJobNamings().subscribe((res: Response) => {
             __this.jobNamings = res.json();
@@ -36,13 +42,13 @@ export class CreateExperienceComponent {
     submitExperience() {
         let __this = this;
 
-        this.userService.createExperience(__this.jobNamingId,
-            __this.businessId,
-            __this.startDate,
-            __this.endDate,
-            __this.place,
-            __this.description).subscribe((res: Response) => {
-            __this.jobNamings = res.json();
+        this.userService.createExperience(__this.experience.job_naming_id,
+            __this.experience.business_id,
+            __this.experience.start_date,
+            __this.experience.end_date,
+            __this.experience.adress,
+            __this.experience.description).subscribe((res: Response) => {
+            console.log(res.json());
         })
     }
 }
