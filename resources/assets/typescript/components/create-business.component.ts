@@ -29,18 +29,6 @@ import { Business } from './../models/business'
 export class CreateBusinessComponent {
     business:Business = new Business();
     businessTypes: any;
-    businessTypeId: number;
-    phone: string;
-    city: string;
-    postalCode: string;
-    email: string;
-    fullAdress: string;
-    website: string;
-    description: string;
-    lat: number;
-    lon: number;
-    businessId: number;
-    photos = [];
     public adress: Object;
 
     constructor(private referenceService: ReferenceService,
@@ -65,7 +53,7 @@ export class CreateBusinessComponent {
         })
     }
 
-    getAdress(place:Object) {
+    parseAdress(place:Object) {
         var location = place['geometry']['location'];
         this.business.lat =  location.lat();
         this.business.lon = location.lng();
@@ -98,7 +86,7 @@ export class CreateBusinessComponent {
             this.business.business_type_id = 9;
         }
 
-        this.city = place['address_components'][2]['long_name'];
+        this.business.city = place['address_components'][2]['long_name'];
     }
 
     submitBusiness() {
