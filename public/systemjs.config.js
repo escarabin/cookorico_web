@@ -27,7 +27,7 @@
     'ng2-bootstrap':              { main: 'ng2-bootstrap.js', defaultExtension: 'js' },
     'moment':                     { main: 'moment.js', defaultExtension: 'js' },
     'notifications':              { main: 'components.js', defaultExtension: 'js' },
-    'aws-sdk':                    { main: 'components.js', defaultExtension: 'js' }
+    'aws-sdk':                    { main: 'dist/aws-sdk.min.js', defaultExtension: 'js' }
   };
 
   var ngPackageNames = [
