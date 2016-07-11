@@ -19,9 +19,9 @@ class Business extends Model
     /**
      * Get the user that owns this business
      */
-    public function user()
+    public function users()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsToMany('App\Models\User');
     }
 
 
@@ -30,7 +30,7 @@ class Business extends Model
      */
     public function clubs()
     {
-        return $this->hasMany('App\Models\Club');
+        return $this->belongsToMany('App\Models\Club');
     }
 
 

@@ -35,7 +35,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.routeParams = routeParams;
-                    this.alert = new alert_1.Alert(null, '', '', '', '');
+                    this.alert = new alert_1.Alert();
                     var __this = this;
                     this.alert.id = routeParams.get("alertId");
                     if (this.alert.id) {

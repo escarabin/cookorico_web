@@ -1,8 +1,4 @@
 <div class="col-md-12">
-    <h2>Référencer un nouvel établissement</h2>
-</div>
-
-<div class="col-md-12">
     <form>
         <div class="col-md-12" id="business-photos">
             <div class="col-md-4"
@@ -17,7 +13,7 @@
             <label>Nom de votre établissement</label>
             <input type="text"
                    class="form-control"
-                   [(ngModel)]="adress"
+                   [(ngModel)]="business.title"
                    (setAddress)="getAdress($event)"
                    googleplace/>
         </div>
@@ -27,7 +23,7 @@
                    required
                    class="form-control"
                    placeholder="Adresse"
-                   [(ngModel)]="fullAdress"/>
+                   [(ngModel)]="business.adress"/>
         </div>
         <div class="col-md-6">
             <label>Code postal</label>
@@ -35,7 +31,7 @@
                    required
                    class="form-control"
                    placeholder="Code postal"
-                   [(ngModel)]="postalCode"/>
+                   [(ngModel)]="business.postalCode"/>
         </div>
         <div class="col-md-6">
             <label>Ville</label>
@@ -43,20 +39,20 @@
                    required
                    class="form-control"
                    placeholder="Ville"
-                   [(ngModel)]="city"/>
+                   [(ngModel)]="business.city"/>
         </div>
         <div class="col-md-6">
             <label>Site web</label>
             <input type="text"
                    class="form-control"
                    placeholder="Site web"
-                   [(ngModel)]="website"/>
+                   [(ngModel)]="business.website"/>
         </div>
         <div class="col-md-6">
             <label>Type</label>
             <select name="type"
                     required
-                    [(ngModel)]="businessTypeId"
+                    [(ngModel)]="business.business_type_id"
                     required
                     class="form-control">
                 <option disabled selected>-- Type --</option>
@@ -72,7 +68,7 @@
                    required
                    class="form-control"
                    placeholder="Téléphone"
-                   [(ngModel)]="phone"/>
+                   [(ngModel)]="business.phone"/>
         </div>
         <div class="col-md-6">
             <label>Email</label>
@@ -81,12 +77,12 @@
                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                    class="form-control"
                    placeholder="Email"
-                   [(ngModel)]="email"/>
+                   [(ngModel)]="business.email"/>
         </div>
         <div class="col-md-12">
             <label>Description</label>
             <textarea class="form-control"
-                      [(ngModel)]="description"
+                      [(ngModel)]="business.description"
                       placeholder="Votre établissement en quelques lignes"></textarea>
         </div>
         <div class="col-md-6 hidden-xs hidden-sm">

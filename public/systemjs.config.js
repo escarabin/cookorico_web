@@ -14,8 +14,7 @@
     'zone.js':                    'zone.js',
     'ng2-bootstrap':              'ng2-bootstrap',
     'moment':                     'moment',
-    'notifications':              'node_modules/angular2-notifications',
-    'aws-sdk':                    'node_modules/aws-sdk'
+    'notifications':              'node_modules/angular2-notifications'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -26,8 +25,7 @@
     'zone.js':                    { main: 'dist/index.js', defaultExtension: 'js' },
     'ng2-bootstrap':              { main: 'ng2-bootstrap.js', defaultExtension: 'js' },
     'moment':                     { main: 'moment.js', defaultExtension: 'js' },
-    'notifications':              { main: 'components.js', defaultExtension: 'js' },
-    'aws-sdk':                    { main: 'dist/aws-sdk.min.js', defaultExtension: 'js' }
+    'notifications':              { main: 'components.js', defaultExtension: 'js' }
   };
 
   var ngPackageNames = [

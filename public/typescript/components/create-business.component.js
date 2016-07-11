@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', './../services/business.service', './../services/file-upload.service', 'angular2-google-map-auto-complete/directives/googleplace.directive'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', './../services/business.service', './../services/file-upload.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../models/business'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, business_service_1, file_upload_service_1, googleplace_directive_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, business_service_1, file_upload_service_1, googleplace_directive_1, business_1;
     var CreateBusinessComponent;
     return {
         setters:[
@@ -37,57 +37,69 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             },
             function (googleplace_directive_1_1) {
                 googleplace_directive_1 = googleplace_directive_1_1;
+            },
+            function (business_1_1) {
+                business_1 = business_1_1;
             }],
         execute: function() {
             CreateBusinessComponent = (function () {
-                function CreateBusinessComponent(referenceService, userService, businessService, fileUploadService, locationService) {
+                function CreateBusinessComponent(referenceService, userService, businessService, fileUploadService, locationService, routeParams) {
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.businessService = businessService;
                     this.fileUploadService = fileUploadService;
                     this.locationService = locationService;
+                    this.routeParams = routeParams;
+                    this.business = new business_1.Business();
                     this.photos = [];
                     var __this = this;
+                    this.business.id = routeParams.get("businessId");
+                    if (this.business.id) {
+                        // Editing a specific business, let's retrieve it's data
+                        this.userService.getBusiness(__this.business.id).subscribe(function (res) {
+                            __this.business = res.json();
+                        });
+                    }
                     this.referenceService.getAllBusinessTypes().subscribe(function (res) {
                         __this.businessTypes = res.json();
                     });
                 }
                 CreateBusinessComponent.prototype.getAdress = function (place) {
                     var location = place['geometry']['location'];
-                    this.lat = location.lat();
-                    this.lon = location.lng();
-                    this.phone = place['formatted_phone_number'];
-                    this.website = place['website'];
-                    this.fullAdress = place['formatted_address'];
-                    this.adress = place['name'];
+                    this.business.lat = location.lat();
+                    this.business.lon = location.lng();
+                    this.business.phone = place['formatted_phone_number'];
+                    this.business.website = place['website'];
+                    this.business.adress = place['formatted_address'];
+                    this.business.title = place['name'];
                     // Loop through photos to get url
                     for (var i = 0; i < place['photos'].length; i++) {
                         var photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });
-                        this.photos.push(photoUrl);
+                        this.business.photos.push(photoUrl);
                     }
                     // Get business's type
                     if (place['types'].indexOf('restaurant')) {
-                        this.businessTypeId = 2;
+                        this.business.business_type_id = 2;
                     }
                     else if (place['types'].indexOf('lodging')) {
-                        this.businessTypeId = 1;
+                        this.business.business_type_id = 1;
                     }
                     else if (place['types'].indexOf('campground')) {
-                        this.businessTypeId = 6;
+                        this.business.business_type_id = 6;
                     }
                     else if (place['types'].indexOf('cafe') || place['types'].indexOf('bar')) {
-                        this.businessTypeId = 8;
+                        this.business.business_type_id = 8;
                     }
                     else {
-                        this.businessTypeId = 9;
+                        this.business.business_type_id = 9;
                     }
                     this.city = place['address_components'][2]['long_name'];
                 };
                 CreateBusinessComponent.prototype.submitBusiness = function () {
                     var __this = this;
-                    this.businessService.create(__this.adress, __this.lat, __this.lon, __this.fullAdress, __this.postalCode, __this.city, 
+                    this.businessService.create(__this.business.title, __this.business.lat, __this.business.lon, __this.business.adress, __this.business.postalCode, __this.business.city, 
                     // Encode url in order to pass it as a parameter
-                    __this.website.replace('/', '--'), __this.businessTypeId, __this.phone, __this.email, __this.description).subscribe(function (res) {
+                    __this.business.website.replace('/', '--'), __this.business.business_type_id, __this.business.phone, __this.business.email, __this.business.description).subscribe(function (res) {
                         console.log(res.json());
                     });
                 };
@@ -102,7 +114,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         directives: [router_deprecated_1.RouterLink, googleplace_directive_1.GoogleplaceDirective],
                         templateUrl: '../templates/create-business.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, business_service_1.BusinessService, file_upload_service_1.FileUploadService, location_service_1.LocationService])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, business_service_1.BusinessService, file_upload_service_1.FileUploadService, location_service_1.LocationService, router_deprecated_1.RouteParams])
                 ], CreateBusinessComponent);
                 return CreateBusinessComponent;
             }());

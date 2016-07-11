@@ -19,7 +19,7 @@ import { Alert } from './../models/alert'
 export class CreateAlertComponent {
     jobNamings: any;
     alertFrequencies: any;
-    alert = new Alert(null, '', '', '', '');
+    alert:Alert = new Alert();
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,

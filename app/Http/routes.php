@@ -104,3 +104,5 @@ Route::get('/business/create/{name}/{lat}/{lon}/{adress}/{postalCode}/{city}/{we
     ->name('getAllDiplomas');
 Route::get('/businesses/all/', 'UserController@getBusinesses')
     ->name('getAllBusinesses');
+Route::get('/business/{businessId}/', 'UserController@getBusiness')
+    ->name('getBusiness');

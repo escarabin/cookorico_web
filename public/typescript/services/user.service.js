@@ -30,6 +30,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.getEducationUrl = '/education/all';
                     this.getAlertsUrl = '/alerts/all';
                     this.getBusinessesUrl = '/businesses/all';
+                    this.getBusinessUrl = '/business';
                     this.getTestimonialsUrl = '/testimonials/all';
                     this.getCreatedTestimonialsUrl = '/created_testimonials/all';
                     this.createExperienceUrl = '/experience/create';
@@ -105,6 +106,15 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 UserService.prototype.getBusinesses = function () {
                     var __this = this;
                     return this.http.get(__this.getBusinessesUrl);
+                };
+                /**
+                 * Get user specific business
+                 * @param businessId
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.getBusiness = function (businessId) {
+                    var __this = this;
+                    return this.http.get(__this.getBusinessUrl + '/' + businessId);
                 };
                 /**
                  * Create new work experience

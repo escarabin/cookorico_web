@@ -11,6 +11,7 @@ use App\Models\Application;
 use App\Models\Experience;
 use App\Models\Study;
 use App\Models\Alert;
+use App\Models\Business;
 
 class UserController extends Controller
 {
@@ -141,6 +142,16 @@ class UserController extends Controller
         }
 
         return $businesses;
+    }
+
+    /**
+     * Get user's specific job alerts
+     * @return mixed
+     */
+    public function getBusiness($businessId) {
+        $business = Business::find($businessId);
+
+        return $business;
     }
 
     /**

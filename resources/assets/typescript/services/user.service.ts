@@ -9,6 +9,7 @@ export class UserService {
     getEducationUrl = '/education/all';
     getAlertsUrl = '/alerts/all';
     getBusinessesUrl = '/businesses/all';
+    getBusinessUrl = '/business';
     getTestimonialsUrl = '/testimonials/all';
     getCreatedTestimonialsUrl = '/created_testimonials/all';
     createExperienceUrl = '/experience/create';
@@ -108,6 +109,16 @@ export class UserService {
         return this.http.get(__this.getBusinessesUrl);
     }
 
+    /**
+     * Get user specific business
+     * @param businessId
+     * @returns {Observable<Response>}
+     */
+    getBusiness(businessId) {
+        let __this = this;
+
+        return this.http.get(__this.getBusinessUrl + '/' + businessId);
+    }
     /**
      * Create new work experience
      * @param jobNamingId

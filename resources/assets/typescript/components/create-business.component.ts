@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink } from '@angular/router-deprecated';
+import { RouterLink, RouteParams } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
@@ -9,7 +9,11 @@ import { LocationService } from './../services/location.service';
 import { BusinessService } from './../services/business.service';
 import { FileUploadService } from './../services/file-upload.service';
 
+// Directives
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
+
+// Models
+import { Business } from './../models/business'
 
 @Component({
     selector: 'create-business',
@@ -23,6 +27,7 @@ import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directiv
 })
 
 export class CreateBusinessComponent {
+    business:Business = new Business();
     businessTypes: any;
     businessTypeId: number;
     phone: string;
@@ -34,6 +39,7 @@ export class CreateBusinessComponent {
     description: string;
     lat: number;
     lon: number;
+    businessId: number;
     photos = [];
     public adress: Object;
 
@@ -41,8 +47,18 @@ export class CreateBusinessComponent {
                 private userService: UserService,
                 private businessService: BusinessService,
                 private fileUploadService: FileUploadService,
-                private locationService: LocationService) {
+                private locationService: LocationService,
+                private routeParams: RouteParams) {
         let __this = this;
+
+        this.business.id = routeParams.get("businessId");
+
+        if (this.business.id) {
+            // Editing a specific business, let's retrieve it's data
+            this.userService.getBusiness(__this.business.id).subscribe((res: Response) => {
+                __this.business = res.json();
+            });
+        }
 
         this.referenceService.getAllBusinessTypes().subscribe((res: Response) => {
             __this.businessTypes = res.json();
@@ -51,35 +67,35 @@ export class CreateBusinessComponent {
 
     getAdress(place:Object) {
         var location = place['geometry']['location'];
-        this.lat =  location.lat();
-        this.lon = location.lng();
+        this.business.lat =  location.lat();
+        this.business.lon = location.lng();
 
-        this.phone = place['formatted_phone_number'];
-        this.website = place['website'];
-        this.fullAdress = place['formatted_address'];
-        this.adress = place['name'];
+        this.business.phone = place['formatted_phone_number'];
+        this.business.website = place['website'];
+        this.business.adress = place['formatted_address'];
+        this.business.title = place['name'];
 
         // Loop through photos to get url
         for (let i = 0; i < place['photos'].length; i++) {
             let photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });
-            this.photos.push(photoUrl);
+            this.business.photos.push(photoUrl);
         }
 
         // Get business's type
         if (place['types'].indexOf('restaurant')) {
-            this.businessTypeId = 2;
+            this.business.business_type_id = 2;
         }
         else if (place['types'].indexOf('lodging')) {
-            this.businessTypeId = 1;
+            this.business.business_type_id = 1;
         }
         else if (place['types'].indexOf('campground')) {
-            this.businessTypeId = 6;
+            this.business.business_type_id = 6;
         }
         else if (place['types'].indexOf('cafe') || place['types'].indexOf('bar')) {
-            this.businessTypeId = 8;
+            this.business.business_type_id = 8;
         }
         else {
-            this.businessTypeId = 9;
+            this.business.business_type_id = 9;
         }
 
         this.city = place['address_components'][2]['long_name'];
@@ -87,18 +103,18 @@ export class CreateBusinessComponent {
 
     submitBusiness() {
         let __this = this;
-        this.businessService.create(__this.adress,
-            __this.lat,
-            __this.lon,
-            __this.fullAdress,
-            __this.postalCode,
-            __this.city,
+        this.businessService.create(__this.business.title,
+            __this.business.lat,
+            __this.business.lon,
+            __this.business.adress,
+            __this.business.postalCode,
+            __this.business.city,
             // Encode url in order to pass it as a parameter
-            __this.website.replace('/', '--'),
-            __this.businessTypeId,
-            __this.phone,
-            __this.email,
-            __this.description).subscribe((res: Response) => {
+            __this.business.website.replace('/', '--'),
+            __this.business.business_type_id,
+            __this.business.phone,
+            __this.business.email,
+            __this.business.description).subscribe((res: Response) => {
             console.log(res.json());
         })
     }

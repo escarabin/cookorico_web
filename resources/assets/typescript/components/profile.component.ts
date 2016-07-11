@@ -19,6 +19,7 @@ import { CreateExperienceComponent } from "./create-experience.component";
 import { CreateStudyComponent } from "./create-study.component";
 import { CreateAlertComponent } from "./create-alert.component";
 import { CreateBusinessComponent } from "./create-business.component";
+import { BusinessesComponent } from "./businesses.component";
 
 @Component({
     providers: [UserService],
@@ -60,8 +61,9 @@ import { CreateBusinessComponent } from "./create-business.component";
     { path: '/testimonials/:testimonialId', name: 'Testimonial', component: TestimonialsComponent },
 
     // Businesses
-    { path: '/businesses/all', name: 'Businesses', component: CreateBusinessComponent },
-    { path: '/business/create', name: 'Business', component: CreateBusinessComponent },
+    { path: '/businesses/all', name: 'Businesses', component: BusinessesComponent },
+    { path: '/business/create', name: 'CreateBusiness', component: CreateBusinessComponent },
+    { path: '/business/edit/:businessId', name: 'EditBusiness', component: CreateBusinessComponent }
 ])
 
 export class ProfileComponent {

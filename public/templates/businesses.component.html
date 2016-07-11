@@ -1,0 +1,20 @@
+<div class="col-md-12 header-container">
+    <div class="col-md-12 create-btn-container">
+        <button class="btn btn-primary"
+                [routerLink]="['/Profile/CreateBusiness']">
+            <span class="fa fa-plus"></span> &nbsp; Référencer un nouvel établissement
+        </button>
+    </div>
+</div>
+
+<div class="col-md-12 list-container">
+    <ul>
+        <a *ngFor="let business of businesses"
+           [routerLink]="['/Profile/EditBusiness', { businessId: business.id }]">
+            <li>
+                <h3>{{ business.title }}</h3>
+                {{ business.city }}
+            </li>
+        </a>
+    </ul>
+</div>
