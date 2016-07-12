@@ -30,6 +30,19 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     var location = place['geometry']['location'];
                     var types = place['types'];
                     var typesString = "";
+                    // Parse postal code
+                    var postalCode = "";
+                    if (place['address_components'][6]) {
+                        postalCode = place['address_components'][6]['long_name'];
+                    }
+                    else if (place['address_components'][5]) {
+                        postalCode = place['address_components'][5]['long_name'];
+                    }
+                    // Parse website
+                    var website = "";
+                    if (place['website']) {
+                        website = place['website'].replace(/\//g, '');
+                    }
                     for (var i = 0; i < types.length; i++) {
                         typesString += types[i] + ',';
                     }
@@ -37,10 +50,13 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                         '/' + place['place_id'] +
                         '/' + place['formatted_address'] +
                         '/' + place['address_components'][2]['long_name'] +
-                        '/' + place['address_components'][6]['long_name'] +
+                        '/' + postalCode +
                         '/' + location.lat() +
                         '/' + location.lng() +
-                        '/' + typesString;
+                        '/' + typesString +
+                        '/' + place['name'] +
+                        '/' + place['phone'] +
+                        '/' + website;
                     return this.http.request(completeUrl);
                 };
                 PlaceService = __decorate([

@@ -18,6 +18,7 @@ import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directiv
 
 export class BusinessSelectComponent {
     businesses = [];
+    isGooglePlaceInput: boolean = false;
     @Input public businessId: number;
     public adress: Object;
 
@@ -31,9 +32,17 @@ export class BusinessSelectComponent {
     }
 
     parseAdress(place: Object) {
+        console.log(place);
+
+        let __this = this;
+
         // Save selected place data for further use
         this.placeService.save(place).subscribe((res: Response) => {
-            console.log(res.json());
+            __this.businessId = res.json()['id'];
+            __this.businessService.getAll().subscribe((res1: Response) => {
+                __this.businesses = res1.json();
+                __this.isGooglePlaceInput = false;
+            })
         });
     }
 }

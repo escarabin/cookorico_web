@@ -32,15 +32,22 @@ System.register(['@angular/core', './../services/business.service', './../servic
                     this.businessService = businessService;
                     this.placeService = placeService;
                     this.businesses = [];
+                    this.isGooglePlaceInput = false;
                     var __this = this;
                     businessService.getAll().subscribe(function (res) {
                         __this.businesses = res.json();
                     });
                 }
                 BusinessSelectComponent.prototype.parseAdress = function (place) {
+                    console.log(place);
+                    var __this = this;
                     // Save selected place data for further use
                     this.placeService.save(place).subscribe(function (res) {
-                        console.log(res.json());
+                        __this.businessId = res.json()['id'];
+                        __this.businessService.getAll().subscribe(function (res1) {
+                            __this.businesses = res1.json();
+                            __this.isGooglePlaceInput = false;
+                        });
                     });
                 };
                 __decorate([
