@@ -151,7 +151,7 @@ class UserController extends Controller
             $business->clubs = $business->clubs;
             $business->place = $business->place;
         }
-        
+
         return $businesses;
     }
 

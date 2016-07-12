@@ -46,6 +46,6 @@ class Business extends Model
      * Get the business's place
      */
     public function place() {
-        return $this->hasOne('App\Models\Places');
+        return $this->hasOne('App\Models\Place');
     }
 }
