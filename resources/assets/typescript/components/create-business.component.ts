@@ -14,6 +14,7 @@ import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directiv
 
 // Models
 import { Business } from './../models/business'
+import { Place } from './../models/place'
 
 @Component({
     selector: 'create-business',
@@ -28,6 +29,7 @@ import { Business } from './../models/business'
 
 export class CreateBusinessComponent {
     business:Business = new Business();
+    place:Place = new Place();
     businessTypes: any;
     public adress: Object;
 
@@ -55,12 +57,12 @@ export class CreateBusinessComponent {
 
     parseAdress(place:Object) {
         var location = place['geometry']['location'];
-        this.business.lat =  location.lat();
-        this.business.lon = location.lng();
+        this.place.lat =  location.lat();
+        this.place.lon = location.lng();
 
         this.business.phone = place['formatted_phone_number'];
         this.business.website = place['website'];
-        this.business.adress = place['formatted_address'];
+        this.place.adress = place['formatted_address'];
         this.business.title = place['name'];
 
         // Loop through photos to get url
@@ -86,18 +88,18 @@ export class CreateBusinessComponent {
             this.business.business_type_id = 9;
         }
 
-        this.business.city = place['address_components'][2]['long_name'];
-        this.business.postalCode = place['address_components'][6]['long_name'];
+        this.place.city = place['address_components'][2]['long_name'];
+        this.place.postalCode = place['address_components'][6]['long_name'];
     }
 
     submitBusiness() {
         let __this = this;
         this.businessService.create(__this.business.title,
-            __this.business.lat,
-            __this.business.lon,
-            __this.business.adress,
-            __this.business.postalCode,
-            __this.business.city,
+            __this.place.lat,
+            __this.place.lon,
+            __this.place.adress,
+            __this.place.postalCode,
+            __this.place.city,
             // Encode url in order to pass it as a parameter
             __this.business.website.replace('/', '--'),
             __this.business.business_type_id,

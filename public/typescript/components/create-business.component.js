@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', './../services/business.service', './../services/file-upload.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../models/business'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', './../services/business.service', './../services/file-upload.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../models/business', './../models/place'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, business_service_1, file_upload_service_1, googleplace_directive_1, business_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, business_service_1, file_upload_service_1, googleplace_directive_1, business_1, place_1;
     var CreateBusinessComponent;
     return {
         setters:[
@@ -40,6 +40,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             },
             function (business_1_1) {
                 business_1 = business_1_1;
+            },
+            function (place_1_1) {
+                place_1 = place_1_1;
             }],
         execute: function() {
             CreateBusinessComponent = (function () {
@@ -51,6 +54,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.locationService = locationService;
                     this.routeParams = routeParams;
                     this.business = new business_1.Business();
+                    this.place = new place_1.Place();
                     var __this = this;
                     this.business.id = routeParams.get("businessId");
                     if (this.business.id) {
@@ -65,11 +69,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 }
                 CreateBusinessComponent.prototype.parseAdress = function (place) {
                     var location = place['geometry']['location'];
-                    this.business.lat = location.lat();
-                    this.business.lon = location.lng();
+                    this.place.lat = location.lat();
+                    this.place.lon = location.lng();
                     this.business.phone = place['formatted_phone_number'];
                     this.business.website = place['website'];
-                    this.business.adress = place['formatted_address'];
+                    this.place.adress = place['formatted_address'];
                     this.business.title = place['name'];
                     // Loop through photos to get url
                     for (var i = 0; i < place['photos'].length; i++) {
@@ -92,12 +96,12 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     else {
                         this.business.business_type_id = 9;
                     }
-                    this.business.city = place['address_components'][2]['long_name'];
-                    this.business.postalCode = place['address_components'][6]['long_name'];
+                    this.place.city = place['address_components'][2]['long_name'];
+                    this.place.postalCode = place['address_components'][6]['long_name'];
                 };
                 CreateBusinessComponent.prototype.submitBusiness = function () {
                     var __this = this;
-                    this.businessService.create(__this.business.title, __this.business.lat, __this.business.lon, __this.business.adress, __this.business.postalCode, __this.business.city, 
+                    this.businessService.create(__this.business.title, __this.place.lat, __this.place.lon, __this.place.adress, __this.place.postalCode, __this.place.city, 
                     // Encode url in order to pass it as a parameter
                     __this.business.website.replace('/', '--'), __this.business.business_type_id, __this.business.phone, __this.business.email, __this.business.description).subscribe(function (res) {
                         console.log(res.json());

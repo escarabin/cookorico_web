@@ -53,9 +53,13 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 }
                 CreateExperienceComponent.prototype.submitExperience = function () {
                     var __this = this;
-                    this.userService.createExperience(__this.experience.job_naming_id, __this.experience.business_id, __this.experience.start_date, __this.experience.end_date, __this.experience.adress, __this.experience.lat, __this.experience.lon, __this.experience.description).subscribe(function (res) {
-                        console.log(res.json());
-                    });
+                    if (!this.experience.id) {
+                        this.userService.createExperience(__this.experience.job_naming_id, __this.experience.business_id, __this.experience.start_date, __this.experience.end_date, __this.experience.description).subscribe(function (res) {
+                            console.log(res.json());
+                        });
+                    }
+                    else {
+                    }
                 };
                 CreateExperienceComponent = __decorate([
                     core_1.Component({

@@ -131,6 +131,7 @@ export class UserService {
 
         return this.http.get(__this.getBusinessUrl + '/' + businessId);
     }
+
     /**
      * Create new work experience
      * @param jobNamingId
@@ -143,7 +144,7 @@ export class UserService {
      * @param description
      * @returns {Observable<Response>}
      */
-    createExperience(jobNamingId, businessId, startDate, endDate, adress, lat, lon, description) {
+    createExperience(jobNamingId, businessId, startDate, endDate, description) {
         let __this = this;
 
         return this.http.get(
@@ -152,9 +153,6 @@ export class UserService {
             businessId + '/' +
             startDate + '/' +
             endDate + '/' +
-            adress + '/' +
-            lat + '/' +
-            lon + '/' +
             description);
     }
 

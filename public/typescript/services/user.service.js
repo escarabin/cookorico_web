@@ -138,16 +138,13 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                  * @param description
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.createExperience = function (jobNamingId, businessId, startDate, endDate, adress, lat, lon, description) {
+                UserService.prototype.createExperience = function (jobNamingId, businessId, startDate, endDate, description) {
                     var __this = this;
                     return this.http.get(__this.createExperienceUrl + '/' +
                         jobNamingId + '/' +
                         businessId + '/' +
                         startDate + '/' +
                         endDate + '/' +
-                        adress + '/' +
-                        lat + '/' +
-                        lon + '/' +
                         description);
                 };
                 /**

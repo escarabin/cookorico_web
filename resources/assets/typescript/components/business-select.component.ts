@@ -32,8 +32,6 @@ export class BusinessSelectComponent {
     }
 
     parseAdress(place: Object) {
-        console.log(place);
-
         let __this = this;
 
         // Save selected place data for further use

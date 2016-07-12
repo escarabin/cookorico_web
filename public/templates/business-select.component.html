@@ -5,7 +5,7 @@
         <option selected disabled>-- Établissement --</option>
         <option *ngFor="let business of businesses"
                 [selected]="businessId==business.id">
-            {{ business.title }}
+            {{ business.title }} - {{ business.place.city }}
         </option>
     </select>
     <input type="text"

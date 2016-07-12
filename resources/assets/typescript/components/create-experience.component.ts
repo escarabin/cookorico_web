@@ -46,15 +46,17 @@ export class CreateExperienceComponent {
     submitExperience() {
         let __this = this;
 
-        this.userService.createExperience(__this.experience.job_naming_id,
-            __this.experience.business_id,
-            __this.experience.start_date,
-            __this.experience.end_date,
-            __this.experience.adress,
-            __this.experience.lat,
-            __this.experience.lon,
-            __this.experience.description).subscribe((res: Response) => {
-            console.log(res.json());
-        })
+        if (!this.experience.id) {
+            this.userService.createExperience(__this.experience.job_naming_id,
+                __this.experience.business_id,
+                __this.experience.start_date,
+                __this.experience.end_date,
+                __this.experience.description).subscribe((res: Response) => {
+                console.log(res.json());
+            });
+        }
+        else {
+
+        }
     }
 }

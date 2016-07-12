@@ -15,7 +15,6 @@ class Business extends Model
         'title'
     ];
 
-
     /**
      * Get the user that owns this business
      */
@@ -24,7 +23,6 @@ class Business extends Model
         return $this->belongsToMany('App\Models\User');
     }
 
-
     /**
      * Get the clubs related to this business
      */
@@ -32,7 +30,6 @@ class Business extends Model
     {
         return $this->belongsToMany('App\Models\Club');
     }
-
 
     /**
      * Get the clubs related to this business
@@ -46,6 +43,6 @@ class Business extends Model
      * Get the business's place
      */
     public function place() {
-        return $this->hasOne('App\Models\Place');
+        return $this->belongsTo('App\Models\Place');
     }
 }
