@@ -87,6 +87,7 @@ export class CreateBusinessComponent {
         }
 
         this.business.city = place['address_components'][2]['long_name'];
+        this.business.postalCode = place['address_components'][6]['long_name'];
     }
 
     submitBusiness() {

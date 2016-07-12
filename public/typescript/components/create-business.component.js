@@ -93,6 +93,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         this.business.business_type_id = 9;
                     }
                     this.business.city = place['address_components'][2]['long_name'];
+                    this.business.postalCode = place['address_components'][6]['long_name'];
                 };
                 CreateBusinessComponent.prototype.submitBusiness = function () {
                     var __this = this;

@@ -18,6 +18,8 @@ class PlaceController extends Controller
        $place->lat = $lat;
        $place->lon = $lon;
 
+       $place->save();
+
        return $place;
    }
 }

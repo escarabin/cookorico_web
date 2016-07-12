@@ -112,5 +112,5 @@ Route::get('/businesses/all/', 'BusinessController@getAll')
     ->name('getAllBusinesses');
 
 // Places
-Route::get('/place/save/{googlePlaceId}/{adress}/{city}/{postalCode}/{lat}/{lon}', 'PlaceController@save')
+Route::get('/place/save/{googlePlaceId}/{adress}/{city}/{postalCode}/{lat}/{lon}/{types}', 'PlaceController@save')
     ->name('savePlace');

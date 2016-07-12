@@ -24,16 +24,24 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
             PlaceService = (function () {
                 function PlaceService(http) {
                     this.http = http;
-                    this.savePlaceUrl = "/place/save/";
+                    this.savePlaceUrl = "/place/save";
                 }
                 PlaceService.prototype.save = function (place) {
+                    var location = place['geometry']['location'];
+                    var types = place['types'];
+                    var typesString = "";
+                    for (var i = 0; i < types.length; i++) {
+                        typesString += types[i] + ',';
+                    }
                     var completeUrl = this.savePlaceUrl +
-                        '/' + googlePlaceId +
-                        '/' + adress +
-                        '/' + city +
-                        '/' + postalCode +
-                        '/' + lat +
-                        '/' + lon;
+                        '/' + place['place_id'] +
+                        '/' + place['formatted_adress'] +
+                        '/' + place['address_components'][2]['long_name'] +
+                        '/' + place['address_components'][6]['long_name'] +
+                        '/' + location.lat() +
+                        '/' + location.lng() +
+                        '/' + typesString;
+                    console.log(completeUrl);
                     return this.http.request(completeUrl);
                 };
                 PlaceService = __decorate([
