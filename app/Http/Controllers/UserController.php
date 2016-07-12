@@ -149,8 +149,9 @@ class UserController extends Controller
         foreach ($businesses as $business) {
             $business->type = $business->type;
             $business->clubs = $business->clubs;
+            $business->place = $business->place;
         }
-
+        
         return $businesses;
     }
 
