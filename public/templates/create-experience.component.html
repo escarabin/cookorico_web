@@ -36,18 +36,6 @@
                    placeholder="Date de fin"/>
         </div>
         <div class="col-md-12">
-            <label>Lieu</label>
-            <input type="text"
-                   required
-                   [(ngModel)]="experience.adress"
-                   ngControl="experience.adress"
-                   [class.ng-invalid]="!experience.lat"
-                   class="form-control"
-                   placeholder="Lieu"
-                   (setAddress)="parseAdress($event)"
-                   googleplace/>
-        </div>
-        <div class="col-md-12">
             <label>Description</label>
             <textarea name="experience.description"
                       [(ngModel)]="description"
@@ -65,7 +53,7 @@
         </div>
         <div class="col-md-6">
             <button class="btn btn-primary submit-btn"
-                    [disabled]="!experienceForm.valid || !experience.lat"
+                    [disabled]="!experienceForm.valid"
                     (click)="submitExperience()">
                 Sauvegarder
             </button>

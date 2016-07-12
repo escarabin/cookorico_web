@@ -43,12 +43,6 @@ export class CreateExperienceComponent {
         })
     }
 
-    parseAdress(place:Object) {
-        var location = place['geometry']['location'];
-        this.experience.lat =  location.lat();
-        this.experience.lon = location.lng();
-    }
-
     submitExperience() {
         let __this = this;
 
