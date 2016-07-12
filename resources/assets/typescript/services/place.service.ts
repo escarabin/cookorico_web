@@ -21,14 +21,12 @@ export class PlaceService {
 
         let completeUrl = this.savePlaceUrl +
                         '/' + place['place_id'] +
-                        '/' + place['formatted_adress'] +
+                        '/' + place['formatted_address'] +
                         '/' + place['address_components'][2]['long_name'] +
                         '/' + place['address_components'][6]['long_name'] +
                         '/' + location.lat() +
                         '/' + location.lng() +
                         '/' + typesString;
-
-        console.log(completeUrl);
 
         return this.http.request(completeUrl);
     }

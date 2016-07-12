@@ -14,4 +14,12 @@ class Place extends Model
     protected $fillable = [
         'lat', 'lon', 'adress'
     ];
+
+    /**
+     * Get place's type (see https://developers.google.com/places/supported_types?hl=fr)
+     */
+    public function types()
+    {
+        return $this->belongsToMany('App\Models\PlaceType');
+    }
 }
