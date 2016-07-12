@@ -1,5 +1,5 @@
 <label>Établissement</label>
-<div class="col-md-10 business-select-container">
+<div class="col-md-11 business-select-container">
     <select class="form-control"
             *ngIf="!isGooglePlaceInput">
         <option selected disabled>-- Établissement --</option>
@@ -14,7 +14,7 @@
            (setAddress)="parseAdress($event)"
            googleplace/>
 </div>
-<div class="col-md-2 toggle-business-creation-container"
+<div class="col-md-1 toggle-business-creation-container"
      (click)="isGooglePlaceInput=!isGooglePlaceInput">
     <span class="fa"
           [class.fa-list]="isGooglePlaceInput"
