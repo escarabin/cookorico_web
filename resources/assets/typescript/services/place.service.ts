@@ -9,11 +9,13 @@ export class PlaceService {
 
     }
 
-    save(googlePlaceId, adress, city, postalCode, lat, lon) {
+    save(place) {
+
+
         let completeUrl = this.savePlaceUrl +
-                        '/' + googlePlaceId +
-                        '/' + adress +
-                        '/' + city +
+                        '/' + place['place_id'] +
+                        '/' + place['formatted_adress'] +
+                        '/' + place['city'] +
                         '/' + postalCode +
                         '/' + lat +
                         '/' + lon;

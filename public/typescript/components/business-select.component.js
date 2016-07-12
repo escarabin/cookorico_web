@@ -1,4 +1,4 @@
-System.register(['@angular/core', './../services/business.service', 'angular2-google-map-auto-complete/directives/googleplace.directive'], function(exports_1, context_1) {
+System.register(['@angular/core', './../services/business.service', './../services/place.service', 'angular2-google-map-auto-complete/directives/googleplace.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './../services/business.service', 'angular2-go
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, business_service_1, googleplace_directive_1;
+    var core_1, business_service_1, place_service_1, googleplace_directive_1;
     var BusinessSelectComponent;
     return {
         setters:[
@@ -20,13 +20,17 @@ System.register(['@angular/core', './../services/business.service', 'angular2-go
             function (business_service_1_1) {
                 business_service_1 = business_service_1_1;
             },
+            function (place_service_1_1) {
+                place_service_1 = place_service_1_1;
+            },
             function (googleplace_directive_1_1) {
                 googleplace_directive_1 = googleplace_directive_1_1;
             }],
         execute: function() {
             BusinessSelectComponent = (function () {
-                function BusinessSelectComponent(businessService) {
+                function BusinessSelectComponent(businessService, placeService) {
                     this.businessService = businessService;
+                    this.placeService = placeService;
                     this.businesses = [];
                     var __this = this;
                     businessService.getAll().subscribe(function (res) {
@@ -34,6 +38,8 @@ System.register(['@angular/core', './../services/business.service', 'angular2-go
                     });
                 }
                 BusinessSelectComponent.prototype.parseAdress = function (place) {
+                    // Save selected place data for further use
+                    this.placeService.save(place);
                 };
                 __decorate([
                     core_1.Input, 
@@ -42,12 +48,12 @@ System.register(['@angular/core', './../services/business.service', 'angular2-go
                 BusinessSelectComponent = __decorate([
                     core_1.Component({
                         selector: 'business-select',
-                        providers: [business_service_1.BusinessService],
+                        providers: [business_service_1.BusinessService, place_service_1.PlaceService],
                         directives: [googleplace_directive_1.GoogleplaceDirective],
                         templateUrl: '../templates/business-select.component.html',
                         inputs: ['businessId']
                     }), 
-                    __metadata('design:paramtypes', [business_service_1.BusinessService])
+                    __metadata('design:paramtypes', [business_service_1.BusinessService, place_service_1.PlaceService])
                 ], BusinessSelectComponent);
                 return BusinessSelectComponent;
             }());
