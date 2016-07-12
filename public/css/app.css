@@ -460,6 +460,13 @@ testimonials {
   margin-top: 15px;
   padding: 0; }
 
+.business-select-container {
+  padding: 0; }
+
+.toggle-business-creation-container {
+  padding: 15px;
+  cursor: pointer; }
+
 body {
   background-color: #f7f7f8;
   font-family: "Avenir Book", sans-serif;

@@ -48,4 +48,12 @@ class BusinessController extends Controller
 
         return $business;
     }
+
+    /**
+     * Get all businesses
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getAll() {
+        return Business::all();
+    }
 }

@@ -9,7 +9,7 @@ export class UserService {
     getExperienceUrl = '/experience';
     getEducationUrl = '/education/all';
     getAlertsUrl = '/alerts/all';
-    getBusinessesUrl = '/businesses/all';
+    getBusinessesUrl = '/user/businesses';
     getBusinessUrl = '/business';
     getTestimonialsUrl = '/testimonials/all';
     getCreatedTestimonialsUrl = '/created_testimonials/all';

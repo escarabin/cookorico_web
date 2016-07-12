@@ -4,6 +4,7 @@ import { HTTP_PROVIDERS, Http } from '@angular/http';
 @Injectable()
 export class BusinessService {
     createBusinessUrl = "/business/create/";
+    getAllBusinessesUrl = "/businesses/all";
 
     constructor(private http: Http) {
 
@@ -26,5 +27,9 @@ export class BusinessService {
             description;
 
         return this.http.request(completeUrl);
+    }
+
+    getAll() {
+        return this.http.request(this.getAllBusinessesUrl);
     }
 }

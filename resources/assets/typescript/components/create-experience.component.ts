@@ -12,10 +12,13 @@ import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directiv
 // Models
 import { Experience } from './../models/experience';
 
+// Components
+import { BusinessSelectComponent } from './business-select.component';
+
 @Component({
     selector: 'create-experience',
     providers: [ReferenceService, UserService],
-    directives: [RouterLink, GoogleplaceDirective],
+    directives: [RouterLink, GoogleplaceDirective, BusinessSelectComponent],
     templateUrl: '../templates/create-experience.component.html'
 })
 

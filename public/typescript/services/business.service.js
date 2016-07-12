@@ -25,6 +25,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 function BusinessService(http) {
                     this.http = http;
                     this.createBusinessUrl = "/business/create/";
+                    this.getAllBusinessesUrl = "/businesses/all";
                 }
                 BusinessService.prototype.create = function (name, lat, lon, adress, postalCode, city, website, typeId, phone, email, description) {
                     console.log('creating business');
@@ -41,6 +42,9 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                         email + '/' +
                         description;
                     return this.http.request(completeUrl);
+                };
+                BusinessService.prototype.getAll = function () {
+                    return this.http.request(this.getAllBusinessesUrl);
                 };
                 BusinessService = __decorate([
                     core_1.Injectable(), 

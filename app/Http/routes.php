@@ -34,6 +34,8 @@ Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
     ->name('signIn');
 Route::get('/sign-up', 'UserController@signUp')
     ->name('signup');
+Route::get('/user/businesses/', 'UserController@getBusinesses')
+    ->name('getAllUserBusinesses');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')
@@ -104,7 +106,7 @@ Route::get('/diplomas/all', 'ReferenceController@getAllDiplomas')
 // Businesses
 Route::get('/business/create/{name}/{lat}/{lon}/{adress}/{postalCode}/{city}/{website?}/{typeId}/{phone}/{email}/{description?}', 'BusinessController@create')
     ->name('getAllDiplomas');
-Route::get('/businesses/all/', 'UserController@getBusinesses')
-    ->name('getAllBusinesses');
 Route::get('/business/{businessId}/', 'UserController@getBusiness')
     ->name('getBusiness');
+Route::get('/businesses/all/', 'BusinessController@getAll')
+    ->name('getAllBusinesses');

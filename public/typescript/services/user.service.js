@@ -30,7 +30,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.getExperienceUrl = '/experience';
                     this.getEducationUrl = '/education/all';
                     this.getAlertsUrl = '/alerts/all';
-                    this.getBusinessesUrl = '/businesses/all';
+                    this.getBusinessesUrl = '/user/businesses';
                     this.getBusinessUrl = '/business';
                     this.getTestimonialsUrl = '/testimonials/all';
                     this.getCreatedTestimonialsUrl = '/created_testimonials/all';
