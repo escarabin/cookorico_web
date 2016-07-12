@@ -110,3 +110,7 @@ Route::get('/business/{businessId}/', 'UserController@getBusiness')
     ->name('getBusiness');
 Route::get('/businesses/all/', 'BusinessController@getAll')
     ->name('getAllBusinesses');
+
+// Places
+Route::get('/place/save/', 'PlaceController@save')
+    ->name('savePlace');
