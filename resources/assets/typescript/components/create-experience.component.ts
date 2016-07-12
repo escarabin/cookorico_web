@@ -6,9 +6,6 @@ import { RouterLink, RouteParams } from '@angular/router-deprecated';
 import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
 
-// Directives
-import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
-
 // Models
 import { Experience } from './../models/experience';
 
@@ -18,7 +15,7 @@ import { BusinessSelectComponent } from './business-select.component';
 @Component({
     selector: 'create-experience',
     providers: [ReferenceService, UserService],
-    directives: [RouterLink, GoogleplaceDirective, BusinessSelectComponent],
+    directives: [RouterLink, BusinessSelectComponent],
     templateUrl: '../templates/create-experience.component.html'
 })
 

@@ -1,4 +1,4 @@
-System.register(['@angular/core', './../services/business.service'], function(exports_1, context_1) {
+System.register(['@angular/core', './../services/business.service', 'angular2-google-map-auto-complete/directives/googleplace.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './../services/business.service'], function(ex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, business_service_1;
+    var core_1, business_service_1, googleplace_directive_1;
     var BusinessSelectComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['@angular/core', './../services/business.service'], function(ex
             },
             function (business_service_1_1) {
                 business_service_1 = business_service_1_1;
+            },
+            function (googleplace_directive_1_1) {
+                googleplace_directive_1 = googleplace_directive_1_1;
             }],
         execute: function() {
             BusinessSelectComponent = (function () {
@@ -30,6 +33,8 @@ System.register(['@angular/core', './../services/business.service'], function(ex
                         __this.businesses = res.json();
                     });
                 }
+                BusinessSelectComponent.prototype.parseAdress = function (place) {
+                };
                 __decorate([
                     core_1.Input, 
                     __metadata('design:type', Number)
@@ -38,6 +43,7 @@ System.register(['@angular/core', './../services/business.service'], function(ex
                     core_1.Component({
                         selector: 'business-select',
                         providers: [business_service_1.BusinessService],
+                        directives: [googleplace_directive_1.GoogleplaceDirective],
                         templateUrl: '../templates/business-select.component.html',
                         inputs: ['businessId']
                     }), 

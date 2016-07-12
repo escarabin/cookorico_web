@@ -12,7 +12,7 @@ class Business extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'lat', 'lon', 'adress'
+        'title'
     ];
 
 
@@ -40,5 +40,12 @@ class Business extends Model
     public function type()
     {
         return $this->belongsTo('App\Models\BusinessType');
+    }
+
+    /**
+     * Get the business's place
+     */
+    public function place() {
+        return $this->hasOne('App\Models\Places');
     }
 }
