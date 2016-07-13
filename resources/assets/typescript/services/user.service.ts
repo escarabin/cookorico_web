@@ -170,11 +170,12 @@ export class UserService {
      * @param description
      * @returns {Observable<Response>}
      */
-    createExperience(experienceId, jobNamingId, businessId, startDate, endDate, description) {
+    updateExperience(experienceId, jobNamingId, businessId, startDate, endDate, description) {
         let __this = this;
 
         return this.http.get(
             __this.createExperienceUrl + '/' +
+            experienceId + '/' +
             jobNamingId + '/' +
             businessId + '/' +
             startDate + '/' +

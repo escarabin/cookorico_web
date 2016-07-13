@@ -161,9 +161,10 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                  * @param description
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.createExperience = function (experienceId, jobNamingId, businessId, startDate, endDate, description) {
+                UserService.prototype.updateExperience = function (experienceId, jobNamingId, businessId, startDate, endDate, description) {
                     var __this = this;
                     return this.http.get(__this.createExperienceUrl + '/' +
+                        experienceId + '/' +
                         jobNamingId + '/' +
                         businessId + '/' +
                         startDate + '/' +

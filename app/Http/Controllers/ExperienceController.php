@@ -32,4 +32,30 @@ class ExperienceController extends Controller
 
         return $experience;
     }
+
+    /**
+     * Update existing work experience
+     * @param $experienceId
+     * @param $jobNamingId
+     * @param $businessId
+     * @param $startDate
+     * @param $endDate
+     * @param $description
+     */
+    public function updateExperience($experienceId, $jobNamingId, $businessId, $startDate, $endDate, $description) {
+        $user_id = Auth::user()->id;
+
+        $experience = Experience::find($experienceId);
+
+        $experience->user_id = $user_id;
+        $experience->job_naming_id = $jobNamingId;
+        $experience->business_id = $businessId;
+        $experience->start_date = $startDate;
+        $experience->end_date = $endDate;
+        $experience->description = $description;
+
+        $experience->save();
+
+        return $experience;
+    }
 }
