@@ -35,6 +35,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.getTestimonialsUrl = '/testimonials/all';
                     this.getCreatedTestimonialsUrl = '/created_testimonials/all';
                     this.createExperienceUrl = '/experience/create';
+                    this.updateExperienceUrl = '/experience/update';
                     this.createStudyUrl = '/study/create';
                     this.createAlertUrl = '/alert/create';
                     this.getAlertUrl = '/alert';
@@ -139,6 +140,28 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.createExperience = function (jobNamingId, businessId, startDate, endDate, description) {
+                    var __this = this;
+                    return this.http.get(__this.createExperienceUrl + '/' +
+                        jobNamingId + '/' +
+                        businessId + '/' +
+                        startDate + '/' +
+                        endDate + '/' +
+                        description);
+                };
+                /**
+                 * Update existing work experience
+                 * @param experienceId
+                 * @param jobNamingId
+                 * @param businessId
+                 * @param startDate
+                 * @param endDate
+                 * @param adress
+                 * @param lat
+                 * @param lon
+                 * @param description
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.createExperience = function (experienceId, jobNamingId, businessId, startDate, endDate, description) {
                     var __this = this;
                     return this.http.get(__this.createExperienceUrl + '/' +
                         jobNamingId + '/' +

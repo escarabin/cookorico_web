@@ -14,6 +14,7 @@ export class UserService {
     getTestimonialsUrl = '/testimonials/all';
     getCreatedTestimonialsUrl = '/created_testimonials/all';
     createExperienceUrl = '/experience/create';
+    updateExperienceUrl = '/experience/update';
     createStudyUrl = '/study/create';
     createAlertUrl = '/alert/create';
     getAlertUrl = '/alert';
@@ -145,6 +146,31 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     createExperience(jobNamingId, businessId, startDate, endDate, description) {
+        let __this = this;
+
+        return this.http.get(
+            __this.createExperienceUrl + '/' +
+            jobNamingId + '/' +
+            businessId + '/' +
+            startDate + '/' +
+            endDate + '/' +
+            description);
+    }
+
+    /**
+     * Update existing work experience
+     * @param experienceId
+     * @param jobNamingId
+     * @param businessId
+     * @param startDate
+     * @param endDate
+     * @param adress
+     * @param lat
+     * @param lon
+     * @param description
+     * @returns {Observable<Response>}
+     */
+    createExperience(experienceId, jobNamingId, businessId, startDate, endDate, description) {
         let __this = this;
 
         return this.http.get(

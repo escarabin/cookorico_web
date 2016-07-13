@@ -183,31 +183,6 @@ class UserController extends Controller
     }
 
     /**
-     * Create new work experience
-     * @param $jobNamingId
-     * @param $businessId
-     * @param $startDate
-     * @param $endDate
-     * @param $description
-     */
-    public function createExperience($jobNamingId, $businessId, $startDate, $endDate, $description) {
-        $user_id = Auth::user()->id;
-
-        $experience = new Experience;
-
-        $experience->user_id = $user_id;
-        $experience->job_naming_id = $jobNamingId;
-        $experience->business_id = $businessId;
-        $experience->start_date = $startDate;
-        $experience->end_date = $endDate;
-        $experience->description = $description;
-
-        $experience->save();
-
-        return $experience;
-    }
-
-    /**
      * Create new study
      * @param $diplomaId
      * @param $businessId
