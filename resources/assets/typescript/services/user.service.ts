@@ -174,7 +174,7 @@ export class UserService {
         let __this = this;
 
         return this.http.get(
-            __this.createExperienceUrl + '/' +
+            __this.updateExperienceUrl + '/' +
             experienceId + '/' +
             jobNamingId + '/' +
             businessId + '/' +

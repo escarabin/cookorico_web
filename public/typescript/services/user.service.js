@@ -163,7 +163,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                  */
                 UserService.prototype.updateExperience = function (experienceId, jobNamingId, businessId, startDate, endDate, description) {
                     var __this = this;
-                    return this.http.get(__this.createExperienceUrl + '/' +
+                    return this.http.get(__this.updateExperienceUrl + '/' +
                         experienceId + '/' +
                         jobNamingId + '/' +
                         businessId + '/' +
