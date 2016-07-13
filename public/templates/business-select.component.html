@@ -1,22 +1,28 @@
-<label>Établissement</label>
-<div class="col-md-11 business-select-container">
-    <select class="form-control"
-            *ngIf="!isGooglePlaceInput">
-        <option selected disabled>-- Établissement --</option>
-        <option *ngFor="let business of businesses"
-                [selected]="businessId==business.id">
-            {{ business.title }} - {{ business.place.city }}
-        </option>
-    </select>
-    <input type="text"
-           class="form-control"
-           *ngIf="isGooglePlaceInput"
-           (setAddress)="parseAdress($event)"
-           googleplace/>
-</div>
-<div class="col-md-1 toggle-business-creation-container"
-     (click)="isGooglePlaceInput=!isGooglePlaceInput">
-    <span class="fa"
-          [class.fa-list]="isGooglePlaceInput"
-          [class.fa-plus]="!isGooglePlaceInput"></span>
-</div>
+<form #businessSelect="ngForm">
+    <label>Établissement</label>
+    <div class="col-md-11 business-select-container">
+        <select class="form-control"
+                [(ngModel)]="businessId"
+                ngControl="businessId"
+                *ngIf="!isGooglePlaceInput"
+                (change)="businessIdChanged()">
+            <option selected disabled>-- Établissement --</option>
+            <option *ngFor="let business of businesses"
+                    value="{{ business.id }}"
+                    [selected]="businessId==business.id">
+                {{ business.title }} - {{ business.place.city }}
+            </option>
+        </select>
+        <input type="text"
+               class="form-control"
+               *ngIf="isGooglePlaceInput"
+               (setAddress)="parseAdress($event)"
+               googleplace/>
+    </div>
+    <div class="col-md-1 toggle-business-creation-container"
+         (click)="isGooglePlaceInput=!isGooglePlaceInput">
+        <span class="fa"
+              [class.fa-list]="isGooglePlaceInput"
+              [class.fa-plus]="!isGooglePlaceInput"></span>
+    </div>
+</form>

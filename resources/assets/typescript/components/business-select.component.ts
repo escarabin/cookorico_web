@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Response } from '@angular/http';
 
 // Services
@@ -20,6 +20,7 @@ export class BusinessSelectComponent {
     businesses = [];
     isGooglePlaceInput: boolean = false;
     @Input public businessId: number;
+    @Output() businessIdChange: EventEmitter = new EventEmitter();
     public adress: Object;
 
     constructor(private businessService: BusinessService,
@@ -37,10 +38,15 @@ export class BusinessSelectComponent {
         // Save selected place data for further use
         this.placeService.save(place).subscribe((res: Response) => {
             __this.businessId = res.json()['id'];
+            __this.businessIdChanged();
             __this.businessService.getAll().subscribe((res1: Response) => {
                 __this.businesses = res1.json();
                 __this.isGooglePlaceInput = false;
             })
         });
+    }
+
+    businessIdChanged() {
+        this.businessIdChange.emit(this.businessId);
     }
 }

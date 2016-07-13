@@ -59,4 +59,9 @@ export class CreateExperienceComponent {
 
         }
     }
+
+    handleBusinessIdChange(businessId) {
+        this.experience.business_id = businessId;
+        console.log('Business id changed', businessId);
+    }
 }

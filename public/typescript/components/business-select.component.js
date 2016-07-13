@@ -33,6 +33,7 @@ System.register(['@angular/core', './../services/business.service', './../servic
                     this.placeService = placeService;
                     this.businesses = [];
                     this.isGooglePlaceInput = false;
+                    this.businessIdChange = new core_1.EventEmitter();
                     var __this = this;
                     businessService.getAll().subscribe(function (res) {
                         __this.businesses = res.json();
@@ -43,16 +44,24 @@ System.register(['@angular/core', './../services/business.service', './../servic
                     // Save selected place data for further use
                     this.placeService.save(place).subscribe(function (res) {
                         __this.businessId = res.json()['id'];
+                        __this.businessIdChanged();
                         __this.businessService.getAll().subscribe(function (res1) {
                             __this.businesses = res1.json();
                             __this.isGooglePlaceInput = false;
                         });
                     });
                 };
+                BusinessSelectComponent.prototype.businessIdChanged = function () {
+                    this.businessIdChange.emit(this.businessId);
+                };
                 __decorate([
                     core_1.Input, 
                     __metadata('design:type', Number)
                 ], BusinessSelectComponent.prototype, "businessId", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', core_1.EventEmitter)
+                ], BusinessSelectComponent.prototype, "businessIdChange", void 0);
                 BusinessSelectComponent = __decorate([
                     core_1.Component({
                         selector: 'business-select',

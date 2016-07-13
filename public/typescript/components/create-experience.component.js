@@ -61,6 +61,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     else {
                     }
                 };
+                CreateExperienceComponent.prototype.handleBusinessIdChange = function (businessId) {
+                    this.experience.business_id = businessId;
+                    console.log('Business id changed', businessId);
+                };
                 CreateExperienceComponent = __decorate([
                     core_1.Component({
                         selector: 'create-experience',
