@@ -2,6 +2,10 @@
      (click)="hide(note)"
      *ngFor="let note of _notes">
     <span class="fa fa-check"
-          *ngIf="note.type==success"></span>
+          *ngIf="note.type == 'success'"> &nbsp;</span>
+    <span class="fa fa-times"
+          *ngIf="note.type == 'error'"> &nbsp;</span>
+    <span class="fa fa-warning"
+          *ngIf="note.type == 'warning'"> &nbsp;</span>
     {{ note.message }}
 </div>

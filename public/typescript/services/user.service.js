@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', './notification.service', './../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1;
+    var core_1, http_1, notification_service_1, notification_1;
     var UserService;
     return {
         setters:[
@@ -19,11 +19,18 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
             }],
         execute: function() {
             UserService = (function () {
-                function UserService(http) {
+                function UserService(http, notificationService) {
                     this.http = http;
+                    this.notificationService = notificationService;
                     this.signInUrl = '/sign-in/';
                     this.getApplicationsUrl = '/applications/all';
                     this.getExperiencesUrl = '/experiences/all';
@@ -146,7 +153,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                         businessId + '/' +
                         startDate + '/' +
                         endDate + '/' +
-                        description);
+                        description).catch(this.handleError);
                 };
                 /**
                  * Update existing work experience
@@ -218,9 +225,16 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                         alert.job_naming_id + '/' +
                         alert.place + '/');
                 };
+                /**
+                 * Error handling
+                 * @param error
+                 */
+                UserService.prototype.handleError = function (error) {
+                    this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue s\'est produite, veuillez rééssayer'));
+                };
                 UserService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_1.Http])
+                    __metadata('design:paramtypes', [http_1.Http, notification_service_1.NotificationsService])
                 ], UserService);
                 return UserService;
             }());

@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http } from '@angular/http';
 
+// Services
+import { NotificationsService } from './notification.service';
+
+// Models
+import { Notification } from './../models/notification';
+
 @Injectable()
 export class UserService {
     signInUrl = '/sign-in/';
@@ -20,7 +26,8 @@ export class UserService {
     getAlertUrl = '/alert';
     saveAlertChangesUrl = '/alert/save_changes/';
 
-    constructor(private http: Http) {
+    constructor(private http: Http,
+                private notificationService: NotificationsService) {
 
     }
 
@@ -154,7 +161,7 @@ export class UserService {
             businessId + '/' +
             startDate + '/' +
             endDate + '/' +
-            description);
+            description).catch(this.handleError);
     }
 
     /**
@@ -237,5 +244,15 @@ export class UserService {
             alert.title + '/' +
             alert.job_naming_id + '/' +
             alert.place + '/');
+    }
+
+    /**
+     * Error handling
+     * @param error
+     */
+    handleError(error: any) {
+        this.notificationService.show(
+            new Notification('error', 'Une erreur inconnue s\'est produite, veuillez rééssayer')
+        );
     }
 }

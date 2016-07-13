@@ -55,7 +55,9 @@ export class CreateExperienceComponent {
                 __this.experience.start_date,
                 __this.experience.end_date,
                 __this.experience.description).subscribe((res: Response) => {
-                console.log(res.json());
+                __this.notificationService.show(
+                    new Notification('success', 'Votre expérience a bien été crée')
+                );
             });
         }
         else {
@@ -65,7 +67,9 @@ export class CreateExperienceComponent {
                 __this.experience.start_date,
                 __this.experience.end_date,
                 __this.experience.description).subscribe((res: Response) => {
-                __this.notificationService.show(new Notification('success', 'Votre expérience a bien été enregistrée'));
+                __this.notificationService.show(
+                    new Notification('success', 'Vos modifications ont bien été enregistrées')
+                );
             });
         }
     }

@@ -62,12 +62,12 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     var __this = this;
                     if (!this.experience.id) {
                         this.userService.createExperience(__this.experience.job_naming_id, __this.experience.business_id, __this.experience.start_date, __this.experience.end_date, __this.experience.description).subscribe(function (res) {
-                            console.log(res.json());
+                            __this.notificationService.show(new notification_1.Notification('success', 'Votre expérience a bien été crée'));
                         });
                     }
                     else {
                         this.userService.updateExperience(__this.experience.id, __this.experience.job_naming_id, __this.experience.business_id, __this.experience.start_date, __this.experience.end_date, __this.experience.description).subscribe(function (res) {
-                            __this.notificationService.show(new notification_1.Notification('success', 'Votre expérience a bien été enregistrée'));
+                            __this.notificationService.show(new notification_1.Notification('success', 'Vos modifications ont bien été enregistrées'));
                         });
                     }
                 };
