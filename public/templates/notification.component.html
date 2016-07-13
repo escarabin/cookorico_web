@@ -1,0 +1,7 @@
+<div class="notification-container {{ note.type }}"
+     (click)="hide(note)"
+     *ngFor="let note of _notes">
+    <span class="fa fa-check"
+          *ngIf="note.type==success"></span>
+    {{ note.message }}
+</div>

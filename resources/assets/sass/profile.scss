@@ -52,7 +52,7 @@ profile .list-container ul {
 }
 
 profile .list-container ul li {
-  padding: 5px 20px 20px 20px;
+  padding: 5px 20px 20px 0;
   border-bottom: 1px solid #e4e4e4;
 }
 
@@ -75,7 +75,6 @@ profile .list-container ul a {
 profile .list-container ul li h3 {
   font-family: $mainMediumFontFamily;
   color: $mainBlueColor;
-  padding-bottom: 5px;
 }
 
 profile .list-container ul li .date {
@@ -96,6 +95,11 @@ profile .list-container .logo img {
   max-height: 80px;
   float: left;
   margin-right: 30px;
+}
+
+profile .list-container .checkbox-container {
+  float: left;
+  padding: 35px;
 }
 
 profile .header-container {

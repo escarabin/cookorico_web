@@ -10,8 +10,16 @@ import {
     APP_BASE_HREF}
     from '@angular/common';
 import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
+
+// Components
 import { AppComponent } from './components/app.component';
 
-bootstrap( AppComponent, [HTTP_PROVIDERS, ROUTER_PROVIDERS,
+// Services
+import { NotificationsService } from './services/notification.service';
+
+bootstrap( AppComponent,
+            [HTTP_PROVIDERS,
+             NotificationsService,
+             ROUTER_PROVIDERS,
     provide(LocationStrategy, {useClass: HashLocationStrategy})
 ]).catch(console.error);

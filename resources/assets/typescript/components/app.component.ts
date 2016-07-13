@@ -12,6 +12,7 @@ import { ClubComponent } from './club.component';
 import { SignUpComponent } from './sign-up.component';
 import { SearchComponent } from './search.component';
 import { NewApplicationFormComponent } from './new-application-form.component';
+import { NotificationsComponent } from './notification.component';
 
 @Component({
     directives:[RouterOutlet,
@@ -19,7 +20,8 @@ import { NewApplicationFormComponent } from './new-application-form.component';
                 HeaderComponent,
                 FooterComponent,
                 SearchComponent,
-                NewApplicationFormComponent],
+                NewApplicationFormComponent,
+                NotificationsComponent],
     selector: 'app',
     templateUrl: '/templates/app.component.html'
 })

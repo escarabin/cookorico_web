@@ -1,0 +1,54 @@
+.notification-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $oechrBlueColor;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  height: 85px;
+  font-size: 1.3em;
+  font-family: $mainMediumFontFamily;
+  z-index: 100;
+  animation: show-note 250ms;
+  transition-property: all;
+  transition-duration: 250ms;
+
+  &.success {
+    background-color: $successColor;
+  }
+
+  &.warning {
+    background-color: $warningColor;
+  }
+
+  &.error {
+    background-color: $errorColor;
+  }
+
+  &.info {
+    background-color: $infoColor;
+  }
+}
+
+.notification-container.shown {
+  top: 0;
+}
+
+@-webkit-keyframes show-note {
+  0%   { top: -85px; }
+  100% { top: 0; }
+}
+@-moz-keyframes show-note {
+  0%   { top: -85px; }
+  100% { top: 0; }
+}
+@-o-keyframes show-note {
+  0%   { top: -85px; }
+  100% { top: 0; }
+}
+@keyframes show-note {
+  0%   { top: -85px; }
+  100% { top: 0; }
+}

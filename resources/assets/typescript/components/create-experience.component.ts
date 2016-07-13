@@ -5,9 +5,11 @@ import { RouterLink, RouteParams } from '@angular/router-deprecated';
 // Services
 import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
+import { NotificationsService } from './../services/notification.service';
 
 // Models
 import { Experience } from './../models/experience';
+import { Notification } from './../models/notification';
 
 // Components
 import { BusinessSelectComponent } from './business-select.component';
@@ -26,6 +28,7 @@ export class CreateExperienceComponent {
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
+                private notificationService: NotificationsService,
                 private routeParams: RouteParams) {
         let __this = this;
 
@@ -62,7 +65,7 @@ export class CreateExperienceComponent {
                 __this.experience.start_date,
                 __this.experience.end_date,
                 __this.experience.description).subscribe((res: Response) => {
-                console.log(res.json());
+                __this.notificationService.show(new Notification('success', 'Votre expérience a bien été enregistrée'));
             });
         }
     }

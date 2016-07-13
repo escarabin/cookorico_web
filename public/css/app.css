@@ -385,7 +385,7 @@ profile .list-container ul {
   margin-bottom: 0; }
 
 profile .list-container ul li {
-  padding: 5px 20px 20px 20px;
+  padding: 5px 20px 20px 0;
   border-bottom: 1px solid #e4e4e4; }
 
 profile .list-container ul a li {
@@ -402,8 +402,7 @@ profile .list-container ul a {
 
 profile .list-container ul li h3 {
   font-family: "Avenir Medium", sans-serif;
-  color: #1a1f38;
-  padding-bottom: 5px; }
+  color: #1a1f38; }
 
 profile .list-container ul li .date {
   float: right;
@@ -421,6 +420,10 @@ profile .list-container .logo img {
   max-height: 80px;
   float: left;
   margin-right: 30px; }
+
+profile .list-container .checkbox-container {
+  float: left;
+  padding: 35px; }
 
 profile .header-container {
   padding: 0; }
@@ -467,6 +470,40 @@ testimonials {
   padding: 15px;
   text-align: center;
   cursor: pointer; }
+
+.notification-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #35B6E1;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  height: 85px;
+  font-size: 1.3em;
+  font-family: "Avenir Medium", sans-serif;
+  z-index: 100;
+  animation: show-note 250ms;
+  transition-property: all;
+  transition-duration: 250ms; }
+  .notification-container.success {
+    background-color: #35B6E1; }
+  .notification-container.warning {
+    background-color: #E47F1B; }
+  .notification-container.error {
+    background-color: #E13543; }
+  .notification-container.info {
+    background-color: #35B6E1; }
+
+.notification-container.shown {
+  top: 0; }
+
+@keyframes show-note {
+  0% {
+    top: -85px; }
+  100% {
+    top: 0; } }
 
 body {
   background-color: #f7f7f8;

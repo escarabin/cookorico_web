@@ -12,6 +12,9 @@
         <a *ngFor="let experience of experiences"
            [routerLink]="['/Profile/EditExperience', { experienceId: experience.id }]">
             <li>
+                <div class="checkbox-container">
+                    <input type="checkbox"/>
+                </div>
                 <div class="logo">
                     <img src="/uploads/business/logo/{{ experience.business.logoFile }}"
                          *ngIf="experience.business.logoFile"/>
