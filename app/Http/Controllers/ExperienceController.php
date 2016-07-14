@@ -42,7 +42,12 @@ class ExperienceController extends Controller
      * @param $endDate
      * @param $description
      */
-    public function updateExperience($experienceId, $jobNamingId, $businessId, $startDate, $endDate, $description) {
+    public function updateExperience($experienceId,
+                                     $jobNamingId,
+                                     $businessId,
+                                     $startDate,
+                                     $endDate,
+                                     $description = null) {
         $user_id = Auth::user()->id;
 
         $experience = Experience::find($experienceId);
