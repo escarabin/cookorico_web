@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', './notification.service', './../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', './notification.service', './../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -20,6 +20,7 @@ System.register(['@angular/core', '@angular/http', './notification.service', './
             function (http_1_1) {
                 http_1 = http_1_1;
             },
+            function (_1) {},
             function (notification_service_1_1) {
                 notification_service_1 = notification_service_1_1;
             },
@@ -153,7 +154,7 @@ System.register(['@angular/core', '@angular/http', './notification.service', './
                         businessId + '/' +
                         startDate + '/' +
                         endDate + '/' +
-                        description).catch(this.handleError);
+                        description).catch(this.handleError("", __this.notificationService));
                 };
                 /**
                  * Update existing work experience
@@ -229,8 +230,13 @@ System.register(['@angular/core', '@angular/http', './notification.service', './
                  * Error handling
                  * @param error
                  */
-                UserService.prototype.handleError = function (error) {
-                    this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue s\'est produite, veuillez rééssayer'));
+                UserService.prototype.handleError = function (error, notificationService) {
+                    var __this = this;
+                    console.log(__this, __this.notificationService);
+                    var errMsg = (error.message) ? error.message :
+                        error.status ? error.status + " - " + error.statusText : 'Server error';
+                    notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue s\'est produite, veuillez rééssayer'));
+                    console.error(errMsg); // log to console instead
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 

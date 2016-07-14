@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http } from '@angular/http';
+import 'rxjs/add/operator/catch';
 
 // Services
 import { NotificationsService } from './notification.service';
@@ -161,7 +162,7 @@ export class UserService {
             businessId + '/' +
             startDate + '/' +
             endDate + '/' +
-            description).catch(this.handleError);
+            description).catch(this.handleError("", __this.notificationService));
     }
 
     /**
@@ -250,9 +251,18 @@ export class UserService {
      * Error handling
      * @param error
      */
-    handleError(error: any) {
-        this.notificationService.show(
+    handleError(error: any, notificationService: any) {
+        let __this = this;
+
+        console.log(__this, __this.notificationService);
+
+        let errMsg = (error.message) ? error.message :
+            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+
+        notificationService.show(
             new Notification('error', 'Une erreur inconnue s\'est produite, veuillez rééssayer')
         );
+
+        console.error(errMsg); // log to console instead
     }
 }

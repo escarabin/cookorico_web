@@ -27,7 +27,6 @@ System.register(['@angular/core', 'rxjs/Subject'], function(exports_1, context_1
                     this.noteAdded = this._notifications.asObservable();
                 }
                 NotificationsService.prototype.show = function (notification) {
-                    console.log('showing notification');
                     this._notifications.next(notification);
                 };
                 NotificationsService = __decorate([

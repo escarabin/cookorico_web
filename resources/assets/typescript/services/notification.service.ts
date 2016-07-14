@@ -10,7 +10,6 @@ export class NotificationsService {
     public noteAdded = this._notifications.asObservable();
 
     public show(notification: Notification) {
-        console.log('showing notification');
         this._notifications.next(notification);
     }
 }
