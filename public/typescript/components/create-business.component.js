@@ -68,6 +68,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     });
                 }
                 CreateBusinessComponent.prototype.parseAdress = function (place) {
+                    console.log(place);
                     var location = place['geometry']['location'];
                     this.place.lat = location.lat();
                     this.place.lon = location.lng();
@@ -79,6 +80,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     for (var i = 0; i < place['photos'].length; i++) {
                         var photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });
                         this.business.photos.push(photoUrl);
+                        console.log(photoUrl);
                     }
                     // Get business's type
                     if (place['types'].indexOf('restaurant')) {

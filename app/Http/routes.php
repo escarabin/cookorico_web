@@ -116,3 +116,7 @@ Route::get('/businesses/all/', 'BusinessController@getAll')
 // Places
 Route::get('/place/save/{googlePlaceId}/{adress}/{city}/{postalCode}/{lat}/{lon}/{types}/{title}/{phone}/{website}', 'PlaceController@save')
     ->name('savePlace');
+
+// Files
+Route::get('/file/upload/{bucket}/{fileName}', 'FileController@upload')
+    ->name('uploadFile');
