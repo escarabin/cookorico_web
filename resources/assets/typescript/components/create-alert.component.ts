@@ -7,7 +7,7 @@ import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
 
 // Models
-import { Alert } from './../models/alert'
+import { Alert } from './../models/alert';
 
 @Component({
     selector: 'create-alert',
@@ -55,7 +55,7 @@ export class CreateAlertComponent {
     saveAlertChanges() {
         let __this = this;
 
-        this.userService.saveAlertChanges(__this.alert).subscribe((res: Response) => {
+        this.userService.updateAlert(__this.alert).subscribe((res: Response) => {
 
         });
     }

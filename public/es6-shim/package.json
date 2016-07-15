@@ -1,18 +1,11 @@
 {
   "_args": [
     [
-      {
-        "name": "es6-shim",
-        "raw": "es6-shim",
-        "rawSpec": "",
-        "scope": null,
-        "spec": "latest",
-        "type": "tag"
-      },
-      "/Applications/MAMP/htdocs/oechr"
+      "es6-shim@~0.35.0",
+      "/Applications/MAMP/htdocs/oechr/node_modules/ng2-slim-loading-bar"
     ]
   ],
-  "_from": "es6-shim@latest",
+  "_from": "es6-shim@>=0.35.0 <0.36.0",
   "_id": "es6-shim@0.35.1",
   "_inCache": true,
   "_installable": true,
@@ -30,20 +23,20 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "es6-shim",
-    "raw": "es6-shim",
-    "rawSpec": "",
+    "raw": "es6-shim@~0.35.0",
+    "rawSpec": "~0.35.0",
     "scope": null,
-    "spec": "latest",
-    "type": "tag"
+    "spec": ">=0.35.0 <0.36.0",
+    "type": "range"
   },
   "_requiredBy": [
-    "#USER"
+    "/ng2-slim-loading-bar"
   ],
   "_resolved": "https://registry.npmjs.org/es6-shim/-/es6-shim-0.35.1.tgz",
   "_shasum": "a23524009005b031ab4a352ac196dfdfd1144ab7",
   "_shrinkwrap": null,
-  "_spec": "es6-shim",
-  "_where": "/Applications/MAMP/htdocs/oechr",
+  "_spec": "es6-shim@~0.35.0",
+  "_where": "/Applications/MAMP/htdocs/oechr/node_modules/ng2-slim-loading-bar",
   "author": {
     "name": "Paul Miller",
     "url": "http://paulmillr.com"

@@ -880,6 +880,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getApplicationsUrl = '/applications/all';
                     this.getExperiencesUrl = '/experiences/all';
                     this.getExperienceUrl = '/experience';
+                    this.deleteExperiencesUrl = '/experience/delete';
                     this.getEducationUrl = '/education/all';
                     this.getAlertsUrl = '/alerts/all';
                     this.getBusinessesUrl = '/user/businesses';
@@ -925,6 +926,15 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.getExperience = function (experienceId) {
                     var __this = this;
                     return this.http.get(__this.getExperienceUrl + '/' + experienceId);
+                };
+                /**
+                 * Delete experiences based on a comma separated list of ids
+                 * @param listExperienceId
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.deleteExperiences = function (listExperienceId) {
+                    var __this = this;
+                    return this.http.get(__this.deleteExperiencesUrl + '/' + listExperienceId);
                 };
                 /**
                  * Get user's education
@@ -1061,7 +1071,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @param alert
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.saveAlertChanges = function (alert) {
+                UserService.prototype.updateAlert = function (alert) {
                     var __this = this;
                     return this.http.get(__this.saveAlertChangesUrl + '/' +
                         alert.id + '/' +
@@ -1314,6 +1324,292 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     }
 });
 
+/// ADAPTED FROM angular/material2 REPO.
+System.register(['@angular/core', '@angular/src/common/forms/directives/control_value_accessor', '@angular/src/facade/lang'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1, control_value_accessor_1, lang_1;
+    var nextId, MD_CHECKBOX_CONTROL_VALUE_ACCESSOR, TransitionCheckState, MdCheckbox;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (control_value_accessor_1_1) {
+                control_value_accessor_1 = control_value_accessor_1_1;
+            },
+            function (lang_1_1) {
+                lang_1 = lang_1_1;
+            }],
+        execute: function() {
+            /**
+             * Monotonically increasing integer used to auto-generate unique ids for checkbox components.
+             */
+            nextId = 0;
+            /**
+             * Provider Expression that allows md-checkbox to register as a ControlValueAccessor. This allows it
+             * to support [(ngModel)] and ngControl.
+             */
+            MD_CHECKBOX_CONTROL_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, {
+                useExisting: core_1.forwardRef(function () { return MdCheckbox; }),
+                multi: true
+            }));
+            /**
+             * Represents the different states that require custom transitions between them.
+             */
+            (function (TransitionCheckState) {
+                /** The initial state of the component before any user interaction. */
+                TransitionCheckState[TransitionCheckState["Init"] = 0] = "Init";
+                /** The state representing the component when it's becoming checked. */
+                TransitionCheckState[TransitionCheckState["Checked"] = 1] = "Checked";
+                /** The state representing the component when it's becoming unchecked. */
+                TransitionCheckState[TransitionCheckState["Unchecked"] = 2] = "Unchecked";
+                /** The state representing the component when it's becoming indeterminate. */
+                TransitionCheckState[TransitionCheckState["Indeterminate"] = 3] = "Indeterminate";
+            })(TransitionCheckState || (TransitionCheckState = {}));
+            /**
+             * A material design checkbox component. Supports all of the functionality of an HTML5 checkbox,
+             * and exposes a similar API. An MdCheckbox can be either checked, unchecked, indeterminate, or
+             * disabled. Note that all additional accessibility attributes are taken care of by the component,
+             * so there is no need to provide them yourself. However, if you want to omit a label and still
+             * have the checkbox be accessible, you may supply an [aria-label] input.
+             * See: https://www.google.com/design/spec/components/selection-controls.html
+             */
+            MdCheckbox = (function () {
+                function MdCheckbox(_renderer, _elementRef) {
+                    this._renderer = _renderer;
+                    this._elementRef = _elementRef;
+                    /**
+                     * Attached to the aria-label attribute of the host element. In most cases, arial-labelledby will
+                     * take precedence so this may be omitted.
+                     */
+                    this.ariaLabel = '';
+                    /** A unique id for the checkbox. If one is not supplied, it is auto-generated. */
+                    this.id = "md-checkbox-" + ++nextId;
+                    /** Whether or not the checkbox should come before or after the label. */
+                    this.align = 'start';
+                    /**
+                     * Whether the checkbox is disabled. When the checkbox is disabled it cannot be interacted with.
+                     * The correct ARIA attributes are applied to denote this to assistive technology.
+                     */
+                    this.disabled = false;
+                    /**
+                     * The tabindex attribute for the checkbox. Note that when the checkbox is disabled, the attribute
+                     * on the host element will be set to -1, regardless of the actual tabindex value.
+                     */
+                    this.tabindex = 0;
+                    /** Event emitted when the checkbox's `checked` value changes. */
+                    this.change = new core_1.EventEmitter();
+                    /** Called when the checkbox is blurred. Needed to properly implement ControlValueAccessor. */
+                    this.onTouched = function () { };
+                    this._currentAnimationClass = '';
+                    this._currentCheckState = TransitionCheckState.Init;
+                    this._checked = false;
+                    this._indeterminate = false;
+                    this._changeSubscription = null;
+                }
+                Object.defineProperty(MdCheckbox.prototype, "checked", {
+                    /**
+                     * Whether the checkbox is checked. Note that setting `checked` will immediately set
+                     * `indeterminate` to false.
+                     */
+                    get: function () {
+                        return this._checked;
+                    },
+                    set: function (checked) {
+                        this._indeterminate = false;
+                        this._checked = checked;
+                        this._transitionCheckState(this._checked ? TransitionCheckState.Checked : TransitionCheckState.Unchecked);
+                        this.change.emit(this._checked);
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
+                Object.defineProperty(MdCheckbox.prototype, "indeterminate", {
+                    /**
+                     * Whether the checkbox is indeterminate. This is also known as "mixed" mode and can be used to
+                     * represent a checkbox with three states, e.g. a checkbox that represents a nested list of
+                     * checkable items. Note that whenever `checked` is set, indeterminate is immediately set to
+                     * false. This differs from the web platform in that indeterminate state on native
+                     * checkboxes is only remove when the user manually checks the checkbox (rather than setting the
+                     * `checked` property programmatically). However, we feel that this behavior is more accommodating
+                     * to the way consumers would envision using this component.
+                     */
+                    get: function () {
+                        return this._indeterminate;
+                    },
+                    set: function (indeterminate) {
+                        this._indeterminate = indeterminate;
+                        if (this._indeterminate) {
+                            this._transitionCheckState(TransitionCheckState.Indeterminate);
+                        }
+                        else {
+                            this._transitionCheckState(this.checked ? TransitionCheckState.Checked : TransitionCheckState.Unchecked);
+                        }
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
+                Object.defineProperty(MdCheckbox.prototype, "labelId", {
+                    /** The id that is attached to the checkbox's label. */
+                    get: function () {
+                        return this.id + "-label";
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
+                /** Returns the proper aria-checked attribute value based on the checkbox's state. */
+                MdCheckbox.prototype.getAriaChecked = function () {
+                    if (this.indeterminate) {
+                        return 'mixed';
+                    }
+                    return this.checked ? 'true' : 'false';
+                };
+                /** Toggles the checked state of the checkbox. If the checkbox is disabled, this does nothing. */
+                MdCheckbox.prototype.toggle = function () {
+                    this.checked = !this.checked;
+                };
+                /**
+                 * Event handler used for both (click) and (keyup.space) events. Delegates to toggle().
+                 */
+                MdCheckbox.prototype.onInteractionEvent = function (event) {
+                    if (this.disabled) {
+                        event.stopPropagation();
+                        return;
+                    }
+                    this.toggle();
+                };
+                /** Implemented as part of ControlValueAccessor. */
+                MdCheckbox.prototype.writeValue = function (value) {
+                    this.checked = !!value;
+                };
+                /** Implemented as part of ControlValueAccessor. */
+                MdCheckbox.prototype.registerOnChange = function (fn) {
+                    if (this._changeSubscription) {
+                        this._changeSubscription.unsubscribe();
+                    }
+                    this._changeSubscription = this.change.subscribe(fn);
+                };
+                /** Implemented as part of ControlValueAccessor. */
+                MdCheckbox.prototype.registerOnTouched = function (fn) {
+                    this.onTouched = fn;
+                };
+                MdCheckbox.prototype._transitionCheckState = function (newState) {
+                    var oldState = this._currentCheckState;
+                    var renderer = this._renderer;
+                    var elementRef = this._elementRef;
+                    if (oldState === newState) {
+                        return;
+                    }
+                    if (this._currentAnimationClass.length > 0) {
+                        renderer.setElementClass(elementRef, this._currentAnimationClass, false);
+                    }
+                    this._currentAnimationClass = this._getAnimationClassForCheckStateTransition(oldState, newState);
+                    this._currentCheckState = newState;
+                    if (this._currentAnimationClass.length > 0) {
+                        renderer.setElementClass(elementRef, this._currentAnimationClass, true);
+                    }
+                };
+                MdCheckbox.prototype._getAnimationClassForCheckStateTransition = function (oldState, newState) {
+                    var animSuffix;
+                    switch (oldState) {
+                        case TransitionCheckState.Init:
+                            return '';
+                        case TransitionCheckState.Unchecked:
+                            animSuffix = newState === TransitionCheckState.Checked ?
+                                'unchecked-checked' : 'unchecked-indeterminate';
+                            break;
+                        case TransitionCheckState.Checked:
+                            animSuffix = newState === TransitionCheckState.Unchecked ?
+                                'checked-unchecked' : 'checked-indeterminate';
+                            break;
+                        case TransitionCheckState.Indeterminate:
+                            animSuffix = newState === TransitionCheckState.Checked ?
+                                'indeterminate-checked' : 'indeterminate-unchecked';
+                    }
+                    return "md-checkbox-anim-" + animSuffix;
+                };
+                __decorate([
+                    core_1.Input('aria-label'), 
+                    __metadata('design:type', String)
+                ], MdCheckbox.prototype, "ariaLabel", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', String)
+                ], MdCheckbox.prototype, "id", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', String)
+                ], MdCheckbox.prototype, "align", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Boolean)
+                ], MdCheckbox.prototype, "disabled", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Number)
+                ], MdCheckbox.prototype, "tabindex", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+                ], MdCheckbox.prototype, "change", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], MdCheckbox.prototype, "checked", null);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], MdCheckbox.prototype, "indeterminate", null);
+                MdCheckbox = __decorate([
+                    core_1.Component({
+                        selector: 'md-checkbox',
+                        template: "\n<div class=\"md-checkbox-layout\">\n<div class=\"md-checkbox-inner-container\">\n<div class=\"md-checkbox-frame\"></div>\n<div class=\"md-checkbox-background\">\n<svg version=\"1.1\"\nclass=\"md-checkbox-checkmark\"\nxmlns=\"http://www.w3.org/2000/svg\"\nviewBox=\"0 0 24 24\"\nxml:space=\"preserve\">\n<path class=\"md-checkbox-checkmark-path\"\nfill=\"none\"\nstroke=\"white\"\nd=\"M4.1,12.7 9,17.6 20.3,6.3\"/>\n</svg>\n    <!-- Element for rendering the indeterminate state checkbox. -->\n<div class=\"md-checkbox-mixedmark\"></div>\n</div>\n</div>\n<label [id]=\"labelId\">\n<ng-content></ng-content>\n</label>\n</div>\n",
+                        host: {
+                            'role': 'checkbox',
+                            '[id]': 'id',
+                            '[class.md-checkbox]': 'true',
+                            '[class.md-checkbox-indeterminate]': 'indeterminate',
+                            '[class.md-checkbox-checked]': 'checked',
+                            '[class.md-checkbox-disabled]': 'disabled',
+                            '[class.md-checkbox-align-end]': 'align == "end"',
+                            '[tabindex]': 'disabled ? -1 : tabindex',
+                            '[attr.aria-label]': 'ariaLabel',
+                            '[attr.aria-labelledby]': 'labelId',
+                            '[attr.aria-checked]': 'getAriaChecked()',
+                            '[attr.aria-disabled]': 'disabled',
+                            '(click)': 'onInteractionEvent($event)',
+                            '(keyup.space)': 'onInteractionEvent($event)',
+                            '(blur)': 'onTouched()'
+                        },
+                        providers: [MD_CHECKBOX_CONTROL_VALUE_ACCESSOR],
+                        encapsulation: core_1.ViewEncapsulation.None,
+                        changeDetection: core_1.ChangeDetectionStrategy.OnPush
+                    }), 
+                    __metadata('design:paramtypes', [(typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object])
+                ], MdCheckbox);
+                return MdCheckbox;
+                var _a, _b, _c;
+            }());
+            exports_1("MdCheckbox", MdCheckbox);
+        }
+    }
+});
+/*
+ Copyright 2016 Google Inc. All Rights Reserved.
+ Use of this source code is governed by an MIT-style license that
+ can be found in the LICENSE file at http://angular.io/license
+ */ 
+
 System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -1343,11 +1639,25 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             ExperiencesComponent = (function () {
                 function ExperiencesComponent(userService) {
                     this.userService = userService;
+                    this.checkedExperiencesList = [];
                     var __this = this;
                     this.userService.getExperiences().subscribe(function (res) {
                         __this.experiences = res.json();
                     });
                 }
+                ExperiencesComponent.prototype.checkedExperiences = function (experienceId) {
+                    this.checkedExperiencesList.push(experienceId);
+                };
+                ExperiencesComponent.prototype.deleteExperiences = function () {
+                    var _this = this;
+                    var __this = this;
+                    var listExperienceCheckbox = document.getElementsByClassName('action-checkbox');
+                    this.userService.deleteExperiences(listExperienceCheckbox).subscribe(function (res) {
+                        _this.userService.getExperiences().subscribe(function (res) {
+                            __this.experiences = res.json();
+                        });
+                    });
+                };
                 ExperiencesComponent = __decorate([
                     core_1.Component({
                         selector: 'experiences',
@@ -2020,7 +2330,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 };
                 CreateAlertComponent.prototype.saveAlertChanges = function () {
                     var __this = this;
-                    this.userService.saveAlertChanges(__this.alert).subscribe(function (res) {
+                    this.userService.updateAlert(__this.alert).subscribe(function (res) {
                     });
                 };
                 CreateAlertComponent = __decorate([
@@ -2760,7 +3070,7 @@ System.register(['@angular/core', './../services/notification.service'], functio
     }
 });
 
-System.register(['@angular/core', '@angular/router-deprecated', './home.component', './job.component', './post.component', './header.component', './footer.component', './profile.component', './club.component', './sign-up.component', './search.component', './new-application-form.component', './notification.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', 'ng2-slim-loading-bar/ng2-slim-loading-bar', './home.component', './job.component', './post.component', './header.component', './footer.component', './profile.component', './club.component', './sign-up.component', './search.component', './new-application-form.component', './notification.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2772,7 +3082,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, home_component_1, job_component_1, post_component_1, header_component_1, footer_component_1, profile_component_1, club_component_1, sign_up_component_1, search_component_1, new_application_form_component_1, notification_component_1;
+    var core_1, router_deprecated_1, ng2_slim_loading_bar_1, home_component_1, job_component_1, post_component_1, header_component_1, footer_component_1, profile_component_1, club_component_1, sign_up_component_1, search_component_1, new_application_form_component_1, notification_component_1;
     var AppComponent;
     return {
         setters:[
@@ -2781,6 +3091,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
             },
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
+            },
+            function (ng2_slim_loading_bar_1_1) {
+                ng2_slim_loading_bar_1 = ng2_slim_loading_bar_1_1;
             },
             function (home_component_1_1) {
                 home_component_1 = home_component_1_1;
@@ -2817,10 +3130,17 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent(viewContainerRef) {
+                function AppComponent(viewContainerRef, slimLoadingBarService) {
+                    this.slimLoadingBarService = slimLoadingBarService;
                     // You need this small hack in order to catch application root view container ref
                     this.viewContainerRef = viewContainerRef;
                 }
+                AppComponent.prototype.startLoading = function () {
+                    // We can listen when loading will be completed
+                    this.slimLoadingBarService.start(function () {
+                        console.log('Loading complete');
+                    });
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         directives: [router_deprecated_1.RouterOutlet,
@@ -2829,7 +3149,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                             footer_component_1.FooterComponent,
                             search_component_1.SearchComponent,
                             new_application_form_component_1.NewApplicationFormComponent,
-                            notification_component_1.NotificationsComponent],
+                            notification_component_1.NotificationsComponent,
+                            ng2_slim_loading_bar_1.SlimLoadingBar],
                         selector: 'app',
                         templateUrl: '/templates/app.component.html'
                     }),
@@ -2850,7 +3171,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                         { path: '/sign-up/', name: 'SignUp', component: sign_up_component_1.SignUpComponent },
                         { path: '/profile/...', name: 'Profile', component: profile_component_1.ProfileComponent }
                     ]), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object])
+                    __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object, ng2_slim_loading_bar_1.SlimLoadingBarService])
                 ], AppComponent);
                 return AppComponent;
                 var _a;
@@ -2860,10 +3181,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
     }
 });
 
-System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular/core', '@angular/common', '@angular/router-deprecated', './components/app.component', './services/notification.service'], function(exports_1, context_1) {
+System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular/core', '@angular/common', '@angular/router-deprecated', 'ng2-slim-loading-bar/ng2-slim-loading-bar', './components/app.component', './services/notification.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var platform_browser_dynamic_1, http_1, core_1, common_1, router_deprecated_1, app_component_1, notification_service_1;
+    var platform_browser_dynamic_1, http_1, core_1, common_1, router_deprecated_1, ng2_slim_loading_bar_1, app_component_1, notification_service_1;
     return {
         setters:[
             function (platform_browser_dynamic_1_1) {
@@ -2881,6 +3202,9 @@ System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
             },
+            function (ng2_slim_loading_bar_1_1) {
+                ng2_slim_loading_bar_1 = ng2_slim_loading_bar_1_1;
+            },
             function (app_component_1_1) {
                 app_component_1 = app_component_1_1;
             },
@@ -2891,6 +3215,7 @@ System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular
             platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [http_1.HTTP_PROVIDERS,
                 notification_service_1.NotificationsService,
                 router_deprecated_1.ROUTER_PROVIDERS,
+                ng2_slim_loading_bar_1.SlimLoadingBarService,
                 core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy })
             ]).catch(console.error);
         }

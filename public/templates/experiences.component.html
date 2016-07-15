@@ -1,33 +1,47 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-12 create-btn-container">
-        <button class="btn btn-primary"
-                [routerLink]="['/Profile/CreateExperience']">
-            <span class="fa fa-plus"></span> &nbsp; Ajouter une experience
+    <div class="col-md-2" (click)="allChecked=!allChecked">
+        <input type="checkbox"/>
+    </div>
+    <div class="col-md-5">
+        10 expériences
+    </div>
+    <div class="col-md-5 actions-container">
+        <button [routerLink]="['/Profile/CreateExperience']">
+            <span class="fa fa-plus"></span> &nbsp; Ajouter
+        </button>
+        <button (click)="deleteExperiences()">
+            <span class="fa fa-trash-o"></span> &nbsp; Supprimer
         </button>
     </div>
 </div>
 
 <div class="col-md-12 list-container">
     <ul>
-        <a *ngFor="let experience of experiences"
-           [routerLink]="['/Profile/EditExperience', { experienceId: experience.id }]">
-            <li>
-                <div class="checkbox-container">
-                    <input type="checkbox"/>
+        <li *ngFor="let experience of experiences">
+            <div class="row">
+                <div class="col-md-2 checkbox-container">
+                    <input type="checkbox"
+                           class="action-checkbox"
+                           [checked]="allChecked"
+                           (change)="checkedExperiences(experience.id)"/>
                 </div>
-                <div class="logo">
-                    <img src="/uploads/business/logo/{{ experience.business.logoUrl }}"
-                         *ngIf="experience.business.logoUrl"/>
+                <div class="col-md-10">
+                    <div class="logo">
+                        <img src="/uploads/business/logo/{{ experience.business.logoUrl }}"
+                             *ngIf="experience.business.logoUrl"/>
+                    </div>
+                    <a [routerLink]="['/Profile/EditExperience', { experienceId: experience.id }]">
+                        <h3>{{ experience.jobNaming.title }}</h3>
+                        {{ experience.business.title }}
+                         <span class="date">
+                            {{ experience.start_date }} &nbsp;
+                            <span class="fa fa-arrow-right"></span> &nbsp;
+                            {{ experience.end_date }}
+                        </span>
+                        <br />
+                    </a>
                 </div>
-                <h3>{{ experience.jobNaming.title }}</h3>
-                {{ experience.business.title }}
-                 <span class="date">
-                    {{ experience.start_date }} &nbsp;
-                    <span class="fa fa-arrow-right"></span> &nbsp;
-                    {{ experience.end_date }}
-                </span>
-                <br />
-            </li>
-        </a>
+            </div>
+        </li>
     </ul>
 </div>

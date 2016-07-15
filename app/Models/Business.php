@@ -45,4 +45,11 @@ class Business extends Model
     public function place() {
         return $this->belongsTo('App\Models\Place');
     }
+
+    /**
+     * Get the business's photos
+     */
+    public function photos() {
+        return $this->hasMany('App\Models\BusinessPhoto');
+    }
 }

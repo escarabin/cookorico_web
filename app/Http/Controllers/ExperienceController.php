@@ -63,4 +63,12 @@ class ExperienceController extends Controller
 
         return $experience;
     }
+
+    public function deleteExperiences($listExperienceId) {
+        $listExperienceId = explode(',', $listExperienceId);
+
+        $experiences = Experience::whereIn('id', $listExperienceId)->delete();
+
+        return $experiences;
+    }
 }

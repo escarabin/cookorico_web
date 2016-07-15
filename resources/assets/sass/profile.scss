@@ -56,15 +56,15 @@ profile .list-container ul li {
   border-bottom: 1px solid #e4e4e4;
 }
 
-profile .list-container ul a li {
+profile .list-container ul li {
   background: whitesmoke;
 }
 
-profile .list-container ul a:nth-child(odd) li {
+profile .list-container ul li:nth-child(odd) {
   background: white;
 }
 
-profile .list-container ul a li:hover {
+profile .list-container ul li:hover {
   background-color: ghostwhite;
 }
 
@@ -104,20 +104,4 @@ profile .list-container .checkbox-container {
 
 profile .header-container {
   padding: 0;
-}
-
-
-profile .header-container .create-btn-container {
-  text-align: center;
-  padding: 0;
-  border-bottom: 1px solid #CCC;
-  height: 70px;
-}
-
-profile .header-container .create-btn-container button {
-  border: 0;
-  width: 100%;
-  height: 69px;
-  border-radius: 0;
-  font-size: 1.25em;
 }

@@ -78,6 +78,8 @@ Route::get('/experience/create/{jobNamingId}/{businessId}/{startDate}/{endDate}/
     ->name('createExperience');
 Route::get('/experience/update/{experienceId}/{jobNamingId}/{businessId}/{startDate}/{endDate}/{description?}', 'ExperienceController@updateExperience')
     ->name('updateExperience');
+Route::get('/experience/delete/{experiences}', 'ExperienceController@deleteExperiences')
+    ->name('deleteExperiences');
 
 // Education
 Route::get('/education/all', 'UserController@getEducation')

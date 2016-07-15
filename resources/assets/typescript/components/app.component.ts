@@ -49,7 +49,6 @@ import { NotificationsComponent } from './notification.component';
     { path: '/profile/...', name: 'Profile', component: ProfileComponent }
 ])
 
-
 export class AppComponent {
     viewContainerRef: any;
 

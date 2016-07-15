@@ -14,6 +14,7 @@ export class UserService {
     getApplicationsUrl = '/applications/all';
     getExperiencesUrl = '/experiences/all';
     getExperienceUrl = '/experience';
+    deleteExperiencesUrl = '/experience/delete'
     getEducationUrl = '/education/all';
     getAlertsUrl = '/alerts/all';
     getBusinessesUrl = '/user/businesses';
@@ -72,6 +73,17 @@ export class UserService {
         let __this = this;
 
         return this.http.get(__this.getExperienceUrl + '/' + experienceId);
+    }
+
+    /**
+     * Delete experiences based on a comma separated list of ids
+     * @param listExperienceId
+     * @returns {Observable<Response>}
+     */
+    deleteExperiences(listExperienceId) {
+        let __this = this;
+
+        return this.http.get(__this.deleteExperiencesUrl + '/' + listExperienceId);
     }
 
     /**
@@ -235,7 +247,7 @@ export class UserService {
      * @param alert
      * @returns {Observable<Response>}
      */
-    saveAlertChanges(alert) {
+    updateAlert(alert) {
         let __this = this;
 
         return this.http.get(
