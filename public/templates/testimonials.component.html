@@ -12,7 +12,7 @@
         <a>
             <li *ngFor="let testimonial of testimonials">
                 <div class="logo">
-                    <img src="/uploads/business/logo/{{ testimonial.business.logoFile }}"/>
+                    <img src="/uploads/business/logo/{{ testimonial.business.logoUrl }}"/>
                 </div>
                 <h3>{{ testimonial.jobNaming.title }}</h3>
                 {{ testimonial.business.title }}

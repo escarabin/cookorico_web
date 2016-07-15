@@ -31,7 +31,7 @@
     <a [routerLink]="['ShowClub', { clubId: club.id }]"
        *ngFor="let club of clubs">
         <li>
-            <img src="/uploads/club/logo/{{ club.logoFile }}"/><br />
+            <img src="/uploads/club/logo/{{ club.logoUrl }}"/><br />
             {{ club.title }}
         </li>
     </a>
