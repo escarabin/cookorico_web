@@ -42,6 +42,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getEducationUrl = '/education/all';
                     this.getAlertsUrl = '/alerts/all';
                     this.getBusinessesUrl = '/user/businesses';
+                    this.getJobPostsUrl = '/user/job-posts/all';
+                    this.deleteJobPostsUrl = '/job-posts/delete';
                     this.getBusinessUrl = '/business';
                     this.getTestimonialsUrl = '/testimonials/all';
                     this.getCreatedTestimonialsUrl = '/created_testimonials/all';
@@ -103,7 +105,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 };
                 /**
                  * Delete specific user's education studies
-                 * @param studyId
+                 * @param listStudyId
                  */
                 UserService.prototype.deleteEducation = function (listStudyId) {
                     var __this = this;
@@ -115,6 +117,21 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.getAlerts = function () {
                     var __this = this;
                     return this.http.get(__this.getAlertsUrl);
+                };
+                /**
+                 * Get user's job posts
+                 */
+                UserService.prototype.getJobPosts = function () {
+                    var __this = this;
+                    return this.http.get(__this.getJobPostsUrl);
+                };
+                /**
+                 * Delete specific user's job posts
+                 * @param listJobPostId
+                 */
+                UserService.prototype.deleteJobPosts = function (listJobPostId) {
+                    var __this = this;
+                    return this.http.get(__this.deleteJobPostsUrl + '/' + listJobPostId);
                 };
                 /**
                  * Delete specific user's alerts

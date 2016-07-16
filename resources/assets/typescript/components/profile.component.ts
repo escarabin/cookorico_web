@@ -21,6 +21,7 @@ import { CreateAlertComponent } from "./create-alert.component";
 import { CreateBusinessComponent } from "./create-business.component";
 import { BusinessesComponent } from "./businesses.component";
 import { RightSidebarComponent } from "./right-sidebar.component";
+import { MyJobPostsComponent } from './my-job-posts.component';
 
 @Component({
     providers: [UserService],
@@ -66,7 +67,12 @@ import { RightSidebarComponent } from "./right-sidebar.component";
     // Businesses
     { path: '/businesses/all', name: 'Businesses', component: BusinessesComponent },
     { path: '/business/create', name: 'CreateBusiness', component: CreateBusinessComponent },
-    { path: '/business/edit/:businessId', name: 'EditBusiness', component: CreateBusinessComponent }
+    { path: '/business/edit/:businessId', name: 'EditBusiness', component: CreateBusinessComponent },
+
+    // Job posts
+    { path: '/job-posts/all', name: 'JobPosts', component: MyJobPostsComponent },
+    { path: '/job-post/create', name: 'CreateJobPost', component: MyJobPostsComponent },
+    { path: '/job-post/edit/:jobPostId', name: 'EditJobPost', component: MyJobPostsComponent },
 ])
 
 export class ProfileComponent {

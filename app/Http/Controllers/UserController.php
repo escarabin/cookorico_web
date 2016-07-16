@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Job;
 use Auth;
 use Log;
 
@@ -203,5 +204,20 @@ class UserController extends Controller
         $alert->save();
 
         return $alert;
+    }
+
+    /**
+     * Get user's job posts
+     */
+    public function getJobPosts() {
+        $jobPosts = Auth::user()->jobPosts;
+
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        foreach ($jobPosts as $jobPost) {
+            $jobPost->jobNaming = $jobPost->jobNaming;
+            $jobPost->business = $jobPost->business;
+        }
+
+        return $jobPosts;
     }
 }

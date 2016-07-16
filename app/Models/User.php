@@ -117,4 +117,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Testimonial', 'recruiter_user_id');
     }
+
+    /**
+     * Get user's job posts
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function jobPosts() {
+        return $this->hasMany('App\Models\Job');
+    }
 }

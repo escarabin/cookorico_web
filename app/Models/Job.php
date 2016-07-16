@@ -36,7 +36,7 @@ class Job extends Model
     /**
      * Get the job's type
      */
-    public function naming()
+    public function jobNaming()
     {
         return $this->belongsTo('App\Models\JobNaming');
     }

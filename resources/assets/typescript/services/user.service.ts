@@ -20,6 +20,8 @@ export class UserService {
     getEducationUrl = '/education/all';
     getAlertsUrl = '/alerts/all';
     getBusinessesUrl = '/user/businesses';
+    getJobPostsUrl = '/user/job-posts/all';
+    deleteJobPostsUrl = '/job-posts/delete';
     getBusinessUrl = '/business';
     getTestimonialsUrl = '/testimonials/all';
     getCreatedTestimonialsUrl = '/created_testimonials/all';
@@ -99,7 +101,7 @@ export class UserService {
 
     /**
      * Delete specific user's education studies
-     * @param studyId
+     * @param listStudyId
      */
     deleteEducation(listStudyId) {
         let __this = this;
@@ -114,6 +116,25 @@ export class UserService {
         let __this = this;
 
         return this.http.get(__this.getAlertsUrl);
+    }
+
+    /**
+     * Get user's job posts
+     */
+    getJobPosts() {
+        let __this = this;
+
+        return this.http.get(__this.getJobPostsUrl);
+    }
+
+    /**
+     * Delete specific user's job posts
+     * @param listJobPostId
+     */
+    deleteJobPosts(listJobPostId) {
+        let __this = this;
+
+        return this.http.get(__this.deleteJobPostsUrl + '/' + listJobPostId);
     }
 
     /**

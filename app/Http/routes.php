@@ -28,6 +28,8 @@ Route::get('/jobs/search/{stateId?}/{jobNamingId?}/{contractTypeId?}/{searchText
     ->name('searchJobs');
 Route::get('/job/apply/{jobId}/{comment}', 'JobController@apply')
     ->name('applyJob');
+Route::get('/user/job-posts/all', 'UserController@getJobPosts')
+    ->name('getMyJobPosts');
 
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
