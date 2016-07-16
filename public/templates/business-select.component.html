@@ -1,6 +1,6 @@
 <form #businessSelect="ngForm">
     <label>Établissement</label>
-    <div class="col-md-11 business-select-container">
+    <div class="col-md-11 col-sm-11 col-xs-10 business-select-container">
         <select class="form-control"
                 [(ngModel)]="businessId"
                 ngControl="businessId"
@@ -19,7 +19,7 @@
                (setAddress)="parseAdress($event)"
                googleplace/>
     </div>
-    <div class="col-md-1 toggle-business-creation-container"
+    <div class="col-md-1 col-sm-1 col-xs-1 toggle-business-creation-container"
          (click)="isGooglePlaceInput=!isGooglePlaceInput">
         <span class="fa"
               [class.fa-list]="isGooglePlaceInput"
