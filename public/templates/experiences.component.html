@@ -1,46 +1,47 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-2" (click)="allChecked=!allChecked">
-        <input type="checkbox"/>
+    <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container">
+        <input type="checkbox"
+               (change)="allChecked=!allChecked"/>
     </div>
-    <div class="col-md-5">
-        10 expériences
+    <div class="col-md-7 col-sm-7 col-xs-7 items-count">
+        {{ experiences.length }} expérience<span *ngIf="experiences.length > 1">s</span>
     </div>
-    <div class="col-md-5 actions-container">
+    <div class="col-md-3 col-sm-3 col-xs-3 actions-container">
         <button [routerLink]="['/Profile/CreateExperience']">
-            <span class="fa fa-plus"></span> &nbsp; Ajouter
+            <span class="fa fa-plus"></span>
         </button>
         <button (click)="deleteExperiences()">
-            <span class="fa fa-trash-o"></span> &nbsp; Supprimer
+            <span class="fa fa-trash-o"></span>
         </button>
     </div>
 </div>
 
 <div class="col-md-12 list-container">
     <ul>
-        <li *ngFor="let experience of experiences">
-            <div class="row">
-                <div class="col-md-2 checkbox-container">
-                    <input type="checkbox"
-                           class="action-checkbox"
-                           [checked]="allChecked"
-                           (change)="checkedExperiences(experience.id)"/>
-                </div>
-                <div class="col-md-10">
-                    <div class="logo">
-                        <img src="/uploads/business/logo/{{ experience.business.logoUrl }}"
-                             *ngIf="experience.business.logoUrl"/>
-                    </div>
-                    <a [routerLink]="['/Profile/EditExperience', { experienceId: experience.id }]">
+        <li class="row" *ngFor="let experience of experiences">
+            <div class="col-md-2 checkbox-container">
+                <input type="checkbox"
+                       class="action-checkbox"
+                       [checked]="allChecked"
+                       (change)="checkedExperiences(experience.id)"/>
+            </div>
+            <div class="col-md-10 item"
+                 [class.logo]="experience.business.logoUrl">
+                <a [routerLink]="['/Profile/EditExperience', { experienceId: experience.id }]">
+                    <div class="item-desc">
                         <h3>{{ experience.jobNaming.title }}</h3>
                         {{ experience.business.title }}
-                         <span class="date">
+                        <span class="date">
                             {{ experience.start_date }} &nbsp;
                             <span class="fa fa-arrow-right"></span> &nbsp;
                             {{ experience.end_date }}
                         </span>
-                        <br />
-                    </a>
-                </div>
+                    </div>
+                    <div class="logo">
+                        <img src="/uploads/business/logo/{{ experience.business.logoUrl }}"
+                             *ngIf="experience.business.logoUrl"/>
+                    </div>
+                </a>
             </div>
         </li>
     </ul>
