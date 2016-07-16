@@ -90,6 +90,13 @@ class Job extends Model
         return $this->belongsToMany('App\Models\Language');
     }
 
+    /**
+     * Get the job's alert frequency
+     */
+    public function alertFrequency()
+    {
+        return $this->belongsTo('App\Models\AlertFrequency');
+    }
 
     /**
      * Parse job start date
