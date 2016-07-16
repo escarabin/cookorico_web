@@ -592,7 +592,11 @@ user-sidebar .user-sidebar-menu .menu-item {
   padding: 15px;
   font-size: 1.15em;
   border-top: 1px solid #DDD;
-  background: white; }
+  background: white;
+  cursor: pointer; }
+
+user-sidebar .user-sidebar-menu .menu-item:hover {
+  background: whitesmoke; }
 
 user-sidebar .user-sidebar-menu .menu-item a {
   color: #333; }
@@ -712,7 +716,7 @@ profile .list-container ul li:nth-child(odd) {
   background: white; }
 
 profile .list-container ul li:hover {
-  background-color: ghostwhite; }
+  background-color: whitesmoke; }
 
 profile .list-container ul a {
   color: #333; }
@@ -849,6 +853,22 @@ testimonials {
     background-color: #E13543; }
   .notification-container.info {
     background-color: #35B6E1; }
+
+.notification-container a {
+  position: absolute;
+  left: 30px; }
+
+.notification-container.success a {
+  color: black; }
+
+.notification-container.warning a {
+  color: black; }
+
+.notification-container.error a {
+  color: black; }
+
+.notification-container.info a {
+  color: black; }
 
 .notification-container.shown {
   top: 0; }

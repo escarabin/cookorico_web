@@ -73,7 +73,8 @@ export class AlertsComponent {
                 __this.items = res.json();
 
                 __this.notificationService.show(
-                    new Notification('success', 'Ces alertes ont bien été supprimées')
+                    new Notification('success',
+                                     'Ces alertes ont bien été supprimées')
                 );
 
                 this.checkedItemsList = [];

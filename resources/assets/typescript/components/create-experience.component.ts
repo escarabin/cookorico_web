@@ -56,7 +56,9 @@ export class CreateExperienceComponent {
                 __this.experience.end_date,
                 __this.experience.description).subscribe((res: Response) => {
                 __this.notificationService.show(
-                    new Notification('success', 'Votre expérience a bien été crée')
+                    new Notification('success', 'Votre expérience a bien été crée',
+                                                'Retour aux expériences',
+                                                'Profile/Experiences')
                 );
             });
         }
@@ -68,7 +70,10 @@ export class CreateExperienceComponent {
                 __this.experience.end_date,
                 __this.experience.description).subscribe((res: Response) => {
                 __this.notificationService.show(
-                    new Notification('success', 'Vos modifications ont bien été enregistrées')
+                    new Notification('success',
+                                     'Vos modifications ont bien été enregistrées',
+                                     'Retour aux expériences',
+                                     'Profile/Experiences')
                 );
             });
         }
@@ -76,6 +81,5 @@ export class CreateExperienceComponent {
 
     handleBusinessIdChange(businessId) {
         this.experience.business_id = businessId;
-        console.log('Business id changed', businessId);
     }
 }

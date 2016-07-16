@@ -41,6 +41,11 @@ user-sidebar .user-sidebar-menu .menu-item {
   font-size: 1.15em;
   border-top: 1px solid #DDD;
   background: white;
+  cursor: pointer;
+}
+
+user-sidebar .user-sidebar-menu .menu-item:hover {
+  background: whitesmoke;
 }
 
 user-sidebar .user-sidebar-menu .menu-item a {

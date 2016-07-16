@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router-deprecated';
 
 import { NotificationsService } from './../services/notification.service';
 import { Notification } from './../models/notification';
 
 @Component({
     selector: 'notifications',
+    directives: [RouterLink],
     templateUrl: '../templates/notification.component.html'
 })
 
@@ -17,7 +19,7 @@ export class NotificationsComponent {
         _notifications.noteAdded.subscribe(note => {
             this._notes.push(note);
 
-            setTimeout(() => { this.hide.bind(this)(note) }, 3000);
+           setTimeout(() => { this.hide.bind(this)(note) }, 5000);
         });
     }
 

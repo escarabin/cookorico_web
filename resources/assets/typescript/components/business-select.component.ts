@@ -46,7 +46,7 @@ export class BusinessSelectComponent {
         });
     }
 
-    businessIdChanged() {
-        this.businessIdChange.emit(this.businessId);
+    businessIdChanged(newBusinessId) {
+        this.businessIdChange.emit(newBusinessId);
     }
 }

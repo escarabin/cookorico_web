@@ -32,6 +32,27 @@
   }
 }
 
+.notification-container a {
+  position: absolute;
+  left: 30px;
+}
+
+.notification-container.success a {
+  color: darken($successColor, 60%);
+}
+
+.notification-container.warning a {
+  color: darken($warningColor, 60%);
+}
+
+.notification-container.error a {
+  color: darken($errorColor, 60%);
+}
+
+.notification-container.info a {
+  color: darken($infoColor, 60%);
+}
+
 .notification-container.shown {
   top: 0;
 }

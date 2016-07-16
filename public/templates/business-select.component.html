@@ -5,7 +5,7 @@
                 [(ngModel)]="businessId"
                 ngControl="businessId"
                 *ngIf="!isGooglePlaceInput"
-                (change)="businessIdChanged()">
+                (change)="businessIdChanged($event.target.value)">
             <option selected disabled>-- Établissement --</option>
             <option *ngFor="let business of businesses"
                     value="{{ business.id }}"

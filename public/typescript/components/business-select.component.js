@@ -51,8 +51,8 @@ System.register(['@angular/core', './../services/business.service', './../servic
                         });
                     });
                 };
-                BusinessSelectComponent.prototype.businessIdChanged = function () {
-                    this.businessIdChange.emit(this.businessId);
+                BusinessSelectComponent.prototype.businessIdChanged = function (newBusinessId) {
+                    this.businessIdChange.emit(newBusinessId);
                 };
                 __decorate([
                     core_1.Input, 
