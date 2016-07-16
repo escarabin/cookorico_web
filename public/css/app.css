@@ -557,11 +557,25 @@ post-preview .created_at {
   margin-top: 15px;
   margin-left: -10px; }
 
-user-sidebar .user_infos {
-  text-align: left;
-  padding-top: 15px; }
+user-sidebar {
+  display: block;
+  background-color: #1a1f38;
+  border-radius: 4px;
+  -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
+  box-shadow: 0px 0px 40px 0px #d8d8d8; }
 
-user-sidebar .user_infos .profile_picture {
+user-sidebar .user-infos {
+  text-align: left;
+  padding-top: 15px;
+  margin: 0; }
+
+user-sidebar .user-infos .user-title {
+  padding: 7px 0 0 25px;
+  font-family: "Avenir Heavy", sans-serif;
+  text-transform: uppercase;
+  color: white; }
+
+user-sidebar .user-infos .profile-picture {
   width: 50px;
   height: 50px;
   margin: auto;
@@ -571,22 +585,17 @@ user-sidebar .user_infos .profile_picture {
 
 user-sidebar .user-sidebar-menu {
   text-align: left;
-  padding-right: 50px;
-  margin-top: 30px;
+  margin-top: 20px;
   display: inline-block; }
 
 user-sidebar .user-sidebar-menu .menu-item {
-  padding: 10px;
-  font-size: 1.15em; }
+  padding: 15px;
+  font-size: 1.15em;
+  border-top: 1px solid #DDD;
+  background: white; }
 
 user-sidebar .user-sidebar-menu .menu-item a {
   color: #333; }
-
-user-sidebar .user-sidebar-menu .menu-item .fa {
-  font-size: 1.5em;
-  position: relative;
-  top: 3px;
-  margin-right: 10px; }
 
 applications {
   display: block; }

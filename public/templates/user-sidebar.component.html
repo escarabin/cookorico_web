@@ -1,50 +1,52 @@
 <!-- User is connected -->
-<div *ngIf="user" class="user_infos row">
+<div *ngIf="user" class="user-infos row">
     <div class="col-md-3">
-        <div class="profile_picture"
+        <div class="profile-picture"
              [ngStyle]="{'background-image': userProfilePicturePath}">
         </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9 user-title">
         {{ user.firstName }} {{ user.lastName }}<br />
-        <a [routerLink]="['Profile']">
-            <span class="fa fa-pencil"></span> &nbsp;Modifier mon profil
-        </a>
     </div>
     <div class="user-sidebar-menu"
          *ngIf="user.user_type_id==3">
         <div class="col-md-12 menu-item">
+            <a [routerLink]="['Profile']">
+                Mon profil
+            </a>
+        </div>
+        <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Experiences']">
-                <span class="fa fa-list"></span> &nbsp;Experiences
+                Experiences
             </a>
         </div>
         <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Education']">
-                <span class="fa fa-list"></span> &nbsp;Formations
+                Formations
             </a>
         </div>
         <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Applications']">
-                <span class="fa fa-list"></span> &nbsp;Candidatures
+                Candidatures
             </a>
         </div>
         <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Alerts']">
-                <span class="fa fa-clock-o"></span> &nbsp;Alertes
+                Alertes
             </a>
         </div>
         <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Testimonials']">
-                <span class="fa fa-info-circle"></span> &nbsp;Recommandations
+                Recommandations
             </a>
         </div>
         <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Businesses']">
-                <span class="fa fa-home"></span> &nbsp;Établissements
+                Établissements
             </a>
         </div>
         <div class="col-md-12 menu-item">
-            <span class="fa fa-pencil"></span> &nbsp;Annonces
+            Annonces
         </div>
     </div>
 </div>
