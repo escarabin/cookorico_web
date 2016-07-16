@@ -73,7 +73,6 @@ class Job extends Model
         return $this->belongsTo('App\Models\StudyLevel');
     }
 
-
     /**
      * Get the job's required experience level
      */

@@ -4,32 +4,44 @@ import { Response } from '@angular/http';
 // Services
 import { BusinessService } from './../services/business.service';
 import { PlaceService } from './../services/place.service';
+import { UserService } from './../services/user.service';
 
 // Directives
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
 
 @Component({
     selector: 'business-select',
-    providers: [BusinessService, PlaceService],
+    providers: [BusinessService, PlaceService, UserService],
     directives: [GoogleplaceDirective],
     templateUrl: '../templates/business-select.component.html',
-    inputs: ['businessId']
+    inputs: ['businessId', 'onlyUserBusinesses', 'isRequired']
 })
 
 export class BusinessSelectComponent {
     businesses = [];
     isGooglePlaceInput: boolean = false;
     @Input public businessId: number;
+    @Input public onlyUserBusinesses: boolean;
+    @Input public isRequired: boolean;
     @Output() businessIdChange: EventEmitter = new EventEmitter();
     public adress: Object;
 
     constructor(private businessService: BusinessService,
-                private placeService: PlaceService) {
+                private placeService: PlaceService,
+                private userService: UserService) {
         let __this = this;
 
-        businessService.getAll().subscribe((res: Response) => {
-            __this.businesses = res.json();
-        })
+        if (this.onlyUserBusinesses) {
+            console.log('only user businesses');
+            userService.getBusinesses().subscribe((res: Response) => {
+                __this.businesses = res.json();
+            })
+        }
+        else {
+            businessService.getAll().subscribe((res: Response) => {
+                __this.businesses = res.json();
+            })
+        }
     }
 
     parseAdress(place: Object) {

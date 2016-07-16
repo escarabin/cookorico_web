@@ -10,6 +10,7 @@ use App\Models\ContractType;
 use App\Models\Diploma;
 use App\Models\JobNaming;
 use App\Models\JobType;
+use App\Models\JobXpLevel;
 use App\Models\StudyLevel;
 
 class ReferenceController extends Controller
@@ -55,5 +56,11 @@ class ReferenceController extends Controller
         $businessTypes = BusinessType::all();
 
         return $businessTypes;
+    }
+
+    public function getAllJobXpLevels() {
+        $jobXpLevels = JobXpLevel::all();
+
+        return $jobXpLevels;
     }
 }

@@ -30,6 +30,8 @@ Route::get('/job/apply/{jobId}/{comment}', 'JobController@apply')
     ->name('applyJob');
 Route::get('/user/job-posts/all', 'UserController@getJobPosts')
     ->name('getMyJobPosts');
+Route::get('/job-post/create/{title}/{description}/{is_hosting_employee}/{is_urgent}/{is_asap}/{week_work_hours}/{business_id}/{job_type_id}/{job_naming_id}/{contract_type_id}/{study_level_id}/{job_xp_level_id}/{alert_frequency_id}/{diploma_id}/{start_date}/{end_date}', 'JobController@create')
+    ->name('createJobPost');
 
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
@@ -128,3 +130,7 @@ Route::get('/place/save/{googlePlaceId}/{adress}/{city}/{postalCode}/{lat}/{lon}
 // Files
 Route::get('/file/upload/{bucket}/{fileName}', 'FileController@upload')
     ->name('uploadFile');
+
+// JobXpLevels
+Route::get('/job_xp_levels/all', 'ReferenceController@getAllJobXpLevels')
+    ->name('getAllJobXpLevels');

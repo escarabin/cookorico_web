@@ -4,6 +4,7 @@
         <select class="form-control"
                 [(ngModel)]="businessId"
                 ngControl="businessId"
+                [required]="isRequired"
                 *ngIf="!isGooglePlaceInput"
                 (change)="businessIdChanged($event.target.value)">
             <option selected disabled>-- Établissement --</option>
