@@ -4,7 +4,7 @@
                [checked]="allItemsChecked"
                (change)="toggleAllItems()"/>
     </div>
-    <div class="col-md-7 col-sm-7 col-xs-7 items-count">
+    <div class="col-md-7 col-sm-7 col-xs-6 items-count">
         <span *ngIf="checkedItemsList.length > 0">
             {{ checkedItemsList.length }}
         </span>
@@ -13,7 +13,7 @@
         </span> expérience<span *ngIf="items.length > 1">s</span>
         <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
     </div>
-    <div class="col-md-3 col-sm-3 col-xs-3 actions-container">
+    <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
         <button [routerLink]="['/Profile/CreateExperience']">
             <span class="fa fa-plus"></span>
         </button>
@@ -32,7 +32,7 @@
                        [checked]="checkedItemsList.indexOf(item.id) != -1"
                        (change)="saveCheckedItem(item.id)"/>
             </div>
-            <div class="col-md-10 col-sm-10 col-xs-10 item"
+            <div class="col-md-10 col-sm-10 col-xs-9 item"
                  [class.logo]="item.business.logoUrl">
                 <a [routerLink]="['/Profile/EditExperience', { experienceId: item.id }]">
                     <div class="item-desc">

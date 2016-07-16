@@ -697,6 +697,8 @@ profile .list-container ul a {
 
 profile .list-container ul li h3 {
   font-family: "Avenir Medium", sans-serif;
+  max-height: 20px;
+  overflow: hidden;
   color: #1a1f38; }
 
 profile .list-container ul li .date {
@@ -714,7 +716,7 @@ profile .list-container .item .item-desc {
   padding-left: 10px; }
 
 profile .list-container .item.logo .item-desc {
-  width: 70%;
+  width: 65%;
   margin-right: 15px; }
 
 profile .list-container .item .logo {
@@ -730,7 +732,7 @@ profile .list-container .logo img {
 
 profile .list-container .checkbox-container {
   float: left;
-  padding: 40px;
+  padding: 40px 0;
   padding-bottom: 50px;
   text-align: center;
   border-right: 1px solid #e6e6e6;
