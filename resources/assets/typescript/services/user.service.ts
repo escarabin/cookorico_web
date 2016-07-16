@@ -16,6 +16,7 @@ export class UserService {
     getExperienceUrl = '/experience';
     deleteExperiencesUrl = '/experience/delete';
     deleteEducationUrl = '/education/delete';
+    deleteAlertUrl = '/alert/delete';
     getEducationUrl = '/education/all';
     getAlertsUrl = '/alerts/all';
     getBusinessesUrl = '/user/businesses';
@@ -97,12 +98,12 @@ export class UserService {
     }
 
     /**
-     * Delete specific user's education study
+     * Delete specific user's education studies
      * @param studyId
      */
     deleteEducation(listStudyId) {
         let __this = this;
-console.log('deleting education');
+
         return this.http.get(__this.deleteEducationUrl + '/' + listStudyId);
     }
 
@@ -113,6 +114,16 @@ console.log('deleting education');
         let __this = this;
 
         return this.http.get(__this.getAlertsUrl);
+    }
+
+    /**
+     * Delete specific user's alerts
+     * @param studyId
+     */
+    deleteAlerts(listAlertId) {
+        let __this = this;
+
+        return this.http.get(__this.deleteAlertUrl + '/' + listAlertId);
     }
 
     /**

@@ -67,14 +67,13 @@ export class ExperiencesComponent {
 
         let parsedListItemId = this.checkedItemsList.join(',');
 
-
         this.userService.deleteExperiences(parsedListItemId).subscribe((res: Response) => {
-            this.notificationService.show(
-                new Notification('success', 'Ces expériences ont bien été supprimées')
-            );
-
             __this.userService.getExperiences().subscribe((res: Response) => {
                 __this.items = res.json();
+
+                __this.notificationService.show(
+                    new Notification('success', 'Ces expériences ont bien été supprimées')
+                );
 
                 this.checkedItemsList = [];
                 this.allItemsChecked = false;

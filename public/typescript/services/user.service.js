@@ -38,6 +38,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getExperienceUrl = '/experience';
                     this.deleteExperiencesUrl = '/experience/delete';
                     this.deleteEducationUrl = '/education/delete';
+                    this.deleteAlertUrl = '/alert/delete';
                     this.getEducationUrl = '/education/all';
                     this.getAlertsUrl = '/alerts/all';
                     this.getBusinessesUrl = '/user/businesses';
@@ -101,12 +102,11 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     return this.http.get(__this.getEducationUrl);
                 };
                 /**
-                 * Delete specific user's education study
+                 * Delete specific user's education studies
                  * @param studyId
                  */
                 UserService.prototype.deleteEducation = function (listStudyId) {
                     var __this = this;
-                    console.log('deleting education');
                     return this.http.get(__this.deleteEducationUrl + '/' + listStudyId);
                 };
                 /**
@@ -115,6 +115,14 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.getAlerts = function () {
                     var __this = this;
                     return this.http.get(__this.getAlertsUrl);
+                };
+                /**
+                 * Delete specific user's alerts
+                 * @param studyId
+                 */
+                UserService.prototype.deleteAlerts = function (listAlertId) {
+                    var __this = this;
+                    return this.http.get(__this.deleteAlertUrl + '/' + listAlertId);
                 };
                 /**
                  * Get user specific job alert

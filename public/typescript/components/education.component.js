@@ -74,9 +74,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                     var __this = this;
                     var parsedListItemId = this.checkedItemsList.join(',');
                     this.userService.deleteEducation(parsedListItemId).subscribe(function (res) {
-                        _this.notificationService.show(new notification_1.Notification('success', 'Ces formations ont bien été supprimées'));
                         __this.userService.getEducation().subscribe(function (res) {
                             __this.items = res.json();
+                            __this.notificationService.show(new notification_1.Notification('success', 'Ces formations ont bien été supprimées'));
                             _this.checkedItemsList = [];
                             _this.allItemsChecked = false;
                         });

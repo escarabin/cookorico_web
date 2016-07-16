@@ -1,30 +1,49 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-12 create-btn-container">
-        <button class="btn btn-primary"
-                [routerLink]="['/Profile/CreateAlert']">
-            <span class="fa fa-plus"></span> &nbsp; Créer une alerte
+    <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container">
+        <input type="checkbox"
+               [checked]="allItemsChecked"
+               (change)="toggleAllItems()"/>
+    </div>
+    <div class="col-md-7 col-sm-7 col-xs-6 items-count">
+        <span *ngIf="checkedItemsList.length > 0">
+            {{ checkedItemsList.length }}
+        </span>
+        <span *ngIf="checkedItemsList.length == 0">
+            {{ items.length }}
+        </span> alerte<span *ngIf="items.length > 1">s</span>
+        <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
+        <button [routerLink]="['/Profile/CreateStudy']">
+            <span class="fa fa-plus"></span>
+        </button>
+        <button (click)="deleteSelectedItems()">
+            <span class="fa fa-trash-o"></span>
         </button>
     </div>
 </div>
 
 <div class="col-md-12 list-container">
     <ul>
-        <a *ngFor="let alert of alerts"
-           [routerLink]="['/Profile/EditAlert', { alertId: alert.id }]">
-            <li>
-                <span *ngIf="alert.jobNaming.title">
-                    <h3>{{ alert.jobNaming.title }}</h3>
-                </span>
-                <span *ngIf="alert.title">
-                    {{ alert.title }} -
-                </span>
-                {{ alert.place }}
-
-                <span class="date">
-                    {{ alert.alertFrequency.title }}
-                    <span class="fa fa-clock-o"></span>
-                </span>
-            </li>
-        </a>
+        <li class="row" *ngFor="let item of items">
+            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
+                <input type="checkbox"
+                       class="action-checkbox"
+                       [checked]="checkedItemsList.indexOf(item.id) != -1"
+                       (change)="saveCheckedItem(item.id)"/>
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-9 item">
+                <a [routerLink]="['/Profile/EditAlert', { alertId: item.id }]">
+                    <div class="item-desc">
+                        <h3>{{ item.jobNaming.title }}</h3>
+                        {{ item.title }} -- {{ item.place }}
+                        <span class="date">
+                            {{ item.alertFrequency.title }} &nbsp;
+                            <span class="fa fa-clock-o"></span>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </li>
     </ul>
 </div>

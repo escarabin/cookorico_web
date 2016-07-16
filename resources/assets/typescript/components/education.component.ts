@@ -68,12 +68,12 @@ export class EducationComponent {
         let parsedListItemId = this.checkedItemsList.join(',');
 
         this.userService.deleteEducation(parsedListItemId).subscribe((res: Response) => {
-            this.notificationService.show(
-                new Notification('success', 'Ces formations ont bien été supprimées')
-            );
-
             __this.userService.getEducation().subscribe((res: Response) => {
                 __this.items = res.json();
+
+                __this.notificationService.show(
+                    new Notification('success', 'Ces formations ont bien été supprimées')
+                );
 
                 this.checkedItemsList = [];
                 this.allItemsChecked = false;
