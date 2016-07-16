@@ -1,0 +1,25 @@
+<div class="col-md-12">
+    <form #jobPostForm="ngForm" action="#">
+        <div class="col-md-12">
+            <business-select [businessId]="jobPost.business_id"
+                             (businessIdChange)="handleBusinessIdChange($event)">
+
+            </business-select>
+        </div>
+        <div class="col-md-6">
+            <a [routerLink]="['/Profile/JobPosts']">
+                <button class="btn btn-default back-btn">
+                    <span class="fa fa-arrow-left"></span> &nbsp;
+                    Retour aux annonces
+                </button>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary submit-btn"
+                    [disabled]="!jobPostForm.valid"
+                    (click)="submitJobPost()">
+                Sauvegarder
+            </button>
+        </div>
+    </form>
+</div>
