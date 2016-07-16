@@ -20,12 +20,14 @@ import { CreateStudyComponent } from "./create-study.component";
 import { CreateAlertComponent } from "./create-alert.component";
 import { CreateBusinessComponent } from "./create-business.component";
 import { BusinessesComponent } from "./businesses.component";
+import { RightSidebarComponent } from "./right-sidebar.component";
 
 @Component({
     providers: [UserService],
     directives: [RouterLink,
                 RouterOutlet,
-                UserSidebarComponent],
+                UserSidebarComponent,
+                RightSidebarComponent],
     selector: 'profile',
     templateUrl: '../templates/profile.component.html',
 })

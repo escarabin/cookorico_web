@@ -1,51 +1,50 @@
 <!-- User is connected -->
 <div *ngIf="user" class="user_infos row">
-    <div class="col-md-12">
+    <div class="col-md-3">
         <div class="profile_picture"
              [ngStyle]="{'background-image': userProfilePicturePath}">
         </div>
-        <br />
-        {{ user.firstName }} {{ user.lastName }}<br /><br />
+    </div>
+    <div class="col-md-9">
+        {{ user.firstName }} {{ user.lastName }}<br />
         <a [routerLink]="['Profile']">
-            <button class="btn btn-primary">
-                Compléter mon profil
-            </button>
+            <span class="fa fa-pencil"></span> &nbsp;Modifier mon profil
         </a>
     </div>
     <div class="user-sidebar-menu"
          *ngIf="user.user_type_id==3">
         <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Experiences']">
-                Mes experiences
+                <span class="fa fa-list"></span> &nbsp;Experiences
             </a>
         </div>
         <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Education']">
-                Mes formations
+                <span class="fa fa-list"></span> &nbsp;Formations
             </a>
         </div>
         <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Applications']">
-                Mes candidatures
+                <span class="fa fa-list"></span> &nbsp;Candidatures
             </a>
         </div>
         <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Alerts']">
-                Mes alertes
+                <span class="fa fa-clock-o"></span> &nbsp;Alertes
             </a>
         </div>
         <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Testimonials']">
-                Mes recommandations
+                <span class="fa fa-info-circle"></span> &nbsp;Recommandations
             </a>
         </div>
         <div class="col-md-12 menu-item">
             <a [routerLink]="['/Profile/Businesses']">
-                Mes établissements
+                <span class="fa fa-home"></span> &nbsp;Établissements
             </a>
         </div>
         <div class="col-md-12 menu-item">
-            Mes annonces
+            <span class="fa fa-pencil"></span> &nbsp;Annonces
         </div>
     </div>
 </div>

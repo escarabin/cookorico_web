@@ -1,5 +1,6 @@
 user-sidebar .user_infos {
-  text-align: center;
+  text-align: left;
+  padding-top: 15px;
 }
 
 user-sidebar .user_infos .profile_picture {
@@ -12,7 +13,7 @@ user-sidebar .user_infos .profile_picture {
 }
 
 user-sidebar .user-sidebar-menu {
-  text-align: right;
+  text-align: left;
   padding-right: 50px;
   margin-top: 30px;
   display: inline-block;
@@ -25,4 +26,11 @@ user-sidebar .user-sidebar-menu .menu-item {
 
 user-sidebar .user-sidebar-menu .menu-item a {
   color: $mainDarkTextColor;
+}
+
+user-sidebar .user-sidebar-menu .menu-item .fa {
+  font-size: 1.5em;
+  position: relative;
+  top: 3px;
+  margin-right: 10px;
 }

@@ -18,7 +18,7 @@ elixir(function(mix) {
     mix.copy('systemjs.config.js', 'public/systemjs.config.js');
     mix.copy('ng2-slim-loading-bar', 'public/ng2-slim-loading-bar');
 
-     mix.typescript('app.js','public/','/**/*.ts',{
+    mix.typescript('app.js','public/','/**/*.ts',{
         "target": "ES5",
         "module": "system",
         "moduleResolution": "node",

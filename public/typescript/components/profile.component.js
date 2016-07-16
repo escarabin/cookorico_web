@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component', "./applications.component", "./experiences.component", "./education.component", "./alerts.component", "./testimonials.component", "./create-experience.component", "./create-study.component", "./create-alert.component", "./create-business.component", "./businesses.component"], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component', "./applications.component", "./experiences.component", "./education.component", "./alerts.component", "./testimonials.component", "./create-experience.component", "./create-study.component", "./create-alert.component", "./create-business.component", "./businesses.component", "./right-sidebar.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1, create_study_component_1, create_alert_component_1, create_business_component_1, businesses_component_1;
+    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1, create_study_component_1, create_alert_component_1, create_business_component_1, businesses_component_1, right_sidebar_component_1;
     var ProfileComponent;
     return {
         setters:[
@@ -55,6 +55,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             },
             function (businesses_component_1_1) {
                 businesses_component_1 = businesses_component_1_1;
+            },
+            function (right_sidebar_component_1_1) {
+                right_sidebar_component_1 = right_sidebar_component_1_1;
             }],
         execute: function() {
             ProfileComponent = (function () {
@@ -67,7 +70,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         providers: [user_service_1.UserService],
                         directives: [router_deprecated_1.RouterLink,
                             router_deprecated_1.RouterOutlet,
-                            user_sidebar_component_1.UserSidebarComponent],
+                            user_sidebar_component_1.UserSidebarComponent,
+                            right_sidebar_component_1.RightSidebarComponent],
                         selector: 'profile',
                         templateUrl: '../templates/profile.component.html',
                     }),
