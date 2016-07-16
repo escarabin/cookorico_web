@@ -30,6 +30,10 @@
   &.info {
     background-color: $infoColor;
   }
+
+  &.confirm {
+    background-color: $infoColor;
+  }
 }
 
 .notification-container.shown {

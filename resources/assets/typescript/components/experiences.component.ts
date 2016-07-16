@@ -4,20 +4,25 @@ import { RouterLink } from '@angular/router-deprecated';
 
 // Services
 import { UserService } from './../services/user.service';
+import { NotificationsService } from './../services/notification.service';
+
+// Models
+import { Notification } from './../models/notification';
 
 @Component({
     selector: 'experiences',
-    providers: [UserService],
+    providers: [UserService, NotificationsService],
     directives: [RouterLink],
     templateUrl: '../templates/experiences.component.html'
 })
 
 export class ExperiencesComponent {
-    experiences: any;
+    experiences: any = [];
     allChecked: boolean;
     checkedExperiencesList: any = [];
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService,
+                private notificationsService: NotificationsService) {
         let __this = this;
 
         this.userService.getExperiences().subscribe((res: Response) => {
@@ -40,10 +45,14 @@ export class ExperiencesComponent {
 
         let parsedListExpId = this.checkedExperiencesList.join(',');
 
-        this.userService.deleteExperiences(parsedListExpId).subscribe((res: Response) => {
+        let confirmNotification = new Notification('confirm', 'Vos modifications ont bien été enregistrées');
+
+        this.notificationsService.show(confirmNotification);
+
+       /* this.userService.deleteExperiences(parsedListExpId).subscribe((res: Response) => {
             __this.userService.getExperiences().subscribe((res: Response) => {
                 __this.experiences = res.json();
             });
-        });
+        });*/
     }
 }

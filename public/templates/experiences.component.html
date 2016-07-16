@@ -3,7 +3,7 @@
         <input type="checkbox"/>
     </div>
     <div class="col-md-5">
-        10 expériences
+        {{ experiences.length }} expérience<span *ngIf="experiences.length>1">s</span>
     </div>
     <div class="col-md-5 actions-container">
         <button [routerLink]="['/Profile/CreateExperience']">
