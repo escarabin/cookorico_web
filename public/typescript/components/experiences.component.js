@@ -54,13 +54,13 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         this.checkedItemsList = [];
                     }
                 };
-                ExperiencesComponent.prototype.saveCheckedItem = function (experienceId) {
-                    var indexOfExpId = this.checkedItemsList.indexOf(experienceId);
-                    if (indexOfExpId == -1) {
-                        this.checkedItemsList.push(experienceId);
+                ExperiencesComponent.prototype.saveCheckedItem = function (itemId) {
+                    var indexOfItemId = this.checkedItemsList.indexOf(itemId);
+                    if (indexOfItemId == -1) {
+                        this.checkedItemsList.push(itemId);
                     }
                     else {
-                        this.checkedItemsList.splice(indexOfExpId, 1);
+                        this.checkedItemsList.splice(indexOfItemId, 1);
                     }
                     if (this.checkedItemsList.length != this.items.length) {
                         this.allItemsChecked = false;
@@ -72,11 +72,13 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                 ExperiencesComponent.prototype.deleteSelectedItems = function () {
                     var _this = this;
                     var __this = this;
-                    var parsedListExpId = this.checkedItemsList.join(',');
-                    this.userService.deleteExperiences(parsedListExpId).subscribe(function (res) {
+                    var parsedListItemId = this.checkedItemsList.join(',');
+                    this.userService.deleteExperiences(parsedListItemId).subscribe(function (res) {
                         _this.notificationService.show(new notification_1.Notification('success', 'Ces expériences ont bien été supprimées'));
                         __this.userService.getExperiences().subscribe(function (res) {
                             __this.items = res.json();
+                            _this.checkedItemsList = [];
+                            _this.allItemsChecked = false;
                         });
                     });
                 };

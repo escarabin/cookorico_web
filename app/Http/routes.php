@@ -84,7 +84,9 @@ Route::get('/experience/delete/{experiences}', 'ExperienceController@deleteExper
 // Education
 Route::get('/education/all', 'UserController@getEducation')
     ->name('getEducation');
-Route::get('/study/create/{diplomaId}/{businessId}/{startDate}/{endDate}/{adress}/{description}', 'UserController@createStudy')
+Route::get('/education/delete/{listStudyId}', 'EducationController@deleteEducation')
+    ->name('deleteEducation');
+Route::get('/study/create/{diplomaId}/{businessId}/{startDate}/{endDate}/{adress}/{description}', 'EducationController@createStudy')
     ->name('createStudy');
 
 // Alerts

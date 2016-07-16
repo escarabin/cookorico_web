@@ -115,7 +115,6 @@ profile .list-container .logo img {
 profile .list-container .checkbox-container {
   float: left;
   padding: 40px 0;
-  padding-bottom: 50px;
   text-align: center;
   border-right: 1px solid #e6e6e6;
   background: #f4f5fd;
@@ -157,4 +156,10 @@ profile .header-container .actions-container button {
 
 profile .header-container .actions-container button:hover {
   background: #eeeeee;
+}
+
+@media(max-width: 700px) {
+  profile .list-container ul li .date {
+    display: none;
+  }
 }

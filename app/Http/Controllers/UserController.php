@@ -183,33 +183,6 @@ class UserController extends Controller
     }
 
     /**
-     * Create new study
-     * @param $diplomaId
-     * @param $businessId
-     * @param $startDate
-     * @param $endDate
-     * @param $place
-     * @param $description
-     */
-    public function createStudy($diplomaId, $businessId, $startDate, $endDate, $adress, $description) {
-        $user_id = Auth::user()->id;
-
-        $study = new Study;
-
-        $study->user_id = $user_id;
-        $study->diploma_id = $diplomaId;
-        $study->business_id = $businessId;
-        $study->start_date = $startDate;
-        $study->end_date = $endDate;
-        $study->adress = $adress;
-        $study->description = $description;
-
-        $study->save();
-
-        return $study;
-    }
-
-    /**
      * Create new job alert
      * @param $diplomaId
      * @param $businessId

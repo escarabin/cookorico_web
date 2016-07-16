@@ -45,13 +45,13 @@ export class ExperiencesComponent {
         }
     }
 
-    saveCheckedItem(experienceId) {
-        let indexOfExpId = this.checkedItemsList.indexOf(experienceId);
-        if (indexOfExpId == -1) {
-            this.checkedItemsList.push(experienceId);
+    saveCheckedItem(itemId) {
+        let indexOfItemId = this.checkedItemsList.indexOf(itemId);
+        if (indexOfItemId == -1) {
+            this.checkedItemsList.push(itemId);
         }
         else {
-            this.checkedItemsList.splice(indexOfExpId, 1);
+            this.checkedItemsList.splice(indexOfItemId, 1);
         }
 
         if (this.checkedItemsList.length != this.items.length) {
@@ -65,16 +65,19 @@ export class ExperiencesComponent {
     deleteSelectedItems() {
         let __this = this;
 
-        let parsedListExpId = this.checkedItemsList.join(',');
+        let parsedListItemId = this.checkedItemsList.join(',');
 
 
-        this.userService.deleteExperiences(parsedListExpId).subscribe((res: Response) => {
+        this.userService.deleteExperiences(parsedListItemId).subscribe((res: Response) => {
             this.notificationService.show(
                 new Notification('success', 'Ces expériences ont bien été supprimées')
             );
 
             __this.userService.getExperiences().subscribe((res: Response) => {
                 __this.items = res.json();
+
+                this.checkedItemsList = [];
+                this.allItemsChecked = false;
             });
         });
     }

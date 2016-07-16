@@ -37,6 +37,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getExperiencesUrl = '/experiences/all';
                     this.getExperienceUrl = '/experience';
                     this.deleteExperiencesUrl = '/experience/delete';
+                    this.deleteEducationUrl = '/education/delete';
                     this.getEducationUrl = '/education/all';
                     this.getAlertsUrl = '/alerts/all';
                     this.getBusinessesUrl = '/user/businesses';
@@ -98,6 +99,15 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.getEducation = function () {
                     var __this = this;
                     return this.http.get(__this.getEducationUrl);
+                };
+                /**
+                 * Delete specific user's education study
+                 * @param studyId
+                 */
+                UserService.prototype.deleteEducation = function (listStudyId) {
+                    var __this = this;
+                    console.log('deleting education');
+                    return this.http.get(__this.deleteEducationUrl + '/' + listStudyId);
                 };
                 /**
                  * Get user's new job alerts
