@@ -34,30 +34,49 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                 function ExperiencesComponent(userService, notificationService) {
                     this.userService = userService;
                     this.notificationService = notificationService;
-                    this.experiences = [];
-                    this.checkedExperiencesList = [];
+                    this.items = [];
+                    this.checkedItemsList = [];
                     var __this = this;
                     this.userService.getExperiences().subscribe(function (res) {
-                        __this.experiences = res.json();
+                        __this.items = res.json();
                     });
                 }
-                ExperiencesComponent.prototype.checkedExperiences = function (experienceId) {
-                    var indexOfExpId = this.checkedExperiencesList.indexOf(experienceId);
-                    if (indexOfExpId == -1) {
-                        this.checkedExperiencesList.push(experienceId);
+                ExperiencesComponent.prototype.toggleAllItems = function () {
+                    this.allItemsChecked = !this.allItemsChecked;
+                    if (this.allItemsChecked) {
+                        var checkedItemsListId = [];
+                        for (var i = 0; i < this.items.length; i++) {
+                            checkedItemsListId.push(this.items[i].id);
+                        }
+                        this.checkedItemsList = checkedItemsListId;
                     }
                     else {
-                        delete this.checkedExperiencesList[indexOfExpId];
+                        this.checkedItemsList = [];
                     }
                 };
-                ExperiencesComponent.prototype.deleteExperiences = function () {
+                ExperiencesComponent.prototype.saveCheckedItem = function (experienceId) {
+                    var indexOfExpId = this.checkedItemsList.indexOf(experienceId);
+                    if (indexOfExpId == -1) {
+                        this.checkedItemsList.push(experienceId);
+                    }
+                    else {
+                        this.checkedItemsList.splice(indexOfExpId, 1);
+                    }
+                    if (this.checkedItemsList.length != this.items.length) {
+                        this.allItemsChecked = false;
+                    }
+                    else {
+                        this.allItemsChecked = true;
+                    }
+                };
+                ExperiencesComponent.prototype.deleteSelectedItems = function () {
                     var _this = this;
                     var __this = this;
-                    var parsedListExpId = this.checkedExperiencesList.join(',');
+                    var parsedListExpId = this.checkedItemsList.join(',');
                     this.userService.deleteExperiences(parsedListExpId).subscribe(function (res) {
                         _this.notificationService.show(new notification_1.Notification('success', 'Ces expériences ont bien été supprimées'));
                         __this.userService.getExperiences().subscribe(function (res) {
-                            __this.experiences = res.json();
+                            __this.items = res.json();
                         });
                     });
                 };
