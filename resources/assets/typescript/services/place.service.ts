@@ -24,10 +24,22 @@ export class PlaceService {
             postalCode = place['address_components'][5]['long_name'];
         }
 
+        // Parse city
+        let city = "";
+        if (place['address_components'][2]) {
+            city = place['address_components'][2]['long_name'];
+        }
+
         // Parse website
         let website = "";
         if (place['website']) {
             website = place['website'].replace(/\//g, '');
+        }
+
+        // Parse phone
+        let phone = "";
+        if (place['phone']) {
+            phone = place['phone'];
         }
 
         for (let i = 0; i < types.length; i++) {
@@ -37,14 +49,14 @@ export class PlaceService {
         let completeUrl = this.savePlaceUrl +
                         '/' + place['place_id'] +
                         '/' + place['formatted_address'] +
-                        '/' + place['address_components'][2]['long_name'] +
-                        '/' + postalCode +
                         '/' + location.lat() +
                         '/' + location.lng() +
                         '/' + typesString +
                         '/' + place['name'] +
-                        '/' + place['phone'] +
-                        '/' + website;
+                        '/' + phone +
+                        '/' + website +
+                        '/' + city +
+                        '/' + postalCode;
 
         return this.http.request(completeUrl);
     }

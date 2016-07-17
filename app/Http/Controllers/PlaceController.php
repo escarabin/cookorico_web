@@ -28,14 +28,14 @@ class PlaceController extends Controller
      */
    public function save($googlePlaceId,
                         $adress,
-                        $city,
-                        $postalCode,
                         $lat,
                         $lon,
                         $types,
                         $title,
-                        $phone,
-                        $website) {
+                        $phone = "",
+                        $website = "",
+                        $city = "",
+                        $postalCode = "") {
        // Check if place already exists in db
        $place = Place::where('googlePlaceId', $googlePlaceId)->first();
        $business = new Business();

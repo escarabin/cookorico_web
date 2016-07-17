@@ -38,10 +38,20 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     else if (place['address_components'][5]) {
                         postalCode = place['address_components'][5]['long_name'];
                     }
+                    // Parse city
+                    var city = "";
+                    if (place['address_components'][2]) {
+                        city = place['address_components'][2]['long_name'];
+                    }
                     // Parse website
                     var website = "";
                     if (place['website']) {
                         website = place['website'].replace(/\//g, '');
+                    }
+                    // Parse phone
+                    var phone = "";
+                    if (place['phone']) {
+                        phone = place['phone'];
                     }
                     for (var i = 0; i < types.length; i++) {
                         typesString += types[i] + ',';
@@ -49,14 +59,14 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     var completeUrl = this.savePlaceUrl +
                         '/' + place['place_id'] +
                         '/' + place['formatted_address'] +
-                        '/' + place['address_components'][2]['long_name'] +
-                        '/' + postalCode +
                         '/' + location.lat() +
                         '/' + location.lng() +
                         '/' + typesString +
                         '/' + place['name'] +
-                        '/' + place['phone'] +
-                        '/' + website;
+                        '/' + phone +
+                        '/' + website +
+                        '/' + city +
+                        '/' + postalCode;
                     return this.http.request(completeUrl);
                 };
                 PlaceService = __decorate([
