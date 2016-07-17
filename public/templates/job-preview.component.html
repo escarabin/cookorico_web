@@ -1,5 +1,6 @@
 <a [routerLink]="['ShowJob', { jobId: job.id }]">
-    <div class="logo">
+    <div class="logo"
+          *ngIf="job.business.logoUrl">
         <img src="/uploads/business/logo/{{ job.business.logoUrl }}"/>
     </div>
 
