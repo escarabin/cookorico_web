@@ -9,20 +9,20 @@
 
 <div class="col-md-12 list-container">
     <ul>
-        <a *ngFor="let application of applications"
-           [routerLink]="['/ShowJob', { jobId: application.job.id }]">
-            <li>
-                <div class="logo">
-                    <img src="/uploads/business/logo/{{ application.job.business.logoUrl }}"/>
-                </div>
-                <h3>{{ application.job.title }}</h3>
-                {{ application.job.business.title }}
-                <span class="date">
-                    <span class="fa fa-calendar-o"></span> &nbsp;
-                    {{ application.created_at }}
-                </span>
-                <br />
-            </li>
-        </a>
+        <li class="row" *ngFor="let application of applications">
+             <div class="col-md-12 col-sm-12 col-xs-12 item">
+                <a [routerLink]="['/ShowJob', { jobId: application.job.id }]">
+                    <div class="logo">
+                        <img src="/uploads/business/logo/{{ application.job.business.logoUrl }}"/>
+                    </div>
+                    <h3>{{ application.job.title }}</h3>
+                    {{ application.job.business.title }}
+                    <span class="date">
+                        <span class="fa fa-calendar-o"></span> &nbsp;
+                        {{ application.created_at }}
+                    </span>
+                </a>
+             </div>
+        </li>
     </ul>
 </div>

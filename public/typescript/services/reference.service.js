@@ -30,6 +30,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.allJobNamingsListingUrl = '/job_namings/all';
                     this.allStudyLevelsListingUrl = '/study_levels/all';
                     this.allDiplomasListingUrl = '/diplomas/all';
+                    this.allJobNamingGroupsUrl = '/job_naming_groups/all';
                     this.getAlertFrequenciesListingUrl = '/alert_frequencies/all';
                     this.getAllBusinessTypesListingUrl = '/business_types/all';
                     this.getAllJobXpLevelsUrl = '/job_xp_levels/all';
@@ -65,6 +66,14 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 ReferenceService.prototype.getAllJobNamings = function () {
                     var __this = this;
                     return this.http.request(__this.allJobNamingsListingUrl);
+                };
+                /**
+                 * Listing all job naming groups
+                 * @returns {Observable<Response>}
+                 */
+                ReferenceService.prototype.getAllJobNamingGroups = function () {
+                    var __this = this;
+                    return this.http.request(__this.allJobNamingGroupsUrl);
                 };
                 /**
                  * Listing all study levels

@@ -22,7 +22,7 @@ import { ReferenceService } from './../services/reference.service';
 export class JobSearchBarComponent {
     states: any;
     contractTypes: any;
-    jobNamings: any;
+    jobNamingGroups: any;
 
     contractTypeId: string;
     jobNamingId: string;
@@ -42,8 +42,8 @@ export class JobSearchBarComponent {
             __this.contractTypes = res.json();
         });
 
-        referenceService.getAllJobNamings().subscribe((res: Response) => {
-            __this.jobNamings = res.json();
+        referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
+            __this.jobNamingGroups = res.json();
         });
     }
 }

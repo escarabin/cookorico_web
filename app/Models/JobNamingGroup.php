@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class JobNaming extends Model
+class JobNamingGroup extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -15,12 +15,13 @@ class JobNaming extends Model
         'title'
     ];
 
+
     /**
-     * Get the group which this job naming is in
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * Get job namings related to this group
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function jobNamingGroup()
+    public function jobNamings()
     {
-        return $this->belongsTo('App\Models\JobNamingGroup');
+        return $this->hasMany('App\Models\JobNaming');
     }
 }

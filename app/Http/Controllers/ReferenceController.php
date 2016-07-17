@@ -9,6 +9,7 @@ use App\Models\BusinessType;
 use App\Models\ContractType;
 use App\Models\Diploma;
 use App\Models\JobNaming;
+use App\Models\JobNamingGroup;
 use App\Models\JobType;
 use App\Models\JobXpLevel;
 use App\Models\StudyLevel;
@@ -28,11 +29,21 @@ class ReferenceController extends Controller
         return $jobTypes;
     }
 
-
     public function getAllJobNamings() {
         $jobNamings = JobNaming::all();
 
         return $jobNamings;
+    }
+
+    public function getAllJobNamingGroups() {
+        $jobNamingGroups = JobNamingGroup::all();
+
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        foreach ($jobNamingGroups as $jobNamingGroup) {
+            $jobNamingGroup->jobNamings = $jobNamingGroup->jobNamings;
+        }
+
+        return $jobNamingGroups;
     }
 
     public function getAllStudyLevels() {

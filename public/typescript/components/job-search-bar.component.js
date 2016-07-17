@@ -46,8 +46,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                     referenceService.getAllContractTypes().subscribe(function (res) {
                         __this.contractTypes = res.json();
                     });
-                    referenceService.getAllJobNamings().subscribe(function (res) {
-                        __this.jobNamings = res.json();
+                    referenceService.getAllJobNamingGroups().subscribe(function (res) {
+                        __this.jobNamingGroups = res.json();
                     });
                 }
                 JobSearchBarComponent = __decorate([

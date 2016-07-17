@@ -10,10 +10,13 @@
 <div class="col-md-3 input-container">
     <select class="form-control">
         <option disabled selected>-- Type de poste --</option>
-        <option *ngFor="let jobNaming of jobNamings"
-                value="{{ jobNaming.id }}">
-            {{ jobNaming.title }}
-        </option>
+        <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                  label="{{ jobNamingGroup.title }}">
+            <option *ngFor="let jobNaming of jobNamingGroup.jobNamings"
+                    value="{{ jobNaming.id }}">
+                {{ jobNaming.title }}
+            </option>
+        </optgroup>
     </select>
 </div>
 <div class="col-md-3 input-container">
