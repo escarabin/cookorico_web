@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink } from '@angular/router-deprecated';
+import { RouterLink, RouteParams } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
@@ -33,8 +33,18 @@ export class CreateJobPostComponent {
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
-                private jobPostService: JobPostService) {
+                private jobPostService: JobPostService,
+                private routeParams: RouteParams) {
         let __this = this;
+
+        this.jobPost.id = routeParams.get("jobPostId");
+
+        if (this.jobPost.id) {
+            // Editing a specific experience, let's retrieve it's data
+            this.jobPostService.get(__this.jobPost.id).subscribe((res: Response) => {
+                __this.jobPost = res.json();
+            });
+        }
 
         this.referenceService.getAllDiplomas().subscribe((res: Response) => {
             __this.diplomas = res.json();

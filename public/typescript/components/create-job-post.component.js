@@ -37,10 +37,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             }],
         execute: function() {
             CreateJobPostComponent = (function () {
-                function CreateJobPostComponent(referenceService, userService, jobPostService) {
+                function CreateJobPostComponent(referenceService, userService, jobPostService, routeParams) {
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.jobPostService = jobPostService;
+                    this.routeParams = routeParams;
                     this.diplomas = [];
                     this.jobNamings = [];
                     this.alertFrequencies = [];
@@ -50,6 +51,13 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.jobXpLevels = [];
                     this.jobPost = new job_post_1.JobPost();
                     var __this = this;
+                    this.jobPost.id = routeParams.get("jobPostId");
+                    if (this.jobPost.id) {
+                        // Editing a specific experience, let's retrieve it's data
+                        this.jobPostService.get(__this.jobPost.id).subscribe(function (res) {
+                            __this.jobPost = res.json();
+                        });
+                    }
                     this.referenceService.getAllDiplomas().subscribe(function (res) {
                         __this.diplomas = res.json();
                     });
@@ -89,9 +97,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         directives: [router_deprecated_1.RouterLink, business_select_component_1.BusinessSelectComponent],
                         templateUrl: '../templates/create-job-post.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, job_post_service_1.JobPostService])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, job_post_service_1.JobPostService, (typeof (_a = typeof router_deprecated_1.RouteParams !== 'undefined' && router_deprecated_1.RouteParams) === 'function' && _a) || Object])
                 ], CreateJobPostComponent);
                 return CreateJobPostComponent;
+                var _a;
             }());
             exports_1("CreateJobPostComponent", CreateJobPostComponent);
         }

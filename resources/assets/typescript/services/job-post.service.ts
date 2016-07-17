@@ -7,6 +7,7 @@ import { JobPost } from './../models/job-post';
 @Injectable()
 export class JobPostService {
     createJobPostUrl = "/job-post/create";
+    getJobPostUrl = "/job";
 
     constructor(private http: Http) {
 
@@ -37,5 +38,16 @@ export class JobPostService {
                                 jobPost.diploma_id + '/' +
                                 jobPost.start_date + '/' +
                                 jobPost.end_date);
+    }
+
+    /**
+     * Get specific job post
+     * @param jobPostId
+     * @returns {any}
+     */
+    get(jobPostId) {
+        let __this = this;
+
+        return this.http.request(__this.getJobPostUrl + '/' + jobPostId);
     }
 }

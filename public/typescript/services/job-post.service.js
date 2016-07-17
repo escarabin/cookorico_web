@@ -25,6 +25,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 function JobPostService(http) {
                     this.http = http;
                     this.createJobPostUrl = "/job-post/create";
+                    this.getJobPostUrl = "/job";
                 }
                 /**
                  * Create a new job post
@@ -50,6 +51,15 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                         jobPost.diploma_id + '/' +
                         jobPost.start_date + '/' +
                         jobPost.end_date);
+                };
+                /**
+                 * Get specific job post
+                 * @param jobPostId
+                 * @returns {any}
+                 */
+                JobPostService.prototype.get = function (jobPostId) {
+                    var __this = this;
+                    return this.http.request(__this.getJobPostUrl + '/' + jobPostId);
                 };
                 JobPostService = __decorate([
                     core_1.Injectable(), 
