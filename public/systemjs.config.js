@@ -14,7 +14,7 @@
     'zone.js':                    'zone.js',
     'ng2-bootstrap':              'ng2-bootstrap',
     'moment':                     'moment',
-    'notifications':              'node_modules/angular2-notifications'
+    'notifications':              'node_modules/angular2-notifications',
   };
 
   // packages tells the System loader how to load when no filename and/or no extension

@@ -137,10 +137,10 @@
         </div>
         <div class="col-md-12">
             <label>Description</label>
-            <textarea placeholder="Attirez plus de candidats grâce à une description complète"
-                      class="form-control"
-                      [(ngModel)]="jobPost.description"
-                      ngControl="jobPost.description"></textarea>
+            <unity-tinymce [mceContent]="jobPost.description"
+                           (newContentInput)="jobDescriptionChanged($event)">
+
+            </unity-tinymce>
         </div>
         <div class="col-md-12">
             <div class="col-md-4">

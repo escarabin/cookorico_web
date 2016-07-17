@@ -21,6 +21,8 @@
     <script src="reflect-metadata/Reflect.js"></script>
     <script src="systemjs/dist/system.src.js"></script>
 
+    <script src="tinyMCE/tinymce.min.js"></script>
+
     <script src="systemjs.config.js"></script>
     <script>
         System.config({

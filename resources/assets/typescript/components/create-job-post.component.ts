@@ -12,11 +12,12 @@ import { JobPost } from './../models/job-post';
 
 // Components
 import { BusinessSelectComponent } from './business-select.component';
+import { UNITYTinyMCE } from './tiny-mce.component';
 
 @Component({
     selector: 'create-job-post',
     providers: [ReferenceService, UserService, JobPostService],
-    directives: [RouterLink, BusinessSelectComponent],
+    directives: [RouterLink, BusinessSelectComponent, UNITYTinyMCE],
     templateUrl: '../templates/create-job-post.component.html'
 })
 
@@ -85,5 +86,9 @@ export class CreateJobPostComponent {
 
     handleBusinessIdChange(businessId) {
         this.jobPost.business_id = businessId;
+    }
+
+    jobDescriptionChanged(newDescription) {
+        console.log(newDescription);
     }
 }

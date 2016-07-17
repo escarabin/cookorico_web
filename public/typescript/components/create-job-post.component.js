@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/job-post.service', './../models/job-post', './business-select.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/job-post.service', './../models/job-post', './business-select.component', './tiny-mce.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, job_post_service_1, job_post_1, business_select_component_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, job_post_service_1, job_post_1, business_select_component_1, tiny_mce_component_1;
     var CreateJobPostComponent;
     return {
         setters:[
@@ -34,6 +34,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             },
             function (business_select_component_1_1) {
                 business_select_component_1 = business_select_component_1_1;
+            },
+            function (tiny_mce_component_1_1) {
+                tiny_mce_component_1 = tiny_mce_component_1_1;
             }],
         execute: function() {
             CreateJobPostComponent = (function () {
@@ -82,7 +85,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 }
                 CreateJobPostComponent.prototype.submitJobPost = function () {
                     var __this = this;
-                    console.log(__this.jobPost);
                     this.jobPostService.create(__this.jobPost).subscribe(function (res) {
                         console.log(res.json());
                     });
@@ -90,11 +92,14 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 CreateJobPostComponent.prototype.handleBusinessIdChange = function (businessId) {
                     this.jobPost.business_id = businessId;
                 };
+                CreateJobPostComponent.prototype.jobDescriptionChanged = function (newDescription) {
+                    console.log(newDescription);
+                };
                 CreateJobPostComponent = __decorate([
                     core_1.Component({
                         selector: 'create-job-post',
                         providers: [reference_service_1.ReferenceService, user_service_1.UserService, job_post_service_1.JobPostService],
-                        directives: [router_deprecated_1.RouterLink, business_select_component_1.BusinessSelectComponent],
+                        directives: [router_deprecated_1.RouterLink, business_select_component_1.BusinessSelectComponent, tiny_mce_component_1.UNITYTinyMCE],
                         templateUrl: '../templates/create-job-post.component.html'
                     }), 
                     __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, job_post_service_1.JobPostService, (typeof (_a = typeof router_deprecated_1.RouteParams !== 'undefined' && router_deprecated_1.RouteParams) === 'function' && _a) || Object])
