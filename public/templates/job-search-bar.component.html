@@ -1,6 +1,6 @@
 <div class="col-md-3 input-container">
     <select class="form-control">
-        <option disabled selected>Région</option>
+        <option disabled selected>-- Région --</option>
         <option *ngFor="let state of states"
                 value="{{ state.id }}">
             {{ state.adress.replace(', France', '') }}
@@ -9,7 +9,7 @@
 </div>
 <div class="col-md-3 input-container">
     <select class="form-control">
-        <option disabled selected>Type de poste</option>
+        <option disabled selected>-- Type de poste --</option>
         <option *ngFor="let jobNaming of jobNamings"
                 value="{{ jobNaming.id }}">
             {{ jobNaming.title }}
@@ -18,7 +18,7 @@
 </div>
 <div class="col-md-3 input-container">
     <select class="form-control">
-        <option disabled selected>Type de contrat</option>
+        <option disabled selected>-- Type de contrat --</option>
         <option *ngFor="let contractType of contractTypes"
                 value="{{ contractType.id }}">
             {{ contractType.title }}
