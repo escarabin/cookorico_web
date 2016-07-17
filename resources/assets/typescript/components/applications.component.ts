@@ -13,7 +13,7 @@ import { UserService } from './../services/user.service';
 })
 
 export class ApplicationsComponent {
-    applications: any;
+    applications: any = [];
 
     constructor(private userService: UserService) {
         let __this = this;

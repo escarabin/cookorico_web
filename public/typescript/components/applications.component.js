@@ -27,6 +27,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             ApplicationsComponent = (function () {
                 function ApplicationsComponent(userService) {
                     this.userService = userService;
+                    this.applications = [];
                     var __this = this;
                     this.userService.getApplications().subscribe(function (res) {
                         __this.applications = res.json();
