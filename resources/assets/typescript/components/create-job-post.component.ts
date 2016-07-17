@@ -78,8 +78,6 @@ export class CreateJobPostComponent {
     submitJobPost() {
         let __this = this;
 
-        console.log(__this.jobPost);
-
         this.jobPostService.create(__this.jobPost).subscribe((res: Response) => {
             console.log(res.json());
         });

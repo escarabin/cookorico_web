@@ -131,6 +131,7 @@ class JobController extends Controller
 
         $jobPost->title = $title;
         $jobPost->description = $description;
+        $jobPost->user_id = Auth::user()->id;
         $jobPost->is_hosting_employee = $is_hosting_employee;
         $jobPost->is_urgent = $is_urgent;
         $jobPost->is_asap = $is_asap;

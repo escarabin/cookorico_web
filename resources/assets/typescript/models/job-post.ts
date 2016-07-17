@@ -3,8 +3,6 @@ export class JobPost {
         public id: number,
         public title: string,
         public description: string,
-        public is_hosting_employee: boolean,
-        public is_urgent: boolean,
         public business_id: number,
         public user_id: number,
         public job_type_id: number,
@@ -17,6 +15,8 @@ export class JobPost {
         public week_work_hours: number,
         public start_date: string,
         public end_date: string,
-        public is_asap: boolean
+        public is_asap: boolean = false,
+        public is_hosting_employee: boolean = false,
+        public is_urgent: boolean = false
     ) {  }
 }

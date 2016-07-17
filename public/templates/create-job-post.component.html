@@ -71,6 +71,19 @@
                    ngControl="jobPost.end_date"/>
         </div>
         <div class="col-md-6">
+            <label>Type d'emploi</label>
+            <select class="form-control"
+                    required
+                    [(ngModel)]="jobPost.job_naming_id"
+                    ngControl="jobPost.job_naming_id">
+                <option selected disabled>-- Choisissez un type d'emploi --</option>
+                <option *ngFor="let jobNaming of jobNamings"
+                        value="{{ jobNaming.id }}">
+                    {{ jobNaming.title }}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-6">
             <label>Formation professionnelle</label>
             <select class="form-control"
                     required
@@ -108,6 +121,26 @@
                     {{ jobXpLevel.title }}
                 </option>
             </select>
+        </div>
+        <div class="col-md-6">
+            <label>Niveau d'alerte</label>
+            <select class="form-control"
+                    required
+                    [(ngModel)]="jobPost.alert_frequency_id"
+                    ngControl="jobPost.alert_frequency_id">
+                <option selected disabled>-- Choisissez à quelle fréquence vous serez alerté des postulants --</option>
+                <option *ngFor="let alertFrequency of alertFrequencies"
+                        value="{{ alertFrequency.id }}">
+                    {{ alertFrequency.title }}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-12">
+            <label>Description</label>
+            <textarea placeholder="Attirez plus de candidats grâce à une description complète"
+                      class="form-control"
+                      [(ngModel)]="jobPost.description"
+                      ngControl="jobPost.description"></textarea>
         </div>
         <div class="col-md-12">
             <div class="col-md-4">
