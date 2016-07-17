@@ -13,7 +13,7 @@ import { UserService } from './../services/user.service';
 })
 
 export class TestimonialsComponent {
-    testimonials: any;
+    testimonials: any = [];
 
     constructor(private userService: UserService) {
         let __this = this;

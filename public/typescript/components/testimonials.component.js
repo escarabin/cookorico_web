@@ -27,6 +27,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             TestimonialsComponent = (function () {
                 function TestimonialsComponent(userService) {
                     this.userService = userService;
+                    this.testimonials = [];
                     var __this = this;
                     this.userService.getTestimonials().subscribe(function (res) {
                         __this.testimonials = res.json();
