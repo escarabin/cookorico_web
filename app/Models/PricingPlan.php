@@ -14,4 +14,12 @@ class PricingPlan extends Model
     protected $fillable = [
         'title'
     ];
+
+    /**
+     * Get the business types related to this pricing plan
+     */
+    public function businessTypes()
+    {
+        return $this->belongsToMany('App\Models\PricingPlan');
+    }
 }

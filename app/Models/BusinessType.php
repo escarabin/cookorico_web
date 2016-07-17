@@ -14,4 +14,12 @@ class BusinessType extends Model
     protected $fillable = [
         'title'
     ];
+
+    /**
+     * Get the business types related to this pricing plan
+     */
+    public function pricingPlans()
+    {
+        return $this->belongsToMany('App\Models\BusinessType');
+    }
 }

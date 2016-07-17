@@ -8,8 +8,13 @@
     <div class="col-md-9 user-title">
         {{ user.firstName }} {{ user.lastName }}<br />
     </div>
-    <div class="user-sidebar-menu"
-         *ngIf="user.user_type_id==3">
+    <div class="col-md-12"
+         *ngIf="user.user_type_id==2">
+        <div ngFor="let plan of user.plans">
+
+        </div>
+    </div>
+    <div class="user-sidebar-menu">
         <div class="col-md-12 menu-item">
             <a [routerLink]="['Profile']">
                 Mon profil
