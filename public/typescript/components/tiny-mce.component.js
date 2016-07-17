@@ -56,8 +56,8 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 UNITYTinyMCE.prototype.ngOnDestroy = function () {
                     //destroy cloned elements
                     tinymce.get(this.elementID).remove();
-                    var elem = document.getElementById(this.elementID);
-                    elem.parentElement.removeChild(elem);
+                    /* var elem = document.getElementById(this.elementID);
+                    elem.parentElement.removeChild(elem); */
                 };
                 UNITYTinyMCE.prototype.tinyMCESetup = function (ed) {
                     ed.on('keyup', this.tinyMCEOnKeyup.bind(this));

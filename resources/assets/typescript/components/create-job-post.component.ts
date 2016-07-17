@@ -89,6 +89,6 @@ export class CreateJobPostComponent {
     }
 
     jobDescriptionChanged(newDescription) {
-        console.log(newDescription);
+        this.jobPost.description = newDescription;
     }
 }

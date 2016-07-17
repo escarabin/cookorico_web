@@ -93,7 +93,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.jobPost.business_id = businessId;
                 };
                 CreateJobPostComponent.prototype.jobDescriptionChanged = function (newDescription) {
-                    console.log(newDescription);
+                    this.jobPost.description = newDescription;
                 };
                 CreateJobPostComponent = __decorate([
                     core_1.Component({

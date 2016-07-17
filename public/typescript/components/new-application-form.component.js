@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/job.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/job.service', './tiny-mce.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, job_service_1;
+    var core_1, router_deprecated_1, job_service_1, tiny_mce_component_1;
     var NewApplicationFormComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
             },
             function (job_service_1_1) {
                 job_service_1 = job_service_1_1;
+            },
+            function (tiny_mce_component_1_1) {
+                tiny_mce_component_1 = tiny_mce_component_1_1;
             }],
         execute: function() {
             NewApplicationFormComponent = (function () {
@@ -38,13 +41,16 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                         _this.router.navigate(['/Profile/Applications']);
                     });
                 };
+                NewApplicationFormComponent.prototype.commentChanged = function (newComment) {
+                    this.comment = newComment;
+                };
                 __decorate([
                     core_1.Input, 
                     __metadata('design:type', String)
                 ], NewApplicationFormComponent.prototype, "jobId", void 0);
                 NewApplicationFormComponent = __decorate([
                     core_1.Component({
-                        directives: [router_deprecated_1.RouterLink],
+                        directives: [router_deprecated_1.RouterLink, tiny_mce_component_1.UNITYTinyMCE],
                         providers: [job_service_1.JobService],
                         selector: 'new-application-form',
                         templateUrl: '../templates/new-application-form.component.html',

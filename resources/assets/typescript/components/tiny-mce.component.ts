@@ -30,6 +30,7 @@ export class UNITYTinyMCE {
         var uniqid = randLetter + Date.now();
 
         this.elementID = 'tinymce' + uniqid;
+
         // this.contentChanged = new EventEmitter();
     }
 
@@ -66,8 +67,8 @@ export class UNITYTinyMCE {
         //destroy cloned elements
         tinymce.get(this.elementID).remove();
 
-        var elem = document.getElementById(this.elementID);
-        elem.parentElement.removeChild(elem);
+        /* var elem = document.getElementById(this.elementID);
+        elem.parentElement.removeChild(elem); */
     }
 
 

@@ -4,8 +4,11 @@ import { Router, RouterLink, RouteParams, Response } from '@angular/router-depre
 // Services
 import { JobService } from './../services/job.service';
 
+// Directives
+import { UNITYTinyMCE } from './tiny-mce.component';
+
 @Component({
-    directives: [RouterLink],
+    directives: [RouterLink, UNITYTinyMCE],
     providers: [JobService],
     selector: 'new-application-form',
     templateUrl: '../templates/new-application-form.component.html',
@@ -26,5 +29,9 @@ export class NewApplicationFormComponent {
         this.jobService.apply(__this.jobId, __this.comment).subscribe((res: Response) => {
             this.router.navigate(['/Profile/Applications']);
         });
+    }
+
+    commentChanged(newComment) {
+        this.comment = newComment;
     }
 }
