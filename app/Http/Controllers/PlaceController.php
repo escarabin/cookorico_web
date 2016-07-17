@@ -30,6 +30,10 @@ class PlaceController extends Controller
                         $adress,
                         $lat,
                         $lon,
+                        $viewport_b_lat,
+                        $viewport_b_lon,
+                        $viewport_f_lat,
+                        $viewport_f_lon,
                         $types,
                         $title,
                         $phone = "",
@@ -52,6 +56,10 @@ class PlaceController extends Controller
            $place->postalCode = $postalCode;
            $place->lat = $lat;
            $place->lon = $lon;
+           $place->viewport_b_lat = $viewport_b_lat;
+           $place->viewport_b_lon = $viewport_b_lon;
+           $place->viewport_f_lat = $viewport_f_lat;
+           $place->viewport_f_lon = $viewport_f_lon;
 
            $place->save();
 

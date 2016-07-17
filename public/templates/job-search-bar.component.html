@@ -1,6 +1,10 @@
 <div class="col-md-3 input-container">
     <select class="form-control">
         <option disabled selected>Région</option>
+        <option *ngFor="let state of states"
+                value="{{ state.id }}">
+            {{ state.adress.replace(', France', '') }}
+        </option>
     </select>
 </div>
 <div class="col-md-3 input-container">

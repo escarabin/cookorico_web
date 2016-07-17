@@ -40,6 +40,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                     this.clubService = clubService;
                     this.referenceService = referenceService;
                     var __this = this;
+                    referenceService.getAllStates().subscribe(function (res) {
+                        __this.states = res.json();
+                    });
                     referenceService.getAllContractTypes().subscribe(function (res) {
                         __this.contractTypes = res.json();
                     });

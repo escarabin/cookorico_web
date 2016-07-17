@@ -124,7 +124,7 @@ Route::get('/businesses/all/', 'BusinessController@getAll')
     ->name('getAllBusinesses');
 
 // Places
-Route::get('/place/save/{googlePlaceId}/{adress}/{lat}/{lon}/{types}/{title}/{phone?}/{website?}/{city?}/{postalCode?}', 'PlaceController@save')
+Route::get('/place/save/{googlePlaceId}/{adress}/{lat}/{lon}/{viewport_b_lat}/{viewport_b_lon}/{viewport_f_lat}/{viewport_f_lon}/{types}/{title}/{phone?}/{website?}/{city?}/{postalCode?}', 'PlaceController@save')
     ->name('savePlace');
 
 // Files

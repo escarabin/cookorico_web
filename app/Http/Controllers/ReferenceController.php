@@ -12,6 +12,7 @@ use App\Models\JobNaming;
 use App\Models\JobType;
 use App\Models\JobXpLevel;
 use App\Models\StudyLevel;
+use App\Models\Place;
 
 class ReferenceController extends Controller
 {
@@ -62,5 +63,22 @@ class ReferenceController extends Controller
         $jobXpLevels = JobXpLevel::all();
 
         return $jobXpLevels;
+    }
+
+    public function getAllStates() {
+        $places = Place::all();
+        $states = array();
+
+        foreach ($places as $place) {
+            $placeTypes = $place->types;
+
+            foreach ($placeTypes as $placeType) {
+                if ($placeType->title == "political") {
+                    $states[] = $place;
+                }
+            }
+        }
+
+        return $states;
     }
 }

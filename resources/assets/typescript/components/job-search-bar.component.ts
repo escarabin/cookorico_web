@@ -34,6 +34,10 @@ export class JobSearchBarComponent {
                 private referenceService: ReferenceService) {
         let __this = this;
 
+        referenceService.getAllStates().subscribe((res: Response) => {
+            __this.states = res.json();
+        });
+
         referenceService.getAllContractTypes().subscribe((res: Response) => {
             __this.contractTypes = res.json();
         });

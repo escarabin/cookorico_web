@@ -51,6 +51,10 @@ export class PlaceService {
                         '/' + place['formatted_address'] +
                         '/' + location.lat() +
                         '/' + location.lng() +
+                        '/' + place['geometry']['viewport']['f']['b'] +
+                        '/' + place['geometry']['viewport']['b']['b'] +
+                        '/' + place['geometry']['viewport']['f']['f'] +
+                        '/' + place['geometry']['viewport']['b']['f'] +
                         '/' + typesString +
                         '/' + place['name'] +
                         '/' + phone +
