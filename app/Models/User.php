@@ -29,7 +29,7 @@ class User extends Authenticatable
      */
     public function type()
     {
-        return $this->hasOne('App\Models\UserType');
+        return $this->belongsTo('App\Models\UserType');
     }
 
     /**
@@ -108,6 +108,14 @@ class User extends Authenticatable
     public function testimonials()
     {
         return $this->hasMany('App\Models\Testimonial', 'employee_user_id');
+    }
+
+    /**
+     * Get the plans that current user subscribed to
+     */
+    public function plans()
+    {
+        return $this->hasMany('App\Models\Plan');
     }
 
     /**

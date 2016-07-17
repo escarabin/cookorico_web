@@ -134,3 +134,7 @@ Route::get('/file/upload/{bucket}/{fileName}', 'FileController@upload')
 // JobXpLevels
 Route::get('/job_xp_levels/all', 'ReferenceController@getAllJobXpLevels')
     ->name('getAllJobXpLevels');
+
+// Plans
+Route::get('/user/plans/all', 'UserController@getPlans')
+    ->name('getAllPlans');

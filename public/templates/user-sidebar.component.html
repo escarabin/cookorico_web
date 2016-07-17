@@ -1,17 +1,24 @@
 <!-- User is connected -->
 <div *ngIf="user" class="user-infos row">
-    <div class="col-md-3">
-        <div class="profile-picture"
+    <div class="col-md-3 profile-picture">
+        <div class="img"
              [ngStyle]="{'background-image': userProfilePicturePath}">
         </div>
     </div>
     <div class="col-md-9 user-title">
         {{ user.firstName }} {{ user.lastName }}<br />
     </div>
-    <div class="col-md-12"
-         *ngIf="user.user_type_id==2">
-        <div ngFor="let plan of user.plans">
-
+    <div *ngFor="let plan of plans"
+         class="col-md-12">
+        <div class="plan" *ngIf="plan.credits > 0">
+            <div class="col-md-6 plan-credits">
+                {{ plan.credits }}<br />
+                crédits
+            </div>
+            <div class="col-md-6 plan-contacts">
+                {{ plan.pricingPlan.daily_contacts }}<br />
+                contacts
+            </div>
         </div>
     </div>
     <div class="user-sidebar-menu">

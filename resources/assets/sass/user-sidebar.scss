@@ -6,6 +6,7 @@ user-sidebar {
   -webkit-box-shadow: $mainBoxShadow;
   -o-box-shadow: $mainBoxShadow;
   box-shadow: $mainBoxShadow;
+  color: white;
 }
 
 user-sidebar .user-infos {
@@ -22,6 +23,10 @@ user-sidebar .user-infos .user-title {
 }
 
 user-sidebar .user-infos .profile-picture {
+  margin-bottom: 20px;
+}
+
+user-sidebar .user-infos .profile-picture .img {
   width: 50px;
   height: 50px;
   margin: auto;
@@ -42,12 +47,22 @@ user-sidebar .user-sidebar-menu .menu-item {
   border-top: 1px solid #DDD;
   background: white;
   cursor: pointer;
+  color: $mainDarkTextColor;
 }
-
 user-sidebar .user-sidebar-menu .menu-item:hover {
   background: whitesmoke;
 }
 
 user-sidebar .user-sidebar-menu .menu-item a {
   color: $mainDarkTextColor;
+}
+
+user-sidebar .plan {
+  padding-top: 15px;
+}
+
+user-sidebar .plan .plan-credits, user-sidebar .plan .plan-contacts {
+  text-align: center;
+  font-family: $mainBoldFontFamily;
+  font-size: 1.3em;
 }

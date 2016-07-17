@@ -53,14 +53,27 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.studyLevels = [];
                     this.jobXpLevels = [];
                     this.jobPost = new job_post_1.JobPost();
+                    this.userCanPostJob = false;
                     var __this = this;
                     this.jobPost.id = routeParams.get("jobPostId");
                     if (this.jobPost.id) {
+                        this.userCanPostJob = true;
                         // Editing a specific experience, let's retrieve it's data
                         this.jobPostService.get(__this.jobPost.id).subscribe(function (res) {
                             __this.jobPost = res.json();
                         });
                     }
+                    /**
+                     * Check if user is able to post a new job regarding credits amount on his account
+                     */
+                    this.userService.getPlans().subscribe(function (res) {
+                        var plans = res.json();
+                        for (var i = 0; i < plans.length; i++) {
+                            if (plans[i]['credits'] > 0) {
+                                __this.userCanPostJob = true;
+                            }
+                        }
+                    });
                     this.referenceService.getAllDiplomas().subscribe(function (res) {
                         __this.diplomas = res.json();
                     });

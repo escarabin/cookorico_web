@@ -29,6 +29,10 @@ class UserController extends Controller
         if ($user) {
             Auth::loginUsingId($user->id);
 
+            // Necesseray Laravel's workaround to return relationship values inside JSON
+            $user->plans = $user->plans;
+            $user->type = $user->type;
+
             // Authentication passed...
             return $user;
         }
@@ -164,6 +168,20 @@ class UserController extends Controller
         $business = Business::find($businessId);
 
         return $business;
+    }
+
+    /**
+     * Get the plans that logged user subscribed to
+     */
+    public function getPlans() {
+        $plans = Auth::user()->plans;
+
+        // Necesseray Laravel's workaround to return relationship values inside JSON
+        foreach ($plans as $plan) {
+            $plan->pricingPlan = $plan->pricingPlan;
+        }
+
+        return $plans;
     }
 
     /**

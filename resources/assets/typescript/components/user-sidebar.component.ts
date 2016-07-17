@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router-deprecated'
+import { Response } from '@angular/http';
 
 // Services
 import { UserService } from './../services/user.service';
@@ -13,10 +14,17 @@ import { UserService } from './../services/user.service';
 
 export class UserSidebarComponent {
     user: any;
+    plans: any = [];
     userProfilePicturePath: string;
 
     constructor(private userService: UserService) {
         this.user = JSON.parse(localStorage.getItem('user'));
         this.userProfilePicturePath = 'url(/uploads/user/pp/' + this.user.id + '.jpg)';
+
+        let __this = this;
+
+        this.userService.getPlans().subscribe((res: Response) => {
+            __this.plans = res.json();
+        });
     }
 }

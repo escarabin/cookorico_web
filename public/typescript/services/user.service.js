@@ -34,6 +34,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.notificationService = notificationService;
                     this.signInUrl = '/sign-in/';
                     this.getApplicationsUrl = '/applications/all';
+                    this.getPlansUrl = '/user/plans/all';
                     this.getExperiencesUrl = '/experiences/all';
                     this.getExperienceUrl = '/experience';
                     this.deleteExperiencesUrl = '/experience/delete';
@@ -179,6 +180,14 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.getBusiness = function (businessId) {
                     var __this = this;
                     return this.http.get(__this.getBusinessUrl + '/' + businessId);
+                };
+                /**
+                 * Get the plans that current user subscribed to
+                 * @returns {any}
+                 */
+                UserService.prototype.getPlans = function () {
+                    var __this = this;
+                    return this.http.get(__this.getPlansUrl);
                 };
                 /**
                  * Create new work experience

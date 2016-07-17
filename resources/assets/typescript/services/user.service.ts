@@ -12,6 +12,7 @@ import { Notification } from './../models/notification';
 export class UserService {
     signInUrl = '/sign-in/';
     getApplicationsUrl = '/applications/all';
+    getPlansUrl = '/user/plans/all';
     getExperiencesUrl = '/experiences/all';
     getExperienceUrl = '/experience';
     deleteExperiencesUrl = '/experience/delete';
@@ -194,6 +195,16 @@ export class UserService {
         let __this = this;
 
         return this.http.get(__this.getBusinessUrl + '/' + businessId);
+    }
+
+    /**
+     * Get the plans that current user subscribed to
+     * @returns {any}
+     */
+    getPlans() {
+        let __this = this;
+
+        return this.http.get(__this.getPlansUrl);
     }
 
     /**

@@ -31,6 +31,7 @@ export class CreateJobPostComponent {
     jobXpLevels: any = [];
 
     jobPost:JobPost = new JobPost();
+    userCanPostJob: boolean = false;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
@@ -41,11 +42,24 @@ export class CreateJobPostComponent {
         this.jobPost.id = routeParams.get("jobPostId");
 
         if (this.jobPost.id) {
+            this.userCanPostJob = true;
             // Editing a specific experience, let's retrieve it's data
             this.jobPostService.get(__this.jobPost.id).subscribe((res: Response) => {
                 __this.jobPost = res.json();
             });
         }
+
+        /**
+         * Check if user is able to post a new job regarding credits amount on his account
+         */
+        this.userService.getPlans().subscribe((res: Response) => {
+            let plans = res.json();
+            for (let i = 0; i < plans.length; i++) {
+                if (plans[i]['credits'] > 0) {
+                    __this.userCanPostJob = true;
+                }
+            }
+        });
 
         this.referenceService.getAllDiplomas().subscribe((res: Response) => {
             __this.diplomas = res.json();
@@ -74,6 +88,8 @@ export class CreateJobPostComponent {
         this.referenceService.getAllJobXpLevels().subscribe((res: Response) => {
             __this.jobXpLevels = res.json();
         });
+
+
     }
 
     submitJobPost() {

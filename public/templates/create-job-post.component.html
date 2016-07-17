@@ -5,11 +5,12 @@
             <input type="text"
                    class="form-control"
                    required
+                   [disabled]=!userCanPostJob
                    placeholder="Donnez un titre à votre annonce"
                    [(ngModel)]="jobPost.title"
                    ngControl="jobPost.title"/>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12" [class.disabled]="!userCanPostJob">
             <business-select [businessId]="jobPost.business_id"
                              [onlyUserBusinesses]="true"
                              [isRequired]="true"
@@ -21,6 +22,7 @@
             <label>Type d'offre</label>
             <select class="form-control"
                     required
+                    [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.job_type_id"
                     ngControl="jobPost.job_type_id">
                 <option selected disabled>-- Choisissez un type d'offre --</option>
@@ -34,6 +36,7 @@
             <label>Type de contrat</label>
             <select class="form-control"
                     required
+                    [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.contract_type_id"
                     ngControl="jobPost.contract_type_id">
                 <option selected disabled>-- Choisissez un type de contrat --</option>
@@ -48,6 +51,7 @@
             <input type="number"
                    class="form-control"
                    required
+                   [disabled]="!userCanPostJob"
                    placeholder="h / semaine"
                    [(ngModel)]="jobPost.week_work_hours"
                    ngControl="jobPost.week_work_hours"/>
@@ -57,6 +61,7 @@
             <input type="date"
                    class="form-control"
                    required
+                   [disabled]="!userCanPostJob"
                    placeholder="Date de début"
                    [(ngModel)]="jobPost.start_date"
                    ngControl="jobPost.start_date"/>
@@ -66,6 +71,7 @@
             <input type="date"
                    class="form-control"
                    required
+                   [disabled]="!userCanPostJob"
                    placeholder="Date de fin"
                    [(ngModel)]="jobPost.end_date"
                    ngControl="jobPost.end_date"/>
@@ -74,6 +80,7 @@
             <label>Type d'emploi</label>
             <select class="form-control"
                     required
+                    [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.job_naming_id"
                     ngControl="jobPost.job_naming_id">
                 <option selected disabled>-- Choisissez un type d'emploi --</option>
@@ -87,6 +94,7 @@
             <label>Formation professionnelle</label>
             <select class="form-control"
                     required
+                    [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.diploma_id"
                     ngControl="jobPost.diploma_id">
                 <option selected disabled>-- Choisissez une formation professionnelle --</option>
@@ -101,6 +109,7 @@
             <select class="form-control"
                     [(ngModel)]="jobPost.study_level_id"
                     required
+                    [disabled]="!userCanPostJob"
                     ngControl="jobPost.study_level_id">
                 <option selected disabled>-- Choisissez une formation générale --</option>
                 <option *ngFor="let studyLevel of studyLevels"
@@ -113,6 +122,7 @@
             <label>Expérience</label>
             <select class="form-control"
                     required
+                    [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.job_xp_level_id"
                     ngControl="jobPost.job_xp_level_id">
                 <option selected disabled>-- Choisissez un nomde d'année d'expérience --</option>
@@ -126,6 +136,7 @@
             <label>Niveau d'alerte</label>
             <select class="form-control"
                     required
+                    [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.alert_frequency_id"
                     ngControl="jobPost.alert_frequency_id">
                 <option selected disabled>-- Choisissez à quelle fréquence vous serez alerté des postulants --</option>
@@ -135,7 +146,7 @@
                 </option>
             </select>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12" [class.disabled]="!userCanPostJob">
             <label>Description</label>
             <unity-tinymce [mceContent]="jobPost.description"
                            (newContentInput)="jobDescriptionChanged($event)">
@@ -146,18 +157,21 @@
             <div class="col-md-4">
                 <label>Dés que possible</label>
                 <input type="checkbox"
+                       [disabled]="!userCanPostJob"
                        [(ngModel)]="jobPost.is_asap"
                        ngControl="jobPost.is_asap"/>
             </div>
             <div class="col-md-4">
                 <label>Urgent</label>
                 <input type="checkbox"
+                       [disabled]="!userCanPostJob"
                        [(ngModel)]="jobPost.is_urgent"
                        ngControl="jobPost.is_urgent"/>
             </div>
             <div class="col-md-4">
                 <label>Logement inclus</label>
                 <input type="checkbox"
+                       [disabled]="!userCanPostJob"
                        [(ngModel)]="jobPost.is_hosting_employee"
                        ngControl="jobPost.is_hosting_employee"/>
             </div>
