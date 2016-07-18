@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './../services/notification.service', './../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1;
+    var core_1, router_deprecated_1, user_service_1, notification_service_1, notification_1;
     var BusinessesComponent;
     return {
         setters:[
@@ -22,16 +22,66 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
+            },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
             }],
         execute: function() {
             BusinessesComponent = (function () {
-                function BusinessesComponent(userService) {
+                function BusinessesComponent(userService, notificationService) {
                     this.userService = userService;
+                    this.notificationService = notificationService;
+                    this.items = [];
+                    this.checkedItemsList = [];
                     var __this = this;
                     this.userService.getBusinesses().subscribe(function (res) {
-                        __this.businesses = res.json();
+                        __this.items = res.json();
                     });
                 }
+                BusinessesComponent.prototype.toggleAllItems = function () {
+                    this.allItemsChecked = !this.allItemsChecked;
+                    if (this.allItemsChecked) {
+                        var checkedItemsListId = [];
+                        for (var i = 0; i < this.items.length; i++) {
+                            checkedItemsListId.push(this.items[i].id);
+                        }
+                        this.checkedItemsList = checkedItemsListId;
+                    }
+                    else {
+                        this.checkedItemsList = [];
+                    }
+                };
+                BusinessesComponent.prototype.saveCheckedItem = function (itemId) {
+                    var indexOfItemId = this.checkedItemsList.indexOf(itemId);
+                    if (indexOfItemId == -1) {
+                        this.checkedItemsList.push(itemId);
+                    }
+                    else {
+                        this.checkedItemsList.splice(indexOfItemId, 1);
+                    }
+                    if (this.checkedItemsList.length != this.items.length) {
+                        this.allItemsChecked = false;
+                    }
+                    else {
+                        this.allItemsChecked = true;
+                    }
+                };
+                BusinessesComponent.prototype.deleteSelectedItems = function () {
+                    var _this = this;
+                    var __this = this;
+                    var parsedListItemId = this.checkedItemsList.join(',');
+                    this.userService.deleteBusinesses(parsedListItemId).subscribe(function (res) {
+                        __this.userService.getBusinesses().subscribe(function (res) {
+                            __this.items = res.json();
+                            __this.notificationService.show(new notification_1.Notification('success', 'Ces établissements ont bien été supprimées'));
+                            _this.checkedItemsList = [];
+                            _this.allItemsChecked = false;
+                        });
+                    });
+                };
                 BusinessesComponent = __decorate([
                     core_1.Component({
                         selector: 'businesses',
@@ -39,7 +89,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         directives: [router_deprecated_1.RouterLink],
                         templateUrl: '../templates/businesses.component.html'
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService])
+                    __metadata('design:paramtypes', [user_service_1.UserService, notification_service_1.NotificationsService])
                 ], BusinessesComponent);
                 return BusinessesComponent;
             }());
