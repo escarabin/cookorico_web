@@ -27,14 +27,12 @@ class UserController extends Controller
     {
         $user = User::where('email', $email)->first();
 
-        if ($user) {
-            Auth::loginUsingId($user->id);
-
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            // Authentication passed
             // Necesseray Laravel's workaround to return relationship values inside JSON
             $user->plans = $user->plans;
             $user->type = $user->type;
 
-            // Authentication passed...
             return $user;
         }
     }
