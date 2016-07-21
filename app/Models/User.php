@@ -29,7 +29,7 @@ class User extends Authenticatable
      */
     public function type()
     {
-        return $this->belongsTo('App\Models\UserType');
+        return $this->belongsTo(UserType::class);
     }
 
     /**
@@ -37,21 +37,21 @@ class User extends Authenticatable
      */
     public function civility()
     {
-        return $this->belongsTo('App\Models\Civility');
+        return $this->belongsTo(Civility::class);
     }
     /**
      * Get user's state
      */
     public function status()
     {
-        return $this->hasOne('App\Models\UserStatus');
+        return $this->hasOne(UserStatus::class);
     }
     /**
      * Get businesses that this user owns
      */
     public function businesses()
     {
-        return $this->belongsToMany('App\Models\Business');
+        return $this->belongsToMany(Business::class);
     }
 
     /**
@@ -59,7 +59,7 @@ class User extends Authenticatable
      */
     public function languages()
     {
-        return $this->belongsToMany('App\Models\Language');
+        return $this->belongsToMany(Language::class);
     }
 
     /**
@@ -67,7 +67,7 @@ class User extends Authenticatable
      */
     public function diplomas()
     {
-        return $this->belongsToMany('App\Models\Diploma');
+        return $this->belongsToMany(Diploma::class);
     }
 
     /**
@@ -75,7 +75,7 @@ class User extends Authenticatable
      */
     public function applications()
     {
-        return $this->hasMany('App\Models\Application');
+        return $this->hasMany(Application::class);
     }
 
     /**
@@ -83,7 +83,7 @@ class User extends Authenticatable
      */
     public function experiences()
     {
-        return $this->hasMany('App\Models\Experience');
+        return $this->hasMany(Experience::class);
     }
 
     /**
@@ -91,7 +91,7 @@ class User extends Authenticatable
      */
     public function education()
     {
-        return $this->hasMany('App\Models\Study');
+        return $this->hasMany(Study::class);
     }
 
     /**
@@ -99,7 +99,7 @@ class User extends Authenticatable
      */
     public function alerts()
     {
-        return $this->hasMany('App\Models\Alert');
+        return $this->hasMany(Alert::class);
     }
 
     /**
@@ -107,7 +107,7 @@ class User extends Authenticatable
      */
     public function testimonials()
     {
-        return $this->hasMany('App\Models\Testimonial', 'employee_user_id');
+        return $this->hasMany(Testimonial::class, 'employee_user_id');
     }
 
     /**
@@ -115,7 +115,7 @@ class User extends Authenticatable
      */
     public function plans()
     {
-        return $this->hasMany('App\Models\Plan');
+        return $this->hasMany(Plan::class);
     }
 
     /**
@@ -123,7 +123,7 @@ class User extends Authenticatable
      */
     public function createdTestimonials()
     {
-        return $this->hasMany('App\Models\Testimonial', 'recruiter_user_id');
+        return $this->hasMany(Testimonial::class, 'recruiter_user_id');
     }
 
     /**
@@ -131,6 +131,6 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function jobPosts() {
-        return $this->hasMany('App\Models\Job');
+        return $this->hasMany(Job::class);
     }
 }

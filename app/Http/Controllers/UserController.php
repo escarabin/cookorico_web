@@ -140,13 +140,9 @@ class UserController extends Controller
      * @return mixed
      */
     public function getAlerts() {
-        $alerts = Auth::user()->alerts;
+        $alerts = Auth::user()->alerts->toJson();
 
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        foreach ($alerts as $alert) {
-            $alert->jobNaming = $alert->jobNaming;
-            $alert->alertFrequency = $alert->alertFrequency;
-        }
+        Log::info($alerts);
 
         return $alerts;
     }
