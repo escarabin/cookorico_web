@@ -1,25 +1,46 @@
 <div class="row">
-    <div class="col-md-12">
-        <h2>S'inscrire</h2>
-    </div>
-    <div class="col-md-12">
-        <input type="text"
-               class="form-control"
-               placeholder="E-mail"/>
-    </div>
-    <div class="col-md-12">
-        <input type="password"
-               class="form-control"
-               placeholder="Mot de passe souhaité"/>
-    </div>
-    <div class="col-md-6">
-        <button class="btn btn-primary">
-            Je suis recruteur
-        </button>
-    </div>
-    <div class="col-md-6">
-        <button class="btn btn-default">
-            Je suis candidat
-        </button>
-    </div>
+    <form #signUpForm="ngForm">
+        <div class="col-md-12">
+            <h2>S'inscrire</h2>
+        </div>
+
+        <div class="col-md-12">
+            <input type="text"
+                   class="form-control"
+                   required
+                   [(ngModel)]="email"
+                   ngControl="email"
+                   placeholder="E-mail"/>
+        </div>
+        <div class="col-md-12">
+            <input type="password"
+                   class="form-control"
+                   required
+                   [(ngModel)]="password"
+                   ngControl="password"
+                   placeholder="Mot de passe souhaité"/>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-default"
+                    [disabled]="!email || !password"
+                    (click)="userTypeId = 2">
+                Je suis recruteur
+            </button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary"
+                    [disabled]="!email || !password"
+                    (click)="userTypeId = 3">
+                Je suis candidat
+            </button>
+        </div>
+
+        <div class="col-md-12" *ngIf="userTypeId == 3">
+            Candidat
+        </div>
+
+        <div class="col-md-12" *ngIf="userTypeId == 2">
+            Recruteur
+        </div>
+    </form>
 </div>

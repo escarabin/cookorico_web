@@ -10,5 +10,11 @@ import { UserService } from './../services/user.service';
 })
 
 export class SignUpComponent {
+    password: string;
+    email: string;
+    userTypeId: number;
 
+    constructor() {
+
+    }
 }
