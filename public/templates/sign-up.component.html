@@ -5,6 +5,7 @@
         </div>
 
         <div class="col-md-12">
+            <label>Email</label>
             <input type="text"
                    class="form-control"
                    required
@@ -13,6 +14,7 @@
                    placeholder="E-mail"/>
         </div>
         <div class="col-md-12">
+            <label>Mot de passe</label>
             <input type="password"
                    class="form-control"
                    required
@@ -35,12 +37,25 @@
             </button>
         </div>
 
-        <div class="col-md-12" *ngIf="userTypeId == 3">
-            Candidat
+        <div *ngIf="userTypeId">
+            <div class="col-md-6">
+                <label>Civilité</label>
+                <select class="form-control">
+                    <option>-- Civilité --</option>
+                    <option *ngFor="let civility of civilities"
+                            value="{{ civility.id }}">
+                        {{ civility.title }}
+                    </option>
+                </select>
+            </div>
         </div>
 
-        <div class="col-md-12" *ngIf="userTypeId == 2">
-            Recruteur
+        <div *ngIf="userTypeId == 3">
+
+        </div>
+
+        <div *ngIf="userTypeId == 2">
+
         </div>
     </form>
 </div>

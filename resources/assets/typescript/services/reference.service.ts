@@ -13,6 +13,7 @@ export class ReferenceService {
     getAlertFrequenciesListingUrl = '/alert_frequencies/all';
     getAllBusinessTypesListingUrl = '/business_types/all';
     getAllJobXpLevelsUrl = '/job_xp_levels/all';
+    getAllCivilitiesUrl = '/civilities/all';
 
     constructor(private http: Http) {
 
@@ -117,5 +118,15 @@ export class ReferenceService {
         let __this = this;
 
         return this.http.request(__this.getAllJobXpLevelsUrl);
+    }
+
+    /**
+     * Listing all possible job xp levels
+     * @returns {Observable<Response>}
+     */
+    getAllCivilities() {
+        let __this = this;
+
+        return this.http.request(__this.getAllCivilitiesUrl);
     }
 }

@@ -70,6 +70,8 @@ Route::get('/alert_frequencies/all', 'ReferenceController@getAllAlertFrequencies
     ->name('getAllAlertFrequencies');
 Route::get('/business_types/all', 'ReferenceController@getAllBusinessTypes')
     ->name('getAllBusinessTypes');
+Route::get('/civilities/all', 'ReferenceController@getAllCivilities')
+    ->name('getAllCivilities');
 
 // Applications
 Route::get('/applications/all', 'UserController@getApplications')

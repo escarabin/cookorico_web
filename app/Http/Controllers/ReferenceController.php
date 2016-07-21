@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\AlertFrequency;
 use App\Models\BusinessType;
+use App\Models\Civility;
 use App\Models\ContractType;
 use App\Models\Diploma;
 use App\Models\JobNaming;
@@ -74,6 +75,12 @@ class ReferenceController extends Controller
         $jobXpLevels = JobXpLevel::all();
 
         return $jobXpLevels;
+    }
+
+    public function getAllCivilities() {
+        $civilities = Civility::all();
+
+        return $civilities;
     }
 
     public function getAllStates() {
