@@ -6,6 +6,9 @@ import { Response } from '@angular/http';
 // Components
 import { SignInComponent } from './sign-in.component';
 
+// Models
+import { User } from './../models/user';
+
 @Component({
     templateUrl: '../templates/header.component.html',
     selector: 'header',
@@ -21,9 +24,21 @@ export class HeaderComponent {
         this.user = JSON.parse(localStorage.getItem('user'));
     }
 
-    logout() {
-        localStorage.removeItem('user');
-        this.user = JSON.parse(localStorage.getItem('user'));
-        this.router.navigate(['Home']);
+    /**
+     * Function triggered after sign-in-component.ts's
+     * (userSignedIn) EventEmitter emitted something
+     * @param user
+     */
+    handleUserSignedIn(user: User) {
+        this.user = user;
+    }
+
+    /**
+     * Function triggered after sign-in-component.ts's
+     * (userSignedOut) EventEmitter emitted something
+     * @param user
+     */
+    handleUserSignedOut(user: User) {
+        this.user = [];
     }
 }

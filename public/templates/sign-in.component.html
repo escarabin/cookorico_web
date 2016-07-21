@@ -1,6 +1,14 @@
+<!-- User is not connected -->
 <li *ngIf="!user">
     <a (click)="signInModal.show()">
         Se connecter
+    </a>
+</li>
+
+<!-- User is connected -->
+<li *ngIf="user">
+    <a (click)="logout()">
+        Déconnexion
     </a>
 </li>
 

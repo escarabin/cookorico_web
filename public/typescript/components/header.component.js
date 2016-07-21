@@ -32,10 +32,21 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     this.router = router;
                     this.user = JSON.parse(localStorage.getItem('user'));
                 }
-                HeaderComponent.prototype.logout = function () {
-                    localStorage.removeItem('user');
-                    this.user = JSON.parse(localStorage.getItem('user'));
-                    this.router.navigate(['Home']);
+                /**
+                 * Function triggered after sign-in-component.ts's
+                 * (userSignedIn) EventEmitter emitted something
+                 * @param user
+                 */
+                HeaderComponent.prototype.handleUserSignedIn = function (user) {
+                    this.user = user;
+                };
+                /**
+                 * Function triggered after sign-in-component.ts's
+                 * (userSignedOut) EventEmitter emitted something
+                 * @param user
+                 */
+                HeaderComponent.prototype.handleUserSignedOut = function (user) {
+                    this.user = [];
                 };
                 HeaderComponent = __decorate([
                     core_1.Component({

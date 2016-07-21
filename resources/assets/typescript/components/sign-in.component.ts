@@ -30,7 +30,8 @@ export class SignInComponent {
     user: any;
     forgotPassword: boolean = false;
     loading: boolean = false;
-    @Output() userLoggedIn: EventEmitter = new EventEmitter();
+    @Output() userSignedIn: EventEmitter = new EventEmitter();
+    @Output() userSignedOut: EventEmitter = new EventEmitter();
 
     constructor (private userService: UserService,
                  private notificationService: NotificationsService,
@@ -48,9 +49,9 @@ export class SignInComponent {
                 // Logged in
                 localStorage.setItem('user', JSON.stringify(user));
 
-                this.user = JSON.parse(localStorage.getItem('user'));
+                __this.user = JSON.parse(localStorage.getItem('user'));
 
-                this.userLoggedIn.emit(this.user);
+                __this.userSignedIn.emit(this.user);
             }
             else {
                 __this.notificationService.show(
@@ -58,5 +59,13 @@ export class SignInComponent {
                 );
             }
         });
+    }
+
+    logout() {
+        localStorage.removeItem('user');
+        this.user = JSON.parse(localStorage.getItem('user'));
+        this.router.navigate(['Home']);
+
+        this.userSignedOut.emit('signing out');
     }
 }

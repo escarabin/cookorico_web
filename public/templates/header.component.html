@@ -14,7 +14,10 @@
                 </a>
             </li>
 
-            <sign-in></sign-in>
+            <sign-in (userSignedIn)="handleUserSignedIn($event)"
+                     (userSignedOut)="handleUserSignedOut($event)">
+
+            </sign-in>
 
             <li *ngIf="!user">
                 <a [routerLink]="['SignUp']">
@@ -22,12 +25,6 @@
                 </a>
             </li>
 
-            <!-- User is not connected -->
-            <li *ngIf="user">
-                <a (click)="logout()">
-                    Déconnexion
-                </a>
-            </li>
             <li *ngIf="user">
                 <a [routerLink]="['Profile']">
                     Mon compte
@@ -36,4 +33,3 @@
         </ul>
     </div>
 </div>
-

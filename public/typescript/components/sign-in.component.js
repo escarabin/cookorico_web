@@ -43,7 +43,8 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     this.router = router;
                     this.forgotPassword = false;
                     this.loading = false;
-                    this.userLoggedIn = new core_1.EventEmitter();
+                    this.userSignedIn = new core_1.EventEmitter();
+                    this.userSignedOut = new core_1.EventEmitter();
                     this.user = JSON.parse(localStorage.getItem('user'));
                 }
                 SignInComponent.prototype.login = function () {
@@ -54,18 +55,28 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                             var user = res.json();
                             // Logged in
                             localStorage.setItem('user', JSON.stringify(user));
-                            _this.user = JSON.parse(localStorage.getItem('user'));
-                            _this.userLoggedIn.emit(_this.user);
+                            __this.user = JSON.parse(localStorage.getItem('user'));
+                            __this.userSignedIn.emit(_this.user);
                         }
                         else {
                             __this.notificationService.show(new notification_1.Notification('error', 'Vos identifiants semblent incorrect, merci de rééssayer'));
                         }
                     });
                 };
+                SignInComponent.prototype.logout = function () {
+                    localStorage.removeItem('user');
+                    this.user = JSON.parse(localStorage.getItem('user'));
+                    this.router.navigate(['Home']);
+                    this.userSignedOut.emit('signing out');
+                };
                 __decorate([
                     core_1.Output(), 
                     __metadata('design:type', core_1.EventEmitter)
-                ], SignInComponent.prototype, "userLoggedIn", void 0);
+                ], SignInComponent.prototype, "userSignedIn", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', core_1.EventEmitter)
+                ], SignInComponent.prototype, "userSignedOut", void 0);
                 SignInComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../templates/sign-in.component.html',
