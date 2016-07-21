@@ -61,7 +61,7 @@
                 {{ job.description }}
             </div>
 
-            <new-application-form [jobId]="job.id" *ngIf="user.user_type_id == 3"></new-application-form>
+            <new-application-form [jobId]="job.id" *ngIf="user && user.user_type_id == 3"></new-application-form>
         </div>
     </div>
     <div class="col-md-3">
