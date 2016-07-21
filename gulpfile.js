@@ -16,7 +16,7 @@ elixir(function(mix) {
     mix.copy('node_modules/moment', 'public/moment');
     mix.copy('node_modules/angular2-notifications', 'public/angular2-notifications');
     mix.copy('systemjs.config.js', 'public/systemjs.config.js');
-    mix.copy('ng2-ckeditor', 'public/ng2-ckeditor');
+    mix.copy('node_modules/ng2-ckeditor', 'public/ng2-ckeditor');
 
     mix.typescript('app.js','public/','/**/*.ts',{
         "target": "ES5",

@@ -54,6 +54,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.createAlertUrl = '/alert/create';
                     this.getAlertUrl = '/alert';
                     this.saveAlertChangesUrl = '/alert/save_changes/';
+                    this.createUserUrl = '/user/create';
                 }
                 /**
                  * Sign user in
@@ -64,6 +65,23 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.login = function (email, password) {
                     var __this = this;
                     return this.http.get(__this.signInUrl + email + '/' + password);
+                };
+                /**
+                 * Create a new user
+                 * @param user
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.createUser = function (user) {
+                    var __this = this;
+                    return this.http.get(__this.createUserUrl + '/' +
+                        user.email + '/' +
+                        user.password + '/' +
+                        user.firstName + '/' +
+                        user.lastName + '/' +
+                        user.phone + '/' +
+                        user.birth_date + '/' +
+                        user.user_type_id + '/' +
+                        user.civility_id);
                 };
                 /**
                  * Get user's job applications

@@ -93,7 +93,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Study');
     }
-    
+
     /**
      * Get user's new job alerts
      */

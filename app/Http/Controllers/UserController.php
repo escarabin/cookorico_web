@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Job;
 use Auth;
 use Log;
+use Hash;
 
 use App\Models\User;
 use App\Models\Application;
@@ -36,6 +37,43 @@ class UserController extends Controller
             // Authentication passed...
             return $user;
         }
+    }
+
+    /**
+     * Create new user
+     * @param $email
+     * @param $password
+     * @param $firstName
+     * @param $lastName
+     * @param $phone
+     * @param $birth_date
+     * @param $user_type_id
+     * @param $civility_id
+     * @param $user_status_id
+     * @return User
+     */
+    public function createUser($email,
+                               $password,
+                               $firstName,
+                               $lastName,
+                               $phone,
+                               $birthDate,
+                               $user_type_id,
+                               $civility_id) {
+        $user = new User();
+
+        $user->email = $email;
+        $user->password = Hash::make($password);
+        $user->firstName = $firstName;
+        $user->lastName = $lastName;
+        $user->phone = $phone;
+        $user->birthDate = $birthDate;
+        $user->user_type_id = $user_type_id;
+        $user->civility_id = $civility_id;
+
+        $user->save();
+
+        return $user;
     }
 
     /**

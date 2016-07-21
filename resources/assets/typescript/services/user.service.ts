@@ -7,6 +7,7 @@ import { NotificationsService } from './notification.service';
 
 // Models
 import { Notification } from './../models/notification';
+import { User } from './../models/user';
 
 @Injectable()
 export class UserService {
@@ -32,6 +33,7 @@ export class UserService {
     createAlertUrl = '/alert/create';
     getAlertUrl = '/alert';
     saveAlertChangesUrl = '/alert/save_changes/';
+    createUserUrl = '/user/create';
 
     constructor(private http: Http,
                 private notificationService: NotificationsService) {
@@ -44,11 +46,29 @@ export class UserService {
      * @param password
      * @returns {Observable<Response>}
      */
-
     login(email, password) {
         let __this = this;
 
         return this.http.get(__this.signInUrl + email + '/' + password);
+    }
+
+    /**
+     * Create a new user
+     * @param user
+     * @returns {Observable<Response>}
+     */
+    createUser(user: User) {
+        let __this = this;
+
+        return this.http.get(__this.createUserUrl + '/' +
+                            user.email + '/' +
+                            user.password + '/' +
+                            user.firstName + '/' +
+                            user.lastName + '/' +
+                            user.phone + '/' +
+                            user.birth_date + '/' +
+                            user.user_type_id + '/' +
+                            user.civility_id);
     }
 
     /**

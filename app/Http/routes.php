@@ -15,9 +15,9 @@ Route::get('/', 'HomeController@show')
     ->name('home');
 
 Route::get('/profile/{userId}', 'UserController@showProfile')
-    ->name('profile');
-Route::get('/pricing', 'PricingControl@showProfile')
-    ->name('profile');
+    ->name('showProfile');
+Route::get('/pricing', 'PricingControl@show')
+    ->name('showPricing');
 
 // Jobs
 Route::get('/job/{id}', 'JobController@get')
@@ -36,8 +36,8 @@ Route::get('/job-post/create/{title}/{description}/{is_hosting_employee}/{is_urg
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
     ->name('signIn');
-Route::get('/sign-up', 'UserController@signUp')
-    ->name('signup');
+Route::get('/user/create/{email}/{password}/{firstName}/{lastName}/{phone}/{birthDate}/{user_type_id}/{civility_id}', 'UserController@createUser')
+    ->name('createUser');
 Route::get('/user/businesses/', 'UserController@getBusinesses')
     ->name('getAllUserBusinesses');
 
