@@ -39,8 +39,10 @@ System.register(['@angular/core', './../services/business.service', './../servic
                     this.isGooglePlaceInput = false;
                     this.businessIdChange = new core_1.EventEmitter();
                     var __this = this;
+                    /**
+                     * Check if we have to show only user's businesses in select options
+                     */
                     if (this.onlyUserBusinesses) {
-                        console.log('only user businesses');
                         userService.getBusinesses().subscribe(function (res) {
                             __this.businesses = res.json();
                         });
@@ -53,7 +55,6 @@ System.register(['@angular/core', './../services/business.service', './../servic
                 }
                 BusinessSelectComponent.prototype.parseAdress = function (place) {
                     var __this = this;
-                    console.log(place);
                     // Save selected place data for further use
                     this.placeService.save(place).subscribe(function (res) {
                         __this.businessId = res.json()['id'];

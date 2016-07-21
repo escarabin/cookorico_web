@@ -248,7 +248,7 @@ export class UserService {
             businessId + '/' +
             startDate + '/' +
             endDate + '/' +
-            description).catch(this.handleError("", __this.notificationService));
+            description).catch(__this.handleError("", __this.notificationService));
     }
 
     /**
@@ -342,11 +342,14 @@ export class UserService {
 
         console.log(__this, __this.notificationService);
 
-        let errMsg = (error.message) ? error.message :
-            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+        let errMsg = (error.message) ? error.message : error.status;
+
+        if (!errMsg) {
+            errMsg = 'Une erreur inconnue s\'est produite, veuillez rééssayer';
+        }
 
         notificationService.show(
-            new Notification('error', 'Une erreur inconnue s\'est produite, veuillez rééssayer')
+            new Notification('error', errMsg)
         );
 
         console.error(errMsg); // log to console instead

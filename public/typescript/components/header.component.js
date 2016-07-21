@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', 'ng2-bootstrap', './../services/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', './sign-in.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, router_deprecated_1, ng2_bootstrap_1, user_service_1;
+    var core_1, common_1, router_deprecated_1, sign_in_component_1;
     var HeaderComponent;
     return {
         setters:[
@@ -23,37 +23,15 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
             },
-            function (ng2_bootstrap_1_1) {
-                ng2_bootstrap_1 = ng2_bootstrap_1_1;
-            },
-            function (user_service_1_1) {
-                user_service_1 = user_service_1_1;
+            function (sign_in_component_1_1) {
+                sign_in_component_1 = sign_in_component_1_1;
             }],
         execute: function() {
             HeaderComponent = (function () {
-                function HeaderComponent(userService, router) {
-                    this.userService = userService;
+                function HeaderComponent(router) {
                     this.router = router;
-                    this.forgotPassword = false;
-                    this.loading = false;
                     this.user = JSON.parse(localStorage.getItem('user'));
                 }
-                HeaderComponent.prototype.login = function () {
-                    var _this = this;
-                    var __this = this;
-                    this.userService.login(__this.email, __this.password).subscribe(function (res) {
-                        var user = res.json();
-                        if (res.json()) {
-                            // Logged in
-                            localStorage.setItem('user', JSON.stringify(user));
-                        }
-                        else {
-                            // Failed signing in, clear user object in localStorage
-                            localStorage.removeItem('user');
-                        }
-                        _this.user = JSON.parse(localStorage.getItem('user'));
-                    });
-                };
                 HeaderComponent.prototype.logout = function () {
                     localStorage.removeItem('user');
                     this.user = JSON.parse(localStorage.getItem('user'));
@@ -63,13 +41,11 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     core_1.Component({
                         templateUrl: '../templates/header.component.html',
                         selector: 'header',
-                        providers: [user_service_1.UserService],
-                        viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
                         directives: [router_deprecated_1.RouterLink,
-                            ng2_bootstrap_1.MODAL_DIRECTIVES,
+                            sign_in_component_1.SignInComponent,
                             common_1.CORE_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.Router])
+                    __metadata('design:paramtypes', [router_deprecated_1.Router])
                 ], HeaderComponent);
                 return HeaderComponent;
             }());

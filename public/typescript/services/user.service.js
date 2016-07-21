@@ -226,7 +226,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                         businessId + '/' +
                         startDate + '/' +
                         endDate + '/' +
-                        description).catch(this.handleError("", __this.notificationService));
+                        description).catch(__this.handleError("", __this.notificationService));
                 };
                 /**
                  * Update existing work experience
@@ -305,9 +305,11 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.handleError = function (error, notificationService) {
                     var __this = this;
                     console.log(__this, __this.notificationService);
-                    var errMsg = (error.message) ? error.message :
-                        error.status ? error.status + " - " + error.statusText : 'Server error';
-                    notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue s\'est produite, veuillez rééssayer'));
+                    var errMsg = (error.message) ? error.message : error.status;
+                    if (!errMsg) {
+                        errMsg = 'Une erreur inconnue s\'est produite, veuillez rééssayer';
+                    }
+                    notificationService.show(new notification_1.Notification('error', errMsg));
                     console.error(errMsg); // log to console instead
                 };
                 UserService = __decorate([

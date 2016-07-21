@@ -31,8 +31,10 @@ export class BusinessSelectComponent {
                 private userService: UserService) {
         let __this = this;
 
+        /**
+         * Check if we have to show only user's businesses in select options
+         */
         if (this.onlyUserBusinesses) {
-            console.log('only user businesses');
             userService.getBusinesses().subscribe((res: Response) => {
                 __this.businesses = res.json();
             })
@@ -46,8 +48,6 @@ export class BusinessSelectComponent {
 
     parseAdress(place: Object) {
         let __this = this;
-
-        console.log(place);
 
         // Save selected place data for further use
         this.placeService.save(place).subscribe((res: Response) => {

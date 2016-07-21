@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             $user = User::where('email', $email)->first();
-            
+
             // Authentication passed
             // Necesseray Laravel's workaround to return relationship values inside JSON
             $user->plans = $user->plans;
