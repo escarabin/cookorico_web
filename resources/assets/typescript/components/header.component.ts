@@ -3,7 +3,7 @@ import { CORE_DIRECTIVES } from '@angular/common';
 import { Router, RouterLink } from '@angular/router-deprecated';
 import { Response } from '@angular/http';
 
-import { MODAL_DIRECTVES, BS_VIEW_PROVIDERS } from 'ng2-bootstrap';
+import { MODAL_DIRECTIVES, BS_VIEW_PROVIDERS } from 'ng2-bootstrap';
 
 // Services
 import { UserService } from './../services/user.service'
@@ -14,7 +14,7 @@ import { UserService } from './../services/user.service'
     providers: [UserService],
     viewProviders:[BS_VIEW_PROVIDERS],
     directives: [RouterLink,
-                 MODAL_DIRECTVES,
+                 MODAL_DIRECTIVES,
                  CORE_DIRECTIVES]
 })
 

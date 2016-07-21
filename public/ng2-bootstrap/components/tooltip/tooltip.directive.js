@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var tooltip_options_class_1 = require('./tooltip-options.class');
 var tooltip_container_component_1 = require('./tooltip-container.component');
+/* tslint:disable */
 var TooltipDirective = (function () {
     function TooltipDirective(viewContainerRef, loader) {
         this.placement = 'top';
@@ -29,9 +30,11 @@ var TooltipDirective = (function () {
         this.visible = true;
         var options = new tooltip_options_class_1.TooltipOptions({
             content: this.content,
+            htmlContent: this.htmlContent,
             placement: this.placement,
             animation: this.animation,
-            hostEl: this.viewContainerRef.element
+            hostEl: this.viewContainerRef.element,
+            popupClass: this.popupClass
         });
         var binding = core_1.ReflectiveInjector.resolve([
             new core_1.Provider(tooltip_options_class_1.TooltipOptions, { useValue: options })
@@ -58,6 +61,10 @@ var TooltipDirective = (function () {
         __metadata('design:type', String)
     ], TooltipDirective.prototype, "content", void 0);
     __decorate([
+        core_1.Input('tooltipHtml'), 
+        __metadata('design:type', String)
+    ], TooltipDirective.prototype, "htmlContent", void 0);
+    __decorate([
         core_1.Input('tooltipPlacement'), 
         __metadata('design:type', String)
     ], TooltipDirective.prototype, "placement", void 0);
@@ -78,6 +85,10 @@ var TooltipDirective = (function () {
         __metadata('design:type', Boolean)
     ], TooltipDirective.prototype, "appendToBody", void 0);
     __decorate([
+        core_1.Input('tooltipClass'), 
+        __metadata('design:type', String)
+    ], TooltipDirective.prototype, "popupClass", void 0);
+    __decorate([
         core_1.HostListener('focusin', ['$event', '$target']),
         core_1.HostListener('mouseenter', ['$event', '$target']), 
         __metadata('design:type', Function), 
@@ -92,7 +103,7 @@ var TooltipDirective = (function () {
         __metadata('design:returntype', void 0)
     ], TooltipDirective.prototype, "hide", null);
     TooltipDirective = __decorate([
-        core_1.Directive({ selector: '[tooltip]' }), 
+        core_1.Directive({ selector: '[tooltip], [tooltipHtml]' }), 
         __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.DynamicComponentLoader])
     ], TooltipDirective);
     return TooltipDirective;

@@ -31,6 +31,7 @@ var core_1 = require('@angular/core');
 // when https://github.com/angular/angular/issues/5984 will be fixed
 // TODO: remove ElementRef
 // TODO: add on change
+// TODO: #576 add callbacks: expanding, expanded, collapsing, collapsed
 var CollapseDirective = (function () {
     function CollapseDirective(/*_ab:AnimationBuilder, */ _el, _renderer) {
         // shown
@@ -77,6 +78,7 @@ var CollapseDirective = (function () {
         this.isCollapsed = true;
         this.isCollapse = true;
         this.isCollapsing = false;
+        this.display = 'none';
         /*  setTimeout(() => {
               // this.height = '0';
               // this.isCollapse = true;
@@ -106,7 +108,7 @@ var CollapseDirective = (function () {
         this.isCollapsing = true;
         this.isExpanded = true;
         this.isCollapsed = false;
-        this.display = '';
+        this.display = 'block';
         // this.height = 'auto';
         this.isCollapse = true;
         this.isCollapsing = false;

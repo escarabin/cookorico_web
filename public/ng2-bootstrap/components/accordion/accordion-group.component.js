@@ -21,6 +21,7 @@ var AccordionPanelComponent = (function () {
         this.accordion = accordion;
     }
     Object.defineProperty(AccordionPanelComponent.prototype, "isOpen", {
+        // Questionable, maybe .panel-open should be on child div.panel element?
         get: function () {
             return this._isOpen;
         },

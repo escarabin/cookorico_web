@@ -13,6 +13,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var paginationConfig = {
     maxSize: void 0,
     itemsPerPage: 10,
@@ -263,7 +264,7 @@ var PaginationComponent = (function () {
             directives: [common_1.NgFor, common_1.NgIf]
         }),
         __param(0, core_1.Self()), 
-        __metadata('design:paramtypes', [common_1.NgModel, core_1.Renderer, core_1.ElementRef])
+        __metadata('design:paramtypes', [forms_1.NgModel, core_1.Renderer, core_1.ElementRef])
     ], PaginationComponent);
     return PaginationComponent;
 }());

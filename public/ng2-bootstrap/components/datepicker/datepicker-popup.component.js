@@ -13,6 +13,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var position_1 = require('../position');
 var datepicker_component_1 = require('./datepicker.component');
 // import {DatePickerInner} from './datepicker-inner';
@@ -73,7 +74,7 @@ var PopupContainerComponent = (function () {
             selector: 'popup-container',
             events: ['update1'],
             template: "\n    <ul class=\"dropdown-menu\"\n        style=\"display: block\"\n        [ngStyle]=\"{top: top, left: left, display: display}\"\n        [ngClass]=\"classMap\">\n        <li>\n             <datepicker (cupdate)=\"onUpdate($event)\" *ngIf=\"popupComp\" [(ngModel)]=\"popupComp.cd.model\" [show-weeks]=\"true\"></datepicker>\n        </li>\n        <li *ngIf=\"showButtonBar\" style=\"padding:10px 9px 2px\">\n            <span class=\"btn-group pull-left\">\n                 <button type=\"button\" class=\"btn btn-sm btn-info\" (click)=\"select('today')\" ng-disabled=\"isDisabled('today')\">{{ getText('current') }}</button>\n                 <button type=\"button\" class=\"btn btn-sm btn-danger\" (click)=\"select(null)\">{{ getText('clear') }}</button>\n            </span>\n            <button type=\"button\" class=\"btn btn-sm btn-success pull-right\" (click)=\"close()\">{{ getText('close') }}</button>\n        </li>\n    </ul>",
-            directives: [common_1.NgClass, common_1.NgStyle, datepicker_component_1.DatePickerComponent, common_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES],
+            directives: [common_1.NgClass, common_1.NgStyle, datepicker_component_1.DatePickerComponent, forms_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
         __metadata('design:paramtypes', [core_1.ElementRef, PopupOptions])
@@ -161,7 +162,7 @@ var DatePickerPopupDirective = (function () {
              host: {'(cupdate)': 'onUpdate1($event)'}*/
         }),
         __param(0, core_1.Self()), 
-        __metadata('design:paramtypes', [common_1.NgModel, core_1.ViewContainerRef, core_1.Renderer, core_1.DynamicComponentLoader])
+        __metadata('design:paramtypes', [forms_1.NgModel, core_1.ViewContainerRef, core_1.Renderer, core_1.DynamicComponentLoader])
     ], DatePickerPopupDirective);
     return DatePickerPopupDirective;
 }());

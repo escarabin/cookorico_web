@@ -36,6 +36,9 @@ var TooltipContainerComponent = (function () {
         if (this.animation) {
             this.classMap.fade = true;
         }
+        if (this.popupClass) {
+            this.classMap[this.popupClass] = true;
+        }
         this.cdr.detectChanges();
     };
     TooltipContainerComponent = __decorate([
@@ -43,7 +46,7 @@ var TooltipContainerComponent = (function () {
             selector: 'tooltip-container',
             directives: [common_1.NgClass, common_1.NgStyle],
             // changeDetection: ChangeDetectionStrategy.OnPush,
-            template: "<div class=\"tooltip\" role=\"tooltip\"\n     [ngStyle]=\"{top: top, left: left, display: display}\"\n     [ngClass]=\"classMap\">\n      <div class=\"tooltip-arrow\"></div>\n      <div class=\"tooltip-inner\">\n        {{content}}\n      </div>\n    </div>"
+            template: "<div class=\"tooltip\" role=\"tooltip\"\n     [ngStyle]=\"{top: top, left: left, display: display}\"\n     [ngClass]=\"classMap\">\n      <div class=\"tooltip-arrow\"></div>\n      <div class=\"tooltip-inner\"\n           *ngIf=\"htmlContent\" \n           innerHtml=\"{{htmlContent}}\">\n      </div>\n      <div class=\"tooltip-inner\"\n           *ngIf=\"content\">\n        {{content}}\n      </div>\n    </div>"
         }),
         __param(2, core_1.Inject(tooltip_options_class_1.TooltipOptions)), 
         __metadata('design:paramtypes', [core_1.ElementRef, core_1.ChangeDetectorRef, tooltip_options_class_1.TooltipOptions])

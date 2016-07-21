@@ -13,6 +13,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var datepicker_inner_component_1 = require('./datepicker-inner.component');
 var daypicker_component_1 = require('./daypicker.component');
 var monthpicker_component_1 = require('./monthpicker.component');
@@ -21,6 +22,7 @@ var yearpicker_component_1 = require('./yearpicker.component');
 /* tslint:disable:component-selector-name component-selector-type */
 var DatePickerComponent = (function () {
     function DatePickerComponent(cd) {
+        this.selectionDone = new core_1.EventEmitter(undefined);
         this.onChange = Function.prototype;
         this.onTouched = Function.prototype;
         this._now = new Date();
@@ -41,6 +43,9 @@ var DatePickerComponent = (function () {
     DatePickerComponent.prototype.onUpdate = function (event) {
         this.writeValue(event);
         this.cd.viewToModelUpdate(event);
+    };
+    DatePickerComponent.prototype.onSelectionDone = function (event) {
+        this.selectionDone.emit(event);
     };
     // todo: support null value
     DatePickerComponent.prototype.writeValue = function (value) {
@@ -140,18 +145,22 @@ var DatePickerComponent = (function () {
         __metadata('design:type', Object)
     ], DatePickerComponent.prototype, "dateDisabled", void 0);
     __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], DatePickerComponent.prototype, "selectionDone", void 0);
+    __decorate([
         core_1.Input(), 
         __metadata('design:type', Date)
     ], DatePickerComponent.prototype, "activeDate", null);
     DatePickerComponent = __decorate([
         core_1.Component({
             selector: 'datepicker[ngModel]',
-            template: "\n    <datepicker-inner [activeDate]=\"activeDate\"\n                      (update)=\"onUpdate($event)\"\n                      [datepickerMode]=\"datepickerMode\"\n                      [initDate]=\"initDate\"\n                      [minDate]=\"minDate\"\n                      [maxDate]=\"maxDate\"\n                      [minMode]=\"minMode\"\n                      [maxMode]=\"maxMode\"\n                      [showWeeks]=\"showWeeks\"\n                      [formatDay]=\"formatDay\"\n                      [formatMonth]=\"formatMonth\"\n                      [formatYear]=\"formatYear\"\n                      [formatDayHeader]=\"formatDayHeader\"\n                      [formatDayTitle]=\"formatDayTitle\"\n                      [formatMonthTitle]=\"formatMonthTitle\"\n                      [startingDay]=\"startingDay\"\n                      [yearRange]=\"yearRange\"\n                      [customClass]=\"customClass\"\n                      [dateDisabled]=\"dateDisabled\"\n                      [templateUrl]=\"templateUrl\"\n                      [onlyCurrentMonth]=\"onlyCurrentMonth\"\n                      [shortcutPropagation]=\"shortcutPropagation\">\n      <daypicker tabindex=\"0\"></daypicker>\n      <monthpicker tabindex=\"0\"></monthpicker>\n      <yearpicker tabindex=\"0\"></yearpicker>\n    </datepicker-inner>\n    ",
+            template: "\n    <datepicker-inner [activeDate]=\"activeDate\"\n                      (update)=\"onUpdate($event)\"\n                      [datepickerMode]=\"datepickerMode\"\n                      [initDate]=\"initDate\"\n                      [minDate]=\"minDate\"\n                      [maxDate]=\"maxDate\"\n                      [minMode]=\"minMode\"\n                      [maxMode]=\"maxMode\"\n                      [showWeeks]=\"showWeeks\"\n                      [formatDay]=\"formatDay\"\n                      [formatMonth]=\"formatMonth\"\n                      [formatYear]=\"formatYear\"\n                      [formatDayHeader]=\"formatDayHeader\"\n                      [formatDayTitle]=\"formatDayTitle\"\n                      [formatMonthTitle]=\"formatMonthTitle\"\n                      [startingDay]=\"startingDay\"\n                      [yearRange]=\"yearRange\"\n                      [customClass]=\"customClass\"\n                      [dateDisabled]=\"dateDisabled\"\n                      [templateUrl]=\"templateUrl\"\n                      [onlyCurrentMonth]=\"onlyCurrentMonth\"\n                      [shortcutPropagation]=\"shortcutPropagation\"\n                      (selectionDone)=\"onSelectionDone($event)\">\n      <daypicker tabindex=\"0\"></daypicker>\n      <monthpicker tabindex=\"0\"></monthpicker>\n      <yearpicker tabindex=\"0\"></yearpicker>\n    </datepicker-inner>\n    ",
             directives: [datepicker_inner_component_1.DatePickerInnerComponent, daypicker_component_1.DayPickerComponent, monthpicker_component_1.MonthPickerComponent, yearpicker_component_1.YearPickerComponent,
-                common_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES]
+                forms_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES]
         }),
         __param(0, core_1.Self()), 
-        __metadata('design:paramtypes', [common_1.NgModel])
+        __metadata('design:paramtypes', [forms_1.NgModel])
     ], DatePickerComponent);
     return DatePickerComponent;
 }());

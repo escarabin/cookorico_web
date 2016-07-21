@@ -113,15 +113,18 @@ var TypeaheadContainerComponent = (function () {
         return this._active === value;
     };
     TypeaheadContainerComponent.prototype.selectMatch = function (value, e) {
+        var _this = this;
         if (e === void 0) { e = void 0; }
         if (e) {
             e.stopPropagation();
             e.preventDefault();
         }
         this.parent.changeModel(value);
-        this.parent.typeaheadOnSelect.emit({
-            item: value
-        });
+        setTimeout(function () {
+            return _this.parent.typeaheadOnSelect.emit({
+                item: value
+            });
+        }, 0);
         return false;
     };
     TypeaheadContainerComponent = __decorate([

@@ -19,7 +19,7 @@ var MouseEvent = lang_1.global.MouseEvent;
 /* tslint:enable */
 var DropdownToggleDirective = (function () {
     function DropdownToggleDirective(dropdown, el) {
-        this.disabled = false;
+        this.isDisabled = false;
         this.addClass = true;
         this.dropdown = dropdown;
         this.el = el;
@@ -36,7 +36,7 @@ var DropdownToggleDirective = (function () {
     });
     DropdownToggleDirective.prototype.toggleDropdown = function (event) {
         event.stopPropagation();
-        if (!this.disabled) {
+        if (!this.isDisabled) {
             this.dropdown.toggle();
         }
         return false;
@@ -45,7 +45,7 @@ var DropdownToggleDirective = (function () {
         core_1.HostBinding('class.disabled'),
         core_1.Input(), 
         __metadata('design:type', Boolean)
-    ], DropdownToggleDirective.prototype, "disabled", void 0);
+    ], DropdownToggleDirective.prototype, "isDisabled", void 0);
     __decorate([
         core_1.HostBinding('class.dropdown-toggle'),
         core_1.HostBinding('attr.aria-haspopup'), 

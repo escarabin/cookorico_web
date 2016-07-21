@@ -16,7 +16,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var lang_1 = require('@angular/core/src/facade/lang');
-var platform_browser_1 = require('@angular/platform-browser');
 var modal_backdrop_component_1 = require('./modal-backdrop.component');
 var modal_options_class_1 = require('./modal-options.class');
 var components_helper_service_1 = require('../utils/components-helper.service');
@@ -24,7 +23,7 @@ var utils_class_1 = require('../utils/utils.class');
 var TRANSITION_DURATION = 300;
 var BACKDROP_TRANSITION_DURATION = 150;
 var ModalDirective = (function () {
-    function ModalDirective(element, renderer, document, componentsHelper) {
+    function ModalDirective(element, renderer, componentsHelper) {
         this.onShow = new core_1.EventEmitter();
         this.onShown = new core_1.EventEmitter();
         this.onHide = new core_1.EventEmitter();
@@ -33,12 +32,10 @@ var ModalDirective = (function () {
         this.isAnimated = true;
         this._isShown = false;
         this.isBodyOverflowing = false;
-        this.ignoreBackdropClick = false;
         this.originalBodyPadding = 0;
         this.scrollbarWidth = 0;
         this.element = element;
         this.renderer = renderer;
-        this.document = document;
         this.componentsHelper = componentsHelper;
     }
     Object.defineProperty(ModalDirective.prototype, "config", {
@@ -59,12 +56,21 @@ var ModalDirective = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(ModalDirective.prototype, "document", {
+        get: function () {
+            return this.componentsHelper.getDocument();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /** Host element manipulations */
     // @HostBinding(`class.${ClassName.IN}`) private _addClassIn:boolean;
     ModalDirective.prototype.onClick = function (event) {
-        if (event.target === this.element.nativeElement) {
-            this.hide(event);
+        if (this.config.ignoreBackdropClick || this.config.backdrop === 'static' || event.target !== this.element.nativeElement) {
+            return;
         }
+        this.hide(event);
     };
     // todo: consider preventing default and stopping propagation
     ModalDirective.prototype.onEsc = function () {
@@ -79,10 +85,8 @@ var ModalDirective = (function () {
         // this._backdrop            = null
         this._isShown = void 0;
         this.isBodyOverflowing = void 0;
-        this.ignoreBackdropClick = void 0;
         this.originalBodyPadding = void 0;
         this.scrollbarWidth = void 0;
-        this.document = void 0;
     };
     ModalDirective.prototype.ngAfterViewInit = function () {
         this._config = this._config || this.getConfig();
@@ -182,7 +186,7 @@ var ModalDirective = (function () {
     // todo: original show was calling a callback when done, but we can use promise
     ModalDirective.prototype.showBackdrop = function (callback) {
         var _this = this;
-        if (this._isShown && modal_options_class_1.modalConfigDefaults.backdrop) {
+        if (this._isShown && this.config.backdrop) {
             this.backdrop = this.componentsHelper
                 .appendNextToRoot(modal_backdrop_component_1.ModalBackdropComponent, modal_backdrop_component_1.ModalBackdropOptions, new modal_backdrop_component_1.ModalBackdropOptions({ animate: false }));
             this.backdrop.then(function (backdrop) {
@@ -326,9 +330,8 @@ var ModalDirective = (function () {
             selector: '[bsModal]',
             exportAs: 'bs-modal'
         }),
-        __param(2, core_1.Inject(platform_browser_1.DOCUMENT)),
-        __param(3, core_1.Inject(components_helper_service_1.ComponentsHelper)), 
-        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, Object, components_helper_service_1.ComponentsHelper])
+        __param(2, core_1.Inject(components_helper_service_1.ComponentsHelper)), 
+        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, components_helper_service_1.ComponentsHelper])
     ], ModalDirective);
     return ModalDirective;
 }());

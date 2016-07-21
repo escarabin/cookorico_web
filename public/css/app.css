@@ -340,8 +340,7 @@ can be found in the LICENSE file at http://angular.io/license
   border-radius: 4px;
   background-color: #1a1f38;
   color: white;
-  border: none;
-  height: 40px; }
+  border: none; }
 
 header {
   width: 100%;
@@ -414,7 +413,8 @@ home .heading .job-search select {
   border-right: 1px solid #333438; }
 
 home .heading .find-btn {
-  width: 100%; }
+  width: 100%;
+  height: 40px; }
 
 job {
   padding-top: 150px;
@@ -616,6 +616,12 @@ user-sidebar .plan .plan-credits, user-sidebar .plan .plan-contacts {
 
 applications {
   display: block; }
+
+sign-up {
+  padding-top: 150px;
+  display: block;
+  background: white;
+  border-radius: 4px; }
 
 job-search-sidebar h3 {
   cursor: pointer;

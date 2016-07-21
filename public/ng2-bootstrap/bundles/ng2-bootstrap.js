@@ -224,7 +224,7 @@ System.registerDynamic("ng2-bootstrap/components/alert", ["./alert/alert.compone
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/buttons/button-checkbox.directive", ["@angular/core", "@angular/common"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/buttons/button-checkbox.directive", ["@angular/core", "@angular/forms"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -252,7 +252,7 @@ System.registerDynamic("ng2-bootstrap/components/buttons/button-checkbox.directi
     };
   };
   var core_1 = $__require('@angular/core');
-  var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var ButtonCheckboxDirective = (function() {
     function ButtonCheckboxDirective(cd) {
       this.state = false;
@@ -300,14 +300,14 @@ System.registerDynamic("ng2-bootstrap/components/buttons/button-checkbox.directi
     __decorate([core_1.Input(), __metadata('design:type', Object)], ButtonCheckboxDirective.prototype, "btnCheckboxFalse", void 0);
     __decorate([core_1.HostBinding('class.active'), __metadata('design:type', Boolean)], ButtonCheckboxDirective.prototype, "state", void 0);
     __decorate([core_1.HostListener('click'), __metadata('design:type', Function), __metadata('design:paramtypes', []), __metadata('design:returntype', void 0)], ButtonCheckboxDirective.prototype, "onClick", null);
-    ButtonCheckboxDirective = __decorate([core_1.Directive({selector: '[btnCheckbox][ngModel]'}), __param(0, core_1.Self()), __metadata('design:paramtypes', [common_1.NgModel])], ButtonCheckboxDirective);
+    ButtonCheckboxDirective = __decorate([core_1.Directive({selector: '[btnCheckbox][ngModel]'}), __param(0, core_1.Self()), __metadata('design:paramtypes', [forms_1.NgModel])], ButtonCheckboxDirective);
     return ButtonCheckboxDirective;
   }());
   exports.ButtonCheckboxDirective = ButtonCheckboxDirective;
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/buttons/button-radio.directive", ["@angular/core", "@angular/common"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/buttons/button-radio.directive", ["@angular/core", "@angular/forms"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -335,7 +335,7 @@ System.registerDynamic("ng2-bootstrap/components/buttons/button-radio.directive"
     };
   };
   var core_1 = $__require('@angular/core');
-  var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var ButtonRadioDirective = (function() {
     function ButtonRadioDirective(cd, el) {
       this.onChange = Function.prototype;
@@ -383,7 +383,7 @@ System.registerDynamic("ng2-bootstrap/components/buttons/button-radio.directive"
     __decorate([core_1.Input(), __metadata('design:type', Boolean)], ButtonRadioDirective.prototype, "uncheckable", void 0);
     __decorate([core_1.HostBinding('class.active'), __metadata('design:type', Boolean)], ButtonRadioDirective.prototype, "isActive", null);
     __decorate([core_1.HostListener('click'), __metadata('design:type', Function), __metadata('design:paramtypes', []), __metadata('design:returntype', void 0)], ButtonRadioDirective.prototype, "onClick", null);
-    ButtonRadioDirective = __decorate([core_1.Directive({selector: '[btnRadio][ngModel]'}), __param(0, core_1.Self()), __metadata('design:paramtypes', [common_1.NgModel, core_1.ElementRef])], ButtonRadioDirective);
+    ButtonRadioDirective = __decorate([core_1.Directive({selector: '[btnRadio][ngModel]'}), __param(0, core_1.Self()), __metadata('design:paramtypes', [forms_1.NgModel, core_1.ElementRef])], ButtonRadioDirective);
     return ButtonRadioDirective;
   }());
   exports.ButtonRadioDirective = ButtonRadioDirective;
@@ -704,13 +704,14 @@ System.registerDynamic("ng2-bootstrap/components/collapse/collapse.directive", [
       this.isCollapsed = true;
       this.isCollapse = true;
       this.isCollapsing = false;
+      this.display = 'none';
     };
     CollapseDirective.prototype.show = function() {
       this.isCollapse = false;
       this.isCollapsing = true;
       this.isExpanded = true;
       this.isCollapsed = false;
-      this.display = '';
+      this.display = 'block';
       this.isCollapse = true;
       this.isCollapsing = false;
       this._renderer.setElementStyle(this._el.nativeElement, 'overflow', 'visible');
@@ -740,7 +741,7 @@ System.registerDynamic("ng2-bootstrap/components/collapse", ["./collapse/collaps
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-popup.component", ["@angular/core", "@angular/common", "../position", "./datepicker.component"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-popup.component", ["@angular/core", "@angular/common", "@angular/forms", "../position", "./datepicker.component"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -769,6 +770,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-popup.com
   };
   var core_1 = $__require('@angular/core');
   var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var position_1 = $__require('../position');
   var datepicker_component_1 = $__require('./datepicker.component');
   var PopupOptions = (function() {
@@ -821,7 +823,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-popup.com
       selector: 'popup-container',
       events: ['update1'],
       template: "\n    <ul class=\"dropdown-menu\"\n        style=\"display: block\"\n        [ngStyle]=\"{top: top, left: left, display: display}\"\n        [ngClass]=\"classMap\">\n        <li>\n             <datepicker (cupdate)=\"onUpdate($event)\" *ngIf=\"popupComp\" [(ngModel)]=\"popupComp.cd.model\" [show-weeks]=\"true\"></datepicker>\n        </li>\n        <li *ngIf=\"showButtonBar\" style=\"padding:10px 9px 2px\">\n            <span class=\"btn-group pull-left\">\n                 <button type=\"button\" class=\"btn btn-sm btn-info\" (click)=\"select('today')\" ng-disabled=\"isDisabled('today')\">{{ getText('current') }}</button>\n                 <button type=\"button\" class=\"btn btn-sm btn-danger\" (click)=\"select(null)\">{{ getText('clear') }}</button>\n            </span>\n            <button type=\"button\" class=\"btn btn-sm btn-success pull-right\" (click)=\"close()\">{{ getText('close') }}</button>\n        </li>\n    </ul>",
-      directives: [common_1.NgClass, common_1.NgStyle, datepicker_component_1.DatePickerComponent, common_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES],
+      directives: [common_1.NgClass, common_1.NgStyle, datepicker_component_1.DatePickerComponent, forms_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES],
       encapsulation: core_1.ViewEncapsulation.None
     }), __metadata('design:paramtypes', [core_1.ElementRef, PopupOptions])], PopupContainerComponent);
     return PopupContainerComponent;
@@ -890,14 +892,14 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-popup.com
     DatePickerPopupDirective = __decorate([core_1.Directive({
       selector: '[datepickerPopup][ngModel]',
       properties: ['datepickerPopup', 'isOpen']
-    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [common_1.NgModel, core_1.ViewContainerRef, core_1.Renderer, core_1.DynamicComponentLoader])], DatePickerPopupDirective);
+    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [forms_1.NgModel, core_1.ViewContainerRef, core_1.Renderer, core_1.DynamicComponentLoader])], DatePickerPopupDirective);
     return DatePickerPopupDirective;
   }());
   exports.DatePickerPopupDirective = DatePickerPopupDirective;
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/datepicker/daypicker.component", ["@angular/core", "@angular/common", "../ng2-bootstrap-config", "./datepicker-inner.component"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/datepicker/daypicker.component", ["@angular/core", "@angular/common", "@angular/forms", "../ng2-bootstrap-config", "./datepicker-inner.component"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -921,6 +923,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/daypicker.component"
   };
   var core_1 = $__require('@angular/core');
   var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var ng2_bootstrap_config_1 = $__require('../ng2-bootstrap-config');
   var datepicker_inner_component_1 = $__require('./datepicker-inner.component');
   var TEMPLATE_OPTIONS = (_a = {}, _a[ng2_bootstrap_config_1.Ng2BootstrapTheme.BS4] = {
@@ -1011,7 +1014,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/daypicker.component"
     DayPickerComponent = __decorate([core_1.Component({
       selector: 'daypicker',
       template: "\n<table *ngIf=\"datePicker.datepickerMode==='day'\" role=\"grid\" aria-labelledby=\"uniqueId+'-title'\" aria-activedescendant=\"activeDateId\">\n  <thead>\n    <tr>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-secondary btn-sm pull-left\" (click)=\"datePicker.move(-1)\" tabindex=\"-1\">\n        " + CURRENT_THEME_TEMPLATE.ARROW_LEFT + "\n        </button>\n      </th>\n      <th [attr.colspan]=\"5 + datePicker.showWeeks\">\n        <button [id]=\"datePicker.uniqueId + '-title'\"\n                type=\"button\" class=\"btn btn-default btn-secondary btn-sm\"\n                (click)=\"datePicker.toggleMode()\"\n                [disabled]=\"datePicker.datepickerMode === datePicker.maxMode\"\n                [ngClass]=\"{disabled: datePicker.datepickerMode === datePicker.maxMode}\" tabindex=\"-1\" style=\"width:100%;\">\n          <strong>{{title}}</strong>\n        </button>\n      </th>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-secondary btn-sm pull-right\" (click)=\"datePicker.move(1)\" tabindex=\"-1\">\n        " + CURRENT_THEME_TEMPLATE.ARROW_RIGHT + "\n        </button>\n      </th>\n    </tr>\n    <tr>\n      <th *ngIf=\"datePicker.showWeeks\"></th>\n      " + CURRENT_THEME_TEMPLATE.DAY_TITLE + "\n    </tr>\n  </thead>\n  <tbody>\n    <template ngFor [ngForOf]=\"rows\" let-rowz=\"$implicit\" let-index=\"index\">\n      <tr *ngIf=\"!(datePicker.onlyCurrentMonth && rowz[0].secondary && rowz[6].secondary)\">\n        " + CURRENT_THEME_TEMPLATE.WEEK_ROW + "\n      </tr>\n    </template>\n  </tbody>\n</table>\n  ",
-      directives: [common_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES, common_1.NgClass]
+      directives: [forms_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES, common_1.NgClass]
     }), __metadata('design:paramtypes', [datepicker_inner_component_1.DatePickerInnerComponent])], DayPickerComponent);
     return DayPickerComponent;
   }());
@@ -1020,7 +1023,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/daypicker.component"
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/datepicker/monthpicker.component", ["@angular/core", "@angular/common", "./datepicker-inner.component", "../ng2-bootstrap-config"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/datepicker/monthpicker.component", ["@angular/core", "@angular/common", "@angular/forms", "./datepicker-inner.component", "../ng2-bootstrap-config"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -1044,6 +1047,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/monthpicker.componen
   };
   var core_1 = $__require('@angular/core');
   var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var datepicker_inner_component_1 = $__require('./datepicker-inner.component');
   var ng2_bootstrap_config_1 = $__require('../ng2-bootstrap-config');
   var TEMPLATE_OPTIONS = {
@@ -1082,7 +1086,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/monthpicker.componen
     MonthPickerComponent = __decorate([core_1.Component({
       selector: 'monthpicker',
       template: "\n<table *ngIf=\"datePicker.datepickerMode==='month'\" role=\"grid\">\n  <thead>\n    <tr>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-left\"\n                (click)=\"datePicker.move(-1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-left\"></i>\n        </button></th>\n      <th>\n        <button [id]=\"uniqueId + '-title'\"\n                type=\"button\" class=\"btn btn-default btn-sm\"\n                (click)=\"datePicker.toggleMode()\"\n                [disabled]=\"datePicker.datepickerMode === maxMode\"\n                [ngClass]=\"{disabled: datePicker.datepickerMode === maxMode}\" tabindex=\"-1\" style=\"width:100%;\">\n          <strong>{{title}}</strong>\n        </button>\n      </th>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-right\"\n                (click)=\"datePicker.move(1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-right\"></i>\n        </button>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let rowz of rows\">\n      <td *ngFor=\"let dtz of rowz\" class=\"text-center\" role=\"gridcell\" id=\"{{dtz.uid}}\" [ngClass]=\"dtz.customClass\">\n        " + CURRENT_THEME_TEMPLATE.MONTH_BUTTON + "\n      </td>\n    </tr>\n  </tbody>\n</table>\n  ",
-      directives: [common_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES, common_1.NgClass]
+      directives: [forms_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES, common_1.NgClass]
     }), __metadata('design:paramtypes', [datepicker_inner_component_1.DatePickerInnerComponent])], MonthPickerComponent);
     return MonthPickerComponent;
   }());
@@ -1108,7 +1112,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/date-formatter", ["m
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-inner.component", ["@angular/core", "@angular/common", "./date-formatter"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-inner.component", ["@angular/core", "@angular/common", "@angular/forms", "./date-formatter"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -1132,6 +1136,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-inner.com
   };
   var core_1 = $__require('@angular/core');
   var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var date_formatter_1 = $__require('./date-formatter');
   var FORMAT_DAY = 'DD';
   var FORMAT_MONTH = 'MMMM';
@@ -1149,6 +1154,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-inner.com
   var SHORTCUT_PROPAGATION = false;
   var DatePickerInnerComponent = (function() {
     function DatePickerInnerComponent() {
+      this.selectionDone = new core_1.EventEmitter(undefined);
       this.stepDay = {};
       this.stepMonth = {};
       this.stepYear = {};
@@ -1278,6 +1284,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-inner.com
           this.activeDate = new Date(0, 0, 0, 0, 0, 0, 0);
         }
         this.activeDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        this.selectionDone.emit(this.activeDate);
       } else {
         this.activeDate = date;
         this.datepickerMode = this.modes[this.modes.indexOf(this.datepickerMode) - 1];
@@ -1344,12 +1351,13 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-inner.com
     __decorate([core_1.Input(), __metadata('design:type', Array)], DatePickerInnerComponent.prototype, "customClass", void 0);
     __decorate([core_1.Input(), __metadata('design:type', Object)], DatePickerInnerComponent.prototype, "dateDisabled", void 0);
     __decorate([core_1.Input(), __metadata('design:type', Date)], DatePickerInnerComponent.prototype, "initDate", void 0);
+    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], DatePickerInnerComponent.prototype, "selectionDone", void 0);
     __decorate([core_1.Input(), __metadata('design:type', Date)], DatePickerInnerComponent.prototype, "activeDate", null);
     DatePickerInnerComponent = __decorate([core_1.Component({
       selector: 'datepicker-inner',
       events: ['update'],
       template: "\n    <div *ngIf=\"datepickerMode\" class=\"well well-sm bg-faded p-a card\" role=\"application\" ><!--&lt;!&ndash;ng-keydown=\"keydown($event)\"&ndash;&gt;-->\n      <ng-content></ng-content>\n    </div>\n  ",
-      directives: [common_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES, common_1.NgClass, common_1.NgModel]
+      directives: [forms_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES, common_1.NgClass, forms_1.NgModel]
     }), __metadata('design:paramtypes', [])], DatePickerInnerComponent);
     return DatePickerInnerComponent;
   }());
@@ -1357,7 +1365,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker-inner.com
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/datepicker/yearpicker.component", ["@angular/core", "@angular/common", "../ng2-bootstrap-config", "./datepicker-inner.component"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/datepicker/yearpicker.component", ["@angular/core", "@angular/common", "@angular/forms", "../ng2-bootstrap-config", "./datepicker-inner.component"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -1381,6 +1389,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/yearpicker.component
   };
   var core_1 = $__require('@angular/core');
   var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var ng2_bootstrap_config_1 = $__require('../ng2-bootstrap-config');
   var datepicker_inner_component_1 = $__require('./datepicker-inner.component');
   var TEMPLATE_OPTIONS = {
@@ -1420,7 +1429,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/yearpicker.component
     YearPickerComponent = __decorate([core_1.Component({
       selector: 'yearpicker',
       template: "\n<table *ngIf=\"datePicker.datepickerMode==='year'\" role=\"grid\">\n  <thead>\n    <tr>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-left\"\n                (click)=\"datePicker.move(-1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-left\"></i>\n        </button>\n      </th>\n      <th colspan=\"3\">\n        <button [id]=\"uniqueId + '-title'\" role=\"heading\"\n                type=\"button\" class=\"btn btn-default btn-sm\"\n                (click)=\"datePicker.toggleMode()\"\n                [disabled]=\"datePicker.datepickerMode === datePicker.maxMode\"\n                [ngClass]=\"{disabled: datePicker.datepickerMode === datePicker.maxMode}\" tabindex=\"-1\" style=\"width:100%;\">\n          <strong>{{title}}</strong>\n        </button>\n      </th>\n      <th>\n        <button type=\"button\" class=\"btn btn-default btn-sm pull-right\"\n                (click)=\"datePicker.move(1)\" tabindex=\"-1\">\n          <i class=\"glyphicon glyphicon-chevron-right\"></i>\n        </button>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let rowz of rows\">\n      <td *ngFor=\"let dtz of rowz\" class=\"text-center\" role=\"gridcell\">\n      " + CURRENT_THEME_TEMPLATE.YEAR_BUTTON + "\n      </td>\n    </tr>\n  </tbody>\n</table>\n  ",
-      directives: [common_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES, common_1.NgClass]
+      directives: [forms_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES, common_1.NgClass]
     }), __metadata('design:paramtypes', [datepicker_inner_component_1.DatePickerInnerComponent])], YearPickerComponent);
     return YearPickerComponent;
   }());
@@ -1428,7 +1437,7 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/yearpicker.component
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker.component", ["@angular/core", "@angular/common", "./datepicker-inner.component", "./daypicker.component", "./monthpicker.component", "./yearpicker.component"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker.component", ["@angular/core", "@angular/common", "@angular/forms", "./datepicker-inner.component", "./daypicker.component", "./monthpicker.component", "./yearpicker.component"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -1457,12 +1466,14 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker.component
   };
   var core_1 = $__require('@angular/core');
   var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var datepicker_inner_component_1 = $__require('./datepicker-inner.component');
   var daypicker_component_1 = $__require('./daypicker.component');
   var monthpicker_component_1 = $__require('./monthpicker.component');
   var yearpicker_component_1 = $__require('./yearpicker.component');
   var DatePickerComponent = (function() {
     function DatePickerComponent(cd) {
+      this.selectionDone = new core_1.EventEmitter(undefined);
       this.onChange = Function.prototype;
       this.onTouched = Function.prototype;
       this._now = new Date();
@@ -1482,6 +1493,9 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker.component
     DatePickerComponent.prototype.onUpdate = function(event) {
       this.writeValue(event);
       this.cd.viewToModelUpdate(event);
+    };
+    DatePickerComponent.prototype.onSelectionDone = function(event) {
+      this.selectionDone.emit(event);
     };
     DatePickerComponent.prototype.writeValue = function(value) {
       if (value === this._activeDate) {
@@ -1518,12 +1532,13 @@ System.registerDynamic("ng2-bootstrap/components/datepicker/datepicker.component
     __decorate([core_1.Input(), __metadata('design:type', Boolean)], DatePickerComponent.prototype, "shortcutPropagation", void 0);
     __decorate([core_1.Input(), __metadata('design:type', Array)], DatePickerComponent.prototype, "customClass", void 0);
     __decorate([core_1.Input(), __metadata('design:type', Object)], DatePickerComponent.prototype, "dateDisabled", void 0);
+    __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], DatePickerComponent.prototype, "selectionDone", void 0);
     __decorate([core_1.Input(), __metadata('design:type', Date)], DatePickerComponent.prototype, "activeDate", null);
     DatePickerComponent = __decorate([core_1.Component({
       selector: 'datepicker[ngModel]',
-      template: "\n    <datepicker-inner [activeDate]=\"activeDate\"\n                      (update)=\"onUpdate($event)\"\n                      [datepickerMode]=\"datepickerMode\"\n                      [initDate]=\"initDate\"\n                      [minDate]=\"minDate\"\n                      [maxDate]=\"maxDate\"\n                      [minMode]=\"minMode\"\n                      [maxMode]=\"maxMode\"\n                      [showWeeks]=\"showWeeks\"\n                      [formatDay]=\"formatDay\"\n                      [formatMonth]=\"formatMonth\"\n                      [formatYear]=\"formatYear\"\n                      [formatDayHeader]=\"formatDayHeader\"\n                      [formatDayTitle]=\"formatDayTitle\"\n                      [formatMonthTitle]=\"formatMonthTitle\"\n                      [startingDay]=\"startingDay\"\n                      [yearRange]=\"yearRange\"\n                      [customClass]=\"customClass\"\n                      [dateDisabled]=\"dateDisabled\"\n                      [templateUrl]=\"templateUrl\"\n                      [onlyCurrentMonth]=\"onlyCurrentMonth\"\n                      [shortcutPropagation]=\"shortcutPropagation\">\n      <daypicker tabindex=\"0\"></daypicker>\n      <monthpicker tabindex=\"0\"></monthpicker>\n      <yearpicker tabindex=\"0\"></yearpicker>\n    </datepicker-inner>\n    ",
-      directives: [datepicker_inner_component_1.DatePickerInnerComponent, daypicker_component_1.DayPickerComponent, monthpicker_component_1.MonthPickerComponent, yearpicker_component_1.YearPickerComponent, common_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES]
-    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [common_1.NgModel])], DatePickerComponent);
+      template: "\n    <datepicker-inner [activeDate]=\"activeDate\"\n                      (update)=\"onUpdate($event)\"\n                      [datepickerMode]=\"datepickerMode\"\n                      [initDate]=\"initDate\"\n                      [minDate]=\"minDate\"\n                      [maxDate]=\"maxDate\"\n                      [minMode]=\"minMode\"\n                      [maxMode]=\"maxMode\"\n                      [showWeeks]=\"showWeeks\"\n                      [formatDay]=\"formatDay\"\n                      [formatMonth]=\"formatMonth\"\n                      [formatYear]=\"formatYear\"\n                      [formatDayHeader]=\"formatDayHeader\"\n                      [formatDayTitle]=\"formatDayTitle\"\n                      [formatMonthTitle]=\"formatMonthTitle\"\n                      [startingDay]=\"startingDay\"\n                      [yearRange]=\"yearRange\"\n                      [customClass]=\"customClass\"\n                      [dateDisabled]=\"dateDisabled\"\n                      [templateUrl]=\"templateUrl\"\n                      [onlyCurrentMonth]=\"onlyCurrentMonth\"\n                      [shortcutPropagation]=\"shortcutPropagation\"\n                      (selectionDone)=\"onSelectionDone($event)\">\n      <daypicker tabindex=\"0\"></daypicker>\n      <monthpicker tabindex=\"0\"></monthpicker>\n      <yearpicker tabindex=\"0\"></yearpicker>\n    </datepicker-inner>\n    ",
+      directives: [datepicker_inner_component_1.DatePickerInnerComponent, daypicker_component_1.DayPickerComponent, monthpicker_component_1.MonthPickerComponent, yearpicker_component_1.YearPickerComponent, forms_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES]
+    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [forms_1.NgModel])], DatePickerComponent);
     return DatePickerComponent;
   }());
   exports.DatePickerComponent = DatePickerComponent;
@@ -1577,12 +1592,14 @@ System.registerDynamic("ng2-bootstrap/components/dropdown/dropdown-menu.directiv
   var dropdown_directive_1 = $__require('./dropdown.directive');
   var DropdownMenuDirective = (function() {
     function DropdownMenuDirective(dropdown, el) {
+      this.addClass = true;
       this.dropdown = dropdown;
       this.el = el;
     }
     DropdownMenuDirective.prototype.ngOnInit = function() {
       this.dropdown.dropDownMenu = this;
     };
+    __decorate([core_1.HostBinding('class.dropdown-menu'), __metadata('design:type', Boolean)], DropdownMenuDirective.prototype, "addClass", void 0);
     DropdownMenuDirective = __decorate([core_1.Directive({selector: '[dropdownMenu]'}), __param(0, core_1.Host()), __metadata('design:paramtypes', [dropdown_directive_1.DropdownDirective, core_1.ElementRef])], DropdownMenuDirective);
     return DropdownMenuDirective;
   }());
@@ -1685,11 +1702,12 @@ System.registerDynamic("ng2-bootstrap/components/dropdown/dropdown.directive", [
   var core_1 = $__require('@angular/core');
   var dropdown_service_1 = $__require('./dropdown.service');
   var DropdownDirective = (function() {
-    function DropdownDirective(el) {
+    function DropdownDirective(el, ref) {
       this.onToggle = new core_1.EventEmitter(false);
       this.isOpenChange = new core_1.EventEmitter(false);
       this.addClass = true;
       this.el = el;
+      this._changeDetector = ref;
     }
     Object.defineProperty(DropdownDirective.prototype, "isOpen", {
       get: function() {
@@ -1706,6 +1724,7 @@ System.registerDynamic("ng2-bootstrap/components/dropdown/dropdown.directive", [
         }
         this.onToggle.emit(this.isOpen);
         this.isOpenChange.emit(this.isOpen);
+        this._changeDetector.markForCheck();
       },
       enumerable: true,
       configurable: true
@@ -1785,7 +1804,7 @@ System.registerDynamic("ng2-bootstrap/components/dropdown/dropdown.directive", [
     __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], DropdownDirective.prototype, "onToggle", void 0);
     __decorate([core_1.Output(), __metadata('design:type', core_1.EventEmitter)], DropdownDirective.prototype, "isOpenChange", void 0);
     __decorate([core_1.HostBinding('class.dropdown'), __metadata('design:type', Boolean)], DropdownDirective.prototype, "addClass", void 0);
-    DropdownDirective = __decorate([core_1.Directive({selector: '[dropdown]'}), __metadata('design:paramtypes', [core_1.ElementRef])], DropdownDirective);
+    DropdownDirective = __decorate([core_1.Directive({selector: '[dropdown]'}), __metadata('design:paramtypes', [core_1.ElementRef, core_1.ChangeDetectorRef])], DropdownDirective);
     return DropdownDirective;
   }());
   exports.DropdownDirective = DropdownDirective;
@@ -1825,7 +1844,7 @@ System.registerDynamic("ng2-bootstrap/components/dropdown/dropdown-toggle.direct
   var MouseEvent = lang_1.global.MouseEvent;
   var DropdownToggleDirective = (function() {
     function DropdownToggleDirective(dropdown, el) {
-      this.disabled = false;
+      this.isDisabled = false;
       this.addClass = true;
       this.dropdown = dropdown;
       this.el = el;
@@ -1842,12 +1861,12 @@ System.registerDynamic("ng2-bootstrap/components/dropdown/dropdown-toggle.direct
     });
     DropdownToggleDirective.prototype.toggleDropdown = function(event) {
       event.stopPropagation();
-      if (!this.disabled) {
+      if (!this.isDisabled) {
         this.dropdown.toggle();
       }
       return false;
     };
-    __decorate([core_1.HostBinding('class.disabled'), core_1.Input(), __metadata('design:type', Boolean)], DropdownToggleDirective.prototype, "disabled", void 0);
+    __decorate([core_1.HostBinding('class.disabled'), core_1.Input(), __metadata('design:type', Boolean)], DropdownToggleDirective.prototype, "isDisabled", void 0);
     __decorate([core_1.HostBinding('class.dropdown-toggle'), core_1.HostBinding('attr.aria-haspopup'), __metadata('design:type', Boolean)], DropdownToggleDirective.prototype, "addClass", void 0);
     __decorate([core_1.HostBinding('attr.aria-expanded'), __metadata('design:type', Boolean)], DropdownToggleDirective.prototype, "isOpen", null);
     __decorate([core_1.HostListener('click', ['$event']), __metadata('design:type', Function), __metadata('design:paramtypes', [Object]), __metadata('design:returntype', Boolean)], DropdownToggleDirective.prototype, "toggleDropdown", null);
@@ -1877,7 +1896,7 @@ System.registerDynamic("ng2-bootstrap/components/dropdown", ["./dropdown/dropdow
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/modal/modal-backdrop.component", ["@angular/core", "@angular/common", "./modal-options.class"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/modal/modal-backdrop.component", ["@angular/core", "./modal-options.class"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -1900,7 +1919,6 @@ System.registerDynamic("ng2-bootstrap/components/modal/modal-backdrop.component"
       return Reflect.metadata(k, v);
   };
   var core_1 = $__require('@angular/core');
-  var common_1 = $__require('@angular/common');
   var modal_options_class_1 = $__require('./modal-options.class');
   var ModalBackdropOptions = (function() {
     function ModalBackdropOptions(options) {
@@ -1911,17 +1929,39 @@ System.registerDynamic("ng2-bootstrap/components/modal/modal-backdrop.component"
   }());
   exports.ModalBackdropOptions = ModalBackdropOptions;
   var ModalBackdropComponent = (function() {
-    function ModalBackdropComponent(options, element) {
-      this.isAnimated = true;
-      this.isShown = false;
-      this.isAnimated = options.animate;
+    function ModalBackdropComponent(options, element, renderer) {
+      this._isShown = false;
       this.element = element;
+      this.renderer = renderer;
+      this.isAnimated = options.animate !== false;
     }
+    Object.defineProperty(ModalBackdropComponent.prototype, "isAnimated", {
+      get: function() {
+        return this._isAnimated;
+      },
+      set: function(value) {
+        this._isAnimated = value;
+        this.renderer.setElementClass(this.element.nativeElement, "" + modal_options_class_1.ClassName.FADE, value);
+      },
+      enumerable: true,
+      configurable: true
+    });
+    Object.defineProperty(ModalBackdropComponent.prototype, "isShown", {
+      get: function() {
+        return this._isShown;
+      },
+      set: function(value) {
+        this._isShown = value;
+        this.renderer.setElementClass(this.element.nativeElement, "" + modal_options_class_1.ClassName.IN, value);
+      },
+      enumerable: true,
+      configurable: true
+    });
     ModalBackdropComponent = __decorate([core_1.Component({
       selector: 'bs-modal-backdrop',
-      directives: [common_1.NgClass],
-      template: "\n<div class=\"" + modal_options_class_1.ClassName.BACKDROP + "\"\n  [class." + modal_options_class_1.ClassName.IN + "]=\"isShown\"\n  [class." + modal_options_class_1.ClassName.FADE + "]=\"isAnimated\"></div>"
-    }), __metadata('design:paramtypes', [ModalBackdropOptions, core_1.ElementRef])], ModalBackdropComponent);
+      template: '',
+      host: {'class': "" + modal_options_class_1.ClassName.BACKDROP}
+    }), __metadata('design:paramtypes', [ModalBackdropOptions, core_1.ElementRef, core_1.Renderer])], ModalBackdropComponent);
     return ModalBackdropComponent;
   }());
   exports.ModalBackdropComponent = ModalBackdropComponent;
@@ -1938,7 +1978,8 @@ System.registerDynamic("ng2-bootstrap/components/modal/modal-options.class", [],
     backdrop: true,
     keyboard: true,
     focus: true,
-    show: true
+    show: true,
+    ignoreBackdropClick: false
   };
   exports.ClassName = {
     SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
@@ -1981,7 +2022,7 @@ System.registerDynamic("ng2-bootstrap/components/utils/utils.class", ["@angular/
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/modal/modal.component", ["@angular/core", "@angular/core/src/facade/lang", "@angular/platform-browser", "./modal-backdrop.component", "./modal-options.class", "../utils/components-helper.service", "../utils/utils.class"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/modal/modal.component", ["@angular/core", "@angular/core/src/facade/lang", "./modal-backdrop.component", "./modal-options.class", "../utils/components-helper.service", "../utils/utils.class"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -2010,7 +2051,6 @@ System.registerDynamic("ng2-bootstrap/components/modal/modal.component", ["@angu
   };
   var core_1 = $__require('@angular/core');
   var lang_1 = $__require('@angular/core/src/facade/lang');
-  var platform_browser_1 = $__require('@angular/platform-browser');
   var modal_backdrop_component_1 = $__require('./modal-backdrop.component');
   var modal_options_class_1 = $__require('./modal-options.class');
   var components_helper_service_1 = $__require('../utils/components-helper.service');
@@ -2018,7 +2058,7 @@ System.registerDynamic("ng2-bootstrap/components/modal/modal.component", ["@angu
   var TRANSITION_DURATION = 300;
   var BACKDROP_TRANSITION_DURATION = 150;
   var ModalDirective = (function() {
-    function ModalDirective(element, renderer, document, componentsHelper) {
+    function ModalDirective(element, renderer, componentsHelper) {
       this.onShow = new core_1.EventEmitter();
       this.onShown = new core_1.EventEmitter();
       this.onHide = new core_1.EventEmitter();
@@ -2026,12 +2066,10 @@ System.registerDynamic("ng2-bootstrap/components/modal/modal.component", ["@angu
       this.isAnimated = true;
       this._isShown = false;
       this.isBodyOverflowing = false;
-      this.ignoreBackdropClick = false;
       this.originalBodyPadding = 0;
       this.scrollbarWidth = 0;
       this.element = element;
       this.renderer = renderer;
-      this.document = document;
       this.componentsHelper = componentsHelper;
     }
     Object.defineProperty(ModalDirective.prototype, "config", {
@@ -2052,10 +2090,19 @@ System.registerDynamic("ng2-bootstrap/components/modal/modal.component", ["@angu
       enumerable: true,
       configurable: true
     });
+    Object.defineProperty(ModalDirective.prototype, "document", {
+      get: function() {
+        return this.componentsHelper.getDocument();
+      },
+      enumerable: true,
+      configurable: true
+    });
+    ;
     ModalDirective.prototype.onClick = function(event) {
-      if (event.target === this.element.nativeElement) {
-        this.hide(event);
+      if (this.config.ignoreBackdropClick || this.config.backdrop === 'static' || event.target !== this.element.nativeElement) {
+        return;
       }
+      this.hide(event);
     };
     ModalDirective.prototype.onEsc = function() {
       if (this.config.keyboard) {
@@ -2066,10 +2113,8 @@ System.registerDynamic("ng2-bootstrap/components/modal/modal.component", ["@angu
       this.config = void 0;
       this._isShown = void 0;
       this.isBodyOverflowing = void 0;
-      this.ignoreBackdropClick = void 0;
       this.originalBodyPadding = void 0;
       this.scrollbarWidth = void 0;
-      this.document = void 0;
     };
     ModalDirective.prototype.ngAfterViewInit = function() {
       this._config = this._config || this.getConfig();
@@ -2157,7 +2202,7 @@ System.registerDynamic("ng2-bootstrap/components/modal/modal.component", ["@angu
     };
     ModalDirective.prototype.showBackdrop = function(callback) {
       var _this = this;
-      if (this._isShown && modal_options_class_1.modalConfigDefaults.backdrop) {
+      if (this._isShown && this.config.backdrop) {
         this.backdrop = this.componentsHelper.appendNextToRoot(modal_backdrop_component_1.ModalBackdropComponent, modal_backdrop_component_1.ModalBackdropOptions, new modal_backdrop_component_1.ModalBackdropOptions({animate: false}));
         this.backdrop.then(function(backdrop) {
           if (_this.isAnimated) {
@@ -2244,7 +2289,7 @@ System.registerDynamic("ng2-bootstrap/components/modal/modal.component", ["@angu
     ModalDirective = __decorate([core_1.Directive({
       selector: '[bsModal]',
       exportAs: 'bs-modal'
-    }), __param(2, core_1.Inject(platform_browser_1.DOCUMENT)), __param(3, core_1.Inject(components_helper_service_1.ComponentsHelper)), __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, Object, components_helper_service_1.ComponentsHelper])], ModalDirective);
+    }), __param(2, core_1.Inject(components_helper_service_1.ComponentsHelper)), __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, components_helper_service_1.ComponentsHelper])], ModalDirective);
     return ModalDirective;
   }());
   exports.ModalDirective = ModalDirective;
@@ -2267,11 +2312,11 @@ System.registerDynamic("ng2-bootstrap/components/modal", ["./modal/modal-backdro
   __export($__require('./modal/modal.component'));
   var modal_backdrop_component_2 = $__require('./modal/modal-backdrop.component');
   var modal_component_2 = $__require('./modal/modal.component');
-  exports.MODAL_DIRECTVES = [modal_component_2.ModalDirective, modal_backdrop_component_2.ModalBackdropComponent];
+  exports.MODAL_DIRECTIVES = [modal_component_2.ModalDirective, modal_backdrop_component_2.ModalBackdropComponent];
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/pagination/pagination.component", ["@angular/core", "@angular/common"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/pagination/pagination.component", ["@angular/core", "@angular/common", "@angular/forms"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -2300,6 +2345,7 @@ System.registerDynamic("ng2-bootstrap/components/pagination/pagination.component
   };
   var core_1 = $__require('@angular/core');
   var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var paginationConfig = {
     maxSize: void 0,
     itemsPerPage: 10,
@@ -2485,14 +2531,14 @@ System.registerDynamic("ng2-bootstrap/components/pagination/pagination.component
       selector: 'pagination[ngModel]',
       template: PAGINATION_TEMPLATE,
       directives: [common_1.NgFor, common_1.NgIf]
-    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [common_1.NgModel, core_1.Renderer, core_1.ElementRef])], PaginationComponent);
+    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [forms_1.NgModel, core_1.Renderer, core_1.ElementRef])], PaginationComponent);
     return PaginationComponent;
   }());
   exports.PaginationComponent = PaginationComponent;
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/pagination/pager.component", ["@angular/core", "@angular/common", "./pagination.component"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/pagination/pager.component", ["@angular/core", "@angular/common", "@angular/forms", "./pagination.component"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -2530,6 +2576,7 @@ System.registerDynamic("ng2-bootstrap/components/pagination/pager.component", ["
   };
   var core_1 = $__require('@angular/core');
   var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var pagination_component_1 = $__require('./pagination.component');
   var pagerConfig = {
     itemsPerPage: 10,
@@ -2549,7 +2596,7 @@ System.registerDynamic("ng2-bootstrap/components/pagination/pager.component", ["
       template: PAGER_TEMPLATE,
       directives: [common_1.NgClass],
       inputs: ['align', 'totalItems', 'itemsPerPage', 'previousText', 'nextText']
-    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [common_1.NgModel, core_1.Renderer, core_1.ElementRef])], PagerComponent);
+    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [forms_1.NgModel, core_1.Renderer, core_1.ElementRef])], PagerComponent);
     return PagerComponent;
   }(pagination_component_1.PaginationComponent));
   exports.PagerComponent = PagerComponent;
@@ -2778,7 +2825,7 @@ System.registerDynamic("ng2-bootstrap/components/progressbar", ["./progressbar/p
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/rating/rating.component", ["@angular/core", "@angular/common", "@angular/core/src/facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/rating/rating.component", ["@angular/core", "@angular/common", "@angular/forms", "@angular/core/src/facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -2807,6 +2854,7 @@ System.registerDynamic("ng2-bootstrap/components/rating/rating.component", ["@an
   };
   var core_1 = $__require('@angular/core');
   var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var lang_1 = $__require('@angular/core/src/facade/lang');
   var KeyboardEvent = lang_1.global.KeyboardEvent;
   var RatingComponent = (function() {
@@ -2893,7 +2941,7 @@ System.registerDynamic("ng2-bootstrap/components/rating/rating.component", ["@an
       selector: 'rating[ngModel]',
       directives: [common_1.NgFor],
       template: "\n    <span (mouseleave)=\"reset()\" (keydown)=\"onKeydown($event)\" tabindex=\"0\" role=\"slider\" aria-valuemin=\"0\" [attr.aria-valuemax]=\"range.length\" [attr.aria-valuenow]=\"value\">\n      <template ngFor let-r [ngForOf]=\"range\" let-index=\"index\">\n        <span class=\"sr-only\">({{ index < value ? '*' : ' ' }})</span>\n        <i (mouseenter)=\"enter(index + 1)\" (click)=\"rate(index + 1)\" class=\"glyphicon\" [ngClass]=\"index < value ? r.stateOn : r.stateOff\" [title]=\"r.title\" ></i>\n      </template>\n    </span>\n  "
-    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [common_1.NgModel])], RatingComponent);
+    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [forms_1.NgModel])], RatingComponent);
     return RatingComponent;
   }());
   exports.RatingComponent = RatingComponent;
@@ -3183,7 +3231,7 @@ System.registerDynamic("ng2-bootstrap/components/tabs", ["./tabs/tab.directive",
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/timepicker/timepicker.component", ["@angular/core", "@angular/common"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/timepicker/timepicker.component", ["@angular/core", "@angular/common", "@angular/forms"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -3212,6 +3260,7 @@ System.registerDynamic("ng2-bootstrap/components/timepicker/timepicker.component
   };
   var core_1 = $__require('@angular/core');
   var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   exports.timepickerConfig = {
     hourStep: 1,
     minuteStep: 1,
@@ -3459,7 +3508,7 @@ System.registerDynamic("ng2-bootstrap/components/timepicker/timepicker.component
       selector: 'timepicker[ngModel]',
       directives: [common_1.NgClass],
       template: "\n    <table>\n      <tbody>\n        <tr class=\"text-center\" [ngClass]=\"{hidden: !showSpinners}\">\n          <td><a (click)=\"incrementHours()\" [ngClass]=\"{disabled: noIncrementHours()}\" class=\"btn btn-link\"><span class=\"glyphicon glyphicon-chevron-up\"></span></a></td>\n          <td>&nbsp;</td>\n          <td><a (click)=\"incrementMinutes()\" [ngClass]=\"{disabled: noIncrementMinutes()}\" class=\"btn btn-link\"><span class=\"glyphicon glyphicon-chevron-up\"></span></a></td>\n          <td [ngClass]=\"{hidden: !showMeridian}\" *ngIf=\"showMeridian\"></td>\n        </tr>\n        <tr>\n          <td class=\"form-group\" [ngClass]=\"{'has-error': invalidHours}\">\n            <input style=\"width:50px;\" type=\"text\" [(ngModel)]=\"hours\" (change)=\"updateHours()\" class=\"form-control text-center\" [readonly]=\"readonlyInput\" (blur)=\"hoursOnBlur($event)\" maxlength=\"2\">\n          </td>\n          <td>:</td>\n          <td class=\"form-group\" [ngClass]=\"{'has-error': invalidMinutes}\">\n            <input style=\"width:50px;\" type=\"text\" [(ngModel)]=\"minutes\" (change)=\"updateMinutes()\" class=\"form-control text-center\" [readonly]=\"readonlyInput\" (blur)=\"minutesOnBlur($event)\" maxlength=\"2\">\n          </td>\n          <td [ngClass]=\"{hidden: !showMeridian}\" *ngIf=\"showMeridian\"><button type=\"button\" [ngClass]=\"{disabled: noToggleMeridian()}\" class=\"btn btn-default text-center\" (click)=\"toggleMeridian()\">{{meridian}}</button></td>\n        </tr>\n        <tr class=\"text-center\" [ngClass]=\"{hidden: !showSpinners}\">\n          <td><a (click)=\"decrementHours()\" [ngClass]=\"{disabled: noDecrementHours()}\" class=\"btn btn-link\"><span class=\"glyphicon glyphicon-chevron-down\"></span></a></td>\n          <td>&nbsp;</td>\n          <td><a (click)=\"decrementMinutes()\" [ngClass]=\"{disabled: noDecrementMinutes()}\" class=\"btn btn-link\"><span class=\"glyphicon glyphicon-chevron-down\"></span></a></td>\n          <td [ngClass]=\"{hidden: !showMeridian}\" *ngIf=\"showMeridian\"></td>\n        </tr>\n      </tbody>\n    </table>\n  "
-    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [common_1.NgModel])], TimepickerComponent);
+    }), __param(0, core_1.Self()), __metadata('design:paramtypes', [forms_1.NgModel])], TimepickerComponent);
     return TimepickerComponent;
   }());
   exports.TimepickerComponent = TimepickerComponent;
@@ -3518,9 +3567,11 @@ System.registerDynamic("ng2-bootstrap/components/tooltip/tooltip.directive", ["@
       this.visible = true;
       var options = new tooltip_options_class_1.TooltipOptions({
         content: this.content,
+        htmlContent: this.htmlContent,
         placement: this.placement,
         animation: this.animation,
-        hostEl: this.viewContainerRef.element
+        hostEl: this.viewContainerRef.element,
+        popupClass: this.popupClass
       });
       var binding = core_1.ReflectiveInjector.resolve([new core_1.Provider(tooltip_options_class_1.TooltipOptions, {useValue: options})]);
       this.tooltip = this.loader.loadNextToLocation(tooltip_container_component_1.TooltipContainerComponent, this.viewContainerRef, binding).then(function(componentRef) {
@@ -3538,14 +3589,16 @@ System.registerDynamic("ng2-bootstrap/components/tooltip/tooltip.directive", ["@
       });
     };
     __decorate([core_1.Input('tooltip'), __metadata('design:type', String)], TooltipDirective.prototype, "content", void 0);
+    __decorate([core_1.Input('tooltipHtml'), __metadata('design:type', String)], TooltipDirective.prototype, "htmlContent", void 0);
     __decorate([core_1.Input('tooltipPlacement'), __metadata('design:type', String)], TooltipDirective.prototype, "placement", void 0);
     __decorate([core_1.Input('tooltipIsOpen'), __metadata('design:type', Boolean)], TooltipDirective.prototype, "isOpen", void 0);
     __decorate([core_1.Input('tooltipEnable'), __metadata('design:type', Boolean)], TooltipDirective.prototype, "enable", void 0);
     __decorate([core_1.Input('tooltipAnimation'), __metadata('design:type', Boolean)], TooltipDirective.prototype, "animation", void 0);
     __decorate([core_1.Input('tooltipAppendToBody'), __metadata('design:type', Boolean)], TooltipDirective.prototype, "appendToBody", void 0);
+    __decorate([core_1.Input('tooltipClass'), __metadata('design:type', String)], TooltipDirective.prototype, "popupClass", void 0);
     __decorate([core_1.HostListener('focusin', ['$event', '$target']), core_1.HostListener('mouseenter', ['$event', '$target']), __metadata('design:type', Function), __metadata('design:paramtypes', []), __metadata('design:returntype', void 0)], TooltipDirective.prototype, "show", null);
     __decorate([core_1.HostListener('focusout', ['$event', '$target']), core_1.HostListener('mouseleave', ['$event', '$target']), __metadata('design:type', Function), __metadata('design:paramtypes', []), __metadata('design:returntype', void 0)], TooltipDirective.prototype, "hide", null);
-    TooltipDirective = __decorate([core_1.Directive({selector: '[tooltip]'}), __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.DynamicComponentLoader])], TooltipDirective);
+    TooltipDirective = __decorate([core_1.Directive({selector: '[tooltip], [tooltipHtml]'}), __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.DynamicComponentLoader])], TooltipDirective);
     return TooltipDirective;
   }());
   exports.TooltipDirective = TooltipDirective;
@@ -3640,12 +3693,15 @@ System.registerDynamic("ng2-bootstrap/components/tooltip/tooltip-container.compo
       if (this.animation) {
         this.classMap.fade = true;
       }
+      if (this.popupClass) {
+        this.classMap[this.popupClass] = true;
+      }
       this.cdr.detectChanges();
     };
     TooltipContainerComponent = __decorate([core_1.Component({
       selector: 'tooltip-container',
       directives: [common_1.NgClass, common_1.NgStyle],
-      template: "<div class=\"tooltip\" role=\"tooltip\"\n     [ngStyle]=\"{top: top, left: left, display: display}\"\n     [ngClass]=\"classMap\">\n      <div class=\"tooltip-arrow\"></div>\n      <div class=\"tooltip-inner\">\n        {{content}}\n      </div>\n    </div>"
+      template: "<div class=\"tooltip\" role=\"tooltip\"\n     [ngStyle]=\"{top: top, left: left, display: display}\"\n     [ngClass]=\"classMap\">\n      <div class=\"tooltip-arrow\"></div>\n      <div class=\"tooltip-inner\"\n           *ngIf=\"htmlContent\" \n           innerHtml=\"{{htmlContent}}\">\n      </div>\n      <div class=\"tooltip-inner\"\n           *ngIf=\"content\">\n        {{content}}\n      </div>\n    </div>"
     }), __param(2, core_1.Inject(tooltip_options_class_1.TooltipOptions)), __metadata('design:paramtypes', [core_1.ElementRef, core_1.ChangeDetectorRef, tooltip_options_class_1.TooltipOptions])], TooltipContainerComponent);
     return TooltipContainerComponent;
   }());
@@ -3669,7 +3725,7 @@ System.registerDynamic("ng2-bootstrap/components/tooltip", ["./tooltip/tooltip.d
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead.directive", ["@angular/core", "@angular/common", "./typeahead-utils", "./typeahead-container.component", "./typeahead-options.class", "@angular/core/src/facade/lang"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead.directive", ["@angular/core", "@angular/forms", "./typeahead-utils", "./typeahead-container.component", "./typeahead-options.class", "rxjs/Observable", "rxjs/add/observable/from", "rxjs/add/operator/debounceTime", "rxjs/add/operator/filter", "rxjs/add/operator/map", "rxjs/add/operator/mergeMap", "rxjs/add/operator/toArray", "@angular/core/src/facade/lang"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -3692,17 +3748,21 @@ System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead.directive",
       return Reflect.metadata(k, v);
   };
   var core_1 = $__require('@angular/core');
-  var common_1 = $__require('@angular/common');
+  var forms_1 = $__require('@angular/forms');
   var typeahead_utils_1 = $__require('./typeahead-utils');
   var typeahead_container_component_1 = $__require('./typeahead-container.component');
   var typeahead_options_class_1 = $__require('./typeahead-options.class');
+  var Observable_1 = $__require('rxjs/Observable');
+  $__require('rxjs/add/observable/from');
+  $__require('rxjs/add/operator/debounceTime');
+  $__require('rxjs/add/operator/filter');
+  $__require('rxjs/add/operator/map');
+  $__require('rxjs/add/operator/mergeMap');
+  $__require('rxjs/add/operator/toArray');
   var lang_1 = $__require('@angular/core/src/facade/lang');
   var KeyboardEvent = lang_1.global.KeyboardEvent;
-  function setProperty(renderer, elementRef, propName, propValue) {
-    renderer.setElementProperty(elementRef.nativeElement, propName, propValue);
-  }
   var TypeaheadDirective = (function() {
-    function TypeaheadDirective(cd, viewContainerRef, element, renderer, loader) {
+    function TypeaheadDirective(control, viewContainerRef, element, renderer, loader) {
       this.typeaheadLoading = new core_1.EventEmitter(false);
       this.typeaheadNoResults = new core_1.EventEmitter(false);
       this.typeaheadOnSelect = new core_1.EventEmitter(false);
@@ -3713,10 +3773,10 @@ System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead.directive",
       this.typeaheadWordDelimiters = ' ';
       this.typeaheadPhraseDelimiters = '\'"';
       this.isTypeaheadOptionsListActive = false;
-      this._matches = [];
+      this.keyUpEventEmitter = new core_1.EventEmitter();
       this.placement = 'bottom-left';
       this.element = element;
-      this.cd = cd;
+      this.ngControl = control;
       this.viewContainerRef = viewContainerRef;
       this.renderer = renderer;
       this.loader = loader;
@@ -3740,29 +3800,19 @@ System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead.directive",
           return;
         }
       }
-      if (this.cd.model.toString().length >= this.typeaheadMinLength) {
+      if (e.target.value.trim().length >= this.typeaheadMinLength) {
         this.typeaheadLoading.emit(true);
-        if (this.typeaheadAsync === true) {
-          this.debouncer();
-        }
-        if (!this.typeaheadAsync) {
-          this.processMatches();
-          this.finalizeAsyncCall();
-        }
+        this.keyUpEventEmitter.emit(e.target.value);
       } else {
+        this.typeaheadLoading.emit(false);
+        this.typeaheadNoResults.emit(false);
         this.hide();
       }
     };
     TypeaheadDirective.prototype.onFocus = function() {
       if (this.typeaheadMinLength === 0) {
         this.typeaheadLoading.emit(true);
-        if (this.typeaheadAsync === true) {
-          this.debouncer();
-        }
-        if (!this.typeaheadAsync) {
-          this.processMatches();
-          this.finalizeAsyncCall();
-        }
+        this.keyUpEventEmitter.emit('');
       }
     };
     TypeaheadDirective.prototype.onBlur = function() {
@@ -3778,47 +3828,40 @@ System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead.directive",
         e.preventDefault();
         return;
       }
-      if (e.shiftKey && e.keyCode === 9) {
+      if (e.keyCode === 9) {
         this.hide();
-        return;
-      }
-      if (!e.shiftKey && e.keyCode === 9) {
-        this.container.selectActiveMatch();
         return;
       }
     };
     TypeaheadDirective.prototype.ngOnInit = function() {
-      var _this = this;
       this.typeaheadOptionsLimit = this.typeaheadOptionsLimit || 20;
       this.typeaheadMinLength = this.typeaheadMinLength === void 0 ? 1 : this.typeaheadMinLength;
       this.typeaheadWaitMs = this.typeaheadWaitMs || 0;
-      if (this.typeaheadAsync === void 0 && typeof this.typeahead !== 'function') {
+      if (this.typeaheadAsync === undefined && !(this.typeahead instanceof Observable_1.Observable)) {
         this.typeaheadAsync = false;
       }
-      if (typeof this.typeahead === 'function') {
+      if (this.typeahead instanceof Observable_1.Observable) {
         this.typeaheadAsync = true;
       }
-      if (this.typeaheadAsync === true) {
-        this.debouncer = this.debounce(function() {
-          if (typeof _this.typeahead === 'function') {
-            _this.typeahead().then(function(matches) {
-              _this._matches = [];
-              for (var i = 0; i < matches.length; i++) {
-                _this._matches.push(matches[i]);
-                if (_this._matches.length > _this.typeaheadOptionsLimit - 1) {
-                  break;
-                }
-              }
-              _this.finalizeAsyncCall();
-            });
-          }
-          if (typeof _this.typeahead === 'object' && _this.typeahead.length) {
-            _this.processMatches();
-            _this.finalizeAsyncCall();
-          }
-        }, 100);
+      if (this.typeaheadAsync) {
+        this.asyncActions();
+      } else {
+        this.syncActions();
       }
     };
+    TypeaheadDirective.prototype.changeModel = function(value) {
+      var valueStr = ((typeof value === 'object' && this.typeaheadOptionField) ? value[this.typeaheadOptionField] : value).toString();
+      this.ngControl.viewToModelUpdate(valueStr);
+      this.ngControl.control.updateValue(valueStr);
+      this.hide();
+    };
+    Object.defineProperty(TypeaheadDirective.prototype, "matches", {
+      get: function() {
+        return this._matches;
+      },
+      enumerable: true,
+      configurable: true
+    });
     TypeaheadDirective.prototype.show = function(matches) {
       var _this = this;
       var options = new typeahead_options_class_1.TypeaheadOptions({
@@ -3831,7 +3874,7 @@ System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead.directive",
         componentRef.instance.position(_this.viewContainerRef.element);
         _this.container = componentRef.instance;
         _this.container.parent = _this;
-        var normalizedQuery = (_this.typeaheadLatinize ? typeahead_utils_1.TypeaheadUtils.latinize(_this.cd.model) : _this.cd.model).toString().toLowerCase();
+        var normalizedQuery = (_this.typeaheadLatinize ? typeahead_utils_1.TypeaheadUtils.latinize(_this.ngControl.control.value) : _this.ngControl.control.value).toString().toLowerCase();
         _this.container.query = _this.typeaheadSingleWords ? typeahead_utils_1.TypeaheadUtils.tokenize(normalizedQuery, _this.typeaheadWordDelimiters, _this.typeaheadPhraseDelimiters) : normalizedQuery;
         _this.container.matches = matches;
         _this.container.field = _this.typeaheadOptionField;
@@ -3849,74 +3892,45 @@ System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead.directive",
         });
       }
     };
-    TypeaheadDirective.prototype.changeModel = function(value) {
-      var valueStr = ((typeof value === 'object' && this.typeaheadOptionField) ? value[this.typeaheadOptionField] : value).toString();
-      this.cd.viewToModelUpdate(valueStr);
-      setProperty(this.renderer, this.element, 'value', valueStr);
-      this.hide();
+    TypeaheadDirective.prototype.asyncActions = function() {
+      var _this = this;
+      this.keyUpEventEmitter.debounceTime(this.typeaheadWaitMs).mergeMap(function() {
+        return _this.typeahead;
+      }).subscribe(function(matches) {
+        _this._matches = matches.slice(0, _this.typeaheadOptionsLimit);
+        _this.finalizeAsyncCall();
+      }, function(err) {
+        console.error(err);
+      });
     };
-    Object.defineProperty(TypeaheadDirective.prototype, "matches", {
-      get: function() {
-        return this._matches;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    TypeaheadDirective.prototype.debounce = function(func, wait) {
-      var timeout;
-      var args;
-      var timestamp;
-      var waitOriginal = wait;
-      return function() {
-        args = [].slice.call(arguments, 0);
-        timestamp = Date.now();
-        wait = this.container ? waitOriginal : this.typeaheadWaitMs;
-        var later = function() {
-          var last = Date.now() - timestamp;
-          if (last < wait) {
-            timeout = setTimeout(later, wait - last);
-          } else {
-            timeout = void 0;
-            func.apply(this, args);
-          }
-        };
-        if (!timeout) {
-          timeout = setTimeout(later, wait);
-        }
-      };
+    TypeaheadDirective.prototype.syncActions = function() {
+      var _this = this;
+      this.keyUpEventEmitter.debounceTime(this.typeaheadWaitMs).mergeMap(function(value) {
+        var normalizedQuery = _this.normalizeQuery(value);
+        return Observable_1.Observable.from(_this.typeahead).filter(function(option) {
+          return option && _this.testMatch(_this.prepareOption(option).toLowerCase(), normalizedQuery);
+        }).toArray();
+      }).subscribe(function(matches) {
+        _this._matches = matches.slice(0, _this.typeaheadOptionsLimit);
+        _this.finalizeAsyncCall();
+      }, function(err) {
+        console.error(err);
+      });
     };
-    TypeaheadDirective.prototype.processMatches = function() {
-      this._matches = [];
-      if (!this.typeahead) {
-        return;
+    TypeaheadDirective.prototype.prepareOption = function(option) {
+      var match;
+      if (typeof option === 'object' && option[this.typeaheadOptionField]) {
+        match = this.typeaheadLatinize ? typeahead_utils_1.TypeaheadUtils.latinize(option[this.typeaheadOptionField].toString()) : option[this.typeaheadOptionField].toString();
       }
-      if (!this.cd.model) {
-        for (var i = 0; i < Math.min(this.typeaheadOptionsLimit, this.typeahead.length); i++) {
-          this._matches.push(this.typeahead[i]);
-        }
-        return;
+      if (typeof option === 'string') {
+        match = this.typeaheadLatinize ? typeahead_utils_1.TypeaheadUtils.latinize(option.toString()) : option.toString();
       }
-      var normalizedQuery = (this.typeaheadLatinize ? typeahead_utils_1.TypeaheadUtils.latinize(this.cd.model) : this.cd.model).toString().toLowerCase();
+      return match;
+    };
+    TypeaheadDirective.prototype.normalizeQuery = function(value) {
+      var normalizedQuery = (this.typeaheadLatinize ? typeahead_utils_1.TypeaheadUtils.latinize(value) : value).toString().toLowerCase();
       normalizedQuery = this.typeaheadSingleWords ? typeahead_utils_1.TypeaheadUtils.tokenize(normalizedQuery, this.typeaheadWordDelimiters, this.typeaheadPhraseDelimiters) : normalizedQuery;
-      for (var i = 0; i < this.typeahead.length; i++) {
-        var match = void 0;
-        if (typeof this.typeahead[i] === 'object' && this.typeahead[i][this.typeaheadOptionField]) {
-          match = this.typeaheadLatinize ? typeahead_utils_1.TypeaheadUtils.latinize(this.typeahead[i][this.typeaheadOptionField].toString()) : this.typeahead[i][this.typeaheadOptionField].toString();
-        }
-        if (typeof this.typeahead[i] === 'string') {
-          match = this.typeaheadLatinize ? typeahead_utils_1.TypeaheadUtils.latinize(this.typeahead[i].toString()) : this.typeahead[i].toString();
-        }
-        if (!match) {
-          console.log('Invalid match type', typeof this.typeahead[i], this.typeaheadOptionField);
-          continue;
-        }
-        if (this.testMatch(match.toLowerCase(), normalizedQuery)) {
-          this._matches.push(this.typeahead[i]);
-          if (this._matches.length > this.typeaheadOptionsLimit - 1) {
-            break;
-          }
-        }
-      }
+      return normalizedQuery;
     };
     TypeaheadDirective.prototype.testMatch = function(match, test) {
       var spaceLength;
@@ -3934,13 +3948,13 @@ System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead.directive",
     };
     TypeaheadDirective.prototype.finalizeAsyncCall = function() {
       this.typeaheadLoading.emit(false);
-      this.typeaheadNoResults.emit(this.cd.model.toString().length >= this.typeaheadMinLength && this.matches.length <= 0);
+      this.typeaheadNoResults.emit(this.matches.length <= 0);
       if (this._matches.length <= 0) {
         this.hide();
         return;
       }
       if (this.container && this._matches.length > 0) {
-        var normalizedQuery = (this.typeaheadLatinize ? typeahead_utils_1.TypeaheadUtils.latinize(this.cd.model) : this.cd.model).toString().toLowerCase();
+        var normalizedQuery = (this.typeaheadLatinize ? typeahead_utils_1.TypeaheadUtils.latinize(this.ngControl.control.value) : this.ngControl.control.value).toString().toLowerCase();
         this.container.query = this.typeaheadSingleWords ? typeahead_utils_1.TypeaheadUtils.tokenize(normalizedQuery, this.typeaheadWordDelimiters, this.typeaheadPhraseDelimiters) : normalizedQuery;
         this.container.matches = this._matches;
       }
@@ -3963,9 +3977,9 @@ System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead.directive",
     __decorate([core_1.Input(), __metadata('design:type', String)], TypeaheadDirective.prototype, "typeaheadPhraseDelimiters", void 0);
     __decorate([core_1.HostListener('keyup', ['$event']), __metadata('design:type', Function), __metadata('design:paramtypes', [Object]), __metadata('design:returntype', void 0)], TypeaheadDirective.prototype, "onChange", null);
     __decorate([core_1.HostListener('focus', ['$event.target']), __metadata('design:type', Function), __metadata('design:paramtypes', []), __metadata('design:returntype', void 0)], TypeaheadDirective.prototype, "onFocus", null);
-    __decorate([core_1.HostListener('blur', ['$event.target']), __metadata('design:type', Function), __metadata('design:paramtypes', []), __metadata('design:returntype', void 0)], TypeaheadDirective.prototype, "onBlur", null);
+    __decorate([core_1.HostListener('blur'), __metadata('design:type', Function), __metadata('design:paramtypes', []), __metadata('design:returntype', void 0)], TypeaheadDirective.prototype, "onBlur", null);
     __decorate([core_1.HostListener('keydown', ['$event']), __metadata('design:type', Function), __metadata('design:paramtypes', [Object]), __metadata('design:returntype', void 0)], TypeaheadDirective.prototype, "onKeydown", null);
-    TypeaheadDirective = __decorate([core_1.Directive({selector: '[typeahead][ngModel]'}), __metadata('design:paramtypes', [common_1.NgModel, core_1.ViewContainerRef, core_1.ElementRef, core_1.Renderer, core_1.DynamicComponentLoader])], TypeaheadDirective);
+    TypeaheadDirective = __decorate([core_1.Directive({selector: '[typeahead][ngModel],[typeahead][formControlName]'}), __metadata('design:paramtypes', [forms_1.NgControl, core_1.ViewContainerRef, core_1.ElementRef, core_1.Renderer, core_1.DynamicComponentLoader])], TypeaheadDirective);
     return TypeaheadDirective;
   }());
   exports.TypeaheadDirective = TypeaheadDirective;
@@ -4817,6 +4831,9 @@ System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead-utils", [".
   var TypeaheadUtils = (function() {
     function TypeaheadUtils() {}
     TypeaheadUtils.latinize = function(str) {
+      if (!str) {
+        return '';
+      }
       return str.replace(/[^A-Za-z0-9\[\] ]/g, function(a) {
         return TypeaheadUtils.latinMap[a] || a;
       });
@@ -4962,6 +4979,7 @@ System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead-container.c
       return this._active === value;
     };
     TypeaheadContainerComponent.prototype.selectMatch = function(value, e) {
+      var _this = this;
       if (e === void 0) {
         e = void 0;
       }
@@ -4970,7 +4988,9 @@ System.registerDynamic("ng2-bootstrap/components/typeahead/typeahead-container.c
         e.preventDefault();
       }
       this.parent.changeModel(value);
-      this.parent.typeaheadOnSelect.emit({item: value});
+      setTimeout(function() {
+        return _this.parent.typeaheadOnSelect.emit({item: value});
+      }, 0);
       return false;
     };
     TypeaheadContainerComponent = __decorate([core_1.Component({
@@ -5020,7 +5040,7 @@ System.registerDynamic("ng2-bootstrap/components/typeahead", ["./typeahead/typea
   return module.exports;
 });
 
-System.registerDynamic("ng2-bootstrap/components/utils/components-helper.service", ["@angular/core"], true, function($__require, exports, module) {
+System.registerDynamic("ng2-bootstrap/components/utils/components-helper.service", ["@angular/core", "@angular/platform-browser"], true, function($__require, exports, module) {
   "use strict";
   ;
   var define,
@@ -5043,12 +5063,16 @@ System.registerDynamic("ng2-bootstrap/components/utils/components-helper.service
       return Reflect.metadata(k, v);
   };
   var core_1 = $__require('@angular/core');
+  var platform_browser_1 = $__require('@angular/platform-browser');
   var ComponentsHelper = (function() {
     function ComponentsHelper(applicationRef, componentResolver, injector) {
       this.applicationRef = applicationRef;
       this.componentResolver = componentResolver;
       this.injector = injector;
     }
+    ComponentsHelper.prototype.getDocument = function() {
+      return this.injector.get(platform_browser_1.DOCUMENT);
+    };
     ComponentsHelper.prototype.getRootViewContainerRef = function() {
       var classOfRootComponent = this.applicationRef.componentTypes[0];
       var appInstance = this.injector.get(classOfRootComponent);
@@ -5346,7 +5370,7 @@ System.registerDynamic("ng2-bootstrap/ng2-bootstrap", ["./components/accordion",
   }];
   Object.defineProperty(exports, "__esModule", {value: true});
   exports.default = {
-    directives: [alert_1.AlertComponent, accordion_1.ACCORDION_DIRECTIVES, buttons_1.BUTTON_DIRECTIVES, carousel_1.CAROUSEL_DIRECTIVES, collapse_1.CollapseDirective, datepicker_1.DATEPICKER_DIRECTIVES, dropdown_1.DROPDOWN_DIRECTIVES, modal_1.MODAL_DIRECTVES, pagination_1.PAGINATION_DIRECTIVES, progressbar_1.PROGRESSBAR_DIRECTIVES, rating_1.RatingComponent, tabs_1.TAB_DIRECTIVES, timepicker_1.TimepickerComponent, tooltip_1.TOOLTIP_DIRECTIVES, typeahead_1.TYPEAHEAD_DIRECTIVES],
+    directives: [alert_1.AlertComponent, accordion_1.ACCORDION_DIRECTIVES, buttons_1.BUTTON_DIRECTIVES, carousel_1.CAROUSEL_DIRECTIVES, collapse_1.CollapseDirective, datepicker_1.DATEPICKER_DIRECTIVES, dropdown_1.DROPDOWN_DIRECTIVES, modal_1.MODAL_DIRECTIVES, pagination_1.PAGINATION_DIRECTIVES, progressbar_1.PROGRESSBAR_DIRECTIVES, rating_1.RatingComponent, tabs_1.TAB_DIRECTIVES, timepicker_1.TimepickerComponent, tooltip_1.TOOLTIP_DIRECTIVES, typeahead_1.TYPEAHEAD_DIRECTIVES],
     providers: [components_helper_service_1.ComponentsHelper]
   };
   return module.exports;

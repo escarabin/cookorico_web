@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var platform_browser_1 = require('@angular/platform-browser');
 /**
  * Components helper class to easily work with
  * allows to:
@@ -20,6 +21,9 @@ var ComponentsHelper = (function () {
         this.componentResolver = componentResolver;
         this.injector = injector;
     }
+    ComponentsHelper.prototype.getDocument = function () {
+        return this.injector.get(platform_browser_1.DOCUMENT);
+    };
     /**
      * This is a name conventional class to get application root view component ref
      * to made this method working you need to add:

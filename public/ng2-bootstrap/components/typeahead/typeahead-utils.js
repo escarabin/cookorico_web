@@ -4,6 +4,9 @@ var TypeaheadUtils = (function () {
     function TypeaheadUtils() {
     }
     TypeaheadUtils.latinize = function (str) {
+        if (!str) {
+            return '';
+        }
         return str.replace(/[^A-Za-z0-9\[\] ]/g, function (a) {
             return TypeaheadUtils.latinMap[a] || a;
         });

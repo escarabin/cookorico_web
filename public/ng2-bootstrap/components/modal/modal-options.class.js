@@ -3,7 +3,8 @@ exports.modalConfigDefaults = {
     backdrop: true,
     keyboard: true,
     focus: true,
-    show: true
+    show: true,
+    ignoreBackdropClick: false
 };
 exports.ClassName = {
     SCROLLBAR_MEASURER: 'modal-scrollbar-measure',

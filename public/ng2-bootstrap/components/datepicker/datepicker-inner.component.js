@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var date_formatter_1 = require('./date-formatter');
 var FORMAT_DAY = 'DD';
 var FORMAT_MONTH = 'MMMM';
@@ -44,6 +45,7 @@ var SHORTCUT_PROPAGATION = false;
  */
 var DatePickerInnerComponent = (function () {
     function DatePickerInnerComponent() {
+        this.selectionDone = new core_1.EventEmitter(undefined);
         this.stepDay = {};
         this.stepMonth = {};
         this.stepYear = {};
@@ -187,6 +189,7 @@ var DatePickerInnerComponent = (function () {
                 this.activeDate = new Date(0, 0, 0, 0, 0, 0, 0);
             }
             this.activeDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+            this.selectionDone.emit(this.activeDate);
         }
         else {
             this.activeDate = date;
@@ -318,6 +321,10 @@ var DatePickerInnerComponent = (function () {
         __metadata('design:type', Date)
     ], DatePickerInnerComponent.prototype, "initDate", void 0);
     __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], DatePickerInnerComponent.prototype, "selectionDone", void 0);
+    __decorate([
         core_1.Input(), 
         __metadata('design:type', Date)
     ], DatePickerInnerComponent.prototype, "activeDate", null);
@@ -326,7 +333,7 @@ var DatePickerInnerComponent = (function () {
             selector: 'datepicker-inner',
             events: ['update'],
             template: "\n    <div *ngIf=\"datepickerMode\" class=\"well well-sm bg-faded p-a card\" role=\"application\" ><!--&lt;!&ndash;ng-keydown=\"keydown($event)\"&ndash;&gt;-->\n      <ng-content></ng-content>\n    </div>\n  ",
-            directives: [common_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES, common_1.NgClass, common_1.NgModel]
+            directives: [forms_1.FORM_DIRECTIVES, common_1.CORE_DIRECTIVES, common_1.NgClass, forms_1.NgModel]
         }), 
         __metadata('design:paramtypes', [])
     ], DatePickerInnerComponent);

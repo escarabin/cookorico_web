@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
 var modal_options_class_1 = require('./modal-options.class');
 var ModalBackdropOptions = (function () {
     function ModalBackdropOptions(options) {
@@ -20,19 +19,41 @@ var ModalBackdropOptions = (function () {
 }());
 exports.ModalBackdropOptions = ModalBackdropOptions;
 var ModalBackdropComponent = (function () {
-    function ModalBackdropComponent(options, element) {
-        this.isAnimated = true;
-        this.isShown = false;
-        this.isAnimated = options.animate;
+    function ModalBackdropComponent(options, element, renderer) {
+        this._isShown = false;
         this.element = element;
+        this.renderer = renderer;
+        this.isAnimated = options.animate !== false;
     }
+    Object.defineProperty(ModalBackdropComponent.prototype, "isAnimated", {
+        get: function () {
+            return this._isAnimated;
+        },
+        set: function (value) {
+            this._isAnimated = value;
+            this.renderer.setElementClass(this.element.nativeElement, "" + modal_options_class_1.ClassName.FADE, value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ModalBackdropComponent.prototype, "isShown", {
+        get: function () {
+            return this._isShown;
+        },
+        set: function (value) {
+            this._isShown = value;
+            this.renderer.setElementClass(this.element.nativeElement, "" + modal_options_class_1.ClassName.IN, value);
+        },
+        enumerable: true,
+        configurable: true
+    });
     ModalBackdropComponent = __decorate([
         core_1.Component({
             selector: 'bs-modal-backdrop',
-            directives: [common_1.NgClass],
-            template: "\n<div class=\"" + modal_options_class_1.ClassName.BACKDROP + "\"\n  [class." + modal_options_class_1.ClassName.IN + "]=\"isShown\"\n  [class." + modal_options_class_1.ClassName.FADE + "]=\"isAnimated\"></div>"
+            template: '',
+            host: { 'class': "" + modal_options_class_1.ClassName.BACKDROP }
         }), 
-        __metadata('design:paramtypes', [ModalBackdropOptions, core_1.ElementRef])
+        __metadata('design:paramtypes', [ModalBackdropOptions, core_1.ElementRef, core_1.Renderer])
     ], ModalBackdropComponent);
     return ModalBackdropComponent;
 }());

@@ -1,9 +1,10 @@
-import {DomSanitizationService, SafeHtml} from '@angular/platform-browser';
 import {Component, OnInit, OnDestroy, ViewEncapsulation} from "@angular/core"
 import {Notification} from "./notification"
 import {NotificationsService} from "./notifications.service"
 import {MaxPipe} from "./max.pipe"
 import {Icons} from "./icons"
+
+import {DomSanitizationService, SafeHtml} from '@angular/platform-browser';
 
 @Component({
     selector: "simple-notification",
@@ -145,6 +146,7 @@ export class NotificationComponent implements OnInit, OnDestroy {
     public maxLength: number;
     public showProgressBar: boolean;
     public theClass: string;
+    public theHtml: any;
     public rtl: boolean;
 
     public overrides: any;
@@ -167,9 +169,13 @@ export class NotificationComponent implements OnInit, OnDestroy {
     private pauseOnHover: boolean;
 
     ngOnInit() {
+
         if (this.item.override) this.attachOverrides();
         if (this.timeOut !== 0) this.startTimeOut();
+
         this.safeSvg = this._sanitizer.bypassSecurityTrustHtml(this.icons[this.item.type]);
+
+        console.warn(this.safeSvg);
     }
 
     startTimeOut() {

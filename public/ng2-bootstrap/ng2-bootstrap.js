@@ -47,7 +47,7 @@ exports.default = {
         collapse_1.CollapseDirective,
         datepicker_1.DATEPICKER_DIRECTIVES,
         dropdown_1.DROPDOWN_DIRECTIVES,
-        modal_1.MODAL_DIRECTVES,
+        modal_1.MODAL_DIRECTIVES,
         pagination_1.PAGINATION_DIRECTIVES,
         progressbar_1.PROGRESSBAR_DIRECTIVES,
         rating_1.RatingComponent,

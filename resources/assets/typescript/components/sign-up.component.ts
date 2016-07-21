@@ -5,8 +5,7 @@ import { UserService } from './../services/user.service';
 
 @Component({
     providers: [UserService],
-    inputs: ['clubId'],
-    selector: 'club',
+    selector: 'sign-up',
     templateUrl: '../templates/sign-up.component.html',
 })
 
