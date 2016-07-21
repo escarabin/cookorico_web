@@ -37,7 +37,7 @@ class User extends Authenticatable
      */
     public function civility()
     {
-        return $this->hasOne('App\Models\Civility');
+        return $this->belongsTo('App\Models\Civility');
     }
     /**
      * Get user's state
@@ -93,7 +93,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Study');
     }
-
+    
     /**
      * Get user's new job alerts
      */
