@@ -65,10 +65,8 @@ export class CreateBusinessComponent {
         this.place.adress = place['formatted_address'];
         this.business.title = place['name'];
 
-        console.log('getting photos');
         // Loop through photos to get url
         for (let i = 0; i < place['photos'].length; i++) {
-            console.log('found a photo');
             let photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });
             this.business.photos.push(photoUrl);
         }
