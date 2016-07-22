@@ -1,8 +1,9 @@
 <div class="col-md-12">
-    <h3>Postuler à cette offre</h3>
+    <h3 *ngIf="!application.id">Postuler à cette offre</h3>
+    <h3 *ngIf="application.id">Vous avez déjà postulé à cette offre</h3>
 </div>
 <div class="col-md-12">
-    <unity-tinymce [mceContent]="comment"
+    <unity-tinymce [mceContent]="application.comment"
                    (newContentInput)="commentChanged($event)">
 
     </unity-tinymce>

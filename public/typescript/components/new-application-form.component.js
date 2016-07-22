@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/job.service', './../services/notification.service', './tiny-mce.component', './../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/job.service', './../services/notification.service', './../services/user.service', './tiny-mce.component', './../models/notification', './../models/application'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, job_service_1, notification_service_1, tiny_mce_component_1, notification_1;
+    var core_1, router_deprecated_1, job_service_1, notification_service_1, user_service_1, tiny_mce_component_1, notification_1, application_1;
     var NewApplicationFormComponent;
     return {
         setters:[
@@ -26,25 +26,44 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
             function (notification_service_1_1) {
                 notification_service_1 = notification_service_1_1;
             },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
+            },
             function (tiny_mce_component_1_1) {
                 tiny_mce_component_1 = tiny_mce_component_1_1;
             },
             function (notification_1_1) {
                 notification_1 = notification_1_1;
+            },
+            function (application_1_1) {
+                application_1 = application_1_1;
             }],
         execute: function() {
             NewApplicationFormComponent = (function () {
-                function NewApplicationFormComponent(routeParams, jobService, notificationService, router) {
+                function NewApplicationFormComponent(routeParams, jobService, userService, notificationService, router) {
                     this.routeParams = routeParams;
                     this.jobService = jobService;
+                    this.userService = userService;
                     this.notificationService = notificationService;
                     this.router = router;
+                    this.application = new application_1.Application();
                     this.jobId = routeParams.get("jobId");
+                    var __this = this;
+                    this.userService.getApplications().subscribe(function (res) {
+                        if (res['_body']) {
+                            var applications = res.json();
+                            for (var i = 0; i < applications.length; i++) {
+                                if (applications[i]['job_id'] == __this.jobId) {
+                                    __this.application = applications[i];
+                                }
+                            }
+                        }
+                    });
                 }
                 NewApplicationFormComponent.prototype.submitApplication = function () {
                     var _this = this;
                     var __this = this;
-                    this.jobService.apply(__this.jobId, __this.comment).subscribe(function (res) {
+                    this.jobService.apply(__this.application).subscribe(function (res) {
                         _this.notificationService.show(new notification_1.Notification('success', 'Votre candidature a bien été enregistrée'));
                         _this.router.navigate(['/Profile/Applications']);
                     });
@@ -59,11 +78,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                 NewApplicationFormComponent = __decorate([
                     core_1.Component({
                         directives: [router_deprecated_1.RouterLink, tiny_mce_component_1.UNITYTinyMCE],
-                        providers: [job_service_1.JobService],
+                        providers: [job_service_1.JobService, user_service_1.UserService],
                         selector: 'new-application-form',
                         templateUrl: '../templates/new-application-form.component.html',
                     }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, job_service_1.JobService, notification_service_1.NotificationsService, router_deprecated_1.Router])
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, job_service_1.JobService, user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.Router])
                 ], NewApplicationFormComponent);
                 return NewApplicationFormComponent;
             }());
