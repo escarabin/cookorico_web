@@ -36,7 +36,7 @@ export class UserService {
     createStudyUrl = '/study/create';
     createAlertUrl = '/alert/create';
     getAlertUrl = '/alert';
-    saveAlertChangesUrl = '/alert/save_changes/';
+    updateAlertUrl = '/alert/update';
     createUserUrl = '/user/create';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
@@ -304,29 +304,22 @@ export class UserService {
     createAlert(alert) {
         let __this = this;
 
-        return this.http.get(
-            __this.createAlertUrl + '/' +
-            alert.alert_frequency_id + '/' +
-            alert.title + '/' +
-            alert.job_naming_id + '/' +
-            alert.place + '/');
+        let requestBody = JSON.stringify({ alert });
+
+        return this.http.post(__this.createAlertUrl, requestBody, this.postRequestOptions);
     }
 
     /**
-     * Save changes to an exisiting job alert
+     * Update exisiting job alert
      * @param alert
      * @returns {Observable<Response>}
      */
     updateAlert(alert) {
         let __this = this;
 
-        return this.http.get(
-            __this.saveAlertChangesUrl + '/' +
-            alert.id + '/' +
-            alert.alert_frequency_id + '/' +
-            alert.title + '/' +
-            alert.job_naming_id + '/' +
-            alert.place + '/');
+        let requestBody = JSON.stringify({ alert });
+
+        return this.http.post(__this.updateAlertUrl, requestBody, this.postRequestOptions);
     }
 
     /**

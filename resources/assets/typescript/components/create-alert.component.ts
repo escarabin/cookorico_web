@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink, RouteParams } from '@angular/router-deprecated';
+import { RouterLink, RouteParams, Router } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
+import { NotificationsService } from './../services/notification.service';
 
 // Models
 import { Alert } from './../models/alert';
+import { Notification } from './../models/notification';
 
 @Component({
     selector: 'create-alert',
@@ -17,12 +19,14 @@ import { Alert } from './../models/alert';
 })
 
 export class CreateAlertComponent {
-    jobNamings: any;
+    jobNamingGroups: any;
     alertFrequencies: any;
     alert:Alert = new Alert();
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
+                private notificationService: NotificationsService,
+                private router: Router,
                 private routeParams: RouteParams) {
         let __this = this;
 
@@ -35,8 +39,8 @@ export class CreateAlertComponent {
             });
         }
 
-        this.referenceService.getAllJobNamings().subscribe((res: Response) => {
-            __this.jobNamings = res.json();
+        this.referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
+            __this.jobNamingGroups = res.json();
         });
 
         this.referenceService.getAllAlertFrequencies().subscribe((res: Response) => {
@@ -44,19 +48,39 @@ export class CreateAlertComponent {
         });
     }
 
-    createAlert() {
+    submitAlert() {
         let __this = this;
 
-        this.userService.createAlert(__this.alert).subscribe((res: Response) => {
+        if (!this.alert.id) {
+            this.userService.createAlert(__this.alert).subscribe((res: Response) => {
+                if (res['_body']) {
+                    __this.notificationService.show(
+                        new Notification('success', 'Votre alerte a bien été créee')
+                    );
 
-        });
-    }
-
-    saveAlertChanges() {
-        let __this = this;
-
-        this.userService.updateAlert(__this.alert).subscribe((res: Response) => {
-
-        });
+                    // Redirect to experience edition
+                    this.router.navigate(['/Profile/EditAlert', { alertId: res.json()['id'] }])
+                }
+                else {
+                    __this.notificationService.show(
+                        new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
+                    );
+                }
+            });
+        }
+        else {
+            this.userService.updateAlert(__this.alert).subscribe((res: Response) => {
+                if (res['_body']) {
+                    __this.notificationService.show(
+                        new Notification('success', 'Vos modifications ont bien été enregistrées')
+                    );
+                }
+                else {
+                    __this.notificationService.show(
+                        new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
+                    );
+                }
+            });
+        }
     }
 }

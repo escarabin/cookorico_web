@@ -55,7 +55,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.createStudyUrl = '/study/create';
                     this.createAlertUrl = '/alert/create';
                     this.getAlertUrl = '/alert';
-                    this.saveAlertChangesUrl = '/alert/save_changes/';
+                    this.updateAlertUrl = '/alert/update';
                     this.createUserUrl = '/user/create';
                     this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
                     this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
@@ -267,25 +267,18 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  */
                 UserService.prototype.createAlert = function (alert) {
                     var __this = this;
-                    return this.http.get(__this.createAlertUrl + '/' +
-                        alert.alert_frequency_id + '/' +
-                        alert.title + '/' +
-                        alert.job_naming_id + '/' +
-                        alert.place + '/');
+                    var requestBody = JSON.stringify({ alert: alert });
+                    return this.http.post(__this.createAlertUrl, requestBody, this.postRequestOptions);
                 };
                 /**
-                 * Save changes to an exisiting job alert
+                 * Update exisiting job alert
                  * @param alert
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.updateAlert = function (alert) {
                     var __this = this;
-                    return this.http.get(__this.saveAlertChangesUrl + '/' +
-                        alert.id + '/' +
-                        alert.alert_frequency_id + '/' +
-                        alert.title + '/' +
-                        alert.job_naming_id + '/' +
-                        alert.place + '/');
+                    var requestBody = JSON.stringify({ alert: alert });
+                    return this.http.post(__this.updateAlertUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Error handling

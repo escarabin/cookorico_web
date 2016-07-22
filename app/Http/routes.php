@@ -109,10 +109,10 @@ Route::get('/alert/{alertId}', 'UserController@getAlert')
     ->name('getAlert');
 Route::get('/alert/delete/{alertId}', 'AlertController@deleteAlerts')
     ->name('deleteAlerts');
-Route::get('/alert/save_changes/{alertId}/{alertFrequencyId}/{title}/{jobNamingId}/{place}', 'UserController@saveAlertChanges')
-    ->name('saveAlertChanges');
-Route::get('/alert/create/{alertFrequencyId}/{title}/{jobNamingId}/{place}', 'AlertController@createAlert')
-    ->name('getAlerts');
+Route::post('/alert/update', 'AlertController@updateAlert')
+    ->name('updateAlert');
+Route::post('/alert/create', 'AlertController@createAlert')
+    ->name('createAlert');
 
 // Testimonials
 Route::get('/testimonials/all', 'UserController@getTestimonials')

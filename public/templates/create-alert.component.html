@@ -28,16 +28,18 @@
         <div class="col-md-6">
             <label>Poste</label>
             <select name="job"
-                    required
                     [(ngModel)]="alert.job_naming_id"
                     ngControl="alert.job_naming_id"
+                    required
                     class="form-control">
-                <option disabled>-- Poste --</option>
-                <option *ngFor="let jobNaming of jobNamings"
-                        [selected]="jobNaming.id == alert.job_naming_id"
-                        value="{{ jobNaming.id }}">
-                    {{ jobNaming.title }}
-                </option>
+                <option disabled selected>-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
             </select>
         </div>
         <div class="col-md-6">
@@ -77,8 +79,7 @@
         </div>
         <div class="col-md-6 hidden-xs hidden-sm">
             <a [routerLink]="['/Profile/Alerts']">
-                <button class="btn btn-default back-btn"
-                        (click)="saveAlertChanges()">
+                <button class="btn btn-default back-btn">
                     <span class="fa fa-arrow-left"></span> &nbsp; Retour aux alertes
                 </button>
             </a>
@@ -86,15 +87,8 @@
         <div class="col-md-6">
             <button class="btn btn-primary submit-btn"
                     [disabled]="!alertForm.valid"
-                    *ngIf="alert.id"
-                    (click)="saveAlertChanges()">
+                    (click)="submitAlert()">
                 Sauvegarder
-            </button>
-            <button class="btn btn-primary submit-btn"
-                    [disabled]="!alertForm.valid"
-                    *ngIf="!alert.id"
-                    (click)="createAlert()">
-                Créer
             </button>
         </div>
     </form>
