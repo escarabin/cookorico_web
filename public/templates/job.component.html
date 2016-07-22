@@ -57,8 +57,8 @@
             <div class="col-md-6 job-info education">
                 <label>Niveau d'études :</label> {{ job.study_level.title }}
             </div>
-            <div class="col-md-12 description">
-                {{ job.description }}
+            <div class="col-md-12 description" [innerHTML]="job.description">
+
             </div>
 
             <new-application-form [jobId]="job.id" *ngIf="user && user.user_type_id == 3"></new-application-form>
