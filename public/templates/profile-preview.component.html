@@ -31,14 +31,18 @@
 <div class="col-md-12">
     <h3>Expériences</h3>
     <div *ngFor="let experience of experiences">
-        {{ experience.job_naming.title }}
+        <a [routerLink]="['EditExperience', { experienceId: experience.id }]">
+            {{ experience.job_naming.title }}
+        </a>
     </div>
 </div>
 
 <div class="col-md-12">
     <h3>Formations</h3>
     <div *ngFor="let education of educations">
-        {{ education.business.title }}
+        <a [routerLink]="['EditStudy', { studyId: study.id }]">
+            {{ education.business.title }}
+        </a>
     </div>
 </div>
 
