@@ -55,6 +55,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getAlertUrl = '/alert';
                     this.saveAlertChangesUrl = '/alert/save_changes/';
                     this.createUserUrl = '/user/create';
+                    this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
                 }
                 /**
                  * Sign user in
@@ -209,24 +211,13 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 };
                 /**
                  * Create new work experience
-                 * @param jobNamingId
-                 * @param businessId
-                 * @param startDate
-                 * @param endDate
-                 * @param adress
-                 * @param lat
-                 * @param lon
-                 * @param description
+                 * @param experience
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.createExperience = function (jobNamingId, businessId, startDate, endDate, description) {
+                UserService.prototype.createExperience = function (experience) {
                     var __this = this;
-                    return this.http.get(__this.createExperienceUrl + '/' +
-                        jobNamingId + '/' +
-                        businessId + '/' +
-                        startDate + '/' +
-                        endDate + '/' +
-                        description).catch(__this.handleError("", __this.notificationService));
+                    var requestBody = JSON.stringify({ experience: experience });
+                    return this.http.post(__this.createExperienceUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Update existing work experience
@@ -235,9 +226,6 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @param businessId
                  * @param startDate
                  * @param endDate
-                 * @param adress
-                 * @param lat
-                 * @param lon
                  * @param description
                  * @returns {Observable<Response>}
                  */

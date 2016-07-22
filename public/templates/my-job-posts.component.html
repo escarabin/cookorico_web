@@ -44,9 +44,8 @@
                             {{ item.end_date }}
                         </span> -->
                     </div>
-                    <div class="logo">
-                        <img src="/uploads/business/logo/{{ item.business.logoUrl }}"
-                             *ngIf="item.business.logoUrl"/>
+                    <div class="logo" *ngIf="item.business.logoUrl">
+                        <img src="/uploads/business/logo/{{ item.business.logoUrl }}"/>
                     </div>
                 </a>
             </div>

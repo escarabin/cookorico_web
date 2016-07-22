@@ -50,14 +50,17 @@ export class CreateExperienceComponent {
         let __this = this;
 
         if (!this.experience.id) {
-            this.userService.createExperience(__this.experience.job_naming_id,
-                __this.experience.business_id,
-                __this.experience.start_date,
-                __this.experience.end_date,
-                __this.experience.description).subscribe((res: Response) => {
-                __this.notificationService.show(
-                    new Notification('success', 'Votre expérience a bien été créee')
-                );
+            this.userService.createExperience(__this.experience).subscribe((res: Response) => {
+                if (res['_body']) {
+                    __this.notificationService.show(
+                        new Notification('success', 'Votre expérience a bien été créee')
+                    );
+                }
+                else {
+                    __this.notificationService.show(
+                        new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
+                    );
+                }
             });
         }
         else {
@@ -67,9 +70,16 @@ export class CreateExperienceComponent {
                 __this.experience.start_date,
                 __this.experience.end_date,
                 __this.experience.description).subscribe((res: Response) => {
-                __this.notificationService.show(
-                    new Notification('success',  'Vos modifications ont bien été enregistrées')
-                );
+                    if (res['_body']) {
+                        __this.notificationService.show(
+                            new Notification('success', 'Vos modifications ont bien été enregistrées')
+                        );
+                    }
+                    else {
+                        __this.notificationService.show(
+                            new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
+                        );
+                    }
             });
         }
     }

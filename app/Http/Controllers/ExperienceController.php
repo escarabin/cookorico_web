@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Log;
+use Illuminate\Support\Facades\Request;
 use Auth;
 use App\Models\Experience;
 
@@ -10,23 +12,22 @@ class ExperienceController extends Controller
 {
     /**
      * Create new work experience
-     * @param $jobNamingId
-     * @param $businessId
-     * @param $startDate
-     * @param $endDate
-     * @param $description
+     * @param Request $request
+     * @return Experience
      */
-    public function createExperience($jobNamingId, $businessId, $startDate, $endDate, $description) {
+    public function createExperience(Request $request) {
         $user_id = Auth::user()->id;
 
         $experience = new Experience;
-
         $experience->user_id = $user_id;
-        $experience->job_naming_id = $jobNamingId;
-        $experience->business_id = $businessId;
-        $experience->start_date = $startDate;
-        $experience->end_date = $endDate;
-        $experience->description = $description;
+
+        $experienceData = $request::input('experience');
+
+        Log::info($request::all());
+
+        foreach ($experienceData as $key => $value) {
+            $experience[$key] = $value;
+        }
 
         $experience->save();
 
@@ -64,6 +65,11 @@ class ExperienceController extends Controller
         return $experience;
     }
 
+    /**
+     * Delete specific experiences regarding a list of ids
+     * @param $listExperienceId
+     * @return mixed
+     */
     public function deleteExperiences($listExperienceId) {
         $listExperienceId = explode(',', $listExperienceId);
 

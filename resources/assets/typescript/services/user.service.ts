@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HTTP_PROVIDERS, Http } from '@angular/http';
+import { HTTP_PROVIDERS, Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
 
 // Services
@@ -8,6 +8,7 @@ import { NotificationsService } from './notification.service';
 // Models
 import { Notification } from './../models/notification';
 import { User } from './../models/user';
+import { Experience } from './../models/experience';
 
 @Injectable()
 export class UserService {
@@ -34,6 +35,8 @@ export class UserService {
     getAlertUrl = '/alert';
     saveAlertChangesUrl = '/alert/save_changes/';
     createUserUrl = '/user/create';
+    postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
+    postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
     constructor(private http: Http,
                 private notificationService: NotificationsService) {
@@ -229,26 +232,15 @@ export class UserService {
 
     /**
      * Create new work experience
-     * @param jobNamingId
-     * @param businessId
-     * @param startDate
-     * @param endDate
-     * @param adress
-     * @param lat
-     * @param lon
-     * @param description
+     * @param experience
      * @returns {Observable<Response>}
      */
-    createExperience(jobNamingId, businessId, startDate, endDate, description) {
+    createExperience(experience: Experience) {
         let __this = this;
 
-        return this.http.get(
-            __this.createExperienceUrl + '/' +
-            jobNamingId + '/' +
-            businessId + '/' +
-            startDate + '/' +
-            endDate + '/' +
-            description).catch(__this.handleError("", __this.notificationService));
+        let requestBody = JSON.stringify({ experience });
+
+        return this.http.post(__this.createExperienceUrl, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -258,9 +250,6 @@ export class UserService {
      * @param businessId
      * @param startDate
      * @param endDate
-     * @param adress
-     * @param lat
-     * @param lon
      * @param description
      * @returns {Observable<Response>}
      */
