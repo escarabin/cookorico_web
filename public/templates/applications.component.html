@@ -23,7 +23,8 @@
                             {{ application.created_at }}
                         </span>-->
                     </div>
-                    <div class="logo">
+                    <div class="logo"
+                         *ngIf="application.job.business.logoUrl">
                         <img src="/uploads/business/logo/{{ application.job.business.logoUrl }}"/>
                     </div>
                 </a>
