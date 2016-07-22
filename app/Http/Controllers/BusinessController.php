@@ -54,13 +54,10 @@ class BusinessController extends Controller
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getAll() {
-        $businesses = Business::all();
-
-        foreach ($businesses as $business) {
-            $business->type = $business->type;
-            $business->clubs = $business->clubs;
-            $business->place = $business->place;
-        }
+        $businesses = Business::all()
+                        ->load('type')
+                        ->load('clubs')
+                        ->load('place');
 
         return $businesses;
     }

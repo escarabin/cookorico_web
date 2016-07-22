@@ -24,7 +24,7 @@ class Alert extends Model
     }
 
     /**
-     * Get the frequency of alert
+     * Get the frequency of alertn
      */
     public function alertFrequency()
     {
