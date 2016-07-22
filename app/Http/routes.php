@@ -142,3 +142,7 @@ Route::get('/job_xp_levels/all', 'ReferenceController@getAllJobXpLevels')
 // Plans
 Route::get('/user/plans/all', 'UserController@getPlans')
     ->name('getAllPlans');
+
+// Socialite
+Route::get('auth/linkedin', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/linkedin/callback', 'Auth\AuthController@handleProviderCallback');

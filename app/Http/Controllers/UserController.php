@@ -155,7 +155,7 @@ class UserController extends Controller
      */
     public function getBusinesses() {
         $businesses = Auth::user()->businesses
-                        ->load('type', 'club', 'place');
+                        ->load('type', 'clubs', 'place');
 
         return $businesses;
     }

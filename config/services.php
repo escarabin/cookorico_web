@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'linkedin' => [
+        'client_id' => '77pzdtz69axly4',
+        'client_secret' => 'G2aEA7CNlFJVttCD',
+        'redirect' => 'http://localhost:8888/profile',
+    ],
+
 ];
