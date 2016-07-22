@@ -146,3 +146,11 @@ Route::get('/user/plans/all', 'UserController@getPlans')
 // Socialite
 Route::get('/auth/{provider}', 'Auth\AuthController@redirectToProvider');
 Route::get('/auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
+
+// Password reset link request routes
+Route::get('/password/email', 'Auth\PasswordController@getEmail');
+Route::post('/password/email', 'Auth\PasswordController@postEmail');
+
+// Password reset routes
+Route::get('/password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('/password/reset', 'Auth\PasswordController@postReset');
