@@ -93,10 +93,14 @@ Route::get('/experience/delete/{experiences}', 'ExperienceController@deleteExper
 // Education
 Route::get('/education/all', 'UserController@getEducation')
     ->name('getEducation');
+Route::get('/study/{studyId}', 'EducationController@getStudy')
+    ->name('getStudy');
 Route::get('/education/delete/{listStudyId}', 'EducationController@deleteEducation')
     ->name('deleteEducation');
 Route::post('/study/create', 'EducationController@createStudy')
     ->name('createStudy');
+Route::post('/study/update', 'EducationController@updateStudy')
+    ->name('updateStudy');
 
 // Alerts
 Route::get('/alerts/all', 'UserController@getAlerts')

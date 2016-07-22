@@ -39,6 +39,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getExperienceUrl = '/experience';
                     this.deleteExperiencesUrl = '/experience/delete';
                     this.deleteEducationUrl = '/education/delete';
+                    this.getStudyUrl = '/study';
+                    this.updateStudyUrl = '/study/update';
                     this.deleteAlertUrl = '/alert/delete';
                     this.getEducationUrl = '/education/all';
                     this.getAlertsUrl = '/alerts/all';
@@ -123,6 +125,15 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.getEducation = function () {
                     var __this = this;
                     return this.http.get(__this.getEducationUrl);
+                };
+                /**
+                 * Get user's specific study regarding id
+                 * @param studyId
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.getStudy = function (studyId) {
+                    var __this = this;
+                    return this.http.get(__this.getStudyUrl + '/' + studyId);
                 };
                 /**
                  * Delete specific user's education studies
@@ -238,6 +249,16 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     var __this = this;
                     var requestBody = JSON.stringify({ study: study });
                     return this.http.post(__this.createStudyUrl, requestBody, this.postRequestOptions);
+                };
+                /**
+                 * Update existing study
+                 * @param study
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.updateStudy = function (study) {
+                    var __this = this;
+                    var requestBody = JSON.stringify({ study: study });
+                    return this.http.post(__this.updateStudyUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Create new job alert

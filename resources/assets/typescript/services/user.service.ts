@@ -20,6 +20,8 @@ export class UserService {
     getExperienceUrl = '/experience';
     deleteExperiencesUrl = '/experience/delete';
     deleteEducationUrl = '/education/delete';
+    getStudyUrl = '/study';
+    updateStudyUrl = '/study/update';
     deleteAlertUrl = '/alert/delete';
     getEducationUrl = '/education/all';
     getAlertsUrl = '/alerts/all';
@@ -122,6 +124,17 @@ export class UserService {
         let __this = this;
 
         return this.http.get(__this.getEducationUrl);
+    }
+
+    /**
+     * Get user's specific study regarding id
+     * @param studyId
+     * @returns {Observable<Response>}
+     */
+    getStudy(studyId) {
+        let __this = this;
+
+        return this.http.get(__this.getStudyUrl + '/' + studyId);
     }
 
     /**
@@ -268,6 +281,19 @@ export class UserService {
         let requestBody = JSON.stringify({ study });
 
         return this.http.post(__this.createStudyUrl, requestBody, this.postRequestOptions);
+    }
+
+    /**
+     * Update existing study
+     * @param study
+     * @returns {Observable<Response>}
+     */
+    updateStudy(study: Study) {
+        let __this = this;
+
+        let requestBody = JSON.stringify({ study });
+
+        return this.http.post(__this.updateStudyUrl, requestBody, this.postRequestOptions);
     }
 
     /**

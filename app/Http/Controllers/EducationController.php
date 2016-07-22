@@ -24,13 +24,41 @@ class EducationController extends Controller
 
         $studyData = $request::input('study');
 
-        Log::info($studyData);
+        foreach ($studyData as $key => $value) {
+            $study[$key] = $value;
+        }
+
+        $study->save();
+
+        return $study;
+    }
+
+    /**
+     * Update existing study
+     * @param Request $request
+     * @return Study
+     */
+    public function updateStudy(Request $request) {
+        $studyData = $request::input('study');
+
+        $study = Study::find($studyData['id']);
 
         foreach ($studyData as $key => $value) {
             $study[$key] = $value;
         }
 
         $study->save();
+
+        return $study;
+    }
+
+    /**
+     * Get user's specific study regarding id
+     * @param $studyId
+     * @return mixed
+     */
+    public function getStudy($studyId) {
+        $study = Study::find($studyId);
 
         return $study;
     }

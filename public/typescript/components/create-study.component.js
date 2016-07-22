@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../models/study', './business-select.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/notification.service', './../models/study', './../models/notification', './business-select.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, study_1, business_select_component_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, notification_service_1, study_1, notification_1, business_select_component_1;
     var CreateStudyComponent;
     return {
         setters:[
@@ -26,28 +26,64 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
             function (study_1_1) {
                 study_1 = study_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
             },
             function (business_select_component_1_1) {
                 business_select_component_1 = business_select_component_1_1;
             }],
         execute: function() {
             CreateStudyComponent = (function () {
-                function CreateStudyComponent(referenceService, userService) {
+                function CreateStudyComponent(referenceService, notificationService, userService, routeParams, router) {
                     this.referenceService = referenceService;
+                    this.notificationService = notificationService;
                     this.userService = userService;
+                    this.routeParams = routeParams;
+                    this.router = router;
                     this.study = new study_1.Study();
                     var __this = this;
+                    this.study.id = routeParams.get("studyId");
+                    if (this.study.id) {
+                        // Editing a specific experience, let's retrieve it's data
+                        this.userService.getStudy(__this.study.id).subscribe(function (res) {
+                            __this.study = res.json();
+                        });
+                    }
                     this.referenceService.getAllDiplomas().subscribe(function (res) {
                         __this.diplomas = res.json();
                     });
                 }
                 CreateStudyComponent.prototype.submitStudy = function () {
+                    var _this = this;
                     var __this = this;
-                    this.userService.createStudy(__this.study).subscribe(function (res) {
-                        console.log(res.json());
-                    });
+                    if (!this.study.id) {
+                        this.userService.createStudy(__this.study).subscribe(function (res) {
+                            if (res['_body']) {
+                                __this.notificationService.show(new notification_1.Notification('success', 'Votre expérience a bien été créee'));
+                                // Redirect to experience edition
+                                _this.router.navigate(['/Profile/EditStudy', { studyId: res.json()['id'] }]);
+                            }
+                            else {
+                                __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
+                            }
+                        });
+                    }
+                    else {
+                        this.userService.updateStudy(__this.study).subscribe(function (res) {
+                            if (res['_body']) {
+                                __this.notificationService.show(new notification_1.Notification('success', 'Vos modifications ont bien été enregistrées'));
+                            }
+                            else {
+                                __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
+                            }
+                        });
+                    }
                 };
                 CreateStudyComponent.prototype.handleBusinessIdChange = function (businessId) {
                     this.study.business_id = businessId;
@@ -59,7 +95,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         directives: [router_deprecated_1.RouterLink, business_select_component_1.BusinessSelectComponent],
                         templateUrl: '../templates/create-study.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, notification_service_1.NotificationsService, user_service_1.UserService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
                 ], CreateStudyComponent);
                 return CreateStudyComponent;
             }());
