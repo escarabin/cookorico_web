@@ -35,10 +35,10 @@
             <div class="col-md-10 col-sm-10 col-xs-9 item">
                 <a [routerLink]="['/Profile/EditAlert', { alertId: item.id }]">
                     <div class="item-desc">
-                        <h3>{{ item.jobNaming.title }}</h3>
+                        <h3>{{ item.job_naming.title }}</h3>
                         {{ item.title }} -- {{ item.place }}
                         <span class="date">
-                            {{ item.alertFrequency.title }} &nbsp;
+                            {{ item.alert_frequency.title }} &nbsp;
                             <span class="fa fa-clock-o"></span>
                         </span>
                     </div>

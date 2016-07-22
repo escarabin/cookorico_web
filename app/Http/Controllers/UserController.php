@@ -140,7 +140,9 @@ class UserController extends Controller
      * @return mixed
      */
     public function getAlerts() {
-        $alerts = Auth::user()->alerts->toJson();
+        $alerts = Auth::user()->alerts
+                        ->load('alertFrequency')
+                        ->load('jobNaming');
 
         Log::info($alerts);
 
