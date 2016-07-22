@@ -49,6 +49,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 /**
                  * Apply to a specific job
                  * @param jobId
+                 * @param comment
                  * @returns {Observable<Response>}
                  */
                 JobService.prototype.apply = function (jobId, comment) {

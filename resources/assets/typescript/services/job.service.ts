@@ -37,6 +37,7 @@ export class JobService {
     /**
      * Apply to a specific job
      * @param jobId
+     * @param comment
      * @returns {Observable<Response>}
      */
     apply(jobId, comment) {

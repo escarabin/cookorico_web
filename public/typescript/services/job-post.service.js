@@ -34,7 +34,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                  */
                 JobPostService.prototype.create = function (jobPost) {
                     var __this = this;
-                    var body = JSON.stringify(jobPost);
+                    var body = JSON.stringify({ jobPost: jobPost });
                     var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
                     var options = new http_1.RequestOptions({ headers: headers });
                     return this.http.post(__this.createJobPostUrl, body, options);

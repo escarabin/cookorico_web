@@ -21,7 +21,7 @@ export class JobPostService {
     create(jobPost: JobPost) {
         let __this = this;
 
-        let body = JSON.stringify( jobPost );
+        let body = JSON.stringify({ jobPost });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

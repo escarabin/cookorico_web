@@ -88,43 +88,17 @@ class JobController extends Controller
 
     /**
      * Create a new job post
-     * @param $title
-     * @param $description
-     * @param $is_hosting_employee
-     * @param $is_urgent
-     * @param $is_asap
-     * @param $week_work_hours
-     * @param $business_id
-     * @param $job_type_id
-     * @param $job_naming_id
-     * @param $contract_type_id
-     * @param $study_level_id
-     * @param $job_xp_level_id
-     * @param $alert_frequency_id
-     * @param $diploma_id
-     * @param $start_date
-     * @param $end_date
+     * @param Request $request
+     * @return Job
      */
     public function create(Request $request) {
         $jobPost = new Job();
-
-        $jobPost->title = $request::input('title');
-        $jobPost->description = $request::input('description');
         $jobPost->user_id = Auth::user()->id;
-        $jobPost->is_hosting_employee = $request::input('is_hosting_employee');
-        $jobPost->is_urgent = $request::input('is_urgent');
-        $jobPost->is_asap = $request::input('is_asap');
-        $jobPost->week_work_hours = $request::input('week_work_hours');
-        $jobPost->business_id = $request::input('business_id');
-        $jobPost->job_type_id = $request::input('job_type_id');
-        $jobPost->job_naming_id = $request::input('job_naming_id');
-        $jobPost->contract_type_id = $request::input('contract_type_id');
-        $jobPost->study_level_id = $request::input('study_level_id');
-        $jobPost->job_xp_level_id = $request::input('job_xp_level_id');
-        $jobPost->alert_frequency_id = $request::input('alert_frequency_id');
-        $jobPost->diploma_id = $request::input('diploma_id');
-        $jobPost->start_date = $request::input('start_date');
-        $jobPost->end_date = $request::input('end_date');
+
+        $jobPostData = $request::input('jobPost');
+        foreach ($jobPostData as $key => $value) {
+            $jobPost[$key] = $value;
+        }
 
         $jobPost->save();
 
