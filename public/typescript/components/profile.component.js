@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component', "./applications.component", "./experiences.component", "./education.component", "./alerts.component", "./testimonials.component", "./create-experience.component", "./create-study.component", "./create-alert.component", "./create-business.component", "./businesses.component", "./right-sidebar.component", './my-job-posts.component', './create-job-post.component', './sign-up.component', './applicants.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component', "./applications.component", "./experiences.component", "./education.component", "./alerts.component", "./testimonials.component", "./create-experience.component", "./create-study.component", "./create-alert.component", "./create-business.component", "./businesses.component", "./right-sidebar.component", './my-job-posts.component', './create-job-post.component', './sign-up.component', './applicants.component', './profile-preview.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1, create_study_component_1, create_alert_component_1, create_business_component_1, businesses_component_1, right_sidebar_component_1, my_job_posts_component_1, create_job_post_component_1, sign_up_component_1, applicants_component_1;
+    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1, create_study_component_1, create_alert_component_1, create_business_component_1, businesses_component_1, right_sidebar_component_1, my_job_posts_component_1, create_job_post_component_1, sign_up_component_1, applicants_component_1, profile_preview_component_1;
     var ProfileComponent;
     return {
         setters:[
@@ -70,6 +70,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             },
             function (applicants_component_1_1) {
                 applicants_component_1 = applicants_component_1_1;
+            },
+            function (profile_preview_component_1_1) {
+                profile_preview_component_1 = profile_preview_component_1_1;
             }],
         execute: function() {
             ProfileComponent = (function () {
@@ -90,7 +93,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                     }),
                     router_deprecated_1.RouteConfig([
                         // Root
-                        { path: '/show', name: 'Show', component: sign_up_component_1.SignUpComponent, useAsDefault: true },
+                        { path: '/show', name: 'ProfilePreview', component: profile_preview_component_1.ProfilePreviewComponent, useAsDefault: true },
                         // Experiences
                         { path: '/experiences/all', name: 'Experiences', component: experiences_component_1.ExperiencesComponent },
                         { path: '/experience/create', name: 'CreateExperience', component: create_experience_component_1.CreateExperienceComponent },

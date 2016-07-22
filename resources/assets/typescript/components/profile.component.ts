@@ -25,6 +25,7 @@ import { MyJobPostsComponent } from './my-job-posts.component';
 import { CreateJobPostComponent } from './create-job-post.component';
 import { SignUpComponent } from './sign-up.component';
 import { ApplicantsComponent } from './applicants.component';
+import { ProfilePreviewComponent } from './profile-preview.component';
 
 @Component({
     providers: [UserService],
@@ -43,7 +44,7 @@ import { ApplicantsComponent } from './applicants.component';
 
 @RouteConfig([
     // Root
-    { path: '/show', name: 'Show', component: SignUpComponent, useAsDefault: true },
+    { path: '/show', name: 'ProfilePreview', component: ProfilePreviewComponent, useAsDefault: true },
 
     // Experiences
     { path: '/experiences/all', name: 'Experiences', component: ExperiencesComponent },
