@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http, Headers, RequestOptions } from '@angular/http';
 
+// Models
+import { Application } from './../models/application';
+
 @Injectable()
 export class JobService {
     allJobsListingUrl = '/jobs/all';
@@ -40,12 +43,14 @@ export class JobService {
      * @param comment
      * @returns {Observable<Response>}
      */
-    apply(jobId, comment) {
+    apply(application: Application) {
         let __this = this;
 
-        let body = JSON.stringify({ jobId, comment });
+        let body = JSON.stringify({ application });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
+
+        console.log(options, body);
 
         return this.http.post(__this.applyJobUrl, body, options);
     }

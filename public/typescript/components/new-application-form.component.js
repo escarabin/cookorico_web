@@ -48,6 +48,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                     this.router = router;
                     this.application = new application_1.Application();
                     this.jobId = routeParams.get("jobId");
+                    this.application.job_id = parseInt(this.jobId);
                     var __this = this;
                     this.userService.getApplications().subscribe(function (res) {
                         if (res['_body']) {

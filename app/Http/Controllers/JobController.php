@@ -77,9 +77,11 @@ class JobController extends Controller
     public function apply(Request $request) {
         $newApplication = new Application;
 
+        $applicationData = $request::input('application');
+
         $newApplication->user_id = Auth::user()->id;
-        $newApplication->job_id = $request::input('jobId');
-        $newApplication->comment = $request::input('comment');
+        $newApplication->job_id = $applicationData['job_id'];
+        $newApplication->comment = $applicationData['comment'];
 
         $newApplication->save();
 

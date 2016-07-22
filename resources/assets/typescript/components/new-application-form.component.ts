@@ -32,6 +32,7 @@ export class NewApplicationFormComponent {
                 private notificationService: NotificationsService,
                 private router: Router) {
         this.jobId = routeParams.get("jobId");
+        this.application.job_id = parseInt(this.jobId);
 
         let __this = this;
 
