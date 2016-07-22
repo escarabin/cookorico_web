@@ -31,11 +31,14 @@
                     ngControl="experience.job_naming_id"
                     required
                     class="form-control">
-                <option disabled selected>-- Poste --</option>
-                <option *ngFor="let jobNaming of jobNamings"
-                        value="{{ jobNaming.id }}">
-                    {{ jobNaming.title }}
-                </option>
+                <option disabled selected>-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
             </select>
         </div>
         <div class="col-md-6">

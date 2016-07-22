@@ -245,25 +245,15 @@ export class UserService {
 
     /**
      * Update existing work experience
-     * @param experienceId
-     * @param jobNamingId
-     * @param businessId
-     * @param startDate
-     * @param endDate
-     * @param description
+     * @param experience
      * @returns {Observable<Response>}
      */
-    updateExperience(experienceId, jobNamingId, businessId, startDate, endDate, description) {
+    updateExperience(experience: Experience) {
         let __this = this;
 
-        return this.http.get(
-            __this.updateExperienceUrl + '/' +
-            experienceId + '/' +
-            jobNamingId + '/' +
-            businessId + '/' +
-            startDate + '/' +
-            endDate + '/' +
-            description);
+        let requestBody = JSON.stringify({ experience });
+
+        return this.http.post(__this.updateExperienceUrl, requestBody, this.postRequestOptions);
     }
 
     /**

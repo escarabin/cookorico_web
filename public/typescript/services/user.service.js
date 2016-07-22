@@ -221,23 +221,13 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 };
                 /**
                  * Update existing work experience
-                 * @param experienceId
-                 * @param jobNamingId
-                 * @param businessId
-                 * @param startDate
-                 * @param endDate
-                 * @param description
+                 * @param experience
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.updateExperience = function (experienceId, jobNamingId, businessId, startDate, endDate, description) {
+                UserService.prototype.updateExperience = function (experience) {
                     var __this = this;
-                    return this.http.get(__this.updateExperienceUrl + '/' +
-                        experienceId + '/' +
-                        jobNamingId + '/' +
-                        businessId + '/' +
-                        startDate + '/' +
-                        endDate + '/' +
-                        description);
+                    var requestBody = JSON.stringify({ experience: experience });
+                    return this.http.post(__this.updateExperienceUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Create new study

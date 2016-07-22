@@ -23,8 +23,6 @@ class ExperienceController extends Controller
 
         $experienceData = $request::input('experience');
 
-        Log::info($request::all());
-
         foreach ($experienceData as $key => $value) {
             $experience[$key] = $value;
         }
@@ -36,29 +34,17 @@ class ExperienceController extends Controller
 
     /**
      * Update existing work experience
-     * @param $experienceId
-     * @param $jobNamingId
-     * @param $businessId
-     * @param $startDate
-     * @param $endDate
-     * @param $description
+     * @param Request $request
+     * @return Experience
      */
-    public function updateExperience($experienceId,
-                                     $jobNamingId,
-                                     $businessId,
-                                     $startDate,
-                                     $endDate,
-                                     $description = null) {
-        $user_id = Auth::user()->id;
+    public function updateExperience(Request $request) {
+        $experienceData = $request::input('experience');
 
-        $experience = Experience::find($experienceId);
+        $experience = Experience::find($experienceData['id']);
 
-        $experience->user_id = $user_id;
-        $experience->job_naming_id = $jobNamingId;
-        $experience->business_id = $businessId;
-        $experience->start_date = $startDate;
-        $experience->end_date = $endDate;
-        $experience->description = $description;
+        foreach ($experienceData as $key => $value) {
+            $experience[$key] = $value;
+        }
 
         $experience->save();
 

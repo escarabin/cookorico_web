@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink, RouteParams } from '@angular/router-deprecated';
+import { RouterLink, RouteParams, Router } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
@@ -22,14 +22,15 @@ import { BusinessSelectComponent } from './business-select.component';
 })
 
 export class CreateExperienceComponent {
-    jobNamings: any;
+    jobNamingGroups: any;
     public adress: Object;
     experience:Experience = new Experience();
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
                 private notificationService: NotificationsService,
-                private routeParams: RouteParams) {
+                private routeParams: RouteParams,
+                private router: Router) {
         let __this = this;
 
         this.experience.id = routeParams.get("experienceId");
@@ -41,8 +42,8 @@ export class CreateExperienceComponent {
             });
         }
 
-        this.referenceService.getAllJobNamings().subscribe((res: Response) => {
-            __this.jobNamings = res.json();
+        this.referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
+            __this.jobNamingGroups = res.json();
         })
     }
 
@@ -55,6 +56,9 @@ export class CreateExperienceComponent {
                     __this.notificationService.show(
                         new Notification('success', 'Votre expérience a bien été créee')
                     );
+
+                    // Redirect to experience edition
+                    this.router.navigate(['/Profile/EditExperience', { experienceId: res.json()['id'] }])
                 }
                 else {
                     __this.notificationService.show(
@@ -64,22 +68,17 @@ export class CreateExperienceComponent {
             });
         }
         else {
-            this.userService.updateExperience(__this.experience.id,
-                __this.experience.job_naming_id,
-                __this.experience.business_id,
-                __this.experience.start_date,
-                __this.experience.end_date,
-                __this.experience.description).subscribe((res: Response) => {
-                    if (res['_body']) {
-                        __this.notificationService.show(
-                            new Notification('success', 'Vos modifications ont bien été enregistrées')
-                        );
-                    }
-                    else {
-                        __this.notificationService.show(
-                            new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
-                        );
-                    }
+            this.userService.updateExperience(__this.experience).subscribe((res: Response) => {
+                if (res['_body']) {
+                    __this.notificationService.show(
+                        new Notification('success', 'Vos modifications ont bien été enregistrées')
+                    );
+                }
+                else {
+                    __this.notificationService.show(
+                        new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
+                    );
+                }
             });
         }
     }

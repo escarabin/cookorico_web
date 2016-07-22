@@ -40,11 +40,12 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             }],
         execute: function() {
             CreateExperienceComponent = (function () {
-                function CreateExperienceComponent(referenceService, userService, notificationService, routeParams) {
+                function CreateExperienceComponent(referenceService, userService, notificationService, routeParams, router) {
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.notificationService = notificationService;
                     this.routeParams = routeParams;
+                    this.router = router;
                     this.experience = new experience_1.Experience();
                     var __this = this;
                     this.experience.id = routeParams.get("experienceId");
@@ -54,16 +55,19 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             __this.experience = res.json();
                         });
                     }
-                    this.referenceService.getAllJobNamings().subscribe(function (res) {
-                        __this.jobNamings = res.json();
+                    this.referenceService.getAllJobNamingGroups().subscribe(function (res) {
+                        __this.jobNamingGroups = res.json();
                     });
                 }
                 CreateExperienceComponent.prototype.submitExperience = function () {
+                    var _this = this;
                     var __this = this;
                     if (!this.experience.id) {
                         this.userService.createExperience(__this.experience).subscribe(function (res) {
                             if (res['_body']) {
                                 __this.notificationService.show(new notification_1.Notification('success', 'Votre expérience a bien été créee'));
+                                // Redirect to experience edition
+                                _this.router.navigate(['/Profile/EditExperience', { experienceId: res.json()['id'] }]);
                             }
                             else {
                                 __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
@@ -71,7 +75,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         });
                     }
                     else {
-                        this.userService.updateExperience(__this.experience.id, __this.experience.job_naming_id, __this.experience.business_id, __this.experience.start_date, __this.experience.end_date, __this.experience.description).subscribe(function (res) {
+                        this.userService.updateExperience(__this.experience).subscribe(function (res) {
                             if (res['_body']) {
                                 __this.notificationService.show(new notification_1.Notification('success', 'Vos modifications ont bien été enregistrées'));
                             }
@@ -91,7 +95,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         directives: [router_deprecated_1.RouterLink, business_select_component_1.BusinessSelectComponent],
                         templateUrl: '../templates/create-experience.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
                 ], CreateExperienceComponent);
                 return CreateExperienceComponent;
             }());

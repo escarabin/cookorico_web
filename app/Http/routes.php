@@ -83,9 +83,9 @@ Route::get('/experiences/all', 'UserController@getExperiences')
     ->name('getAllExperiences');
 Route::get('/experience/{experienceId}', 'UserController@getExperience')
     ->name('getExperience');
-Route::post('/experience/create/', 'ExperienceController@createExperience')
+Route::post('/experience/create', 'ExperienceController@createExperience')
     ->name('createExperience');
-Route::get('/experience/update/{experienceId}/{jobNamingId}/{businessId}/{startDate}/{endDate}/{description?}', 'ExperienceController@updateExperience')
+Route::post('/experience/update', 'ExperienceController@updateExperience')
     ->name('updateExperience');
 Route::get('/experience/delete/{experiences}', 'ExperienceController@deleteExperiences')
     ->name('deleteExperiences');
