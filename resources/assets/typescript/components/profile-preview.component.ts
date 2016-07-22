@@ -16,5 +16,7 @@ export class ProfilePreviewComponent {
 
     constructor() {
         this.user = JSON.parse(localStorage.getItem('user'));
+
+        console.log('user is ', this.user);
     }
 }

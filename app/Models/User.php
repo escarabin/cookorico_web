@@ -127,6 +127,13 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the job naming that the user is looking for
+     */
+    public function lookingForJobNaming() {
+        return $this->belongsTo(JobNaming::class, 'looking_for_job_naming_id');
+    }
+
+    /**
      * Get user's job posts
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

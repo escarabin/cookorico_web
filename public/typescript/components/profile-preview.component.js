@@ -25,6 +25,7 @@ System.register(['@angular/core', './../services/user.service'], function(export
                 function ProfilePreviewComponent() {
                     this.user = [];
                     this.user = JSON.parse(localStorage.getItem('user'));
+                    console.log('user is ', this.user);
                 }
                 ProfilePreviewComponent = __decorate([
                     core_1.Component({
