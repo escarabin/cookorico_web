@@ -26,7 +26,7 @@ class UserController extends Controller
     public function signIn($email, $password)
     {
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            $user = User::where('email', $email)
+            $user = User::where('email', $email)->first()
                         ->load('plans')
                         ->load('type');
 
