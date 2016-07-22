@@ -77,9 +77,7 @@ class UserController extends Controller
      */
     public function getApplications() {
         $applications = Auth::user()->applications
-                            ->load('job')
-                            ->load('user')
-                            ->load('business');
+                            ->load('job', 'job.business', 'user');
 
         return $applications;
     }
@@ -91,9 +89,7 @@ class UserController extends Controller
      */
     public function getExperiences() {
         $experiences = Auth::user()->experiences
-                        ->load('jobNaming')
-                        ->load('user')
-                        ->load('business');
+                        ->load('jobNaming', 'user', 'business');
 
         return $experiences;
     }
@@ -114,8 +110,7 @@ class UserController extends Controller
      */
     public function getEducation() {
         $education = Auth::user()->education
-                        ->load('diploma')
-                        ->load('business');
+                        ->load('diploma', 'business');
 
         return $education;
     }
@@ -126,8 +121,7 @@ class UserController extends Controller
      */
     public function getAlerts() {
         $alerts = Auth::user()->alerts
-                        ->load('alertFrequency')
-                        ->load('jobNaming');
+                        ->load('alertFrequency', 'jobNaming');
 
         return $alerts;
     }
@@ -148,10 +142,10 @@ class UserController extends Controller
      */
     public function getTestimonials() {
         $testimonials = Auth::user()->testimonials
-                        ->load('jobNaming')
-                        ->load('employee')
-                        ->load('business')
-                        ->load('recruiter');
+                        ->load('jobNaming',
+                                'employee',
+                                'business',
+                                'recruiter');
 
         return $testimonials;
     }
@@ -162,9 +156,7 @@ class UserController extends Controller
      */
     public function getBusinesses() {
         $businesses = Auth::user()->businesses
-                        ->load('type')
-                        ->load('club')
-                        ->load('place');
+                        ->load('type', 'club', 'place');
 
         return $businesses;
     }
@@ -195,10 +187,7 @@ class UserController extends Controller
      */
     public function getCreatedTestimonials() {
         $testimonials = Auth::user()->createdTestimonials
-            ->load('jobNaming')
-            ->load('employee')
-            ->load('business')
-            ->load('recruiter');
+            ->load('jobNaming', 'employee', 'business', 'recruiter');
 
         return $testimonials;
     }
@@ -231,8 +220,7 @@ class UserController extends Controller
      */
     public function getJobPosts() {
         $jobPosts = Auth::user()->jobPosts
-                    ->load('jobNaming')
-                    ->load('business');
+                    ->load('jobNaming', 'business');
 
         return $jobPosts;
     }
