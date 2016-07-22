@@ -1,3 +1,23 @@
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var Application;
+    return {
+        setters:[],
+        execute: function() {
+            Application = (function () {
+                function Application(id, job_id, comment) {
+                    this.id = id;
+                    this.job_id = job_id;
+                    this.comment = comment;
+                }
+                return Application;
+            }());
+            exports_1("Application", Application);
+        }
+    }
+});
+
 System.register(['@angular/core', '@angular/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -26,7 +46,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.http = http;
                     this.allJobsListingUrl = '/jobs/all';
                     this.showJobListingUrl = '/job/';
-                    this.applyJobUrl = '/job/apply/';
+                    this.applyJobUrl = '/apply_job';
                     this.user = JSON.parse(localStorage.getItem('user'));
                 }
                 /**
@@ -49,11 +69,16 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 /**
                  * Apply to a specific job
                  * @param jobId
+                 * @param comment
                  * @returns {Observable<Response>}
                  */
-                JobService.prototype.apply = function (jobId, comment) {
+                JobService.prototype.apply = function (application) {
                     var __this = this;
-                    return this.http.request(__this.applyJobUrl + jobId + '/' + comment);
+                    var body = JSON.stringify({ application: application });
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    console.log(options, body);
+                    return this.http.post(__this.applyJobUrl, body, options);
                 };
                 JobService = __decorate([
                     core_1.Injectable(), 
@@ -214,6 +239,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.getAlertFrequenciesListingUrl = '/alert_frequencies/all';
                     this.getAllBusinessTypesListingUrl = '/business_types/all';
                     this.getAllJobXpLevelsUrl = '/job_xp_levels/all';
+                    this.getAllCivilitiesUrl = '/civilities/all';
                 }
                 /**
                  * Listing all states (régions in fr)
@@ -294,6 +320,14 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 ReferenceService.prototype.getAllJobXpLevels = function () {
                     var __this = this;
                     return this.http.request(__this.getAllJobXpLevelsUrl);
+                };
+                /**
+                 * Listing all possible job xp levels
+                 * @returns {Observable<Response>}
+                 */
+                ReferenceService.prototype.getAllCivilities = function () {
+                    var __this = this;
+                    return this.http.request(__this.getAllCivilitiesUrl);
                 };
                 ReferenceService = __decorate([
                     core_1.Injectable(), 
@@ -618,285 +652,6 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
     }
 });
 
-System.register(['@angular/core'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var __param = (this && this.__param) || function (paramIndex, decorator) {
-        return function (target, key) { decorator(target, key, paramIndex); }
-    };
-    var core_1;
-    var UNITYTinyMCE;
-    return {
-        setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            }],
-        execute: function() {
-            UNITYTinyMCE = (function () {
-                function UNITYTinyMCE(elementRef) {
-                    this.newContentInput = new core_1.EventEmitter();
-                    this.elementRef = elementRef;
-                    var randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-                    var uniqid = randLetter + Date.now();
-                    this.elementID = 'tinymce' + uniqid;
-                    // this.contentChanged = new EventEmitter();
-                }
-                UNITYTinyMCE.prototype.ngAfterViewInit = function () {
-                    //Clone base textarea
-                    var baseTextArea = this.elementRef.nativeElement.querySelector("#baseTextArea");
-                    var clonedTextArea = baseTextArea.cloneNode(true);
-                    clonedTextArea.id = this.elementID;
-                    var formGroup = this.elementRef.nativeElement.querySelector("#tinyFormGroup");
-                    formGroup.appendChild(clonedTextArea);
-                    //Attach tinyMCE to cloned textarea
-                    tinymce.init({
-                        language: 'fr_FR',
-                        mode: 'exact',
-                        height: 500,
-                        theme: 'modern',
-                        plugins: [
-                            'advlist autolink lists link image charmap print preview anchor',
-                            'searchreplace visualblocks code fullscreen',
-                            'insertdatetime media table contextmenu paste code'
-                        ],
-                        toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-                        elements: this.elementID,
-                        setup: this.tinyMCESetup.bind(this)
-                    });
-                };
-                UNITYTinyMCE.prototype.ngOnDestroy = function () {
-                    //destroy cloned elements
-                    tinymce.get(this.elementID).remove();
-                    /* var elem = document.getElementById(this.elementID);
-                    elem.parentElement.removeChild(elem); */
-                };
-                UNITYTinyMCE.prototype.tinyMCESetup = function (ed) {
-                    ed.on('keyup', this.tinyMCEOnKeyup.bind(this));
-                };
-                UNITYTinyMCE.prototype.tinyMCEOnKeyup = function (e) {
-                    this.newContentInput.emit(tinymce.get(this.elementID).getContent());
-                };
-                Object.defineProperty(UNITYTinyMCE.prototype, "mceContent", {
-                    set: function (content) {
-                        this.htmlContent = content;
-                    },
-                    enumerable: true,
-                    configurable: true
-                });
-                __decorate([
-                    core_1.Output(), 
-                    __metadata('design:type', core_1.EventEmitter)
-                ], UNITYTinyMCE.prototype, "newContentInput", void 0);
-                UNITYTinyMCE = __decorate([
-                    core_1.Component({
-                        selector: 'unity-tinymce',
-                        template: '<div id="tinyFormGroup" class="form-group">' +
-                            '<div class="hidden"> ' +
-                            '<textarea id="baseTextArea">{{htmlContent}}</textarea> ' +
-                            '</div> ' +
-                            '</div>',
-                        inputs: ['mceContent'],
-                    }),
-                    __param(0, core_1.Inject(core_1.ElementRef)), 
-                    __metadata('design:paramtypes', [core_1.ElementRef])
-                ], UNITYTinyMCE);
-                return UNITYTinyMCE;
-            }());
-            exports_1("UNITYTinyMCE", UNITYTinyMCE);
-        }
-    }
-});
-
-System.register(['@angular/core', '@angular/router-deprecated', './../services/job.service', './tiny-mce.component'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1, router_deprecated_1, job_service_1, tiny_mce_component_1;
-    var NewApplicationFormComponent;
-    return {
-        setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
-            },
-            function (job_service_1_1) {
-                job_service_1 = job_service_1_1;
-            },
-            function (tiny_mce_component_1_1) {
-                tiny_mce_component_1 = tiny_mce_component_1_1;
-            }],
-        execute: function() {
-            NewApplicationFormComponent = (function () {
-                function NewApplicationFormComponent(routeParams, jobService, router) {
-                    this.routeParams = routeParams;
-                    this.jobService = jobService;
-                    this.router = router;
-                    this.jobId = routeParams.get("jobId");
-                }
-                NewApplicationFormComponent.prototype.submitApplication = function () {
-                    var _this = this;
-                    var __this = this;
-                    this.jobService.apply(__this.jobId, __this.comment).subscribe(function (res) {
-                        _this.router.navigate(['/Profile/Applications']);
-                    });
-                };
-                NewApplicationFormComponent.prototype.commentChanged = function (newComment) {
-                    this.comment = newComment;
-                };
-                __decorate([
-                    core_1.Input, 
-                    __metadata('design:type', String)
-                ], NewApplicationFormComponent.prototype, "jobId", void 0);
-                NewApplicationFormComponent = __decorate([
-                    core_1.Component({
-                        directives: [router_deprecated_1.RouterLink, tiny_mce_component_1.UNITYTinyMCE],
-                        providers: [job_service_1.JobService],
-                        selector: 'new-application-form',
-                        templateUrl: '../templates/new-application-form.component.html',
-                    }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, job_service_1.JobService, router_deprecated_1.Router])
-                ], NewApplicationFormComponent);
-                return NewApplicationFormComponent;
-            }());
-            exports_1("NewApplicationFormComponent", NewApplicationFormComponent);
-        }
-    }
-});
-
-System.register(['@angular/core', '@angular/router-deprecated', './../services/job.service', './job-search-sidebar.component', './new-application-form.component'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1, router_deprecated_1, job_service_1, job_search_sidebar_component_1, new_application_form_component_1;
-    var JobComponent;
-    return {
-        setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
-            },
-            function (job_service_1_1) {
-                job_service_1 = job_service_1_1;
-            },
-            function (job_search_sidebar_component_1_1) {
-                job_search_sidebar_component_1 = job_search_sidebar_component_1_1;
-            },
-            function (new_application_form_component_1_1) {
-                new_application_form_component_1 = new_application_form_component_1_1;
-            }],
-        execute: function() {
-            JobComponent = (function () {
-                function JobComponent(routeParams, jobService) {
-                    this.routeParams = routeParams;
-                    this.jobService = jobService;
-                    var __this = this;
-                    this.user = JSON.parse(localStorage.getItem('user'));
-                    this.jobId = routeParams.get("jobId");
-                    jobService.getJob(__this.jobId).subscribe(function (res) {
-                        __this.job = res.json();
-                        console.log(__this.job);
-                    });
-                }
-                JobComponent = __decorate([
-                    core_1.Component({
-                        providers: [job_service_1.JobService],
-                        directives: [router_deprecated_1.RouterLink,
-                            job_search_sidebar_component_1.JobSearchSidebarComponent,
-                            new_application_form_component_1.NewApplicationFormComponent],
-                        inputs: ['jobId'],
-                        selector: 'job',
-                        templateUrl: '../templates/job.component.html',
-                    }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, job_service_1.JobService])
-                ], JobComponent);
-                return JobComponent;
-            }());
-            exports_1("JobComponent", JobComponent);
-        }
-    }
-});
-
-System.register(['@angular/core', '@angular/router-deprecated', './../services/post.service'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1, router_deprecated_1, post_service_1;
-    var PostComponent;
-    return {
-        setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
-            },
-            function (post_service_1_1) {
-                post_service_1 = post_service_1_1;
-            }],
-        execute: function() {
-            PostComponent = (function () {
-                function PostComponent(routeParams, postService) {
-                    this.routeParams = routeParams;
-                    this.postService = postService;
-                    var __this = this;
-                    this.postId = routeParams.get("postId");
-                    postService.getPost(__this.postId).subscribe(function (res) {
-                        __this.post = res.json();
-                    });
-                }
-                PostComponent = __decorate([
-                    core_1.Component({
-                        providers: [post_service_1.PostService],
-                        inputs: ['postId'],
-                        selector: 'post',
-                        templateUrl: '../templates/post.component.html',
-                    }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, post_service_1.PostService])
-                ], PostComponent);
-                return PostComponent;
-            }());
-            exports_1("PostComponent", PostComponent);
-        }
-    }
-});
-
 System.register([], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -964,6 +719,86 @@ System.register(['@angular/core', 'rxjs/Subject'], function(exports_1, context_1
     }
 });
 
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var User;
+    return {
+        setters:[],
+        execute: function() {
+            User = (function () {
+                function User(id, email, password, firstName, lastName, phone, profilePictureUrl, resumeUrl, user_type_id, user_status_id, civility_id, birth_date) {
+                    this.id = id;
+                    this.email = email;
+                    this.password = password;
+                    this.firstName = firstName;
+                    this.lastName = lastName;
+                    this.phone = phone;
+                    this.profilePictureUrl = profilePictureUrl;
+                    this.resumeUrl = resumeUrl;
+                    this.user_type_id = user_type_id;
+                    this.user_status_id = user_status_id;
+                    this.civility_id = civility_id;
+                    this.birth_date = birth_date;
+                }
+                return User;
+            }());
+            exports_1("User", User);
+        }
+    }
+});
+
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var Experience;
+    return {
+        setters:[],
+        execute: function() {
+            Experience = (function () {
+                function Experience(id, business_id, user_id, job_naming_id, adress, lat, lon, description, start_date, end_date) {
+                    this.id = id;
+                    this.business_id = business_id;
+                    this.user_id = user_id;
+                    this.job_naming_id = job_naming_id;
+                    this.adress = adress;
+                    this.lat = lat;
+                    this.lon = lon;
+                    this.description = description;
+                    this.start_date = start_date;
+                    this.end_date = end_date;
+                }
+                return Experience;
+            }());
+            exports_1("Experience", Experience);
+        }
+    }
+});
+
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var Study;
+    return {
+        setters:[],
+        execute: function() {
+            Study = (function () {
+                function Study(id, user_id, diploma_id, business_id, description, start_date, end_date) {
+                    this.id = id;
+                    this.user_id = user_id;
+                    this.diploma_id = diploma_id;
+                    this.business_id = business_id;
+                    this.description = description;
+                    this.start_date = start_date;
+                    this.end_date = end_date;
+                }
+                return Study;
+            }());
+            exports_1("Study", Study);
+        }
+    }
+});
+
 System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', './notification.service', './../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -1005,6 +840,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getExperienceUrl = '/experience';
                     this.deleteExperiencesUrl = '/experience/delete';
                     this.deleteEducationUrl = '/education/delete';
+                    this.getStudyUrl = '/study';
+                    this.updateStudyUrl = '/study/update';
                     this.deleteAlertUrl = '/alert/delete';
                     this.getEducationUrl = '/education/all';
                     this.getAlertsUrl = '/alerts/all';
@@ -1019,7 +856,10 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.createStudyUrl = '/study/create';
                     this.createAlertUrl = '/alert/create';
                     this.getAlertUrl = '/alert';
-                    this.saveAlertChangesUrl = '/alert/save_changes/';
+                    this.updateAlertUrl = '/alert/update';
+                    this.createUserUrl = '/user/create';
+                    this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
                 }
                 /**
                  * Sign user in
@@ -1030,6 +870,23 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.login = function (email, password) {
                     var __this = this;
                     return this.http.get(__this.signInUrl + email + '/' + password);
+                };
+                /**
+                 * Create a new user
+                 * @param user
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.createUser = function (user) {
+                    var __this = this;
+                    return this.http.get(__this.createUserUrl + '/' +
+                        user.email + '/' +
+                        user.password + '/' +
+                        user.firstName + '/' +
+                        user.lastName + '/' +
+                        user.phone + '/' +
+                        user.birth_date + '/' +
+                        user.user_type_id + '/' +
+                        user.civility_id);
                 };
                 /**
                  * Get user's job applications
@@ -1069,6 +926,15 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.getEducation = function () {
                     var __this = this;
                     return this.http.get(__this.getEducationUrl);
+                };
+                /**
+                 * Get user's specific study regarding id
+                 * @param studyId
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.getStudy = function (studyId) {
+                    var __this = this;
+                    return this.http.get(__this.getStudyUrl + '/' + studyId);
                 };
                 /**
                  * Delete specific user's education studies
@@ -1157,67 +1023,43 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 };
                 /**
                  * Create new work experience
-                 * @param jobNamingId
-                 * @param businessId
-                 * @param startDate
-                 * @param endDate
-                 * @param adress
-                 * @param lat
-                 * @param lon
-                 * @param description
+                 * @param experience
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.createExperience = function (jobNamingId, businessId, startDate, endDate, description) {
+                UserService.prototype.createExperience = function (experience) {
                     var __this = this;
-                    return this.http.get(__this.createExperienceUrl + '/' +
-                        jobNamingId + '/' +
-                        businessId + '/' +
-                        startDate + '/' +
-                        endDate + '/' +
-                        description).catch(this.handleError("", __this.notificationService));
+                    var requestBody = JSON.stringify({ experience: experience });
+                    return this.http.post(__this.createExperienceUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Update existing work experience
-                 * @param experienceId
-                 * @param jobNamingId
-                 * @param businessId
-                 * @param startDate
-                 * @param endDate
-                 * @param adress
-                 * @param lat
-                 * @param lon
-                 * @param description
+                 * @param experience
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.updateExperience = function (experienceId, jobNamingId, businessId, startDate, endDate, description) {
+                UserService.prototype.updateExperience = function (experience) {
                     var __this = this;
-                    return this.http.get(__this.updateExperienceUrl + '/' +
-                        experienceId + '/' +
-                        jobNamingId + '/' +
-                        businessId + '/' +
-                        startDate + '/' +
-                        endDate + '/' +
-                        description);
+                    var requestBody = JSON.stringify({ experience: experience });
+                    return this.http.post(__this.updateExperienceUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Create new study
-                 * @param diplomaId
-                 * @param businessId
-                 * @param startDate
-                 * @param endDate
-                 * @param place
-                 * @param description
+                 * @param study
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.createStudy = function (diplomaId, businessId, startDate, endDate, place, description) {
+                UserService.prototype.createStudy = function (study) {
                     var __this = this;
-                    return this.http.get(__this.createStudyUrl + '/' +
-                        diplomaId + '/' +
-                        businessId + '/' +
-                        startDate + '/' +
-                        endDate + '/' +
-                        place + '/' +
-                        description);
+                    var requestBody = JSON.stringify({ study: study });
+                    return this.http.post(__this.createStudyUrl, requestBody, this.postRequestOptions);
+                };
+                /**
+                 * Update existing study
+                 * @param study
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.updateStudy = function (study) {
+                    var __this = this;
+                    var requestBody = JSON.stringify({ study: study });
+                    return this.http.post(__this.updateStudyUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Create new job alert
@@ -1226,25 +1068,18 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  */
                 UserService.prototype.createAlert = function (alert) {
                     var __this = this;
-                    return this.http.get(__this.createAlertUrl + '/' +
-                        alert.alert_frequency_id + '/' +
-                        alert.title + '/' +
-                        alert.job_naming_id + '/' +
-                        alert.place + '/');
+                    var requestBody = JSON.stringify({ alert: alert });
+                    return this.http.post(__this.createAlertUrl, requestBody, this.postRequestOptions);
                 };
                 /**
-                 * Save changes to an exisiting job alert
+                 * Update exisiting job alert
                  * @param alert
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.updateAlert = function (alert) {
                     var __this = this;
-                    return this.http.get(__this.saveAlertChangesUrl + '/' +
-                        alert.id + '/' +
-                        alert.alert_frequency_id + '/' +
-                        alert.title + '/' +
-                        alert.job_naming_id + '/' +
-                        alert.place + '/');
+                    var requestBody = JSON.stringify({ alert: alert });
+                    return this.http.post(__this.updateAlertUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Error handling
@@ -1253,9 +1088,11 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.handleError = function (error, notificationService) {
                     var __this = this;
                     console.log(__this, __this.notificationService);
-                    var errMsg = (error.message) ? error.message :
-                        error.status ? error.status + " - " + error.statusText : 'Server error';
-                    notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue s\'est produite, veuillez rééssayer'));
+                    var errMsg = (error.message) ? error.message : error.status;
+                    if (!errMsg) {
+                        errMsg = 'Une erreur inconnue s\'est produite, veuillez rééssayer';
+                    }
+                    notificationService.show(new notification_1.Notification('error', errMsg));
                     console.error(errMsg); // log to console instead
                 };
                 UserService = __decorate([
@@ -1269,7 +1106,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
     }
 });
 
-System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', 'ng2-bootstrap', './../services/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1281,8 +1118,326 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, router_deprecated_1, ng2_bootstrap_1, user_service_1;
-    var HeaderComponent;
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
+    var core_1;
+    var UNITYTinyMCE;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            }],
+        execute: function() {
+            UNITYTinyMCE = (function () {
+                function UNITYTinyMCE(elementRef) {
+                    this.newContentInput = new core_1.EventEmitter();
+                    this.elementRef = elementRef;
+                    var randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+                    var uniqid = randLetter + Date.now();
+                    this.elementID = 'tinymce' + uniqid;
+                    // this.contentChanged = new EventEmitter();
+                }
+                UNITYTinyMCE.prototype.ngAfterViewInit = function () {
+                    var __this = this;
+                    //Clone base textarea
+                    var baseTextArea = this.elementRef.nativeElement.querySelector("#baseTextArea");
+                    var clonedTextArea = baseTextArea.cloneNode(true);
+                    clonedTextArea.id = this.elementID;
+                    var formGroup = this.elementRef.nativeElement.querySelector("#tinyFormGroup");
+                    formGroup.appendChild(clonedTextArea);
+                    console.log('read only was ' + __this.readOnly);
+                    if (this.readOnly > 0) {
+                        this.readOnly = 1;
+                    }
+                    console.log('read only is ' + __this.readOnly);
+                    //Attach tinyMCE to cloned textarea
+                    tinymce.init({
+                        language: 'fr_FR',
+                        mode: 'exact',
+                        height: 500,
+                        readonly: __this.readOnly,
+                        theme: 'modern',
+                        plugins: [
+                            'advlist autolink lists link image charmap print preview anchor',
+                            'searchreplace visualblocks code fullscreen',
+                            'insertdatetime media table contextmenu paste code'
+                        ],
+                        toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                        elements: this.elementID,
+                        setup: this.tinyMCESetup.bind(this)
+                    });
+                };
+                UNITYTinyMCE.prototype.ngOnDestroy = function () {
+                    //destroy cloned elements
+                    tinymce.get(this.elementID).remove();
+                    /* var elem = document.getElementById(this.elementID);
+                    elem.parentElement.removeChild(elem); */
+                };
+                UNITYTinyMCE.prototype.tinyMCESetup = function (ed) {
+                    ed.on('keyup', this.tinyMCEOnKeyup.bind(this));
+                };
+                UNITYTinyMCE.prototype.tinyMCEOnKeyup = function (e) {
+                    this.newContentInput.emit(tinymce.get(this.elementID).getContent());
+                };
+                Object.defineProperty(UNITYTinyMCE.prototype, "mceContent", {
+                    set: function (content) {
+                        this.htmlContent = content;
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', core_1.EventEmitter)
+                ], UNITYTinyMCE.prototype, "newContentInput", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Number)
+                ], UNITYTinyMCE.prototype, "readOnly", void 0);
+                UNITYTinyMCE = __decorate([
+                    core_1.Component({
+                        selector: 'unity-tinymce',
+                        template: '<div id="tinyFormGroup" class="form-group">' +
+                            '<div class="hidden"> ' +
+                            '<textarea id="baseTextArea">{{htmlContent}}</textarea> ' +
+                            '</div> ' +
+                            '</div>',
+                        inputs: ['mceContent', 'readOnly'],
+                    }),
+                    __param(0, core_1.Inject(core_1.ElementRef)), 
+                    __metadata('design:paramtypes', [core_1.ElementRef])
+                ], UNITYTinyMCE);
+                return UNITYTinyMCE;
+            }());
+            exports_1("UNITYTinyMCE", UNITYTinyMCE);
+        }
+    }
+});
+
+System.register(['@angular/core', '@angular/router-deprecated', './../services/job.service', './../services/notification.service', './../services/user.service', './tiny-mce.component', './../models/notification', './../models/application'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1, router_deprecated_1, job_service_1, notification_service_1, user_service_1, tiny_mce_component_1, notification_1, application_1;
+    var NewApplicationFormComponent;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
+            },
+            function (job_service_1_1) {
+                job_service_1 = job_service_1_1;
+            },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
+            },
+            function (tiny_mce_component_1_1) {
+                tiny_mce_component_1 = tiny_mce_component_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
+            },
+            function (application_1_1) {
+                application_1 = application_1_1;
+            }],
+        execute: function() {
+            NewApplicationFormComponent = (function () {
+                function NewApplicationFormComponent(routeParams, jobService, userService, notificationService, router) {
+                    this.routeParams = routeParams;
+                    this.jobService = jobService;
+                    this.userService = userService;
+                    this.notificationService = notificationService;
+                    this.router = router;
+                    this.application = new application_1.Application();
+                    this.jobId = routeParams.get("jobId");
+                    this.application.job_id = parseInt(this.jobId);
+                    var __this = this;
+                    this.userService.getApplications().subscribe(function (res) {
+                        if (res['_body']) {
+                            var applications = res.json();
+                            for (var i = 0; i < applications.length; i++) {
+                                if (applications[i]['job_id'] == __this.jobId) {
+                                    console.log(applications[i]);
+                                    __this.application = applications[i];
+                                }
+                            }
+                        }
+                    });
+                }
+                NewApplicationFormComponent.prototype.submitApplication = function () {
+                    var _this = this;
+                    var __this = this;
+                    this.jobService.apply(__this.application).subscribe(function (res) {
+                        _this.notificationService.show(new notification_1.Notification('success', 'Votre candidature a bien été enregistrée'));
+                        _this.router.navigate(['/Profile/Applications']);
+                    });
+                };
+                NewApplicationFormComponent.prototype.commentChanged = function (newComment) {
+                    this.application.comment = newComment;
+                };
+                __decorate([
+                    core_1.Input, 
+                    __metadata('design:type', String)
+                ], NewApplicationFormComponent.prototype, "jobId", void 0);
+                NewApplicationFormComponent = __decorate([
+                    core_1.Component({
+                        directives: [router_deprecated_1.RouterLink, tiny_mce_component_1.UNITYTinyMCE],
+                        providers: [job_service_1.JobService, user_service_1.UserService],
+                        selector: 'new-application-form',
+                        templateUrl: '../templates/new-application-form.component.html',
+                    }), 
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, job_service_1.JobService, user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.Router])
+                ], NewApplicationFormComponent);
+                return NewApplicationFormComponent;
+            }());
+            exports_1("NewApplicationFormComponent", NewApplicationFormComponent);
+        }
+    }
+});
+
+System.register(['@angular/core', '@angular/router-deprecated', './../services/job.service', './job-search-sidebar.component', './new-application-form.component'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1, router_deprecated_1, job_service_1, job_search_sidebar_component_1, new_application_form_component_1;
+    var JobComponent;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
+            },
+            function (job_service_1_1) {
+                job_service_1 = job_service_1_1;
+            },
+            function (job_search_sidebar_component_1_1) {
+                job_search_sidebar_component_1 = job_search_sidebar_component_1_1;
+            },
+            function (new_application_form_component_1_1) {
+                new_application_form_component_1 = new_application_form_component_1_1;
+            }],
+        execute: function() {
+            JobComponent = (function () {
+                function JobComponent(routeParams, jobService) {
+                    this.routeParams = routeParams;
+                    this.jobService = jobService;
+                    var __this = this;
+                    this.user = JSON.parse(localStorage.getItem('user'));
+                    this.jobId = routeParams.get("jobId");
+                    jobService.getJob(__this.jobId).subscribe(function (res) {
+                        __this.job = res.json();
+                    });
+                }
+                JobComponent = __decorate([
+                    core_1.Component({
+                        providers: [job_service_1.JobService],
+                        directives: [router_deprecated_1.RouterLink,
+                            job_search_sidebar_component_1.JobSearchSidebarComponent,
+                            new_application_form_component_1.NewApplicationFormComponent],
+                        inputs: ['jobId'],
+                        selector: 'job',
+                        templateUrl: '../templates/job.component.html',
+                    }), 
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, job_service_1.JobService])
+                ], JobComponent);
+                return JobComponent;
+            }());
+            exports_1("JobComponent", JobComponent);
+        }
+    }
+});
+
+System.register(['@angular/core', '@angular/router-deprecated', './../services/post.service'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1, router_deprecated_1, post_service_1;
+    var PostComponent;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
+            },
+            function (post_service_1_1) {
+                post_service_1 = post_service_1_1;
+            }],
+        execute: function() {
+            PostComponent = (function () {
+                function PostComponent(routeParams, postService) {
+                    this.routeParams = routeParams;
+                    this.postService = postService;
+                    var __this = this;
+                    this.postId = routeParams.get("postId");
+                    postService.getPost(__this.postId).subscribe(function (res) {
+                        __this.post = res.json();
+                    });
+                }
+                PostComponent = __decorate([
+                    core_1.Component({
+                        providers: [post_service_1.PostService],
+                        inputs: ['postId'],
+                        selector: 'post',
+                        templateUrl: '../templates/post.component.html',
+                    }), 
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, post_service_1.PostService])
+                ], PostComponent);
+                return PostComponent;
+            }());
+            exports_1("PostComponent", PostComponent);
+        }
+    }
+});
+
+System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', 'ng2-bootstrap', './../services/user.service', './../services/notification.service', './../models/notification'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1, common_1, router_deprecated_1, ng2_bootstrap_1, user_service_1, notification_service_1, notification_1;
+    var SignInComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -1299,48 +1454,134 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
+            },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
             }],
         execute: function() {
-            HeaderComponent = (function () {
-                function HeaderComponent(userService, router) {
+            SignInComponent = (function () {
+                function SignInComponent(userService, notificationService, router) {
                     this.userService = userService;
+                    this.notificationService = notificationService;
                     this.router = router;
                     this.forgotPassword = false;
                     this.loading = false;
+                    this.userSignedIn = new core_1.EventEmitter();
+                    this.userSignedOut = new core_1.EventEmitter();
                     this.user = JSON.parse(localStorage.getItem('user'));
                 }
-                HeaderComponent.prototype.login = function () {
+                SignInComponent.prototype.login = function () {
                     var _this = this;
                     var __this = this;
                     this.userService.login(__this.email, __this.password).subscribe(function (res) {
-                        var user = res.json();
-                        if (res.json()) {
+                        if (res['_body']) {
+                            var user = res.json();
                             // Logged in
                             localStorage.setItem('user', JSON.stringify(user));
+                            __this.user = JSON.parse(localStorage.getItem('user'));
+                            __this.userSignedIn.emit(_this.user);
+                            __this.notificationService.show(new notification_1.Notification('success', 'Vous êtes connecté'));
                         }
                         else {
-                            // Failed signing in, clear user object in localStorage
-                            localStorage.removeItem('user');
+                            __this.notificationService.show(new notification_1.Notification('error', 'Vos identifiants semblent incorrect, merci de rééssayer'));
                         }
-                        _this.user = JSON.parse(localStorage.getItem('user'));
                     });
                 };
-                HeaderComponent.prototype.logout = function () {
+                SignInComponent.prototype.logout = function () {
                     localStorage.removeItem('user');
                     this.user = JSON.parse(localStorage.getItem('user'));
                     this.router.navigate(['Home']);
+                    this.userSignedOut.emit('signing out');
+                };
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', core_1.EventEmitter)
+                ], SignInComponent.prototype, "userSignedIn", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', core_1.EventEmitter)
+                ], SignInComponent.prototype, "userSignedOut", void 0);
+                SignInComponent = __decorate([
+                    core_1.Component({
+                        templateUrl: '../templates/sign-in.component.html',
+                        selector: 'sign-in',
+                        providers: [user_service_1.UserService],
+                        viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
+                        directives: [router_deprecated_1.RouterLink,
+                            ng2_bootstrap_1.MODAL_DIRECTIVES,
+                            common_1.CORE_DIRECTIVES]
+                    }), 
+                    __metadata('design:paramtypes', [user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.Router])
+                ], SignInComponent);
+                return SignInComponent;
+            }());
+            exports_1("SignInComponent", SignInComponent);
+        }
+    }
+});
+
+System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', './sign-in.component'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1, common_1, router_deprecated_1, sign_in_component_1;
+    var HeaderComponent;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
+            },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
+            },
+            function (sign_in_component_1_1) {
+                sign_in_component_1 = sign_in_component_1_1;
+            }],
+        execute: function() {
+            HeaderComponent = (function () {
+                function HeaderComponent(router) {
+                    this.router = router;
+                    this.user = JSON.parse(localStorage.getItem('user'));
+                }
+                /**
+                 * Function triggered after sign-in-component.ts's
+                 * (userSignedIn) EventEmitter emitted something
+                 * @param user
+                 */
+                HeaderComponent.prototype.handleUserSignedIn = function (user) {
+                    this.user = user;
+                };
+                /**
+                 * Function triggered after sign-in-component.ts's
+                 * (userSignedOut) EventEmitter emitted something
+                 * @param user
+                 */
+                HeaderComponent.prototype.handleUserSignedOut = function (user) {
+                    this.user = [];
                 };
                 HeaderComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../templates/header.component.html',
                         selector: 'header',
-                        providers: [user_service_1.UserService],
-                        viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
                         directives: [router_deprecated_1.RouterLink,
-                            ng2_bootstrap_1.MODAL_DIRECTVES,
+                            sign_in_component_1.SignInComponent,
                             common_1.CORE_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.Router])
+                    __metadata('design:paramtypes', [router_deprecated_1.Router])
                 ], HeaderComponent);
                 return HeaderComponent;
             }());
@@ -1845,33 +2086,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     }
 });
 
-System.register([], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var Experience;
-    return {
-        setters:[],
-        execute: function() {
-            Experience = (function () {
-                function Experience(id, business_id, user_id, job_naming_id, adress, lat, lon, description, start_date, end_date) {
-                    this.id = id;
-                    this.business_id = business_id;
-                    this.user_id = user_id;
-                    this.job_naming_id = job_naming_id;
-                    this.adress = adress;
-                    this.lat = lat;
-                    this.lon = lon;
-                    this.description = description;
-                    this.start_date = start_date;
-                    this.end_date = end_date;
-                }
-                return Experience;
-            }());
-            exports_1("Experience", Experience);
-        }
-    }
-});
-
 System.register(['@angular/core', '@angular/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -2057,8 +2271,10 @@ System.register(['@angular/core', './../services/business.service', './../servic
                     this.isGooglePlaceInput = false;
                     this.businessIdChange = new core_1.EventEmitter();
                     var __this = this;
+                    /**
+                     * Check if we have to show only user's businesses in select options
+                     */
                     if (this.onlyUserBusinesses) {
-                        console.log('only user businesses');
                         userService.getBusinesses().subscribe(function (res) {
                             __this.businesses = res.json();
                         });
@@ -2071,7 +2287,6 @@ System.register(['@angular/core', './../services/business.service', './../servic
                 }
                 BusinessSelectComponent.prototype.parseAdress = function (place) {
                     var __this = this;
-                    console.log(place);
                     // Save selected place data for further use
                     this.placeService.save(place).subscribe(function (res) {
                         __this.businessId = res.json()['id'];
@@ -2160,12 +2375,14 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             }],
         execute: function() {
             CreateExperienceComponent = (function () {
-                function CreateExperienceComponent(referenceService, userService, notificationService, routeParams) {
+                function CreateExperienceComponent(referenceService, userService, notificationService, routeParams, router) {
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.notificationService = notificationService;
                     this.routeParams = routeParams;
+                    this.router = router;
                     this.experience = new experience_1.Experience();
+                    this.isLoading = false;
                     var __this = this;
                     this.experience.id = routeParams.get("experienceId");
                     if (this.experience.id) {
@@ -2174,20 +2391,36 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             __this.experience = res.json();
                         });
                     }
-                    this.referenceService.getAllJobNamings().subscribe(function (res) {
-                        __this.jobNamings = res.json();
+                    this.referenceService.getAllJobNamingGroups().subscribe(function (res) {
+                        __this.jobNamingGroups = res.json();
                     });
                 }
                 CreateExperienceComponent.prototype.submitExperience = function () {
+                    var _this = this;
+                    this.isLoading = true;
                     var __this = this;
                     if (!this.experience.id) {
-                        this.userService.createExperience(__this.experience.job_naming_id, __this.experience.business_id, __this.experience.start_date, __this.experience.end_date, __this.experience.description).subscribe(function (res) {
-                            __this.notificationService.show(new notification_1.Notification('success', 'Votre expérience a bien été crée', 'Retour aux expériences', 'Profile/Experiences'));
+                        this.userService.createExperience(__this.experience).subscribe(function (res) {
+                            if (res['_body']) {
+                                __this.notificationService.show(new notification_1.Notification('success', 'Votre expérience a bien été créee'));
+                                // Redirect to experience edition
+                                _this.router.navigate(['/Profile/EditExperience', { experienceId: res.json()['id'] }]);
+                            }
+                            else {
+                                __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
+                            }
+                            _this.isLoading = false;
                         });
                     }
                     else {
-                        this.userService.updateExperience(__this.experience.id, __this.experience.job_naming_id, __this.experience.business_id, __this.experience.start_date, __this.experience.end_date, __this.experience.description).subscribe(function (res) {
-                            __this.notificationService.show(new notification_1.Notification('success', 'Vos modifications ont bien été enregistrées', 'Retour aux expériences', 'Profile/Experiences'));
+                        this.userService.updateExperience(__this.experience).subscribe(function (res) {
+                            if (res['_body']) {
+                                __this.notificationService.show(new notification_1.Notification('success', 'Vos modifications ont bien été enregistrées'));
+                            }
+                            else {
+                                __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
+                            }
+                            _this.isLoading = false;
                         });
                     }
                 };
@@ -2201,7 +2434,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         directives: [router_deprecated_1.RouterLink, business_select_component_1.BusinessSelectComponent],
                         templateUrl: '../templates/create-experience.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
                 ], CreateExperienceComponent);
                 return CreateExperienceComponent;
             }());
@@ -2210,32 +2443,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     }
 });
 
-System.register([], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var Study;
-    return {
-        setters:[],
-        execute: function() {
-            Study = (function () {
-                function Study(id, user_id, diploma_id, business_id, adress, description, start_date, end_date) {
-                    this.id = id;
-                    this.user_id = user_id;
-                    this.diploma_id = diploma_id;
-                    this.business_id = business_id;
-                    this.adress = adress;
-                    this.description = description;
-                    this.start_date = start_date;
-                    this.end_date = end_date;
-                }
-                return Study;
-            }());
-            exports_1("Study", Study);
-        }
-    }
-});
-
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../models/study'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/notification.service', './../models/study', './../models/notification', './business-select.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2247,7 +2455,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, study_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, notification_service_1, study_1, notification_1, business_select_component_1;
     var CreateStudyComponent;
     return {
         setters:[
@@ -2263,34 +2471,80 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
             function (study_1_1) {
                 study_1 = study_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
+            },
+            function (business_select_component_1_1) {
+                business_select_component_1 = business_select_component_1_1;
             }],
         execute: function() {
             CreateStudyComponent = (function () {
-                function CreateStudyComponent(referenceService, userService) {
+                function CreateStudyComponent(referenceService, notificationService, userService, routeParams, router) {
                     this.referenceService = referenceService;
+                    this.notificationService = notificationService;
                     this.userService = userService;
+                    this.routeParams = routeParams;
+                    this.router = router;
+                    this.isLoading = false;
                     this.study = new study_1.Study();
                     var __this = this;
+                    this.study.id = routeParams.get("studyId");
+                    if (this.study.id) {
+                        // Editing a specific experience, let's retrieve it's data
+                        this.userService.getStudy(__this.study.id).subscribe(function (res) {
+                            __this.study = res.json();
+                        });
+                    }
                     this.referenceService.getAllDiplomas().subscribe(function (res) {
                         __this.diplomas = res.json();
                     });
                 }
                 CreateStudyComponent.prototype.submitStudy = function () {
+                    var _this = this;
+                    this.isLoading = true;
                     var __this = this;
-                    this.userService.createStudy(__this.study.diploma_id, __this.study.business_id, __this.study.start_date, __this.study.end_date, __this.study.adress, __this.study.description).subscribe(function (res) {
-                        console.log(res.json());
-                    });
+                    if (!this.study.id) {
+                        this.userService.createStudy(__this.study).subscribe(function (res) {
+                            if (res['_body']) {
+                                __this.notificationService.show(new notification_1.Notification('success', 'Votre expérience a bien été créee'));
+                                // Redirect to experience edition
+                                _this.router.navigate(['/Profile/EditStudy', { studyId: res.json()['id'] }]);
+                            }
+                            else {
+                                __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
+                            }
+                            _this.isLoading = false;
+                        });
+                    }
+                    else {
+                        this.userService.updateStudy(__this.study).subscribe(function (res) {
+                            if (res['_body']) {
+                                __this.notificationService.show(new notification_1.Notification('success', 'Vos modifications ont bien été enregistrées'));
+                            }
+                            else {
+                                __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
+                            }
+                            _this.isLoading = false;
+                        });
+                    }
+                };
+                CreateStudyComponent.prototype.handleBusinessIdChange = function (businessId) {
+                    this.study.business_id = businessId;
                 };
                 CreateStudyComponent = __decorate([
                     core_1.Component({
                         selector: 'create-experience',
                         providers: [reference_service_1.ReferenceService, user_service_1.UserService],
-                        directives: [router_deprecated_1.RouterLink],
+                        directives: [router_deprecated_1.RouterLink, business_select_component_1.BusinessSelectComponent],
                         templateUrl: '../templates/create-study.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, notification_service_1.NotificationsService, user_service_1.UserService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
                 ], CreateStudyComponent);
                 return CreateStudyComponent;
             }());
@@ -2321,7 +2575,7 @@ System.register([], function(exports_1, context_1) {
     }
 });
 
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../models/alert'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/notification.service', './../models/alert', './../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2333,7 +2587,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, alert_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, notification_service_1, alert_1, notification_1;
     var CreateAlertComponent;
     return {
         setters:[
@@ -2349,16 +2603,25 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
             function (alert_1_1) {
                 alert_1 = alert_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
             }],
         execute: function() {
             CreateAlertComponent = (function () {
-                function CreateAlertComponent(referenceService, userService, routeParams) {
+                function CreateAlertComponent(referenceService, userService, notificationService, router, routeParams) {
                     this.referenceService = referenceService;
                     this.userService = userService;
+                    this.notificationService = notificationService;
+                    this.router = router;
                     this.routeParams = routeParams;
                     this.alert = new alert_1.Alert();
+                    this.isLoading = false;
                     var __this = this;
                     this.alert.id = routeParams.get("alertId");
                     if (this.alert.id) {
@@ -2367,22 +2630,41 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             __this.alert = res.json();
                         });
                     }
-                    this.referenceService.getAllJobNamings().subscribe(function (res) {
-                        __this.jobNamings = res.json();
+                    this.referenceService.getAllJobNamingGroups().subscribe(function (res) {
+                        __this.jobNamingGroups = res.json();
                     });
                     this.referenceService.getAllAlertFrequencies().subscribe(function (res) {
                         __this.alertFrequencies = res.json();
                     });
                 }
-                CreateAlertComponent.prototype.createAlert = function () {
+                CreateAlertComponent.prototype.submitAlert = function () {
+                    var _this = this;
+                    this.isLoading = true;
                     var __this = this;
-                    this.userService.createAlert(__this.alert).subscribe(function (res) {
-                    });
-                };
-                CreateAlertComponent.prototype.saveAlertChanges = function () {
-                    var __this = this;
-                    this.userService.updateAlert(__this.alert).subscribe(function (res) {
-                    });
+                    if (!this.alert.id) {
+                        this.userService.createAlert(__this.alert).subscribe(function (res) {
+                            if (res['_body']) {
+                                __this.notificationService.show(new notification_1.Notification('success', 'Votre alerte a bien été créee'));
+                                // Redirect to experience edition
+                                _this.router.navigate(['/Profile/EditAlert', { alertId: res.json()['id'] }]);
+                            }
+                            else {
+                                __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
+                            }
+                            _this.isLoading = false;
+                        });
+                    }
+                    else {
+                        this.userService.updateAlert(__this.alert).subscribe(function (res) {
+                            if (res['_body']) {
+                                __this.notificationService.show(new notification_1.Notification('success', 'Vos modifications ont bien été enregistrées'));
+                            }
+                            else {
+                                __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
+                            }
+                            _this.isLoading = false;
+                        });
+                    }
                 };
                 CreateAlertComponent = __decorate([
                     core_1.Component({
@@ -2391,7 +2673,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         directives: [router_deprecated_1.RouterLink],
                         templateUrl: '../templates/create-alert.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.Router, router_deprecated_1.RouteParams])
                 ], CreateAlertComponent);
                 return CreateAlertComponent;
             }());
@@ -3035,23 +3317,10 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                  */
                 JobPostService.prototype.create = function (jobPost) {
                     var __this = this;
-                    return this.http.request(__this.createJobPostUrl + '/' +
-                        jobPost.title + '/' +
-                        jobPost.description + '/' +
-                        jobPost.is_hosting_employee + '/' +
-                        jobPost.is_urgent + '/' +
-                        jobPost.is_asap + '/' +
-                        jobPost.week_work_hours + '/' +
-                        jobPost.business_id + '/' +
-                        jobPost.job_type_id + '/' +
-                        jobPost.job_naming_id + '/' +
-                        jobPost.contract_type_id + '/' +
-                        jobPost.study_level_id + '/' +
-                        jobPost.job_xp_level_id + '/' +
-                        jobPost.alert_frequency_id + '/' +
-                        jobPost.diploma_id + '/' +
-                        jobPost.start_date + '/' +
-                        jobPost.end_date);
+                    var body = JSON.stringify({ jobPost: jobPost });
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    return this.http.post(__this.createJobPostUrl, body, options);
                 };
                 /**
                  * Get specific job post
@@ -3073,7 +3342,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
     }
 });
 
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/job-post.service', './../models/job-post', './business-select.component', './tiny-mce.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/job-post.service', './../services/notification.service', './../models/job-post', './../models/notification', './business-select.component', './tiny-mce.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3085,7 +3354,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, job_post_service_1, job_post_1, business_select_component_1, tiny_mce_component_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, job_post_service_1, notification_service_1, job_post_1, notification_1, business_select_component_1, tiny_mce_component_1;
     var CreateJobPostComponent;
     return {
         setters:[
@@ -3104,8 +3373,14 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             function (job_post_service_1_1) {
                 job_post_service_1 = job_post_service_1_1;
             },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
             function (job_post_1_1) {
                 job_post_1 = job_post_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
             },
             function (business_select_component_1_1) {
                 business_select_component_1 = business_select_component_1_1;
@@ -3115,11 +3390,13 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             }],
         execute: function() {
             CreateJobPostComponent = (function () {
-                function CreateJobPostComponent(referenceService, userService, jobPostService, routeParams) {
+                function CreateJobPostComponent(referenceService, userService, jobPostService, notificationService, routeParams, router) {
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.jobPostService = jobPostService;
+                    this.notificationService = notificationService;
                     this.routeParams = routeParams;
+                    this.router = router;
                     this.diplomas = [];
                     this.jobNamings = [];
                     this.alertFrequencies = [];
@@ -3174,7 +3451,14 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 CreateJobPostComponent.prototype.submitJobPost = function () {
                     var __this = this;
                     this.jobPostService.create(__this.jobPost).subscribe(function (res) {
-                        console.log(res.json());
+                        var job = res['_body'];
+                        if (job) {
+                            __this.notificationService.show(new notification_1.Notification('success', 'Votre annonce vient d\'être publiée'));
+                            __this.router.navigate(['/ShowJob', { jobId: res.json()['id'] }]);
+                        }
+                        else {
+                            __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
+                        }
                     });
                 };
                 CreateJobPostComponent.prototype.handleBusinessIdChange = function (businessId) {
@@ -3190,7 +3474,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         directives: [router_deprecated_1.RouterLink, business_select_component_1.BusinessSelectComponent, tiny_mce_component_1.UNITYTinyMCE],
                         templateUrl: '../templates/create-job-post.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, job_post_service_1.JobPostService, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, job_post_service_1.JobPostService, notification_service_1.NotificationsService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
                 ], CreateJobPostComponent);
                 return CreateJobPostComponent;
             }());
@@ -3199,7 +3483,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     }
 });
 
-System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component', "./applications.component", "./experiences.component", "./education.component", "./alerts.component", "./testimonials.component", "./create-experience.component", "./create-study.component", "./create-alert.component", "./create-business.component", "./businesses.component", "./right-sidebar.component", './my-job-posts.component', './create-job-post.component'], function(exports_1, context_1) {
+System.register(['@angular/core', './../services/user.service', './../services/reference.service', './../models/user'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3211,7 +3495,148 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1, create_study_component_1, create_alert_component_1, create_business_component_1, businesses_component_1, right_sidebar_component_1, my_job_posts_component_1, create_job_post_component_1;
+    var core_1, user_service_1, reference_service_1, user_1;
+    var SignUpComponent;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
+            },
+            function (reference_service_1_1) {
+                reference_service_1 = reference_service_1_1;
+            },
+            function (user_1_1) {
+                user_1 = user_1_1;
+            }],
+        execute: function() {
+            SignUpComponent = (function () {
+                function SignUpComponent(referenceService, userService) {
+                    this.referenceService = referenceService;
+                    this.userService = userService;
+                    this.user = new user_1.User();
+                    this.civilities = [];
+                    var __this = this;
+                    this.referenceService.getAllCivilities().subscribe(function (res) {
+                        __this.civilities = res.json();
+                    });
+                }
+                SignUpComponent.prototype.signUp = function () {
+                    this.userService.createUser(this.user).subscribe(function (res) {
+                        console.log(res.json());
+                    });
+                };
+                SignUpComponent = __decorate([
+                    core_1.Component({
+                        providers: [user_service_1.UserService, reference_service_1.ReferenceService],
+                        selector: 'sign-up',
+                        templateUrl: '../templates/sign-up.component.html',
+                    }), 
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService])
+                ], SignUpComponent);
+                return SignUpComponent;
+            }());
+            exports_1("SignUpComponent", SignUpComponent);
+        }
+    }
+});
+
+System.register(['@angular/core'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1;
+    var ApplicantsComponent;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            }],
+        execute: function() {
+            ApplicantsComponent = (function () {
+                function ApplicantsComponent() {
+                }
+                ApplicantsComponent = __decorate([
+                    core_1.Component({
+                        selector: 'applicants',
+                        templateUrl: '../templates/applicants.component.html',
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], ApplicantsComponent);
+                return ApplicantsComponent;
+            }());
+            exports_1("ApplicantsComponent", ApplicantsComponent);
+        }
+    }
+});
+
+System.register(['@angular/core', './../services/user.service'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1, user_service_1;
+    var ProfilePreviewComponent;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
+            }],
+        execute: function() {
+            ProfilePreviewComponent = (function () {
+                function ProfilePreviewComponent() {
+                    this.user = [];
+                    this.user = JSON.parse(localStorage.getItem('user'));
+                    console.log('user is' + this.user);
+                }
+                ProfilePreviewComponent = __decorate([
+                    core_1.Component({
+                        providers: [user_service_1.UserService],
+                        selector: 'profile-preview',
+                        templateUrl: '../templates/profile-preview.component.html',
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], ProfilePreviewComponent);
+                return ProfilePreviewComponent;
+            }());
+            exports_1("ProfilePreviewComponent", ProfilePreviewComponent);
+        }
+    }
+});
+
+System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './user-sidebar.component', "./applications.component", "./experiences.component", "./education.component", "./alerts.component", "./testimonials.component", "./create-experience.component", "./create-study.component", "./create-alert.component", "./create-business.component", "./businesses.component", "./right-sidebar.component", './my-job-posts.component', './create-job-post.component', './sign-up.component', './applicants.component', './profile-preview.component'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1, router_deprecated_1, user_service_1, user_sidebar_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1, create_study_component_1, create_alert_component_1, create_business_component_1, businesses_component_1, right_sidebar_component_1, my_job_posts_component_1, create_job_post_component_1, sign_up_component_1, applicants_component_1, profile_preview_component_1;
     var ProfileComponent;
     return {
         setters:[
@@ -3265,6 +3690,15 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             },
             function (create_job_post_component_1_1) {
                 create_job_post_component_1 = create_job_post_component_1_1;
+            },
+            function (sign_up_component_1_1) {
+                sign_up_component_1 = sign_up_component_1_1;
+            },
+            function (applicants_component_1_1) {
+                applicants_component_1 = applicants_component_1_1;
+            },
+            function (profile_preview_component_1_1) {
+                profile_preview_component_1 = profile_preview_component_1_1;
             }],
         execute: function() {
             ProfileComponent = (function () {
@@ -3278,13 +3712,14 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         directives: [router_deprecated_1.RouterLink,
                             router_deprecated_1.RouterOutlet,
                             user_sidebar_component_1.UserSidebarComponent,
-                            right_sidebar_component_1.RightSidebarComponent],
+                            right_sidebar_component_1.RightSidebarComponent,
+                            sign_up_component_1.SignUpComponent],
                         selector: 'profile',
                         templateUrl: '../templates/profile.component.html',
                     }),
                     router_deprecated_1.RouteConfig([
                         // Root
-                        { path: '/show', name: 'Show', component: experiences_component_1.ExperiencesComponent, useAsDefault: true },
+                        { path: '/show', name: 'ProfilePreview', component: profile_preview_component_1.ProfilePreviewComponent, useAsDefault: true },
                         // Experiences
                         { path: '/experiences/all', name: 'Experiences', component: experiences_component_1.ExperiencesComponent },
                         { path: '/experience/create', name: 'CreateExperience', component: create_experience_component_1.CreateExperienceComponent },
@@ -3311,6 +3746,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         { path: '/job-posts/all', name: 'JobPosts', component: my_job_posts_component_1.MyJobPostsComponent },
                         { path: '/job-post/create', name: 'CreateJobPost', component: create_job_post_component_1.CreateJobPostComponent },
                         { path: '/job-post/edit/:jobPostId', name: 'EditJobPost', component: create_job_post_component_1.CreateJobPostComponent },
+                        // Applicants
+                        { path: '/applicants/all', name: 'Applicants', component: applicants_component_1.ApplicantsComponent },
                     ]), 
                     __metadata('design:paramtypes', [user_service_1.UserService])
                 ], ProfileComponent);
@@ -3369,47 +3806,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/c
                 return ClubComponent;
             }());
             exports_1("ClubComponent", ClubComponent);
-        }
-    }
-});
-
-System.register(['@angular/core', './../services/user.service'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1, user_service_1;
-    var SignUpComponent;
-    return {
-        setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (user_service_1_1) {
-                user_service_1 = user_service_1_1;
-            }],
-        execute: function() {
-            SignUpComponent = (function () {
-                function SignUpComponent() {
-                }
-                SignUpComponent = __decorate([
-                    core_1.Component({
-                        providers: [user_service_1.UserService],
-                        selector: 'sign-up',
-                        templateUrl: '../templates/sign-up.component.html',
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], SignUpComponent);
-                return SignUpComponent;
-            }());
-            exports_1("SignUpComponent", SignUpComponent);
         }
     }
 });
