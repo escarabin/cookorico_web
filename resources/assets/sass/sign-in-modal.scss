@@ -7,6 +7,10 @@
   color: $mainDarkTextColor;
 }
 
+#sign-in-modal form {
+  margin-bottom: 0;
+}
+
 #sign-in-modal button, #sign-in-modal input[type=button] {
   width: 100%;
   font-family: $mainBoldFontFamily;
@@ -46,7 +50,7 @@
   text-align: right;
 }
 
-#sign-in-modal .google-login, #sign-in-modal .fb-login {
+#sign-in-modal .google-login, #sign-in-modal .linkedin-login {
   text-align: center;
   padding: 25px;
   margin-left: 4%;
@@ -58,12 +62,12 @@
   font-family: $mainBoldFontFamily;
 }
 
-#sign-in-modal .google-login:hover, #sign-in-modal .fb-login:hover {
+#sign-in-modal .google-login:hover, #sign-in-modal .linkedin-login:hover {
   opacity: 0.9;
 }
 
-#sign-in-modal .fb-login {
-  background: #3B5998;
+#sign-in-modal .linkedin-login {
+  background: #0077B5;
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -76,6 +80,5 @@
 #sign-in-modal .email-sent, #sign-in-modal .loading {
   color: #333;
   text-align: center;
-  margin-top: 15px;
   margin-left: -10px;
 }

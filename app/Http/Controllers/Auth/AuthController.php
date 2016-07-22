@@ -76,9 +76,11 @@ class AuthController extends Controller
      *
      * @return Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver('linkedin')->redirect();
+        Log::info('redirecting to linkedin');
+
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -86,9 +88,9 @@ class AuthController extends Controller
      *
      * @return Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver('linkedin')->user();
+        $user = Socialite::driver($provider)->user();
 
         // $user->token;
     }

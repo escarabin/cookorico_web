@@ -41,4 +41,10 @@ return [
         'redirect' => 'http://localhost:8888/profile',
     ],
 
+    'google' => [
+        'client_id' => 'oechr-1380',
+        'client_secret' => 'AIzaSyDHar3rTVpUcvpFDj88PttAPy85Bk17R18',
+        'redirect' => 'http://localhost:8888/profile',
+    ],
+
 ];

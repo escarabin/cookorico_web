@@ -31,11 +31,13 @@ header ul li.recruiter_btn a {
   border-radius: $mainBorderRadius;
   padding: 10px 15px 10px 15px;
   font-weight: 600;
+  background: white;
+  color: $mainBlueColor;
 }
 
 header ul li.recruiter_btn a:hover {
-  background: white;
-  color: $mainDarkTextColor;
+  background: $mainBlueColor;
+  color: white;
 }
 
 header ul li a:hover {

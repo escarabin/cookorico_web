@@ -27,14 +27,18 @@
                       action="#"
                       *ngIf="!forgotPassword"
                       #loginForm="ngForm">
-                    <div class="col-md-12 google-login"
-                         *ngIf="!forgotPassword">
-                        <span class="fa fa-google"></span>  &nbsp; Google
-                    </div>
-                    <div class="col-md-12 fb-login"
-                         *ngIf="!forgotPassword">
-                        <span class="fa fa-facebook"></span> &nbsp; Facebook
-                    </div>
+                    <a href="/auth/google">
+                        <div class="col-md-12 google-login"
+                             *ngIf="!forgotPassword">
+                            <span class="fa fa-google"></span>  &nbsp; Google
+                        </div>
+                    </a>
+                    <a href="/auth/linkedin">
+                        <div class="col-md-12 linkedin-login"
+                             *ngIf="!forgotPassword">
+                            <span class="fa fa-linkedin"></span> &nbsp; Linkedin
+                        </div>
+                    </a>
                     <div class="col-md-12">
                         <input type="text"
                                placeholder="Email"
