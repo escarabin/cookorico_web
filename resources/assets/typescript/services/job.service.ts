@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HTTP_PROVIDERS, Http } from '@angular/http';
+import { HTTP_PROVIDERS, Http, Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class JobService {
     allJobsListingUrl = '/jobs/all';
     showJobListingUrl = '/job/';
-    applyJobUrl = '/job/apply/';
+    applyJobUrl = '/apply_job';
     jobId: number;
     user: any;
 
@@ -42,6 +42,10 @@ export class JobService {
     apply(jobId, comment) {
         let __this = this;
 
-        return this.http.request(__this.applyJobUrl + jobId + '/' + comment);
+        let body = JSON.stringify({ jobId, comment });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(__this.applyJobUrl, body, options);
     }
 }

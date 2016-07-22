@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use Illuminate\Http\Request;
 
 Route::get('/', 'HomeController@show')
     ->name('home');
@@ -20,14 +21,14 @@ Route::get('/pricing', 'PricingControl@show')
     ->name('showPricing');
 
 // Jobs
+Route::post('/apply_job', 'JobController@apply')
+    ->name('applyJob');
 Route::get('/job/{id}', 'JobController@get')
     ->name('showJob');
 Route::get('/jobs/all', 'JobController@getAll')
     ->name('getAllJobs');
 Route::get('/jobs/search/{stateId?}/{jobNamingId?}/{contractTypeId?}/{searchText?}', 'JobController@search')
     ->name('searchJobs');
-Route::get('/job/apply/{jobId}/{comment}', 'JobController@apply')
-    ->name('applyJob');
 Route::get('/user/job-posts/all', 'UserController@getJobPosts')
     ->name('getMyJobPosts');
 Route::get('/job-post/create/{title}/{description}/{is_hosting_employee}/{is_urgent}/{is_asap}/{week_work_hours}/{business_id}/{job_type_id}/{job_naming_id}/{contract_type_id}/{study_level_id}/{job_xp_level_id}/{alert_frequency_id}/{diploma_id}/{start_date}/{end_date}', 'JobController@create')

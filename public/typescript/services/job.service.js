@@ -26,7 +26,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.http = http;
                     this.allJobsListingUrl = '/jobs/all';
                     this.showJobListingUrl = '/job/';
-                    this.applyJobUrl = '/job/apply/';
+                    this.applyJobUrl = '/apply_job';
                     this.user = JSON.parse(localStorage.getItem('user'));
                 }
                 /**
@@ -53,7 +53,10 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                  */
                 JobService.prototype.apply = function (jobId, comment) {
                     var __this = this;
-                    return this.http.request(__this.applyJobUrl + jobId + '/' + comment);
+                    var body = JSON.stringify({ jobId: jobId, comment: comment });
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    return this.http.post(__this.applyJobUrl, body, options);
                 };
                 JobService = __decorate([
                     core_1.Injectable(), 

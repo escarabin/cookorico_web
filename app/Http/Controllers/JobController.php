@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Request;
 use Auth;
+use Log;
 
 use App\Models\Job;
 use App\Models\StudyLevel;
@@ -72,12 +74,12 @@ class JobController extends Controller
      * @param $comment
      * @return Application
      */
-    public function apply($jobId, $comment) {
+    public function apply(Request $request) {
         $newApplication = new Application;
 
         $newApplication->user_id = Auth::user()->id;
-        $newApplication->job_id = $jobId;
-        $newApplication->comment = $comment;
+        $newApplication->job_id = $request::input('jobId');
+        $newApplication->comment = $request::input('comment');
 
         $newApplication->save();
 
