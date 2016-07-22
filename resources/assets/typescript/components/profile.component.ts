@@ -23,13 +23,15 @@ import { BusinessesComponent } from "./businesses.component";
 import { RightSidebarComponent } from "./right-sidebar.component";
 import { MyJobPostsComponent } from './my-job-posts.component';
 import { CreateJobPostComponent } from './create-job-post.component';
+import { SignUpComponent } from './sign-up.component';
 
 @Component({
     providers: [UserService],
     directives: [RouterLink,
                 RouterOutlet,
                 UserSidebarComponent,
-                RightSidebarComponent],
+                RightSidebarComponent,
+                SignUpComponent],
     selector: 'profile',
     templateUrl: '../templates/profile.component.html',
 })
@@ -40,7 +42,7 @@ import { CreateJobPostComponent } from './create-job-post.component';
 
 @RouteConfig([
     // Root
-    { path: '/show', name: 'Show', component: ExperiencesComponent, useAsDefault: true },
+    { path: '/show', name: 'Show', component: SignUpComponent, useAsDefault: true },
 
     // Experiences
     { path: '/experiences/all', name: 'Experiences', component: ExperiencesComponent },
