@@ -192,29 +192,6 @@ class UserController extends Controller
     }
 
     /**
-     * Save alert changes
-     * @param $alertId
-     * @param $diplomaId
-     * @param $businessId
-     * @param $startDate
-     * @param $endDate
-     * @param $place
-     * @param $description
-     */
-    public function saveAlertChanges($alertId, $alertFrequencyId, $title, $jobNamingId, $place) {
-        $alert = Alert::find($alertId);
-
-        $alert->alert_frequency_id = $alertFrequencyId;
-        $alert->title = $title;
-        $alert->job_naming_id = $jobNamingId;
-        $alert->place = $place;
-
-        $alert->save();
-
-        return $alert;
-    }
-
-    /**
      * Get user's job posts
      */
     public function getJobPosts() {
