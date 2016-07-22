@@ -95,7 +95,7 @@ Route::get('/education/all', 'UserController@getEducation')
     ->name('getEducation');
 Route::get('/education/delete/{listStudyId}', 'EducationController@deleteEducation')
     ->name('deleteEducation');
-Route::get('/study/create/{diplomaId}/{businessId}/{startDate}/{endDate}/{adress}/{description}', 'EducationController@createStudy')
+Route::post('/study/create', 'EducationController@createStudy')
     ->name('createStudy');
 
 // Alerts

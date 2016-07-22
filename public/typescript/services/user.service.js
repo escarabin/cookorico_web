@@ -231,23 +231,13 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 };
                 /**
                  * Create new study
-                 * @param diplomaId
-                 * @param businessId
-                 * @param startDate
-                 * @param endDate
-                 * @param place
-                 * @param description
+                 * @param study
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.createStudy = function (diplomaId, businessId, startDate, endDate, place, description) {
+                UserService.prototype.createStudy = function (study) {
                     var __this = this;
-                    return this.http.get(__this.createStudyUrl + '/' +
-                        diplomaId + '/' +
-                        businessId + '/' +
-                        startDate + '/' +
-                        endDate + '/' +
-                        place + '/' +
-                        description);
+                    var requestBody = JSON.stringify({ study: study });
+                    return this.http.post(__this.createStudyUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Create new job alert

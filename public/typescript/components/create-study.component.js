@@ -42,7 +42,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 }
                 CreateStudyComponent.prototype.submitStudy = function () {
                     var __this = this;
-                    this.userService.createStudy(__this.study.diploma_id, __this.study.business_id, __this.study.start_date, __this.study.end_date, __this.study.adress, __this.study.description).subscribe(function (res) {
+                    this.userService.createStudy(__this.study).subscribe(function (res) {
                         console.log(res.json());
                     });
                 };

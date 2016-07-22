@@ -9,6 +9,7 @@ import { NotificationsService } from './notification.service';
 import { Notification } from './../models/notification';
 import { User } from './../models/user';
 import { Experience } from './../models/experience';
+import { Study } from './../models/study';
 
 @Injectable()
 export class UserService {
@@ -258,25 +259,15 @@ export class UserService {
 
     /**
      * Create new study
-     * @param diplomaId
-     * @param businessId
-     * @param startDate
-     * @param endDate
-     * @param place
-     * @param description
+     * @param study
      * @returns {Observable<Response>}
      */
-    createStudy(diplomaId, businessId, startDate, endDate, place, description) {
+    createStudy(study: Study) {
         let __this = this;
 
-        return this.http.get(
-            __this.createStudyUrl + '/' +
-            diplomaId + '/' +
-            businessId + '/' +
-            startDate + '/' +
-            endDate + '/' +
-            place + '/' +
-            description);
+        let requestBody = JSON.stringify({ study });
+
+        return this.http.post(__this.createStudyUrl, requestBody, this.postRequestOptions);
     }
 
     /**

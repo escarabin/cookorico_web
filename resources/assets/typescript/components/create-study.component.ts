@@ -33,12 +33,7 @@ export class CreateStudyComponent {
     submitStudy() {
         let __this = this;
 
-        this.userService.createStudy(__this.study.diploma_id,
-            __this.study.business_id,
-            __this.study.start_date,
-            __this.study.end_date,
-            __this.study.adress,
-            __this.study.description).subscribe((res: Response) => {
+        this.userService.createStudy(__this.study).subscribe((res: Response) => {
             console.log(res.json());
         })
     }

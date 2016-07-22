@@ -4,37 +4,42 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Study;
+use Illuminate\Support\Facades\Request;
 use Auth;
+use Log;
 
 class EducationController extends Controller
 {
     /**
      * Create new study
-     * @param $diplomaId
-     * @param $businessId
-     * @param $startDate
-     * @param $endDate
-     * @param $place
-     * @param $description
+     * @param Request $request
+     * @return Study
      */
-    public function createStudy($diplomaId, $businessId, $startDate, $endDate, $adress, $description) {
+    public function createStudy(Request $request) {
         $user_id = Auth::user()->id;
 
         $study = new Study;
 
         $study->user_id = $user_id;
-        $study->diploma_id = $diplomaId;
-        $study->business_id = $businessId;
-        $study->start_date = $startDate;
-        $study->end_date = $endDate;
-        $study->adress = $adress;
-        $study->description = $description;
+
+        $studyData = $request::input('study');
+
+        Log::info($studyData);
+
+        foreach ($studyData as $key => $value) {
+            $study[$key] = $value;
+        }
 
         $study->save();
 
         return $study;
     }
 
+    /**
+     * Delete specific studies regarding a list of ids
+     * @param $listStudyId
+     * @return mixed
+     */
     public function deleteEducation($listStudyId) {
         $listStudyId = explode(',', $listStudyId);
 
