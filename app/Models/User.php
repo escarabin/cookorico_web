@@ -44,7 +44,7 @@ class User extends Authenticatable
      */
     public function status()
     {
-        return $this->hasOne(UserStatus::class);
+        return $this->belongsTo(UserStatus::class);
     }
     /**
      * Get businesses that this user owns
