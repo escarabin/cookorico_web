@@ -19,19 +19,16 @@ class JobController extends Controller
      */
     public function get($id)
     {
-        $job = Job::find($id);
-
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        $job->business = $job->business;
-        $job->business->type = $job->business->type;
-        $job->user = $job->user;
-        $job->naming = $job->naming;
-        $job->type = $job->type;
-        $job->state = $job->state;
-        $job->studyLevel = $job->studyLevel;
-        $job->contractType = $job->contractType;
-        $job->jobXpLevel = $job->jobXpLevel;
-        $job->languages = $job->languages;
+        $job = Job::find($id)
+                 ->load('business',
+                        'user',
+                        'jobNaming',
+                        'type',
+                        'state',
+                        'studyLevel',
+                        'contractType',
+                        'jobXpLevel',
+                        'languages');
 
         return $job;
     }
@@ -41,21 +38,16 @@ class JobController extends Controller
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getAll() {
-        $jobs = Job::all();
-
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        foreach ($jobs as $job) {
-            $job->business = $job->business;
-            $job->business->type = $job->business->type;
-            $job->user = $job->user;
-            $job->naming = $job->naming;
-            $job->type = $job->type;
-            $job->state = $job->state;
-            $job->studyLevel = $job->studyLevel;
-            $job->contractType = $job->contractType;
-            $job->jobXpLevel = $job->jobXpLevel;
-            $job->languages = $job->languages;
-        }
+        $jobs = Job::all()
+            ->load('business',
+                'user',
+                'jobNaming',
+                'type',
+                'state',
+                'studyLevel',
+                'contractType',
+                'jobXpLevel',
+                'languages');
 
         return $jobs;
     }
