@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             $user = User::where('email', $email)->first()
-                        ->load('plans', 'type');
+                        ->load('plans', 'type', 'status');
 
             return $user;
         }

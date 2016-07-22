@@ -58,14 +58,6 @@ class Job extends Model
     }
 
     /**
-     * Get the job's type
-     */
-    public function state()
-    {
-        return $this->belongsTo(State::class);
-    }
-
-    /**
      * Get the job's required study level
      */
     public function studyLevel()

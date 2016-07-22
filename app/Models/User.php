@@ -40,7 +40,7 @@ class User extends Authenticatable
         return $this->belongsTo(Civility::class);
     }
     /**
-     * Get user's state
+     * Get user's status
      */
     public function status()
     {
