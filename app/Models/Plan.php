@@ -21,7 +21,7 @@ class Plan extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -30,6 +30,6 @@ class Plan extends Model
      */
     public function pricingPlan()
     {
-        return $this->belongsTo('App\Models\PricingPlan');
+        return $this->belongsTo(PricingPlan::class);
     }
 }

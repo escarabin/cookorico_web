@@ -21,7 +21,7 @@ class Testimonial extends Model
      */
     public function employee()
     {
-        return $this->belongsTo('App\Models\User', 'employee_user_id', 'id');
+        return $this->belongsTo(User::class, 'employee_user_id', 'id');
     }
 
     /**
@@ -29,7 +29,7 @@ class Testimonial extends Model
      */
     public function recruiter()
     {
-        return $this->belongsTo('App\Models\User', 'recruiter_user_id', 'id');
+        return $this->belongsTo(User::class, 'recruiter_user_id', 'id');
     }
 
     /**
@@ -37,7 +37,7 @@ class Testimonial extends Model
      */
     public function jobNaming()
     {
-        return $this->belongsTo('App\Models\JobNaming');
+        return $this->belongsTo(JobNaming::class);
     }
 
     /**
@@ -45,6 +45,6 @@ class Testimonial extends Model
      */
     public function business()
     {
-        return $this->belongsTo('App\Models\Business');
+        return $this->belongsTo(Business::class);
     }
 }

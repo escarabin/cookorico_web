@@ -23,7 +23,7 @@ class Study extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -31,7 +31,7 @@ class Study extends Model
      */
     public function diploma()
     {
-        return $this->belongsTo('App\Models\Diploma');
+        return $this->belongsTo(Diploma::class);
     }
 
     /**
@@ -39,7 +39,7 @@ class Study extends Model
      */
     public function business()
     {
-        return $this->belongsTo('App\Models\Business');
+        return $this->belongsTo(Business::class);
     }
 
     /**

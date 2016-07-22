@@ -13,7 +13,7 @@ class Experience extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
 
@@ -22,7 +22,7 @@ class Experience extends Model
      */
     public function business()
     {
-        return $this->belongsTo('App\Models\Business');
+        return $this->belongsTo(Business:class);
     }
 
 
@@ -31,7 +31,7 @@ class Experience extends Model
      */
     public function jobNaming()
     {
-        return $this->belongsTo('App\Models\JobNaming');
+        return $this->belongsTo(JobNaming::class);
     }
 
     /**

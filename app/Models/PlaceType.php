@@ -20,6 +20,6 @@ class PlaceType extends Model
      */
     public function places()
     {
-        return $this->belongsToMany('App\Models\Place');
+        return $this->belongsToMany(Place::class);
     }
 }

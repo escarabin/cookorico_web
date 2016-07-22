@@ -22,6 +22,6 @@ class JobNamingGroup extends Model
      */
     public function jobNamings()
     {
-        return $this->hasMany('App\Models\JobNaming');
+        return $this->hasMany(JobNaming::class);
     }
 }

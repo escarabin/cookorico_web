@@ -20,7 +20,7 @@ class Alert extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -28,7 +28,7 @@ class Alert extends Model
      */
     public function alertFrequency()
     {
-        return $this->belongsTo('App\Models\AlertFrequency');
+        return $this->belongsTo(AlertFrequency::class);
     }
 
     /**
@@ -36,6 +36,6 @@ class Alert extends Model
      */
     public function jobNaming()
     {
-        return $this->belongsTo('App\Models\JobNaming');
+        return $this->belongsTo(JobNaming::class);
     }
 }

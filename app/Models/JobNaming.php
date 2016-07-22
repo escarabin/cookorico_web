@@ -21,6 +21,6 @@ class JobNaming extends Model
      */
     public function jobNamingGroup()
     {
-        return $this->belongsTo('App\Models\JobNamingGroup');
+        return $this->belongsTo(JobNamingGroup::class);
     }
 }

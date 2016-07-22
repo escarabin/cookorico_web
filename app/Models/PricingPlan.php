@@ -20,6 +20,6 @@ class PricingPlan extends Model
      */
     public function businessTypes()
     {
-        return $this->belongsToMany('App\Models\PricingPlan');
+        return $this->belongsToMany(PricingPlan::class);
     }
 }

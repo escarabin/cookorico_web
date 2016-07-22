@@ -22,7 +22,7 @@ class Job extends Model
      */
     public function business()
     {
-        return $this->belongsTo('App\Models\Business');
+        return $this->belongsTo(Business::class);
     }
 
     /**
@@ -30,7 +30,7 @@ class Job extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -38,7 +38,7 @@ class Job extends Model
      */
     public function jobNaming()
     {
-        return $this->belongsTo('App\Models\JobNaming');
+        return $this->belongsTo(JobNaming::class);
     }
 
     /**
@@ -46,7 +46,7 @@ class Job extends Model
      */
     public function contractType()
     {
-        return $this->belongsTo('App\Models\ContractType');
+        return $this->belongsTo(ContractType::class);
     }
 
     /**
@@ -54,7 +54,7 @@ class Job extends Model
      */
     public function type()
     {
-        return $this->belongsTo('App\Models\JobType');
+        return $this->belongsTo(JobType::class);
     }
 
     /**
@@ -62,7 +62,7 @@ class Job extends Model
      */
     public function state()
     {
-        return $this->belongsTo('App\Models\State');
+        return $this->belongsTo(State::class);
     }
 
     /**
@@ -70,7 +70,7 @@ class Job extends Model
      */
     public function studyLevel()
     {
-        return $this->belongsTo('App\Models\StudyLevel');
+        return $this->belongsTo(StudyLevel::class);
     }
 
     /**
@@ -78,7 +78,7 @@ class Job extends Model
      */
     public function jobXpLevel()
     {
-        return $this->belongsTo('App\Models\JobXpLevel');
+        return $this->belongsTo(JobXpLevel::class);
     }
 
     /**
@@ -86,7 +86,7 @@ class Job extends Model
      */
     public function languages()
     {
-        return $this->belongsToMany('App\Models\Language');
+        return $this->belongsToMany(Language::class);
     }
 
     /**
@@ -94,7 +94,7 @@ class Job extends Model
      */
     public function alertFrequency()
     {
-        return $this->belongsTo('App\Models\AlertFrequency');
+        return $this->belongsTo(AlertFrequency::class);
     }
 
     /**

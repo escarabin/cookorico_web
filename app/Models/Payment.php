@@ -21,7 +21,7 @@ class Payment extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -29,7 +29,7 @@ class Payment extends Model
      */
     public function pricingPlan()
     {
-        return $this->hasOne('App\Models\PricingPlan');
+        return $this->hasOne(PricingPlan::class);
     }
 
     /**
@@ -37,6 +37,6 @@ class Payment extends Model
      */
     public function paymentType()
     {
-        return $this->hasOne('App\Models\PayementType');
+        return $this->hasOne(PaymentType::class);
     }
 }

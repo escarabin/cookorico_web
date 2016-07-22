@@ -20,7 +20,7 @@ class Business extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('App\Models\User');
+        return $this->belongsToMany(User::class);
     }
 
     /**
@@ -28,7 +28,7 @@ class Business extends Model
      */
     public function clubs()
     {
-        return $this->belongsToMany('App\Models\Club');
+        return $this->belongsToMany(Club::class);
     }
 
     /**
@@ -36,20 +36,20 @@ class Business extends Model
      */
     public function type()
     {
-        return $this->belongsTo('App\Models\BusinessType');
+        return $this->belongsTo(BusinessType::class);
     }
 
     /**
      * Get the business's place
      */
     public function place() {
-        return $this->belongsTo('App\Models\Place');
+        return $this->belongsTo(Place::class);
     }
 
     /**
      * Get the business's photos
      */
     public function photos() {
-        return $this->hasMany('App\Models\BusinessPhoto');
+        return $this->hasMany(BusinessPhoto::class);
     }
 }

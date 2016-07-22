@@ -21,6 +21,6 @@ class Club extends Model
      */
     public function businesses()
     {
-        return $this->hasMany('App\Models\Business');
+        return $this->hasMany(Business:class);
     }
 }

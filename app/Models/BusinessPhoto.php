@@ -20,6 +20,6 @@ class BusinessPhoto extends Model
      */
     public function business()
     {
-        return $this->hasOne('App\Models\Business');
+        return $this->hasOne(Business::class);
     }
 }
