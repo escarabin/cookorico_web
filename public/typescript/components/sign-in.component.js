@@ -57,6 +57,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                             localStorage.setItem('user', JSON.stringify(user));
                             __this.user = JSON.parse(localStorage.getItem('user'));
                             __this.userSignedIn.emit(_this.user);
+                            __this.notificationService.show(new notification_1.Notification('success', 'Vous êtes connecté'));
                         }
                         else {
                             __this.notificationService.show(new notification_1.Notification('error', 'Vos identifiants semblent incorrect, merci de rééssayer'));
@@ -81,7 +82,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     core_1.Component({
                         templateUrl: '../templates/sign-in.component.html',
                         selector: 'sign-in',
-                        providers: [user_service_1.UserService, notification_service_1.NotificationsService],
+                        providers: [user_service_1.UserService],
                         viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
                         directives: [router_deprecated_1.RouterLink,
                             ng2_bootstrap_1.MODAL_DIRECTIVES,

@@ -17,7 +17,7 @@ import { Notification } from './../models/notification';
     templateUrl: '../templates/sign-in.component.html',
     selector: 'sign-in',
 
-    providers: [UserService, NotificationsService],
+    providers: [UserService],
     viewProviders:[BS_VIEW_PROVIDERS],
     directives: [RouterLink,
         MODAL_DIRECTIVES,
@@ -52,6 +52,10 @@ export class SignInComponent {
                 __this.user = JSON.parse(localStorage.getItem('user'));
 
                 __this.userSignedIn.emit(this.user);
+
+                __this.notificationService.show(
+                    new Notification('success', 'Vous êtes connecté')
+                );
             }
             else {
                 __this.notificationService.show(
