@@ -105,41 +105,26 @@ class JobController extends Controller
      * @param $start_date
      * @param $end_date
      */
-    public function create($title,
-                            $description,
-                            $is_hosting_employee,
-                            $is_urgent,
-                            $is_asap,
-                            $week_work_hours,
-                            $business_id,
-                            $job_type_id,
-                            $job_naming_id,
-                            $contract_type_id,
-                            $study_level_id,
-                            $job_xp_level_id,
-                            $alert_frequency_id,
-                            $diploma_id,
-                            $start_date,
-                            $end_date) {
+    public function create(Request $request) {
         $jobPost = new Job();
 
-        $jobPost->title = $title;
-        $jobPost->description = $description;
+        $jobPost->title = $request::input('title');
+        $jobPost->description = $request::input('description');
         $jobPost->user_id = Auth::user()->id;
-        $jobPost->is_hosting_employee = $is_hosting_employee;
-        $jobPost->is_urgent = $is_urgent;
-        $jobPost->is_asap = $is_asap;
-        $jobPost->week_work_hours = $week_work_hours;
-        $jobPost->business_id = $business_id;
-        $jobPost->job_type_id = $job_type_id;
-        $jobPost->job_naming_id = $job_naming_id;
-        $jobPost->contract_type_id = $contract_type_id;
-        $jobPost->study_level_id = $study_level_id;
-        $jobPost->job_xp_level_id = $job_xp_level_id;
-        $jobPost->alert_frequency_id = $alert_frequency_id;
-        $jobPost->diploma_id = $diploma_id;
-        $jobPost->start_date = $start_date;
-        $jobPost->end_date = $end_date;
+        $jobPost->is_hosting_employee = $request::input('is_hosting_employee');
+        $jobPost->is_urgent = $request::input('is_urgent');
+        $jobPost->is_asap = $request::input('is_asap');
+        $jobPost->week_work_hours = $request::input('week_work_hours');
+        $jobPost->business_id = $request::input('business_id');
+        $jobPost->job_type_id = $request::input('job_type_id');
+        $jobPost->job_naming_id = $request::input('job_naming_id');
+        $jobPost->contract_type_id = $request::input('contract_type_id');
+        $jobPost->study_level_id = $request::input('study_level_id');
+        $jobPost->job_xp_level_id = $request::input('job_xp_level_id');
+        $jobPost->alert_frequency_id = $request::input('alert_frequency_id');
+        $jobPost->diploma_id = $request::input('diploma_id');
+        $jobPost->start_date = $request::input('start_date');
+        $jobPost->end_date = $request::input('end_date');
 
         $jobPost->save();
 

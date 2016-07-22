@@ -88,8 +88,6 @@ export class CreateJobPostComponent {
         this.referenceService.getAllJobXpLevels().subscribe((res: Response) => {
             __this.jobXpLevels = res.json();
         });
-
-
     }
 
     submitJobPost() {

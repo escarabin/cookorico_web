@@ -34,23 +34,10 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                  */
                 JobPostService.prototype.create = function (jobPost) {
                     var __this = this;
-                    return this.http.request(__this.createJobPostUrl + '/' +
-                        jobPost.title + '/' +
-                        jobPost.description + '/' +
-                        jobPost.is_hosting_employee + '/' +
-                        jobPost.is_urgent + '/' +
-                        jobPost.is_asap + '/' +
-                        jobPost.week_work_hours + '/' +
-                        jobPost.business_id + '/' +
-                        jobPost.job_type_id + '/' +
-                        jobPost.job_naming_id + '/' +
-                        jobPost.contract_type_id + '/' +
-                        jobPost.study_level_id + '/' +
-                        jobPost.job_xp_level_id + '/' +
-                        jobPost.alert_frequency_id + '/' +
-                        jobPost.diploma_id + '/' +
-                        jobPost.start_date + '/' +
-                        jobPost.end_date);
+                    var body = JSON.stringify(jobPost);
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    return this.http.post(__this.createJobPostUrl, body, options);
                 };
                 /**
                  * Get specific job post

@@ -31,7 +31,7 @@ Route::get('/jobs/search/{stateId?}/{jobNamingId?}/{contractTypeId?}/{searchText
     ->name('searchJobs');
 Route::get('/user/job-posts/all', 'UserController@getJobPosts')
     ->name('getMyJobPosts');
-Route::get('/job-post/create/{title}/{description}/{is_hosting_employee}/{is_urgent}/{is_asap}/{week_work_hours}/{business_id}/{job_type_id}/{job_naming_id}/{contract_type_id}/{study_level_id}/{job_xp_level_id}/{alert_frequency_id}/{diploma_id}/{start_date}/{end_date}', 'JobController@create')
+Route::post('/job-post/create', 'JobController@create')
     ->name('createJobPost');
 
 // User
