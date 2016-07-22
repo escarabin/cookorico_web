@@ -67,9 +67,11 @@
                 </span>
                 des offres de
                 <span class="dynamic_data text-lowercase">
-                    <span *ngFor="let jobNaming of jobNamings">
-                        <span *ngIf="jobNaming.id == alert.job_naming_id">
-                            {{ jobNaming.title }}
+                    <span *ngFor="let jobNamingGroup of jobNamingGroups">
+                        <span *ngFor="let jobNaming of jobNamingGroup.job_namings">
+                            <span *ngIf="jobNaming.id == alert.job_naming_id">
+                                {{ jobNaming.title }}
+                            </span>
                         </span>
                     </span>
                 </span>
@@ -86,9 +88,14 @@
         </div>
         <div class="col-md-6">
             <button class="btn btn-primary submit-btn"
-                    [disabled]="!alertForm.valid"
+                    [disabled]="!alertForm.valid || isLoading"
                     (click)="submitAlert()">
-                Sauvegarder
+                <span *ngIf="!isLoading">
+                    Sauvegarder
+                </span>
+                <span *ngIf="isLoading">
+                    <span class="fa fa-spinner fa-spin"></span> &nbsp; Chargement
+                </span>
             </button>
         </div>
     </form>

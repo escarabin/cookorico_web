@@ -44,6 +44,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.router = router;
                     this.routeParams = routeParams;
                     this.alert = new alert_1.Alert();
+                    this.isLoading = false;
                     var __this = this;
                     this.alert.id = routeParams.get("alertId");
                     if (this.alert.id) {
@@ -61,6 +62,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 }
                 CreateAlertComponent.prototype.submitAlert = function () {
                     var _this = this;
+                    this.isLoading = true;
                     var __this = this;
                     if (!this.alert.id) {
                         this.userService.createAlert(__this.alert).subscribe(function (res) {
@@ -72,6 +74,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             else {
                                 __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
                             }
+                            _this.isLoading = false;
                         });
                     }
                     else {
@@ -82,6 +85,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             else {
                                 __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
                             }
+                            _this.isLoading = false;
                         });
                     }
                 };

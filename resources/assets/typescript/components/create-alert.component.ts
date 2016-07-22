@@ -22,6 +22,7 @@ export class CreateAlertComponent {
     jobNamingGroups: any;
     alertFrequencies: any;
     alert:Alert = new Alert();
+    isLoading: boolean = false;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
@@ -49,6 +50,7 @@ export class CreateAlertComponent {
     }
 
     submitAlert() {
+        this.isLoading = true;
         let __this = this;
 
         if (!this.alert.id) {
@@ -66,6 +68,7 @@ export class CreateAlertComponent {
                         new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
                     );
                 }
+                this.isLoading = false;
             });
         }
         else {
@@ -80,6 +83,7 @@ export class CreateAlertComponent {
                         new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
                     );
                 }
+                this.isLoading = false;
             });
         }
     }
