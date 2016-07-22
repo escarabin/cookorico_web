@@ -22,10 +22,24 @@ System.register(['@angular/core', './../services/user.service'], function(export
             }],
         execute: function() {
             ProfilePreviewComponent = (function () {
-                function ProfilePreviewComponent() {
+                function ProfilePreviewComponent(userService) {
+                    this.userService = userService;
                     this.user = [];
+                    this.experiences = [];
+                    this.education = [];
+                    this.testimonials = [];
+                    var __this = this;
                     this.user = JSON.parse(localStorage.getItem('user'));
                     console.log('user is ', this.user);
+                    this.userService.getExperiences().subscribe(function (res) {
+                        __this.experiences = res.json();
+                    });
+                    this.userService.getEducation().subscribe(function (res) {
+                        __this.education = res.json();
+                    });
+                    this.userService.getTestimonials().subscribe(function (res) {
+                        __this.testimonials = res.json();
+                    });
                 }
                 ProfilePreviewComponent = __decorate([
                     core_1.Component({
@@ -33,7 +47,7 @@ System.register(['@angular/core', './../services/user.service'], function(export
                         selector: 'profile-preview',
                         templateUrl: '../templates/profile-preview.component.html',
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [user_service_1.UserService])
                 ], ProfilePreviewComponent);
                 return ProfilePreviewComponent;
             }());

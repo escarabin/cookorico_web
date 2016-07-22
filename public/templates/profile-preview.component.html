@@ -3,12 +3,48 @@
 </div>
 <div class="col-md-6 user-basic-infos">
     <span class="user-identity">
-        {{ user.firstName }} {{ user.lastName }}<br />
-        {{ user.phone }}<br />
+        {{ user.civility.title }} {{ user.firstName }} {{ user.lastName }}<br />
+        <span *ngIf="user.phone">
+            {{ user.phone }}<br />
+        </span>
         {{ user.email }}<br />
-        {{ user.status.title }}<br />
+        <span *ngIf="user.status">
+            {{ user.status.title }}<br />
+        </span>
+        <span *ngIf="user.looking_for_job_naming">
+            <b>Profil recherché :</b> {{ user.looking_for_job_naming.title }}<br />
+        </span>
     </span>
 </div>
 <div class="col-md-3">
 
+</div>
+
+<div class="col-md-12">
+    <h3>Ma présentation</h3>
+    <div class="description"
+         [innerHTML]="user.description">
+
+    </div>
+</div>
+
+<div class="col-md-12">
+    <h3>Expériences</h3>
+    <div *ngFor="let experience of experiences">
+        {{ experience.job_naming.title }}
+    </div>
+</div>
+
+<div class="col-md-12">
+    <h3>Formations</h3>
+    <div *ngFor="let education of educations">
+        {{ education.business.title }}
+    </div>
+</div>
+
+<div class="col-md-12">
+    <h3>Recommendations</h3>
+    <div *ngFor="let testimonial of testimonials">
+        {{ testimonial.business.title }}
+    </div>
 </div>

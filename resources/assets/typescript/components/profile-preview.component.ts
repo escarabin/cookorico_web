@@ -13,8 +13,27 @@ import { UserService } from './../services/user.service';
 
 export class ProfilePreviewComponent {
     user: any = [];
+    experiences: any = [];
+    education: any = [];
+    testimonials: any = [];
 
-    constructor() {
+    constructor(private userService: UserService) {
+        let __this = this;
+
         this.user = JSON.parse(localStorage.getItem('user'));
+
+        console.log('user is ', this.user);
+
+        this.userService.getExperiences().subscribe((res: Response) => {
+            __this.experiences = res.json();
+        });
+
+        this.userService.getEducation().subscribe((res: Response) => {
+            __this.education = res.json();
+        });
+
+        this.userService.getTestimonials().subscribe((res: Response) => {
+            __this.testimonials = res.json();
+        });
     }
 }

@@ -39,6 +39,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Civility::class);
     }
+
     /**
      * Get user's status
      */
@@ -46,6 +47,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(UserStatus::class);
     }
+
     /**
      * Get businesses that this user owns
      */
