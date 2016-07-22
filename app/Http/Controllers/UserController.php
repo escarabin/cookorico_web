@@ -26,12 +26,9 @@ class UserController extends Controller
     public function signIn($email, $password)
     {
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            $user = User::where('email', $email)->first();
-
-            // Authentication passed
-            // Necesseray Laravel's workaround to return relationship values inside JSON
-            $user->plans = $user->plans;
-            $user->type = $user->type;
+            $user = User::where('email', $email)
+                        ->load('plans')
+                        ->load('type');
 
             return $user;
         }
@@ -79,14 +76,10 @@ class UserController extends Controller
      * @return mixed
      */
     public function getApplications() {
-        $applications = Auth::user()->applications;
-
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        foreach ($applications as $application) {
-            $application->job = $application->job;
-            $application->user = $application->user;
-            $application->job->business = $application->job->business;
-        }
+        $applications = Auth::user()->applications
+                            ->load('job')
+                            ->load('user')
+                            ->load('business');
 
         return $applications;
     }
@@ -97,14 +90,10 @@ class UserController extends Controller
      * @return mixed
      */
     public function getExperiences() {
-        $experiences = Auth::user()->experiences;
-
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        foreach ($experiences as $experience) {
-            $experience->jobNaming = $experience->jobNaming;
-            $experience->user = $experience->user;
-            $experience->business = $experience->business;
-        }
+        $experiences = Auth::user()->experiences
+                        ->load('jobNaming')
+                        ->load('user')
+                        ->load('business');
 
         return $experiences;
     }
@@ -172,14 +161,10 @@ class UserController extends Controller
      * @return mixed
      */
     public function getBusinesses() {
-        $businesses = Auth::user()->businesses;
-
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        foreach ($businesses as $business) {
-            $business->type = $business->type;
-            $business->clubs = $business->clubs;
-            $business->place = $business->place;
-        }
+        $businesses = Auth::user()->businesses
+                        ->load('type')
+                        ->load('club')
+                        ->load('place');
 
         return $businesses;
     }
@@ -198,12 +183,8 @@ class UserController extends Controller
      * Get the plans that logged user subscribed to
      */
     public function getPlans() {
-        $plans = Auth::user()->plans;
-
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        foreach ($plans as $plan) {
-            $plan->pricingPlan = $plan->pricingPlan;
-        }
+        $plans = Auth::user()->plans
+                        ->load('pricingPlan');
 
         return $plans;
     }
@@ -213,14 +194,11 @@ class UserController extends Controller
      * @return mixed
      */
     public function getCreatedTestimonials() {
-        $testimonials = Auth::user()->createdTestimonials;
-
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        foreach ($testimonials as $testimonial) {
-            $testimonial->jobNaming = $testimonial->jobNaming;
-            $testimonial->recruiter = $testimonial->recruiter;
-            $testimonial->employee = $testimonial->employee;
-        }
+        $testimonials = Auth::user()->createdTestimonials
+            ->load('jobNaming')
+            ->load('employee')
+            ->load('business')
+            ->load('recruiter');
 
         return $testimonials;
     }
@@ -252,13 +230,9 @@ class UserController extends Controller
      * Get user's job posts
      */
     public function getJobPosts() {
-        $jobPosts = Auth::user()->jobPosts;
-
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        foreach ($jobPosts as $jobPost) {
-            $jobPost->jobNaming = $jobPost->jobNaming;
-            $jobPost->business = $jobPost->business;
-        }
+        $jobPosts = Auth::user()->jobPosts
+                    ->load('jobNaming')
+                    ->load('business');
 
         return $jobPosts;
     }
