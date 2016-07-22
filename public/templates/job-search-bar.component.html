@@ -12,7 +12,7 @@
         <option disabled selected>-- Type de poste --</option>
         <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
                   label="{{ jobNamingGroup.title }}">
-            <option *ngFor="let jobNaming of jobNamingGroup.jobNamings"
+            <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
                     value="{{ jobNaming.id }}">
                 {{ jobNaming.title }}
             </option>

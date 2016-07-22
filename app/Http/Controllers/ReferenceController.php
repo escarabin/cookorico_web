@@ -37,12 +37,8 @@ class ReferenceController extends Controller
     }
 
     public function getAllJobNamingGroups() {
-        $jobNamingGroups = JobNamingGroup::all();
-
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        foreach ($jobNamingGroups as $jobNamingGroup) {
-            $jobNamingGroup->jobNamings = $jobNamingGroup->jobNamings;
-        }
+        $jobNamingGroups = JobNamingGroup::all()
+                            ->load('jobNamings');
 
         return $jobNamingGroups;
     }
