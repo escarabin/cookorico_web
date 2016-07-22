@@ -56,9 +56,7 @@ export class CreateExperienceComponent {
                 __this.experience.end_date,
                 __this.experience.description).subscribe((res: Response) => {
                 __this.notificationService.show(
-                    new Notification('success', 'Votre expérience a bien été crée',
-                                                'Retour aux expériences',
-                                                'Profile/Experiences')
+                    new Notification('success', 'Votre expérience a bien été créee')
                 );
             });
         }
@@ -70,10 +68,7 @@ export class CreateExperienceComponent {
                 __this.experience.end_date,
                 __this.experience.description).subscribe((res: Response) => {
                 __this.notificationService.show(
-                    new Notification('success',
-                                     'Vos modifications ont bien été enregistrées',
-                                     'Retour aux expériences',
-                                     'Profile/Experiences')
+                    new Notification('success',  'Vos modifications ont bien été enregistrées')
                 );
             });
         }

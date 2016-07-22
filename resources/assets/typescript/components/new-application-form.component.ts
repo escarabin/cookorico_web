@@ -3,9 +3,13 @@ import { Router, RouterLink, RouteParams, Response } from '@angular/router-depre
 
 // Services
 import { JobService } from './../services/job.service';
+import { NotificationsService } from './../services/notification.service';
 
 // Directives
 import { UNITYTinyMCE } from './tiny-mce.component';
+
+// Models
+import { Notification } from './../models/notification';
 
 @Component({
     directives: [RouterLink, UNITYTinyMCE],
@@ -20,13 +24,19 @@ export class NewApplicationFormComponent {
 
     constructor(private routeParams: RouteParams,
                 private jobService: JobService,
+                private notificationService: NotificationsService,
                 private router: Router) {
         this.jobId = routeParams.get("jobId");
     }
 
     submitApplication() {
         let __this = this;
+
         this.jobService.apply(__this.jobId, __this.comment).subscribe((res: Response) => {
+             this.notificationService.show(
+                new Notification('success', 'Votre candidature a bien été enregistrée')
+             );
+
             this.router.navigate(['/Profile/Applications']);
         });
     }
