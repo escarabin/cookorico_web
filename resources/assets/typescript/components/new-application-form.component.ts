@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Router, RouterLink, RouteParams, Response } from '@angular/router-deprecated'
+import { Router, RouterLink, RouteParams } from '@angular/router-deprecated';
+import { Response } from '@angular/http';
 
 // Services
 import { JobService } from './../services/job.service';

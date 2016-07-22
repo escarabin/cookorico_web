@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/job-post.service', './../models/job-post', './business-select.component', './tiny-mce.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/job-post.service', './../services/notification.service', './../models/job-post', './../models/notification', './business-select.component', './tiny-mce.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, job_post_service_1, job_post_1, business_select_component_1, tiny_mce_component_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, job_post_service_1, notification_service_1, job_post_1, notification_1, business_select_component_1, tiny_mce_component_1;
     var CreateJobPostComponent;
     return {
         setters:[
@@ -29,8 +29,14 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             function (job_post_service_1_1) {
                 job_post_service_1 = job_post_service_1_1;
             },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
             function (job_post_1_1) {
                 job_post_1 = job_post_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
             },
             function (business_select_component_1_1) {
                 business_select_component_1 = business_select_component_1_1;
@@ -40,11 +46,13 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             }],
         execute: function() {
             CreateJobPostComponent = (function () {
-                function CreateJobPostComponent(referenceService, userService, jobPostService, routeParams) {
+                function CreateJobPostComponent(referenceService, userService, jobPostService, notificationService, routeParams, router) {
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.jobPostService = jobPostService;
+                    this.notificationService = notificationService;
                     this.routeParams = routeParams;
+                    this.router = router;
                     this.diplomas = [];
                     this.jobNamings = [];
                     this.alertFrequencies = [];
@@ -99,7 +107,14 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 CreateJobPostComponent.prototype.submitJobPost = function () {
                     var __this = this;
                     this.jobPostService.create(__this.jobPost).subscribe(function (res) {
-                        console.log(res.json());
+                        var job = res['_body'];
+                        if (job) {
+                            __this.notificationService.show(new notification_1.Notification('success', 'Votre annonce vient d\'être publiée'));
+                            __this.router.navigate(['/ShowJob', { jobId: res.json()['id'] }]);
+                        }
+                        else {
+                            __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
+                        }
                     });
                 };
                 CreateJobPostComponent.prototype.handleBusinessIdChange = function (businessId) {
@@ -115,7 +130,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         directives: [router_deprecated_1.RouterLink, business_select_component_1.BusinessSelectComponent, tiny_mce_component_1.UNITYTinyMCE],
                         templateUrl: '../templates/create-job-post.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, job_post_service_1.JobPostService, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, job_post_service_1.JobPostService, notification_service_1.NotificationsService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
                 ], CreateJobPostComponent);
                 return CreateJobPostComponent;
             }());

@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink, RouteParams } from '@angular/router-deprecated';
+import { RouterLink, RouteParams, Router } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
 import { JobPostService } from './../services/job-post.service';
+import { NotificationsService } from './../services/notification.service';
 
 // Models
 import { JobPost } from './../models/job-post';
+import { Notification } from './../models/notification';
 
 // Components
 import { BusinessSelectComponent } from './business-select.component';
@@ -36,7 +38,9 @@ export class CreateJobPostComponent {
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
                 private jobPostService: JobPostService,
-                private routeParams: RouteParams) {
+                private notificationService: NotificationsService,
+                private routeParams: RouteParams,
+                private router: Router) {
         let __this = this;
 
         this.jobPost.id = routeParams.get("jobPostId");
@@ -94,7 +98,20 @@ export class CreateJobPostComponent {
         let __this = this;
 
         this.jobPostService.create(__this.jobPost).subscribe((res: Response) => {
-            console.log(res.json());
+            let job = res['_body'];
+
+            if (job) {
+                __this.notificationService.show(
+                    new Notification('success', 'Votre annonce vient d\'être publiée')
+                );
+
+                __this.router.navigate(['/ShowJob', { jobId: res.json()['id'] }]);
+            }
+            else {
+                __this.notificationService.show(
+                    new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
+                );
+            }
         });
     }
 
