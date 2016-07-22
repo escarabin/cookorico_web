@@ -31,17 +31,24 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     // this.contentChanged = new EventEmitter();
                 }
                 UNITYTinyMCE.prototype.ngAfterViewInit = function () {
+                    var __this = this;
                     //Clone base textarea
                     var baseTextArea = this.elementRef.nativeElement.querySelector("#baseTextArea");
                     var clonedTextArea = baseTextArea.cloneNode(true);
                     clonedTextArea.id = this.elementID;
                     var formGroup = this.elementRef.nativeElement.querySelector("#tinyFormGroup");
                     formGroup.appendChild(clonedTextArea);
+                    console.log('read only was ' + __this.readOnly);
+                    if (this.readOnly > 0) {
+                        this.readOnly = 1;
+                    }
+                    console.log('read only is ' + __this.readOnly);
                     //Attach tinyMCE to cloned textarea
                     tinymce.init({
                         language: 'fr_FR',
                         mode: 'exact',
                         height: 500,
+                        readonly: __this.readOnly,
                         theme: 'modern',
                         plugins: [
                             'advlist autolink lists link image charmap print preview anchor',
@@ -76,6 +83,10 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     core_1.Output(), 
                     __metadata('design:type', core_1.EventEmitter)
                 ], UNITYTinyMCE.prototype, "newContentInput", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Number)
+                ], UNITYTinyMCE.prototype, "readOnly", void 0);
                 UNITYTinyMCE = __decorate([
                     core_1.Component({
                         selector: 'unity-tinymce',
@@ -84,7 +95,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                             '<textarea id="baseTextArea">{{htmlContent}}</textarea> ' +
                             '</div> ' +
                             '</div>',
-                        inputs: ['mceContent'],
+                        inputs: ['mceContent', 'readOnly'],
                     }),
                     __param(0, core_1.Inject(core_1.ElementRef)), 
                     __metadata('design:paramtypes', [core_1.ElementRef])

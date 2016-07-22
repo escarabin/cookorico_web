@@ -41,6 +41,7 @@ export class NewApplicationFormComponent {
 
                 for (let i = 0; i < applications.length; i++) {
                     if (applications[i]['job_id'] == __this.jobId) {
+                        console.log(applications[i]);
                         __this.application = applications[i];
                     }
                 }
@@ -61,6 +62,6 @@ export class NewApplicationFormComponent {
     }
 
     commentChanged(newComment) {
-        this.comment = newComment;
+        this.application.comment = newComment;
     }
 }

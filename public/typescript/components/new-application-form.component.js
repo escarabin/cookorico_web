@@ -54,6 +54,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                             var applications = res.json();
                             for (var i = 0; i < applications.length; i++) {
                                 if (applications[i]['job_id'] == __this.jobId) {
+                                    console.log(applications[i]);
                                     __this.application = applications[i];
                                 }
                             }
@@ -69,7 +70,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                     });
                 };
                 NewApplicationFormComponent.prototype.commentChanged = function (newComment) {
-                    this.comment = newComment;
+                    this.application.comment = newComment;
                 };
                 __decorate([
                     core_1.Input, 

@@ -1,4 +1,4 @@
-import { bind, Component, View, ElementRef, OnInit, EventEmitter, Output, Inject, ComponentRef } from '@angular/core';
+import { bind, Input, Component, View, ElementRef, OnInit, EventEmitter, Output, Inject, ComponentRef } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router';
 import { Http } from '@angular/http';
 
@@ -11,7 +11,7 @@ declare var tinymce: any;
                     '<textarea id="baseTextArea">{{htmlContent}}</textarea> ' +
                 '</div> ' +
               '</div>',
-    inputs: ['mceContent'],
+    inputs: ['mceContent', 'readOnly'],
 })
 
 export class UNITYTinyMCE {
@@ -21,6 +21,7 @@ export class UNITYTinyMCE {
     private htmlContent: string;
 
     @Output() newContentInput: EventEmitter = new EventEmitter();
+    @Input() readOnly: number;
 
     constructor(@Inject(ElementRef) elementRef: ElementRef)
     {
@@ -36,6 +37,8 @@ export class UNITYTinyMCE {
 
     ngAfterViewInit()
     {
+        let __this = this;
+
         //Clone base textarea
         var baseTextArea = this.elementRef.nativeElement.querySelector("#baseTextArea");
         var clonedTextArea = baseTextArea.cloneNode(true);
@@ -44,12 +47,21 @@ export class UNITYTinyMCE {
         var formGroup = this.elementRef.nativeElement.querySelector("#tinyFormGroup");
         formGroup.appendChild(clonedTextArea);
 
+        console.log('read only was ' + __this.readOnly);
+
+        if (this.readOnly > 0) {
+            this.readOnly = 1;
+        }
+
+        console.log('read only is ' + __this.readOnly);
+
         //Attach tinyMCE to cloned textarea
         tinymce.init(
             {
                 language: 'fr_FR',
                 mode: 'exact',
                 height: 500,
+                readonly: __this.readOnly,
                 theme: 'modern',
                 plugins: [
                     'advlist autolink lists link image charmap print preview anchor',
@@ -79,7 +91,6 @@ export class UNITYTinyMCE {
     tinyMCEOnKeyup(e) {
         this.newContentInput.emit(tinymce.get(this.elementID).getContent());
     }
-
 
     set mceContent(content) {
         this.htmlContent = content;
