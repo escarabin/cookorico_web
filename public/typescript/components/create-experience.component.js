@@ -47,6 +47,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.routeParams = routeParams;
                     this.router = router;
                     this.experience = new experience_1.Experience();
+                    this.isLoading = false;
                     var __this = this;
                     this.experience.id = routeParams.get("experienceId");
                     if (this.experience.id) {
@@ -61,6 +62,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 }
                 CreateExperienceComponent.prototype.submitExperience = function () {
                     var _this = this;
+                    this.isLoading = true;
                     var __this = this;
                     if (!this.experience.id) {
                         this.userService.createExperience(__this.experience).subscribe(function (res) {
@@ -72,6 +74,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             else {
                                 __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
                             }
+                            _this.isLoading = false;
                         });
                     }
                     else {
@@ -82,6 +85,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             else {
                                 __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
                             }
+                            _this.isLoading = false;
                         });
                     }
                 };

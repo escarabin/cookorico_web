@@ -46,6 +46,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.userService = userService;
                     this.routeParams = routeParams;
                     this.router = router;
+                    this.isLoading = false;
                     this.study = new study_1.Study();
                     var __this = this;
                     this.study.id = routeParams.get("studyId");
@@ -61,6 +62,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 }
                 CreateStudyComponent.prototype.submitStudy = function () {
                     var _this = this;
+                    this.isLoading = true;
                     var __this = this;
                     if (!this.study.id) {
                         this.userService.createStudy(__this.study).subscribe(function (res) {
@@ -72,6 +74,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             else {
                                 __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
                             }
+                            _this.isLoading = false;
                         });
                     }
                     else {
@@ -82,6 +85,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             else {
                                 __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
                             }
+                            _this.isLoading = false;
                         });
                     }
                 };

@@ -23,7 +23,7 @@ import { BusinessSelectComponent } from './business-select.component';
 
 export class CreateStudyComponent {
     diplomas: any;
-
+    isLoading: boolean = false;
     study:Study = new Study();
 
     constructor(private referenceService: ReferenceService,
@@ -48,6 +48,7 @@ export class CreateStudyComponent {
     }
 
     submitStudy() {
+        this.isLoading = true;
         let __this = this;
 
         if (!this.study.id) {
@@ -65,6 +66,7 @@ export class CreateStudyComponent {
                         new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
                     );
                 }
+                this.isLoading = false;
             })
         }
         else {
@@ -79,6 +81,7 @@ export class CreateStudyComponent {
                         new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
                     );
                 }
+                this.isLoading = false;
             })
         }
     }

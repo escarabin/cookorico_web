@@ -25,6 +25,7 @@ export class CreateExperienceComponent {
     jobNamingGroups: any;
     public adress: Object;
     experience:Experience = new Experience();
+    isLoading: boolean = false;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
@@ -48,6 +49,7 @@ export class CreateExperienceComponent {
     }
 
     submitExperience() {
+        this.isLoading = true;
         let __this = this;
 
         if (!this.experience.id) {
@@ -65,6 +67,7 @@ export class CreateExperienceComponent {
                         new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
                     );
                 }
+                this.isLoading = false;
             });
         }
         else {
@@ -79,6 +82,7 @@ export class CreateExperienceComponent {
                         new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
                     );
                 }
+                this.isLoading = false;
             });
         }
     }
