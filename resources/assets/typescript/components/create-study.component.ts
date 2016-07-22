@@ -9,10 +9,13 @@ import { UserService } from './../services/user.service';
 // Models
 import { Study } from './../models/study';
 
+// Components
+import { BusinessSelectComponent } from './business-select.component';
+
 @Component({
     selector: 'create-experience',
     providers: [ReferenceService, UserService],
-    directives: [RouterLink],
+    directives: [RouterLink, BusinessSelectComponent],
     templateUrl: '../templates/create-study.component.html'
 })
 
@@ -36,5 +39,9 @@ export class CreateStudyComponent {
         this.userService.createStudy(__this.study).subscribe((res: Response) => {
             console.log(res.json());
         })
+    }
+
+    handleBusinessIdChange(businessId) {
+        this.study.business_id = businessId;
     }
 }

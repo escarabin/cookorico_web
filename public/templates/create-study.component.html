@@ -1,5 +1,11 @@
 <div class="col-md-12">
     <form>
+        <div class="col-md-12">
+            <business-select [businessId]="study.business_id"
+                             (businessIdChange)="handleBusinessIdChange($event)">
+
+            </business-select>
+        </div>
         <div class="col-md-6">
             <label>Diplôme</label>
             <select name="job"
@@ -12,14 +18,6 @@
                     {{ diploma.title }}
                 </option>
             </select>
-        </div>
-        <div class="col-md-6">
-            <label>Établissement</label>
-            <input type="text"
-                   required
-                   [(ngModel)]="study.business_id"
-                   class="form-control"
-                   placeholder="Établissement"/>
         </div>
         <div class="col-md-6">
             <label>Date de début</label>
