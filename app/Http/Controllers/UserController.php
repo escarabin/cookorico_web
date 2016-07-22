@@ -124,13 +124,9 @@ class UserController extends Controller
      * @return mixed
      */
     public function getEducation() {
-        $education = Auth::user()->education;
-
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        foreach ($education as $study) {
-            $study->diploma = $study->diploma;
-            $study->business = $study->business;
-        }
+        $education = Auth::user()->education
+                        ->load('diploma')
+                        ->load('business');
 
         return $education;
     }
@@ -143,8 +139,6 @@ class UserController extends Controller
         $alerts = Auth::user()->alerts
                         ->load('alertFrequency')
                         ->load('jobNaming');
-
-        Log::info($alerts);
 
         return $alerts;
     }
@@ -164,15 +158,11 @@ class UserController extends Controller
      * @return mixed
      */
     public function getTestimonials() {
-        $testimonials = Auth::user()->testimonials;
-
-        // Necesseray Laravel's workaround to return relationship values inside JSON
-        foreach ($testimonials as $testimonial) {
-            $testimonial->jobNaming = $testimonial->jobNaming;
-            $testimonial->recruiter = $testimonial->recruiter;
-            $testimonial->employee = $testimonial->employee;
-            $testimonial->business = $testimonial->business;
-        }
+        $testimonials = Auth::user()->testimonials
+                        ->load('jobNaming')
+                        ->load('employee')
+                        ->load('business')
+                        ->load('recruiter');
 
         return $testimonials;
     }
