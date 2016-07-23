@@ -44,9 +44,11 @@ export class SignInComponent {
 
         this.userService.login(__this.email, __this.password).subscribe((res:Response) => {
             if (res['_body']) {
+                /**
+                 * User is logged in
+                 */
                 let user = res.json();
 
-                // Logged in
                 localStorage.setItem('user', JSON.stringify(user));
 
                 __this.user = JSON.parse(localStorage.getItem('user'));
@@ -56,8 +58,16 @@ export class SignInComponent {
                 __this.notificationService.show(
                     new Notification('success', 'Vous êtes connecté')
                 );
+
+                /**
+                 * Close the sign-in modal
+                 */
+                document.getElementById('close-sign-in-modal').click();
             }
             else {
+                /**
+                 * Credentials are not correct
+                 */
                 __this.notificationService.show(
                     new Notification('error', 'Vos identifiants semblent incorrect, merci de rééssayer')
                 );

@@ -1,30 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HTTP_PROVIDERS, Http } from '@angular/http';
+import { HTTP_PROVIDERS, Http, RequestOptions, Headers } from '@angular/http';
+
+// Models
+import { Business } from './../models/business';
 
 @Injectable()
 export class BusinessService {
     createBusinessUrl = "/business/create/";
     getAllBusinessesUrl = "/businesses/all";
+    postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
+    postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
     constructor(private http: Http) {
 
     }
 
-    create(name, lat, lon, adress, postalCode, city, website, typeId, phone, email, description) {
-        let completeUrl = this.createBusinessUrl +
-            name + '/' +
-            lat + '/' +
-            lon + '/' +
-            adress + '/' +
-            postalCode + '/' +
-            city + '/' +
-            website + '/' +
-            typeId + '/' +
-            phone + '/' +
-            email + '/' +
-            description;
+    create(business: Business) {
+        let __this = this;
 
-        return this.http.request(completeUrl);
+        let requestBody = JSON.stringify({ business });
+
+        return this.http.post(__this.createBusinessUrl, requestBody, this.postRequestOptions);
     }
 
     getAll() {

@@ -94,18 +94,7 @@ export class CreateBusinessComponent {
 
     submitBusiness() {
         let __this = this;
-        this.businessService.create(__this.business.title,
-            __this.place.lat,
-            __this.place.lon,
-            __this.place.adress,
-            __this.place.postalCode,
-            __this.place.city,
-            // Encode url in order to pass it as a parameter
-            __this.business.website.replace('/', '--'),
-            __this.business.business_type_id,
-            __this.business.phone,
-            __this.business.email,
-            __this.business.description).subscribe((res: Response) => {
+        this.businessService.create(__this.business).subscribe((res: Response) => {
             console.log(res.json());
         })
     }

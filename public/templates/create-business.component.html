@@ -1,14 +1,5 @@
 <div class="col-md-12">
     <form>
-        <div class="col-md-12" id="business-photos">
-            <div class="col-md-4"
-                 *ngFor="let photo of photos">
-                <div class="photo-preview"
-                     [ngStyle]="{'background-image': 'url(' + photo + ')'}">
-
-                </div>
-            </div>
-        </div>
         <div class="col-md-12">
             <label>Nom de votre établissement</label>
             <input type="text"
@@ -78,6 +69,15 @@
                    class="form-control"
                    placeholder="Email"
                    [(ngModel)]="business.email"/>
+        </div>
+        <div class="col-md-12" id="business-photos">
+            <div class="col-md-4"
+                 *ngFor="let photo of business.photos">
+                <div class="photo-preview"
+                     [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+
+                </div>
+            </div>
         </div>
         <div class="col-md-12">
             <label>Description</label>

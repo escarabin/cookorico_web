@@ -57,7 +57,6 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     var body = JSON.stringify({ application: application });
                     var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
                     var options = new http_1.RequestOptions({ headers: headers });
-                    console.log(options, body);
                     return this.http.post(__this.applyJobUrl, body, options);
                 };
                 JobService = __decorate([

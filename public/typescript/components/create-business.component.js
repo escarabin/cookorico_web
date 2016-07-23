@@ -75,10 +75,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.business.website = place['website'];
                     this.place.adress = place['formatted_address'];
                     this.business.title = place['name'];
-                    console.log('getting photos');
                     // Loop through photos to get url
                     for (var i = 0; i < place['photos'].length; i++) {
-                        console.log('found a photo');
                         var photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });
                         this.business.photos.push(photoUrl);
                     }
@@ -103,9 +101,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 };
                 CreateBusinessComponent.prototype.submitBusiness = function () {
                     var __this = this;
-                    this.businessService.create(__this.business.title, __this.place.lat, __this.place.lon, __this.place.adress, __this.place.postalCode, __this.place.city, 
-                    // Encode url in order to pass it as a parameter
-                    __this.business.website.replace('/', '--'), __this.business.business_type_id, __this.business.phone, __this.business.email, __this.business.description).subscribe(function (res) {
+                    this.businessService.create(__this.business).subscribe(function (res) {
                         console.log(res.json());
                     });
                 };

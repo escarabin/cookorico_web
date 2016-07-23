@@ -26,21 +26,13 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.http = http;
                     this.createBusinessUrl = "/business/create/";
                     this.getAllBusinessesUrl = "/businesses/all";
+                    this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
                 }
-                BusinessService.prototype.create = function (name, lat, lon, adress, postalCode, city, website, typeId, phone, email, description) {
-                    var completeUrl = this.createBusinessUrl +
-                        name + '/' +
-                        lat + '/' +
-                        lon + '/' +
-                        adress + '/' +
-                        postalCode + '/' +
-                        city + '/' +
-                        website + '/' +
-                        typeId + '/' +
-                        phone + '/' +
-                        email + '/' +
-                        description;
-                    return this.http.request(completeUrl);
+                BusinessService.prototype.create = function (business) {
+                    var __this = this;
+                    var requestBody = JSON.stringify({ business: business });
+                    return this.http.post(__this.createBusinessUrl, requestBody, this.postRequestOptions);
                 };
                 BusinessService.prototype.getAll = function () {
                     return this.http.request(this.getAllBusinessesUrl);

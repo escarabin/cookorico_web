@@ -52,14 +52,23 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     var __this = this;
                     this.userService.login(__this.email, __this.password).subscribe(function (res) {
                         if (res['_body']) {
+                            /**
+                             * User is logged in
+                             */
                             var user = res.json();
-                            // Logged in
                             localStorage.setItem('user', JSON.stringify(user));
                             __this.user = JSON.parse(localStorage.getItem('user'));
                             __this.userSignedIn.emit(_this.user);
                             __this.notificationService.show(new notification_1.Notification('success', 'Vous êtes connecté'));
+                            /**
+                             * Close the sign-in modal
+                             */
+                            document.getElementById('close-sign-in-modal').click();
                         }
                         else {
+                            /**
+                             * Credentials are not correct
+                             */
                             __this.notificationService.show(new notification_1.Notification('error', 'Vos identifiants semblent incorrect, merci de rééssayer'));
                         }
                     });
