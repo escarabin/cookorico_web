@@ -121,6 +121,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the place user lives in
+     */
+    public function place()
+    {
+        return $this->belongsTo(Place::class);
+    }
+
+    /**
      * Get testimonials created by this user
      */
     public function createdTestimonials()

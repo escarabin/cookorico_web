@@ -59,6 +59,8 @@ export class SignInComponent {
                     new Notification('success', 'Vous êtes connecté')
                 );
 
+                console.log(user);
+
                 /**
                  * Close the sign-in modal
                  */

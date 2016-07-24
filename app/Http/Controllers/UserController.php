@@ -32,6 +32,7 @@ class UserController extends Controller
                                 'status',
                                'type',
                                'civility',
+                               'place',
                                'lookingForJobNaming');
 
             return $user;

@@ -2,6 +2,12 @@ profile-preview {
   h3 {
     text-transform: uppercase;
     font-family: $mainBoldFontFamily;
+    color: $mainDarkTextColor;
+  }
+
+  .form-control[input] {
+    height: 35px;
+    width: auto;
   }
 
   .profile-picture-container {
@@ -43,19 +49,29 @@ profile-preview {
     }
   }
 
+  .resume-container {
+    text-align: center;
+    padding: 45px 0;
+
+    .icon {
+      font-size: 3em;
+    }
+  }
+
   .description {
     margin: 0 25px;
     padding: 15px;
     pointer-events: none;
+  }
 
-    &.editable {
-      pointer-events: all;
-      cursor: pointer;
-    }
+  .editable {
+    pointer-events: all;
+    cursor: pointer;
+    border-radius: $mainBorderRadius;
+  }
 
-    &.editable:hover {
-      background: rgba($oechrBlueColor, .3);
-      color: darken($oechrBlueColor, 30%);
-    }
+  .editable:hover {
+    background: rgba($oechrBlueColor, .3);
+    color: darken($oechrBlueColor, 30%);
   }
 }

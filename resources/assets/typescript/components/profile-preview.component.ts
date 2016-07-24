@@ -153,11 +153,8 @@ export class ProfilePreviewComponent {
     }
 
     submitDescription() {
-        this.isLoading = true;
-
         this.userService.saveDescription(this.user.description) .subscribe((res: Response) => {
-            this.isLoading = false;
-            console.log(res.json());
+
         });
     }
 }

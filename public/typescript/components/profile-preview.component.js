@@ -129,11 +129,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                     });
                 };
                 ProfilePreviewComponent.prototype.submitDescription = function () {
-                    var _this = this;
-                    this.isLoading = true;
                     this.userService.saveDescription(this.user.description).subscribe(function (res) {
-                        _this.isLoading = false;
-                        console.log(res.json());
                     });
                 };
                 __decorate([

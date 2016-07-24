@@ -12,34 +12,97 @@
     <span class="user-identity">
         {{ user.civility.title }} {{ user.firstName }} {{ user.lastName }}<br />
     </span>
+
+    <b class="editable"
+       *ngIf="!editingBirthDate"
+       (click)="editingBirthDate = true">
+        {{ user.birthDate }}
+    </b>
+    <input type="date"
+           *ngIf="editingBirthDate"
+           [(ngModel)]="user.birthDate"
+           (change)="editingBirthDate = false"
+           class="form-control"/>
+
+    -
+
+    <b class="editable"
+       *ngIf="!editingAdress"
+       (click)="editingAdress = true">
+        {{ user.place.adress }}
+    </b>
+    <input type="text"
+           *ngIf="editingAdress"
+           [(ngModel)]="user.place.adress"
+           (change)="editingAdress = false"
+           class="form-control"/>
+
+    <br />
     <span *ngIf="user.phone">
-        Tél : {{ user.phone }}<br />
+        <span *ngIf="!editingPhone">Tél : </span>
+        <b class="editable"
+           *ngIf="!editingPhone"
+           (click)="editingPhone = true">
+            {{ user.phone }}
+        </b>
+        <input type="text"
+               *ngIf="editingPhone"
+               [(ngModel)]="user.phone"
+               (change)="editingPhone = false"
+               class="form-control"/>
     </span>
-    {{ user.email }}<br />
+    <br />
+
+    <span *ngIf="!editingEmail">E-mail : </span>
+    <b class="editable"
+       *ngIf="!editingEmail"
+       (click)="editingEmail = true">
+        {{ user.email }}
+    </b>
+    <input type="text"
+           *ngIf="editingEmail"
+           [(ngModel)]="user.email"
+           (change)="editingEmail = false"
+           class="form-control"/>
+    <br />
+
     <span *ngIf="user.status">
         {{ user.status.title }}<br />
     </span>
     <span *ngIf="user.looking_for_job_naming">
-        <b>Profil recherché :</b> {{ user.looking_for_job_naming.title }}<br />
+        Profil recherché : <b>{{ user.looking_for_job_naming.title }}</b><br />
     </span>
 </div>
-<div class="col-md-3">
-
+<div class="col-md-3 resume-container">
+    <span class="icon fa fa-file-pdf-o"></span>
+    <br /><br />
+    Voir mon CV
 </div>
 
 <div class="col-md-12">
     <h3>Présentation</h3>
     <div class="description"
          [class.editable]="editableProfile"
-         (click)="descriptionModal.show()"
+         (click)="editingDescription = true"
+         *ngIf="!editingDescription"
          [innerHTML]="user.description">
 
     </div>
+    <textarea class="form-control"
+              rows="10"
+              *ngIf="editingDescription"
+              (change)="editingDescription = false"
+              [(ngModel)]="user.description">
+
+    </textarea>
 </div>
 
 <div class="col-md-12">
     <a [routerLink]="['/Profile/Experiences']">
-        <h3>Expériences &nbsp;<span class="badge">{{ experiences.length }}</span></h3>
+        <h3>Expériences &nbsp;
+            <span class="badge">{{ experiences.length }}</span>
+            &nbsp; <span *ngIf="editableProfile" class="fa fa-pencil"></span>
+        </h3>
     </a>
     <ul>
         <li *ngFor="let experience of experiences">
@@ -53,7 +116,10 @@
 
 <div class="col-md-12">
     <a [routerLink]="['/Profile/Education']">
-        <h3>Formations &nbsp;<span class="badge">{{ education.length }}</span></h3>
+        <h3>Formations &nbsp;
+            <span class="badge">{{ education.length }}</span>
+            &nbsp; <span *ngIf="editableProfile" class="fa fa-pencil"></span>
+        </h3>
     </a>
     <ul>
         <li *ngFor="let study of education">
@@ -67,7 +133,10 @@
 
 <div class="col-md-12">
     <a [routerLink]="['/Profile/Testimonials']">
-        <h3>Recommendations &nbsp;<span class="badge">{{ testimonials.length }}</span></h3>
+        <h3>Recommendations &nbsp;
+            <span class="badge">{{ testimonials.length }}</span>
+            &nbsp; <span *ngIf="editableProfile" class="fa fa-pencil"></span>
+        </h3>
     </a>
     <ul>
         <li *ngFor="let testimonial of testimonials">
@@ -121,44 +190,6 @@
                         class="btn btn-primary"
                         [disabled]="isLoading"
                         (click)="uploadProfilePicture()">
-                    <span *ngIf="!isLoading">Enregistrer</span>
-                    <span *ngIf="isLoading">
-                        <span class="fa fa-spinner fa-spin"></span> &nbsp;Chargement...
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div bsModal
-     #descriptionModal="bs-modal"
-     class="modal fade"
-     tabindex="-1"
-     role="dialog"
-     id="description-modal"
-     aria-hidden="true">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <div class="modal-body">
-                <textarea class="form-control"
-                          rows="10"
-                          [(ngModel)]="user.description">
-
-                </textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button"
-                        class="btn btn-default"
-                        id="close-description-modal"
-                        (click)="descriptionModal.hide()"
-                        data-dismiss="modal">
-                    Annuler
-                </button>
-                <button type="button"
-                        class="btn btn-primary"
-                        [disabled]="isLoading"
-                        (click)="submitDescription()">
                     <span *ngIf="!isLoading">Enregistrer</span>
                     <span *ngIf="isLoading">
                         <span class="fa fa-spinner fa-spin"></span> &nbsp;Chargement...

@@ -921,7 +921,12 @@ testimonials {
 
 profile-preview h3 {
   text-transform: uppercase;
-  font-family: "Avenir Heavy", sans-serif; }
+  font-family: "Avenir Heavy", sans-serif;
+  color: #333; }
+
+profile-preview .form-control[input] {
+  height: 35px;
+  width: auto; }
 
 profile-preview .profile-picture-container {
   padding: 0; }
@@ -952,16 +957,25 @@ profile-preview .user-basic-infos {
     color: #1a1f38;
     text-transform: uppercase; }
 
+profile-preview .resume-container {
+  text-align: center;
+  padding: 45px 0; }
+  profile-preview .resume-container .icon {
+    font-size: 3em; }
+
 profile-preview .description {
   margin: 0 25px;
   padding: 15px;
   pointer-events: none; }
-  profile-preview .description.editable {
-    pointer-events: all;
-    cursor: pointer; }
-  profile-preview .description.editable:hover {
-    background: rgba(53, 182, 225, 0.3);
-    color: #10566d; }
+
+profile-preview .editable {
+  pointer-events: all;
+  cursor: pointer;
+  border-radius: 4px; }
+
+profile-preview .editable:hover {
+  background: rgba(53, 182, 225, 0.3);
+  color: #10566d; }
 
 body {
   background-color: #f7f7f8;
