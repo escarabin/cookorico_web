@@ -668,22 +668,26 @@ job-search-sidebar ul li .title-container {
 
 job-preview {
   display: block;
-  border-bottom: 1px solid #DDD;
+  border: 1px solid #ececec;
   padding: 25px;
   background: white; }
-
-job-preview .title h4 {
-  margin-bottom: 5px; }
-
-job-preview .business_name {
-  font-size: 1.2em;
-  margin-bottom: 5px; }
-
-job-preview .logo img {
-  max-width: 90px;
-  max-height: 90px;
-  float: left;
-  margin-right: 30px; }
+  job-preview .logo {
+    position: relative;
+    top: -5px; }
+  job-preview .logo img {
+    max-width: 90px;
+    max-height: 90px;
+    float: left;
+    margin-right: 30px; }
+  job-preview .business_name {
+    font-size: 1.2em;
+    font-family: "Avenir Heavy", sans-serif;
+    margin-bottom: 5px; }
+  job-preview .title, job-preview .business_adress {
+    color: #333; }
+  job-preview:hover {
+    background-color: #e7f6fb;
+    border-color: #35B6E1; }
 
 job-search-results {
   background: white;
