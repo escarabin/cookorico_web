@@ -29,7 +29,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                     this.userService = userService;
                     this.plans = [];
                     this.user = JSON.parse(localStorage.getItem('user'));
-                    this.userProfilePicturePath = 'url(/uploads/user/pp/' + this.user.id + '.jpg)';
                     var __this = this;
                     this.userService.getPlans().subscribe(function (res) {
                         __this.plans = res.json();

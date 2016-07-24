@@ -1,0 +1,61 @@
+profile-preview {
+  h3 {
+    text-transform: uppercase;
+    font-family: $mainBoldFontFamily;
+  }
+
+  .profile-picture-container {
+    padding: 0;
+
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      background-size: cover;
+      background-position: center center;
+
+      .edit-profile-picture {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        padding: 10px;
+        color: white;
+        background: black;
+        opacity: .5;
+        cursor: pointer;
+
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+  }
+
+  .user-basic-infos {
+    padding-top: 15px;
+
+    .user-identity {
+      font-size: 1.5em;
+      font-family: $mainBoldFontFamily;
+      color: $mainBlueColor;
+      text-transform: uppercase;
+    }
+  }
+
+  .description {
+    margin: 0 25px;
+    padding: 15px;
+    pointer-events: none;
+
+    &.editable {
+      pointer-events: all;
+      cursor: pointer;
+    }
+
+    &.editable:hover {
+      background: rgba($oechrBlueColor, .3);
+      color: darken($oechrBlueColor, 30%);
+    }
+  }
+}

@@ -2,7 +2,7 @@
 <div *ngIf="user" class="user-infos row">
     <div class="col-md-12 profile-picture">
         <div class="img"
-             [ngStyle]="{'background-image': userProfilePicturePath}">
+             [ngStyle]="{'background-image': 'url(https://s3-eu-west-1.amazonaws.com/oechr-profile-picture/' + user.id + '.jpg)'}">
         </div>
     </div>
     <div class="col-md-12 user-title">
@@ -19,7 +19,7 @@
             </div>
             <a [routerLink]="['/Profile/CreateJobPost']">
                 <button class="btn btn-default new-job-post-btn">
-                    <span class="fa fa-plus-circle"></span> &nbsp; Publier une offre
+                    <span class="fa fa-plus-circle"></span> &nbsp;Publier une offre
                 </button>
             </a>
         </div>

@@ -919,6 +919,50 @@ testimonials {
 .file-drop-zone .hasBaseDropZoneOver {
   border: 1px solid #35B6E1; }
 
+profile-preview h3 {
+  text-transform: uppercase;
+  font-family: "Avenir Heavy", sans-serif; }
+
+profile-preview .profile-picture-container {
+  padding: 0; }
+  profile-preview .profile-picture-container .profile-picture {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    background-size: cover;
+    background-position: center center; }
+    profile-preview .profile-picture-container .profile-picture .edit-profile-picture {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      background: black;
+      opacity: .5;
+      cursor: pointer; }
+      profile-preview .profile-picture-container .profile-picture .edit-profile-picture:hover {
+        opacity: .8; }
+
+profile-preview .user-basic-infos {
+  padding-top: 15px; }
+  profile-preview .user-basic-infos .user-identity {
+    font-size: 1.5em;
+    font-family: "Avenir Heavy", sans-serif;
+    color: #1a1f38;
+    text-transform: uppercase; }
+
+profile-preview .description {
+  margin: 0 25px;
+  padding: 15px;
+  pointer-events: none; }
+  profile-preview .description.editable {
+    pointer-events: all;
+    cursor: pointer; }
+  profile-preview .description.editable:hover {
+    background: rgba(53, 182, 225, 0.3);
+    color: #10566d; }
+
 body {
   background-color: #f7f7f8;
   font-family: "Avenir Book", sans-serif;

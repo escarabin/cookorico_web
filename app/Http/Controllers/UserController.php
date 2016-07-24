@@ -212,6 +212,8 @@ class UserController extends Controller
      * @return string
      */
     public function uploadProfilePicture(Request $request) {
+        $user_id = Auth::user()->id;
+
         $base64String = $request::input('base64');
 
         $newFilePath = 'uploads/user/pp/'.time().'.jpg';
@@ -224,7 +226,7 @@ class UserController extends Controller
         fclose($ifp);
 
         app('App\Http\Controllers\FileController')
-            ->upload('oechr-business-picture', '19.jpg', $newFilePath);
+            ->upload('oechr-profile-picture', $user_id.'.jpg', $newFilePath);
 
         return $newFilePath;
     }

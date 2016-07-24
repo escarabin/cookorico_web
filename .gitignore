@@ -52,3 +52,10 @@ fabric.properties
 /vendor
 /node_modules
 /public/storage
+/public/uploads
+
+# Laravel environment variables
+.env
+.env
+
+.env

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
 import { RouterLink } from '@angular/router-deprecated'
 import { Response } from '@angular/http';
 import { CORE_DIRECTIVES,
@@ -8,6 +8,7 @@ import { CORE_DIRECTIVES,
 
 // Services
 import { UserService } from './../services/user.service';
+import { NotificationsService } from './../services/notification.service';
 
 // Image cropping
 import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
@@ -19,6 +20,9 @@ import { MODAL_DIRECTIVES, BS_VIEW_PROVIDERS } from 'ng2-bootstrap';
 import { FileSelectDirective,
          FileDropDirective,
          FileUploader } from 'ng2-file-upload/ng2-file-upload';
+
+// Models
+import { Notification } from './../models/notification';
 
 @Component({
     providers: [UserService],
@@ -39,17 +43,21 @@ import { FileSelectDirective,
 export class ProfilePreviewComponent {
     @ViewChild('cropper', undefined)
     cropper:ImageCropperComponent;
+    @Output profilePictureChanged: EventEmitter = new EventEmitter();
     user: any = [];
     experiences: any = [];
     education: any = [];
     testimonials: any = [];
     profilePictureData: any;
+    isLoading:boolean = false;
+    editableProfile: boolean = true;
     cropperSettings: CropperSettings;
     public uploader:FileUploader = new FileUploader({url: URL});
     public hasBaseDropZoneOver:boolean = false;
     public hasAnotherDropZoneOver:boolean = false;
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService,
+                private notificationService: NotificationsService) {
         let __this = this;
 
         this.user = JSON.parse(localStorage.getItem('user'));
@@ -66,12 +74,16 @@ export class ProfilePreviewComponent {
             __this.testimonials = res.json();
         });
 
+        /**
+         * Image cropper settings
+         * @type {CropperSettings}
+         */
         this.cropperSettings = new CropperSettings();
         this.cropperSettings.noFileInput = true;
-        this.cropperSettings.width = 100;
-        this.cropperSettings.height = 100;
-        this.cropperSettings.croppedWidth =100;
-        this.cropperSettings.croppedHeight = 100;
+        this.cropperSettings.width = 200;
+        this.cropperSettings.height = 200;
+        this.cropperSettings.croppedWidth = 150;
+        this.cropperSettings.croppedHeight = 150;
         this.cropperSettings.canvasWidth = 400;
         this.cropperSettings.canvasHeight = 300;
 
@@ -79,7 +91,6 @@ export class ProfilePreviewComponent {
     }
 
     public fileOverBase(e:any):void {
-        console.log('file over drop zone');
         this.hasBaseDropZoneOver = e;
     }
 
@@ -88,12 +99,10 @@ export class ProfilePreviewComponent {
     }
 
     public fileDropped(e:any):void {
-        console.log('file dropped', e);
         this.fileChangeListener(e);
     }
 
     public fileChangeListener($event) {
-        console.log('file dropped', $event);
         var image:any = new Image();
 
         /**
@@ -104,7 +113,7 @@ export class ProfilePreviewComponent {
             file = $event.target.files[0];
         }
         /**
-         * File was dropped on ng2FileDrop zone
+         * File was dropped on [ng2FileDrop] zone
          */
         else {
             file = $event[0];
@@ -120,8 +129,30 @@ export class ProfilePreviewComponent {
     }
 
     uploadProfilePicture() {
+        this.isLoading = true;
+
         this.userService.uploadProfilePicture(this.profilePictureData.image).subscribe((res: Response) => {
-            console.log(res.json());
+            /**
+             * File has been successfully uploaded to AWS S3
+             */
+            if (res['_body']) {
+                this.notificationService.show(
+                    new Notification('success', 'Votre photo de profil a bien été modifiée')
+                );
+
+                /**
+                 * Close profile picture modal
+                 */
+                document.getElementById('close-profile-picture-modal').click();
+            }
+
+            this.isLoading = false;
+
+            this.profilePictureChanged.emit();
         });
+    }
+
+    submitDescription() {
+        this.isLoading = true;
     }
 }
