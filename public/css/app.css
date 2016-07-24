@@ -749,13 +749,17 @@ profile .list-container ul li {
   background: whitesmoke;
   padding: 0;
   margin: 0;
-  border-bottom: 1px solid #e4e4e4; }
+  border: 1px solid #ececec; }
 
 profile .list-container ul li:nth-child(odd) {
   background: white; }
 
 profile .list-container ul li:hover {
-  background-color: whitesmoke; }
+  background-color: #e7f6fb;
+  border-color: #35B6E1; }
+
+job-preview:nth-child(odd) {
+  background: white; }
 
 profile .list-container ul a {
   color: #333; }
@@ -987,11 +991,24 @@ profile-preview .editable:hover {
   background: rgba(53, 182, 225, 0.3);
   color: #10566d; }
 
-.pagination {
+custom-pagination {
   padding: 15px; }
-
-.pagination li {
-  font-size: 1em !important; }
+  custom-pagination .pagination-previous, custom-pagination .page, custom-pagination .pagination-next {
+    float: left;
+    cursor: pointer; }
+  custom-pagination .pagination-previous, custom-pagination .pagination-next {
+    width: 15%;
+    text-align: center;
+    padding: 15px;
+    font-family: "Avenir Heavy", sans-serif; }
+  custom-pagination .pagination-next {
+    position: absolute;
+    right: 0;
+    display: inline-block; }
+  custom-pagination .pages {
+    display: inline-block; }
+    custom-pagination .pages .page {
+      padding: 15px; }
 
 body {
   background-color: #f7f7f8;

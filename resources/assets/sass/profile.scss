@@ -57,7 +57,7 @@ profile .list-container ul li {
   background: whitesmoke;
   padding: 0;
   margin: 0;
-  border-bottom: 1px solid #e4e4e4;
+  border: 1px solid #ececec;
 }
 
 profile .list-container ul li:nth-child(odd) {
@@ -65,7 +65,12 @@ profile .list-container ul li:nth-child(odd) {
 }
 
 profile .list-container ul li:hover {
-  background-color: whitesmoke;
+  background-color: lighten($oechrBlueColor, 40%);
+  border-color: $oechrBlueColor;
+}
+
+job-preview:nth-child(odd) {
+  background: white;
 }
 
 profile .list-container ul a {
