@@ -937,8 +937,8 @@ profile-preview .profile-picture-container {
       bottom: 0;
       text-align: center;
       padding: 10px;
-      color: white;
-      background: black;
+      color: black;
+      background: #35B6E1;
       opacity: .5;
       cursor: pointer; }
       profile-preview .profile-picture-container .profile-picture .edit-profile-picture:hover {
