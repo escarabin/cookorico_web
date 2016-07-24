@@ -16,7 +16,7 @@
     'moment':                     'moment',
     'notifications':              'node_modules/angular2-notifications',
     'ng2-img-cropper':            'ng2-img-cropper',
-    'file-droppa':                'file-droppa'
+    'ng2-file-upload':            'ng2-file-upload'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -29,7 +29,8 @@
     'moment':                     { main: 'moment.js', defaultExtension: 'js' },
     'notifications':              { main: 'components.js', defaultExtension: 'js' },
     'ng2-img-cropper' :           { main: 'index.js', defaultExtension: 'js' },
-    'file-droppa' :               { main: 'index.js', defaultExtension: 'js' }
+    'file-droppa' :               { main: 'index.js', defaultExtension: 'js' },
+    'ng2-file-upload':            { main: 'ng2-file-upload.js', defaultExtension: 'js' }
   };
 
   var ngPackageNames = [

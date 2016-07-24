@@ -913,6 +913,12 @@ testimonials {
   position: absolute;
   margin-left: 20px; }
 
+.file-drop-zone {
+  text-align: center; }
+
+.file-drop-zone .hasBaseDropZoneOver {
+  border: 1px solid #35B6E1; }
+
 body {
   background-color: #f7f7f8;
   font-family: "Avenir Book", sans-serif;
