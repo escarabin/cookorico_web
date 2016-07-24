@@ -1,4 +1,4 @@
-System.register(['@angular/core', './../services/job.service', './job-preview.component'], function(exports_1, context_1) {
+System.register(['@angular/core', './../services/job.service', './job-preview.component', './custom-pagination.component', 'ng2-pagination'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './../services/job.service', './job-preview.co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, job_service_1, job_preview_component_1;
+    var core_1, job_service_1, job_preview_component_1, custom_pagination_component_1, ng2_pagination_1;
     var JobSearchResultsComponent;
     return {
         setters:[
@@ -22,6 +22,12 @@ System.register(['@angular/core', './../services/job.service', './job-preview.co
             },
             function (job_preview_component_1_1) {
                 job_preview_component_1 = job_preview_component_1_1;
+            },
+            function (custom_pagination_component_1_1) {
+                custom_pagination_component_1 = custom_pagination_component_1_1;
+            },
+            function (ng2_pagination_1_1) {
+                ng2_pagination_1 = ng2_pagination_1_1;
             }],
         execute: function() {
             JobSearchResultsComponent = (function () {
@@ -35,8 +41,11 @@ System.register(['@angular/core', './../services/job.service', './job-preview.co
                 JobSearchResultsComponent = __decorate([
                     core_1.Component({
                         selector: 'job-search-results',
-                        directives: [job_preview_component_1.JobPreviewComponent],
-                        providers: [job_service_1.JobService],
+                        directives: [job_preview_component_1.JobPreviewComponent,
+                            ng2_pagination_1.PaginationControlsCmp,
+                            custom_pagination_component_1.CustomPaginationComponent],
+                        providers: [job_service_1.JobService, ng2_pagination_1.PaginationService],
+                        pipes: [ng2_pagination_1.PaginatePipe],
                         templateUrl: '../templates/job-search-results.component.html',
                     }), 
                     __metadata('design:paramtypes', [job_service_1.JobService])

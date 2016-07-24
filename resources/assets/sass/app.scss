@@ -25,6 +25,7 @@
 @import "applicants";
 @import "file-upload";
 @import "profile-preview";
+@import "pagination";
 
 body {
   background-color: $mainBgColor;
@@ -51,6 +52,11 @@ h4 {
 
 ul {
   list-style-type: none;
+}
+
+b, strong {
+  font-family: $mainBoldFontFamily;
+  font-weight: normal;
 }
 
 a:hover {

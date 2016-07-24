@@ -34,4 +34,8 @@ job-preview {
 
 job-preview:nth-child(odd) {
   background: white;
+
+  &:hover {
+    background-color: lighten($oechrBlueColor, 40%);
+  }
 }

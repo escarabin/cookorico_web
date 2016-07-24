@@ -1,0 +1,16 @@
+<div class="pagination-previous" [class.disabled]="pagination.isFirstPage()">
+    <a *ngIf="!pagination.isFirstPage()" (click)="pagination.previous()"> < </a>
+</div>
+
+<div *ngFor="let page of pagination.pages" [class.current]="pagination.getCurrent() === page.value">
+    <a (click)="pagination.setCurrent(page.value)" *ngIf="pagination.getCurrent() !== page.value">
+        <span>{{ page.label }}</span>
+    </a>
+    <div *ngIf="pagination.getCurrent() === page.value">
+        <span>{{ page.label }}</span>
+    </div>
+</div>
+
+<div class="pagination-next" [class.disabled]="pagination.isLastPage()" *ngIf="pagination.directionLinks">
+    <a *ngIf="!pagination.isLastPage()" (click)="pagination.next()"> > </a>
+</div>

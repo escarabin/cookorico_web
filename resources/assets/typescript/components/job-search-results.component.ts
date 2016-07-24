@@ -1,16 +1,25 @@
 import { Component } from '@angular/core';
-import { Response } from '@angular/router-deprecated';
+import { Response } from '@angular/http';
 
 // Services
 import { JobService } from './../services/job.service';
 
-// Componets
+// Components
 import { JobPreviewComponent } from './job-preview.component';
+import { CustomPaginationComponent } from './custom-pagination.component';
+
+// Pagination
+import {PaginatePipe,
+    PaginationControlsCmp,
+    PaginationService} from 'ng2-pagination';
 
 @Component({
     selector: 'job-search-results',
-    directives: [JobPreviewComponent],
-    providers: [JobService],
+    directives: [JobPreviewComponent,
+                 PaginationControlsCmp,
+                 CustomPaginationComponent],
+    providers: [JobService, PaginationService],
+    pipes: [PaginatePipe],
     templateUrl: '../templates/job-search-results.component.html',
 })
 

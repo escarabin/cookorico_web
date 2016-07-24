@@ -691,6 +691,8 @@ job-preview {
 
 job-preview:nth-child(odd) {
   background: white; }
+  job-preview:nth-child(odd):hover {
+    background-color: #e7f6fb; }
 
 job-search-results {
   background: white;
@@ -957,7 +959,8 @@ profile-preview .profile-picture-container {
         opacity: .8; }
 
 profile-preview .user-basic-infos {
-  padding-top: 15px; }
+  padding-top: 15px;
+  line-height: 23px; }
   profile-preview .user-basic-infos .user-identity {
     font-size: 1.5em;
     font-family: "Avenir Heavy", sans-serif;
@@ -984,6 +987,12 @@ profile-preview .editable:hover {
   background: rgba(53, 182, 225, 0.3);
   color: #10566d; }
 
+.pagination {
+  padding: 15px; }
+
+.pagination li {
+  font-size: 1em !important; }
+
 body {
   background-color: #f7f7f8;
   font-family: "Avenir Book", sans-serif;
@@ -1004,6 +1013,10 @@ h4 {
 
 ul {
   list-style-type: none; }
+
+b, strong {
+  font-family: "Avenir Heavy", sans-serif;
+  font-weight: normal; }
 
 a:hover {
   text-decoration: none; }

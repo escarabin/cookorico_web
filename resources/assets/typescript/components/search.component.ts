@@ -12,7 +12,7 @@ import { JobSearchSidebarComponent } from './job-search-sidebar.component'
     directives: [JobSearchResultsComponent,
                  JobSearchSidebarComponent,
                  JobSearchBarComponent,
-                 RightSidebarComponent],
+                 RightSidebarComponent ],
     templateUrl: '../templates/search.component.html',
     selector: 'search',
 })
