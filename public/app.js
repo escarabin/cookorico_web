@@ -77,7 +77,6 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     var body = JSON.stringify({ application: application });
                     var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
                     var options = new http_1.RequestOptions({ headers: headers });
-                    console.log(options, body);
                     return this.http.post(__this.applyJobUrl, body, options);
                 };
                 JobService = __decorate([
@@ -858,6 +857,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getAlertUrl = '/alert';
                     this.updateAlertUrl = '/alert/update';
                     this.createUserUrl = '/user/create';
+                    this.saveUserDescriptionUrl = '/user/save_description';
+                    this.uploadProfilePictureUrl = '/user/upload_profile_picture';
                     this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
                     this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
                 }
@@ -1080,6 +1081,27 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     var __this = this;
                     var requestBody = JSON.stringify({ alert: alert });
                     return this.http.post(__this.updateAlertUrl, requestBody, this.postRequestOptions);
+                };
+                /**
+                 * Upload new profile picture for current user
+                 * @param base64
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.uploadProfilePicture = function (base64) {
+                    var __this = this;
+                    var requestBody = JSON.stringify({ base64: base64 });
+                    return this.http.post(__this.uploadProfilePictureUrl, requestBody, this.postRequestOptions);
+                };
+                /**
+                 * Save logged user new description
+                 * @param description
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.saveDescription = function (description) {
+                    var __this = this;
+                    console.log('saving description');
+                    var requestBody = JSON.stringify({ description: description });
+                    return this.http.post(__this.saveUserDescriptionUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Error handling
@@ -1478,14 +1500,23 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     var __this = this;
                     this.userService.login(__this.email, __this.password).subscribe(function (res) {
                         if (res['_body']) {
+                            /**
+                             * User is logged in
+                             */
                             var user = res.json();
-                            // Logged in
                             localStorage.setItem('user', JSON.stringify(user));
                             __this.user = JSON.parse(localStorage.getItem('user'));
                             __this.userSignedIn.emit(_this.user);
                             __this.notificationService.show(new notification_1.Notification('success', 'Vous êtes connecté'));
+                            /**
+                             * Close the sign-in modal
+                             */
+                            document.getElementById('close-sign-in-modal').click();
                         }
                         else {
+                            /**
+                             * Credentials are not correct
+                             */
                             __this.notificationService.show(new notification_1.Notification('error', 'Vos identifiants semblent incorrect, merci de rééssayer'));
                         }
                     });
@@ -1662,7 +1693,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                     this.userService = userService;
                     this.plans = [];
                     this.user = JSON.parse(localStorage.getItem('user'));
-                    this.userProfilePicturePath = 'url(/uploads/user/pp/' + this.user.id + '.jpg)';
                     var __this = this;
                     this.userService.getPlans().subscribe(function (res) {
                         __this.plans = res.json();
@@ -2086,6 +2116,32 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     }
 });
 
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var Business;
+    return {
+        setters:[],
+        execute: function() {
+            Business = (function () {
+                function Business(id, title, email, phone, business_type_id, website, description, photos) {
+                    if (photos === void 0) { photos = []; }
+                    this.id = id;
+                    this.title = title;
+                    this.email = email;
+                    this.phone = phone;
+                    this.business_type_id = business_type_id;
+                    this.website = website;
+                    this.description = description;
+                    this.photos = photos;
+                }
+                return Business;
+            }());
+            exports_1("Business", Business);
+        }
+    }
+});
+
 System.register(['@angular/core', '@angular/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -2114,21 +2170,13 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.http = http;
                     this.createBusinessUrl = "/business/create/";
                     this.getAllBusinessesUrl = "/businesses/all";
+                    this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
                 }
-                BusinessService.prototype.create = function (name, lat, lon, adress, postalCode, city, website, typeId, phone, email, description) {
-                    var completeUrl = this.createBusinessUrl +
-                        name + '/' +
-                        lat + '/' +
-                        lon + '/' +
-                        adress + '/' +
-                        postalCode + '/' +
-                        city + '/' +
-                        website + '/' +
-                        typeId + '/' +
-                        phone + '/' +
-                        email + '/' +
-                        description;
-                    return this.http.request(completeUrl);
+                BusinessService.prototype.create = function (business) {
+                    var __this = this;
+                    var requestBody = JSON.stringify({ business: business });
+                    return this.http.post(__this.createBusinessUrl, requestBody, this.postRequestOptions);
                 };
                 BusinessService.prototype.getAll = function () {
                     return this.http.request(this.getAllBusinessesUrl);
@@ -2743,7 +2791,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1;
-    var FileUploadService;
+    var FileService;
     return {
         setters:[
             function (core_1_1) {
@@ -2753,83 +2801,17 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 http_1 = http_1_1;
             }],
         execute: function() {
-            FileUploadService = (function () {
-                function FileUploadService(http) {
+            FileService = (function () {
+                function FileService(http) {
                     this.http = http;
                 }
-                //Map the policy and signature
-                FileUploadService.prototype.handleResponse = function (response) {
-                    this.policy = response.policy;
-                    this.s3signature = response.signature;
-                };
-                //fetch policy and signature from the server
-                //If you are not familiar with ngOnInit
-                //This function gets fired at the beginning
-                //Hence this is the best place to fetch the signature and policy
-                FileUploadService.prototype.ngOnInit = function () {
-                    // this._uploadService.getPolicy('test').subscribe(response => this.handleResponse(response) );
-                };
-                //Function to build timestamp
-                FileUploadService.prototype.buildTimestamp = function () {
-                    var date = new Date();
-                    var year = date.getFullYear();
-                    var month = ("0" + (date.getMonth() + 1)).slice(-2);
-                    var day = ("0" + date.getDate()).slice(-2);
-                    var timestamp = year + month + day;
-                    return timestamp;
-                };
-                FileUploadService.prototype.upload = function (file) {
-                    var formData = new FormData();
-                    var xhr = new XMLHttpRequest();
-                    //Build AWS S3 Request
-                    formData.append('key', 'test/' + file.name);
-                    formData.append('acl', 'private');
-                    formData.append('Content-Type', 'image/jpeg');
-                    formData.append('x-amz-meta-uuid', '14365123651274');
-                    //Put in your access key here
-                    formData.append('X-Amz-Credential', 'YOURAWSACCESSKE/' + this.buildTimestamp() + '/eu-central-1/s3/aws4_request');
-                    formData.append('X-Amz-Algorithm', 'AWS4-HMAC-SHA256');
-                    formData.append('X-Amz-Date', this.buildTimestamp() + 'T000000Z');
-                    formData.append('x-amz-meta-tag', '');
-                    /*formData.append('Policy',this.policy);
-                    formData.append('X-Amz-Signature',this.s3signature);*/
-                    formData.append('file', file);
-                    xhr.open('POST', 'http://oechr-business-pictures.s3.amazonaws.com/', true);
-                    xhr.send(formData);
-                };
-                FileUploadService = __decorate([
+                FileService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], FileUploadService);
-                return FileUploadService;
+                ], FileService);
+                return FileService;
             }());
-            exports_1("FileUploadService", FileUploadService);
-        }
-    }
-});
-
-System.register([], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var Business;
-    return {
-        setters:[],
-        execute: function() {
-            Business = (function () {
-                function Business(id, title, email, phone, business_type_id, website, description, photos) {
-                    if (photos === void 0) { photos = []; }
-                    this.id = id;
-                    this.title = title;
-                    this.email = email;
-                    this.phone = phone;
-                    this.business_type_id = business_type_id;
-                    this.website = website;
-                    this.description = description;
-                    this.photos = photos;
-                }
-                return Business;
-            }());
-            exports_1("Business", Business);
+            exports_1("FileService", FileService);
         }
     }
 });
@@ -2858,7 +2840,7 @@ System.register([], function(exports_1, context_1) {
     }
 });
 
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', './../services/business.service', './../services/file-upload.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../models/business', './../models/place'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', './../services/business.service', '../services/file.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../models/business', './../models/place'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2870,7 +2852,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, business_service_1, file_upload_service_1, googleplace_directive_1, business_1, place_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, business_service_1, file_service_1, googleplace_directive_1, business_1, place_1;
     var CreateBusinessComponent;
     return {
         setters:[
@@ -2892,8 +2874,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             function (business_service_1_1) {
                 business_service_1 = business_service_1_1;
             },
-            function (file_upload_service_1_1) {
-                file_upload_service_1 = file_upload_service_1_1;
+            function (file_service_1_1) {
+                file_service_1 = file_service_1_1;
             },
             function (googleplace_directive_1_1) {
                 googleplace_directive_1 = googleplace_directive_1_1;
@@ -2935,10 +2917,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.business.website = place['website'];
                     this.place.adress = place['formatted_address'];
                     this.business.title = place['name'];
-                    console.log('getting photos');
                     // Loop through photos to get url
                     for (var i = 0; i < place['photos'].length; i++) {
-                        console.log('found a photo');
                         var photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });
                         this.business.photos.push(photoUrl);
                     }
@@ -2963,9 +2943,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 };
                 CreateBusinessComponent.prototype.submitBusiness = function () {
                     var __this = this;
-                    this.businessService.create(__this.business.title, __this.place.lat, __this.place.lon, __this.place.adress, __this.place.postalCode, __this.place.city, 
-                    // Encode url in order to pass it as a parameter
-                    __this.business.website.replace('/', '--'), __this.business.business_type_id, __this.business.phone, __this.business.email, __this.business.description).subscribe(function (res) {
+                    this.businessService.create(__this.business).subscribe(function (res) {
                         console.log(res.json());
                     });
                 };
@@ -2976,13 +2954,14 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             user_service_1.UserService,
                             location_service_1.LocationService,
                             business_service_1.BusinessService,
-                            file_upload_service_1.FileUploadService],
+                            file_service_1.FileUploadService],
                         directives: [router_deprecated_1.RouterLink, googleplace_directive_1.GoogleplaceDirective],
                         templateUrl: '../templates/create-business.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, business_service_1.BusinessService, file_upload_service_1.FileUploadService, location_service_1.LocationService, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, business_service_1.BusinessService, (typeof (_a = typeof file_service_1.FileUploadService !== 'undefined' && file_service_1.FileUploadService) === 'function' && _a) || Object, location_service_1.LocationService, router_deprecated_1.RouteParams])
                 ], CreateBusinessComponent);
                 return CreateBusinessComponent;
+                var _a;
             }());
             exports_1("CreateBusinessComponent", CreateBusinessComponent);
         }
@@ -3580,7 +3559,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     }
 });
 
-System.register(['@angular/core', './../services/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '@angular/common', './../services/user.service', './../services/notification.service', 'ng2-img-cropper', 'ng2-bootstrap', 'ng2-file-upload/ng2-file-upload', './../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3592,32 +3571,160 @@ System.register(['@angular/core', './../services/user.service'], function(export
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, user_service_1;
+    var core_1, router_deprecated_1, common_1, user_service_1, notification_service_1, ng2_img_cropper_1, ng2_bootstrap_1, ng2_file_upload_1, notification_1;
     var ProfilePreviewComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
+            },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
+            },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
+            function (ng2_img_cropper_1_1) {
+                ng2_img_cropper_1 = ng2_img_cropper_1_1;
+            },
+            function (ng2_bootstrap_1_1) {
+                ng2_bootstrap_1 = ng2_bootstrap_1_1;
+            },
+            function (ng2_file_upload_1_1) {
+                ng2_file_upload_1 = ng2_file_upload_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
             }],
         execute: function() {
             ProfilePreviewComponent = (function () {
-                function ProfilePreviewComponent() {
+                function ProfilePreviewComponent(userService, notificationService) {
+                    this.userService = userService;
+                    this.notificationService = notificationService;
+                    this.profilePictureChanged = new core_1.EventEmitter();
                     this.user = [];
+                    this.experiences = [];
+                    this.education = [];
+                    this.testimonials = [];
+                    this.isLoading = false;
+                    this.editableProfile = true;
+                    this.uploader = new ng2_file_upload_1.FileUploader({ url: URL });
+                    this.hasBaseDropZoneOver = false;
+                    this.hasAnotherDropZoneOver = false;
+                    var __this = this;
                     this.user = JSON.parse(localStorage.getItem('user'));
-                    console.log('user is' + this.user);
+                    this.userService.getExperiences().subscribe(function (res) {
+                        __this.experiences = res.json();
+                    });
+                    this.userService.getEducation().subscribe(function (res) {
+                        __this.education = res.json();
+                    });
+                    this.userService.getTestimonials().subscribe(function (res) {
+                        __this.testimonials = res.json();
+                    });
+                    /**
+                     * Image cropper settings
+                     * @type {CropperSettings}
+                     */
+                    this.cropperSettings = new ng2_img_cropper_1.CropperSettings();
+                    this.cropperSettings.noFileInput = true;
+                    this.cropperSettings.width = 200;
+                    this.cropperSettings.height = 200;
+                    this.cropperSettings.croppedWidth = 150;
+                    this.cropperSettings.croppedHeight = 150;
+                    this.cropperSettings.canvasWidth = 400;
+                    this.cropperSettings.canvasHeight = 300;
+                    this.profilePictureData = {};
                 }
+                ProfilePreviewComponent.prototype.fileOverBase = function (e) {
+                    this.hasBaseDropZoneOver = e;
+                };
+                ProfilePreviewComponent.prototype.fileOverAnother = function (e) {
+                    this.hasAnotherDropZoneOver = e;
+                };
+                ProfilePreviewComponent.prototype.fileDropped = function (e) {
+                    this.fileChangeListener(e);
+                };
+                ProfilePreviewComponent.prototype.fileChangeListener = function ($event) {
+                    var image = new Image();
+                    /**
+                     * File was chosen via input[type=file]
+                     */
+                    var file;
+                    if ($event.target) {
+                        file = $event.target.files[0];
+                    }
+                    else {
+                        file = $event[0];
+                    }
+                    var myReader = new FileReader();
+                    var __this = this;
+                    myReader.onloadend = function (loadEvent) {
+                        image.src = loadEvent.target.result;
+                        __this.cropper.setImage(image);
+                    };
+                    myReader.readAsDataURL(file);
+                };
+                ProfilePreviewComponent.prototype.uploadProfilePicture = function () {
+                    var _this = this;
+                    this.isLoading = true;
+                    this.userService.uploadProfilePicture(this.profilePictureData.image).subscribe(function (res) {
+                        /**
+                         * File has been successfully uploaded to AWS S3
+                         */
+                        if (res['_body']) {
+                            _this.notificationService.show(new notification_1.Notification('success', 'Votre photo de profil a bien été modifiée'));
+                            /**
+                             * Close profile picture modal
+                             */
+                            document.getElementById('close-profile-picture-modal').click();
+                        }
+                        _this.isLoading = false;
+                        _this.profilePictureChanged.emit();
+                    });
+                };
+                ProfilePreviewComponent.prototype.submitDescription = function () {
+                    var _this = this;
+                    this.isLoading = true;
+                    this.userService.saveDescription(this.user.description).subscribe(function (res) {
+                        _this.isLoading = false;
+                        console.log(res.json());
+                    });
+                };
+                __decorate([
+                    core_1.ViewChild('cropper', undefined), 
+                    __metadata('design:type', (typeof (_a = typeof ng2_img_cropper_1.ImageCropperComponent !== 'undefined' && ng2_img_cropper_1.ImageCropperComponent) === 'function' && _a) || Object)
+                ], ProfilePreviewComponent.prototype, "cropper", void 0);
+                __decorate([
+                    core_1.Output, 
+                    __metadata('design:type', core_1.EventEmitter)
+                ], ProfilePreviewComponent.prototype, "profilePictureChanged", void 0);
                 ProfilePreviewComponent = __decorate([
                     core_1.Component({
                         providers: [user_service_1.UserService],
+                        directives: [router_deprecated_1.RouterLink,
+                            ng2_img_cropper_1.ImageCropperComponent,
+                            ng2_bootstrap_1.MODAL_DIRECTIVES,
+                            common_1.NgClass,
+                            common_1.NgStyle,
+                            common_1.CORE_DIRECTIVES,
+                            ng2_file_upload_1.FileDropDirective,
+                            ng2_file_upload_1.FileSelectDirective,
+                            common_1.FORM_DIRECTIVES],
+                        viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
                         selector: 'profile-preview',
                         templateUrl: '../templates/profile-preview.component.html',
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [user_service_1.UserService, notification_service_1.NotificationsService])
                 ], ProfilePreviewComponent);
                 return ProfilePreviewComponent;
+                var _a;
             }());
             exports_1("ProfilePreviewComponent", ProfilePreviewComponent);
         }

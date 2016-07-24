@@ -206,6 +206,19 @@ class UserController extends Controller
         return $jobPosts;
     }
 
+
+    public function saveDescription(Request $request) {
+        $user = Auth::user();
+
+        $user->description = $request::input('description');
+
+        Log::info('saving user desc');
+
+        $user->save();
+
+        return $user;
+    }
+
     /**
      * Upload a new profile picture
      * @param Request $request
