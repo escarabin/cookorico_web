@@ -1,5 +1,41 @@
-<div class="col-md-3">
+<div bsModal
+     #profilePictureModal="bs-modal"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     id="profile-picture-modal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <fileDroppa [url]="'#'">
 
+                </fileDroppa>
+                <img-cropper #cropper [image]="profilePictureData" [settings]="cropperSettings">
+
+                </img-cropper>
+                <span class="cropping-result" *ngIf="profilePictureData.image" >
+                    <img [src]="profilePictureData.image"
+                         [width]="cropperSettings.croppedWidth"
+                         [height]="cropperSettings.croppedHeight">
+                </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Annuler
+                </button>
+                <button type="button" class="btn btn-primary" (click)="uploadProfilePicture()">
+                    Enregistrer
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3">
+    <a (click)="profilePictureModal.show()">
+        Modifier la photo
+    </a>
 </div>
 <div class="col-md-6 user-basic-infos">
     <span class="user-identity">

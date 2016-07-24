@@ -14,7 +14,9 @@
     'zone.js':                    'zone.js',
     'ng2-bootstrap':              'ng2-bootstrap',
     'moment':                     'moment',
-    'notifications':              'node_modules/angular2-notifications'
+    'notifications':              'node_modules/angular2-notifications',
+    'ng2-img-cropper':            'ng2-img-cropper',
+    'file-droppa':                'file-droppa'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -25,7 +27,9 @@
     'zone.js':                    { main: 'dist/index.js', defaultExtension: 'js' },
     'ng2-bootstrap':              { main: 'ng2-bootstrap.js', defaultExtension: 'js' },
     'moment':                     { main: 'moment.js', defaultExtension: 'js' },
-    'notifications':              { main: 'components.js', defaultExtension: 'js' }
+    'notifications':              { main: 'components.js', defaultExtension: 'js' },
+    'ng2-img-cropper' :           { main: 'index.js', defaultExtension: 'js' },
+    'file-droppa' :               { main: 'index.js', defaultExtension: 'js' }
   };
 
   var ngPackageNames = [

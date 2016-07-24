@@ -38,6 +38,7 @@ export class UserService {
     getAlertUrl = '/alert';
     updateAlertUrl = '/alert/update';
     createUserUrl = '/user/create';
+    uploadProfilePictureUrl = '/user/upload_profile_picture';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
@@ -320,6 +321,19 @@ export class UserService {
         let requestBody = JSON.stringify({ alert });
 
         return this.http.post(__this.updateAlertUrl, requestBody, this.postRequestOptions);
+    }
+
+    /**
+     * Upload new profile picture for current user
+     * @param base64
+     * @returns {Observable<Response>}
+     */
+    uploadProfilePicture(base64: string) {
+        let __this = this;
+
+        let requestBody = JSON.stringify({ base64 });
+
+        return this.http.post(__this.uploadProfilePictureUrl, requestBody, this.postRequestOptions);
     }
 
     /**

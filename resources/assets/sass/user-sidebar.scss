@@ -16,9 +16,8 @@ user-sidebar .user-infos {
 }
 
 user-sidebar .user-infos .user-title {
-  padding: 7px 0 0 25px;
   font-family: $mainBoldFontFamily;
-  text-transform: uppercase;
+  text-align: center;
   color: white;
 }
 
@@ -27,12 +26,13 @@ user-sidebar .user-infos .profile-picture {
 }
 
 user-sidebar .user-infos .profile-picture .img {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   margin: auto;
   background-size: cover;
   background-position: center center;
   border-radius: 50%;
+  border: 3px solid white;
 }
 
 user-sidebar .user-sidebar-menu {
@@ -59,10 +59,19 @@ user-sidebar .user-sidebar-menu .menu-item a {
 
 user-sidebar .plan {
   padding-top: 15px;
+  text-align: center;
 }
 
 user-sidebar .plan .plan-credits, user-sidebar .plan .plan-contacts {
   text-align: center;
   font-family: $mainBoldFontFamily;
-  font-size: 1.3em;
+}
+
+user-sidebar .plan .new-job-post-btn {
+  background-color: #35b6e1;
+  color: white;
+  font-family: $mainBoldFontFamily;
+  border: none;
+  height: 45px;
+  margin-top: 20px;
 }

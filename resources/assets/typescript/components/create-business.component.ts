@@ -7,7 +7,7 @@ import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
 import { LocationService } from './../services/location.service';
 import { BusinessService } from './../services/business.service';
-import { FileUploadService } from './../services/file-upload.service';
+import { FileUploadService } from '../services/file.service';
 
 // Directives
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';

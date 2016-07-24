@@ -1,24 +1,27 @@
 <!-- User is connected -->
 <div *ngIf="user" class="user-infos row">
-    <div class="col-md-3 profile-picture">
+    <div class="col-md-12 profile-picture">
         <div class="img"
              [ngStyle]="{'background-image': userProfilePicturePath}">
         </div>
     </div>
-    <div class="col-md-9 user-title">
+    <div class="col-md-12 user-title">
         {{ user.firstName }} {{ user.lastName }}<br />
     </div>
     <div *ngFor="let plan of plans"
          class="col-md-12">
         <div class="plan" *ngIf="plan.credits > 0">
             <div class="col-md-6 plan-credits">
-                {{ plan.credits }}<br />
-                crédits
+                {{ plan.credits }} crédits
             </div>
             <div class="col-md-6 plan-contacts">
-                {{ plan.pricing_plan.daily_contacts }}<br />
-                contacts
+                {{ plan.pricing_plan.daily_contacts }} contacts
             </div>
+            <a [routerLink]="['/Profile/CreateJobPost']">
+                <button class="btn btn-default new-job-post-btn">
+                    <span class="fa fa-plus-circle"></span> &nbsp; Publier une offre
+                </button>
+            </a>
         </div>
     </div>
     <div class="user-sidebar-menu">

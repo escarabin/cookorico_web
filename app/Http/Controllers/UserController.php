@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Request;
 use App\Models\Job;
 use Auth;
 use Log;
@@ -203,5 +204,28 @@ class UserController extends Controller
                     ->load('jobNaming', 'business');
 
         return $jobPosts;
+    }
+
+    /**
+     * Upload a new profile picture
+     * @param Request $request
+     * @return string
+     */
+    public function uploadProfilePicture(Request $request) {
+        $base64String = $request::input('base64');
+
+        $newFilePath = 'uploads/user/pp/'.time().'.jpg';
+
+        $ifp = fopen($newFilePath, "wb");
+
+        $data = explode(',', $base64String);
+
+        fwrite($ifp, base64_decode($data[1]));
+        fclose($ifp);
+
+        app('App\Http\Controllers\FileController')
+            ->upload('oechr-business-picture', '19.jpg', $newFilePath);
+
+        return $newFilePath;
     }
 }

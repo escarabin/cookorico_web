@@ -1,3 +1,7 @@
+button {
+  height: $mainButtonHeight;
+}
+
 .btn-primary, input[type=button] {
   font-family: $mainMediumFontFamily;
   border-radius: $mainBorderRadius;

@@ -41,6 +41,8 @@ Route::get('/user/create/{email}/{password}/{firstName}/{lastName}/{phone}/{birt
     ->name('createUser');
 Route::get('/user/businesses/', 'UserController@getBusinesses')
     ->name('getAllUserBusinesses');
+Route::post('/user/upload_profile_picture', 'UserController@uploadProfilePicture')
+    ->name('uploadProfilePicture');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')

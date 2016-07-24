@@ -57,6 +57,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getAlertUrl = '/alert';
                     this.updateAlertUrl = '/alert/update';
                     this.createUserUrl = '/user/create';
+                    this.uploadProfilePictureUrl = '/user/upload_profile_picture';
                     this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
                     this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
                 }
@@ -279,6 +280,16 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     var __this = this;
                     var requestBody = JSON.stringify({ alert: alert });
                     return this.http.post(__this.updateAlertUrl, requestBody, this.postRequestOptions);
+                };
+                /**
+                 * Upload new profile picture for current user
+                 * @param base64
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.uploadProfilePicture = function (base64) {
+                    var __this = this;
+                    var requestBody = JSON.stringify({ base64: base64 });
+                    return this.http.post(__this.uploadProfilePictureUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Error handling

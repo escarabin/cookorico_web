@@ -15,7 +15,7 @@
   src: url("/fonts/Avenir-Heavy.ttf"); }
 
 .form-control {
-  height: 40px;
+  height: 50px;
   box-shadow: none; }
 
 .input-group-addon:first-child {
@@ -35,9 +35,6 @@ label {
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 1px; }
-
-button {
-  height: 60px; }
 
 /** The width/height of the checkbox element. */
 /** The width of the line used to draw the checkmark / mixedmark. */
@@ -335,6 +332,9 @@ Copyright 2016 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at http://angular.io/license
 */
+button {
+  height: 50px; }
+
 .btn-primary, input[type=button] {
   font-family: "Avenir Medium", sans-serif;
   border-radius: 4px;
@@ -415,8 +415,7 @@ home .heading .job-search select {
   border-right: 1px solid #333438; }
 
 home .heading .find-btn {
-  width: 100%;
-  height: 40px; }
+  width: 100%; }
 
 job {
   padding-top: 150px;
@@ -466,7 +465,7 @@ new-application-form .apply-btn-container {
 new-application-form .back-btn-container button,
 new-application-form .apply-btn-container button {
   width: 100%;
-  height: 60px; }
+  height: 50px; }
 
 business-select {
   display: inline-block;
@@ -575,21 +574,21 @@ user-sidebar .user-infos {
   margin: 0; }
 
 user-sidebar .user-infos .user-title {
-  padding: 7px 0 0 25px;
   font-family: "Avenir Heavy", sans-serif;
-  text-transform: uppercase;
+  text-align: center;
   color: white; }
 
 user-sidebar .user-infos .profile-picture {
   margin-bottom: 20px; }
 
 user-sidebar .user-infos .profile-picture .img {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   margin: auto;
   background-size: cover;
   background-position: center center;
-  border-radius: 50%; }
+  border-radius: 50%;
+  border: 3px solid white; }
 
 user-sidebar .user-sidebar-menu {
   text-align: left;
@@ -611,12 +610,20 @@ user-sidebar .user-sidebar-menu .menu-item a {
   color: #333; }
 
 user-sidebar .plan {
-  padding-top: 15px; }
+  padding-top: 15px;
+  text-align: center; }
 
 user-sidebar .plan .plan-credits, user-sidebar .plan .plan-contacts {
   text-align: center;
+  font-family: "Avenir Heavy", sans-serif; }
+
+user-sidebar .plan .new-job-post-btn {
+  background-color: #35b6e1;
+  color: white;
   font-family: "Avenir Heavy", sans-serif;
-  font-size: 1.3em; }
+  border: none;
+  height: 45px;
+  margin-top: 20px; }
 
 applications {
   display: block; }
@@ -901,6 +908,10 @@ testimonials {
     top: -85px; }
   100% {
     top: 0; } }
+
+.cropping-result {
+  position: absolute;
+  margin-left: 20px; }
 
 body {
   background-color: #f7f7f8;

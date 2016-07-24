@@ -17,6 +17,8 @@ elixir(function(mix) {
     mix.copy('node_modules/angular2-notifications', 'public/angular2-notifications');
     mix.copy('systemjs.config.js', 'public/systemjs.config.js');
     mix.copy('node_modules/ng2-ckeditor', 'public/ng2-ckeditor');
+    mix.copy('node_modules/ng2-img-cropper', 'public/ng2-img-cropper');
+    mix.copy('node_modules/file-droppa', 'public/file-droppa');
 
     mix.typescript('app.js','public/','/**/*.ts',{
         "target": "ES5",

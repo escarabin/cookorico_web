@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', './../services/business.service', './../services/file-upload.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../models/business', './../models/place'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', './../services/business.service', '../services/file.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../models/business', './../models/place'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, business_service_1, file_upload_service_1, googleplace_directive_1, business_1, place_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, business_service_1, file_service_1, googleplace_directive_1, business_1, place_1;
     var CreateBusinessComponent;
     return {
         setters:[
@@ -32,8 +32,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             function (business_service_1_1) {
                 business_service_1 = business_service_1_1;
             },
-            function (file_upload_service_1_1) {
-                file_upload_service_1 = file_upload_service_1_1;
+            function (file_service_1_1) {
+                file_service_1 = file_service_1_1;
             },
             function (googleplace_directive_1_1) {
                 googleplace_directive_1 = googleplace_directive_1_1;
@@ -112,13 +112,14 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             user_service_1.UserService,
                             location_service_1.LocationService,
                             business_service_1.BusinessService,
-                            file_upload_service_1.FileUploadService],
+                            file_service_1.FileUploadService],
                         directives: [router_deprecated_1.RouterLink, googleplace_directive_1.GoogleplaceDirective],
                         templateUrl: '../templates/create-business.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, business_service_1.BusinessService, file_upload_service_1.FileUploadService, location_service_1.LocationService, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, business_service_1.BusinessService, (typeof (_a = typeof file_service_1.FileUploadService !== 'undefined' && file_service_1.FileUploadService) === 'function' && _a) || Object, location_service_1.LocationService, router_deprecated_1.RouteParams])
                 ], CreateBusinessComponent);
                 return CreateBusinessComponent;
+                var _a;
             }());
             exports_1("CreateBusinessComponent", CreateBusinessComponent);
         }
