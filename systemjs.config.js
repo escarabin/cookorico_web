@@ -30,7 +30,8 @@
     'notifications':              { main: 'components.js', defaultExtension: 'js' },
     'ng2-img-cropper' :           { main: 'index.js', defaultExtension: 'js' },
     'file-droppa' :               { main: 'index.js', defaultExtension: 'js' },
-    'ng2-file-upload':            { main: 'ng2-file-upload.js', defaultExtension: 'js' }
+    'ng2-file-upload':            { main: 'ng2-file-upload.js', defaultExtension: 'js' },
+    'ng2-pagination':             { main: 'index.js', defaultExtension: 'js' }
   };
 
   var ngPackageNames = [

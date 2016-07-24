@@ -2,7 +2,7 @@ job-preview {
   display: block;
   border: 1px solid #ececec;
   padding: 25px;
-  background: white;
+  background: whitesmoke;
 
   .logo {
     position: relative;
@@ -30,4 +30,8 @@ job-preview {
     background-color: lighten($oechrBlueColor, 40%);
     border-color: $oechrBlueColor;
   }
+}
+
+job-preview:nth-child(odd) {
+  background: white;
 }

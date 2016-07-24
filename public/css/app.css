@@ -670,7 +670,7 @@ job-preview {
   display: block;
   border: 1px solid #ececec;
   padding: 25px;
-  background: white; }
+  background: whitesmoke; }
   job-preview .logo {
     position: relative;
     top: -5px; }
@@ -688,6 +688,9 @@ job-preview {
   job-preview:hover {
     background-color: #e7f6fb;
     border-color: #35B6E1; }
+
+job-preview:nth-child(odd) {
+  background: white; }
 
 job-search-results {
   background: white;
