@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar.component', './job-search-bar.component', './job-search-results.component', './job-search-sidebar.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar.component', './job-search-results.component', './job-search-sidebar.component', './new-application-form.component', './job.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, right_sidebar_component_1, job_search_bar_component_1, job_search_results_component_1, job_search_sidebar_component_1;
+    var core_1, router_deprecated_1, right_sidebar_component_1, job_search_results_component_1, job_search_sidebar_component_1, new_application_form_component_1, job_component_1;
     var SearchComponent;
     return {
         setters:[
@@ -23,19 +23,23 @@ System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar
             function (right_sidebar_component_1_1) {
                 right_sidebar_component_1 = right_sidebar_component_1_1;
             },
-            function (job_search_bar_component_1_1) {
-                job_search_bar_component_1 = job_search_bar_component_1_1;
-            },
             function (job_search_results_component_1_1) {
                 job_search_results_component_1 = job_search_results_component_1_1;
             },
             function (job_search_sidebar_component_1_1) {
                 job_search_sidebar_component_1 = job_search_sidebar_component_1_1;
+            },
+            function (new_application_form_component_1_1) {
+                new_application_form_component_1 = new_application_form_component_1_1;
+            },
+            function (job_component_1_1) {
+                job_component_1 = job_component_1_1;
             }],
         execute: function() {
             SearchComponent = (function () {
-                function SearchComponent(routeParams) {
+                function SearchComponent(routeParams, router) {
                     this.routeParams = routeParams;
+                    this.router = router;
                     this.searchParameters = [];
                     this.placeId = parseInt(routeParams.get('placeId'));
                     this.jobNamingId = parseInt(routeParams.get('jobNamingId'));
@@ -44,7 +48,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar
                 }
                 SearchComponent.prototype.updateSearchResults = function (parameters) {
                     this.searchParameters = parameters;
-                    this.searchResults.updateSearchResults(this.searchParameters);
+                    this.router.navigate(['SearchJobs', { parameters: parameters }]);
                 };
                 __decorate([
                     core_1.ViewChild(job_search_results_component_1.JobSearchResultsComponent), 
@@ -54,12 +58,19 @@ System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar
                     core_1.Component({
                         directives: [job_search_results_component_1.JobSearchResultsComponent,
                             job_search_sidebar_component_1.JobSearchSidebarComponent,
-                            job_search_bar_component_1.JobSearchBarComponent,
-                            right_sidebar_component_1.RightSidebarComponent],
+                            right_sidebar_component_1.RightSidebarComponent,
+                            router_deprecated_1.RouterOutlet],
                         templateUrl: '../templates/search.component.html',
                         selector: 'search',
-                    }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams])
+                    }),
+                    router_deprecated_1.RouteConfig([
+                        { path: '/jobs/search/', name: 'ShowAllJobs', component: job_search_results_component_1.JobSearchResultsComponent, useAsDefault: true },
+                        { path: '/job/:jobId/', name: 'ShowJob', component: job_component_1.JobComponent },
+                        { path: '/jobs/search/:parameters',
+                            name: 'SearchJobs', component: job_search_results_component_1.JobSearchResultsComponent },
+                        { path: '/apply/:jobId', name: 'Apply', component: new_application_form_component_1.NewApplicationFormComponent }
+                    ]), 
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, router_deprecated_1.Router])
                 ], SearchComponent);
                 return SearchComponent;
             }());

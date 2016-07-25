@@ -6,6 +6,9 @@ job-search-results {
   .jobs-count {
     text-align: center;
     padding: 15px;
+    margin: 0 15px;
+    color: white;
+    background-color: $oechrBlueColor;
   }
 
   h2 {

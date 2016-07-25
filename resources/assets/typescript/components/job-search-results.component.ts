@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
+import { RouteParams } from '@angular/router-deprecated';
 
 // Services
 import { JobService } from './../services/job.service';
@@ -25,9 +26,15 @@ import {PaginatePipe,
 
 export class JobSearchResultsComponent {
     jobs: any = [];
+    searchParameters: any = [];
 
-    constructor(private jobService: JobService) {
+    constructor(private jobService: JobService,
+                private routeParams: RouteParams) {
         let __this = this;
+
+        this.searchParameters = routeParams.get('parameters');
+
+        console.log('params', this.searchParameters);
 
         this.jobService.getAllJobs().subscribe((res: Response) => {
             __this.jobs = res.json();

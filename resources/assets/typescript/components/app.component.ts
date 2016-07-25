@@ -3,7 +3,6 @@ import { Router, RouteConfig, RouterOutlet } from '@angular/router-deprecated';
 
 // Components
 import { HomeComponent } from './home.component';
-import { JobComponent } from './job.component';
 import { PostComponent } from './post.component';
 import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
@@ -11,7 +10,6 @@ import { ProfileComponent } from './profile.component';
 import { ClubComponent } from './club.component';
 import { SignUpComponent } from './sign-up.component';
 import { SearchComponent } from './search.component';
-import { NewApplicationFormComponent } from './new-application-form.component';
 import { NotificationsComponent } from './notification.component';
 
 @Component({
@@ -19,8 +17,6 @@ import { NotificationsComponent } from './notification.component';
                 HomeComponent,
                 HeaderComponent,
                 FooterComponent,
-                SearchComponent,
-                NewApplicationFormComponent,
                 NotificationsComponent],
     selector: 'app',
     templateUrl: '/templates/app.component.html'
@@ -31,13 +27,6 @@ import { NotificationsComponent } from './notification.component';
     // Root
     { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true },
 
-    // Jobs
-    { path: '/job/:jobId/', name: 'ShowJob', component: JobComponent },
-    { path: '/jobs/search/', name: 'ShowAllJobs', component: SearchComponent },
-    { path: '/jobs/search/:placeId/:jobNamingId/:contractTypeId/:searchText',
-        name: 'SearchJobs', component: SearchComponent },
-    { path: '/apply/:jobId', name: 'Apply', component: NewApplicationFormComponent },
-
     // Posts
     { path: '/post/:postId/', name: 'ShowPost', component: PostComponent },
 
@@ -46,7 +35,8 @@ import { NotificationsComponent } from './notification.component';
 
     // User
     { path: '/sign-up/', name: 'SignUp', component: SignUpComponent },
-    { path: '/profile/...', name: 'Profile', component: ProfileComponent }
+    { path: '/profile/...', name: 'Profile', component: ProfileComponent },
+    { path: '/job-search/...', name: 'JobSearch', component: SearchComponent }
 ])
 
 export class AppComponent {

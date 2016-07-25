@@ -1,4 +1,4 @@
-System.register(['@angular/core', './../services/job.service', './job-preview.component', './custom-pagination.component', 'ng2-pagination'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/job.service', './job-preview.component', './custom-pagination.component', 'ng2-pagination'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['@angular/core', './../services/job.service', './job-preview.co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, job_service_1, job_preview_component_1, custom_pagination_component_1, ng2_pagination_1;
+    var core_1, router_deprecated_1, job_service_1, job_preview_component_1, custom_pagination_component_1, ng2_pagination_1;
     var JobSearchResultsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
             },
             function (job_service_1_1) {
                 job_service_1 = job_service_1_1;
@@ -31,10 +34,14 @@ System.register(['@angular/core', './../services/job.service', './job-preview.co
             }],
         execute: function() {
             JobSearchResultsComponent = (function () {
-                function JobSearchResultsComponent(jobService) {
+                function JobSearchResultsComponent(jobService, routeParams) {
                     this.jobService = jobService;
+                    this.routeParams = routeParams;
                     this.jobs = [];
+                    this.searchParameters = [];
                     var __this = this;
+                    this.searchParameters = routeParams.get('parameters');
+                    console.log('params', this.searchParameters);
                     this.jobService.getAllJobs().subscribe(function (res) {
                         __this.jobs = res.json();
                     });
@@ -60,7 +67,7 @@ System.register(['@angular/core', './../services/job.service', './job-preview.co
                         pipes: [ng2_pagination_1.PaginatePipe],
                         templateUrl: '../templates/job-search-results.component.html',
                     }), 
-                    __metadata('design:paramtypes', [job_service_1.JobService])
+                    __metadata('design:paramtypes', [job_service_1.JobService, router_deprecated_1.RouteParams])
                 ], JobSearchResultsComponent);
                 return JobSearchResultsComponent;
             }());

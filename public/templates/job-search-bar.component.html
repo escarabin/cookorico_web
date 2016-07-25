@@ -32,12 +32,7 @@
     </select>
 </div>
 <div class="col-md-3 input-container">
-    <a [routerLink]="['SearchJobs',
-                                { placeId: placeId,
-                                  jobNamingId: jobNamingId,
-                                  contractTypeId: contractTypeId,
-                                  searchText: searchText
-                                }]">
+    <a [routerLink]="['/JobSearch/ShowAllJobs']">
         <button class="btn btn-primary find-btn">
             Trouver un job &nbsp; <span class="fa fa-angle-right"></span>
         </button>
