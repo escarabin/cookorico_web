@@ -41,27 +41,41 @@ class JobController extends Controller
     public function getAll() {
         $jobs = Job::all()
             ->load('business',
-                'user',
-                'jobNaming',
-                'type',
-                'studyLevel',
-                'contractType',
-                'jobXpLevel',
-                'languages');
+                    'user',
+                    'jobNaming',
+                    'type',
+                    'studyLevel',
+                    'contractType',
+                    'jobXpLevel',
+                    'languages');
 
         return $jobs;
     }
 
     /**
      * Search for jobs
-     * @param $stateId
-     * @param $jobNamingId
-     * @param $contractTypeId
-     * @param $searchText
+     * @param $parameters
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function search($stateId, $jobNamingId, $contractTypeId, $searchText) {
-        $jobs = Job::all();
+    public function search($parameters) {
+        $parametersJson = json_decode($parameters)->{'searchParameters'};
+
+        $contractTypeIdList = $parametersJson->{'contractTypeIdList'};
+        $jobNamingIdList = $parametersJson->{'jobNamingIdList'};
+        $studyLevelIdList = $parametersJson->{'studyLevelIdList'};
+
+        $jobs = Job::whereIn('contract_type_id', $contractTypeIdList)
+                    ->whereIn('job_naming_id', $jobNamingIdList)
+                    ->whereIn('study_level_id', $studyLevelIdList)
+                    ->get()
+                    ->load('business',
+                            'user',
+                            'jobNaming',
+                            'type',
+                            'studyLevel',
+                            'contractType',
+                            'jobXpLevel',
+                            'languages');
 
         return $jobs;
     }

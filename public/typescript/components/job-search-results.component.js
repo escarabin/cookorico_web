@@ -34,17 +34,20 @@ System.register(['@angular/core', './../services/job.service', './job-preview.co
                 function JobSearchResultsComponent(jobService) {
                     this.jobService = jobService;
                     var __this = this;
-                    jobService.getAllJobs().subscribe(function (res) {
+                    this.jobService.getAllJobs().subscribe(function (res) {
                         __this.jobs = res.json();
                     });
                 }
                 /**
                  * Function called from search.component
                  * after user changed the search parameters
-                 * @param newSearchResults
+                 * @param searchParameters
                  */
                 JobSearchResultsComponent.prototype.updateSearchResults = function (searchParameters) {
-                    console.log(searchParameters);
+                    var __this = this;
+                    this.jobService.searchJobs(searchParameters).subscribe(function (res) {
+                        __this.jobs = res.json();
+                    });
                 };
                 JobSearchResultsComponent = __decorate([
                     core_1.Component({

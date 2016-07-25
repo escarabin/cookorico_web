@@ -9,6 +9,7 @@ export class JobService {
     allJobsListingUrl = '/jobs/all';
     showJobListingUrl = '/job/';
     applyJobUrl = '/apply_job';
+    searchJobsUrl = '/jobs/search';
     jobId: number;
     user: any;
 
@@ -27,8 +28,19 @@ export class JobService {
     }
 
     /**
+     * Search jobs regarding parameters
+     * @param searchParameters
+     * @returns {Observable<Response>}
+     */
+    searchJobs(searchParameters: any) {
+        let __this = this;
+
+        return this.http.request(__this.searchJobsUrl + '/' + JSON.stringify({ searchParameters }));
+    }
+
+    /**
      * Returns specific job
-     * @param id
+     * @param jobId
      * @returns {Observable<Response>}
      */
     getJob(jobId) {
@@ -39,8 +51,7 @@ export class JobService {
 
     /**
      * Apply to a specific job
-     * @param jobId
-     * @param comment
+     * @param application
      * @returns {Observable<Response>}
      */
     apply(application: Application) {

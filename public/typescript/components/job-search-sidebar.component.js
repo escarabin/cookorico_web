@@ -37,6 +37,7 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     this.placeIdList = [];
                     this.jobNamingIdList = [];
                     this.contractTypeIdList = [];
+                    this.studyLevelIdList = [];
                     this.searchParametersChanged = new core_1.EventEmitter();
                     var __this = this;
                     referenceService.getAllContractTypes().subscribe(function (res) {
@@ -54,15 +55,43 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     this.searchText = routeParams.get('searchText');
                 }
                 JobSearchSidebarComponent.prototype.toggleSearchParameter = function (parameterType, parameterValue) {
+                    /**
+                     * Add or remove the parameters from their respective arrays
+                     */
                     switch (parameterType) {
                         case "contractType":
-                            this.contractTypeIdList.push(parseInt(parameterValue));
+                            var contractTypeIndex = this.contractTypeIdList.indexOf(parameterValue);
+                            if (contractTypeIndex == -1) {
+                                this.contractTypeIdList.push(parseInt(parameterValue));
+                            }
+                            else {
+                                this.contractTypeIdList.splice(contractTypeIndex, 1);
+                            }
                             break;
                         case "jobNaming":
-                            this.jobNamingIdList.push(parseInt(parameterValue));
+                            var jobNamingIndex = this.contractTypeIdList.indexOf(parameterValue);
+                            if (jobNamingIndex == -1) {
+                                this.jobNamingIdList.push(parseInt(parameterValue));
+                            }
+                            else {
+                                this.jobNamingIdList.splice(jobNamingIndex, 1);
+                            }
+                            break;
+                        case "studyLevel":
+                            var studyLevelIndex = this.studyLevelIdList.indexOf(parameterValue);
+                            if (studyLevelIndex == -1) {
+                                this.studyLevelIdList.push(parseInt(parameterValue));
+                            }
+                            else {
+                                this.studyLevelIdList.splice(studyLevelIndex, 1);
+                            }
                             break;
                     }
-                    this.searchParametersChanged.emit(this.contractTypeIdList, this.jobNamingIdList);
+                    var parametersArray = {};
+                    parametersArray['contractTypeIdList'] = this.contractTypeIdList;
+                    parametersArray['jobNamingIdList'] = this.jobNamingIdList;
+                    parametersArray['studyLevelIdList'] = this.studyLevelIdList;
+                    this.searchParametersChanged.emit(parametersArray);
                 };
                 __decorate([
                     core_1.Output(), 

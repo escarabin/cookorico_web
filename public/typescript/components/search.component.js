@@ -42,8 +42,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar
                     this.contractTypeId = parseInt(routeParams.get('contractTypeId'));
                     this.searchText = routeParams.get('searchText');
                 }
-                SearchComponent.prototype.updateSearchResults = function ($event) {
-                    this.searchResults.updateSearchResults($event);
+                SearchComponent.prototype.updateSearchResults = function (parameters) {
+                    this.searchParameters = parameters;
+                    this.searchResults.updateSearchResults(this.searchParameters);
                 };
                 __decorate([
                     core_1.ViewChild(job_search_results_component_1.JobSearchResultsComponent), 

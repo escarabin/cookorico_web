@@ -32,7 +32,9 @@ export class SearchComponent {
         this.searchText = routeParams.get('searchText');
     }
 
-    updateSearchResults($event) {
-        this.searchResults.updateSearchResults($event);
+    updateSearchResults(parameters) {
+        this.searchParameters = parameters;
+
+        this.searchResults.updateSearchResults(this.searchParameters);
     }
 }

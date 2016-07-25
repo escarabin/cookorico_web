@@ -29,7 +29,7 @@ export class JobSearchResultsComponent {
     constructor(private jobService: JobService) {
         let __this = this;
 
-        jobService.getAllJobs().subscribe((res: Response) => {
+        this.jobService.getAllJobs().subscribe((res: Response) => {
             __this.jobs = res.json();
         });
     }
@@ -37,9 +37,13 @@ export class JobSearchResultsComponent {
     /**
      * Function called from search.component
      * after user changed the search parameters
-     * @param newSearchResults
+     * @param searchParameters
      */
     updateSearchResults(searchParameters: any) {
-        console.log(searchParameters);
+        let __this = this;
+        
+        this.jobService.searchJobs(searchParameters).subscribe((res: Response) => {
+            __this.jobs = res.json();
+        });
     }
 }

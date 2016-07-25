@@ -23,6 +23,7 @@ export class JobSearchSidebarComponent {
     placeIdList: any = [];
     jobNamingIdList: any = [];
     contractTypeIdList: any = [];
+    studyLevelIdList: any = [];
     searchText: string;
     @Output() searchParametersChanged: EventEmitter = new EventEmitter();
 
@@ -49,15 +50,44 @@ export class JobSearchSidebarComponent {
     }
 
     toggleSearchParameter(parameterType: string, parameterValue: string) {
+        /**
+         * Add or remove the parameters from their respective arrays
+         */
         switch(parameterType) {
             case "contractType":
-                this.contractTypeIdList.push(parseInt(parameterValue));
+                let contractTypeIndex = this.contractTypeIdList.indexOf(parameterValue);
+                if (contractTypeIndex == -1) {
+                    this.contractTypeIdList.push(parseInt(parameterValue));
+                }
+                else {
+                    this.contractTypeIdList.splice(contractTypeIndex, 1);
+                }
                 break;
             case "jobNaming":
-                this.jobNamingIdList.push(parseInt(parameterValue));
+                let jobNamingIndex = this.contractTypeIdList.indexOf(parameterValue);
+                if (jobNamingIndex == -1) {
+                    this.jobNamingIdList.push(parseInt(parameterValue));
+                }
+                else {
+                    this.jobNamingIdList.splice(jobNamingIndex, 1);
+                }
+                break;
+            case "studyLevel":
+                let studyLevelIndex = this.studyLevelIdList.indexOf(parameterValue);
+                if (studyLevelIndex == -1) {
+                    this.studyLevelIdList.push(parseInt(parameterValue));
+                }
+                else {
+                    this.studyLevelIdList.splice(studyLevelIndex, 1);
+                }
                 break;
         }
 
-        this.searchParametersChanged.emit(this.contractTypeIdList, this.jobNamingIdList);
+        let parametersArray = {};
+        parametersArray['contractTypeIdList'] = this.contractTypeIdList;
+        parametersArray['jobNamingIdList'] = this.jobNamingIdList;
+        parametersArray['studyLevelIdList'] = this.studyLevelIdList;
+
+        this.searchParametersChanged.emit(parametersArray);
     }
 }

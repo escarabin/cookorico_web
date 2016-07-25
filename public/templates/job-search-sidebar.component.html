@@ -27,10 +27,11 @@
             <div [collapse]="isStudyLevelCollapsed"
                  class="col-md-12">
                 <ul>
-                    <li *ngFor="let studyLevel of studyLevels">
+                    <li *ngFor="let studyLevel of studyLevels"
+                        (click)="toggleSearchParameter('studyLevel', studyLevel.id)">
                         <div class="row">
                             <div class="col-md-2 checkbox-container">
-                                <input type="checkbox"/>
+                                <input type="checkbox" [checked]="!studyLevelIdList.indexOf(studyLevel.id)"/>
                             </div>
                             <div class="col-md-10 title-container">
                                 {{ studyLevel.title }}

@@ -27,6 +27,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     this.allJobsListingUrl = '/jobs/all';
                     this.showJobListingUrl = '/job/';
                     this.applyJobUrl = '/apply_job';
+                    this.searchJobsUrl = '/jobs/search';
                     this.user = JSON.parse(localStorage.getItem('user'));
                 }
                 /**
@@ -38,8 +39,17 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                     return this.http.request(__this.allJobsListingUrl);
                 };
                 /**
+                 * Search jobs regarding parameters
+                 * @param searchParameters
+                 * @returns {Observable<Response>}
+                 */
+                JobService.prototype.searchJobs = function (searchParameters) {
+                    var __this = this;
+                    return this.http.request(__this.searchJobsUrl + '/' + JSON.stringify({ searchParameters: searchParameters }));
+                };
+                /**
                  * Returns specific job
-                 * @param id
+                 * @param jobId
                  * @returns {Observable<Response>}
                  */
                 JobService.prototype.getJob = function (jobId) {
@@ -48,8 +58,7 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 };
                 /**
                  * Apply to a specific job
-                 * @param jobId
-                 * @param comment
+                 * @param application
                  * @returns {Observable<Response>}
                  */
                 JobService.prototype.apply = function (application) {
