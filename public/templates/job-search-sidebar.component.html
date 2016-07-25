@@ -50,7 +50,7 @@
                     <li *ngFor="let contractType of contractTypes">
                         <div class="row">
                             <div class="col-md-2 checkbox-container">
-                                <input type="checkbox"/>
+                                <input type="checkbox" [checked]="contractType.id == contractTypeId"/>
                             </div>
                             <div class="col-md-10 title-container">
                                 {{ contractType.title }}
@@ -71,7 +71,7 @@
                         [class.group]="jobNaming.is_naming_group">
                         <div class="row">
                             <div class="col-md-2 checkbox-container">
-                                <input type="checkbox"/>
+                                <input type="checkbox" [checked]="jobNaming.id == jobNamingId"/>
                             </div>
                             <div class="col-md-10 title-container">
                                 {{ jobNaming.title }}

@@ -1,5 +1,10 @@
 <div class="col-md-3">
-    <job-search-sidebar></job-search-sidebar>
+    <job-search-sidebar [placeId]="placeId"
+                        [jobNamingId]="jobNamingId"
+                        [contractTypeId]="contractTypeId"
+                        [searchText]="searchText">
+
+    </job-search-sidebar>
 </div>
 <div class="col-md-6">
     <job-search-results></job-search-results>

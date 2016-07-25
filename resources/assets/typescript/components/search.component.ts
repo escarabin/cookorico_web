@@ -18,17 +18,15 @@ import { JobSearchSidebarComponent } from './job-search-sidebar.component'
 })
 
 export class SearchComponent {
-    stateId: number;
+    placeId: number;
     jobNamingId: number;
     contractTypeId: number;
     searchText: string;
 
     constructor(private routeParams: RouteParams) {
-        this.stateId = routeParams.get('stateId');
-        this.jobNamingId = routeParams.get('jobNamingId');
-        this.contractTypeId = routeParams.get('contractTypeId');
+        this.placeId = parseInt(routeParams.get('placeId'));
+        this.jobNamingId = parseInt(routeParams.get('jobNamingId'));
+        this.contractTypeId = parseInt(routeParams.get('contractTypeId'));
         this.searchText = routeParams.get('searchText');
-
-        console.log('state id is ' + this.stateId);
     }
 }

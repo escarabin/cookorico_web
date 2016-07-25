@@ -1,42 +1,41 @@
 home {
   width: 100%;
   display: block;
-}
 
-home .heading {
-  color: white;
-  text-align: center;
-  padding-top: 250px;
-  padding-bottom: 100px;
-  width: 100%;
-  background-image: url('/img/home_bg.jpg');
-  background-size: cover;
-  background-position: center top;
-}
+  .heading {
+    color: white;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 100px;
+    width: 100%;
+    background-image: url('/img/home_bg.jpg');
+    background-size: cover;
+    background-position: center top;
 
-home .heading .job-search {
-  max-width: 950px;
-  margin: auto;
-  margin-top: 50px;
-  padding: 10px;
-  background: #697f9a;
-  border-radius: $mainBorderRadius;
-}
+    .job-search {
+      max-width: 950px;
+      margin: auto;
+      margin-top: 50px;
+      padding: 10px;
+      background: #697f9a;
+      border-radius: $mainBorderRadius;
 
-home .heading .job-search select {
-  border: none;
-}
+      select {
+        border: none;
+        border-radius: 0;
+        -webkit-appearance: none;
+        border-right: 1px solid #333438;
+      }
 
-home .heading .job-search .input-container {
-  padding: 0;
-}
+      .input-container {
+        padding: 0;
+      }
 
-home .heading .job-search select {
-  border-radius: 0;
-  -webkit-appearance: none;
-  border-right: 1px solid #333438;
-}
-
-home .heading .find-btn {
-  width: 100%;
+      .find-btn {
+        width: 100%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
 }

@@ -77,7 +77,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                         // Jobs
                         { path: '/job/:jobId/', name: 'ShowJob', component: job_component_1.JobComponent },
                         { path: '/jobs/search/', name: 'ShowAllJobs', component: search_component_1.SearchComponent },
-                        { path: '/jobs/search/:stateId/:jobNamingId/:contractTypeId/:searchText',
+                        { path: '/jobs/search/:placeId/:jobNamingId/:contractTypeId/:searchText',
                             name: 'SearchJobs', component: search_component_1.SearchComponent },
                         { path: '/apply/:jobId', name: 'Apply', component: new_application_form_component_1.NewApplicationFormComponent },
                         // Posts

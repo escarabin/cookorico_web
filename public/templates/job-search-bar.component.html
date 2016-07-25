@@ -1,15 +1,17 @@
 <div class="col-md-3 input-container">
-    <select class="form-control">
-        <option disabled selected>-- Région --</option>
-        <option *ngFor="let state of states"
-                value="{{ state.id }}">
-            {{ state.adress.replace(', France', '') }}
+    <select class="form-control"
+            [(ngModel)]="placeId">
+        <option disabled selected value="0">-- Région --</option>
+        <option *ngFor="let place of places"
+                value="{{ place.id }}">
+            {{ place.adress.replace(', France', '') }}
         </option>
     </select>
 </div>
 <div class="col-md-3 input-container">
-    <select class="form-control">
-        <option disabled selected>-- Type de poste --</option>
+    <select class="form-control"
+            [(ngModel)]="jobNamingId">
+        <option disabled selected value="0">-- Type de poste --</option>
         <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
                   label="{{ jobNamingGroup.title }}">
             <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
@@ -20,8 +22,9 @@
     </select>
 </div>
 <div class="col-md-3 input-container">
-    <select class="form-control">
-        <option disabled selected>-- Type de contrat --</option>
+    <select class="form-control"
+            [(ngModel)]="contractTypeId">
+        <option disabled selected value="0">-- Type de contrat --</option>
         <option *ngFor="let contractType of contractTypes"
                 value="{{ contractType.id }}">
             {{ contractType.title }}
@@ -30,7 +33,7 @@
 </div>
 <div class="col-md-3 input-container">
     <a [routerLink]="['SearchJobs',
-                                { stateId: stateId,
+                                { placeId: placeId,
                                   jobNamingId: jobNamingId,
                                   contractTypeId: contractTypeId,
                                   searchText: searchText

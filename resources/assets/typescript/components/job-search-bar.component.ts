@@ -20,13 +20,13 @@ import { ReferenceService } from './../services/reference.service';
 })
 
 export class JobSearchBarComponent {
-    states: any;
+    places: any;
     contractTypes: any;
     jobNamingGroups: any;
 
-    contractTypeId: string;
-    jobNamingId: string;
-    stateId: string;
+    contractTypeId: number = 0;
+    jobNamingId: number = 0;
+    placeId: number = 0;
 
     constructor(private jobService: JobService,
                 private postService: PostService,
@@ -35,7 +35,7 @@ export class JobSearchBarComponent {
         let __this = this;
 
         referenceService.getAllStates().subscribe((res: Response) => {
-            __this.states = res.json();
+            __this.places = res.json();
         });
 
         referenceService.getAllContractTypes().subscribe((res: Response) => {

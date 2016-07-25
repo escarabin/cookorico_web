@@ -39,9 +39,12 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                     this.postService = postService;
                     this.clubService = clubService;
                     this.referenceService = referenceService;
+                    this.contractTypeId = 0;
+                    this.jobNamingId = 0;
+                    this.placeId = 0;
                     var __this = this;
                     referenceService.getAllStates().subscribe(function (res) {
-                        __this.states = res.json();
+                        __this.places = res.json();
                     });
                     referenceService.getAllContractTypes().subscribe(function (res) {
                         __this.contractTypes = res.json();

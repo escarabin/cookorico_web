@@ -28,11 +28,15 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
             }],
         execute: function() {
             JobSearchSidebarComponent = (function () {
-                function JobSearchSidebarComponent(referenceService) {
+                function JobSearchSidebarComponent(referenceService, routeParams) {
                     this.referenceService = referenceService;
+                    this.routeParams = routeParams;
                     this.isStudyLevelCollapsed = true;
                     this.isContractTypeCollapsed = true;
                     this.isJobNamingCollapsed = true;
+                    this.placeIdList = [];
+                    this.jobNamingIdList = [];
+                    this.contractTypeIdList = [];
                     var __this = this;
                     referenceService.getAllContractTypes().subscribe(function (res) {
                         __this.contractTypes = res.json();
@@ -43,6 +47,11 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     referenceService.getAllStudyLevels().subscribe(function (res) {
                         __this.studyLevels = res.json();
                     });
+                    this.placeId = parseInt(routeParams.get('placeId'));
+                    this.jobNamingId = parseInt(routeParams.get('jobNamingId'));
+                    this.contractTypeId = parseInt(routeParams.get('contractTypeId'));
+                    this.searchText = routeParams.get('searchText');
+                    console.log("DATA : ", this.placeId, this.jobNamingId, this.contractTypeId, this.searchText);
                 }
                 JobSearchSidebarComponent = __decorate([
                     core_1.Component({
@@ -51,7 +60,7 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                         selector: 'job-search-sidebar',
                         templateUrl: '../templates/job-search-sidebar.component.html',
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, router_deprecated_1.RouteParams])
                 ], JobSearchSidebarComponent);
                 return JobSearchSidebarComponent;
             }());
