@@ -345,8 +345,6 @@ export class UserService {
     saveDescription(description: string) {
         let __this = this;
 
-        console.log('saving description');
-
         let requestBody = JSON.stringify({ description });
 
         return this.http.post(__this.saveUserDescriptionUrl, requestBody, this.postRequestOptions);

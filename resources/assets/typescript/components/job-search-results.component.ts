@@ -33,4 +33,13 @@ export class JobSearchResultsComponent {
             __this.jobs = res.json();
         });
     }
+
+    /**
+     * Function called from search.component
+     * after user changed the search parameters
+     * @param newSearchResults
+     */
+    updateSearchResults(searchParameters: any) {
+        console.log(searchParameters);
+    }
 }

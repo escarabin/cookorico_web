@@ -47,10 +47,11 @@
             <div [collapse]="isContractTypeCollapsed"
                  class="col-md-12">
                 <ul>
-                    <li *ngFor="let contractType of contractTypes">
+                    <li *ngFor="let contractType of contractTypes"
+                        (click)="toggleSearchParameter('contractType', contractType.id)">
                         <div class="row">
                             <div class="col-md-2 checkbox-container">
-                                <input type="checkbox" [checked]="contractType.id == contractTypeId"/>
+                                <input type="checkbox" [checked]="!contractTypeIdList.indexOf(contractType.id)"/>
                             </div>
                             <div class="col-md-10 title-container">
                                 {{ contractType.title }}
@@ -68,10 +69,11 @@
                  class="col-md-12">
                 <ul>
                     <li *ngFor="let jobNaming of jobNamings"
-                        [class.group]="jobNaming.is_naming_group">
+                        [class.group]="jobNaming.is_naming_group"
+                        (click)="toggleSearchParameter('jobNaming', jobNaming.id)">
                         <div class="row">
                             <div class="col-md-2 checkbox-container">
-                                <input type="checkbox" [checked]="jobNaming.id == jobNamingId"/>
+                                <input type="checkbox" [checked]="!jobNamingIdList.indexOf(jobNaming.id)"/>
                             </div>
                             <div class="col-md-10 title-container">
                                 {{ jobNaming.title }}

@@ -38,6 +38,14 @@ System.register(['@angular/core', './../services/job.service', './job-preview.co
                         __this.jobs = res.json();
                     });
                 }
+                /**
+                 * Function called from search.component
+                 * after user changed the search parameters
+                 * @param newSearchResults
+                 */
+                JobSearchResultsComponent.prototype.updateSearchResults = function (searchParameters) {
+                    console.log(searchParameters);
+                };
                 JobSearchResultsComponent = __decorate([
                     core_1.Component({
                         selector: 'job-search-results',

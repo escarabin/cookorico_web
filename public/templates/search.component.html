@@ -2,12 +2,13 @@
     <job-search-sidebar [placeId]="placeId"
                         [jobNamingId]="jobNamingId"
                         [contractTypeId]="contractTypeId"
-                        [searchText]="searchText">
+                        [searchText]="searchText"
+                        (searchParametersChanged)="updateSearchResults($event)">
 
     </job-search-sidebar>
 </div>
 <div class="col-md-6">
-    <job-search-results></job-search-results>
+    <job-search-results [searchParameters]="searchParameters"></job-search-results>
 </div>
 <div class="col-md-3">
     <right-sidebar></right-sidebar>

@@ -37,6 +37,7 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     this.placeIdList = [];
                     this.jobNamingIdList = [];
                     this.contractTypeIdList = [];
+                    this.searchParametersChanged = new core_1.EventEmitter();
                     var __this = this;
                     referenceService.getAllContractTypes().subscribe(function (res) {
                         __this.contractTypes = res.json();
@@ -47,12 +48,26 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     referenceService.getAllStudyLevels().subscribe(function (res) {
                         __this.studyLevels = res.json();
                     });
-                    this.placeId = parseInt(routeParams.get('placeId'));
-                    this.jobNamingId = parseInt(routeParams.get('jobNamingId'));
-                    this.contractTypeId = parseInt(routeParams.get('contractTypeId'));
+                    this.placeIdList.push(parseInt(routeParams.get('placeId')));
+                    this.jobNamingIdList.push(parseInt(routeParams.get('jobNamingId')));
+                    this.contractTypeIdList.push(parseInt(routeParams.get('contractTypeId')));
                     this.searchText = routeParams.get('searchText');
-                    console.log("DATA : ", this.placeId, this.jobNamingId, this.contractTypeId, this.searchText);
                 }
+                JobSearchSidebarComponent.prototype.toggleSearchParameter = function (parameterType, parameterValue) {
+                    switch (parameterType) {
+                        case "contractType":
+                            this.contractTypeIdList.push(parseInt(parameterValue));
+                            break;
+                        case "jobNaming":
+                            this.jobNamingIdList.push(parseInt(parameterValue));
+                            break;
+                    }
+                    this.searchParametersChanged.emit(this.contractTypeIdList, this.jobNamingIdList);
+                };
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', core_1.EventEmitter)
+                ], JobSearchSidebarComponent.prototype, "searchParametersChanged", void 0);
                 JobSearchSidebarComponent = __decorate([
                     core_1.Component({
                         directives: [router_deprecated_1.RouterLink, ng2_bootstrap_1.CollapseDirective],

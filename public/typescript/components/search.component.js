@@ -36,11 +36,19 @@ System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar
             SearchComponent = (function () {
                 function SearchComponent(routeParams) {
                     this.routeParams = routeParams;
+                    this.searchParameters = [];
                     this.placeId = parseInt(routeParams.get('placeId'));
                     this.jobNamingId = parseInt(routeParams.get('jobNamingId'));
                     this.contractTypeId = parseInt(routeParams.get('contractTypeId'));
                     this.searchText = routeParams.get('searchText');
                 }
+                SearchComponent.prototype.updateSearchResults = function ($event) {
+                    this.searchResults.updateSearchResults($event);
+                };
+                __decorate([
+                    core_1.ViewChild(job_search_results_component_1.JobSearchResultsComponent), 
+                    __metadata('design:type', job_search_results_component_1.JobSearchResultsComponent)
+                ], SearchComponent.prototype, "searchResults", void 0);
                 SearchComponent = __decorate([
                     core_1.Component({
                         directives: [job_search_results_component_1.JobSearchResultsComponent,

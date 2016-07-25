@@ -299,7 +299,6 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  */
                 UserService.prototype.saveDescription = function (description) {
                     var __this = this;
-                    console.log('saving description');
                     var requestBody = JSON.stringify({ description: description });
                     return this.http.post(__this.saveUserDescriptionUrl, requestBody, this.postRequestOptions);
                 };

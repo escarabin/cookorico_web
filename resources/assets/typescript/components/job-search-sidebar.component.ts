@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { RouterLink, RouteParams } from '@angular/router-deprecated'
 import { Response } from '@angular/http';
 import { CollapseDirective } from 'ng2-bootstrap';
@@ -24,6 +24,7 @@ export class JobSearchSidebarComponent {
     jobNamingIdList: any = [];
     contractTypeIdList: any = [];
     searchText: string;
+    @Output() searchParametersChanged: EventEmitter = new EventEmitter();
 
     constructor(private referenceService: ReferenceService,
                 private routeParams: RouteParams) {
@@ -41,11 +42,22 @@ export class JobSearchSidebarComponent {
             __this.studyLevels = res.json();
         });
 
-        this.placeId = parseInt(routeParams.get('placeId'));
-        this.jobNamingId = parseInt(routeParams.get('jobNamingId'));
-        this.contractTypeId = parseInt(routeParams.get('contractTypeId'));
+        this.placeIdList.push(parseInt(routeParams.get('placeId')));
+        this.jobNamingIdList.push(parseInt(routeParams.get('jobNamingId')));
+        this.contractTypeIdList.push(parseInt(routeParams.get('contractTypeId')));
         this.searchText = routeParams.get('searchText');
+    }
 
-        console.log("DATA : ", this.placeId, this.jobNamingId, this.contractTypeId, this.searchText);
+    toggleSearchParameter(parameterType: string, parameterValue: string) {
+        switch(parameterType) {
+            case "contractType":
+                this.contractTypeIdList.push(parseInt(parameterValue));
+                break;
+            case "jobNaming":
+                this.jobNamingIdList.push(parseInt(parameterValue));
+                break;
+        }
+
+        this.searchParametersChanged.emit(this.contractTypeIdList, this.jobNamingIdList);
     }
 }
