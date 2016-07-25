@@ -2,8 +2,13 @@ job-search-results {
   background: white;
   display: block;
   border-radius: $mainBorderRadius;
-}
 
-job-search-results h2 {
-  padding-left: 20px;
+  .jobs-count {
+    text-align: center;
+    padding: 15px;
+  }
+
+  h2 {
+    padding-left: 20px;
+  }
 }

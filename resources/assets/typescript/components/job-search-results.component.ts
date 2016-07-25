@@ -24,7 +24,7 @@ import {PaginatePipe,
 })
 
 export class JobSearchResultsComponent {
-    jobs: any;
+    jobs: any = [];
 
     constructor(private jobService: JobService) {
         let __this = this;
@@ -41,7 +41,7 @@ export class JobSearchResultsComponent {
      */
     updateSearchResults(searchParameters: any) {
         let __this = this;
-        
+
         this.jobService.searchJobs(searchParameters).subscribe((res: Response) => {
             __this.jobs = res.json();
         });

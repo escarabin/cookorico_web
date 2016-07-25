@@ -33,6 +33,7 @@ System.register(['@angular/core', './../services/job.service', './job-preview.co
             JobSearchResultsComponent = (function () {
                 function JobSearchResultsComponent(jobService) {
                     this.jobService = jobService;
+                    this.jobs = [];
                     var __this = this;
                     this.jobService.getAllJobs().subscribe(function (res) {
                         __this.jobs = res.json();
