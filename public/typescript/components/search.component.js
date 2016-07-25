@@ -36,6 +36,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar
             SearchComponent = (function () {
                 function SearchComponent(routeParams) {
                     this.routeParams = routeParams;
+                    this.stateId = routeParams.get('stateId');
+                    this.jobNamingId = routeParams.get('jobNamingId');
+                    this.contractTypeId = routeParams.get('contractTypeId');
+                    this.searchText = routeParams.get('searchText');
+                    console.log('state id is ' + this.stateId);
                 }
                 SearchComponent = __decorate([
                     core_1.Component({
