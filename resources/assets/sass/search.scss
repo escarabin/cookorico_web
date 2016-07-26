@@ -3,4 +3,10 @@ search {
   margin: auto;
   padding-top: $mainPagePaddingTop;
   display: block;
+
+  .router-outlet-container {
+    width: 50%;
+    float: left;
+    margin-left: 5%;
+  }
 }

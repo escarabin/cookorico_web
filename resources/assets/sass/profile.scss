@@ -4,6 +4,12 @@ profile {
   max-width: $mainPageMaxWidth;
   margin: auto;
 
+  .router-outlet-container {
+    width: 50%;
+    float: left;
+    margin-left: 5%;
+  }
+
   .header-container {
     padding: 0;
     height: 60px;
@@ -57,7 +63,7 @@ profile {
     margin-top: 25px;
   }
 
-  .profile-router {
+  .router-outlet-container {
     background: white;
     padding: 0;
     border-radius: $mainBorderRadius;

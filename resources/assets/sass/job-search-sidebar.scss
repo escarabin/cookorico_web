@@ -1,39 +1,44 @@
-job-search-sidebar h3 {
-  cursor: pointer;
-  font-size: 1.15em;
-  text-transform: uppercase;
-  font-family: $mainMediumFontFamily;
-}
+job-search-sidebar {
+  width: 20%;
+  float: left;
 
-job-search-sidebar .collapse {
-  padding: 0;
-}
+  h3 {
+    cursor: pointer;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    font-family: $mainMediumFontFamily;
+  }
 
-job-search-sidebar label {
-  font-weight: inherit;
-}
+  .collapse {
+    padding: 0;
+  }
 
-job-search-sidebar ul  {
-  padding-left: 0;
-}
+  label {
+    font-weight: inherit;
+  }
 
-job-search-sidebar ul li  {
-  padding: 5px 10px 5px 0;
-  font-family: $mainMediumFontFamily;
-  color: #6d6d6d;
-  cursor: pointer;
-  margin-bottom: 10px;
-  border-radius: $mainBorderRadius;
-}
+  ul  {
+    padding-left: 0;
 
-job-search-sidebar ul li:hover  {
-  background: white;
-}
+    li  {
+      padding: 5px 10px 5px 0;
+      font-family: $mainMediumFontFamily;
+      color: #6d6d6d;
+      cursor: pointer;
+      margin-bottom: 10px;
+      border-radius: $mainBorderRadius;
 
-job-search-sidebar ul li.group  {
-  font-family: $mainBoldFontFamily;
-}
+      &:hover {
+        background: white;
+      }
 
-job-search-sidebar ul li .title-container {
-  padding-left: 0;
+      .group  {
+        font-family: $mainBoldFontFamily;
+      }
+
+      .title-container {
+        padding-left: 0;
+      }
+    }
+  }
 }
