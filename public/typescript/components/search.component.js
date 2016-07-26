@@ -48,16 +48,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar
                 }
                 SearchComponent.prototype.updateSearchResults = function (parameters) {
                     this.searchParameters = parameters;
-                    this.router.navigate(['SearchJobs', { parameters: parameters }]);
+                    this.router.navigate(['/JobSearch/SearchJobs', { parameters: parameters }]);
                 };
-                __decorate([
-                    core_1.ViewChild(job_search_results_component_1.JobSearchResultsComponent), 
-                    __metadata('design:type', job_search_results_component_1.JobSearchResultsComponent)
-                ], SearchComponent.prototype, "searchResults", void 0);
                 SearchComponent = __decorate([
                     core_1.Component({
-                        directives: [job_search_results_component_1.JobSearchResultsComponent,
-                            job_search_sidebar_component_1.JobSearchSidebarComponent,
+                        directives: [job_search_sidebar_component_1.JobSearchSidebarComponent,
                             right_sidebar_component_1.RightSidebarComponent,
                             router_deprecated_1.RouterOutlet],
                         templateUrl: '../templates/search.component.html',

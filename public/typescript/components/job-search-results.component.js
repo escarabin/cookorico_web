@@ -38,10 +38,12 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                     this.jobService = jobService;
                     this.routeParams = routeParams;
                     this.jobs = [];
-                    this.searchParameters = [];
                     var __this = this;
-                    console.log('params', this.searchParameters);
-                    this.searchParameters = routeParams.get('parameters');
+                    this.placeId = this.routeParams.get('placeId');
+                    this.studyLevelId = this.routeParams.get('studyLevelId');
+                    this.contractTypeId = this.routeParams.get('contractTypeId');
+                    this.jobNamingId = this.routeParams.get('jobNamingId');
+                    this.searchText = this.routeParams.get('searchText');
                     this.jobService.getAllJobs().subscribe(function (res) {
                         __this.jobs = res.json();
                     });
@@ -53,6 +55,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                  */
                 JobSearchResultsComponent.prototype.updateSearchResults = function (searchParameters) {
                     var __this = this;
+                    console.log('params bitch ', searchParameters);
                     this.jobService.searchJobs(searchParameters).subscribe(function (res) {
                         __this.jobs = res.json();
                     });

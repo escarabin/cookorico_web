@@ -26,15 +26,21 @@ import {PaginatePipe,
 
 export class JobSearchResultsComponent {
     jobs: any = [];
-    searchParameters: any = [];
+    placeId: string;
+    studyLevelId: string;
+    contractTypeId: string;
+    jobNamingId: string;
+    searchText: string;
 
     constructor(private jobService: JobService,
                 private routeParams: RouteParams) {
         let __this = this;
 
-        console.log('params', this.searchParameters);
-
-        this.searchParameters = routeParams.get('parameters');
+        this.placeId = this.routeParams.get('placeId');
+        this.studyLevelId = this.routeParams.get('studyLevelId');
+        this.contractTypeId = this.routeParams.get('contractTypeId');
+        this.jobNamingId = this.routeParams.get('jobNamingId');
+        this.searchText = this.routeParams.get('searchText');
 
         this.jobService.getAllJobs().subscribe((res: Response) => {
             __this.jobs = res.json();
@@ -48,6 +54,8 @@ export class JobSearchResultsComponent {
      */
     updateSearchResults(searchParameters: any) {
         let __this = this;
+
+        console.log('params bitch ', searchParameters);
 
         this.jobService.searchJobs(searchParameters).subscribe((res: Response) => {
             __this.jobs = res.json();

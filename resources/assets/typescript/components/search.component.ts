@@ -10,8 +10,7 @@ import { NewApplicationFormComponent } from './new-application-form.component';
 import { JobComponent } from './job.component';
 
 @Component({
-    directives: [JobSearchResultsComponent,
-                 JobSearchSidebarComponent,
+    directives: [JobSearchSidebarComponent,
                  RightSidebarComponent,
                  RouterOutlet],
     templateUrl: '../templates/search.component.html',
@@ -31,7 +30,6 @@ import { JobComponent } from './job.component';
 ])
 
 export class SearchComponent {
-    @ViewChild(JobSearchResultsComponent) searchResults:JobSearchResultsComponent;
     placeId: number;
     jobNamingId: number;
     contractTypeId: number;
@@ -49,6 +47,6 @@ export class SearchComponent {
     updateSearchResults(parameters) {
         this.searchParameters = parameters;
 
-        this.router.navigate(['SearchJobs', { parameters: parameters }]);
+        this.router.navigate(['/JobSearch/SearchJobs', { parameters: parameters }]);
     }
 }

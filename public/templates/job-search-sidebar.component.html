@@ -18,73 +18,77 @@
                    placeholder="Localisation"/>
         </div>
     </div>
+    <br />
+    <br />
     <div class="col-md-12">
+        <h3 (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
+            <span class="badge" [class.inactive]="studyLevelIdList.length == 1">
+                {{ studyLevelIdList.length - 1 }}
+            </span> &nbsp;
+             Niveau d'étude
+        </h3>
+        <div [collapse]="isStudyLevelCollapsed"
+             class="col-md-12">
+            <ul>
+                <li *ngFor="let studyLevel of studyLevels"
+                    (click)="toggleSearchParameter('studyLevel', studyLevel.id)">
+                    <div class="row">
+                        <div class="col-md-2 checkbox-container">
+                            <input type="checkbox" [checked]="!studyLevelIdList.indexOf(studyLevel.id)"/>
+                        </div>
+                        <div class="col-md-10 title-container">
+                            {{ studyLevel.title }}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
         <br />
-        <div class="col-md-12">
-            <h3 (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
-                <span class="badge"> {{ studyLevelIdList.length - 1 }} </span> &nbsp;
-                 Niveau d'étude
-            </h3>
-            <div [collapse]="isStudyLevelCollapsed"
-                 class="col-md-12">
-                <ul>
-                    <li *ngFor="let studyLevel of studyLevels"
-                        (click)="toggleSearchParameter('studyLevel', studyLevel.id)">
-                        <div class="row">
-                            <div class="col-md-2 checkbox-container">
-                                <input type="checkbox" [checked]="!studyLevelIdList.indexOf(studyLevel.id)"/>
-                            </div>
-                            <div class="col-md-10 title-container">
-                                {{ studyLevel.title }}
-                            </div>
+        <h3 (click)="isContractTypeCollapsed = !isContractTypeCollapsed">
+            <span class="badge" [class.inactive]="contractTypeIdList.length == 1">
+                {{ contractTypeIdList.length - 1 }}
+            </span> &nbsp;
+            Type de contrat
+        </h3>
+        <div [collapse]="isContractTypeCollapsed"
+             class="col-md-12">
+            <ul>
+                <li *ngFor="let contractType of contractTypes"
+                    (click)="toggleSearchParameter('contractType', contractType.id)">
+                    <div class="row">
+                        <div class="col-md-2 checkbox-container">
+                            <input type="checkbox" [checked]="!contractTypeIdList.indexOf(contractType.id)"/>
                         </div>
-                    </li>
-                </ul>
-            </div>
+                        <div class="col-md-10 title-container">
+                            {{ contractType.title }}
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <div class="col-md-12">
-            <h3 (click)="isContractTypeCollapsed = !isContractTypeCollapsed">
-                <span class="badge">{{ contractTypeIdList.length - 1 }}</span> &nbsp;
-                Type de contrat
-            </h3>
-            <div [collapse]="isContractTypeCollapsed"
-                 class="col-md-12">
-                <ul>
-                    <li *ngFor="let contractType of contractTypes"
-                        (click)="toggleSearchParameter('contractType', contractType.id)">
-                        <div class="row">
-                            <div class="col-md-2 checkbox-container">
-                                <input type="checkbox" [checked]="!contractTypeIdList.indexOf(contractType.id)"/>
-                            </div>
-                            <div class="col-md-10 title-container">
-                                {{ contractType.title }}
-                            </div>
+        <br />
+        <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
+            <span class="badge" [class.inactive]="jobNamingIdList.length == 1">
+                {{ jobNamingIdList.length - 1 }}
+            </span> &nbsp;
+            Type de poste
+        </h3>
+        <div [collapse]="isJobNamingCollapsed"
+             class="col-md-12">
+            <ul>
+                <li *ngFor="let jobNaming of jobNamings"
+                    [class.group]="jobNaming.is_naming_group"
+                    (click)="toggleSearchParameter('jobNaming', jobNaming.id)">
+                    <div class="row">
+                        <div class="col-md-2 checkbox-container">
+                            <input type="checkbox" [checked]="!jobNamingIdList.indexOf(jobNaming.id)"/>
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
-                <span class="badge"> {{ jobNamingIdList.length - 1 }} </span> &nbsp; Type de poste
-            </h3>
-            <div [collapse]="isJobNamingCollapsed"
-                 class="col-md-12">
-                <ul>
-                    <li *ngFor="let jobNaming of jobNamings"
-                        [class.group]="jobNaming.is_naming_group"
-                        (click)="toggleSearchParameter('jobNaming', jobNaming.id)">
-                        <div class="row">
-                            <div class="col-md-2 checkbox-container">
-                                <input type="checkbox" [checked]="!jobNamingIdList.indexOf(jobNaming.id)"/>
-                            </div>
-                            <div class="col-md-10 title-container">
-                                {{ jobNaming.title }}
-                            </div>
+                        <div class="col-md-10 title-container">
+                            {{ jobNaming.title }}
                         </div>
-                    </li>
-                </ul>
-            </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

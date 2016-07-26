@@ -92,7 +92,6 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     parametersArray['contractTypeIdList'] = this.contractTypeIdList;
                     parametersArray['jobNamingIdList'] = this.jobNamingIdList;
                     parametersArray['studyLevelIdList'] = this.studyLevelIdList;
-                    console.log(parametersArray);
                     this.searchParametersChanged.emit(parametersArray);
                 };
                 __decorate([

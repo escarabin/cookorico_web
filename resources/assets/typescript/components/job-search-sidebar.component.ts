@@ -89,8 +89,6 @@ export class JobSearchSidebarComponent {
         parametersArray['jobNamingIdList'] = this.jobNamingIdList;
         parametersArray['studyLevelIdList'] = this.studyLevelIdList;
 
-        console.log(parametersArray);
-
         this.searchParametersChanged.emit(parametersArray);
     }
 }

@@ -1,46 +1,46 @@
 header {
   width: 100%;
-  padding: 15px;
+  padding: 5px;
+  height: 90px;
   position: fixed;
   z-index: 10;
   background-color: $mainBlueColor;
-}
 
-header .logo {
-  background-image: url("/img/oechr_logo.png");
-  background-size: 100%;
-  background-position: center top;
-  width: 250px;
-  height: 60px;
-}
+  .logo {
+    background-image: url("/img/oechr_logo.png");
+    background-size: 100%;
+    background-position: center top;
+    width: 250px;
+    height: 60px;
+  }
 
-header ul li {
-  float: right;
-  padding: 30px;
-}
+  ul li {
+    float: right;
+    padding: 30px;
 
-header ul li a {
-  color: white;
-  letter-spacing: 1px;
-  cursor: pointer;
-  font-weight: 400;
-}
+    a {
+      color: white;
+      letter-spacing: 1px;
+      cursor: pointer;
+      font-weight: 400;
 
-header ul li.recruiter_btn a {
-  border: 2px solid white;
-  border-radius: $mainBorderRadius;
-  padding: 10px 15px 10px 15px;
-  font-weight: 600;
-  background: white;
-  color: $mainBlueColor;
-}
+      &:hover {
+        color: white;
+      }
+    }
 
-header ul li.recruiter_btn a:hover {
-  background: $mainBlueColor;
-  color: white;
-}
+    .recruiter_btn a {
+      border: 2px solid white;
+      border-radius: $mainBorderRadius;
+      padding: 10px 15px 10px 15px;
+      font-weight: 600;
+      background: white;
+      color: $mainBlueColor;
+    }
 
-header ul li a:hover {
-  color: white;
+    &:hover {
+      background: $mainBlueColor;
+      color: white;
+    }
+  }
 }
-
