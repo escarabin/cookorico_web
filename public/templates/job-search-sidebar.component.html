@@ -22,7 +22,8 @@
         <br />
         <div class="col-md-12">
             <h3 (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
-                <span class="fa fa-list"></span> &nbsp; Niveau d'étude
+                <span class="badge"> {{ studyLevelIdList.length - 1 }} </span> &nbsp;
+                 Niveau d'étude
             </h3>
             <div [collapse]="isStudyLevelCollapsed"
                  class="col-md-12">
@@ -43,7 +44,8 @@
         </div>
         <div class="col-md-12">
             <h3 (click)="isContractTypeCollapsed = !isContractTypeCollapsed">
-                <span class="fa fa-newspaper-o"></span> &nbsp; Type de contrat
+                <span class="badge">{{ contractTypeIdList.length - 1 }}</span> &nbsp;
+                Type de contrat
             </h3>
             <div [collapse]="isContractTypeCollapsed"
                  class="col-md-12">
@@ -64,7 +66,7 @@
         </div>
         <div class="col-md-12">
             <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
-                <span class="fa fa-user"></span> &nbsp; Type de poste
+                <span class="badge"> {{ jobNamingIdList.length - 1 }} </span> &nbsp; Type de poste
             </h3>
             <div [collapse]="isJobNamingCollapsed"
                  class="col-md-12">

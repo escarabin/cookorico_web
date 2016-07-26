@@ -44,6 +44,7 @@ export class JobSearchSidebarComponent {
         });
 
         this.placeIdList.push(parseInt(routeParams.get('placeId')));
+        this.studyLevelIdList.push(parseInt(routeParams.get('studyLevelId')));
         this.jobNamingIdList.push(parseInt(routeParams.get('jobNamingId')));
         this.contractTypeIdList.push(parseInt(routeParams.get('contractTypeId')));
         this.searchText = routeParams.get('searchText');
@@ -87,6 +88,8 @@ export class JobSearchSidebarComponent {
         parametersArray['contractTypeIdList'] = this.contractTypeIdList;
         parametersArray['jobNamingIdList'] = this.jobNamingIdList;
         parametersArray['studyLevelIdList'] = this.studyLevelIdList;
+
+        console.log(parametersArray);
 
         this.searchParametersChanged.emit(parametersArray);
     }

@@ -705,10 +705,13 @@ job-preview:nth-child(odd) {
 job-search-results {
   background: white;
   display: block;
-  border-radius: 4px; }
+  border-radius: 4px;
+  box-shadow: 0px 0px 40px 0px #d8d8d8;
+  -webkit-box-shadow: 0px 0px 40px 0px #d8d8d8;
+  -moz-box-shadow: 0px 0px 40px 0px #d8d8d8; }
   job-search-results .jobs-count {
     text-align: center;
-    padding: 15px;
+    padding: 25px;
     margin: 0 15px;
     color: white;
     background-color: #35B6E1; }
@@ -721,9 +724,9 @@ profile {
   max-width: 1200px;
   margin: auto; }
   profile .router-outlet-container {
-    width: 50%;
+    width: 55%;
     float: left;
-    margin-left: 5%; }
+    margin-left: 3%; }
   profile .header-container {
     padding: 0;
     height: 60px;
@@ -1007,8 +1010,8 @@ custom-pagination {
 
 right-sidebar {
   display: inline-block;
-  width: 20%;
-  margin-left: 5%; }
+  width: 18%;
+  margin-left: 3%; }
 
 body {
   background-color: #f7f7f8;

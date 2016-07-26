@@ -21,8 +21,6 @@ class PlaceController extends Controller
    public function save(Request $request) {
        $placeData = $request::input('place');
 
-       Log::info($placeData);
-
        // Check if place already exists in db
        $place = Place::where('googlePlaceId', $placeData['place_id'])->first();
        $business = new Business();
@@ -36,6 +34,7 @@ class PlaceController extends Controller
            $adr_adress = $placeData['adr_address'];
 
            $place->googlePlaceId = $placeData['place_id'];
+
            $place->adress = $placeData['formatted_address'];
            $place->city = $this->getStringBetween($adr_adress, '<span class="locality">', '</span>');
            $place->postalCode = $this->getStringBetween($adr_adress, '<span class="postal-code">', '</span>');
@@ -54,8 +53,12 @@ class PlaceController extends Controller
 
                $business->place_id = $place->id;
                $business->title = $placeData['name'];
-               $business->phone = $placeData['formatted_phone_number'];
-               $business->website = $placeData['website'];
+               if ($placeData['formatted_phone_number']) {
+                   $business->phone = $placeData['formatted_phone_number'];
+               }
+               if ($placeData['website']) {
+                   $business->website = $placeData['website'];
+               }
 
                $business->save();
            }

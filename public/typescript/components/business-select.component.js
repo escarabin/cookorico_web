@@ -1,4 +1,4 @@
-System.register(['@angular/core', './../services/business.service', './../services/place.service', './../services/user.service', 'angular2-google-map-auto-complete/directives/googleplace.directive'], function(exports_1, context_1) {
+System.register(['@angular/core', './../services/business.service', './../services/place.service', './../services/user.service', './../services/notification.service', 'angular2-google-map-auto-complete/directives/googleplace.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './../services/business.service', './../servic
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, business_service_1, place_service_1, user_service_1, googleplace_directive_1;
+    var core_1, business_service_1, place_service_1, user_service_1, notification_service_1, googleplace_directive_1;
     var BusinessSelectComponent;
     return {
         setters:[
@@ -26,14 +26,18 @@ System.register(['@angular/core', './../services/business.service', './../servic
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
             function (googleplace_directive_1_1) {
                 googleplace_directive_1 = googleplace_directive_1_1;
             }],
         execute: function() {
             BusinessSelectComponent = (function () {
-                function BusinessSelectComponent(businessService, placeService, userService) {
+                function BusinessSelectComponent(businessService, placeService, notificationService, userService) {
                     this.businessService = businessService;
                     this.placeService = placeService;
+                    this.notificationService = notificationService;
                     this.userService = userService;
                     this.businesses = [];
                     this.isGooglePlaceInput = false;
@@ -58,7 +62,7 @@ System.register(['@angular/core', './../services/business.service', './../servic
                     console.log(place);
                     // Save selected place data for further use
                     this.placeService.save(place).subscribe(function (res) {
-                        console.log('received a response from place saving request');
+                        console.log(res.json());
                         __this.businessId = res.json()['id'];
                         __this.businessIdChanged();
                         __this.businessService.getAll().subscribe(function (res1) {
@@ -89,12 +93,12 @@ System.register(['@angular/core', './../services/business.service', './../servic
                 BusinessSelectComponent = __decorate([
                     core_1.Component({
                         selector: 'business-select',
-                        providers: [business_service_1.BusinessService, place_service_1.PlaceService, user_service_1.UserService],
+                        providers: [business_service_1.BusinessService, place_service_1.PlaceService, user_service_1.UserService, notification_service_1.NotificationsService],
                         directives: [googleplace_directive_1.GoogleplaceDirective],
                         templateUrl: '../templates/business-select.component.html',
                         inputs: ['businessId', 'onlyUserBusinesses', 'isRequired']
                     }), 
-                    __metadata('design:paramtypes', [business_service_1.BusinessService, place_service_1.PlaceService, user_service_1.UserService])
+                    __metadata('design:paramtypes', [business_service_1.BusinessService, place_service_1.PlaceService, notification_service_1.NotificationsService, user_service_1.UserService])
                 ], BusinessSelectComponent);
                 return BusinessSelectComponent;
             }());

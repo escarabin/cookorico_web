@@ -5,13 +5,17 @@ import { Response } from '@angular/http';
 import { BusinessService } from './../services/business.service';
 import { PlaceService } from './../services/place.service';
 import { UserService } from './../services/user.service';
+import { NotificationsService } from './../services/notification.service';
 
 // Directives
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
 
+// Models
+import { Notification } from './../models/notification';
+
 @Component({
     selector: 'business-select',
-    providers: [BusinessService, PlaceService, UserService],
+    providers: [BusinessService, PlaceService, UserService, NotificationsService],
     directives: [GoogleplaceDirective],
     templateUrl: '../templates/business-select.component.html',
     inputs: ['businessId', 'onlyUserBusinesses', 'isRequired']
@@ -28,6 +32,7 @@ export class BusinessSelectComponent {
 
     constructor(private businessService: BusinessService,
                 private placeService: PlaceService,
+                private notificationService: NotificationsService,
                 private userService: UserService) {
         let __this = this;
 
@@ -53,7 +58,7 @@ export class BusinessSelectComponent {
 
         // Save selected place data for further use
         this.placeService.save(place).subscribe((res: Response) => {
-            console.log('received a response from place saving request');
+            console.log(res.json());
 
             __this.businessId = res.json()['id'];
             __this.businessIdChanged();

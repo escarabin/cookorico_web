@@ -49,6 +49,13 @@ class JobController extends Controller
                     'jobXpLevel',
                     'languages');
 
+        /**
+         * Necessary ugly workaround
+         */
+        foreach ($jobs as $job) {
+            $job->business->place = $job->business->place;
+        }
+
         return $jobs;
     }
 
@@ -76,6 +83,13 @@ class JobController extends Controller
                             'contractType',
                             'jobXpLevel',
                             'languages');
+
+        /**
+         * Necessary ugly workaround
+         */
+        foreach ($jobs as $job) {
+            $job->business->place = $job->business->place;
+        }
 
         return $jobs;
     }
