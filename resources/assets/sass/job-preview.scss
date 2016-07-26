@@ -3,6 +3,8 @@ job-preview {
   border: 1px solid #ececec;
   padding: 25px;
   background: whitesmoke;
+  transition-property: all;
+  transition-duration: 250ms;
 
   .logo {
     position: relative;
