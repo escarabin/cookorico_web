@@ -39,8 +39,6 @@ export class HeaderComponent {
      * @param user
      */
     handleUserSignedOut(user: User) {
-        console.log('user signed out');
-
         this.user = null;
     }
 }

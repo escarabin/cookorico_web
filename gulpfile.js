@@ -20,6 +20,7 @@ elixir(function(mix) {
     mix.copy('node_modules/ng2-img-cropper', 'public/ng2-img-cropper');
     mix.copy('node_modules/ng2-file-upload', 'public/ng2-file-upload');
     mix.copy('node_modules/ng2-pagination', 'public/ng2-pagination');
+    mix.copy('node_modules/angular-google-maps', 'public/angular-google-maps');
 
     mix.typescript('app.js','public/','/**/*.ts',{
         "target": "ES5",
