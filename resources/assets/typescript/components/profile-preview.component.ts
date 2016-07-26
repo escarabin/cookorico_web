@@ -49,6 +49,7 @@ export class ProfilePreviewComponent {
     education: any = [];
     testimonials: any = [];
     profilePictureData: any;
+    resumeData: any;
     isLoading:boolean = false;
     editableProfile: boolean = true;
     cropperSettings: CropperSettings;
@@ -104,7 +105,16 @@ export class ProfilePreviewComponent {
     }
 
     public resumeFileDropped(e:any):void {
-        console.log(e);
+        this.resumeData = e[0];
+
+        if (this.resumeData.type == "application/pdf") {
+            this.uploadResume();
+        }
+        else {
+            this.notificationService.show(
+                new Notification('error', 'Seuls les fichiers de type PDF sont acceptés')
+            );
+        }
     }
 
     public fileChangeListener($event) {
@@ -154,6 +164,28 @@ export class ProfilePreviewComponent {
             this.isLoading = false;
 
             this.profilePictureChanged.emit();
+        });
+    }
+
+    uploadResume() {
+        this.isLoading = true;
+
+        this.userService.uploadResume(this.resumeData).subscribe((res: Response) => {
+            /**
+             * File has been successfully uploaded to AWS S3
+             */
+            if (res['_body']) {
+                this.notificationService.show(
+                    new Notification('success', 'Votre CV a bien été modifié')
+                );
+
+                /**
+                 * Close resume modal
+                 */
+                document.getElementById('edit-resume-modal').click();
+            }
+
+            this.isLoading = false;
         });
     }
 

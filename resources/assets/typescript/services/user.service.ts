@@ -40,6 +40,7 @@ export class UserService {
     createUserUrl = '/user/create';
     saveUserDescriptionUrl = '/user/save_description';
     uploadProfilePictureUrl = '/user/upload_profile_picture';
+    uploadResumeUrl = '/user/upload_resume';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
@@ -335,6 +336,24 @@ export class UserService {
         let requestBody = JSON.stringify({ base64 });
 
         return this.http.post(__this.uploadProfilePictureUrl, requestBody, this.postRequestOptions);
+    }
+
+
+    /**
+     * Upload new resume for current user
+     * @param resume
+     * @returns {Observable<Response>}
+     */
+    uploadResume(resume: any) {
+        let __this = this;
+
+        console.log('resume is ', resume);
+
+        let requestBody = resume;
+        let pdfPostRequestHeaders = new Headers({ 'Content-Type': 'application/pdf' });
+        let pdfPostRequestOptions = new RequestOptions({ headers: pdfPostRequestHeaders });
+
+        return this.http.post(__this.uploadResumeUrl, requestBody, pdfPostRequestOptions);
     }
 
     /**

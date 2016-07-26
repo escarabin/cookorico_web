@@ -244,4 +244,16 @@ class UserController extends Controller
 
         return $newFilePath;
     }
+
+
+    /**
+     * Upload a new resume
+     * @param Request $request
+     * @return string
+     */
+    public function uploadResume(Request $request) {
+        Log::info($request::all());
+
+        return 'test';
+    }
 }

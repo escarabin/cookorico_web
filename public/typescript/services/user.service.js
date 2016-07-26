@@ -59,6 +59,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.createUserUrl = '/user/create';
                     this.saveUserDescriptionUrl = '/user/save_description';
                     this.uploadProfilePictureUrl = '/user/upload_profile_picture';
+                    this.uploadResumeUrl = '/user/upload_resume';
                     this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
                     this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
                 }
@@ -291,6 +292,19 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     var __this = this;
                     var requestBody = JSON.stringify({ base64: base64 });
                     return this.http.post(__this.uploadProfilePictureUrl, requestBody, this.postRequestOptions);
+                };
+                /**
+                 * Upload new resume for current user
+                 * @param resume
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.uploadResume = function (resume) {
+                    var __this = this;
+                    console.log('resume is ', resume);
+                    var requestBody = resume;
+                    var pdfPostRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/pdf' });
+                    var pdfPostRequestOptions = new http_1.RequestOptions({ headers: pdfPostRequestHeaders });
+                    return this.http.post(__this.uploadResumeUrl, requestBody, pdfPostRequestOptions);
                 };
                 /**
                  * Save logged user new description

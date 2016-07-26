@@ -860,30 +860,33 @@ testimonials {
   text-align: center;
   cursor: pointer; }
 
-.notification-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #35B6E1;
-  color: white;
-  text-align: center;
-  padding: 30px;
-  height: 85px;
-  font-size: 1.3em;
-  font-family: "Avenir Medium", sans-serif;
-  z-index: 100;
-  animation: show-note 250ms;
-  transition-property: all;
-  transition-duration: 250ms; }
-  .notification-container.success {
-    background-color: #35B6E1; }
-  .notification-container.warning {
-    background-color: #E47F1B; }
-  .notification-container.error {
-    background-color: #E13543; }
-  .notification-container.info {
-    background-color: #35B6E1; }
+notifications {
+  position: relative;
+  z-index: 10000; }
+  notifications .notification-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #35B6E1;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    height: 85px;
+    font-size: 1.3em;
+    font-family: "Avenir Medium", sans-serif;
+    z-index: 100;
+    animation: show-note 250ms;
+    transition-property: all;
+    transition-duration: 250ms; }
+    notifications .notification-container.success {
+      background-color: #35B6E1; }
+    notifications .notification-container.warning {
+      background-color: #E47F1B; }
+    notifications .notification-container.error {
+      background-color: #E13543; }
+    notifications .notification-container.info {
+      background-color: #35B6E1; }
 
 .notification-container a {
   position: absolute;

@@ -43,6 +43,8 @@ Route::get('/user/businesses/', 'UserController@getBusinesses')
     ->name('getAllUserBusinesses');
 Route::post('/user/upload_profile_picture', 'UserController@uploadProfilePicture')
     ->name('uploadProfilePicture');
+Route::post('/user/upload_resume', 'UserController@uploadResume')
+    ->name('uploadResume');
 Route::post('/user/save_description', 'UserController@saveDescription');
 
 // Posts

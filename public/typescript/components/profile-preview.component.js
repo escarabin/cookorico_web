@@ -92,7 +92,13 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                     this.fileChangeListener(e);
                 };
                 ProfilePreviewComponent.prototype.resumeFileDropped = function (e) {
-                    console.log(e);
+                    this.resumeData = e[0];
+                    if (this.resumeData.type == "application/pdf") {
+                        this.uploadResume();
+                    }
+                    else {
+                        this.notificationService.show(new notification_1.Notification('error', 'Seuls les fichiers de type PDF sont acceptés'));
+                    }
                 };
                 ProfilePreviewComponent.prototype.fileChangeListener = function ($event) {
                     var image = new Image();
@@ -130,6 +136,23 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                         }
                         _this.isLoading = false;
                         _this.profilePictureChanged.emit();
+                    });
+                };
+                ProfilePreviewComponent.prototype.uploadResume = function () {
+                    var _this = this;
+                    this.isLoading = true;
+                    this.userService.uploadResume(this.resumeData).subscribe(function (res) {
+                        /**
+                         * File has been successfully uploaded to AWS S3
+                         */
+                        if (res['_body']) {
+                            _this.notificationService.show(new notification_1.Notification('success', 'Votre CV a bien été modifié'));
+                            /**
+                             * Close resume modal
+                             */
+                            document.getElementById('edit-resume-modal').click();
+                        }
+                        _this.isLoading = false;
                     });
                 };
                 ProfilePreviewComponent.prototype.submitDescription = function () {

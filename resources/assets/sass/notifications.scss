@@ -1,34 +1,39 @@
-.notification-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: $oechrBlueColor;
-  color: white;
-  text-align: center;
-  padding: 30px;
-  height: 85px;
-  font-size: 1.3em;
-  font-family: $mainMediumFontFamily;
-  z-index: 100;
-  animation: show-note 250ms;
-  transition-property: all;
-  transition-duration: 250ms;
+notifications {
+  position: relative;
+  z-index: 10000;
 
-  &.success {
-    background-color: $successColor;
-  }
+  .notification-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $oechrBlueColor;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    height: 85px;
+    font-size: 1.3em;
+    font-family: $mainMediumFontFamily;
+    z-index: 100;
+    animation: show-note 250ms;
+    transition-property: all;
+    transition-duration: 250ms;
 
-  &.warning {
-    background-color: $warningColor;
-  }
+    &.success {
+      background-color: $successColor;
+    }
 
-  &.error {
-    background-color: $errorColor;
-  }
+    &.warning {
+      background-color: $warningColor;
+    }
 
-  &.info {
-    background-color: $infoColor;
+    &.error {
+      background-color: $errorColor;
+    }
+
+    &.info {
+      background-color: $infoColor;
+    }
   }
 }
 
