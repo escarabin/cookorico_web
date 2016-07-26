@@ -33,10 +33,12 @@ class PlaceController extends Controller
 
            $place = new Place();
 
+           $adr_adress = $placeData['adr_address'];
+
            $place->googlePlaceId = $placeData['place_id'];
            $place->adress = $placeData['formatted_address'];
-           // $place->city = $placeData['city'];
-           // $place->postalCode = $placeData['postalCode'];
+           $place->city = $this->getStringBetween($adr_adress, '<span class="locality">', '</span>');
+           $place->postalCode = $this->getStringBetween($adr_adress, '<span class="postal-code">', '</span>');
            $place->lat = $placeData['geometry']['location']['lat'];
            $place->lon = $placeData['geometry']['location']['lng'];
            $place->viewport_b_lat = $placeData['geometry']['viewport']['south'];
@@ -69,5 +71,18 @@ class PlaceController extends Controller
        }
 
        return json_encode(array_merge(json_decode($place, true),json_decode($business, true)));
+   }
+
+    /**
+     * Function used to retrieve the text between two specific characters
+     * @param $str
+     * @param $from
+     * @param $to
+     * @return string
+     */
+   private function getStringBetween($str,$from,$to)
+   {
+       $sub = substr($str, strpos($str,$from)+strlen($from),strlen($str));
+       return substr($sub,0,strpos($sub,$to));
    }
 }
