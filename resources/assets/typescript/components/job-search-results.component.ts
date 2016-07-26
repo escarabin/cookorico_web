@@ -32,9 +32,9 @@ export class JobSearchResultsComponent {
                 private routeParams: RouteParams) {
         let __this = this;
 
-        this.searchParameters = routeParams.get('parameters');
-
         console.log('params', this.searchParameters);
+
+        this.searchParameters = routeParams.get('parameters');
 
         this.jobService.getAllJobs().subscribe((res: Response) => {
             __this.jobs = res.json();

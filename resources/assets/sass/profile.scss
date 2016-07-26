@@ -3,166 +3,161 @@ profile {
   display: block;
   max-width: $mainPageMaxWidth;
   margin: auto;
-}
 
-profile h2 {
-  text-align: center;
-}
+  .header-container {
+    padding: 0;
+    height: 60px;
+    border-bottom: 1px solid #e6e6e6;
 
-profile form .submit-btn, profile form .back-btn {
-  width: 100%;
-  margin-top: 25px;
-  margin-bottom: 30px;
-  height: 60px;
-}
+    .items-count {
+      text-align: center;
+      text-transform: uppercase;
+      font-family: $mainBoldFontFamily;
+      padding: 20px;
+    }
 
-profile form label {
-  margin-top: 25px;
-}
+    .main-checkbox-container {
+      padding: 22px;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      background: $mainBlueColor;
+      border-top-left-radius: $mainBorderRadius;
+    }
 
-profile .profile-router {
-  background: white;
-  padding: 0;
-  border-radius: $mainBorderRadius;
-  -moz-box-shadow: $mainBoxShadow;
-  -webkit-box-shadow: $mainBoxShadow;
-  -o-box-shadow: $mainBoxShadow;
-  box-shadow: $mainBoxShadow;
-}
+    .actions-container {
+      padding: 0;
+      text-align: right;
 
-profile .page-title-container h3 {
-  padding: 25px;
-  border-top: 1px solid #DDD;
-  border-bottom: 1px solid #DDD;
-  color: #a4acb3;
-  text-align: center;
-}
+      button {
+        width: 60px;
+        background: transparent;
+        border: none;
+        border-left: 1px solid #e6e6e6;
+        color: $mainBlueColor;
 
-profile h3 .dynamic_data {
-  font-family: $mainMediumFontFamily;
-  color: $mainBlueColor;
-}
+        &:hover {
+          background: #eeeeee;
+        }
+      }
+    }
+  }
 
-profile .list-container {
-  padding: 0;
-}
+  h2 {
+    text-align: center;
+  }
 
+  form .submit-btn, form .back-btn {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    height: 60px;
+  }
 
-profile .list-container ul {
-  padding: 0;
-  margin-bottom: 0;
-}
+  form label {
+    margin-top: 25px;
+  }
 
-profile .list-container ul li {
-  background: whitesmoke;
-  padding: 0;
-  margin: 0;
-  border: 1px solid #ececec;
-}
+  .profile-router {
+    background: white;
+    padding: 0;
+    border-radius: $mainBorderRadius;
+    -moz-box-shadow: $mainBoxShadow;
+    -webkit-box-shadow: $mainBoxShadow;
+    -o-box-shadow: $mainBoxShadow;
+    box-shadow: $mainBoxShadow;
+  }
 
-profile .list-container ul li:nth-child(odd) {
-  background: white;
-}
+  .page-title-container h3 {
+    padding: 25px;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    color: #a4acb3;
+    text-align: center;
+  }
 
-profile .list-container ul li:hover {
-  background-color: lighten($oechrBlueColor, 40%);
-  border-color: $oechrBlueColor;
-}
+  .dynamic_data {
+    font-family: $mainMediumFontFamily;
+    color: $mainBlueColor;
+  }
 
-job-preview:nth-child(odd) {
-  background: white;
-}
+  .list-container {
+    padding: 0;
 
-profile .list-container ul a {
-  color: #333;
-}
+    .checkbox-container {
+      float: left;
+      padding: 40px 0;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      background: #f4f5fd;
+    }
 
-profile .list-container ul li h3 {
-  font-family: $mainMediumFontFamily;
-  max-height: 20px;
-  overflow: hidden;
-  color: $mainBlueColor;
-}
+    ul {
+      padding: 0;
+      margin-bottom: 0;
 
-profile .list-container ul li .date {
-  float: right;
-  color: #a9a9a9;
-  font-family: $mainMediumFontFamily;
-  text-transform: uppercase;
-  font-size: 0.9em;
-}
+      li {
+        background: whitesmoke;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ececec;
 
-profile .list-container .item {
-  margin-bottom: 15px;
-}
+        &:nth-child(odd) {
+          background: white;
+        }
 
-profile .list-container .item .item-desc {
-  float: left;
-  padding-left: 10px;
-}
+        &:hover {
+          background-color: lighten($oechrBlueColor, 40%);
+          border-color: $oechrBlueColor;
+        }
 
-profile .list-container .item.logo .item-desc {
-  width: 65%;
-  margin-right: 15px;
-}
+        a {
+          color: #333;
+        }
 
-profile .list-container .item .logo {
-  position: relative;
-  top: 5px;
-  display: inline-block;
-  text-align: center;
-  width: 25%;
-}
+        h3 {
+          font-family: $mainMediumFontFamily;
+          max-height: 20px;
+          overflow: hidden;
+          color: $mainBlueColor;
+        }
 
-profile .list-container .logo img {
-  max-width: 80px;
-  max-height: 80px;
-}
+        .date {
+          float: right;
+          color: #a9a9a9;
+          font-family: $mainMediumFontFamily;
+          text-transform: uppercase;
+          font-size: 0.9em;
+        }
 
-profile .list-container .checkbox-container {
-  float: left;
-  padding: 40px 0;
-  text-align: center;
-  border-right: 1px solid #e6e6e6;
-  background: #f4f5fd;
-}
+        .item {
+          margin-bottom: 15px;
 
-profile .header-container {
-  padding: 0;
-  height: 60px;
-  border-bottom: 1px solid #e6e6e6;
-}
+          .item-desc {
+            float: left;
+            padding-left: 10px;
+          }
 
-profile .header-container .main-checkbox-container {
-  padding: 22px;
-  text-align: center;
-  border-right: 1px solid #e6e6e6;
-  background: $mainBlueColor;
-  border-top-left-radius: $mainBorderRadius;
-}
+          &.logo .item-desc {
+            width: 65%;
+            margin-right: 15px;
+          }
 
-profile .header-container .items-count {
-  text-align: center;
-  text-transform: uppercase;
-  font-family: $mainBoldFontFamily;
-  padding: 20px;
-}
+          .logo {
+            position: relative;
+            top: 5px;
+            display: inline-block;
+            text-align: center;
+            width: 25%;
 
-profile .header-container .actions-container {
-  padding: 0;
-  text-align: right;
-}
-
-profile .header-container .actions-container button {
-  width: 60px;
-  background: transparent;
-  border: none;
-  border-left: 1px solid #e6e6e6;
-  color: $mainBlueColor;
-}
-
-profile .header-container .actions-container button:hover {
-  background: #eeeeee;
+            img {
+              max-width: 80px;
+              max-height: 80px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media(max-width: 700px) {

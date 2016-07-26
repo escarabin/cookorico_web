@@ -552,7 +552,8 @@ user-sidebar {
   border-radius: 4px;
   -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
   box-shadow: 0px 0px 40px 0px #d8d8d8;
-  color: white; }
+  color: white;
+  width: 20%; }
 
 user-sidebar .user-infos {
   text-align: left;
@@ -698,136 +699,107 @@ profile {
   display: block;
   max-width: 1200px;
   margin: auto; }
-
-profile h2 {
-  text-align: center; }
-
-profile form .submit-btn, profile form .back-btn {
-  width: 100%;
-  margin-top: 25px;
-  margin-bottom: 30px;
-  height: 60px; }
-
-profile form label {
-  margin-top: 25px; }
-
-profile .profile-router {
-  background: white;
-  padding: 0;
-  border-radius: 4px;
-  -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
-  box-shadow: 0px 0px 40px 0px #d8d8d8; }
-
-profile .page-title-container h3 {
-  padding: 25px;
-  border-top: 1px solid #DDD;
-  border-bottom: 1px solid #DDD;
-  color: #a4acb3;
-  text-align: center; }
-
-profile h3 .dynamic_data {
-  font-family: "Avenir Medium", sans-serif;
-  color: #1a1f38; }
-
-profile .list-container {
-  padding: 0; }
-
-profile .list-container ul {
-  padding: 0;
-  margin-bottom: 0; }
-
-profile .list-container ul li {
-  background: whitesmoke;
-  padding: 0;
-  margin: 0;
-  border: 1px solid #ececec; }
-
-profile .list-container ul li:nth-child(odd) {
-  background: white; }
-
-profile .list-container ul li:hover {
-  background-color: #e7f6fb;
-  border-color: #35B6E1; }
-
-job-preview:nth-child(odd) {
-  background: white; }
-
-profile .list-container ul a {
-  color: #333; }
-
-profile .list-container ul li h3 {
-  font-family: "Avenir Medium", sans-serif;
-  max-height: 20px;
-  overflow: hidden;
-  color: #1a1f38; }
-
-profile .list-container ul li .date {
-  float: right;
-  color: #a9a9a9;
-  font-family: "Avenir Medium", sans-serif;
-  text-transform: uppercase;
-  font-size: 0.9em; }
-
-profile .list-container .item {
-  margin-bottom: 15px; }
-
-profile .list-container .item .item-desc {
-  float: left;
-  padding-left: 10px; }
-
-profile .list-container .item.logo .item-desc {
-  width: 65%;
-  margin-right: 15px; }
-
-profile .list-container .item .logo {
-  position: relative;
-  top: 5px;
-  display: inline-block;
-  text-align: center;
-  width: 25%; }
-
-profile .list-container .logo img {
-  max-width: 80px;
-  max-height: 80px; }
-
-profile .list-container .checkbox-container {
-  float: left;
-  padding: 40px 0;
-  text-align: center;
-  border-right: 1px solid #e6e6e6;
-  background: #f4f5fd; }
-
-profile .header-container {
-  padding: 0;
-  height: 60px;
-  border-bottom: 1px solid #e6e6e6; }
-
-profile .header-container .main-checkbox-container {
-  padding: 22px;
-  text-align: center;
-  border-right: 1px solid #e6e6e6;
-  background: #1a1f38;
-  border-top-left-radius: 4px; }
-
-profile .header-container .items-count {
-  text-align: center;
-  text-transform: uppercase;
-  font-family: "Avenir Heavy", sans-serif;
-  padding: 20px; }
-
-profile .header-container .actions-container {
-  padding: 0;
-  text-align: right; }
-
-profile .header-container .actions-container button {
-  width: 60px;
-  background: transparent;
-  border: none;
-  border-left: 1px solid #e6e6e6;
-  color: #1a1f38; }
-
-profile .header-container .actions-container button:hover {
-  background: #eeeeee; }
+  profile .header-container {
+    padding: 0;
+    height: 60px;
+    border-bottom: 1px solid #e6e6e6; }
+    profile .header-container .items-count {
+      text-align: center;
+      text-transform: uppercase;
+      font-family: "Avenir Heavy", sans-serif;
+      padding: 20px; }
+    profile .header-container .main-checkbox-container {
+      padding: 22px;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      background: #1a1f38;
+      border-top-left-radius: 4px; }
+    profile .header-container .actions-container {
+      padding: 0;
+      text-align: right; }
+      profile .header-container .actions-container button {
+        width: 60px;
+        background: transparent;
+        border: none;
+        border-left: 1px solid #e6e6e6;
+        color: #1a1f38; }
+        profile .header-container .actions-container button:hover {
+          background: #eeeeee; }
+  profile h2 {
+    text-align: center; }
+  profile form .submit-btn, profile form .back-btn {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    height: 60px; }
+  profile form label {
+    margin-top: 25px; }
+  profile .profile-router {
+    background: white;
+    padding: 0;
+    border-radius: 4px;
+    -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
+    box-shadow: 0px 0px 40px 0px #d8d8d8; }
+  profile .page-title-container h3 {
+    padding: 25px;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    color: #a4acb3;
+    text-align: center; }
+  profile .dynamic_data {
+    font-family: "Avenir Medium", sans-serif;
+    color: #1a1f38; }
+  profile .list-container {
+    padding: 0; }
+    profile .list-container .checkbox-container {
+      float: left;
+      padding: 40px 0;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      background: #f4f5fd; }
+    profile .list-container ul {
+      padding: 0;
+      margin-bottom: 0; }
+      profile .list-container ul li {
+        background: whitesmoke;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ececec; }
+        profile .list-container ul li:nth-child(odd) {
+          background: white; }
+        profile .list-container ul li:hover {
+          background-color: #e7f6fb;
+          border-color: #35B6E1; }
+        profile .list-container ul li a {
+          color: #333; }
+        profile .list-container ul li h3 {
+          font-family: "Avenir Medium", sans-serif;
+          max-height: 20px;
+          overflow: hidden;
+          color: #1a1f38; }
+        profile .list-container ul li .date {
+          float: right;
+          color: #a9a9a9;
+          font-family: "Avenir Medium", sans-serif;
+          text-transform: uppercase;
+          font-size: 0.9em; }
+        profile .list-container ul li .item {
+          margin-bottom: 15px; }
+          profile .list-container ul li .item .item-desc {
+            float: left;
+            padding-left: 10px; }
+          profile .list-container ul li .item.logo .item-desc {
+            width: 65%;
+            margin-right: 15px; }
+          profile .list-container ul li .item .logo {
+            position: relative;
+            top: 5px;
+            display: inline-block;
+            text-align: center;
+            width: 25%; }
+            profile .list-container ul li .item .logo img {
+              max-width: 80px;
+              max-height: 80px; }
 
 @media (max-width: 700px) {
   profile .list-container ul li .date {

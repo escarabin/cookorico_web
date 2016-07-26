@@ -40,8 +40,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                     this.jobs = [];
                     this.searchParameters = [];
                     var __this = this;
-                    this.searchParameters = routeParams.get('parameters');
                     console.log('params', this.searchParameters);
+                    this.searchParameters = routeParams.get('parameters');
                     this.jobService.getAllJobs().subscribe(function (res) {
                         __this.jobs = res.json();
                     });
