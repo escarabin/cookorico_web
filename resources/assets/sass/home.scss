@@ -40,16 +40,21 @@ home {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   home {
     .heading {
       padding-top: 50px;
+
+      h1 {
+        margin-bottom: 35px;
+      }
 
       h2 {
         display: none;
       }
 
       .job-search {
+        margin: 15px;
 
         select {
           margin-bottom: 15px;

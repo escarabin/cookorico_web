@@ -1,4 +1,4 @@
-<div class="col-md-3 input-container">
+<div class="col-md-3 col-sm-3 input-container">
     <select class="form-control"
             [(ngModel)]="placeId">
         <option disabled selected value="0">-- Région --</option>
@@ -8,7 +8,7 @@
         </option>
     </select>
 </div>
-<div class="col-md-3 input-container">
+<div class="col-md-3 col-sm-3 input-container">
     <select class="form-control"
             [(ngModel)]="jobNamingId">
         <option disabled selected value="0">-- Type de poste --</option>
@@ -21,7 +21,7 @@
         </optgroup>
     </select>
 </div>
-<div class="col-md-3 input-container">
+<div class="col-md-3 col-sm-3 input-container">
     <select class="form-control"
             [(ngModel)]="contractTypeId">
         <option disabled selected value="0">-- Type de contrat --</option>
@@ -31,7 +31,7 @@
         </option>
     </select>
 </div>
-<div class="col-md-3 input-container">
+<div class="col-md-3 col-sm-3 input-container">
     <a [routerLink]="['/JobSearch/ShowAllJobs']">
         <button class="btn btn-primary find-btn">
             Trouver un job &nbsp; <span class="fa fa-angle-right"></span>

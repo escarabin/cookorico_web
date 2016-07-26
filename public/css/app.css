@@ -411,13 +411,17 @@ home {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0; }
 
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   home .heading {
     padding-top: 50px; }
+    home .heading h1 {
+      margin-bottom: 35px; }
     home .heading h2 {
       display: none; }
-    home .heading .job-search select {
-      margin-bottom: 15px; } }
+    home .heading .job-search {
+      margin: 15px; }
+      home .heading .job-search select {
+        margin-bottom: 15px; } }
 
 job {
   display: block;
