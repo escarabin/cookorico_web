@@ -53,7 +53,8 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                     this.testimonials = [];
                     this.isLoading = false;
                     this.editableProfile = true;
-                    this.uploader = new ng2_file_upload_1.FileUploader({ url: URL });
+                    this.profilePictureUploader = new ng2_file_upload_1.FileUploader({ url: URL });
+                    this.resumeUploader = new ng2_file_upload_1.FileUploader({ url: URL });
                     this.hasBaseDropZoneOver = false;
                     this.hasAnotherDropZoneOver = false;
                     var __this = this;
@@ -87,8 +88,11 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                 ProfilePreviewComponent.prototype.fileOverAnother = function (e) {
                     this.hasAnotherDropZoneOver = e;
                 };
-                ProfilePreviewComponent.prototype.fileDropped = function (e) {
+                ProfilePreviewComponent.prototype.profilePictureFileDropped = function (e) {
                     this.fileChangeListener(e);
+                };
+                ProfilePreviewComponent.prototype.resumeFileDropped = function (e) {
+                    console.log(e);
                 };
                 ProfilePreviewComponent.prototype.fileChangeListener = function ($event) {
                     var image = new Image();

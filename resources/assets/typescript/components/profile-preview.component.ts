@@ -52,7 +52,8 @@ export class ProfilePreviewComponent {
     isLoading:boolean = false;
     editableProfile: boolean = true;
     cropperSettings: CropperSettings;
-    public uploader:FileUploader = new FileUploader({url: URL});
+    public profilePictureUploader:FileUploader = new FileUploader({url: URL});
+    public resumeUploader:FileUploader = new FileUploader({url: URL});
     public hasBaseDropZoneOver:boolean = false;
     public hasAnotherDropZoneOver:boolean = false;
 
@@ -98,8 +99,12 @@ export class ProfilePreviewComponent {
         this.hasAnotherDropZoneOver = e;
     }
 
-    public fileDropped(e:any):void {
+    public profilePictureFileDropped(e:any):void {
         this.fileChangeListener(e);
+    }
+
+    public resumeFileDropped(e:any):void {
+        console.log(e);
     }
 
     public fileChangeListener($event) {

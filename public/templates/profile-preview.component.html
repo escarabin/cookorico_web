@@ -74,9 +74,13 @@
     </span>
 </div>
 <div class="col-md-3 resume-container">
-    <span class="icon fa fa-file-pdf-o"></span>
-    <br /><br />
-    Voir mon CV
+    <a (click)="resumePreviewModal.show()">
+        <span class="icon fa fa-file-pdf-o"></span>
+        <br /><br />
+        Voir mon CV
+        <br />
+    </a>
+    <a (click)="editResumeModal.show()">Modifier</a>
 </div>
 
 <div class="col-md-12">
@@ -158,15 +162,15 @@
                 <div ng2FileDrop
                      [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
                      (fileOver)="fileOverBase($event)"
-                     (onFileDrop)="fileDropped($event)"
-                     [uploader]="uploader"
+                     (onFileDrop)="profilePictureFileDropped($event)"
+                     [uploader]="profilePictureUploader"
                      class="well file-drop-zone">
                     Déposez votre fichier ici
                 </div>
 
                 <input type="file"
                        ng2FileSelect
-                       [uploader]="uploader"
+                       [uploader]="profilePictureUploader"
                        (change)="fileChangeListener($event)"/>
 
                 <img-cropper #cropper [image]="profilePictureData" [settings]="cropperSettings">
@@ -194,6 +198,68 @@
                     <span *ngIf="isLoading">
                         <span class="fa fa-spinner fa-spin"></span> &nbsp;Chargement...
                     </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bsModal
+     #resumePreviewModal="bs-modal"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     id="resume-preview-modal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <iframe src="http://www.pdf995.com/samples/pdf.pdf" align="middle"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-default"
+                        id="close-resume-preview-modal"
+                        (click)="resumePreviewModal.hide()"
+                        data-dismiss="modal">
+                    Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bsModal
+     #editResumeModal="bs-modal"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     id="edit-resume-modal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div ng2FileDrop
+                     [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                     (fileOver)="fileOverBase($event)"
+                     (onFileDrop)="resumeFileDropped($event)"
+                     [uploader]="resumeUploader"
+                     class="well file-drop-zone">
+                    Déposez votre fichier ici
+                </div>
+
+                <input type="file"
+                       ng2FileSelect
+                       [uploader]="resumeUploader"
+                       (change)="fileChangeListener($event)"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-default"
+                        id="close-edit-resume-modal"
+                        (click)="editResumeModal.hide()"
+                        data-dismiss="modal">
+                    Fermer
                 </button>
             </div>
         </div>

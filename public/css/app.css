@@ -979,6 +979,10 @@ profile-preview .editable:hover {
   background: rgba(53, 182, 225, 0.3);
   color: #10566d; }
 
+profile-preview #resume-preview-modal iframe {
+  height: 500px;
+  width: 100%; }
+
 custom-pagination {
   padding: 15px; }
   custom-pagination .pagination-previous, custom-pagination .page, custom-pagination .pagination-next {
