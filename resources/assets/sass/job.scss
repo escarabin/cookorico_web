@@ -1,14 +1,5 @@
 job {
-  padding-top: $mainPagePaddingTop;
   display: block;
-}
-
-job .job-title {
-  text-align: center;
-  margin-top: 20px;
-}
-
-job .job-content {
   background: white;
   padding-bottom: 20px;
   border-radius: $mainBorderRadius;
@@ -16,31 +7,36 @@ job .job-content {
   -webkit-box-shadow: $mainBoxShadow;
   -o-box-shadow: $mainBoxShadow;
   box-shadow: $mainBoxShadow;
-}
 
-job .job-content .description {
-  padding-top: 20px;
-}
+  .job-title {
+    text-align: center;
+    margin-top: 20px;
+  }
 
-job .job-content .business {
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
+  .job-description {
+    padding-top: 20px;
+  }
 
-job .job-content .business .logo {
-  float: left;
-  margin-right: 20px;
-}
+  .job-info {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-left: 1px solid #CCC;
+    margin-left: 15px;
+    width: 45%;
+  }
 
-job .job-content .business .logo img {
-  max-width: 80px;
-  max-height: 80px;
-}
+  .business {
+    margin-top: 25px;
+    margin-bottom: 25px;
 
-job .job-content .job-info {
-  margin-bottom: 20px;
-  margin-top: 20px;
-  border-left: 1px solid #CCC;
-  margin-left: 15px;
-  width: 45%;
+    .logo {
+      float: left;
+      margin-right: 20px;
+
+      img {
+        max-width: 80px;
+        max-height: 80px;
+      }
+    }
+  }
 }

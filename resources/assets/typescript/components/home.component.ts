@@ -52,6 +52,7 @@ export class HomeComponent {
     ngOnInit(event) {
         this.fitMainDivToWindow();
     }
+
     fitMainDivToWindow() {
         if (window.innerHeight > 400) {
             this.innerHeight = window.innerHeight;

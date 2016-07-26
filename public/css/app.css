@@ -413,41 +413,32 @@ home {
         border-bottom-left-radius: 0; }
 
 job {
-  padding-top: 150px;
-  display: block; }
-
-job .job-title {
-  text-align: center;
-  margin-top: 20px; }
-
-job .job-content {
+  display: block;
   background: white;
   padding-bottom: 20px;
   border-radius: 4px;
   -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
   box-shadow: 0px 0px 40px 0px #d8d8d8; }
-
-job .job-content .description {
-  padding-top: 20px; }
-
-job .job-content .business {
-  margin-top: 25px;
-  margin-bottom: 25px; }
-
-job .job-content .business .logo {
-  float: left;
-  margin-right: 20px; }
-
-job .job-content .business .logo img {
-  max-width: 80px;
-  max-height: 80px; }
-
-job .job-content .job-info {
-  margin-bottom: 20px;
-  margin-top: 20px;
-  border-left: 1px solid #CCC;
-  margin-left: 15px;
-  width: 45%; }
+  job .job-title {
+    text-align: center;
+    margin-top: 20px; }
+  job .job-description {
+    padding-top: 20px; }
+  job .job-info {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-left: 1px solid #CCC;
+    margin-left: 15px;
+    width: 45%; }
+  job .business {
+    margin-top: 25px;
+    margin-bottom: 25px; }
+    job .business .logo {
+      float: left;
+      margin-right: 20px; }
+      job .business .logo img {
+        max-width: 80px;
+        max-height: 80px; }
 
 new-application-form {
   display: inline-block;

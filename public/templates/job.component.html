@@ -1,70 +1,60 @@
-<div class="row">
-    <div class="col-md-3">
-        <job-search-sidebar></job-search-sidebar>
+<div *ngIf="job">
+    <div class="col-md-12 job-title">
+        <h2>{{ job.title }}</h2>
     </div>
-    <div class="col-md-6 job-content">
-        <div *ngIf="job">
-            <div class="col-md-12 job-title">
-                <h2>{{ job.title }}</h2>
-            </div>
-            <div class="col-md-12 business">
-                <div class="logo">
-                    <img src="/uploads/business/logo/{{ job.business.logoUrl }}"/>
-                </div>
-                <div class="name"><h3>{{ job.business.title }}</h3></div>
-                <div class="adress">{{ job.business.adress }}</div>
-            </div>
-
-            <div class="col-md-6 job-info created_at">
-                <label>Publiée le</label> {{ job.created_at }}
-            </div>
-
-            <div class="col-md-6 job-info contract_type">
-                <label>Contrat :</label> {{ job.contract_type.title }}
-            </div>
-            <div class="col-md-6 job-info xp_level">
-                <label>Expérience :</label> {{ job.job_xp_level.title }}
-            </div>
-            <div class="col-md-6 job-info hosting">
-                <label>Logé :</label>
-                <span *ngIf="job.is_hosting_employee">Oui</span>
-                <span *ngIf="!job.is_hosting_employee">Non</span>
-            </div>
-            <div class="col-md-6 job-info start_date">
-                <label>Début :</label>
-                <span *ngIf="job.is_urgent">
-                    Dés que possible
-                </span>
-                <span *ngIf="job.start_date">
-                    {{ job.start_date }}
-                </span>
-            </div>
-            <div class="col-md-6 job-info end_date" *ngIf="job.end_date">
-                <label>Fin :</label> {{ job.end_date }}
-            </div>
-            <div class="col-md-6 job-info languages" *ngIf="job.end_date">
-                <label>Langues :</label>
-                <span *ngFor="let language of job.languages">
-                    {{ language.title }},
-                </span>
-            </div>
-            <!--<div class="col-md-6">
-                Offre : {{ job.type.title }}
-            </div>
-            <div class="col-md-6">
-                Offre : {{ job.type.title }}
-            </div>-->
-            <div class="col-md-6 job-info education">
-                <label>Niveau d'études :</label> {{ job.study_level.title }}
-            </div>
-            <div class="col-md-12 description" [innerHTML]="job.description">
-
-            </div>
-
-            <new-application-form [jobId]="job.id" *ngIf="user && user.user_type_id == 3"></new-application-form>
+    <div class="col-md-12 business">
+        <div class="logo">
+            <img src="/uploads/business/logo/{{ job.business.logoUrl }}"/>
         </div>
+        <div class="name"><h3>{{ job.business.title }}</h3></div>
+        <div class="adress">{{ job.business.adress }}</div>
     </div>
-    <div class="col-md-3">
+
+    <div class="col-md-6 job-info created_at">
+        <label>Publiée le</label> {{ job.created_at }}
+    </div>
+
+    <div class="col-md-6 job-info contract_type">
+        <label>Contrat :</label> {{ job.contract_type.title }}
+    </div>
+    <div class="col-md-6 job-info xp_level">
+        <label>Expérience :</label> {{ job.job_xp_level.title }}
+    </div>
+    <div class="col-md-6 job-info hosting">
+        <label>Logé :</label>
+        <span *ngIf="job.is_hosting_employee">Oui</span>
+        <span *ngIf="!job.is_hosting_employee">Non</span>
+    </div>
+    <div class="col-md-6 job-info start_date">
+        <label>Début :</label>
+        <span *ngIf="job.is_urgent">
+            Dés que possible
+        </span>
+        <span *ngIf="job.start_date">
+            {{ job.start_date }}
+        </span>
+    </div>
+    <div class="col-md-6 job-info end_date" *ngIf="job.end_date">
+        <label>Fin :</label> {{ job.end_date }}
+    </div>
+    <div class="col-md-6 job-info languages" *ngIf="job.end_date">
+        <label>Langues :</label>
+        <span *ngFor="let language of job.languages">
+            {{ language.title }},
+        </span>
+    </div>
+    <!--<div class="col-md-6">
+        Offre : {{ job.type.title }}
+    </div>
+    <div class="col-md-6">
+        Offre : {{ job.type.title }}
+    </div>-->
+    <div class="col-md-6 job-info education">
+        <label>Niveau d'études :</label> {{ job.study_level.title }}
+    </div>
+    <div class="col-md-12 job-description" [innerHTML]="job.description">
 
     </div>
+
+    <new-application-form [jobId]="job.id" *ngIf="user && user.user_type_id == 3"></new-application-form>
 </div>
