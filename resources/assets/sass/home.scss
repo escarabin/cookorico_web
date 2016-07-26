@@ -39,3 +39,22 @@ home {
     }
   }
 }
+
+@media (max-width: 700px) {
+  home {
+    .heading {
+      padding-top: 50px;
+
+      h2 {
+        display: none;
+      }
+
+      .job-search {
+
+        select {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+}
