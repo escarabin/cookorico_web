@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Request;
 use App\Models\Business;
 use App\Models\PlaceType;
 use DB;
@@ -14,67 +15,45 @@ class PlaceController extends Controller
 {
     /**
      * Save a new place
-     * @param $googlePlaceId
-     * @param $adress
-     * @param $city
-     * @param $postalCode
-     * @param $lat
-     * @param $lon
-     * @param $types
-     * @param $title
-     * @param $phone
-     * @param $website
+     * @param Request $request
      * @return Place
      */
-   public function save($googlePlaceId,
-                        $adress,
-                        $lat,
-                        $lon,
-                        $viewport_b_lat,
-                        $viewport_b_lon,
-                        $viewport_f_lat,
-                        $viewport_f_lon,
-                        $types,
-                        $title,
-                        $phone = "",
-                        $website = "",
-                        $city = "",
-                        $postalCode = "") {
+   public function save(Request $request) {
+       $placeData = $request::input('place');
+
+       Log::info($placeData);
+
        // Check if place already exists in db
-       $place = Place::where('googlePlaceId', $googlePlaceId)->first();
+       $place = Place::where('googlePlaceId', $placeData['place_id'])->first();
        $business = new Business();
 
        if (!$place) {
            // Parse place types into array (initially separated by commas)
-           $types = explode(",", $types);
+           $types = $placeData['types'];
 
            $place = new Place();
 
-           $place->googlePlaceId = $googlePlaceId;
-           $place->adress = $adress;
-           $place->city = $city;
-           $place->postalCode = $postalCode;
-           $place->lat = $lat;
-           $place->lon = $lon;
-           $place->viewport_b_lat = $viewport_b_lat;
-           $place->viewport_b_lon = $viewport_b_lon;
-           $place->viewport_f_lat = $viewport_f_lat;
-           $place->viewport_f_lon = $viewport_f_lon;
+           $place->googlePlaceId = $placeData['place_id'];
+           $place->adress = $placeData['formatted_address'];
+           // $place->city = $placeData['city'];
+           // $place->postalCode = $placeData['postalCode'];
+           $place->lat = $placeData['geometry']['location']['lat'];
+           $place->lon = $placeData['geometry']['location']['lng'];
+           $place->viewport_b_lat = $placeData['geometry']['viewport']['south'];
+           $place->viewport_b_lon = $placeData['geometry']['viewport']['west'];
+           $place->viewport_f_lat = $placeData['geometry']['viewport']['north'];
+           $place->viewport_f_lon = $placeData['geometry']['viewport']['east'];
 
            $place->save();
-
-           Log::info('saving place');
 
            // If place is an establishment, create business
            if (in_array('establishment', $types)) {
                $business = new Business();
 
                $business->place_id = $place->id;
-               $business->title = $title;
-               $business->phone = $phone;
-               $business->website = $website;
-
-               Log::info('saving business');
+               $business->title = $placeData['name'];
+               $business->phone = $placeData['formatted_phone_number'];
+               $business->website = $placeData['website'];
 
                $business->save();
            }

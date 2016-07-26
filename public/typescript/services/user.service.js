@@ -300,7 +300,6 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  */
                 UserService.prototype.uploadResume = function (resume) {
                     var __this = this;
-                    console.log('resume is ', resume);
                     var requestBody = resume;
                     var pdfPostRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/pdf' });
                     var pdfPostRequestOptions = new http_1.RequestOptions({ headers: pdfPostRequestHeaders });

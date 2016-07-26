@@ -49,8 +49,12 @@ export class BusinessSelectComponent {
     parseAdress(place: Object) {
         let __this = this;
 
+        console.log(place);
+
         // Save selected place data for further use
         this.placeService.save(place).subscribe((res: Response) => {
+            console.log('received a response from place saving request');
+
             __this.businessId = res.json()['id'];
             __this.businessIdChanged();
             __this.businessService.getAll().subscribe((res1: Response) => {

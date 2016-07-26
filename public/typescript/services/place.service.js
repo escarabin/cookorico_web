@@ -25,53 +25,18 @@ System.register(['@angular/core', '@angular/http'], function(exports_1, context_
                 function PlaceService(http) {
                     this.http = http;
                     this.savePlaceUrl = "/place/save";
+                    this.defaultPostRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    this.defaultPostRequestOptions = new http_1.RequestOptions({ headers: this.defaultPostRequestHeaders });
                 }
+                /**
+                 * Save a new place
+                 * @param place
+                 * @returns {Observable<Response>}
+                 */
                 PlaceService.prototype.save = function (place) {
-                    var location = place['geometry']['location'];
-                    var types = place['types'];
-                    var typesString = "";
-                    // Parse postal code
-                    var postalCode = "";
-                    if (place['address_components'][6]) {
-                        postalCode = place['address_components'][6]['long_name'];
-                    }
-                    else if (place['address_components'][5]) {
-                        postalCode = place['address_components'][5]['long_name'];
-                    }
-                    // Parse city
-                    var city = "";
-                    if (place['address_components'][2]) {
-                        city = place['address_components'][2]['long_name'];
-                    }
-                    // Parse website
-                    var website = "";
-                    if (place['website']) {
-                        website = place['website'].replace(/\//g, '');
-                    }
-                    // Parse phone
-                    var phone = "";
-                    if (place['phone']) {
-                        phone = place['phone'];
-                    }
-                    for (var i = 0; i < types.length; i++) {
-                        typesString += types[i] + ',';
-                    }
-                    var completeUrl = this.savePlaceUrl +
-                        '/' + place['place_id'] +
-                        '/' + place['formatted_address'] +
-                        '/' + location.lat() +
-                        '/' + location.lng() +
-                        '/' + place['geometry']['viewport']['f']['b'] +
-                        '/' + place['geometry']['viewport']['b']['b'] +
-                        '/' + place['geometry']['viewport']['f']['f'] +
-                        '/' + place['geometry']['viewport']['b']['f'] +
-                        '/' + typesString +
-                        '/' + place['name'] +
-                        '/' + phone +
-                        '/' + website +
-                        '/' + city +
-                        '/' + postalCode;
-                    return this.http.request(completeUrl);
+                    var __this = this;
+                    var requestBody = JSON.stringify({ place: place });
+                    return this.http.post(__this.savePlaceUrl, requestBody, this.defaultPostRequestOptions);
                 };
                 PlaceService = __decorate([
                     core_1.Injectable(), 

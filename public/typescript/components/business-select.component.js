@@ -55,8 +55,10 @@ System.register(['@angular/core', './../services/business.service', './../servic
                 }
                 BusinessSelectComponent.prototype.parseAdress = function (place) {
                     var __this = this;
+                    console.log(place);
                     // Save selected place data for further use
                     this.placeService.save(place).subscribe(function (res) {
+                        console.log('received a response from place saving request');
                         __this.businessId = res.json()['id'];
                         __this.businessIdChanged();
                         __this.businessService.getAll().subscribe(function (res1) {

@@ -347,8 +347,6 @@ export class UserService {
     uploadResume(resume: any) {
         let __this = this;
 
-        console.log('resume is ', resume);
-
         let requestBody = resume;
         let pdfPostRequestHeaders = new Headers({ 'Content-Type': 'application/pdf' });
         let pdfPostRequestOptions = new RequestOptions({ headers: pdfPostRequestHeaders });
