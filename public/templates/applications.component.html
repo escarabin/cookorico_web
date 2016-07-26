@@ -3,7 +3,7 @@
         {{ applications.length }} candidature<span *ngIf="applications.length > 1">s</span>
     </div>
     <div class="col-md-2 col-sm-2 col-xs-3 actions-container">
-        <button [routerLink]="['/ShowAllJobs']">
+        <button [routerLink]="['/JobSearch/ShowAllJobs']">
             <span class="fa fa-plus"></span>
         </button>
     </div>
@@ -14,7 +14,7 @@
         <li class="row" *ngFor="let application of applications">
              <div class="col-md-12 col-sm-12 col-xs-12 item"
                   [class.logo]="application.job.business.logoUrl">
-                <a [routerLink]="['/ShowJob', { jobId: application.job.id }]">
+                <a [routerLink]="['/JobSearch/ShowJob', { jobId: application.job.id }]">
                     <div class="item-desc">
                         <h3>{{ application.job.title }}</h3>
                         {{ application.job.business.title }}
