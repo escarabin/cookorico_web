@@ -363,7 +363,7 @@ export class UserService {
     saveInfo(key: string, value: string) {
         let __this = this;
 
-        let requestBody = JSON.stringify({ key: value });
+        let requestBody = JSON.stringify({ key, value });
 
         return this.http.post(__this.saveUserInfoUrl, requestBody, this.postRequestOptions);
     }

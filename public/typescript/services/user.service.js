@@ -57,7 +57,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getAlertUrl = '/alert';
                     this.updateAlertUrl = '/alert/update';
                     this.createUserUrl = '/user/create';
-                    this.saveUserDescriptionUrl = '/user/save_description';
+                    this.saveUserInfoUrl = '/user/save_info';
                     this.uploadProfilePictureUrl = '/user/upload_profile_picture';
                     this.uploadResumeUrl = '/user/upload_resume';
                     this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -306,14 +306,15 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     return this.http.post(__this.uploadResumeUrl, requestBody, pdfPostRequestOptions);
                 };
                 /**
-                 * Save logged user new description
-                 * @param description
+                 * Save logged user edited profile info
+                 * @param key
+                 * @param value
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.saveDescription = function (description) {
+                UserService.prototype.saveInfo = function (key, value) {
                     var __this = this;
-                    var requestBody = JSON.stringify({ description: description });
-                    return this.http.post(__this.saveUserDescriptionUrl, requestBody, this.postRequestOptions);
+                    var requestBody = JSON.stringify({ key: key, value: value });
+                    return this.http.post(__this.saveUserInfoUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Error handling

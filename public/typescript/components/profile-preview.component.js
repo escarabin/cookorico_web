@@ -155,6 +155,15 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                         _this.isLoading = false;
                     });
                 };
+                /**
+                 * Save edited profile info
+                 * @param key
+                 * @param value
+                 */
+                ProfilePreviewComponent.prototype.saveProfileInfo = function (key, value) {
+                    this.userService.saveInfo(key, value).subscribe(function (res) {
+                    });
+                };
                 ProfilePreviewComponent.prototype.submitDescription = function () {
                     this.userService.saveDescription(this.user.description).subscribe(function (res) {
                     });
