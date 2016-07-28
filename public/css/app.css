@@ -399,7 +399,7 @@ home {
       padding: 10px;
       background: #697f9a;
       border-radius: 4px; }
-      home .heading .job-search select {
+      home .heading .job-search select, home .heading .job-search input {
         border: none;
         border-radius: 0;
         -webkit-appearance: none;

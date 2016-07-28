@@ -1,12 +1,9 @@
 <div class="col-md-3 col-sm-3 input-container">
-    <select class="form-control"
-            [(ngModel)]="placeId">
-        <option disabled selected value="0">-- Région --</option>
-        <option *ngFor="let place of places"
-                value="{{ place.id }}">
-            {{ place.adress.replace(', France', '') }}
-        </option>
-    </select>
+    <input type="text"
+           class="form-control"
+           placeholder="Localisation"
+           (setAddress)="parseAdress($event)"
+           googleplace/>
 </div>
 <div class="col-md-3 col-sm-3 input-container">
     <select class="form-control"

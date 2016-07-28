@@ -20,7 +20,7 @@ home {
       background: #697f9a;
       border-radius: $mainBorderRadius;
 
-      select {
+      select, input {
         border: none;
         border-radius: 0;
         -webkit-appearance: none;

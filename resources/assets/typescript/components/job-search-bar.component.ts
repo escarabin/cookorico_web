@@ -3,6 +3,9 @@ import { APP_BASE_HREF } from '@angular/common';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { RouterLink } from '@angular/router-deprecated';
 
+// Directives
+import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
+
 // Services
 import { JobService } from './../services/job.service';
 import { PostService } from './../services/post.service';
@@ -14,7 +17,7 @@ import { ReferenceService } from './../services/reference.service';
         PostService,
         ClubService,
         ReferenceService],
-    directives: [RouterLink],
+    directives: [RouterLink, GoogleplaceDirective],
     selector: 'job-search-bar',
     templateUrl: '../templates/job-search-bar.component.html',
 })
@@ -45,5 +48,9 @@ export class JobSearchBarComponent {
         referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
             __this.jobNamingGroups = res.json();
         });
+    }
+
+    parseAdress(place: Object) {
+        console.log(place);
     }
 }
