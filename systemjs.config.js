@@ -16,8 +16,7 @@
     'moment':                     'moment',
     'notifications':              'node_modules/angular2-notifications',
     'ng2-img-cropper':            'ng2-img-cropper',
-    'ng2-file-upload':            'ng2-file-upload',
-    'angular2-google-maps':       'angular2-google-maps'
+    'ng2-file-upload':            'ng2-file-upload'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -33,7 +32,6 @@
     'file-droppa' :               { main: 'index.js', defaultExtension: 'js' },
     'ng2-file-upload':            { main: 'ng2-file-upload.js', defaultExtension: 'js' },
     'ng2-pagination':             { main: 'index.js', defaultExtension: 'js' },
-    'angular2-google-maps':       { main: 'core/index.js', defaultExtension: 'js' }
   };
 
   var ngPackageNames = [

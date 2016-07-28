@@ -96,8 +96,7 @@ class JobController extends Controller
 
     /**
      * Apply to a specific job, as a candidate
-     * @param $jobId
-     * @param $comment
+     * @param Request $request
      * @return Application
      */
     public function apply(Request $request) {
