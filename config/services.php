@@ -29,6 +29,10 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'mandrill' => array(
+        'secret' => '4wWHTZT1JCvYcDXCn6YJcQ',
+    ),
+
     'stripe' => [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),
