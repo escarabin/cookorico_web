@@ -14,14 +14,14 @@
     </span>
 
     <b class="editable"
-       *ngIf="!editingBirthDate"
-       (click)="editingBirthDate = true">
+       *ngIf="!editingItems['birthDate']"
+       (click)="editingItems['birthDate'] = true">
         {{ user.birthDate }}
     </b>
     <input type="date"
-           *ngIf="editingBirthDate"
+           *ngIf="editingItems['birthDate']"
            [(ngModel)]="user.birthDate"
-           (change)="editingBirthDate = false"
+           (change)="saveProfileInfo('birthDate', user.birthDate)"
            class="form-control"/>
 
     -
@@ -39,16 +39,16 @@
 
     <br />
     <span *ngIf="user.phone">
-        <span *ngIf="!editingPhone">Tél : </span>
+        <span *ngIf="!editingItems['phone']">Tél : </span>
         <b class="editable"
-           *ngIf="!editingPhone"
-           (click)="editingPhone = true">
+           *ngIf="!editingItems['phone']"
+           (click)="editingItems['phone'] = true">
             {{ user.phone }}
         </b>
         <input type="text"
-               *ngIf="editingPhone"
+               *ngIf="editingItems['phone']"
                [(ngModel)]="user.phone"
-               (change)="editingPhone = false"
+               (change)="saveProfileInfo('phone', user.phone)"
                class="form-control"/>
     </span>
     <br />
