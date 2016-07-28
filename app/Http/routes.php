@@ -45,7 +45,7 @@ Route::post('/user/upload_profile_picture', 'UserController@uploadProfilePicture
     ->name('uploadProfilePicture');
 Route::post('/user/upload_resume', 'UserController@uploadResume')
     ->name('uploadResume');
-Route::post('/user/save_description', 'UserController@saveDescription');
+Route::post('/user/save_info', 'UserController@saveInfo');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')

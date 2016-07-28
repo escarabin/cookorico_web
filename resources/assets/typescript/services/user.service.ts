@@ -38,7 +38,7 @@ export class UserService {
     getAlertUrl = '/alert';
     updateAlertUrl = '/alert/update';
     createUserUrl = '/user/create';
-    saveUserDescriptionUrl = '/user/save_description';
+    saveUserInfoUrl = '/user/save_info';
     uploadProfilePictureUrl = '/user/upload_profile_picture';
     uploadResumeUrl = '/user/upload_resume';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
@@ -355,16 +355,17 @@ export class UserService {
     }
 
     /**
-     * Save logged user new description
-     * @param description
+     * Save logged user edited profile info
+     * @param key
+     * @param value
      * @returns {Observable<Response>}
      */
-    saveDescription(description: string) {
+    saveInfo(key: string, value: string) {
         let __this = this;
 
-        let requestBody = JSON.stringify({ description });
+        let requestBody = JSON.stringify({ key: value });
 
-        return this.http.post(__this.saveUserDescriptionUrl, requestBody, this.postRequestOptions);
+        return this.http.post(__this.saveUserInfoUrl, requestBody, this.postRequestOptions);
     }
 
     /**

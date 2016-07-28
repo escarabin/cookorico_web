@@ -208,12 +208,12 @@ class UserController extends Controller
     }
 
 
-    public function saveDescription(Request $request) {
+    public function saveInfo(Request $request) {
         $user = Auth::user();
 
-        $user->description = $request::input('description');
+        Log::info($request::all());
 
-        Log::info('saving user desc');
+        $user[$request::input('key')] = $request::input('value');
 
         $user->save();
 

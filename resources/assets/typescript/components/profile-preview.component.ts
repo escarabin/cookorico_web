@@ -189,6 +189,17 @@ export class ProfilePreviewComponent {
         });
     }
 
+    /**
+     * Save edited profile info
+     * @param key
+     * @param value
+     */
+    saveProfileInfo(key: string, value: string) {
+        this.userService.saveInfo(key, value) .subscribe((res: Response) => {
+
+        });
+    }
+
     submitDescription() {
         this.userService.saveDescription(this.user.description) .subscribe((res: Response) => {
 

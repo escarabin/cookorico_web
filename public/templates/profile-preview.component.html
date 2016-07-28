@@ -95,7 +95,7 @@
     <textarea class="form-control"
               rows="10"
               *ngIf="editingDescription"
-              (change)="editingDescription = false"
+              (change)="saveProfileInfo('description', user.description)"
               [(ngModel)]="user.description">
 
     </textarea>
