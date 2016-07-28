@@ -165,7 +165,12 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                     var _this = this;
                     this.userService.updateInfo(key, value).subscribe(function (res) {
                         _this.editingItems[key] = false;
-                        _this.notificationService.show(new notification_1.Notification('success', 'Vos modifications ont bien été enregistrées'));
+                        if (key == 'new_email') {
+                            _this.notificationService.show(new notification_1.Notification('success', 'Un mail vient de vous être envoyé pour confirmer votre nouvelle adresse email'));
+                        }
+                        else {
+                            _this.notificationService.show(new notification_1.Notification('success', 'Vos modifications ont bien été enregistrées'));
+                        }
                     });
                 };
                 __decorate([

@@ -53,16 +53,18 @@
     </span>
     <br />
 
-    <span *ngIf="!editingEmail">E-mail : </span>
+    <span *ngIf="!editingItems['new_email']">E-mail : </span>
     <b class="editable"
-       *ngIf="!editingEmail"
-       (click)="editingEmail = true">
+       *ngIf="!editingItems['new_email']"
+       (click)="editingItems['new_email'] = true">
         {{ user.email }}
     </b>
     <input type="text"
-           *ngIf="editingEmail"
-           [(ngModel)]="user.email"
-           (change)="editingEmail = false"
+           *ngIf="editingItems['new_email']"
+           [(ngModel)]="user.new_email"
+           placeholder="Saisissez votre nouvel email"
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+           (change)="saveProfileInfo('new_email', user.new_email)"
            class="form-control"/>
     <br />
 

@@ -199,9 +199,16 @@ export class ProfilePreviewComponent {
         this.userService.updateInfo(key, value) .subscribe((res: Response) => {
             this.editingItems[key] = false;
 
-            this.notificationService.show(
-                new Notification('success', 'Vos modifications ont bien été enregistrées')
-            );
+            if (key == 'new_email') {
+                this.notificationService.show(
+                    new Notification('success', 'Un mail vient de vous être envoyé pour confirmer votre nouvelle adresse email')
+                );
+            }
+            else {
+                this.notificationService.show(
+                    new Notification('success', 'Vos modifications ont bien été enregistrées')
+                );
+            }
         });
     }
 }

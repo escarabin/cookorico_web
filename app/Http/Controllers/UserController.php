@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\MailTemplate;
 use Illuminate\Support\Facades\Request;
 use App\Models\Job;
 use Auth;
@@ -208,12 +209,24 @@ class UserController extends Controller
     }
 
 
+    /**
+     * Save user's new info
+     * @param Request $request
+     * @return mixed
+     */
     public function saveInfo(Request $request) {
         $user = Auth::user();
 
         Log::info($request::all());
+        $key = $request::input('key');
+        $value = $request::input('value');
 
-        $user[$request::input('key')] = $request::input('value');
+        if ($key == 'new_email') {
+            $mail = MailTemplate::
+            Mail::send();
+        }
+
+        $user[$key] = $value;
 
         $user->save();
 

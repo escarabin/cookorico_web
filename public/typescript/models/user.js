@@ -6,9 +6,10 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             User = (function () {
-                function User(id, email, password, firstName, lastName, phone, profilePictureUrl, resumeUrl, user_type_id, user_status_id, civility_id, birth_date) {
+                function User(id, email, new_email, password, firstName, lastName, phone, profilePictureUrl, resumeUrl, user_type_id, user_status_id, civility_id, birth_date) {
                     this.id = id;
                     this.email = email;
+                    this.new_email = new_email;
                     this.password = password;
                     this.firstName = firstName;
                     this.lastName = lastName;
