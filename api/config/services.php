@@ -42,13 +42,13 @@ return [
     'linkedin' => [
         'client_id' => '77pzdtz69axly4',
         'client_secret' => 'G2aEA7CNlFJVttCD',
-        'redirect' => 'http://localhost:8888/profile',
+        'redirect' => 'http://localhost:8888/auth/linkedin/callback',
     ],
 
     'google' => [
         'client_id' => 'oechr-1380',
         'client_secret' => 'AIzaSyDHar3rTVpUcvpFDj88PttAPy85Bk17R18',
-        'redirect' => 'http://localhost:8888/profile',
+        'redirect' => 'http://localhost:8888/auth/google/callback',
     ],
 
 ];
