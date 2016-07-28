@@ -5,24 +5,7 @@ var elixirTypscript = require('elixir-typescript');
 elixir(function(mix) {
     mix.sass('app.scss');
 
-    mix.copy('node_modules/@angular', 'public/@angular');
-    mix.copy('node_modules/rxjs', 'public/rxjs');
-    mix.copy('node_modules/systemjs', 'public/systemjs');
-    mix.copy('node_modules/es6-promise', 'public/es6-promise');
-    mix.copy('node_modules/es6-shim', 'public/es6-shim');
-    mix.copy('node_modules/zone.js/dist', 'public/zone.js/dist');
-    mix.copy('node_modules/reflect-metadata', 'public/reflect-metadata');
-    mix.copy('node_modules/ng2-bootstrap', 'public/ng2-bootstrap');
-    mix.copy('node_modules/moment', 'public/moment');
-    mix.copy('node_modules/angular2-notifications', 'public/angular2-notifications');
-    mix.copy('systemjs.config.js', 'public/systemjs.config.js');
-    mix.copy('node_modules/ng2-ckeditor', 'public/ng2-ckeditor');
-    mix.copy('node_modules/ng2-img-cropper', 'public/ng2-img-cropper');
-    mix.copy('node_modules/ng2-file-upload', 'public/ng2-file-upload');
-    mix.copy('node_modules/ng2-pagination', 'public/ng2-pagination');
-    mix.copy('node_modules/angular-google-maps', 'public/angular-google-maps');
-
-    mix.typescript('app.js','public/','/**/*.ts',{
+    mix.typescript('app.js','js/','/**/*.ts',{
         "target": "ES5",
         "module": "system",
         "moduleResolution": "node",

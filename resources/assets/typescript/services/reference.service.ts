@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http } from '@angular/http';
+import appGlobals = require('./../globals'); //<==== this one
 
 @Injectable()
 export class ReferenceService {
-    allStatesListingUrl = '/states/all';
-    allContractTypesListingUrl = '/contract_types/all';
-    allJobTypesListingUrl = '/job_types/all';
-    allJobNamingsListingUrl = '/job_namings/all';
-    allStudyLevelsListingUrl = '/study_levels/all';
-    allDiplomasListingUrl = '/diplomas/all';
-    allJobNamingGroupsUrl = '/job_naming_groups/all';
-    getAlertFrequenciesListingUrl = '/alert_frequencies/all';
-    getAllBusinessTypesListingUrl = '/business_types/all';
-    getAllJobXpLevelsUrl = '/job_xp_levels/all';
-    getAllCivilitiesUrl = '/civilities/all';
+    allStatesListingUrl = appGlobals.apiUrl + '/states/all';
+    allContractTypesListingUrl = appGlobals.apiUrl + '/contract_types/all';
+    allJobTypesListingUrl = appGlobals.apiUrl + '/job_types/all';
+    allJobNamingsListingUrl = appGlobals.apiUrl + '/job_namings/all';
+    allStudyLevelsListingUrl = appGlobals.apiUrl + '/study_levels/all';
+    allDiplomasListingUrl = appGlobals.apiUrl + '/diplomas/all';
+    allJobNamingGroupsUrl = appGlobals.apiUrl + '/job_naming_groups/all';
+    getAlertFrequenciesListingUrl = appGlobals.apiUrl + '/alert_frequencies/all';
+    getAllBusinessTypesListingUrl = appGlobals.apiUrl + '/business_types/all';
+    getAllJobXpLevelsUrl = appGlobals.apiUrl + '/job_xp_levels/all';
+    getAllCivilitiesUrl = appGlobals.apiUrl + '/civilities/all';
 
     constructor(private http: Http) {
 

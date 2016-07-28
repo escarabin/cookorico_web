@@ -8,15 +8,18 @@
   var map = {
     'app':                        'app', // 'dist',
 
-    '@angular':                   '@angular',
-    'angular2-in-memory-web-api': 'angular2-in-memory-web-api',
-    'rxjs':                       'rxjs',
-    'zone.js':                    'zone.js',
-    'ng2-bootstrap':              'ng2-bootstrap',
-    'moment':                     'moment',
+    '@angular':                   'node_modules/@angular',
+    'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
+    'rxjs':                       'node_modules/rxjs',
+    'zone.js':                    'node_modules/zone.js',
+    'ng2-bootstrap':              'node_modules/ng2-bootstrap',
+    'moment':                     'node_modules/moment',
     'notifications':              'node_modules/angular2-notifications',
-    'ng2-img-cropper':            'ng2-img-cropper',
-    'ng2-file-upload':            'ng2-file-upload'
+    'ng2-img-cropper':            'node_modules/ng2-img-cropper',
+    'ng2-file-upload':            'node_modules/ng2-file-upload',
+    'angular2-google-map-auto-complete':'node_modules/angular2-google-map-auto-complete',
+    'angular2-google-maps':       'node_modules/angular2-google-maps',
+    'ng2-pagination':             'node_modules/ng2-pagination'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension

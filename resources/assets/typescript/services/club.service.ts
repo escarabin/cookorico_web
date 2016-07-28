@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http } from '@angular/http';
+import appGlobals = require('./../globals'); //<==== this one
 
 @Injectable()
 export class ClubService {
-    allClubsListingUrl = '/clubs/all';
-    showClubListingUrl = '/club/';
+    allClubsListingUrl = appGlobals.apiUrl + '/clubs/all';
+    showClubListingUrl = appGlobals.apiUrl + '/club/';
     clubId: number;
 
     constructor(private http: Http) {

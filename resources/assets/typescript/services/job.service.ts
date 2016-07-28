@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http, Headers, RequestOptions } from '@angular/http';
+import appGlobals = require('./../globals'); //<==== this one
 
 // Models
 import { Application } from './../models/application';
 
 @Injectable()
 export class JobService {
-    allJobsListingUrl = '/jobs/all';
-    showJobListingUrl = '/job/';
-    applyJobUrl = '/apply_job';
-    searchJobsUrl = '/jobs/search';
+    allJobsListingUrl = appGlobals.apiUrl + '/jobs/all';
+    showJobListingUrl = appGlobals.apiUrl + '/job/';
+    applyJobUrl = appGlobals.apiUrl + '/apply_job';
+    searchJobsUrl = appGlobals.apiUrl + '/jobs/search';
     jobId: number;
     user: any;
 

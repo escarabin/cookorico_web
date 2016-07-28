@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
+import appGlobals = require('./../globals'); //<==== this one
 
 // Services
 import { NotificationsService } from './notification.service';
@@ -13,34 +14,34 @@ import { Study } from './../models/study';
 
 @Injectable()
 export class UserService {
-    signInUrl = '/sign-in/';
-    getApplicationsUrl = '/applications/all';
-    getPlansUrl = '/user/plans/all';
-    getExperiencesUrl = '/experiences/all';
-    getExperienceUrl = '/experience';
-    deleteExperiencesUrl = '/experience/delete';
-    deleteEducationUrl = '/education/delete';
-    getStudyUrl = '/study';
-    updateStudyUrl = '/study/update';
-    deleteAlertUrl = '/alert/delete';
-    getEducationUrl = '/education/all';
-    getAlertsUrl = '/alerts/all';
-    getBusinessesUrl = '/user/businesses';
-    getJobPostsUrl = '/user/job-posts/all';
-    deleteJobPostsUrl = '/job-posts/delete';
-    getBusinessUrl = '/business';
-    getTestimonialsUrl = '/testimonials/all';
-    getCreatedTestimonialsUrl = '/created_testimonials/all';
-    createExperienceUrl = '/experience/create';
-    updateExperienceUrl = '/experience/update';
-    createStudyUrl = '/study/create';
-    createAlertUrl = '/alert/create';
-    getAlertUrl = '/alert';
-    updateAlertUrl = '/alert/update';
-    createUserUrl = '/user/create';
-    saveUserInfoUrl = '/user/save_info';
-    uploadProfilePictureUrl = '/user/upload_profile_picture';
-    uploadResumeUrl = '/user/upload_resume';
+    signInUrl = appGlobals.apiUrl + '/sign-in/';
+    getApplicationsUrl = appGlobals.apiUrl + '/applications/all';
+    getPlansUrl = appGlobals.apiUrl + '/user/plans/all';
+    getExperiencesUrl = appGlobals.apiUrl + '/experiences/all';
+    getExperienceUrl = appGlobals.apiUrl + '/experience';
+    deleteExperiencesUrl = appGlobals.apiUrl + '/experience/delete';
+    deleteEducationUrl = appGlobals.apiUrl + '/education/delete';
+    getStudyUrl = appGlobals.apiUrl + '/study';
+    updateStudyUrl = appGlobals.apiUrl + '/study/update';
+    deleteAlertUrl = appGlobals.apiUrl + '/alert/delete';
+    getEducationUrl = appGlobals.apiUrl + '/education/all';
+    getAlertsUrl = appGlobals.apiUrl + '/alerts/all';
+    getBusinessesUrl = appGlobals.apiUrl + '/user/businesses';
+    getJobPostsUrl = appGlobals.apiUrl + '/user/job-posts/all';
+    deleteJobPostsUrl = appGlobals.apiUrl + '/job-posts/delete';
+    getBusinessUrl = appGlobals.apiUrl + '/business';
+    getTestimonialsUrl = appGlobals.apiUrl + '/testimonials/all';
+    getCreatedTestimonialsUrl = appGlobals.apiUrl + '/created_testimonials/all';
+    createExperienceUrl = appGlobals.apiUrl + '/experience/create';
+    updateExperienceUrl = appGlobals.apiUrl + '/experience/update';
+    createStudyUrl = appGlobals.apiUrl + '/study/create';
+    createAlertUrl = appGlobals.apiUrl + '/alert/create';
+    getAlertUrl = appGlobals.apiUrl + '/alert';
+    updateAlertUrl = appGlobals.apiUrl + '/alert/update';
+    createUserUrl = appGlobals.apiUrl + '/user/create';
+    saveUserInfoUrl = appGlobals.apiUrl + '/user/save_info';
+    uploadProfilePictureUrl = appGlobals.apiUrl + '/user/upload_profile_picture';
+    uploadResumeUrl = appGlobals.apiUrl + '/user/upload_resume';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 

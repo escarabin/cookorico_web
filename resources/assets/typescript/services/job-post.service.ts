@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http, Headers, RequestOptions } from '@angular/http';
+import appGlobals = require('./../globals'); //<==== this one
 
 // Models
 import { JobPost } from './../models/job-post';
 
 @Injectable()
 export class JobPostService {
-    createJobPostUrl = "/job-post/create";
-    getJobPostUrl = "/job";
+    createJobPostUrl = appGlobals.apiUrl + "/job-post/create";
+    getJobPostUrl = appGlobals.apiUrl + "/job";
 
     constructor(private http: Http) {
 
