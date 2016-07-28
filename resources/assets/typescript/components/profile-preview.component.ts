@@ -53,6 +53,7 @@ export class ProfilePreviewComponent {
     isLoading:boolean = false;
     editableProfile: boolean = true;
     cropperSettings: CropperSettings;
+    editingItems: any = [];
     public profilePictureUploader:FileUploader = new FileUploader({url: URL});
     public resumeUploader:FileUploader = new FileUploader({url: URL});
     public hasBaseDropZoneOver:boolean = false;
@@ -195,14 +196,12 @@ export class ProfilePreviewComponent {
      * @param value
      */
     saveProfileInfo(key: string, value: string) {
-        this.userService.saveInfo(key, value) .subscribe((res: Response) => {
+        this.userService.updateInfo(key, value) .subscribe((res: Response) => {
+            this.editingItems[key] = false;
 
-        });
-    }
-
-    submitDescription() {
-        this.userService.saveDescription(this.user.description) .subscribe((res: Response) => {
-
+            this.notificationService.show(
+                new Notification('success', 'Vos modifications ont bien été enregistrées')
+            );
         });
     }
 }

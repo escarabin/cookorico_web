@@ -360,10 +360,15 @@ export class UserService {
      * @param value
      * @returns {Observable<Response>}
      */
-    saveInfo(key: string, value: string) {
+    updateInfo(key: string, value: string) {
         let __this = this;
 
         let requestBody = JSON.stringify({ key, value });
+
+        let userJson = JSON.parse(localStorage.getItem('user'));
+        userJson[key] = value;
+
+        localStorage.setItem('user', JSON.stringify(userJson));
 
         return this.http.post(__this.saveUserInfoUrl, requestBody, this.postRequestOptions);
     }
@@ -371,6 +376,7 @@ export class UserService {
     /**
      * Error handling
      * @param error
+     * @param notificationService
      */
     handleError(error: any, notificationService: any) {
         let __this = this;

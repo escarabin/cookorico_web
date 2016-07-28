@@ -53,6 +53,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                     this.testimonials = [];
                     this.isLoading = false;
                     this.editableProfile = true;
+                    this.editingItems = [];
                     this.profilePictureUploader = new ng2_file_upload_1.FileUploader({ url: URL });
                     this.resumeUploader = new ng2_file_upload_1.FileUploader({ url: URL });
                     this.hasBaseDropZoneOver = false;
@@ -161,11 +162,10 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                  * @param value
                  */
                 ProfilePreviewComponent.prototype.saveProfileInfo = function (key, value) {
-                    this.userService.saveInfo(key, value).subscribe(function (res) {
-                    });
-                };
-                ProfilePreviewComponent.prototype.submitDescription = function () {
-                    this.userService.saveDescription(this.user.description).subscribe(function (res) {
+                    var _this = this;
+                    this.userService.updateInfo(key, value).subscribe(function (res) {
+                        _this.editingItems[key] = false;
+                        _this.notificationService.show(new notification_1.Notification('success', 'Vos modifications ont bien été enregistrées'));
                     });
                 };
                 __decorate([

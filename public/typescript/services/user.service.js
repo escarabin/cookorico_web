@@ -311,14 +311,18 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @param value
                  * @returns {Observable<Response>}
                  */
-                UserService.prototype.saveInfo = function (key, value) {
+                UserService.prototype.updateInfo = function (key, value) {
                     var __this = this;
                     var requestBody = JSON.stringify({ key: key, value: value });
+                    var userJson = JSON.parse(localStorage.getItem('user'));
+                    userJson[key] = value;
+                    localStorage.setItem('user', JSON.stringify(userJson));
                     return this.http.post(__this.saveUserInfoUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Error handling
                  * @param error
+                 * @param notificationService
                  */
                 UserService.prototype.handleError = function (error, notificationService) {
                     var __this = this;

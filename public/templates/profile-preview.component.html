@@ -87,14 +87,14 @@
     <h3>Présentation</h3>
     <div class="description"
          [class.editable]="editableProfile"
-         (click)="editingDescription = true"
-         *ngIf="!editingDescription"
+         (click)="editingItems['description'] = true"
+         *ngIf="!editingItems['description']"
          [innerHTML]="user.description">
 
     </div>
     <textarea class="form-control"
               rows="10"
-              *ngIf="editingDescription"
+              *ngIf="editingItems['description']"
               (change)="saveProfileInfo('description', user.description)"
               [(ngModel)]="user.description">
 
