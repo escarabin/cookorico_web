@@ -49,6 +49,7 @@ export class ProfilePreviewComponent {
     education: any = [];
     testimonials: any = [];
     profilePictureData: any;
+    profilePictureUrl: string;
     resumeData: any;
     isLoading:boolean = false;
     editableProfile: boolean = true;
@@ -64,6 +65,17 @@ export class ProfilePreviewComponent {
         let __this = this;
 
         this.user = JSON.parse(localStorage.getItem('user'));
+
+        /**
+         * If user has a specific profile picture URL (Linkedin, Google, etc)
+         * then display this one instead of AWS's one
+         */
+        if (this.user.profilePictureUrl) {
+            this.profilePictureUrl = this.user.profilePictureUrl;
+        }
+        else {
+            this.profilePictureUrl = 'https://s3-eu-west-1.amazonaws.com/oechr-profile-picture/' + this.user.id + '.jpg';
+        }
 
         this.userService.getExperiences().subscribe((res: Response) => {
             __this.experiences = res.json();

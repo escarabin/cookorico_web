@@ -15,6 +15,7 @@ import { Study } from './../models/study';
 @Injectable()
 export class UserService {
     signInUrl = appGlobals.apiUrl + '/sign-in/';
+    getUserInfosUrl = appGlobals.apiUrl + '/user/get_infos';
     getApplicationsUrl = appGlobals.apiUrl + '/applications/all';
     getPlansUrl = appGlobals.apiUrl + '/user/plans/all';
     getExperiencesUrl = appGlobals.apiUrl + '/experiences/all';
@@ -60,6 +61,16 @@ export class UserService {
         let __this = this;
 
         return this.http.get(__this.signInUrl + email + '/' + password);
+    }
+
+    /**
+     * Get current user infos
+     * @returns {Observable<Response>}
+     */
+    getUserInfos() {
+        let __this = this;
+
+        return this.http.get(__this.getUserInfosUrl);
     }
 
     /**

@@ -37,6 +37,8 @@ Route::post('/job-post/create', 'JobController@create')
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
     ->name('signIn');
+Route::get('/user/get_infos', 'UserController@getInfos')
+    ->name('getInfos');
 Route::get('/user/create/{email}/{password}/{firstName}/{lastName}/{phone}/{birthDate}/{user_type_id}/{civility_id}', 'UserController@createUser')
     ->name('createUser');
 Route::get('/user/businesses/', 'UserController@getBusinesses')

@@ -9,9 +9,13 @@ import { SignInComponent } from './sign-in.component';
 // Models
 import { User } from './../models/user';
 
+// Services
+import { UserService } from './../services/user.service';
+
 @Component({
     templateUrl: '../templates/header.component.html',
     selector: 'header',
+    providers: [UserService],
     directives: [RouterLink,
                  SignInComponent,
                  CORE_DIRECTIVES]
@@ -20,8 +24,12 @@ import { User } from './../models/user';
 export class HeaderComponent {
     user: any;
 
-    constructor (private router: Router) {
-        this.user = JSON.parse(localStorage.getItem('user'));
+    constructor (private router: Router,
+                 private userService: UserService) {
+        this.userService.getUserInfos().subscribe((res: Response) => {
+            this.user = res.json();
+            localStorage.setItem('user', JSON.stringify(this.user));
+        });
     }
 
     /**

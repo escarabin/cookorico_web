@@ -36,6 +36,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.http = http;
                     this.notificationService = notificationService;
                     this.signInUrl = appGlobals.apiUrl + '/sign-in/';
+                    this.getUserInfosUrl = appGlobals.apiUrl + '/user/get_infos';
                     this.getApplicationsUrl = appGlobals.apiUrl + '/applications/all';
                     this.getPlansUrl = appGlobals.apiUrl + '/user/plans/all';
                     this.getExperiencesUrl = appGlobals.apiUrl + '/experiences/all';
@@ -75,6 +76,14 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.login = function (email, password) {
                     var __this = this;
                     return this.http.get(__this.signInUrl + email + '/' + password);
+                };
+                /**
+                 * Get current user infos
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.getUserInfos = function () {
+                    var __this = this;
+                    return this.http.get(__this.getUserInfosUrl);
                 };
                 /**
                  * Create a new user

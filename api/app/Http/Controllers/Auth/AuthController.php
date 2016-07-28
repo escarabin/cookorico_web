@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Validator;
+use Log;
 use Socialite;
+use Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -90,6 +93,25 @@ class AuthController extends Controller
     {
         $user = Socialite::driver($provider)->user();
 
-        return $user->token;
+        if ($provider == 'linkedin') {
+            // Check if user has already been created
+            if (!User::where('socialite_id', $user->id)->first()) {
+                $newUser = new User();
+
+                $newUser->firstName = $user->user['firstName'];
+                $newUser->lastName = $user->user['lastName'];
+                $newUser->email = $user->email;
+                $newUser->socialite_id = $user->id;
+                $newUser->profilePictureUrl = $user->avatar;
+                $newUser->save();
+
+                Auth::loginUsingId($newUser->id);
+            }
+        }
+        else if ($provider == 'google') {
+
+        }
+
+        return Redirect::to(env('ROOT_URL'));
     }
 }

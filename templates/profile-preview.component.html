@@ -1,16 +1,18 @@
 <div class="col-md-3 profile-picture-container">
     <div class="profile-picture"
-         [ngStyle]="{'background-image': 'url(https://s3-eu-west-1.amazonaws.com/oechr-profile-picture/' + user.id + '.jpg)'}">
+         [ngStyle]="{'background-image': 'url(' + profilePictureUrl + ')'}">
         <div class="edit-profile-picture"
              (click)="profilePictureModal.show()">
             <span class="fa fa-camera"></span> &nbsp;Modifier
         </div>
     </div>
-
 </div>
 <div class="col-md-6 user-basic-infos">
     <span class="user-identity">
-        {{ user.civility.title }} {{ user.firstName }} {{ user.lastName }}<br />
+        <span *ngIf="user.civility">
+            {{ user.civility.title }}
+        </span>
+        {{ user.firstName }} {{ user.lastName }}<br />
     </span>
 
     <b class="editable"
@@ -26,16 +28,18 @@
 
     -
 
-    <b class="editable"
-       *ngIf="!editingAdress"
-       (click)="editingAdress = true">
-        {{ user.place.adress }}
-    </b>
-    <input type="text"
-           *ngIf="editingAdress"
-           [(ngModel)]="user.place.adress"
-           (change)="editingAdress = false"
-           class="form-control"/>
+    <span *ngIf="user.place">
+        <b class="editable"
+           *ngIf="!editingAdress"
+           (click)="editingAdress = true">
+            {{ user.place.adress }}
+        </b>
+        <input type="text"
+               *ngIf="editingAdress"
+               [(ngModel)]="user.place.adress"
+               (change)="editingAdress = false"
+               class="form-control"/>
+    </span>
 
     <br />
     <span *ngIf="user.phone">

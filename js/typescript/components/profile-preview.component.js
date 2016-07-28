@@ -60,6 +60,16 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                     this.hasAnotherDropZoneOver = false;
                     var __this = this;
                     this.user = JSON.parse(localStorage.getItem('user'));
+                    /**
+                     * If user has a specific profile picture URL (Linkedin, Google, etc)
+                     * then display this one instead of AWS's one
+                     */
+                    if (this.user.profilePictureUrl) {
+                        this.profilePictureUrl = this.user.profilePictureUrl;
+                    }
+                    else {
+                        this.profilePictureUrl = 'https://s3-eu-west-1.amazonaws.com/oechr-profile-picture/' + this.user.id + '.jpg';
+                    }
                     this.userService.getExperiences().subscribe(function (res) {
                         __this.experiences = res.json();
                     });

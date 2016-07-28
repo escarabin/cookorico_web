@@ -2,7 +2,7 @@
 <div *ngIf="user" class="user-infos row">
     <div class="col-md-12 profile-picture">
         <div class="img"
-             [ngStyle]="{'background-image': 'url(https://s3-eu-west-1.amazonaws.com/oechr-profile-picture/' + user.id + '.jpg)'}">
+             [ngStyle]="{'background-image': 'url(' + profilePictureUrl + ')'}">
         </div>
     </div>
     <div class="col-md-12 user-title">

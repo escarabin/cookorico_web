@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', './sign-in.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', './sign-in.component', './../services/user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, router_deprecated_1, sign_in_component_1;
+    var core_1, common_1, router_deprecated_1, sign_in_component_1, user_service_1;
     var HeaderComponent;
     return {
         setters:[
@@ -25,12 +25,20 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
             },
             function (sign_in_component_1_1) {
                 sign_in_component_1 = sign_in_component_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
             }],
         execute: function() {
             HeaderComponent = (function () {
-                function HeaderComponent(router) {
+                function HeaderComponent(router, userService) {
+                    var _this = this;
                     this.router = router;
-                    this.user = JSON.parse(localStorage.getItem('user'));
+                    this.userService = userService;
+                    this.userService.getUserInfos().subscribe(function (res) {
+                        _this.user = res.json();
+                        localStorage.setItem('user', JSON.stringify(_this.user));
+                    });
                 }
                 /**
                  * Function triggered after sign-in-component.ts's
@@ -52,11 +60,12 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     core_1.Component({
                         templateUrl: '../templates/header.component.html',
                         selector: 'header',
+                        providers: [user_service_1.UserService],
                         directives: [router_deprecated_1.RouterLink,
                             sign_in_component_1.SignInComponent,
                             common_1.CORE_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.Router])
+                    __metadata('design:paramtypes', [router_deprecated_1.Router, user_service_1.UserService])
                 ], HeaderComponent);
                 return HeaderComponent;
             }());

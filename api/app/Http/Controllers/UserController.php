@@ -42,6 +42,22 @@ class UserController extends Controller
     }
 
     /**
+     * Get logged user related infos
+     * @return mixed
+     */
+    public function getInfos() {
+        $user = Auth::user()
+             ->load('plans',
+                    'status',
+                    'type',
+                    'civility',
+                    'place',
+                    'lookingForJobNaming');
+
+        return $user;
+    }
+
+    /**
      * Create new user
      * @param $email
      * @param $password
