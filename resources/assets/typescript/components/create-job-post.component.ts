@@ -105,7 +105,7 @@ export class CreateJobPostComponent {
                     new Notification('success', 'Votre annonce vient d\'être publiée')
                 );
 
-                __this.router.navigate(['/ShowJob', { jobId: res.json()['id'] }]);
+                __this.router.navigate(['/JobSearch/ShowJob', { jobId: res.json()['id'] }]);
             }
             else {
                 __this.notificationService.show(

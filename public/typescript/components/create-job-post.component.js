@@ -110,7 +110,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         var job = res['_body'];
                         if (job) {
                             __this.notificationService.show(new notification_1.Notification('success', 'Votre annonce vient d\'être publiée'));
-                            __this.router.navigate(['/ShowJob', { jobId: res.json()['id'] }]);
+                            __this.router.navigate(['/JobSearch/ShowJob', { jobId: res.json()['id'] }]);
                         }
                         else {
                             __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));

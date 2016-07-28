@@ -78,8 +78,6 @@ class AuthController extends Controller
      */
     public function redirectToProvider($provider)
     {
-        Log::info('redirecting to linkedin');
-
         return Socialite::driver($provider)->redirect();
     }
 
@@ -92,6 +90,6 @@ class AuthController extends Controller
     {
         $user = Socialite::driver($provider)->user();
 
-        // $user->token;
+        return $user->token;
     }
 }
