@@ -9,6 +9,7 @@ use App\Models\Job;
 use Auth;
 use Log;
 use Hash;
+use Mail;
 
 use App\Models\User;
 use App\Models\Application;
@@ -216,20 +217,26 @@ class UserController extends Controller
      */
     public function saveInfo(Request $request) {
         $user = Auth::user();
-
-        Log::info($request::all());
         $key = $request::input('key');
         $value = $request::input('value');
-
-        if ($key == 'new_email') {
-            $mail = MailTemplate::
-            Mail::send();
-        }
-
         $user[$key] = $value;
-
         $user->save();
 
+        if ($key == 'new_email') {
+            $mailTemplate = MailTemplate::where('slug', 'new_email')->first();
+            Mail::send('emails.new-email',
+                [
+                    'content' => $mailTemplate->content,
+                    'user' => $user
+                ],
+                function ($message) use ($user, $mailTemplate) {
+                    $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                    $message->to($user->new_email, $user->firstName . ' ' . $user->lastName)
+                            ->subject($mailTemplate->subject);
+                }
+            );
+        }
         return $user;
     }
 
