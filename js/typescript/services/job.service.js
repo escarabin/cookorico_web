@@ -48,7 +48,11 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                  */
                 JobService.prototype.searchJobs = function (searchParameters) {
                     var __this = this;
-                    return this.http.request(__this.searchJobsUrl + '/' + JSON.stringify({ searchParameters: searchParameters }));
+                    console.log('searching for jobs', searchParameters);
+                    var body = JSON.stringify({ searchParameters: searchParameters });
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    return this.http.post(__this.searchJobsUrl, body, options);
                 };
                 /**
                  * Returns specific job

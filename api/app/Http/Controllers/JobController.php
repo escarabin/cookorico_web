@@ -61,20 +61,20 @@ class JobController extends Controller
 
     /**
      * Search for jobs
-     * @param $parameters
+     * @param Request $request
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function search($parameters) {
-        $parametersJson = json_decode($parameters)->{'searchParameters'};
+    public function search(Request $request) {
+        $parameters = $request::input('searchParameters');
 
-        $contractTypeIdList = $parametersJson->{'contractTypeIdList'};
-        $jobNamingIdList = $parametersJson->{'jobNamingIdList'};
-        $studyLevelIdList = $parametersJson->{'studyLevelIdList'};
+        $contractTypeIdList = $parameters['contractTypeIdList'];
+        $jobNamingIdList = $parameters['jobNamingIdList'];
+        $studyLevelIdList = $parameters['studyLevelIdList'];
 
-        $jobs = Job::whereIn('contract_type_id', $contractTypeIdList)
+        $jobs = Job::/*whereIn('contract_type_id', $contractTypeIdList)
                     ->whereIn('job_naming_id', $jobNamingIdList)
-                    ->whereIn('study_level_id', $studyLevelIdList)
-                    ->get()
+                    ->whereIn('study_level_id', $studyLevelIdList)*/
+                    all()
                     ->load('business',
                             'user',
                             'jobNaming',
@@ -85,10 +85,32 @@ class JobController extends Controller
                             'languages');
 
         /**
-         * Necessary ugly workaround
+         * Check if job's business is inside the
+         * search area
          */
-        foreach ($jobs as $job) {
+        foreach ($jobs as $key => $job) {
             $job->business->place = $job->business->place;
+            $jobPlace = $job->business->place;
+
+            Log::info($jobPlace);
+            Log::info($parameters['place']);
+
+            if ($parameters['place']) {
+                $viewport_north = $parameters['place']['geometry']['viewport']['north'];
+                $viewport_south = $parameters['place']['geometry']['viewport']['south'];
+                $viewport_west = $parameters['place']['geometry']['viewport']['west'];
+                $viewport_east = $parameters['place']['geometry']['viewport']['east'];
+
+                if ($jobPlace->lat > $viewport_south &&
+                    $jobPlace->lat < $viewport_north &&
+                    $jobPlace->lon > $viewport_west &&
+                    $jobPlace->lon < $viewport_east) {
+
+                }
+                else {
+                    unset($jobs[$key]);
+                }
+            }
         }
 
         return $jobs;

@@ -15,7 +15,9 @@
             </span>
             <input type="text"
                    class="form-control"
-                   placeholder="Localisation"/>
+                   placeholder="Localisation"
+                   (setAddress)="parseAdress($event)"
+                   googleplace/>
         </div>
     </div>
     <br />

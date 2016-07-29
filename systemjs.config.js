@@ -19,7 +19,8 @@
     'ng2-file-upload':            'node_modules/ng2-file-upload',
     'angular2-google-map-auto-complete':'node_modules/angular2-google-map-auto-complete',
     'angular2-google-maps':       'node_modules/angular2-google-maps',
-    'ng2-pagination':             'node_modules/ng2-pagination'
+    'ng2-pagination':             'node_modules/ng2-pagination',
+    'ng2-select':                 'node_modules/ng2-select'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -35,6 +36,7 @@
     'file-droppa' :               { main: 'index.js', defaultExtension: 'js' },
     'ng2-file-upload':            { main: 'ng2-file-upload.js', defaultExtension: 'js' },
     'ng2-pagination':             { main: 'index.js', defaultExtension: 'js' },
+    'ng2-select':                 { main: 'ng2-select.js', defaultExtension: 'js' }
   };
 
   var ngPackageNames = [

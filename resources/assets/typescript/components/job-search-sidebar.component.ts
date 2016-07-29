@@ -6,9 +6,17 @@ import { CollapseDirective } from 'ng2-bootstrap';
 // Components
 import { ReferenceService } from './../services/reference.service';
 
+// Directives
+import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
+
+// TODO : remove this service
+import { JobService } from './../services/job.service';
+
 @Component({
-    directives: [RouterLink, CollapseDirective],
-    providers: [ReferenceService],
+    directives: [RouterLink,
+                 CollapseDirective,
+                 GoogleplaceDirective],
+    providers: [ReferenceService, JobService],
     selector: 'job-search-sidebar',
     templateUrl: '../templates/job-search-sidebar.component.html',
 })
@@ -20,7 +28,7 @@ export class JobSearchSidebarComponent {
     public isStudyLevelCollapsed:boolean = true;
     public isContractTypeCollapsed:boolean = true;
     public isJobNamingCollapsed:boolean = true;
-    placeIdList: any = [];
+    place: any = [];
     jobNamingIdList: any = [];
     contractTypeIdList: any = [];
     studyLevelIdList: any = [];
@@ -28,6 +36,7 @@ export class JobSearchSidebarComponent {
     @Output() searchParametersChanged: EventEmitter = new EventEmitter();
 
     constructor(private referenceService: ReferenceService,
+                private jobService: JobService,
                 private routeParams: RouteParams) {
         let __this = this;
 
@@ -43,17 +52,17 @@ export class JobSearchSidebarComponent {
             __this.studyLevels = res.json();
         });
 
-        this.placeIdList.push(parseInt(routeParams.get('placeId')));
         this.studyLevelIdList.push(parseInt(routeParams.get('studyLevelId')));
         this.jobNamingIdList.push(parseInt(routeParams.get('jobNamingId')));
         this.contractTypeIdList.push(parseInt(routeParams.get('contractTypeId')));
         this.searchText = routeParams.get('searchText');
     }
 
-    toggleSearchParameter(parameterType: string, parameterValue: string) {
+    updateSearchParameter(parameterType?: string, parameterValue?: string) {
         /**
          * Add or remove the parameters from their respective arrays
          */
+        console.log('params 1');
         switch(parameterType) {
             case "contractType":
                 let contractTypeIndex = this.contractTypeIdList.indexOf(parameterValue);
@@ -88,7 +97,18 @@ export class JobSearchSidebarComponent {
         parametersArray['contractTypeIdList'] = this.contractTypeIdList;
         parametersArray['jobNamingIdList'] = this.jobNamingIdList;
         parametersArray['studyLevelIdList'] = this.studyLevelIdList;
+        parametersArray['place'] = this.place;
+
+        // TODO : remove that shit
+        this.jobService.searchJobs(parametersArray).subscribe((res: Response) => {
+            console.log(res.json());
+        });
 
         this.searchParametersChanged.emit(parametersArray);
+    }
+
+    parseAdress(place: Object) {
+        this.place = place;
+        this.updateSearchParameter();
     }
 }

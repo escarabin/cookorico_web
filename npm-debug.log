@@ -3,7 +3,7 @@
 1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'install',
 1 verbose cli   '--save',
-1 verbose cli   'moment' ]
+1 verbose cli   'ng2-select' ]
 2 info using npm@2.15.8
 3 info using node@v4.4.7
 4 verbose install initial load of /Applications/MAMP/htdocs/oechr/package.json
@@ -29,577 +29,362 @@
 24 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/laravel-elixir/package.json
 25 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/lite-server/package.json
 26 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/lodash/package.json
-27 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap/package.json
-28 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-file-upload/package.json
-29 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-img-cropper/package.json
-30 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination/package.json
-31 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-slim-loading-bar/package.json
-32 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/protractor/package.json
-33 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/reflect-metadata/package.json
-34 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rimraf/package.json
-35 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rxjs/package.json
-36 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/systemjs/package.json
-37 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/tslint/package.json
-38 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typescript/package.json
-39 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typings/package.json
-40 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/zone.js/package.json
-41 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/common/package.json
-42 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/compiler/package.json
-43 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/core/package.json
-44 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/forms/package.json
-45 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/http/package.json
-46 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser/package.json
-47 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser-dynamic/package.json
-48 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router/package.json
-49 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router-deprecated/package.json
-50 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/upgrade/package.json
-51 info package.json core-js@2.4.1 No README data
-52 info package.json typings@1.3.2 No README data
+27 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/moment/package.json
+28 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap/package.json
+29 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-file-upload/package.json
+30 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-img-cropper/package.json
+31 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination/package.json
+32 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-slim-loading-bar/package.json
+33 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/protractor/package.json
+34 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/reflect-metadata/package.json
+35 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rimraf/package.json
+36 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rxjs/package.json
+37 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/systemjs/package.json
+38 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/tslint/package.json
+39 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typescript/package.json
+40 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typings/package.json
+41 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/zone.js/package.json
+42 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/common/package.json
+43 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/compiler/package.json
+44 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/core/package.json
+45 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/forms/package.json
+46 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/http/package.json
+47 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser/package.json
+48 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser-dynamic/package.json
+49 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router/package.json
+50 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router-deprecated/package.json
+51 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/upgrade/package.json
+52 info package.json core-js@2.4.1 No README data
 53 info package.json @angular/common@2.0.0-rc.3 No description
 54 info package.json @angular/common@2.0.0-rc.3 No README data
-55 info package.json @angular/core@2.0.0-rc.3 No description
-56 info package.json @angular/core@2.0.0-rc.3 No README data
-57 info package.json @angular/compiler@2.0.0-rc.3 No description
-58 info package.json @angular/compiler@2.0.0-rc.3 No README data
-59 info package.json @angular/http@2.0.0-rc.3 No description
-60 info package.json @angular/http@2.0.0-rc.3 No README data
-61 info package.json @angular/forms@0.1.1 No description
-62 info package.json @angular/forms@0.1.1 No README data
-63 info package.json @angular/platform-browser@2.0.0-rc.3 No description
-64 info package.json @angular/platform-browser@2.0.0-rc.3 No README data
-65 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No description
-66 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No README data
-67 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
-68 info package.json @angular/router-deprecated@2.0.0-rc.2 No README data
-69 info package.json @angular/upgrade@2.0.0-rc.3 No description
-70 info package.json @angular/upgrade@2.0.0-rc.3 No README data
-71 info package.json angular2-google-map-auto-complete@1.0.4 No repository field.
-72 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/package.json
-73 silly cache add args [ 'moment', null ]
-74 verbose cache add spec moment
-75 silly cache add parsed spec Result {
-75 silly cache add   raw: 'moment',
-75 silly cache add   scope: null,
-75 silly cache add   name: 'moment',
-75 silly cache add   rawSpec: '',
-75 silly cache add   spec: 'latest',
-75 silly cache add   type: 'tag' }
-76 silly addNamed moment@latest
-77 verbose addNamed "latest" is being treated as a dist-tag for moment
-78 info addNameTag [ 'moment', 'latest' ]
-79 silly mapToRegistry name moment
-80 silly mapToRegistry using default registry
-81 silly mapToRegistry registry https://registry.npmjs.org/
-82 silly mapToRegistry data Result {
-82 silly mapToRegistry   raw: 'moment',
-82 silly mapToRegistry   scope: null,
-82 silly mapToRegistry   name: 'moment',
-82 silly mapToRegistry   rawSpec: '',
-82 silly mapToRegistry   spec: 'latest',
-82 silly mapToRegistry   type: 'tag' }
-83 silly mapToRegistry uri https://registry.npmjs.org/moment
-84 verbose addNameTag registry:https://registry.npmjs.org/moment not in flight; fetching
-85 verbose request uri https://registry.npmjs.org/moment
-86 verbose request no auth needed
-87 info attempt registry request try #1 at 12:10:42 PM
-88 verbose request id ef7c9bd154d7b294
-89 verbose etag "68XVVDDVTF84E7OIQ008YEIYO"
-90 http request GET https://registry.npmjs.org/moment
-91 http 200 https://registry.npmjs.org/moment
+55 info package.json typings@1.3.2 No README data
+56 info package.json @angular/core@2.0.0-rc.3 No description
+57 info package.json @angular/core@2.0.0-rc.3 No README data
+58 info package.json @angular/forms@0.1.1 No description
+59 info package.json @angular/forms@0.1.1 No README data
+60 info package.json @angular/http@2.0.0-rc.3 No description
+61 info package.json @angular/http@2.0.0-rc.3 No README data
+62 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
+63 info package.json @angular/router-deprecated@2.0.0-rc.2 No README data
+64 info package.json @angular/compiler@2.0.0-rc.3 No description
+65 info package.json @angular/compiler@2.0.0-rc.3 No README data
+66 info package.json @angular/platform-browser@2.0.0-rc.3 No description
+67 info package.json @angular/platform-browser@2.0.0-rc.3 No README data
+68 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No description
+69 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No README data
+70 info package.json @angular/upgrade@2.0.0-rc.3 No description
+71 info package.json @angular/upgrade@2.0.0-rc.3 No README data
+72 info package.json angular2-google-map-auto-complete@1.0.4 No repository field.
+73 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/package.json
+74 silly cache add args [ 'ng2-select', null ]
+75 verbose cache add spec ng2-select
+76 silly cache add parsed spec Result {
+76 silly cache add   raw: 'ng2-select',
+76 silly cache add   scope: null,
+76 silly cache add   name: 'ng2-select',
+76 silly cache add   rawSpec: '',
+76 silly cache add   spec: 'latest',
+76 silly cache add   type: 'tag' }
+77 silly addNamed ng2-select@latest
+78 verbose addNamed "latest" is being treated as a dist-tag for ng2-select
+79 info addNameTag [ 'ng2-select', 'latest' ]
+80 silly mapToRegistry name ng2-select
+81 silly mapToRegistry using default registry
+82 silly mapToRegistry registry https://registry.npmjs.org/
+83 silly mapToRegistry data Result {
+83 silly mapToRegistry   raw: 'ng2-select',
+83 silly mapToRegistry   scope: null,
+83 silly mapToRegistry   name: 'ng2-select',
+83 silly mapToRegistry   rawSpec: '',
+83 silly mapToRegistry   spec: 'latest',
+83 silly mapToRegistry   type: 'tag' }
+84 silly mapToRegistry uri https://registry.npmjs.org/ng2-select
+85 verbose addNameTag registry:https://registry.npmjs.org/ng2-select not in flight; fetching
+86 verbose request uri https://registry.npmjs.org/ng2-select
+87 verbose request no auth needed
+88 info attempt registry request try #1 at 7:07:10 PM
+89 verbose request id c24a7e5c2346fc1c
+90 http request GET https://registry.npmjs.org/ng2-select
+91 http 200 https://registry.npmjs.org/ng2-select
 92 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-92 verbose headers   etag: '"1N37S92SIT1FZOT5F3VZ3V0GJ"',
+92 verbose headers   etag: '"7KI7BQSZ2TX8Y1J5U90QGGADT"',
 92 verbose headers   'content-type': 'application/json',
 92 verbose headers   'content-encoding': 'gzip',
 92 verbose headers   'cache-control': 'max-age=300',
-92 verbose headers   'content-length': '12369',
+92 verbose headers   'content-length': '5469',
 92 verbose headers   'accept-ranges': 'bytes',
-92 verbose headers   date: 'Thu, 28 Jul 2016 10:10:44 GMT',
+92 verbose headers   date: 'Thu, 28 Jul 2016 17:07:11 GMT',
 92 verbose headers   via: '1.1 varnish',
-92 verbose headers   age: '277',
+92 verbose headers   age: '0',
 92 verbose headers   connection: 'keep-alive',
-92 verbose headers   'x-served-by': 'cache-lhr6334-LHR',
-92 verbose headers   'x-cache': 'HIT',
-92 verbose headers   'x-cache-hits': '3',
-92 verbose headers   'x-timer': 'S1469700644.082862,VS0,VE0',
+92 verbose headers   'x-served-by': 'cache-lhr6335-LHR',
+92 verbose headers   'x-cache': 'MISS',
+92 verbose headers   'x-cache-hits': '0',
+92 verbose headers   'x-timer': 'S1469725631.077915,VS0,VE368',
 92 verbose headers   vary: 'Accept-Encoding' }
 93 silly get cb [ 200,
 93 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-93 silly get     etag: '"1N37S92SIT1FZOT5F3VZ3V0GJ"',
+93 silly get     etag: '"7KI7BQSZ2TX8Y1J5U90QGGADT"',
 93 silly get     'content-type': 'application/json',
 93 silly get     'content-encoding': 'gzip',
 93 silly get     'cache-control': 'max-age=300',
-93 silly get     'content-length': '12369',
+93 silly get     'content-length': '5469',
 93 silly get     'accept-ranges': 'bytes',
-93 silly get     date: 'Thu, 28 Jul 2016 10:10:44 GMT',
+93 silly get     date: 'Thu, 28 Jul 2016 17:07:11 GMT',
 93 silly get     via: '1.1 varnish',
-93 silly get     age: '277',
+93 silly get     age: '0',
 93 silly get     connection: 'keep-alive',
-93 silly get     'x-served-by': 'cache-lhr6334-LHR',
-93 silly get     'x-cache': 'HIT',
-93 silly get     'x-cache-hits': '3',
-93 silly get     'x-timer': 'S1469700644.082862,VS0,VE0',
+93 silly get     'x-served-by': 'cache-lhr6335-LHR',
+93 silly get     'x-cache': 'MISS',
+93 silly get     'x-cache-hits': '0',
+93 silly get     'x-timer': 'S1469725631.077915,VS0,VE368',
 93 silly get     vary: 'Accept-Encoding' } ]
-94 verbose get saving moment to /Users/escarabin/.npm/registry.npmjs.org/moment/.cache.json
+94 verbose get saving ng2-select to /Users/escarabin/.npm/registry.npmjs.org/ng2-select/.cache.json
 95 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-96 silly addNameTag next cb for moment with tag latest
-97 silly addNamed moment@2.14.1
-98 verbose addNamed "2.14.1" is a plain semver version for moment
-99 silly cache afterAdd moment@2.14.1
-100 verbose afterAdd /Users/escarabin/.npm/moment/2.14.1/package/package.json not in flight; writing
-101 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-102 verbose afterAdd /Users/escarabin/.npm/moment/2.14.1/package/package.json written
-103 silly install resolved [ { name: 'moment',
-103 silly install resolved     version: '2.14.1',
-103 silly install resolved     description: 'Parse, validate, manipulate, and display dates',
-103 silly install resolved     homepage: 'http://momentjs.com',
-103 silly install resolved     author:
-103 silly install resolved      { name: 'Iskren Ivov Chernev',
-103 silly install resolved        email: 'iskren.chernev@gmail.com',
-103 silly install resolved        url: 'https://github.com/ichernev' },
-103 silly install resolved     contributors: [ [Object], [Object], [Object], [Object], [Object] ],
-103 silly install resolved     keywords:
-103 silly install resolved      [ 'moment',
-103 silly install resolved        'date',
-103 silly install resolved        'time',
-103 silly install resolved        'parse',
-103 silly install resolved        'format',
-103 silly install resolved        'validate',
-103 silly install resolved        'i18n',
-103 silly install resolved        'l10n',
-103 silly install resolved        'ender' ],
-103 silly install resolved     main: './moment.js',
-103 silly install resolved     'jsnext:main': './src/moment.js',
-103 silly install resolved     typings: './moment.d.ts',
-103 silly install resolved     engines: { node: '*' },
-103 silly install resolved     repository: { type: 'git', url: 'git+https://github.com/moment/moment.git' },
-103 silly install resolved     bugs: { url: 'https://github.com/moment/moment/issues' },
-103 silly install resolved     license: 'MIT',
-103 silly install resolved     devDependencies:
-103 silly install resolved      { 'uglify-js': 'latest',
-103 silly install resolved        'es6-promise': 'latest',
-103 silly install resolved        grunt: '~0.4',
-103 silly install resolved        'grunt-cli': 'latest',
-103 silly install resolved        benchmark: 'latest',
-103 silly install resolved        esperanto: 'latest',
-103 silly install resolved        'grunt-contrib-clean': 'latest',
-103 silly install resolved        'grunt-contrib-concat': 'latest',
-103 silly install resolved        'grunt-contrib-copy': 'latest',
-103 silly install resolved        'grunt-contrib-jshint': 'latest',
-103 silly install resolved        'grunt-contrib-uglify': 'latest',
-103 silly install resolved        'grunt-contrib-watch': 'latest',
-103 silly install resolved        'grunt-env': 'latest',
-103 silly install resolved        'grunt-jscs': 'latest',
-103 silly install resolved        'grunt-karma': 'latest',
-103 silly install resolved        'grunt-nuget': 'latest',
-103 silly install resolved        'grunt-benchmark': 'latest',
-103 silly install resolved        'grunt-string-replace': 'latest',
-103 silly install resolved        'grunt-exec': 'latest',
-103 silly install resolved        'load-grunt-tasks': 'latest',
-103 silly install resolved        karma: 'latest',
-103 silly install resolved        'karma-chrome-launcher': 'latest',
-103 silly install resolved        'karma-firefox-launcher': 'latest',
-103 silly install resolved        'karma-qunit': 'latest',
-103 silly install resolved        'karma-sauce-launcher': 'latest',
-103 silly install resolved        qunit: '^0.7.5',
-103 silly install resolved        'qunit-cli': '^0.1.4',
-103 silly install resolved        spacejam: 'latest',
-103 silly install resolved        coveralls: '^2.11.2',
-103 silly install resolved        nyc: '^2.1.4' },
-103 silly install resolved     ender: './ender.js',
-103 silly install resolved     dojoBuild: 'package.js',
-103 silly install resolved     jspm: { files: [Object], map: [Object], buildConfig: [Object] },
-103 silly install resolved     scripts:
-103 silly install resolved      { test: 'grunt test',
-103 silly install resolved        coverage: 'nyc npm test && nyc report',
-103 silly install resolved        coveralls: 'nyc npm test && nyc report --reporter=text-lcov | coveralls' },
-103 silly install resolved     spm: { main: 'moment.js', output: [Object] },
-103 silly install resolved     _id: 'moment@2.14.1',
-103 silly install resolved     _shasum: 'b35b27c47e57ed2ddc70053d6b07becdb291741c',
-103 silly install resolved     _from: 'moment@latest',
-103 silly install resolved     _npmVersion: '3.8.6',
-103 silly install resolved     _nodeVersion: '6.1.0',
-103 silly install resolved     _npmUser: { name: 'ichernev', email: 'iskren.chernev@gmail.com' },
-103 silly install resolved     dist:
-103 silly install resolved      { shasum: 'b35b27c47e57ed2ddc70053d6b07becdb291741c',
-103 silly install resolved        tarball: 'https://registry.npmjs.org/moment/-/moment-2.14.1.tgz' },
-103 silly install resolved     maintainers: [ [Object], [Object] ],
-103 silly install resolved     _npmOperationalInternal:
-103 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
-103 silly install resolved        tmp: 'tmp/moment-2.14.1.tgz_1467614674915_0.32715084473602474' },
-103 silly install resolved     directories: {},
-103 silly install resolved     _resolved: 'https://registry.npmjs.org/moment/-/moment-2.14.1.tgz',
-103 silly install resolved     readme: 'ERROR: No README data found!' } ]
-104 info install moment@2.14.1 into /Applications/MAMP/htdocs/oechr
-105 info installOne moment@2.14.1
-106 verbose installOne of moment to /Applications/MAMP/htdocs/oechr not in flight; installing
-107 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
-108 verbose lock using /Users/escarabin/.npm/_locks/moment-722e879bbcb2e3b6.lock for /Applications/MAMP/htdocs/oechr/node_modules/moment
-109 silly install write writing moment 2.14.1 to /Applications/MAMP/htdocs/oechr/node_modules/moment
-110 verbose unbuild node_modules/moment
-111 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/moment is being purged from base /Applications/MAMP/htdocs/oechr
-112 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/moment
-113 verbose tar unpack /Users/escarabin/.npm/moment/2.14.1/package.tgz
-114 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/moment
-115 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/moment is being purged
-116 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/moment
-117 silly gunzTarPerm modes [ '755', '644' ]
-118 silly gunzTarPerm extractEntry package.json
-119 silly gunzTarPerm extractEntry .npmignore
-120 silly gunzTarPerm extractEntry README.md
-121 silly gunzTarPerm extractEntry LICENSE
-122 silly gunzTarPerm extractEntry ender.js
-123 silly gunzTarPerm extractEntry moment.js
-124 silly gunzTarPerm extractEntry package.js
-125 silly gunzTarPerm extractEntry moment.d.ts
-126 silly gunzTarPerm extractEntry src/moment.js
-127 silly gunzTarPerm extractEntry src/lib/create/check-overflow.js
-128 silly gunzTarPerm extractEntry src/lib/create/from-anything.js
-129 silly gunzTarPerm extractEntry src/lib/create/from-array.js
-130 silly gunzTarPerm extractEntry src/lib/create/from-object.js
-131 silly gunzTarPerm extractEntry src/lib/create/from-string-and-array.js
-132 silly gunzTarPerm extractEntry src/lib/create/date-from-array.js
-133 silly gunzTarPerm extractEntry src/lib/create/from-string.js
-134 silly gunzTarPerm extractEntry src/lib/create/local.js
-135 silly gunzTarPerm extractEntry src/lib/create/parsing-flags.js
-136 silly gunzTarPerm extractEntry src/lib/create/utc.js
-137 silly gunzTarPerm extractEntry src/lib/create/valid.js
-138 silly gunzTarPerm extractEntry src/lib/create/from-string-and-format.js
-139 silly gunzTarPerm extractEntry src/lib/duration/abs.js
-140 silly gunzTarPerm extractEntry src/lib/duration/as.js
-141 silly gunzTarPerm extractEntry src/lib/duration/bubble.js
-142 silly gunzTarPerm extractEntry src/lib/duration/constructor.js
-143 silly gunzTarPerm extractEntry src/lib/duration/add-subtract.js
-144 silly gunzTarPerm extractEntry src/lib/duration/duration.js
-145 silly gunzTarPerm extractEntry src/lib/duration/get.js
-146 silly gunzTarPerm extractEntry src/lib/duration/humanize.js
-147 silly gunzTarPerm extractEntry src/lib/duration/iso-string.js
-148 silly gunzTarPerm extractEntry src/lib/duration/prototype.js
-149 silly gunzTarPerm extractEntry src/lib/duration/create.js
-150 silly gunzTarPerm extractEntry src/lib/format/format.js
-151 silly gunzTarPerm extractEntry src/lib/locale/base-config.js
-152 silly gunzTarPerm extractEntry src/lib/locale/en.js
-153 silly gunzTarPerm extractEntry src/lib/locale/formats.js
-154 silly gunzTarPerm extractEntry src/lib/locale/invalid.js
-155 silly gunzTarPerm extractEntry src/lib/locale/lists.js
-156 silly gunzTarPerm extractEntry src/lib/locale/constructor.js
-157 silly gunzTarPerm extractEntry src/lib/locale/locales.js
-158 silly gunzTarPerm extractEntry src/lib/locale/ordinal.js
-159 silly gunzTarPerm extractEntry src/lib/locale/pre-post-format.js
-160 silly gunzTarPerm extractEntry src/lib/locale/prototype.js
-161 silly gunzTarPerm extractEntry src/lib/locale/relative.js
-162 silly gunzTarPerm extractEntry src/lib/locale/calendar.js
-163 silly gunzTarPerm extractEntry src/lib/locale/set.js
-164 silly gunzTarPerm extractEntry src/lib/locale/locale.js
-165 silly gunzTarPerm extractEntry src/lib/moment/add-subtract.js
-166 silly gunzTarPerm extractEntry src/lib/moment/diff.js
-167 silly gunzTarPerm extractEntry src/lib/moment/format.js
-168 silly gunzTarPerm extractEntry src/lib/moment/from.js
-169 silly gunzTarPerm extractEntry src/lib/moment/creation-data.js
-170 silly gunzTarPerm extractEntry src/lib/moment/locale.js
-171 silly gunzTarPerm extractEntry src/lib/moment/min-max.js
-172 silly gunzTarPerm extractEntry src/lib/moment/moment.js
-173 silly gunzTarPerm extractEntry src/lib/moment/now.js
-174 silly gunzTarPerm extractEntry src/lib/moment/prototype.js
-175 silly gunzTarPerm extractEntry src/lib/moment/constructor.js
-176 silly gunzTarPerm extractEntry src/lib/moment/start-end-of.js
-177 silly gunzTarPerm extractEntry src/lib/moment/compare.js
-178 silly gunzTarPerm extractEntry src/lib/moment/to-type.js
-179 silly gunzTarPerm extractEntry src/lib/moment/clone.js
-180 silly gunzTarPerm extractEntry src/lib/moment/to.js
-181 silly gunzTarPerm extractEntry src/lib/moment/calendar.js
-182 silly gunzTarPerm extractEntry src/lib/moment/valid.js
-183 silly gunzTarPerm extractEntry src/lib/moment/get-set.js
-184 silly gunzTarPerm extractEntry src/lib/parse/regex.js
-185 silly gunzTarPerm extractEntry src/lib/parse/token.js
-186 silly gunzTarPerm extractEntry src/lib/units/aliases.js
-187 silly gunzTarPerm extractEntry src/lib/units/millisecond.js
-188 silly gunzTarPerm extractEntry src/lib/units/minute.js
-189 silly gunzTarPerm extractEntry src/lib/units/month.js
-190 silly gunzTarPerm extractEntry src/lib/units/offset.js
-191 silly gunzTarPerm extractEntry src/lib/units/hour.js
-192 silly gunzTarPerm extractEntry src/lib/units/quarter.js
-193 silly gunzTarPerm extractEntry src/lib/units/second.js
-194 silly gunzTarPerm extractEntry src/lib/units/timestamp.js
-195 silly gunzTarPerm extractEntry src/lib/units/timezone.js
-196 silly gunzTarPerm extractEntry src/lib/units/units.js
-197 silly gunzTarPerm extractEntry src/lib/units/day-of-year.js
-198 silly gunzTarPerm extractEntry src/lib/units/week-calendar-utils.js
-199 silly gunzTarPerm extractEntry src/lib/units/day-of-week.js
-200 silly gunzTarPerm extractEntry src/lib/units/week-year.js
-201 silly gunzTarPerm extractEntry src/lib/units/day-of-month.js
-202 silly gunzTarPerm extractEntry src/lib/units/week.js
-203 silly gunzTarPerm extractEntry src/lib/units/constants.js
-204 silly gunzTarPerm extractEntry src/lib/units/year.js
-205 silly gunzTarPerm extractEntry src/lib/units/priorities.js
-206 silly gunzTarPerm extractEntry src/lib/utils/abs-ceil.js
-207 silly gunzTarPerm extractEntry src/lib/utils/has-own-prop.js
-208 silly gunzTarPerm extractEntry src/lib/utils/hooks.js
-209 silly gunzTarPerm extractEntry src/lib/utils/index-of.js
-210 silly gunzTarPerm extractEntry src/lib/utils/extend.js
-211 silly gunzTarPerm extractEntry src/lib/utils/is-date.js
-212 silly gunzTarPerm extractEntry src/lib/utils/is-function.js
-213 silly gunzTarPerm extractEntry src/lib/utils/is-object-empty.js
-214 silly gunzTarPerm extractEntry src/lib/utils/is-object.js
-215 silly gunzTarPerm extractEntry src/lib/utils/is-undefined.js
-216 silly gunzTarPerm extractEntry src/lib/utils/deprecate.js
-217 silly gunzTarPerm extractEntry src/lib/utils/keys.js
-218 silly gunzTarPerm extractEntry src/lib/utils/defaults.js
-219 silly gunzTarPerm extractEntry src/lib/utils/map.js
-220 silly gunzTarPerm extractEntry src/lib/utils/compare-arrays.js
-221 silly gunzTarPerm extractEntry src/lib/utils/some.js
-222 silly gunzTarPerm extractEntry src/lib/utils/abs-round.js
-223 silly gunzTarPerm extractEntry src/lib/utils/to-int.js
-224 silly gunzTarPerm extractEntry src/lib/utils/abs-floor.js
-225 silly gunzTarPerm extractEntry src/lib/utils/zero-fill.js
-226 silly gunzTarPerm extractEntry src/lib/utils/is-array.js
-227 silly gunzTarPerm extractEntry src/locale/af.js
-228 silly gunzTarPerm extractEntry src/locale/it.js
-229 silly gunzTarPerm extractEntry src/locale/ja.js
-230 silly gunzTarPerm extractEntry src/locale/jv.js
-231 silly gunzTarPerm extractEntry src/locale/is.js
-232 silly gunzTarPerm extractEntry src/locale/kk.js
-233 silly gunzTarPerm extractEntry src/locale/km.js
-234 silly gunzTarPerm extractEntry src/locale/ko.js
-235 silly gunzTarPerm extractEntry src/locale/ky.js
-236 silly gunzTarPerm extractEntry src/locale/lb.js
-237 silly gunzTarPerm extractEntry src/locale/id.js
-238 silly gunzTarPerm extractEntry src/locale/lo.js
-239 silly gunzTarPerm extractEntry src/locale/hy-am.js
-240 silly gunzTarPerm extractEntry src/locale/lt.js
-241 silly gunzTarPerm extractEntry src/locale/hu.js
-242 silly gunzTarPerm extractEntry src/locale/lv.js
-243 silly gunzTarPerm extractEntry src/locale/hr.js
-244 silly gunzTarPerm extractEntry src/locale/me.js
-245 silly gunzTarPerm extractEntry src/locale/hi.js
-246 silly gunzTarPerm extractEntry src/locale/mk.js
-247 silly gunzTarPerm extractEntry src/locale/he.js
-248 silly gunzTarPerm extractEntry src/locale/ml.js
-249 silly gunzTarPerm extractEntry src/locale/gl.js
-250 silly gunzTarPerm extractEntry src/locale/mr.js
-251 silly gunzTarPerm extractEntry src/locale/gd.js
-252 silly gunzTarPerm extractEntry src/locale/ms-my.js
-253 silly gunzTarPerm extractEntry src/locale/fy.js
-254 silly gunzTarPerm extractEntry src/locale/ms.js
-255 silly gunzTarPerm extractEntry src/locale/fr.js
-256 silly gunzTarPerm extractEntry src/locale/my.js
-257 silly gunzTarPerm extractEntry src/locale/fr-ch.js
-258 silly gunzTarPerm extractEntry src/locale/nb.js
-259 silly gunzTarPerm extractEntry src/locale/fr-ca.js
-260 silly gunzTarPerm extractEntry src/locale/ne.js
-261 silly gunzTarPerm extractEntry src/locale/fo.js
-262 silly gunzTarPerm extractEntry src/locale/nl.js
-263 silly gunzTarPerm extractEntry src/locale/fi.js
-264 silly gunzTarPerm extractEntry src/locale/nn.js
-265 silly gunzTarPerm extractEntry src/locale/fa.js
-266 silly gunzTarPerm extractEntry src/locale/pa-in.js
-267 silly gunzTarPerm extractEntry src/locale/eu.js
-268 silly gunzTarPerm extractEntry src/locale/pl.js
-269 silly gunzTarPerm extractEntry src/locale/et.js
-270 silly gunzTarPerm extractEntry src/locale/pt-br.js
-271 silly gunzTarPerm extractEntry src/locale/es.js
-272 silly gunzTarPerm extractEntry src/locale/pt.js
-273 silly gunzTarPerm extractEntry src/locale/es-do.js
-274 silly gunzTarPerm extractEntry src/locale/ro.js
-275 silly gunzTarPerm extractEntry src/locale/eo.js
-276 silly gunzTarPerm extractEntry src/locale/ru.js
-277 silly gunzTarPerm extractEntry src/locale/en-nz.js
-278 silly gunzTarPerm extractEntry src/locale/se.js
-279 silly gunzTarPerm extractEntry src/locale/en-ie.js
-280 silly gunzTarPerm extractEntry src/locale/si.js
-281 silly gunzTarPerm extractEntry src/locale/en-gb.js
-282 silly gunzTarPerm extractEntry src/locale/sk.js
-283 silly gunzTarPerm extractEntry src/locale/en-ca.js
-284 silly gunzTarPerm extractEntry src/locale/sl.js
-285 silly gunzTarPerm extractEntry src/locale/en-au.js
-286 silly gunzTarPerm extractEntry src/locale/sq.js
-287 silly gunzTarPerm extractEntry src/locale/el.js
-288 silly gunzTarPerm extractEntry src/locale/sr-cyrl.js
-289 silly gunzTarPerm extractEntry src/locale/dv.js
-290 silly gunzTarPerm extractEntry src/locale/sr.js
-291 silly gunzTarPerm extractEntry src/locale/de.js
-292 silly gunzTarPerm extractEntry src/locale/ss.js
-293 silly gunzTarPerm extractEntry src/locale/de-at.js
-294 silly gunzTarPerm extractEntry src/locale/sv.js
-295 silly gunzTarPerm extractEntry src/locale/da.js
-296 silly gunzTarPerm extractEntry src/locale/sw.js
-297 silly gunzTarPerm extractEntry src/locale/cy.js
-298 silly gunzTarPerm extractEntry src/locale/ta.js
-299 silly gunzTarPerm extractEntry src/locale/cv.js
-300 silly gunzTarPerm extractEntry src/locale/te.js
-301 silly gunzTarPerm extractEntry src/locale/cs.js
-302 silly gunzTarPerm extractEntry src/locale/th.js
-303 silly gunzTarPerm extractEntry src/locale/ca.js
-304 silly gunzTarPerm extractEntry src/locale/tl-ph.js
-305 silly gunzTarPerm extractEntry src/locale/bs.js
-306 silly gunzTarPerm extractEntry src/locale/tlh.js
-307 silly gunzTarPerm extractEntry src/locale/br.js
-308 silly gunzTarPerm extractEntry src/locale/tr.js
-309 silly gunzTarPerm extractEntry src/locale/bo.js
-310 silly gunzTarPerm extractEntry src/locale/tzl.js
-311 silly gunzTarPerm extractEntry src/locale/bn.js
-312 silly gunzTarPerm extractEntry src/locale/tzm-latn.js
-313 silly gunzTarPerm extractEntry src/locale/bg.js
-314 silly gunzTarPerm extractEntry src/locale/tzm.js
-315 silly gunzTarPerm extractEntry src/locale/be.js
-316 silly gunzTarPerm extractEntry src/locale/uk.js
-317 silly gunzTarPerm extractEntry src/locale/az.js
-318 silly gunzTarPerm extractEntry src/locale/uz.js
-319 silly gunzTarPerm extractEntry src/locale/ar.js
-320 silly gunzTarPerm extractEntry src/locale/vi.js
-321 silly gunzTarPerm extractEntry src/locale/ar-tn.js
-322 silly gunzTarPerm extractEntry src/locale/x-pseudo.js
-323 silly gunzTarPerm extractEntry src/locale/ar-sa.js
-324 silly gunzTarPerm extractEntry src/locale/zh-cn.js
-325 silly gunzTarPerm extractEntry src/locale/ar-ma.js
-326 silly gunzTarPerm extractEntry src/locale/zh-tw.js
-327 silly gunzTarPerm extractEntry src/locale/ka.js
-328 silly gunzTarPerm extractEntry locale/af.js
-329 silly gunzTarPerm extractEntry locale/it.js
-330 silly gunzTarPerm extractEntry locale/ja.js
-331 silly gunzTarPerm extractEntry locale/jv.js
-332 silly gunzTarPerm extractEntry locale/is.js
-333 silly gunzTarPerm extractEntry locale/kk.js
-334 silly gunzTarPerm extractEntry locale/km.js
-335 silly gunzTarPerm extractEntry locale/ko.js
-336 silly gunzTarPerm extractEntry locale/ky.js
-337 silly gunzTarPerm extractEntry locale/lb.js
-338 silly gunzTarPerm extractEntry locale/id.js
-339 silly gunzTarPerm extractEntry locale/lo.js
-340 silly gunzTarPerm extractEntry locale/hy-am.js
-341 silly gunzTarPerm extractEntry locale/lt.js
-342 silly gunzTarPerm extractEntry locale/hu.js
-343 silly gunzTarPerm extractEntry locale/lv.js
-344 silly gunzTarPerm extractEntry locale/hr.js
-345 silly gunzTarPerm extractEntry locale/me.js
-346 silly gunzTarPerm extractEntry locale/hi.js
-347 silly gunzTarPerm extractEntry locale/mk.js
-348 silly gunzTarPerm extractEntry locale/he.js
-349 silly gunzTarPerm extractEntry locale/ml.js
-350 silly gunzTarPerm extractEntry locale/gl.js
-351 silly gunzTarPerm extractEntry locale/mr.js
-352 silly gunzTarPerm extractEntry locale/gd.js
-353 silly gunzTarPerm extractEntry locale/ms-my.js
-354 silly gunzTarPerm extractEntry locale/fy.js
-355 silly gunzTarPerm extractEntry locale/ms.js
-356 silly gunzTarPerm extractEntry locale/fr.js
-357 silly gunzTarPerm extractEntry locale/my.js
-358 silly gunzTarPerm extractEntry locale/fr-ch.js
-359 silly gunzTarPerm extractEntry locale/nb.js
-360 silly gunzTarPerm extractEntry locale/fr-ca.js
-361 silly gunzTarPerm extractEntry locale/ne.js
-362 silly gunzTarPerm extractEntry locale/fo.js
-363 silly gunzTarPerm extractEntry locale/nl.js
-364 silly gunzTarPerm extractEntry locale/fi.js
-365 silly gunzTarPerm extractEntry locale/nn.js
-366 silly gunzTarPerm extractEntry locale/fa.js
-367 silly gunzTarPerm extractEntry locale/pa-in.js
-368 silly gunzTarPerm extractEntry locale/eu.js
-369 silly gunzTarPerm extractEntry locale/pl.js
-370 silly gunzTarPerm extractEntry locale/et.js
-371 silly gunzTarPerm extractEntry locale/pt-br.js
-372 silly gunzTarPerm extractEntry locale/es.js
-373 silly gunzTarPerm extractEntry locale/pt.js
-374 silly gunzTarPerm extractEntry locale/es-do.js
-375 silly gunzTarPerm extractEntry locale/ro.js
-376 silly gunzTarPerm extractEntry locale/eo.js
-377 silly gunzTarPerm extractEntry locale/ru.js
-378 silly gunzTarPerm extractEntry locale/en-nz.js
-379 silly gunzTarPerm extractEntry locale/se.js
-380 silly gunzTarPerm extractEntry locale/en-ie.js
-381 silly gunzTarPerm extractEntry locale/si.js
-382 silly gunzTarPerm extractEntry locale/en-gb.js
-383 silly gunzTarPerm extractEntry locale/sk.js
-384 silly gunzTarPerm extractEntry locale/en-ca.js
-385 silly gunzTarPerm extractEntry locale/sl.js
-386 silly gunzTarPerm extractEntry locale/en-au.js
-387 silly gunzTarPerm extractEntry locale/sq.js
-388 silly gunzTarPerm extractEntry locale/el.js
-389 silly gunzTarPerm extractEntry locale/sr-cyrl.js
-390 silly gunzTarPerm extractEntry locale/dv.js
-391 silly gunzTarPerm extractEntry locale/sr.js
-392 silly gunzTarPerm extractEntry locale/de.js
-393 silly gunzTarPerm extractEntry locale/ss.js
-394 silly gunzTarPerm extractEntry locale/de-at.js
-395 silly gunzTarPerm extractEntry locale/sv.js
-396 silly gunzTarPerm extractEntry locale/da.js
-397 silly gunzTarPerm extractEntry locale/sw.js
-398 silly gunzTarPerm extractEntry locale/cy.js
-399 silly gunzTarPerm extractEntry locale/ta.js
-400 silly gunzTarPerm extractEntry locale/cv.js
-401 silly gunzTarPerm extractEntry locale/te.js
-402 silly gunzTarPerm extractEntry locale/cs.js
-403 silly gunzTarPerm extractEntry locale/th.js
-404 silly gunzTarPerm extractEntry locale/ca.js
-405 silly gunzTarPerm extractEntry locale/tl-ph.js
-406 silly gunzTarPerm extractEntry locale/bs.js
-407 silly gunzTarPerm extractEntry locale/tlh.js
-408 silly gunzTarPerm extractEntry locale/br.js
-409 silly gunzTarPerm extractEntry locale/tr.js
-410 silly gunzTarPerm extractEntry locale/bo.js
-411 silly gunzTarPerm extractEntry locale/tzl.js
-412 silly gunzTarPerm extractEntry locale/bn.js
-413 silly gunzTarPerm extractEntry locale/tzm-latn.js
-414 silly gunzTarPerm extractEntry locale/bg.js
-415 silly gunzTarPerm extractEntry locale/tzm.js
-416 silly gunzTarPerm extractEntry locale/be.js
-417 silly gunzTarPerm extractEntry locale/uk.js
-418 silly gunzTarPerm extractEntry locale/az.js
-419 silly gunzTarPerm extractEntry locale/uz.js
-420 silly gunzTarPerm extractEntry locale/ar.js
-421 silly gunzTarPerm extractEntry locale/vi.js
-422 silly gunzTarPerm extractEntry locale/ar-tn.js
-423 silly gunzTarPerm extractEntry locale/x-pseudo.js
-424 silly gunzTarPerm extractEntry locale/ar-sa.js
-425 silly gunzTarPerm extractEntry locale/zh-cn.js
-426 silly gunzTarPerm extractEntry locale/ar-ma.js
-427 silly gunzTarPerm extractEntry locale/zh-tw.js
-428 silly gunzTarPerm extractEntry locale/ka.js
-429 silly gunzTarPerm extractEntry CHANGELOG.md
-430 silly gunzTarPerm extractEntry min/locales.js
-431 silly gunzTarPerm extractEntry min/locales.min.js
-432 silly gunzTarPerm extractEntry min/moment-with-locales.js
-433 silly gunzTarPerm extractEntry min/moment-with-locales.min.js
-434 silly gunzTarPerm extractEntry min/moment.min.js
-435 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/moment/package.json
-436 info preinstall moment@2.14.1
-437 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/moment/package.json
-438 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/moment/package.json
-439 silly install resolved []
-440 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/moment
-441 info build /Applications/MAMP/htdocs/oechr/node_modules/moment
-442 info linkStuff moment@2.14.1
-443 silly linkStuff moment@2.14.1 has /Applications/MAMP/htdocs/oechr/node_modules as its parent node_modules
-444 verbose linkBins moment@2.14.1
-445 verbose linkMans moment@2.14.1
-446 verbose rebuildBundles moment@2.14.1
-447 info install moment@2.14.1
-448 info postinstall moment@2.14.1
-449 verbose unlock done using /Users/escarabin/.npm/_locks/moment-722e879bbcb2e3b6.lock for /Applications/MAMP/htdocs/oechr/node_modules/moment
-450 verbose validateInstall loading /Applications/MAMP/htdocs/oechr/package.json for validation
-451 verbose stack Error: The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
-451 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
-451 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
-451 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
-451 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-451 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-451 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-451 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-451 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-451 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-451 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-452 verbose cwd /Applications/MAMP/htdocs/oechr
-453 error Darwin 16.0.0
-454 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--save" "moment"
-455 error node v4.4.7
-456 error npm  v2.15.8
-457 error code EPEERINVALID
-458 error peerinvalid The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
-458 error peerinvalid Peer @angular/forms@0.1.1 wants @angular/common@2.0.0-rc.3
-458 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
-458 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
-458 error peerinvalid Peer @angular/router@3.0.0-alpha.7 wants @angular/common@^2.0.0-rc.2
-458 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
-458 error peerinvalid Peer ng2-bootstrap@1.0.24 wants @angular/common@2.0.0-rc.4
-458 error peerinvalid Peer angular2-google-maps@0.12.0 wants @angular/common@2.0.0-rc.2
-458 error peerinvalid Peer ng2-file-upload@1.0.3 wants @angular/common@^2.0.0-rc.1
-459 verbose exit [ 1, true ]
+96 silly addNameTag next cb for ng2-select with tag latest
+97 silly addNamed ng2-select@1.0.3
+98 verbose addNamed "1.0.3" is a plain semver version for ng2-select
+99 silly mapToRegistry name ng2-select
+100 silly mapToRegistry using default registry
+101 silly mapToRegistry registry https://registry.npmjs.org/
+102 silly mapToRegistry data Result {
+102 silly mapToRegistry   raw: 'ng2-select',
+102 silly mapToRegistry   scope: null,
+102 silly mapToRegistry   name: 'ng2-select',
+102 silly mapToRegistry   rawSpec: '',
+102 silly mapToRegistry   spec: 'latest',
+102 silly mapToRegistry   type: 'tag' }
+103 silly mapToRegistry uri https://registry.npmjs.org/ng2-select
+104 verbose addRemoteTarball https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz not in flight; adding
+105 verbose addRemoteTarball [ 'https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz',
+105 verbose addRemoteTarball   '61cf87e47c93167e60a66d18bf1ae52f024f75cc' ]
+106 info retry fetch attempt 1 at 7:07:11 PM
+107 info attempt registry request try #1 at 7:07:11 PM
+108 http fetch GET https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz
+109 http fetch 200 https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz
+110 silly fetchAndShaCheck shasum 61cf87e47c93167e60a66d18bf1ae52f024f75cc
+111 verbose addTmpTarball /tmp/npm-34197-1d643687/registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz not in flight; adding
+112 verbose addTmpTarball already have metadata; skipping unpack for ng2-select@1.0.3
+113 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
+114 silly cache afterAdd ng2-select@1.0.3
+115 verbose afterAdd /Users/escarabin/.npm/ng2-select/1.0.3/package/package.json not in flight; writing
+116 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
+117 verbose afterAdd /Users/escarabin/.npm/ng2-select/1.0.3/package/package.json written
+118 silly install resolved [ { name: 'ng2-select',
+118 silly install resolved     version: '1.0.3',
+118 silly install resolved     description: 'Angular2 based replacement for select boxes',
+118 silly install resolved     scripts:
+118 silly install resolved      { 'flow.install:typings': 'typings install',
+118 silly install resolved        'flow.compile': 'npm run flow.install:typings && npm run flow.compile:common && npm run flow.compile:system ',
+118 silly install resolved        'flow.compile:common': 'tsc',
+118 silly install resolved        'flow.compile:system': './.config/bundle-system.js',
+118 silly install resolved        'flow.copy:src': 'cpy ng2-select.ts "components/*.ts" ts --parents',
+118 silly install resolved        'flow.clean': 'del bundles coverage demo-build typings "components/**/*.+(js|d.ts|js.map)" dist "ng2-select.+(js|d.ts|js.map)"',
+118 silly install resolved        'flow.deploy:gh-pages': 'npm run flow.build:prod && ./node_modules/.bin/gh-pages -d demo-build',
+118 silly install resolved        'flow.eslint': 'eslint --ignore-path .gitignore  --ext js --fix . .config',
+118 silly install resolved        'flow.tslint': 'gulp lint',
+118 silly install resolved        'flow.lint': 'npm run flow.eslint && npm run flow.tslint',
+118 silly install resolved        'flow.changelog': 'conventional-changelog -i CHANGELOG.md -s -p angular -v',
+118 silly install resolved        'flow.github-release': 'conventional-github-releaser -p angular',
+118 silly install resolved        'flow.build:prod': 'NODE_ENV=production ./node_modules/.bin/webpack --progress --color',
+118 silly install resolved        'flow.build:dev': 'webpack --progress --color',
+118 silly install resolved        'flow.serve:dev': 'webpack-dev-server --hot --inline --colors --display-error-details --display-cached',
+118 silly install resolved        'flow.serve:prod': 'NODE_ENV=production ./node_modules/.bin/webpack-dev-server --hot --inline --colors --display-error-details --display-cached',
+118 silly install resolved        prepublish: 'npm run flow.clean && npm run flow.compile',
+118 silly install resolved        postpublish: 'npm run flow.deploy:gh-pages',
+118 silly install resolved        start: 'npm run flow.serve:dev',
+118 silly install resolved        pretest: 'npm run flow.lint',
+118 silly install resolved        test: 'NODE_ENV=test ./node_modules/.bin/karma start',
+118 silly install resolved        preversion: 'npm test',
+118 silly install resolved        version: 'npm run flow.changelog && git add -A',
+118 silly install resolved        postversion: 'git push origin development && git push --tags' },
+118 silly install resolved     main: 'ng2-select.js',
+118 silly install resolved     typings: 'ng2-select.d.ts',
+118 silly install resolved     keywords: [ 'angular2', 'select', 'selectify', 'angularjs' ],
+118 silly install resolved     author:
+118 silly install resolved      { name: 'Vyacheslav Chub',
+118 silly install resolved        email: 'vyacheslav.chub@valor-software.com' },
+118 silly install resolved     license: 'MIT',
+118 silly install resolved     repository:
+118 silly install resolved      { type: 'git',
+118 silly install resolved        url: 'git+ssh://git@github.com/valor-software/ng2-select.git' },
+118 silly install resolved     bugs: { url: 'https://github.com/valor-software/ng2-select/issues' },
+118 silly install resolved     homepage: 'https://github.com/valor-software/ng2-select#readme',
+118 silly install resolved     peerDependencies:
+118 silly install resolved      { '@angular/common': '^2.0.0-rc.1',
+118 silly install resolved        '@angular/compiler': '^2.0.0-rc.1',
+118 silly install resolved        '@angular/core': '^2.0.0-rc.1' },
+118 silly install resolved     dependencies: {},
+118 silly install resolved     devDependencies:
+118 silly install resolved      { '@angular/common': '^2.0.0-rc.1',
+118 silly install resolved        '@angular/compiler': '^2.0.0-rc.1',
+118 silly install resolved        '@angular/core': '^2.0.0-rc.1',
+118 silly install resolved        '@angular/platform-browser': '^2.0.0-rc.1',
+118 silly install resolved        '@angular/platform-browser-dynamic': '^2.0.0-rc.1',
+118 silly install resolved        async: '1.5.2',
+118 silly install resolved        'awesome-typescript-loader': '^0.17.0-rc.6',
+118 silly install resolved        bootstrap: '3.3.6',
+118 silly install resolved        codecov: '1.0.1',
+118 silly install resolved        'compression-webpack-plugin': '0.3.1',
+118 silly install resolved        'conventional-changelog-cli': '1.2.0',
+118 silly install resolved        'conventional-github-releaser': '1.1.2',
+118 silly install resolved        'copy-webpack-plugin': '3.0.0',
+118 silly install resolved        'cpy-cli': '1.0.0',
+118 silly install resolved        'del-cli': '0.2.0',
+118 silly install resolved        'es6-promise': '3.2.1',
+118 silly install resolved        'es6-shim': '0.35.1',
+118 silly install resolved        'es7-reflect-metadata': '1.6.0',
+118 silly install resolved        'eslint-config-valorsoft': '0.0.13',
+118 silly install resolved        'exports-loader': '0.6.3',
+118 silly install resolved        'file-loader': '0.8.5',
+118 silly install resolved        'gh-pages': '0.11.0',
+118 silly install resolved        'gitignore-to-glob': '0.2.1',
+118 silly install resolved        gulp: '3.9.1',
+118 silly install resolved        'gulp-size': '2.1.0',
+118 silly install resolved        'gulp-tslint': '5.0.0',
+118 silly install resolved        'html-loader': '0.4.3',
+118 silly install resolved        'html-webpack-plugin': '2.17.0',
+118 silly install resolved        'istanbul-instrumenter-loader': '0.2.0',
+118 silly install resolved        jasmine: '2.4.1',
+118 silly install resolved        karma: '0.13.22',
+118 silly install resolved        'karma-chrome-launcher': '1.0.1',
+118 silly install resolved        'karma-coverage': '1.0.0',
+118 silly install resolved        'karma-jasmine': '1.0.2',
+118 silly install resolved        'karma-phantomjs-launcher': '1.0.0',
+118 silly install resolved        'karma-sourcemap-loader': '0.3.7',
+118 silly install resolved        'karma-spec-reporter': '0.0.26',
+118 silly install resolved        'karma-webpack': '1.7.0',
+118 silly install resolved        'lite-server': '2.2.0',
+118 silly install resolved        'markdown-loader': '0.1.7',
+118 silly install resolved        marked: '0.3.5',
+118 silly install resolved        'ng2-bootstrap': '1.0.16',
+118 silly install resolved        'phantomjs-polyfill': '0.0.2',
+118 silly install resolved        'phantomjs-prebuilt': '2.1.7',
+118 silly install resolved        'pre-commit': '1.1.3',
+118 silly install resolved        prismjs: '1.5.0',
+118 silly install resolved        'prismjs-loader': '0.0.3',
+118 silly install resolved        'raw-loader': '0.5.1',
+118 silly install resolved        'reflect-metadata': '0.1.2',
+118 silly install resolved        'require-dir': '0.3.0',
+118 silly install resolved        rxjs: '5.0.0-beta.6',
+118 silly install resolved        'source-map-loader': '0.1.5',
+118 silly install resolved        'systemjs-builder': '0.15.16',
+118 silly install resolved        'ts-loader': '0.8.2',
+118 silly install resolved        'tslint-config-valorsoft': '1.0.3',
+118 silly install resolved        typescript: '1.8.10',
+118 silly install resolved        typings: '0.8.1',
+118 silly install resolved        webpack: '1.13.0',
+118 silly install resolved        'webpack-dev-server': '1.14.1',
+118 silly install resolved        'zone.js': '0.6.12' },
+118 silly install resolved     contributors: [ [Object], [Object] ],
+118 silly install resolved     gitHead: 'f479a623079ff2a26a1c162652212891956e57a0',
+118 silly install resolved     _id: 'ng2-select@1.0.3',
+118 silly install resolved     _shasum: '61cf87e47c93167e60a66d18bf1ae52f024f75cc',
+118 silly install resolved     _from: 'ng2-select@latest',
+118 silly install resolved     _npmVersion: '3.8.9',
+118 silly install resolved     _nodeVersion: '6.2.0',
+118 silly install resolved     _npmUser: { name: 'valorkin', email: 'valorkin@gmail.com' },
+118 silly install resolved     dist:
+118 silly install resolved      { shasum: '61cf87e47c93167e60a66d18bf1ae52f024f75cc',
+118 silly install resolved        tarball: 'https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz' },
+118 silly install resolved     maintainers: [ [Object] ],
+118 silly install resolved     _npmOperationalInternal:
+118 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+118 silly install resolved        tmp: 'tmp/ng2-select-1.0.3.tgz_1463586863266_0.8940545863006264' },
+118 silly install resolved     directories: {},
+118 silly install resolved     _resolved: 'https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz' } ]
+119 info install ng2-select@1.0.3 into /Applications/MAMP/htdocs/oechr
+120 info installOne ng2-select@1.0.3
+121 verbose installOne of ng2-select to /Applications/MAMP/htdocs/oechr not in flight; installing
+122 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
+123 verbose lock using /Users/escarabin/.npm/_locks/ng2-select-53c7c88ea2773ffd.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
+124 silly install write writing ng2-select 1.0.3 to /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
+125 verbose unbuild node_modules/ng2-select
+126 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-select is being purged from base /Applications/MAMP/htdocs/oechr
+127 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
+128 verbose tar unpack /Users/escarabin/.npm/ng2-select/1.0.3/package.tgz
+129 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
+130 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-select is being purged
+131 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
+132 silly gunzTarPerm modes [ '755', '644' ]
+133 silly gunzTarPerm extractEntry package.json
+134 silly gunzTarPerm extractEntry .npmignore
+135 silly gunzTarPerm extractEntry README.md
+136 silly gunzTarPerm extractEntry LICENSE
+137 silly gunzTarPerm extractEntry gulpfile.js
+138 silly gunzTarPerm extractEntry ng2-select.js
+139 silly gunzTarPerm extractEntry bundles/ng2-select.js
+140 silly gunzTarPerm extractEntry bundles/ng2-select.min.js
+141 silly gunzTarPerm extractEntry bundles/ng2-select.js.gz
+142 silly gunzTarPerm extractEntry bundles/ng2-select.js.map.gz
+143 silly gunzTarPerm extractEntry bundles/ng2-select.min.js.gz
+144 silly gunzTarPerm extractEntry bundles/ng2-select.min.js.map.gz
+145 silly gunzTarPerm extractEntry components/select.js
+146 silly gunzTarPerm extractEntry components/css/ng2-select.css
+147 silly gunzTarPerm extractEntry components/select/off-click.js
+148 silly gunzTarPerm extractEntry components/select/select-interfaces.js
+149 silly gunzTarPerm extractEntry components/select/common.js
+150 silly gunzTarPerm extractEntry components/select/select-item.js
+151 silly gunzTarPerm extractEntry components/select/select-pipes.js
+152 silly gunzTarPerm extractEntry components/select/select.js
+153 silly gunzTarPerm extractEntry components/select/select-item.d.ts
+154 silly gunzTarPerm extractEntry components/select/select-interfaces.d.ts
+155 silly gunzTarPerm extractEntry components/select/off-click.d.ts
+156 silly gunzTarPerm extractEntry components/select/common.d.ts
+157 silly gunzTarPerm extractEntry components/select/select-pipes.d.ts
+158 silly gunzTarPerm extractEntry components/select/select.d.ts
+159 silly gunzTarPerm extractEntry components/select/readme.md
+160 silly gunzTarPerm extractEntry components/select.d.ts
+161 silly gunzTarPerm extractEntry .editorconfig
+162 silly gunzTarPerm extractEntry .config/bundle-system.js
+163 silly gunzTarPerm extractEntry ng2-select.d.ts
+164 silly gunzTarPerm extractEntry .travis.yml
+165 silly gunzTarPerm extractEntry typings.json
+166 silly gunzTarPerm extractEntry CHANGELOG.md
+167 silly gunzTarPerm extractEntry .eslintrc.json
+168 silly gunzTarPerm extractEntry tsconfig.json
+169 silly gunzTarPerm extractEntry tslint.json
+170 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/ng2-select/package.json
+171 info preinstall ng2-select@1.0.3
+172 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-select/package.json
+173 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-select/package.json
+174 silly install resolved []
+175 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
+176 info build /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
+177 info linkStuff ng2-select@1.0.3
+178 silly linkStuff ng2-select@1.0.3 has /Applications/MAMP/htdocs/oechr/node_modules as its parent node_modules
+179 verbose linkBins ng2-select@1.0.3
+180 verbose linkMans ng2-select@1.0.3
+181 verbose rebuildBundles ng2-select@1.0.3
+182 info install ng2-select@1.0.3
+183 info postinstall ng2-select@1.0.3
+184 verbose unlock done using /Users/escarabin/.npm/_locks/ng2-select-53c7c88ea2773ffd.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
+185 verbose validateInstall loading /Applications/MAMP/htdocs/oechr/package.json for validation
+186 verbose stack Error: The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
+186 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+186 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
+186 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+186 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+186 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+186 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+186 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+186 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+186 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+186 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+187 verbose cwd /Applications/MAMP/htdocs/oechr
+188 error Darwin 16.0.0
+189 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--save" "ng2-select"
+190 error node v4.4.7
+191 error npm  v2.15.8
+192 error code EPEERINVALID
+193 error peerinvalid The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
+193 error peerinvalid Peer @angular/forms@0.1.1 wants @angular/common@2.0.0-rc.3
+193 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
+193 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
+193 error peerinvalid Peer @angular/router@3.0.0-alpha.7 wants @angular/common@^2.0.0-rc.2
+193 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
+193 error peerinvalid Peer ng2-bootstrap@1.0.24 wants @angular/common@2.0.0-rc.4
+193 error peerinvalid Peer angular2-google-maps@0.12.0 wants @angular/common@2.0.0-rc.2
+193 error peerinvalid Peer ng2-file-upload@1.0.3 wants @angular/common@^2.0.0-rc.1
+193 error peerinvalid Peer ng2-select@1.0.3 wants @angular/common@^2.0.0-rc.1
+194 verbose exit [ 1, true ]

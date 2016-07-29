@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap', './../services/reference.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap', './../services/reference.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../services/job.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, ng2_bootstrap_1, reference_service_1;
+    var core_1, router_deprecated_1, ng2_bootstrap_1, reference_service_1, googleplace_directive_1, job_service_1;
     var JobSearchSidebarComponent;
     return {
         setters:[
@@ -25,16 +25,23 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
             },
             function (reference_service_1_1) {
                 reference_service_1 = reference_service_1_1;
+            },
+            function (googleplace_directive_1_1) {
+                googleplace_directive_1 = googleplace_directive_1_1;
+            },
+            function (job_service_1_1) {
+                job_service_1 = job_service_1_1;
             }],
         execute: function() {
             JobSearchSidebarComponent = (function () {
-                function JobSearchSidebarComponent(referenceService, routeParams) {
+                function JobSearchSidebarComponent(referenceService, jobService, routeParams) {
                     this.referenceService = referenceService;
+                    this.jobService = jobService;
                     this.routeParams = routeParams;
                     this.isStudyLevelCollapsed = true;
                     this.isContractTypeCollapsed = true;
                     this.isJobNamingCollapsed = true;
-                    this.placeIdList = [];
+                    this.place = [];
                     this.jobNamingIdList = [];
                     this.contractTypeIdList = [];
                     this.studyLevelIdList = [];
@@ -49,16 +56,16 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     referenceService.getAllStudyLevels().subscribe(function (res) {
                         __this.studyLevels = res.json();
                     });
-                    this.placeIdList.push(parseInt(routeParams.get('placeId')));
                     this.studyLevelIdList.push(parseInt(routeParams.get('studyLevelId')));
                     this.jobNamingIdList.push(parseInt(routeParams.get('jobNamingId')));
                     this.contractTypeIdList.push(parseInt(routeParams.get('contractTypeId')));
                     this.searchText = routeParams.get('searchText');
                 }
-                JobSearchSidebarComponent.prototype.toggleSearchParameter = function (parameterType, parameterValue) {
+                JobSearchSidebarComponent.prototype.updateSearchParameter = function (parameterType, parameterValue) {
                     /**
                      * Add or remove the parameters from their respective arrays
                      */
+                    console.log('params 1');
                     switch (parameterType) {
                         case "contractType":
                             var contractTypeIndex = this.contractTypeIdList.indexOf(parameterValue);
@@ -92,7 +99,16 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     parametersArray['contractTypeIdList'] = this.contractTypeIdList;
                     parametersArray['jobNamingIdList'] = this.jobNamingIdList;
                     parametersArray['studyLevelIdList'] = this.studyLevelIdList;
+                    parametersArray['place'] = this.place;
+                    // TODO : remove that shit
+                    this.jobService.searchJobs(parametersArray).subscribe(function (res) {
+                        console.log(res.json());
+                    });
                     this.searchParametersChanged.emit(parametersArray);
+                };
+                JobSearchSidebarComponent.prototype.parseAdress = function (place) {
+                    this.place = place;
+                    this.updateSearchParameter();
                 };
                 __decorate([
                     core_1.Output(), 
@@ -100,12 +116,14 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                 ], JobSearchSidebarComponent.prototype, "searchParametersChanged", void 0);
                 JobSearchSidebarComponent = __decorate([
                     core_1.Component({
-                        directives: [router_deprecated_1.RouterLink, ng2_bootstrap_1.CollapseDirective],
-                        providers: [reference_service_1.ReferenceService],
+                        directives: [router_deprecated_1.RouterLink,
+                            ng2_bootstrap_1.CollapseDirective,
+                            googleplace_directive_1.GoogleplaceDirective],
+                        providers: [reference_service_1.ReferenceService, job_service_1.JobService],
                         selector: 'job-search-sidebar',
                         templateUrl: '../templates/job-search-sidebar.component.html',
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, job_service_1.JobService, router_deprecated_1.RouteParams])
                 ], JobSearchSidebarComponent);
                 return JobSearchSidebarComponent;
             }());

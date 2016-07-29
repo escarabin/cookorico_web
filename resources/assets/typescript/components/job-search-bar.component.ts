@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
+import {BUTTON_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { RouterLink } from '@angular/router-deprecated';
 
 // Directives
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
+import { SELECT_DIRECTIVES } from 'ng2-select';
 
 // Services
 import { JobService } from './../services/job.service';
@@ -17,7 +19,13 @@ import { ReferenceService } from './../services/reference.service';
         PostService,
         ClubService,
         ReferenceService],
-    directives: [RouterLink, GoogleplaceDirective],
+    directives: [RouterLink,
+                 GoogleplaceDirective,
+                 NgClass,
+                 CORE_DIRECTIVES,
+                 FORM_DIRECTIVES,
+                 BUTTON_DIRECTIVES,
+                 SELECT_DIRECTIVES],
     selector: 'job-search-bar',
     templateUrl: '../templates/job-search-bar.component.html',
 })

@@ -27,7 +27,7 @@ Route::get('/job/{id}', 'JobController@get')
     ->name('showJob');
 Route::get('/jobs/all', 'JobController@getAll')
     ->name('getAllJobs');
-Route::get('/jobs/search/{searchParameters}', 'JobController@search')
+Route::post('/jobs/search/', 'JobController@search')
     ->name('searchJobs');
 Route::get('/user/job-posts/all', 'UserController@getJobPosts')
     ->name('getMyJobPosts');

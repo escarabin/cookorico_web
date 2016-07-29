@@ -36,7 +36,13 @@ export class JobService {
     searchJobs(searchParameters: any) {
         let __this = this;
 
-        return this.http.request(__this.searchJobsUrl + '/' + JSON.stringify({ searchParameters }));
+        console.log('searching for jobs', searchParameters);
+
+        let body = JSON.stringify({ searchParameters });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(__this.searchJobsUrl, body, options);
     }
 
     /**
