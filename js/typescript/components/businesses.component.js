@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './../services/notification.service', './../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './../services/notification.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1, notification_service_1, notification_1;
+    var core_1, router_deprecated_1, user_service_1, notification_service_1;
     var BusinessesComponent;
     return {
         setters:[
@@ -25,9 +25,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
             },
             function (notification_service_1_1) {
                 notification_service_1 = notification_service_1_1;
-            },
-            function (notification_1_1) {
-                notification_1 = notification_1_1;
             }],
         execute: function() {
             BusinessesComponent = (function () {
@@ -70,17 +67,20 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                     }
                 };
                 BusinessesComponent.prototype.deleteSelectedItems = function () {
-                    var _this = this;
                     var __this = this;
                     var parsedListItemId = this.checkedItemsList.join(',');
-                    this.userService.deleteBusinesses(parsedListItemId).subscribe(function (res) {
-                        __this.userService.getBusinesses().subscribe(function (res) {
-                            __this.items = res.json();
-                            __this.notificationService.show(new notification_1.Notification('success', 'Ces établissements ont bien été supprimées'));
-                            _this.checkedItemsList = [];
-                            _this.allItemsChecked = false;
-                        });
-                    });
+                    /* this.userService.deleteBusinesses(parsedListItemId).subscribe((res: Response) => {
+                         __this.userService.getBusinesses().subscribe((res: Response) => {
+                             __this.items = res.json();
+             
+                             __this.notificationService.show(
+                                 new Notification('success', 'Ces établissements ont bien été supprimées')
+                             );
+             
+                             this.checkedItemsList = [];
+                             this.allItemsChecked = false;
+                         });
+                     });*/
                 };
                 BusinessesComponent = __decorate([
                     core_1.Component({

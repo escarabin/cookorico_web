@@ -67,7 +67,7 @@ export class BusinessesComponent {
 
         let parsedListItemId = this.checkedItemsList.join(',');
 
-        this.userService.deleteBusinesses(parsedListItemId).subscribe((res: Response) => {
+       /* this.userService.deleteBusinesses(parsedListItemId).subscribe((res: Response) => {
             __this.userService.getBusinesses().subscribe((res: Response) => {
                 __this.items = res.json();
 
@@ -78,6 +78,6 @@ export class BusinessesComponent {
                 this.checkedItemsList = [];
                 this.allItemsChecked = false;
             });
-        });
+        });*/
     }
 }

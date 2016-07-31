@@ -7,7 +7,6 @@ import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
 import { LocationService } from './../services/location.service';
 import { BusinessService } from './../services/business.service';
-import { FileUploadService } from '../services/file.service';
 
 // Directives
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
@@ -21,8 +20,7 @@ import { Place } from './../models/place'
     providers: [ReferenceService,
                 UserService,
                 LocationService,
-                BusinessService,
-                FileUploadService],
+                BusinessService],
     directives: [RouterLink, GoogleplaceDirective],
     templateUrl: '../templates/create-business.component.html'
 })
@@ -36,12 +34,11 @@ export class CreateBusinessComponent {
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
                 private businessService: BusinessService,
-                private fileUploadService: FileUploadService,
                 private locationService: LocationService,
                 private routeParams: RouteParams) {
         let __this = this;
 
-        this.business.id = routeParams.get("businessId");
+        this.business.id = parseInt(routeParams.get("businessId"));
 
         if (this.business.id) {
             // Editing a specific business, let's retrieve it's data
@@ -67,8 +64,13 @@ export class CreateBusinessComponent {
 
         // Loop through photos to get url
         for (let i = 0; i < place['photos'].length; i++) {
-            let photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });
-            this.business.photos.push(photoUrl);
+            let photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });3
+            if (!this.business.photos) {
+                this.business.photos = [photoUrl];
+            }
+            else {
+                this.business.photos.push(photoUrl);
+            }
         }
 
         // Get business's type

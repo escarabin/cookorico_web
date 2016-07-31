@@ -67,22 +67,40 @@ class JobController extends Controller
     public function search(Request $request) {
         $parameters = $request::input('searchParameters');
 
+        Log::info($parameters);
+
         $contractTypeIdList = $parameters['contractTypeIdList'];
         $jobNamingIdList = $parameters['jobNamingIdList'];
         $studyLevelIdList = $parameters['studyLevelIdList'];
 
-        $jobs = Job::/*whereIn('contract_type_id', $contractTypeIdList)
-                    ->whereIn('job_naming_id', $jobNamingIdList)
-                    ->whereIn('study_level_id', $studyLevelIdList)*/
-                    all()
-                    ->load('business',
-                            'user',
-                            'jobNaming',
-                            'type',
-                            'studyLevel',
-                            'contractType',
-                            'jobXpLevel',
-                            'languages');
+        /**
+         * First, filter results by jobNamingId
+         */
+        if (count($jobNamingIdList) > 1) {
+            $jobs = Job::whereIn('job_naming_id', $jobNamingIdList)
+                ->get()
+                ->load('business',
+                    'user',
+                    'jobNaming',
+                    'type',
+                    'studyLevel',
+                    'contractType',
+                    'jobXpLevel',
+                    'languages');
+        }
+        else {
+            $jobs = Job::all()
+                ->load('business',
+                    'user',
+                    'jobNaming',
+                    'type',
+                    'studyLevel',
+                    'contractType',
+                    'jobXpLevel',
+                    'languages');
+        }
+
+
 
         /**
          * Check if job's business is inside the
@@ -91,9 +109,6 @@ class JobController extends Controller
         foreach ($jobs as $key => $job) {
             $job->business->place = $job->business->place;
             $jobPlace = $job->business->place;
-
-            Log::info($jobPlace);
-            Log::info($parameters['place']);
 
             if ($parameters['place']) {
                 $viewport_north = $parameters['place']['geometry']['viewport']['north'];

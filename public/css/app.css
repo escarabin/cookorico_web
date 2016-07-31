@@ -424,7 +424,7 @@ home {
         margin-bottom: 15px; } }
 
 job {
-  display: block;
+  display: inline-block;
   background: white;
   padding-bottom: 20px;
   border-radius: 4px;
