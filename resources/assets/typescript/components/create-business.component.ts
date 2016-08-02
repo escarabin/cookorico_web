@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink, RouteParams } from '@angular/router-deprecated';
+import { RouterLink, RouteParams, Router } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
 import { LocationService } from './../services/location.service';
 import { BusinessService } from './../services/business.service';
+import { NotificationsService } from './../services/notification.service';
 
 // Directives
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
@@ -14,6 +15,7 @@ import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directiv
 // Models
 import { Business } from './../models/business'
 import { Place } from './../models/place'
+import { Notification } from './../models/notification';
 
 @Component({
     selector: 'create-business',
@@ -29,12 +31,15 @@ export class CreateBusinessComponent {
     business:Business = new Business();
     place:Place = new Place();
     businessTypes: any;
+    isLoading: boolean = false;
     public adress: Object;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
+                private notificationService: NotificationsService,
                 private businessService: BusinessService,
                 private locationService: LocationService,
+                private router: Router,
                 private routeParams: RouteParams) {
         let __this = this;
 
@@ -44,6 +49,7 @@ export class CreateBusinessComponent {
             // Editing a specific business, let's retrieve it's data
             this.userService.getBusiness(__this.business.id).subscribe((res: Response) => {
                 __this.business = res.json();
+                __this.place = res.json()['place'];
             });
         }
 
@@ -53,6 +59,9 @@ export class CreateBusinessComponent {
     }
 
     parseAdress(place:Object) {
+        /**
+         * Parse google maps API data into [business] & [place] objects
+         */
         var location = place['geometry']['location'];
         this.place.lat =  location.lat();
         this.place.lon = location.lng();
@@ -66,7 +75,7 @@ export class CreateBusinessComponent {
         // Loop through photos to get url
         for (let i = 0; i < place['photos'].length; i++) {
             let photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });3
-            this.business.photos.push(photoUrl);
+            this.business.photos.push({url: photoUrl});
         }
 
         // Get business's type
@@ -86,14 +95,33 @@ export class CreateBusinessComponent {
             this.business.business_type_id = 9;
         }
 
+        this.place.googlePlaceId = place['place_id'];
         this.place.city = place['address_components'][2]['long_name'];
         this.place.postalCode = place['address_components'][6]['long_name'];
     }
 
     submitBusiness() {
         let __this = this;
-        this.businessService.create(__this.business).subscribe((res: Response) => {
-            console.log(res.json());
+        this.businessService.create(__this.business, __this.place).subscribe((res:Response) => {
+            if (res['_body']) {
+                __this.notificationService.show(
+                    new Notification('success', 'Votre établissement a bien été créee')
+                );
+
+                // Redirect to experience edition
+                __this.router.navigate(['/Profile/EditBusiness', {businessId: res.json()['id']}])
+            }
+            else {
+                __this.notificationService.show(
+                    new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
+                );
+            }
+            this.isLoading = false;
         })
+    }
+
+    deleteBusinessPhoto(photo) {
+        let indexOfPhoto = this.business.photos.indexOf(photo);
+        this.business.photos.splice(indexOfPhoto, 1);
     }
 }

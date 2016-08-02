@@ -27,16 +27,25 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
             BusinessService = (function () {
                 function BusinessService(http) {
                     this.http = http;
-                    this.createBusinessUrl = appGlobals.apiUrl + "/business/create/";
+                    this.createBusinessUrl = appGlobals.apiUrl + "/business/create";
                     this.getAllBusinessesUrl = appGlobals.apiUrl + "/businesses/all";
                     this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
                     this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
                 }
-                BusinessService.prototype.create = function (business) {
-                    var __this = this;
-                    var requestBody = JSON.stringify({ business: business });
-                    return this.http.post(__this.createBusinessUrl, requestBody, this.postRequestOptions);
+                /**
+                 * Create a new business with its related place
+                 * @param business
+                 * @param place
+                 * @returns {Observable<Response>}
+                 */
+                BusinessService.prototype.create = function (business, place) {
+                    var requestBody = JSON.stringify({ business: business, place: place });
+                    return this.http.post(this.createBusinessUrl, requestBody, this.postRequestOptions);
                 };
+                /**
+                 * List all businesses
+                 * @returns {Observable<Response>}
+                 */
                 BusinessService.prototype.getAll = function () {
                     return this.http.request(this.getAllBusinessesUrl);
                 };

@@ -17,7 +17,7 @@
         <li *ngFor="let testimonial of testimonials"
             class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 item"
-                 [class.logo]="testimonial.business.logoUrl">
+                 [class.logo]="testimonial.business.logo">
                 <a [routerLink]="['/JobSearch/ShowAllJobs']">
                     <div class="item-desc">
                         <h3>{{ testimonial.job_naming.title }}</h3>

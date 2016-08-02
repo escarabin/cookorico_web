@@ -451,6 +451,13 @@ job {
         max-width: 80px;
         max-height: 80px; }
 
+create-business .logo {
+  height: 90px;
+  overflow: hidden; }
+  create-business .logo img {
+    width: 100%;
+    padding-top: 20px; }
+
 new-application-form {
   display: inline-block;
   padding-top: 20px; }
@@ -870,6 +877,19 @@ testimonials {
 .photo-title {
   text-align: center;
   font-family: "Avenir Medium", sans-serif; }
+
+.delete-photo {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #1a1f38;
+  color: white;
+  position: absolute;
+  top: -10px;
+  right: 0;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer; }
 
 #business-photos {
   margin-top: 15px;

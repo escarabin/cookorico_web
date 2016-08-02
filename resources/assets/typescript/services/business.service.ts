@@ -4,10 +4,11 @@ import appGlobals = require('./../globals'); //<==== this one
 
 // Models
 import { Business } from './../models/business';
+import { Place } from './../models/place';
 
 @Injectable()
 export class BusinessService {
-    createBusinessUrl = appGlobals.apiUrl + "/business/create/";
+    createBusinessUrl = appGlobals.apiUrl + "/business/create";
     getAllBusinessesUrl = appGlobals.apiUrl + "/businesses/all";
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
@@ -16,14 +17,22 @@ export class BusinessService {
 
     }
 
-    create(business: Business) {
-        let __this = this;
+    /**
+     * Create a new business with its related place
+     * @param business
+     * @param place
+     * @returns {Observable<Response>}
+     */
+    create(business: Business, place: Place) {
+        let requestBody = JSON.stringify({ business, place });
 
-        let requestBody = JSON.stringify({ business });
-
-        return this.http.post(__this.createBusinessUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.createBusinessUrl, requestBody, this.postRequestOptions);
     }
 
+    /**
+     * List all businesses
+     * @returns {Observable<Response>}
+     */
     getAll() {
         return this.http.request(this.getAllBusinessesUrl);
     }

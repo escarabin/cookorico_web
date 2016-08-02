@@ -33,15 +33,14 @@
                        (change)="saveCheckedItem(item.id)"/>
             </div>
             <div class="col-md-10 col-sm-10 col-xs-10 item"
-                 [class.logo]="item.logoUrl">
+                 [class.logo]="item.logo">
                 <a [routerLink]="['/Profile/EditBusiness', { businessId: item.id }]">
                     <div class="item-desc">
                         <h3>{{ item.title }}</h3>
                         {{ item.city }}
                     </div>
                     <div class="logo">
-                        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.id }}.jpg"
-                             *ngIf="item.logoUrl"/>
+                        <img src="{{ item.logo }}"/>
                     </div>
                 </a>
             </div>

@@ -1,6 +1,11 @@
 <div class="col-md-12">
     <form>
-        <div class="col-md-12">
+        <div class="col-md-2 logo"
+             *ngIf="business.logo">
+            <img src="{{ business.logo }}"/>
+        </div>
+        <div [class.col-md-10]="business.logo"
+             [class.col-md-12]="!business.logo">
             <label>Nom de votre établissement</label>
             <input type="text"
                    class="form-control"
@@ -74,14 +79,18 @@
             <div class="col-md-4"
                  *ngFor="let photo of business.photos">
                 <div class="photo-preview"
-                     [class.logo]="photo == business.logo"
-                     (click)="business.logo = photo"
-                     [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+                     [class.logo]="photo.url == business.logo"
+                     (click)="business.logo = photo.url"
+                     [ngStyle]="{'background-image': 'url(' + photo.url + ')'}">
 
                 </div>
                 <div class="photo-title"
-                     *ngIf="photo == business.logo">
-                    Utiliser comme logo
+                     *ngIf="photo.url == business.logo">
+                    Ceci sera votre logo
+                </div>
+                <div class="delete-photo"
+                     (click)="deleteBusinessPhoto(photo.url)">
+                    <span class="fa fa-times"></span>
                 </div>
             </div>
         </div>

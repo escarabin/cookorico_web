@@ -185,16 +185,6 @@ class UserController extends Controller
     }
 
     /**
-     * Get user's specific job alerts
-     * @return mixed
-     */
-    public function getBusiness($businessId) {
-        $business = Business::find($businessId);
-
-        return $business;
-    }
-
-    /**
      * Get the plans that logged user subscribed to
      */
     public function getPlans() {
