@@ -1,0 +1,45 @@
+<div class="col-md-12 header-container">
+    <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container">
+        <input type="checkbox"
+               [checked]="allItemsChecked"
+               (change)="toggleAllItems()"/>
+    </div>
+    <div class="col-md-7 col-sm-7 col-xs-6 items-count">
+        <span *ngIf="checkedItemsList.length > 0">
+            {{ checkedItemsList.length }}
+        </span>
+        <span *ngIf="checkedItemsList.length == 0">
+            {{ items.length }}
+        </span> modèle<span *ngIf="items.length > 1">s</span> de mail
+        <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
+        <button [routerLink]="['/Profile/CreateMailTemplate']">
+            <span class="fa fa-plus"></span>
+        </button>
+        <button (click)="deleteSelectedItems()">
+            <span class="fa fa-trash-o"></span>
+        </button>
+    </div>
+</div>
+
+<div class="col-md-12 list-container">
+    <ul>
+        <li class="row" *ngFor="let item of items">
+            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
+                <input type="checkbox"
+                       class="action-checkbox"
+                       [checked]="checkedItemsList.indexOf(item.id) != -1"
+                       (change)="saveCheckedItem(item.id)"/>
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-10 item">
+                <a [routerLink]="['/Profile/EditMailTemplate', { templateId: item.id }]">
+                    <div class="item-desc">
+                        <h3>{{ item.subject }}</h3>
+                        {{ item.slug }}
+                    </div>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>

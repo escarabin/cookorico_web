@@ -18,7 +18,7 @@ export class UNITYTinyMCE {
 
     private elementRef: ElementRef;
     private elementID: string;
-    private htmlContent: string;
+    public htmlContent: string;
 
     @Output() newContentInput: EventEmitter = new EventEmitter();
     @Input() readOnly: number;

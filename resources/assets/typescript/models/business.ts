@@ -7,6 +7,7 @@ export class Business {
         public business_type_id: number,
         public website: string,
         public description: string,
+        public logo: string,
         public photos: any = []
     ) {  }
 }

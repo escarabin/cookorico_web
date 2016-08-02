@@ -155,6 +155,12 @@ Route::get('/job_xp_levels/all', 'ReferenceController@getAllJobXpLevels')
 Route::get('/user/plans/all', 'UserController@getPlans')
     ->name('getAllPlans');
 
+// Mails
+Route::get('/mail/templates/all', 'MailController@getTemplates')
+    ->name('getMailTemplates');
+Route::get('/mail/template/{id}', 'MailController@getTemplate')
+    ->name('getMailTemplate');
+
 // Socialite
 Route::get('/auth/{provider}', 'Auth\AuthController@redirectToProvider')
     ->name('redirectToAuthProvider');

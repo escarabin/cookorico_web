@@ -6,7 +6,7 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Business = (function () {
-                function Business(id, title, email, phone, business_type_id, website, description, photos) {
+                function Business(id, title, email, phone, business_type_id, website, description, logo, photos) {
                     if (photos === void 0) { photos = []; }
                     this.id = id;
                     this.title = title;
@@ -15,6 +15,7 @@ System.register([], function(exports_1, context_1) {
                     this.business_type_id = business_type_id;
                     this.website = website;
                     this.description = description;
+                    this.logo = logo;
                     this.photos = photos;
                 }
                 return Business;

@@ -26,6 +26,8 @@ import { CreateJobPostComponent } from './create-job-post.component';
 import { SignUpComponent } from './sign-up.component';
 import { ApplicantsComponent } from './applicants.component';
 import { ProfilePreviewComponent } from './profile-preview.component';
+import { MailTemplatesComponent } from './mail-templates.component';
+import { CreateMailTemplateComponent } from './create-mail-template.component';
 
 @Component({
     providers: [UserService],
@@ -33,6 +35,8 @@ import { ProfilePreviewComponent } from './profile-preview.component';
                 RouterOutlet,
                 UserSidebarComponent,
                 RightSidebarComponent,
+                MailTemplatesComponent,
+                CreateMailTemplateComponent,
                 SignUpComponent],
     selector: 'profile',
     templateUrl: '../templates/profile.component.html',
@@ -81,6 +85,11 @@ import { ProfilePreviewComponent } from './profile-preview.component';
 
     // Applicants
     { path: '/applicants/all', name: 'Applicants', component: ApplicantsComponent },
+
+    // Mails
+    { path: '/mail/templates', name: 'MailTemplates', component: MailTemplatesComponent },
+    { path: '/mail/template/create', name: 'CreateMailTemplate', component: CreateMailTemplateComponent },
+    { path: '/mail/template/edit/:templateId', name: 'EditMailTemplate', component: CreateMailTemplateComponent }
 ])
 
 export class ProfileComponent {

@@ -6,4 +6,16 @@
   background-position: center center;
   border: 7px solid #f5f5f5;
   border-radius: 3px;
+  cursor: pointer;
+
+  &.logo {
+    height: 135px;
+    margin-bottom: 10px;
+    border-color: $oechrBlueColor;
+  }
+}
+
+.photo-title {
+  text-align: center;
+  font-family: $mainMediumFontFamily;
 }

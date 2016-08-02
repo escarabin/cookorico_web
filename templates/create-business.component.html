@@ -74,8 +74,14 @@
             <div class="col-md-4"
                  *ngFor="let photo of business.photos">
                 <div class="photo-preview"
+                     [class.logo]="photo == business.logo"
+                     (click)="business.logo = photo"
                      [ngStyle]="{'background-image': 'url(' + photo + ')'}">
 
+                </div>
+                <div class="photo-title"
+                     *ngIf="photo == business.logo">
+                    Utiliser comme logo
                 </div>
             </div>
         </div>

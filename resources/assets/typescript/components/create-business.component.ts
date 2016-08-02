@@ -61,16 +61,12 @@ export class CreateBusinessComponent {
         this.business.website = place['website'];
         this.place.adress = place['formatted_address'];
         this.business.title = place['name'];
+        this.business.photos = [];
 
         // Loop through photos to get url
         for (let i = 0; i < place['photos'].length; i++) {
             let photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });3
-            if (!this.business.photos) {
-                this.business.photos = [photoUrl];
-            }
-            else {
-                this.business.photos.push(photoUrl);
-            }
+            this.business.photos.push(photoUrl);
         }
 
         // Get business's type
