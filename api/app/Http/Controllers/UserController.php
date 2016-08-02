@@ -267,9 +267,16 @@ class UserController extends Controller
         $base64String = $request::input('base64');
 
         $newFilePath = 'uploads/user/pp/'.time().'.jpg';
+        $dirName = dirname($newFilePath);
+
+        /**
+         * If directory is not yet created, do it
+         */
+        if (!is_dir(dirname($newFilePath))) {
+            mkdir($dirName, 0755, true);
+        }
 
         $ifp = fopen($newFilePath, "wb");
-
         $data = explode(',', $base64String);
 
         fwrite($ifp, base64_decode($data[1]));

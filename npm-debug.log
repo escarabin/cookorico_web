@@ -1,390 +1,43 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/local/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
-1 verbose cli   'install',
-1 verbose cli   '--save',
-1 verbose cli   'ng2-select' ]
+1 verbose cli   'start',
+1 verbose cli   'server.ts' ]
 2 info using npm@2.15.8
 3 info using node@v4.4.7
-4 verbose install initial load of /Applications/MAMP/htdocs/oechr/package.json
-5 warn package.json angular2-quickstart@1.0.0 No README data
-6 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-map-auto-complete/package.json
-7 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps/package.json
-8 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-in-memory-web-api/package.json
-9 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-notifications/package.json
-10 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/bootstrap/package.json
-11 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/canonical-path/package.json
-12 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/concurrently/package.json
-13 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/core-js/package.json
-14 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/elixir-typescript/package.json
-15 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/es6-shim/package.json
-16 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/gulp/package.json
-17 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/http-server/package.json
-18 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/jasmine-core/package.json
-19 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma/package.json
-20 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-chrome-launcher/package.json
-21 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-cli/package.json
-22 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-htmlfile-reporter/package.json
-23 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-jasmine/package.json
-24 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/laravel-elixir/package.json
-25 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/lite-server/package.json
-26 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/lodash/package.json
-27 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/moment/package.json
-28 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap/package.json
-29 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-file-upload/package.json
-30 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-img-cropper/package.json
-31 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination/package.json
-32 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-slim-loading-bar/package.json
-33 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/protractor/package.json
-34 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/reflect-metadata/package.json
-35 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rimraf/package.json
-36 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rxjs/package.json
-37 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/systemjs/package.json
-38 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/tslint/package.json
-39 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typescript/package.json
-40 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typings/package.json
-41 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/zone.js/package.json
-42 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/common/package.json
-43 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/compiler/package.json
-44 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/core/package.json
-45 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/forms/package.json
-46 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/http/package.json
-47 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser/package.json
-48 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser-dynamic/package.json
-49 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router/package.json
-50 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router-deprecated/package.json
-51 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/upgrade/package.json
-52 info package.json core-js@2.4.1 No README data
-53 info package.json @angular/common@2.0.0-rc.3 No description
-54 info package.json @angular/common@2.0.0-rc.3 No README data
-55 info package.json typings@1.3.2 No README data
-56 info package.json @angular/core@2.0.0-rc.3 No description
-57 info package.json @angular/core@2.0.0-rc.3 No README data
-58 info package.json @angular/forms@0.1.1 No description
-59 info package.json @angular/forms@0.1.1 No README data
-60 info package.json @angular/http@2.0.0-rc.3 No description
-61 info package.json @angular/http@2.0.0-rc.3 No README data
-62 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
-63 info package.json @angular/router-deprecated@2.0.0-rc.2 No README data
-64 info package.json @angular/compiler@2.0.0-rc.3 No description
-65 info package.json @angular/compiler@2.0.0-rc.3 No README data
-66 info package.json @angular/platform-browser@2.0.0-rc.3 No description
-67 info package.json @angular/platform-browser@2.0.0-rc.3 No README data
-68 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No description
-69 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No README data
-70 info package.json @angular/upgrade@2.0.0-rc.3 No description
-71 info package.json @angular/upgrade@2.0.0-rc.3 No README data
-72 info package.json angular2-google-map-auto-complete@1.0.4 No repository field.
-73 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/package.json
-74 silly cache add args [ 'ng2-select', null ]
-75 verbose cache add spec ng2-select
-76 silly cache add parsed spec Result {
-76 silly cache add   raw: 'ng2-select',
-76 silly cache add   scope: null,
-76 silly cache add   name: 'ng2-select',
-76 silly cache add   rawSpec: '',
-76 silly cache add   spec: 'latest',
-76 silly cache add   type: 'tag' }
-77 silly addNamed ng2-select@latest
-78 verbose addNamed "latest" is being treated as a dist-tag for ng2-select
-79 info addNameTag [ 'ng2-select', 'latest' ]
-80 silly mapToRegistry name ng2-select
-81 silly mapToRegistry using default registry
-82 silly mapToRegistry registry https://registry.npmjs.org/
-83 silly mapToRegistry data Result {
-83 silly mapToRegistry   raw: 'ng2-select',
-83 silly mapToRegistry   scope: null,
-83 silly mapToRegistry   name: 'ng2-select',
-83 silly mapToRegistry   rawSpec: '',
-83 silly mapToRegistry   spec: 'latest',
-83 silly mapToRegistry   type: 'tag' }
-84 silly mapToRegistry uri https://registry.npmjs.org/ng2-select
-85 verbose addNameTag registry:https://registry.npmjs.org/ng2-select not in flight; fetching
-86 verbose request uri https://registry.npmjs.org/ng2-select
-87 verbose request no auth needed
-88 info attempt registry request try #1 at 7:07:10 PM
-89 verbose request id c24a7e5c2346fc1c
-90 http request GET https://registry.npmjs.org/ng2-select
-91 http 200 https://registry.npmjs.org/ng2-select
-92 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-92 verbose headers   etag: '"7KI7BQSZ2TX8Y1J5U90QGGADT"',
-92 verbose headers   'content-type': 'application/json',
-92 verbose headers   'content-encoding': 'gzip',
-92 verbose headers   'cache-control': 'max-age=300',
-92 verbose headers   'content-length': '5469',
-92 verbose headers   'accept-ranges': 'bytes',
-92 verbose headers   date: 'Thu, 28 Jul 2016 17:07:11 GMT',
-92 verbose headers   via: '1.1 varnish',
-92 verbose headers   age: '0',
-92 verbose headers   connection: 'keep-alive',
-92 verbose headers   'x-served-by': 'cache-lhr6335-LHR',
-92 verbose headers   'x-cache': 'MISS',
-92 verbose headers   'x-cache-hits': '0',
-92 verbose headers   'x-timer': 'S1469725631.077915,VS0,VE368',
-92 verbose headers   vary: 'Accept-Encoding' }
-93 silly get cb [ 200,
-93 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-93 silly get     etag: '"7KI7BQSZ2TX8Y1J5U90QGGADT"',
-93 silly get     'content-type': 'application/json',
-93 silly get     'content-encoding': 'gzip',
-93 silly get     'cache-control': 'max-age=300',
-93 silly get     'content-length': '5469',
-93 silly get     'accept-ranges': 'bytes',
-93 silly get     date: 'Thu, 28 Jul 2016 17:07:11 GMT',
-93 silly get     via: '1.1 varnish',
-93 silly get     age: '0',
-93 silly get     connection: 'keep-alive',
-93 silly get     'x-served-by': 'cache-lhr6335-LHR',
-93 silly get     'x-cache': 'MISS',
-93 silly get     'x-cache-hits': '0',
-93 silly get     'x-timer': 'S1469725631.077915,VS0,VE368',
-93 silly get     vary: 'Accept-Encoding' } ]
-94 verbose get saving ng2-select to /Users/escarabin/.npm/registry.npmjs.org/ng2-select/.cache.json
-95 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-96 silly addNameTag next cb for ng2-select with tag latest
-97 silly addNamed ng2-select@1.0.3
-98 verbose addNamed "1.0.3" is a plain semver version for ng2-select
-99 silly mapToRegistry name ng2-select
-100 silly mapToRegistry using default registry
-101 silly mapToRegistry registry https://registry.npmjs.org/
-102 silly mapToRegistry data Result {
-102 silly mapToRegistry   raw: 'ng2-select',
-102 silly mapToRegistry   scope: null,
-102 silly mapToRegistry   name: 'ng2-select',
-102 silly mapToRegistry   rawSpec: '',
-102 silly mapToRegistry   spec: 'latest',
-102 silly mapToRegistry   type: 'tag' }
-103 silly mapToRegistry uri https://registry.npmjs.org/ng2-select
-104 verbose addRemoteTarball https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz not in flight; adding
-105 verbose addRemoteTarball [ 'https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz',
-105 verbose addRemoteTarball   '61cf87e47c93167e60a66d18bf1ae52f024f75cc' ]
-106 info retry fetch attempt 1 at 7:07:11 PM
-107 info attempt registry request try #1 at 7:07:11 PM
-108 http fetch GET https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz
-109 http fetch 200 https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz
-110 silly fetchAndShaCheck shasum 61cf87e47c93167e60a66d18bf1ae52f024f75cc
-111 verbose addTmpTarball /tmp/npm-34197-1d643687/registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz not in flight; adding
-112 verbose addTmpTarball already have metadata; skipping unpack for ng2-select@1.0.3
-113 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-114 silly cache afterAdd ng2-select@1.0.3
-115 verbose afterAdd /Users/escarabin/.npm/ng2-select/1.0.3/package/package.json not in flight; writing
-116 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-117 verbose afterAdd /Users/escarabin/.npm/ng2-select/1.0.3/package/package.json written
-118 silly install resolved [ { name: 'ng2-select',
-118 silly install resolved     version: '1.0.3',
-118 silly install resolved     description: 'Angular2 based replacement for select boxes',
-118 silly install resolved     scripts:
-118 silly install resolved      { 'flow.install:typings': 'typings install',
-118 silly install resolved        'flow.compile': 'npm run flow.install:typings && npm run flow.compile:common && npm run flow.compile:system ',
-118 silly install resolved        'flow.compile:common': 'tsc',
-118 silly install resolved        'flow.compile:system': './.config/bundle-system.js',
-118 silly install resolved        'flow.copy:src': 'cpy ng2-select.ts "components/*.ts" ts --parents',
-118 silly install resolved        'flow.clean': 'del bundles coverage demo-build typings "components/**/*.+(js|d.ts|js.map)" dist "ng2-select.+(js|d.ts|js.map)"',
-118 silly install resolved        'flow.deploy:gh-pages': 'npm run flow.build:prod && ./node_modules/.bin/gh-pages -d demo-build',
-118 silly install resolved        'flow.eslint': 'eslint --ignore-path .gitignore  --ext js --fix . .config',
-118 silly install resolved        'flow.tslint': 'gulp lint',
-118 silly install resolved        'flow.lint': 'npm run flow.eslint && npm run flow.tslint',
-118 silly install resolved        'flow.changelog': 'conventional-changelog -i CHANGELOG.md -s -p angular -v',
-118 silly install resolved        'flow.github-release': 'conventional-github-releaser -p angular',
-118 silly install resolved        'flow.build:prod': 'NODE_ENV=production ./node_modules/.bin/webpack --progress --color',
-118 silly install resolved        'flow.build:dev': 'webpack --progress --color',
-118 silly install resolved        'flow.serve:dev': 'webpack-dev-server --hot --inline --colors --display-error-details --display-cached',
-118 silly install resolved        'flow.serve:prod': 'NODE_ENV=production ./node_modules/.bin/webpack-dev-server --hot --inline --colors --display-error-details --display-cached',
-118 silly install resolved        prepublish: 'npm run flow.clean && npm run flow.compile',
-118 silly install resolved        postpublish: 'npm run flow.deploy:gh-pages',
-118 silly install resolved        start: 'npm run flow.serve:dev',
-118 silly install resolved        pretest: 'npm run flow.lint',
-118 silly install resolved        test: 'NODE_ENV=test ./node_modules/.bin/karma start',
-118 silly install resolved        preversion: 'npm test',
-118 silly install resolved        version: 'npm run flow.changelog && git add -A',
-118 silly install resolved        postversion: 'git push origin development && git push --tags' },
-118 silly install resolved     main: 'ng2-select.js',
-118 silly install resolved     typings: 'ng2-select.d.ts',
-118 silly install resolved     keywords: [ 'angular2', 'select', 'selectify', 'angularjs' ],
-118 silly install resolved     author:
-118 silly install resolved      { name: 'Vyacheslav Chub',
-118 silly install resolved        email: 'vyacheslav.chub@valor-software.com' },
-118 silly install resolved     license: 'MIT',
-118 silly install resolved     repository:
-118 silly install resolved      { type: 'git',
-118 silly install resolved        url: 'git+ssh://git@github.com/valor-software/ng2-select.git' },
-118 silly install resolved     bugs: { url: 'https://github.com/valor-software/ng2-select/issues' },
-118 silly install resolved     homepage: 'https://github.com/valor-software/ng2-select#readme',
-118 silly install resolved     peerDependencies:
-118 silly install resolved      { '@angular/common': '^2.0.0-rc.1',
-118 silly install resolved        '@angular/compiler': '^2.0.0-rc.1',
-118 silly install resolved        '@angular/core': '^2.0.0-rc.1' },
-118 silly install resolved     dependencies: {},
-118 silly install resolved     devDependencies:
-118 silly install resolved      { '@angular/common': '^2.0.0-rc.1',
-118 silly install resolved        '@angular/compiler': '^2.0.0-rc.1',
-118 silly install resolved        '@angular/core': '^2.0.0-rc.1',
-118 silly install resolved        '@angular/platform-browser': '^2.0.0-rc.1',
-118 silly install resolved        '@angular/platform-browser-dynamic': '^2.0.0-rc.1',
-118 silly install resolved        async: '1.5.2',
-118 silly install resolved        'awesome-typescript-loader': '^0.17.0-rc.6',
-118 silly install resolved        bootstrap: '3.3.6',
-118 silly install resolved        codecov: '1.0.1',
-118 silly install resolved        'compression-webpack-plugin': '0.3.1',
-118 silly install resolved        'conventional-changelog-cli': '1.2.0',
-118 silly install resolved        'conventional-github-releaser': '1.1.2',
-118 silly install resolved        'copy-webpack-plugin': '3.0.0',
-118 silly install resolved        'cpy-cli': '1.0.0',
-118 silly install resolved        'del-cli': '0.2.0',
-118 silly install resolved        'es6-promise': '3.2.1',
-118 silly install resolved        'es6-shim': '0.35.1',
-118 silly install resolved        'es7-reflect-metadata': '1.6.0',
-118 silly install resolved        'eslint-config-valorsoft': '0.0.13',
-118 silly install resolved        'exports-loader': '0.6.3',
-118 silly install resolved        'file-loader': '0.8.5',
-118 silly install resolved        'gh-pages': '0.11.0',
-118 silly install resolved        'gitignore-to-glob': '0.2.1',
-118 silly install resolved        gulp: '3.9.1',
-118 silly install resolved        'gulp-size': '2.1.0',
-118 silly install resolved        'gulp-tslint': '5.0.0',
-118 silly install resolved        'html-loader': '0.4.3',
-118 silly install resolved        'html-webpack-plugin': '2.17.0',
-118 silly install resolved        'istanbul-instrumenter-loader': '0.2.0',
-118 silly install resolved        jasmine: '2.4.1',
-118 silly install resolved        karma: '0.13.22',
-118 silly install resolved        'karma-chrome-launcher': '1.0.1',
-118 silly install resolved        'karma-coverage': '1.0.0',
-118 silly install resolved        'karma-jasmine': '1.0.2',
-118 silly install resolved        'karma-phantomjs-launcher': '1.0.0',
-118 silly install resolved        'karma-sourcemap-loader': '0.3.7',
-118 silly install resolved        'karma-spec-reporter': '0.0.26',
-118 silly install resolved        'karma-webpack': '1.7.0',
-118 silly install resolved        'lite-server': '2.2.0',
-118 silly install resolved        'markdown-loader': '0.1.7',
-118 silly install resolved        marked: '0.3.5',
-118 silly install resolved        'ng2-bootstrap': '1.0.16',
-118 silly install resolved        'phantomjs-polyfill': '0.0.2',
-118 silly install resolved        'phantomjs-prebuilt': '2.1.7',
-118 silly install resolved        'pre-commit': '1.1.3',
-118 silly install resolved        prismjs: '1.5.0',
-118 silly install resolved        'prismjs-loader': '0.0.3',
-118 silly install resolved        'raw-loader': '0.5.1',
-118 silly install resolved        'reflect-metadata': '0.1.2',
-118 silly install resolved        'require-dir': '0.3.0',
-118 silly install resolved        rxjs: '5.0.0-beta.6',
-118 silly install resolved        'source-map-loader': '0.1.5',
-118 silly install resolved        'systemjs-builder': '0.15.16',
-118 silly install resolved        'ts-loader': '0.8.2',
-118 silly install resolved        'tslint-config-valorsoft': '1.0.3',
-118 silly install resolved        typescript: '1.8.10',
-118 silly install resolved        typings: '0.8.1',
-118 silly install resolved        webpack: '1.13.0',
-118 silly install resolved        'webpack-dev-server': '1.14.1',
-118 silly install resolved        'zone.js': '0.6.12' },
-118 silly install resolved     contributors: [ [Object], [Object] ],
-118 silly install resolved     gitHead: 'f479a623079ff2a26a1c162652212891956e57a0',
-118 silly install resolved     _id: 'ng2-select@1.0.3',
-118 silly install resolved     _shasum: '61cf87e47c93167e60a66d18bf1ae52f024f75cc',
-118 silly install resolved     _from: 'ng2-select@latest',
-118 silly install resolved     _npmVersion: '3.8.9',
-118 silly install resolved     _nodeVersion: '6.2.0',
-118 silly install resolved     _npmUser: { name: 'valorkin', email: 'valorkin@gmail.com' },
-118 silly install resolved     dist:
-118 silly install resolved      { shasum: '61cf87e47c93167e60a66d18bf1ae52f024f75cc',
-118 silly install resolved        tarball: 'https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz' },
-118 silly install resolved     maintainers: [ [Object] ],
-118 silly install resolved     _npmOperationalInternal:
-118 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
-118 silly install resolved        tmp: 'tmp/ng2-select-1.0.3.tgz_1463586863266_0.8940545863006264' },
-118 silly install resolved     directories: {},
-118 silly install resolved     _resolved: 'https://registry.npmjs.org/ng2-select/-/ng2-select-1.0.3.tgz' } ]
-119 info install ng2-select@1.0.3 into /Applications/MAMP/htdocs/oechr
-120 info installOne ng2-select@1.0.3
-121 verbose installOne of ng2-select to /Applications/MAMP/htdocs/oechr not in flight; installing
-122 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
-123 verbose lock using /Users/escarabin/.npm/_locks/ng2-select-53c7c88ea2773ffd.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
-124 silly install write writing ng2-select 1.0.3 to /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
-125 verbose unbuild node_modules/ng2-select
-126 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-select is being purged from base /Applications/MAMP/htdocs/oechr
-127 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
-128 verbose tar unpack /Users/escarabin/.npm/ng2-select/1.0.3/package.tgz
-129 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
-130 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-select is being purged
-131 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
-132 silly gunzTarPerm modes [ '755', '644' ]
-133 silly gunzTarPerm extractEntry package.json
-134 silly gunzTarPerm extractEntry .npmignore
-135 silly gunzTarPerm extractEntry README.md
-136 silly gunzTarPerm extractEntry LICENSE
-137 silly gunzTarPerm extractEntry gulpfile.js
-138 silly gunzTarPerm extractEntry ng2-select.js
-139 silly gunzTarPerm extractEntry bundles/ng2-select.js
-140 silly gunzTarPerm extractEntry bundles/ng2-select.min.js
-141 silly gunzTarPerm extractEntry bundles/ng2-select.js.gz
-142 silly gunzTarPerm extractEntry bundles/ng2-select.js.map.gz
-143 silly gunzTarPerm extractEntry bundles/ng2-select.min.js.gz
-144 silly gunzTarPerm extractEntry bundles/ng2-select.min.js.map.gz
-145 silly gunzTarPerm extractEntry components/select.js
-146 silly gunzTarPerm extractEntry components/css/ng2-select.css
-147 silly gunzTarPerm extractEntry components/select/off-click.js
-148 silly gunzTarPerm extractEntry components/select/select-interfaces.js
-149 silly gunzTarPerm extractEntry components/select/common.js
-150 silly gunzTarPerm extractEntry components/select/select-item.js
-151 silly gunzTarPerm extractEntry components/select/select-pipes.js
-152 silly gunzTarPerm extractEntry components/select/select.js
-153 silly gunzTarPerm extractEntry components/select/select-item.d.ts
-154 silly gunzTarPerm extractEntry components/select/select-interfaces.d.ts
-155 silly gunzTarPerm extractEntry components/select/off-click.d.ts
-156 silly gunzTarPerm extractEntry components/select/common.d.ts
-157 silly gunzTarPerm extractEntry components/select/select-pipes.d.ts
-158 silly gunzTarPerm extractEntry components/select/select.d.ts
-159 silly gunzTarPerm extractEntry components/select/readme.md
-160 silly gunzTarPerm extractEntry components/select.d.ts
-161 silly gunzTarPerm extractEntry .editorconfig
-162 silly gunzTarPerm extractEntry .config/bundle-system.js
-163 silly gunzTarPerm extractEntry ng2-select.d.ts
-164 silly gunzTarPerm extractEntry .travis.yml
-165 silly gunzTarPerm extractEntry typings.json
-166 silly gunzTarPerm extractEntry CHANGELOG.md
-167 silly gunzTarPerm extractEntry .eslintrc.json
-168 silly gunzTarPerm extractEntry tsconfig.json
-169 silly gunzTarPerm extractEntry tslint.json
-170 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/ng2-select/package.json
-171 info preinstall ng2-select@1.0.3
-172 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-select/package.json
-173 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-select/package.json
-174 silly install resolved []
-175 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
-176 info build /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
-177 info linkStuff ng2-select@1.0.3
-178 silly linkStuff ng2-select@1.0.3 has /Applications/MAMP/htdocs/oechr/node_modules as its parent node_modules
-179 verbose linkBins ng2-select@1.0.3
-180 verbose linkMans ng2-select@1.0.3
-181 verbose rebuildBundles ng2-select@1.0.3
-182 info install ng2-select@1.0.3
-183 info postinstall ng2-select@1.0.3
-184 verbose unlock done using /Users/escarabin/.npm/_locks/ng2-select-53c7c88ea2773ffd.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-select
-185 verbose validateInstall loading /Applications/MAMP/htdocs/oechr/package.json for validation
-186 verbose stack Error: The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
-186 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
-186 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
-186 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
-186 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-186 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-186 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-186 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-186 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-186 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-186 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-187 verbose cwd /Applications/MAMP/htdocs/oechr
-188 error Darwin 16.0.0
-189 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--save" "ng2-select"
-190 error node v4.4.7
-191 error npm  v2.15.8
-192 error code EPEERINVALID
-193 error peerinvalid The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
-193 error peerinvalid Peer @angular/forms@0.1.1 wants @angular/common@2.0.0-rc.3
-193 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
-193 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
-193 error peerinvalid Peer @angular/router@3.0.0-alpha.7 wants @angular/common@^2.0.0-rc.2
-193 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
-193 error peerinvalid Peer ng2-bootstrap@1.0.24 wants @angular/common@2.0.0-rc.4
-193 error peerinvalid Peer angular2-google-maps@0.12.0 wants @angular/common@2.0.0-rc.2
-193 error peerinvalid Peer ng2-file-upload@1.0.3 wants @angular/common@^2.0.0-rc.1
-193 error peerinvalid Peer ng2-select@1.0.3 wants @angular/common@^2.0.0-rc.1
-194 verbose exit [ 1, true ]
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart angular2-quickstart@1.0.0
+6 info start angular2-quickstart@1.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info angular2-quickstart@1.0.0 Failed to exec start script
+9 verbose stack Error: angular2-quickstart@1.0.0 start: `tsc && concurrently "tsc -w" "lite-server"  "server.ts"`
+9 verbose stack Exit status 2
+9 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:217:16)
+9 verbose stack     at emitTwo (events.js:87:13)
+9 verbose stack     at EventEmitter.emit (events.js:172:7)
+9 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+9 verbose stack     at emitTwo (events.js:87:13)
+9 verbose stack     at ChildProcess.emit (events.js:172:7)
+9 verbose stack     at maybeClose (internal/child_process.js:827:16)
+9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+10 verbose pkgid angular2-quickstart@1.0.0
+11 verbose cwd /Applications/MAMP/htdocs/oechr
+12 error Darwin 16.0.0
+13 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start" "server.ts"
+14 error node v4.4.7
+15 error npm  v2.15.8
+16 error code ELIFECYCLE
+17 error angular2-quickstart@1.0.0 start: `tsc && concurrently "tsc -w" "lite-server"  "server.ts"`
+17 error Exit status 2
+18 error Failed at the angular2-quickstart@1.0.0 start script 'tsc && concurrently "tsc -w" "lite-server"  "server.ts"'.
+18 error This is most likely a problem with the angular2-quickstart package,
+18 error not with npm itself.
+18 error Tell the author that this fails on your system:
+18 error     tsc && concurrently "tsc -w" "lite-server"  "server.ts"
+18 error You can get information on how to open an issue for this project with:
+18 error     npm bugs angular2-quickstart
+18 error Or if that isn't available, you can get their info via:
+18 error
+18 error     npm owner ls angular2-quickstart
+18 error There is likely additional logging output above.
+19 verbose exit [ 1, true ]

@@ -20,7 +20,8 @@
     'angular2-google-map-auto-complete':'node_modules/angular2-google-map-auto-complete',
     'angular2-google-maps':       'node_modules/angular2-google-maps',
     'ng2-pagination':             'node_modules/ng2-pagination',
-    'ng2-select':                 'node_modules/ng2-select'
+    'ng2-select':                 'node_modules/ng2-select',
+    'express':                    'node_modules/express'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
