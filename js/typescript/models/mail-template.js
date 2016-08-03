@@ -6,11 +6,11 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             MailTemplate = (function () {
-                function MailTemplate(id, slug, subject, content) {
+                function MailTemplate(id, slug, subject, message) {
                     this.id = id;
                     this.slug = slug;
                     this.subject = subject;
-                    this.content = content;
+                    this.message = message;
                 }
                 return MailTemplate;
             }());

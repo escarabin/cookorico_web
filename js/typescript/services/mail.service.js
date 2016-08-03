@@ -29,6 +29,7 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                     this.http = http;
                     this.getTemplatesUrl = appGlobals.apiUrl + "/mail/templates/all";
                     this.getTemplateUrl = appGlobals.apiUrl + "/mail/template";
+                    this.editTemplateUrl = appGlobals.apiUrl + "/mail/edit_template";
                 }
                 /**
                  * Get specific mail template from given id
@@ -44,6 +45,17 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                  */
                 MailService.prototype.getTemplates = function () {
                     return this.http.request(this.getTemplatesUrl);
+                };
+                /**
+                 * Edit existing template
+                 * @param mailTemplate
+                 * @returns {Observable<Response>}
+                 */
+                MailService.prototype.editTemplate = function (mailTemplate) {
+                    var body = JSON.stringify({ mailTemplate: mailTemplate });
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    return this.http.post(this.editTemplateUrl, body, options);
                 };
                 MailService = __decorate([
                     core_1.Injectable(), 

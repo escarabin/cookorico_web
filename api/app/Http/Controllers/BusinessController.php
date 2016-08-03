@@ -70,7 +70,7 @@ class BusinessController extends Controller
                     app('App\Http\Controllers\FileController')
                         ->upload('oechr-business-picture', $business->id.'/'.$i.'.jpg', $newFilePath);
 
-                    $businessPhoto->url = 'https://s3-eu-west-1.amazonaws.com/oechr-business-picture/'.$business->id.'/1.jpg';
+                    $businessPhoto->url = 'https://s3-eu-west-1.amazonaws.com/oechr-business-picture/'.$business->id.'/'.$id.'.jpg';
                 }
                 else {
                     $businessPhoto->url = $photo['url'];

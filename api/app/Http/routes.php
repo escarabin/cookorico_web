@@ -160,6 +160,8 @@ Route::get('/user/plans/all', 'UserController@getPlans')
 // Mails
 Route::get('/mail/templates/all', 'MailController@getTemplates')
     ->name('getMailTemplates');
+Route::post('/mail/edit_template', 'MailController@editTemplate')
+    ->name('editMailTemplate');
 Route::get('/mail/template/{id}', 'MailController@getTemplate')
     ->name('getMailTemplate');
 

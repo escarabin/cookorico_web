@@ -44,15 +44,17 @@ export class CreateMailTemplateComponent {
     }
 
     submitMailTemplate() {
-        console.log(this.mailTemplate);
+        this.mailService.editTemplate(this.mailTemplate).subscribe((res:Response) => {
+            console.log(res.json());
+        });
     }
 
     contentChanged(newContent) {
-        this.mailTemplate.content = newContent;
+        this.mailTemplate.message = newContent;
     }
 
     addPropertyToContent(propertyType: string, propertyKey: string) {
-        this.mailTemplate.content += '{{ ' + propertyType + '.' + propertyKey + ' }}';
-        this.mceEditor.mceContent = this.mailTemplate.content;
+        this.mailTemplate.message += '{{ ' + propertyType + '.' + propertyKey + ' }}';
+        this.mceEditor.mceContent = this.mailTemplate.message;
     }
 }

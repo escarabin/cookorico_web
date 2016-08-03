@@ -55,14 +55,16 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/m
                     }
                 }
                 CreateMailTemplateComponent.prototype.submitMailTemplate = function () {
-                    console.log(this.mailTemplate);
+                    this.mailService.editTemplate(this.mailTemplate).subscribe(function (res) {
+                        console.log(res.json());
+                    });
                 };
                 CreateMailTemplateComponent.prototype.contentChanged = function (newContent) {
-                    this.mailTemplate.content = newContent;
+                    this.mailTemplate.message = newContent;
                 };
                 CreateMailTemplateComponent.prototype.addPropertyToContent = function (propertyType, propertyKey) {
-                    this.mailTemplate.content += '{{ ' + propertyType + '.' + propertyKey + ' }}';
-                    this.mceEditor.mceContent = this.mailTemplate.content;
+                    this.mailTemplate.message += '{{ ' + propertyType + '.' + propertyKey + ' }}';
+                    this.mceEditor.mceContent = this.mailTemplate.message;
                 };
                 __decorate([
                     core_1.ViewChild('mce-editor'), 

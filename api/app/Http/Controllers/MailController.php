@@ -36,4 +36,21 @@ class MailController extends Controller
 
         return $templates;
     }
+
+    /**
+     * Edit existing Template
+     * @param Request $request
+     * @return MailTemplate
+     */
+    public function editTemplate(Request $request) {
+        $mailTemplateData = $request::input('mailTemplate');
+
+        $template = MailTemplate::find($mailTemplateData['id']);
+        $template->subject = $mailTemplateData['subject'];
+        $template->message = $mailTemplateData['message'];
+
+        $template->save();
+
+        return $template;
+    }
 }
