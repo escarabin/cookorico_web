@@ -70,7 +70,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                             /**
                              * Credentials are not correct
                              */
-                            __this.notificationService.show(new notification_1.Notification('error', 'Vos identifiants semblent incorrect, merci de rééssayer'));
+                            __this.notificationService.show(new notification_1.Notification('error', 'Vos identifiants semblent incorrects, merci de rééssayer'));
                         }
                     });
                 };
@@ -82,6 +82,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                 };
                 SignInComponent.prototype.resetPassword = function () {
                     this.userService.resetPassword().subscribe(function (res) {
+                        console.log(res.json());
                     });
                 };
                 __decorate([

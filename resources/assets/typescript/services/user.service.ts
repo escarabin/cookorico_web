@@ -42,6 +42,7 @@ export class UserService {
     createUserUrl = appGlobals.apiUrl + '/user/create';
     resetPasswordUrl = appGlobals.apiUrl + '/password/email';
     saveUserInfoUrl = appGlobals.apiUrl + '/user/save_info';
+    signOutUrl = appGlobals.apiUrl + '/user/sign_out';
     uploadProfilePictureUrl = appGlobals.apiUrl + '/user/upload_profile_picture';
     uploadResumeUrl = appGlobals.apiUrl + '/user/upload_resume';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
@@ -60,6 +61,13 @@ export class UserService {
      */
     login(email, password) {
         return this.http.get(this.signInUrl + email + '/' + password);
+    }
+
+    /**
+     * Sign out current user
+     */
+    signOut() {
+        return this.http.get(this.signOutUrl);
     }
 
     /**

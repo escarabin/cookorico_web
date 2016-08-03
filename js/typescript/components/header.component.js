@@ -54,7 +54,10 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                  * @param user
                  */
                 HeaderComponent.prototype.handleUserSignedOut = function (user) {
-                    this.user = null;
+                    var _this = this;
+                    this.userService.signOut().subscribe(function (res) {
+                        _this.user = null;
+                    });
                 };
                 HeaderComponent = __decorate([
                     core_1.Component({

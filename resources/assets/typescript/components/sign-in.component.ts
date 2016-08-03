@@ -71,7 +71,7 @@ export class SignInComponent {
                  * Credentials are not correct
                  */
                 __this.notificationService.show(
-                    new Notification('error', 'Vos identifiants semblent incorrect, merci de rééssayer')
+                    new Notification('error', 'Vos identifiants semblent incorrects, merci de rééssayer')
                 );
             }
         });
@@ -87,7 +87,7 @@ export class SignInComponent {
 
     resetPassword() {
         this.userService.resetPassword().subscribe((res:Response) => {
-
+            console.log(res.json());
         });
     }
 }

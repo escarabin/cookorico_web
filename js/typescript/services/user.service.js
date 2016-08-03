@@ -63,6 +63,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.createUserUrl = appGlobals.apiUrl + '/user/create';
                     this.resetPasswordUrl = appGlobals.apiUrl + '/password/email';
                     this.saveUserInfoUrl = appGlobals.apiUrl + '/user/save_info';
+                    this.signOutUrl = appGlobals.apiUrl + '/user/sign_out';
                     this.uploadProfilePictureUrl = appGlobals.apiUrl + '/user/upload_profile_picture';
                     this.uploadResumeUrl = appGlobals.apiUrl + '/user/upload_resume';
                     this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -76,6 +77,12 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  */
                 UserService.prototype.login = function (email, password) {
                     return this.http.get(this.signInUrl + email + '/' + password);
+                };
+                /**
+                 * Sign out current user
+                 */
+                UserService.prototype.signOut = function () {
+                    return this.http.get(this.signOutUrl);
                 };
                 /**
                  *

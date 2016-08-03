@@ -42,6 +42,13 @@ class UserController extends Controller
     }
 
     /**
+     * Sign out currently logged user
+     */
+    public function signOut() {
+        Auth::logout();
+    }
+
+    /**
      * Get logged user related infos
      * @return mixed
      */

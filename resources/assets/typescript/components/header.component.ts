@@ -47,6 +47,8 @@ export class HeaderComponent {
      * @param user
      */
     handleUserSignedOut(user: User) {
-        this.user = null;
+        this.userService.signOut().subscribe((res: Response) => {
+            this.user = null;
+        });
     }
 }
