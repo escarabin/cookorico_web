@@ -62,6 +62,8 @@ export class CreateBusinessComponent {
         /**
          * Parse google maps API data into [business] & [place] objects
          */
+        this.place = new Place();
+        this.business = new Business();
         var location = place['geometry']['location'];
         this.place.lat =  location.lat();
         this.place.lon = location.lng();
@@ -96,10 +98,10 @@ export class CreateBusinessComponent {
         }
 
         this.place.googlePlaceId = place['place_id'];
-        if (place['address_components'][2]['long_name']) {
+        if (place['address_components'][2]) {
             this.place.city = place['address_components'][2]['long_name'];
         }
-        if (place['address_components'][6]['long_name']) {
+        if (place['address_components'][6]) {
             this.place.postalCode = place['address_components'][6]['long_name'];
         }
     }

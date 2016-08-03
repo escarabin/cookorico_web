@@ -77,6 +77,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     /**
                      * Parse google maps API data into [business] & [place] objects
                      */
+                    this.place = new place_1.Place();
+                    this.business = new business_1.Business();
                     var location = place['geometry']['location'];
                     this.place.lat = location.lat();
                     this.place.lon = location.lng();
@@ -108,10 +110,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         this.business.business_type_id = 9;
                     }
                     this.place.googlePlaceId = place['place_id'];
-                    if (place['address_components'][2]['long_name']) {
+                    if (place['address_components'][2]) {
                         this.place.city = place['address_components'][2]['long_name'];
                     }
-                    if (place['address_components'][6]['long_name']) {
+                    if (place['address_components'][6]) {
                         this.place.postalCode = place['address_components'][6]['long_name'];
                     }
                 };
