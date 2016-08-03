@@ -236,10 +236,10 @@ class UserController extends Controller
         $user->save();
 
         if ($key == 'new_email') {
-            $mailTemplate = MailTemplate::where('slug', 'new_email')->first();
+            $mailTemplate = MailTemplate::where('slug', 'new-email')->first();
             Mail::send('emails.new-email',
                 [
-                    'content' => $mailTemplate->content,
+                    'content' => $mailTemplate->message,
                     'user' => $user
                 ],
                 function ($message) use ($user, $mailTemplate) {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Response } from '@angular/http';
 import { RouterLink, RouteParams, Router } from '@angular/router-deprecated';
 
@@ -51,6 +51,7 @@ export class CreateBusinessComponent {
                 private notificationService: NotificationsService,
                 private businessService: BusinessService,
                 private locationService: LocationService,
+                private ref: ChangeDetectorRef,
                 private router: Router,
                 private routeParams: RouteParams) {
         let __this = this;
@@ -134,6 +135,13 @@ export class CreateBusinessComponent {
         if (place['address_components'][6]) {
             this.place.postalCode = place['address_components'][6]['long_name'];
         }
+
+        /**
+         * Force Angular 2 to detect [business] & [place] objects changes
+         * After a lot of research, this is the only workaround found yet
+         * to fix the bug causing the inputs not to be filled with new data
+         */
+        this.ref.detectChanges()
     }
 
     submitBusiness() {

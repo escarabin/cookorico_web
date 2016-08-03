@@ -43,11 +43,20 @@ class MailController extends Controller
      * @return MailTemplate
      */
     public function editTemplate(Request $request) {
+
         $mailTemplateData = $request::input('mailTemplate');
 
         $template = MailTemplate::find($mailTemplateData['id']);
         $template->subject = $mailTemplateData['subject'];
-        $template->message = $mailTemplateData['message'];
+
+        $parsedMessage = str_replace('&gt;', '>', $mailTemplateData['message']);
+        $template->message = $parsedMessage;
+
+        /**
+         * Save message in related Blade view
+         */
+        $messageViewFile = env('LARAVEL_INSTALL_DIR').'/resources/views/emails/'.$template->slug.'.blade.php';
+        file_put_contents($messageViewFile, $parsedMessage);
 
         $template->save();
 
