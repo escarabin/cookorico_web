@@ -84,4 +84,10 @@ export class SignInComponent {
 
         this.userSignedOut.emit('signing out');
     }
+
+    resetPassword() {
+        this.userService.resetPassword().subscribe((res:Response) => {
+
+        });
+    }
 }

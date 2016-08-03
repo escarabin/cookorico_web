@@ -80,6 +80,10 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     this.router.navigate(['Home']);
                     this.userSignedOut.emit('signing out');
                 };
+                SignInComponent.prototype.resetPassword = function () {
+                    this.userService.resetPassword().subscribe(function (res) {
+                    });
+                };
                 __decorate([
                     core_1.Output(), 
                     __metadata('design:type', core_1.EventEmitter)

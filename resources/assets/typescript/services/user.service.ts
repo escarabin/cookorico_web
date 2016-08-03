@@ -40,6 +40,7 @@ export class UserService {
     getAlertUrl = appGlobals.apiUrl + '/alert';
     updateAlertUrl = appGlobals.apiUrl + '/alert/update';
     createUserUrl = appGlobals.apiUrl + '/user/create';
+    resetPasswordUrl = appGlobals.apiUrl + '/password/email';
     saveUserInfoUrl = appGlobals.apiUrl + '/user/save_info';
     uploadProfilePictureUrl = appGlobals.apiUrl + '/user/upload_profile_picture';
     uploadResumeUrl = appGlobals.apiUrl + '/user/upload_resume';
@@ -58,9 +59,18 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     login(email, password) {
-        let __this = this;
+        return this.http.get(this.signInUrl + email + '/' + password);
+    }
 
-        return this.http.get(__this.signInUrl + email + '/' + password);
+    /**
+     *
+     * @param email
+     * @returns {any}
+     */
+    resetPassword(email) {
+        let requestBody = JSON.stringify({ email: email });
+
+        return this.http.post(this.resetPasswordUrl, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -79,9 +89,7 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     createUser(user: User) {
-        let __this = this;
-
-        return this.http.get(__this.createUserUrl + '/' +
+        return this.http.get(this.createUserUrl + '/' +
                             user.email + '/' +
                             user.password + '/' +
                             user.firstName + '/' +
@@ -96,18 +104,14 @@ export class UserService {
      * Get user's job applications
      */
     getApplications() {
-        let __this = this;
-
-        return this.http.get(__this.getApplicationsUrl);
+        return this.http.get(this.getApplicationsUrl);
     }
 
     /**
      * Get user's work experiences
      */
     getExperiences() {
-        let __this = this;
-
-        return this.http.get(__this.getExperiencesUrl);
+        return this.http.get(this.getExperiencesUrl);
     }
 
     /**
@@ -116,9 +120,7 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     getExperience(experienceId) {
-        let __this = this;
-
-        return this.http.get(__this.getExperienceUrl + '/' + experienceId);
+        return this.http.get(this.getExperienceUrl + '/' + experienceId);
     }
 
     /**
@@ -127,18 +129,14 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     deleteExperiences(listExperienceId) {
-        let __this = this;
-
-        return this.http.get(__this.deleteExperiencesUrl + '/' + listExperienceId);
+        return this.http.get(this.deleteExperiencesUrl + '/' + listExperienceId);
     }
 
     /**
      * Get user's education
      */
     getEducation() {
-        let __this = this;
-
-        return this.http.get(__this.getEducationUrl);
+        return this.http.get(this.getEducationUrl);
     }
 
     /**
@@ -147,9 +145,7 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     getStudy(studyId) {
-        let __this = this;
-
-        return this.http.get(__this.getStudyUrl + '/' + studyId);
+        return this.http.get(this.getStudyUrl + '/' + studyId);
     }
 
     /**
@@ -157,27 +153,21 @@ export class UserService {
      * @param listStudyId
      */
     deleteEducation(listStudyId) {
-        let __this = this;
-
-        return this.http.get(__this.deleteEducationUrl + '/' + listStudyId);
+        return this.http.get(this.deleteEducationUrl + '/' + listStudyId);
     }
 
     /**
      * Get user's new job alerts
      */
     getAlerts() {
-        let __this = this;
-
-        return this.http.get(__this.getAlertsUrl);
+        return this.http.get(this.getAlertsUrl);
     }
 
     /**
      * Get user's job posts
      */
     getJobPosts() {
-        let __this = this;
-
-        return this.http.get(__this.getJobPostsUrl);
+        return this.http.get(this.getJobPostsUrl);
     }
 
     /**
@@ -185,9 +175,7 @@ export class UserService {
      * @param listJobPostId
      */
     deleteJobPosts(listJobPostId) {
-        let __this = this;
-
-        return this.http.get(__this.deleteJobPostsUrl + '/' + listJobPostId);
+        return this.http.get(this.deleteJobPostsUrl + '/' + listJobPostId);
     }
 
     /**
@@ -195,9 +183,7 @@ export class UserService {
      * @param studyId
      */
     deleteAlerts(listAlertId) {
-        let __this = this;
-
-        return this.http.get(__this.deleteAlertUrl + '/' + listAlertId);
+        return this.http.get(this.deleteAlertUrl + '/' + listAlertId);
     }
 
     /**
@@ -206,36 +192,28 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     getAlert(alertId) {
-        let __this = this;
-
-        return this.http.get(__this.getAlertUrl + '/' + alertId);
+        return this.http.get(this.getAlertUrl + '/' + alertId);
     }
 
     /**
      * Get user's testimonials
      */
     getTestimonials() {
-        let __this = this;
-
-        return this.http.get(__this.getTestimonialsUrl);
+        return this.http.get(this.getTestimonialsUrl);
     }
 
     /**
      * Get user's created testimonials
      */
     getCreatedTestimonials() {
-        let __this = this;
-
-        return this.http.get(__this.getCreatedTestimonialsUrl);
+        return this.http.get(this.getCreatedTestimonialsUrl);
     }
 
     /**
      * Get user's businesses
      */
     getBusinesses() {
-        let __this = this;
-
-        return this.http.get(__this.getBusinessesUrl);
+        return this.http.get(this.getBusinessesUrl);
     }
 
     /**
@@ -244,9 +222,7 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     getBusiness(businessId) {
-        let __this = this;
-
-        return this.http.get(__this.getBusinessUrl + '/' + businessId);
+        return this.http.get(this.getBusinessUrl + '/' + businessId);
     }
 
     /**
@@ -254,9 +230,7 @@ export class UserService {
      * @returns {any}
      */
     getPlans() {
-        let __this = this;
-
-        return this.http.get(__this.getPlansUrl);
+        return this.http.get(this.getPlansUrl);
     }
 
     /**
@@ -265,11 +239,9 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     createExperience(experience: Experience) {
-        let __this = this;
-
         let requestBody = JSON.stringify({ experience });
 
-        return this.http.post(__this.createExperienceUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.createExperienceUrl, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -278,11 +250,9 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     updateExperience(experience: Experience) {
-        let __this = this;
-
         let requestBody = JSON.stringify({ experience });
 
-        return this.http.post(__this.updateExperienceUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.updateExperienceUrl, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -291,11 +261,9 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     createStudy(study: Study) {
-        let __this = this;
-
         let requestBody = JSON.stringify({ study });
 
-        return this.http.post(__this.createStudyUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.createStudyUrl, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -304,11 +272,9 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     updateStudy(study: Study) {
-        let __this = this;
-
         let requestBody = JSON.stringify({ study });
 
-        return this.http.post(__this.updateStudyUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.updateStudyUrl, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -317,11 +283,9 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     createAlert(alert) {
-        let __this = this;
-
         let requestBody = JSON.stringify({ alert });
 
-        return this.http.post(__this.createAlertUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.createAlertUrl, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -330,11 +294,9 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     updateAlert(alert) {
-        let __this = this;
-
         let requestBody = JSON.stringify({ alert });
 
-        return this.http.post(__this.updateAlertUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.updateAlertUrl, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -343,11 +305,9 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     uploadProfilePicture(base64: string) {
-        let __this = this;
-
         let requestBody = JSON.stringify({ base64 });
 
-        return this.http.post(__this.uploadProfilePictureUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.uploadProfilePictureUrl, requestBody, this.postRequestOptions);
     }
 
 
@@ -357,13 +317,11 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     uploadResume(resume: any) {
-        let __this = this;
-
         let requestBody = resume;
         let pdfPostRequestHeaders = new Headers({ 'Content-Type': 'application/pdf' });
         let pdfPostRequestOptions = new RequestOptions({ headers: pdfPostRequestHeaders });
 
-        return this.http.post(__this.uploadResumeUrl, requestBody, pdfPostRequestOptions);
+        return this.http.post(this.uploadResumeUrl, requestBody, pdfPostRequestOptions);
     }
 
     /**
@@ -373,8 +331,6 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     updateInfo(key: string, value: string) {
-        let __this = this;
-
         let requestBody = JSON.stringify({ key, value });
 
         let userJson = JSON.parse(localStorage.getItem('user'));
@@ -382,7 +338,7 @@ export class UserService {
 
         localStorage.setItem('user', JSON.stringify(userJson));
 
-        return this.http.post(__this.saveUserInfoUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.saveUserInfoUrl, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -391,10 +347,6 @@ export class UserService {
      * @param notificationService
      */
     handleError(error: any, notificationService: any) {
-        let __this = this;
-
-        console.log(__this, __this.notificationService);
-
         let errMsg = (error.message) ? error.message : error.status;
 
         if (!errMsg) {

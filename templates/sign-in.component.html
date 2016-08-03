@@ -105,6 +105,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-6"
                          *ngIf="!isPasswordReset && !loading">
                         <input type="button"
+                               (click)="resetPassword()"
                                value="Envoyer"/>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6 email-sent">

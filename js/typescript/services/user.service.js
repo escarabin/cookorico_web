@@ -61,6 +61,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getAlertUrl = appGlobals.apiUrl + '/alert';
                     this.updateAlertUrl = appGlobals.apiUrl + '/alert/update';
                     this.createUserUrl = appGlobals.apiUrl + '/user/create';
+                    this.resetPasswordUrl = appGlobals.apiUrl + '/password/email';
                     this.saveUserInfoUrl = appGlobals.apiUrl + '/user/save_info';
                     this.uploadProfilePictureUrl = appGlobals.apiUrl + '/user/upload_profile_picture';
                     this.uploadResumeUrl = appGlobals.apiUrl + '/user/upload_resume';
@@ -74,8 +75,16 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.login = function (email, password) {
-                    var __this = this;
-                    return this.http.get(__this.signInUrl + email + '/' + password);
+                    return this.http.get(this.signInUrl + email + '/' + password);
+                };
+                /**
+                 *
+                 * @param email
+                 * @returns {any}
+                 */
+                UserService.prototype.resetPassword = function (email) {
+                    var requestBody = JSON.stringify({ email: email });
+                    return this.http.post(this.resetPasswordUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Get current user infos
@@ -91,8 +100,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.createUser = function (user) {
-                    var __this = this;
-                    return this.http.get(__this.createUserUrl + '/' +
+                    return this.http.get(this.createUserUrl + '/' +
                         user.email + '/' +
                         user.password + '/' +
                         user.firstName + '/' +
@@ -106,15 +114,13 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * Get user's job applications
                  */
                 UserService.prototype.getApplications = function () {
-                    var __this = this;
-                    return this.http.get(__this.getApplicationsUrl);
+                    return this.http.get(this.getApplicationsUrl);
                 };
                 /**
                  * Get user's work experiences
                  */
                 UserService.prototype.getExperiences = function () {
-                    var __this = this;
-                    return this.http.get(__this.getExperiencesUrl);
+                    return this.http.get(this.getExperiencesUrl);
                 };
                 /**
                  * Get user's specific experience
@@ -122,8 +128,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.getExperience = function (experienceId) {
-                    var __this = this;
-                    return this.http.get(__this.getExperienceUrl + '/' + experienceId);
+                    return this.http.get(this.getExperienceUrl + '/' + experienceId);
                 };
                 /**
                  * Delete experiences based on a comma separated list of ids
@@ -131,15 +136,13 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.deleteExperiences = function (listExperienceId) {
-                    var __this = this;
-                    return this.http.get(__this.deleteExperiencesUrl + '/' + listExperienceId);
+                    return this.http.get(this.deleteExperiencesUrl + '/' + listExperienceId);
                 };
                 /**
                  * Get user's education
                  */
                 UserService.prototype.getEducation = function () {
-                    var __this = this;
-                    return this.http.get(__this.getEducationUrl);
+                    return this.http.get(this.getEducationUrl);
                 };
                 /**
                  * Get user's specific study regarding id
@@ -147,46 +150,40 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.getStudy = function (studyId) {
-                    var __this = this;
-                    return this.http.get(__this.getStudyUrl + '/' + studyId);
+                    return this.http.get(this.getStudyUrl + '/' + studyId);
                 };
                 /**
                  * Delete specific user's education studies
                  * @param listStudyId
                  */
                 UserService.prototype.deleteEducation = function (listStudyId) {
-                    var __this = this;
-                    return this.http.get(__this.deleteEducationUrl + '/' + listStudyId);
+                    return this.http.get(this.deleteEducationUrl + '/' + listStudyId);
                 };
                 /**
                  * Get user's new job alerts
                  */
                 UserService.prototype.getAlerts = function () {
-                    var __this = this;
-                    return this.http.get(__this.getAlertsUrl);
+                    return this.http.get(this.getAlertsUrl);
                 };
                 /**
                  * Get user's job posts
                  */
                 UserService.prototype.getJobPosts = function () {
-                    var __this = this;
-                    return this.http.get(__this.getJobPostsUrl);
+                    return this.http.get(this.getJobPostsUrl);
                 };
                 /**
                  * Delete specific user's job posts
                  * @param listJobPostId
                  */
                 UserService.prototype.deleteJobPosts = function (listJobPostId) {
-                    var __this = this;
-                    return this.http.get(__this.deleteJobPostsUrl + '/' + listJobPostId);
+                    return this.http.get(this.deleteJobPostsUrl + '/' + listJobPostId);
                 };
                 /**
                  * Delete specific user's alerts
                  * @param studyId
                  */
                 UserService.prototype.deleteAlerts = function (listAlertId) {
-                    var __this = this;
-                    return this.http.get(__this.deleteAlertUrl + '/' + listAlertId);
+                    return this.http.get(this.deleteAlertUrl + '/' + listAlertId);
                 };
                 /**
                  * Get user specific job alert
@@ -194,29 +191,25 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.getAlert = function (alertId) {
-                    var __this = this;
-                    return this.http.get(__this.getAlertUrl + '/' + alertId);
+                    return this.http.get(this.getAlertUrl + '/' + alertId);
                 };
                 /**
                  * Get user's testimonials
                  */
                 UserService.prototype.getTestimonials = function () {
-                    var __this = this;
-                    return this.http.get(__this.getTestimonialsUrl);
+                    return this.http.get(this.getTestimonialsUrl);
                 };
                 /**
                  * Get user's created testimonials
                  */
                 UserService.prototype.getCreatedTestimonials = function () {
-                    var __this = this;
-                    return this.http.get(__this.getCreatedTestimonialsUrl);
+                    return this.http.get(this.getCreatedTestimonialsUrl);
                 };
                 /**
                  * Get user's businesses
                  */
                 UserService.prototype.getBusinesses = function () {
-                    var __this = this;
-                    return this.http.get(__this.getBusinessesUrl);
+                    return this.http.get(this.getBusinessesUrl);
                 };
                 /**
                  * Get user specific business
@@ -224,16 +217,14 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.getBusiness = function (businessId) {
-                    var __this = this;
-                    return this.http.get(__this.getBusinessUrl + '/' + businessId);
+                    return this.http.get(this.getBusinessUrl + '/' + businessId);
                 };
                 /**
                  * Get the plans that current user subscribed to
                  * @returns {any}
                  */
                 UserService.prototype.getPlans = function () {
-                    var __this = this;
-                    return this.http.get(__this.getPlansUrl);
+                    return this.http.get(this.getPlansUrl);
                 };
                 /**
                  * Create new work experience
@@ -241,9 +232,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.createExperience = function (experience) {
-                    var __this = this;
                     var requestBody = JSON.stringify({ experience: experience });
-                    return this.http.post(__this.createExperienceUrl, requestBody, this.postRequestOptions);
+                    return this.http.post(this.createExperienceUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Update existing work experience
@@ -251,9 +241,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.updateExperience = function (experience) {
-                    var __this = this;
                     var requestBody = JSON.stringify({ experience: experience });
-                    return this.http.post(__this.updateExperienceUrl, requestBody, this.postRequestOptions);
+                    return this.http.post(this.updateExperienceUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Create new study
@@ -261,9 +250,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.createStudy = function (study) {
-                    var __this = this;
                     var requestBody = JSON.stringify({ study: study });
-                    return this.http.post(__this.createStudyUrl, requestBody, this.postRequestOptions);
+                    return this.http.post(this.createStudyUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Update existing study
@@ -271,9 +259,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.updateStudy = function (study) {
-                    var __this = this;
                     var requestBody = JSON.stringify({ study: study });
-                    return this.http.post(__this.updateStudyUrl, requestBody, this.postRequestOptions);
+                    return this.http.post(this.updateStudyUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Create new job alert
@@ -281,9 +268,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.createAlert = function (alert) {
-                    var __this = this;
                     var requestBody = JSON.stringify({ alert: alert });
-                    return this.http.post(__this.createAlertUrl, requestBody, this.postRequestOptions);
+                    return this.http.post(this.createAlertUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Update exisiting job alert
@@ -291,9 +277,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.updateAlert = function (alert) {
-                    var __this = this;
                     var requestBody = JSON.stringify({ alert: alert });
-                    return this.http.post(__this.updateAlertUrl, requestBody, this.postRequestOptions);
+                    return this.http.post(this.updateAlertUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Upload new profile picture for current user
@@ -301,9 +286,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.uploadProfilePicture = function (base64) {
-                    var __this = this;
                     var requestBody = JSON.stringify({ base64: base64 });
-                    return this.http.post(__this.uploadProfilePictureUrl, requestBody, this.postRequestOptions);
+                    return this.http.post(this.uploadProfilePictureUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Upload new resume for current user
@@ -311,11 +295,10 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.uploadResume = function (resume) {
-                    var __this = this;
                     var requestBody = resume;
                     var pdfPostRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/pdf' });
                     var pdfPostRequestOptions = new http_1.RequestOptions({ headers: pdfPostRequestHeaders });
-                    return this.http.post(__this.uploadResumeUrl, requestBody, pdfPostRequestOptions);
+                    return this.http.post(this.uploadResumeUrl, requestBody, pdfPostRequestOptions);
                 };
                 /**
                  * Save logged user edited profile info
@@ -324,12 +307,11 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @returns {Observable<Response>}
                  */
                 UserService.prototype.updateInfo = function (key, value) {
-                    var __this = this;
                     var requestBody = JSON.stringify({ key: key, value: value });
                     var userJson = JSON.parse(localStorage.getItem('user'));
                     userJson[key] = value;
                     localStorage.setItem('user', JSON.stringify(userJson));
-                    return this.http.post(__this.saveUserInfoUrl, requestBody, this.postRequestOptions);
+                    return this.http.post(this.saveUserInfoUrl, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Error handling
@@ -337,8 +319,6 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * @param notificationService
                  */
                 UserService.prototype.handleError = function (error, notificationService) {
-                    var __this = this;
-                    console.log(__this, __this.notificationService);
                     var errMsg = (error.message) ? error.message : error.status;
                     if (!errMsg) {
                         errMsg = 'Une erreur inconnue s\'est produite, veuillez rééssayer';
