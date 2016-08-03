@@ -59,6 +59,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.createStudyUrl = appGlobals.apiUrl + '/study/create';
                     this.createAlertUrl = appGlobals.apiUrl + '/alert/create';
                     this.getAlertUrl = appGlobals.apiUrl + '/alert';
+                    this.getApplicantsUrl = appGlobals.apiUrl + '/applicants/all';
                     this.updateAlertUrl = appGlobals.apiUrl + '/alert/update';
                     this.createUserUrl = appGlobals.apiUrl + '/user/create';
                     this.resetPasswordUrl = appGlobals.apiUrl + '/password/email';
@@ -232,6 +233,13 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  */
                 UserService.prototype.getPlans = function () {
                     return this.http.get(this.getPlansUrl);
+                };
+                /**
+                 * Get users that applied to logged user job offers
+                 * @returns {any}
+                 */
+                UserService.prototype.getApplicants = function () {
+                    return this.http.get(this.getApplicantsUrl);
                 };
                 /**
                  * Create new work experience

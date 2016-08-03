@@ -108,10 +108,12 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     /**
                      * Loop through photos to save urls
                      */
-                    for (var i = 0; i < place['photos'].length; i++) {
-                        var photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });
-                        3;
-                        this.business.photos.splice(0, 0, { url: photoUrl, fromGoogle: true });
+                    if (place['photos']) {
+                        for (var i = 0; i < place['photos'].length; i++) {
+                            var photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });
+                            3;
+                            this.business.photos.splice(0, 0, { url: photoUrl, fromGoogle: true });
+                        }
                     }
                     /**
                      * Parse business type

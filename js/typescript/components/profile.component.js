@@ -130,6 +130,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         { path: '/job-post/edit/:jobPostId', name: 'EditJobPost', component: create_job_post_component_1.CreateJobPostComponent },
                         // Applicants
                         { path: '/applicants/all', name: 'Applicants', component: applicants_component_1.ApplicantsComponent },
+                        { path: '/applicants/show_profile', name: 'ShowApplicantProfile', component: applicants_component_1.ApplicantsComponent },
                         // Mails
                         { path: '/mail/templates', name: 'MailTemplates', component: mail_templates_component_1.MailTemplatesComponent },
                         { path: '/mail/template/create', name: 'CreateMailTemplate', component: create_mail_template_component_1.CreateMailTemplateComponent },

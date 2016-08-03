@@ -157,6 +157,10 @@ Route::get('/job_xp_levels/all', 'ReferenceController@getAllJobXpLevels')
 Route::get('/user/plans/all', 'UserController@getPlans')
     ->name('getAllPlans');
 
+// Applicants
+Route::get('/applicants/all', 'UserController@getApplicants')
+    ->name('getAllApplicants');
+
 // Mails
 Route::get('/mail/templates/all', 'MailController@getTemplates')
     ->name('getMailTemplates');

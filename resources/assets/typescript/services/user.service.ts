@@ -38,6 +38,7 @@ export class UserService {
     createStudyUrl = appGlobals.apiUrl + '/study/create';
     createAlertUrl = appGlobals.apiUrl + '/alert/create';
     getAlertUrl = appGlobals.apiUrl + '/alert';
+    getApplicantsUrl = appGlobals.apiUrl + '/applicants/all';
     updateAlertUrl = appGlobals.apiUrl + '/alert/update';
     createUserUrl = appGlobals.apiUrl + '/user/create';
     resetPasswordUrl = appGlobals.apiUrl + '/password/email';
@@ -239,6 +240,14 @@ export class UserService {
      */
     getPlans() {
         return this.http.get(this.getPlansUrl);
+    }
+
+    /**
+     * Get users that applied to logged user job offers
+     * @returns {any}
+     */
+    getApplicants() {
+        return this.http.get(this.getApplicantsUrl);
     }
 
     /**

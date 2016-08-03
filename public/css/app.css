@@ -542,13 +542,13 @@ profile {
           profile .list-container ul li .item.logo .item-desc {
             width: 65%;
             margin-right: 15px; }
-          profile .list-container ul li .item .logo {
+          profile .list-container ul li .item .logo, profile .list-container ul li .item .photo {
             position: relative;
             top: 5px;
             display: inline-block;
             text-align: center;
             width: 25%; }
-            profile .list-container ul li .item .logo img {
+            profile .list-container ul li .item .logo img, profile .list-container ul li .item .photo img {
               max-width: 80px;
               max-height: 80px; }
 

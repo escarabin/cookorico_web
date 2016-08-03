@@ -85,6 +85,7 @@ import { CreateMailTemplateComponent } from './create-mail-template.component';
 
     // Applicants
     { path: '/applicants/all', name: 'Applicants', component: ApplicantsComponent },
+    { path: '/applicants/show_profile', name: 'ShowApplicantProfile', component: ApplicantsComponent },
 
     // Mails
     { path: '/mail/templates', name: 'MailTemplates', component: MailTemplatesComponent },

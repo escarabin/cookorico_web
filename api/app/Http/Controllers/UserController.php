@@ -222,6 +222,23 @@ class UserController extends Controller
         return $jobPosts;
     }
 
+    /**
+     * Get users that applied to logged user job offers
+     */
+    public function getApplicants() {
+        $userJobs = Auth::user()->jobPosts;
+        $userJobsIdList = array();
+
+        foreach ($userJobs as $job) {
+            $userJobsIdList[] = $job->id;
+        }
+
+        $applications = Application::whereIn('job_id', $userJobsIdList)
+                                    ->get()
+                                    ->load('user');
+
+        return $applications;
+    }
 
     /**
      * Save user's new info
