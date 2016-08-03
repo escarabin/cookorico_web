@@ -96,8 +96,12 @@ export class CreateBusinessComponent {
         }
 
         this.place.googlePlaceId = place['place_id'];
-        this.place.city = place['address_components'][2]['long_name'];
-        this.place.postalCode = place['address_components'][6]['long_name'];
+        if (place['address_components'][2]['long_name']) {
+            this.place.city = place['address_components'][2]['long_name'];
+        }
+        if (place['address_components'][6]['long_name']) {
+            this.place.postalCode = place['address_components'][6]['long_name'];
+        }
     }
 
     submitBusiness() {

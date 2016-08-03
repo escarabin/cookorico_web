@@ -9,6 +9,8 @@
             <label>Nom de votre établissement</label>
             <input type="text"
                    class="form-control"
+                   required
+                   [disabled]="!business.id"
                    [(ngModel)]="business.title"
                    (setAddress)="parseAdress($event)"
                    googleplace/>
@@ -86,7 +88,7 @@
                 </div>
                 <div class="photo-title"
                      *ngIf="photo.url == business.logo">
-                    Ceci sera votre logo
+                    Ceci est votre logo
                 </div>
                 <div class="delete-photo"
                      (click)="deleteBusinessPhoto(photo.url)">

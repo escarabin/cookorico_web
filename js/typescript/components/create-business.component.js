@@ -108,8 +108,12 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         this.business.business_type_id = 9;
                     }
                     this.place.googlePlaceId = place['place_id'];
-                    this.place.city = place['address_components'][2]['long_name'];
-                    this.place.postalCode = place['address_components'][6]['long_name'];
+                    if (place['address_components'][2]['long_name']) {
+                        this.place.city = place['address_components'][2]['long_name'];
+                    }
+                    if (place['address_components'][6]['long_name']) {
+                        this.place.postalCode = place['address_components'][6]['long_name'];
+                    }
                 };
                 CreateBusinessComponent.prototype.submitBusiness = function () {
                     var _this = this;

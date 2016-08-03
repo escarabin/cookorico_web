@@ -25,8 +25,13 @@ class BusinessController extends Controller
             $business = Business::find($businessData['id']);
         }
 
+
         foreach ($businessData as $key => $value) {
-            if ($key != "photos") {
+            if ($key != "photos" &&
+                $key != "place" &&
+                $key != "id" &&
+                $key != "created_at" &&
+                $key != "updated_at") {
                 $business[$key] = $value;
             }
         }
@@ -37,10 +42,13 @@ class BusinessController extends Controller
          * Loop through business photos
          */
         foreach ($businessData['photos'] as $photo) {
-            $businessPhoto = new BusinessPhoto();
-            $businessPhoto->url = $photo;
-            $businessPhoto->business_id = $business->id;
-            $businessPhoto->save();
+            // Create photo only if it is not yet stored in db
+            if (!BusinessPhoto::where('url', $photo['url'])->first()) {
+                $businessPhoto = new BusinessPhoto();
+                $businessPhoto->url = $photo['url'];
+                $businessPhoto->business_id = $business->id;
+                $businessPhoto->save();
+            }
         }
 
         if (!$businessData['id']) {
