@@ -78,6 +78,10 @@
                    [(ngModel)]="business.email"/>
         </div>
         <div class="col-md-12" id="business-photos">
+            <span *ngIf="business.photos.length > 0">
+                <h3 class="centered">Cliquez sur l'image que vous souhaitez utiliser comme logo</h3>
+                <br />
+            </span>
             <div class="col-md-4"
                  *ngFor="let photo of business.photos">
                 <div class="photo-preview"

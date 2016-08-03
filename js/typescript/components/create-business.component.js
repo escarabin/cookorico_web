@@ -137,9 +137,13 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         _this.isLoading = false;
                     });
                 };
-                CreateBusinessComponent.prototype.deleteBusinessPhoto = function (photo) {
-                    var indexOfPhoto = this.business.photos.indexOf(photo);
-                    this.business.photos.splice(indexOfPhoto, 1);
+                CreateBusinessComponent.prototype.deleteBusinessPhoto = function (photoUrl) {
+                    for (var i = 0; i < this.business.photos.length; i++) {
+                        console.log(this.business.photos[i]['url'], photoUrl);
+                        if (this.business.photos[i]['url'] == photoUrl) {
+                            this.business.photos.splice(i, 1);
+                        }
+                    }
                 };
                 CreateBusinessComponent = __decorate([
                     core_1.Component({

@@ -133,8 +133,11 @@ export class CreateBusinessComponent {
         })
     }
 
-    deleteBusinessPhoto(photo) {
-        let indexOfPhoto = this.business.photos.indexOf(photo);
-        this.business.photos.splice(indexOfPhoto, 1);
+    deleteBusinessPhoto(photoUrl) {
+        for (let i = 0; i < this.business.photos.length; i++) {
+            if (this.business.photos[i]['url'] == photoUrl) {
+                this.business.photos.splice(i, 1);
+            }
+        }
     }
 }

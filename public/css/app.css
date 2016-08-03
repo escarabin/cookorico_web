@@ -801,4 +801,7 @@ a:hover {
   pointer-events: none;
   cursor: not-allowed; }
 
+.centered {
+  text-align: center; }
+
 /*# sourceMappingURL=app.css.map */
