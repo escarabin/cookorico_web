@@ -108,9 +108,16 @@ export class CreateBusinessComponent {
         let __this = this;
         this.businessService.create(__this.business, __this.place).subscribe((res:Response) => {
             if (res['_body']) {
-                __this.notificationService.show(
-                    new Notification('success', 'Votre établissement a bien été créee')
-                );
+                if (__this.business.id) {
+                    __this.notificationService.show(
+                        new Notification('success', 'Vos modifications ont bien été enregistrées')
+                    );
+                }
+                else {
+                    __this.notificationService.show(
+                        new Notification('success', 'Votre établissement a bien été créee')
+                    );
+                }
 
                 // Redirect to experience edition
                 __this.router.navigate(['/Profile/EditBusiness', {businessId: res.json()['id']}])

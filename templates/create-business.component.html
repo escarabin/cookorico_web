@@ -10,7 +10,7 @@
             <input type="text"
                    class="form-control"
                    required
-                   [disabled]="!business.id"
+                   [disabled]="business.id"
                    [(ngModel)]="business.title"
                    (setAddress)="parseAdress($event)"
                    googleplace/>
