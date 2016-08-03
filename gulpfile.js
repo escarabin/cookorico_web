@@ -5,7 +5,7 @@ var elixirTypscript = require('elixir-typescript');
 elixir(function(mix) {
     mix.sass('app.scss');
 
-    mix.typescript('app.js','js/','/**/*.ts',{
+    mix.typescript('app.js','js/','/resources/**/*.ts',{
         "target": "ES5",
         "module": "system",
         "moduleResolution": "node",

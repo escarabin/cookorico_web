@@ -666,10 +666,14 @@ notifications {
   margin-left: 20px; }
 
 .file-drop-zone {
-  text-align: center; }
-
-.file-drop-zone .hasBaseDropZoneOver {
-  border: 1px solid #35B6E1; }
+  text-align: center;
+  background-color: white;
+  border: 2px dashed #d0d0d0;
+  font-family: "Avenir Medium", sans-serif;
+  padding: 15px; }
+  .file-drop-zone.nv-file-over {
+    color: #35B6E1;
+    border: 2px solid #35B6E1; }
 
 profile-preview h3 {
   text-transform: uppercase;

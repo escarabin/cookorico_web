@@ -77,6 +77,19 @@
                    placeholder="Email"
                    [(ngModel)]="business.email"/>
         </div>
+        <div class="col-md-6">
+            <br /><br />
+            <div ng2FileDrop
+                 [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                 (fileOver)="fileOverBase($event)"
+                 (onFileDrop)="photoFileDropped($event)"
+                 [uploader]="photoUploader"
+                 [class.disabled]="isIntepretingFile"
+                 class="well file-drop-zone">
+                <span *ngIf="!isIntepretingFile">Déposez vos images ici</span>
+                <span *ngIf="isIntepretingFile">Chargement de vos fichiers...</span>
+            </div>
+        </div>
         <div class="col-md-12" id="business-photos">
             <span *ngIf="business.photos.length > 0">
                 <h3 class="centered">Cliquez sur l'image que vous souhaitez utiliser comme logo</h3>

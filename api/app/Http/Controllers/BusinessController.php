@@ -41,14 +41,44 @@ class BusinessController extends Controller
         /**
          * Loop through business photos
          */
+        $i = 1;
         foreach ($businessData['photos'] as $photo) {
             // Create photo only if it is not yet stored in db
-            if (!BusinessPhoto::where('url', $photo['url'])->first()) {
+            //if (!BusinessPhoto::where('url', $photo['url'])->first()) {
                 $businessPhoto = new BusinessPhoto();
-                $businessPhoto->url = $photo['url'];
+
+                /**
+                 * If image url is base64 code, upload it to AWS
+                 */
+                if (strpos($photo['url'], 'base') !== false) {
+                    $newFilePath = 'uploads/business/photo/'.time().'.jpg';
+                    $dirName = dirname($newFilePath);
+
+                    /**
+                     * If directory is not yet created, do it
+                     */
+                    if (!is_dir(dirname($newFilePath))) {
+                        mkdir($dirName, 0755, true);
+                    }
+
+                    $ifp = fopen($newFilePath, "wb");
+                    $data = explode(',', $photo['url']);
+
+                    fwrite($ifp, base64_decode($data[1]));
+                    fclose($ifp);
+
+                    app('App\Http\Controllers\FileController')
+                        ->upload('oechr-business-picture', $business->id.'/'.$i.'.jpg', $newFilePath);
+
+                    $businessPhoto->url = 'https://s3-eu-west-1.amazonaws.com/oechr-business-picture/'.$business->id.'/1.jpg';
+                }
+                else {
+                    $businessPhoto->url = $photo['url'];
+                }
                 $businessPhoto->business_id = $business->id;
                 $businessPhoto->save();
-            }
+            //}
+            $i += 1;
         }
 
         if (!$businessData['id']) {

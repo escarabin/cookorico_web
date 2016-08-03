@@ -5,8 +5,13 @@
 
 .file-drop-zone {
   text-align: center;
-}
+  background-color: white;
+  border: 2px dashed #d0d0d0;
+  font-family: $mainMediumFontFamily;
+  padding: 15px;
 
-.file-drop-zone .hasBaseDropZoneOver {
-  border: 1px solid $oechrBlueColor;
+  &.nv-file-over {
+    color: $oechrBlueColor;
+    border: 2px solid $oechrBlueColor;
+  }
 }

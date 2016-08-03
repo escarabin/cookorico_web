@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', './../services/business.service', './../services/notification.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../models/business', './../models/place', './../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', './../services/business.service', './../services/notification.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../models/business', './../models/place', './../models/notification', 'ng2-file-upload/ng2-file-upload'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, business_service_1, notification_service_1, googleplace_directive_1, business_1, place_1, notification_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, business_service_1, notification_service_1, googleplace_directive_1, business_1, place_1, notification_1, ng2_file_upload_1;
     var CreateBusinessComponent;
     return {
         setters:[
@@ -46,6 +46,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             },
             function (notification_1_1) {
                 notification_1 = notification_1_1;
+            },
+            function (ng2_file_upload_1_1) {
+                ng2_file_upload_1 = ng2_file_upload_1_1;
             }],
         execute: function() {
             CreateBusinessComponent = (function () {
@@ -60,6 +63,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     this.business = new business_1.Business();
                     this.place = new place_1.Place();
                     this.isLoading = false;
+                    this.isIntepretingFile = false;
+                    this.photoUploader = new ng2_file_upload_1.FileUploader({ url: URL });
+                    this.hasBaseDropZoneOver = false;
+                    this.hasAnotherDropZoneOver = false;
                     var __this = this;
                     this.business.id = parseInt(routeParams.get("businessId"));
                     if (this.business.id) {
@@ -75,25 +82,39 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 }
                 CreateBusinessComponent.prototype.parseAdress = function (place) {
                     /**
-                     * Parse google maps API data into [business] & [place] objects
+                     * Parse google maps API data into [business] object
                      */
-                    this.place = new place_1.Place();
-                    this.business = new business_1.Business();
                     var location = place['geometry']['location'];
                     this.place.lat = location.lat();
                     this.place.lon = location.lng();
+                    /**
+                     * Parse google maps API data into [place] object
+                     */
                     this.business.phone = place['formatted_phone_number'];
                     this.business.website = place['website'];
                     this.place.adress = place['formatted_address'];
                     this.business.title = place['name'];
-                    this.business.photos = [];
-                    // Loop through photos to get url
+                    /**
+                     * Loop through existing photos to remove
+                     * only the ones we got from Google API
+            
+                    for (let i = 0; i < this.business.photos.length; i++) {
+                        console.log('photos are : ', this.business.photos);
+                        if (this.business.photos[i]['fromGoogle']) {
+                            delete this.business.photos["fromGoogle"];
+                        }
+                    }*/
+                    /**
+                     * Loop through photos to save urls
+                     */
                     for (var i = 0; i < place['photos'].length; i++) {
                         var photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });
                         3;
-                        this.business.photos.push({ url: photoUrl });
+                        this.business.photos.splice(0, 0, { url: photoUrl, fromGoogle: true });
                     }
-                    // Get business's type
+                    /**
+                     * Parse business type
+                     */
                     if (place['types'].indexOf('restaurant')) {
                         this.business.business_type_id = 2;
                     }
@@ -109,6 +130,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     else {
                         this.business.business_type_id = 9;
                     }
+                    /**
+                     * Verifying if city and postalCode are given via Google API
+                     */
                     this.place.googlePlaceId = place['place_id'];
                     if (place['address_components'][2]) {
                         this.place.city = place['address_components'][2]['long_name'];
@@ -139,11 +163,41 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                 };
                 CreateBusinessComponent.prototype.deleteBusinessPhoto = function (photoUrl) {
                     for (var i = 0; i < this.business.photos.length; i++) {
-                        console.log(this.business.photos[i]['url'], photoUrl);
                         if (this.business.photos[i]['url'] == photoUrl) {
                             this.business.photos.splice(i, 1);
                         }
                     }
+                };
+                CreateBusinessComponent.prototype.fileChangeListener = function ($event) {
+                    var image = new Image();
+                    /**
+                     * File was selected via input[type=file]
+                     */
+                    var file;
+                    if ($event.target) {
+                        file = $event.target.files[0];
+                    }
+                    else {
+                        file = $event[0];
+                    }
+                    var myReader = new FileReader();
+                    var __this = this;
+                    myReader.onloadend = function (loadEvent) {
+                        image.src = loadEvent.target.result;
+                        __this.business.photos.splice(0, 0, { url: image.src });
+                        __this.isIntepretingFile = false;
+                    };
+                    myReader.readAsDataURL(file);
+                };
+                CreateBusinessComponent.prototype.fileOverBase = function (e) {
+                    this.hasBaseDropZoneOver = e;
+                };
+                CreateBusinessComponent.prototype.fileOverAnother = function (e) {
+                    this.hasAnotherDropZoneOver = e;
+                };
+                CreateBusinessComponent.prototype.photoFileDropped = function (e) {
+                    this.isIntepretingFile = true;
+                    this.fileChangeListener(e);
                 };
                 CreateBusinessComponent = __decorate([
                     core_1.Component({
@@ -152,7 +206,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                             user_service_1.UserService,
                             location_service_1.LocationService,
                             business_service_1.BusinessService],
-                        directives: [router_deprecated_1.RouterLink, googleplace_directive_1.GoogleplaceDirective],
+                        directives: [router_deprecated_1.RouterLink,
+                            googleplace_directive_1.GoogleplaceDirective,
+                            ng2_file_upload_1.FileDropDirective,
+                            ng2_file_upload_1.FileSelectDirective],
                         templateUrl: '../templates/create-business.component.html'
                     }), 
                     __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, business_service_1.BusinessService, location_service_1.LocationService, router_deprecated_1.Router, router_deprecated_1.RouteParams])
