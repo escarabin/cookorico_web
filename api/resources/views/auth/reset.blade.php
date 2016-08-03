@@ -1,5 +1,6 @@
-<form method="POST" action="/api/public/password/email">
+<form method="POST" action="/api/public/password/reset">
     {!! csrf_field() !!}
+    <input type="hidden" name="token" value="{{ $token }}">
 
     @if (count($errors) > 0)
         <ul>
@@ -15,8 +16,18 @@
     </div>
 
     <div>
+        Password
+        <input type="password" name="password">
+    </div>
+
+    <div>
+        Confirm Password
+        <input type="password" name="password_confirmation">
+    </div>
+
+    <div>
         <button type="submit">
-            Send Password Reset Link
+            Reset Password
         </button>
     </div>
 </form>
