@@ -141,6 +141,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     if (place['address_components'][6]) {
                         this.place.postalCode = place['address_components'][6]['long_name'];
                     }
+                    /**
+                     * Force Angular 2 to detect [business] & [place] objects changes
+                     * After a lot of research, this is the only workaround found yet
+                     * to fix the bug causing the inputs not to be filled with new data
+                     */
                     this.ref.detectChanges();
                 };
                 CreateBusinessComponent.prototype.submitBusiness = function () {

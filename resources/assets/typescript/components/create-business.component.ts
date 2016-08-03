@@ -101,9 +101,11 @@ export class CreateBusinessComponent {
         /**
          * Loop through photos to save urls
          */
-        for (let i = 0; i < place['photos'].length; i++) {
-            let photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });3
-            this.business.photos.splice(0, 0, {url: photoUrl, fromGoogle: true});
+        if (place['photos']) {
+            for (let i = 0; i < place['photos'].length; i++) {
+                let photoUrl = place['photos'][i].getUrl({ 'maxWidth': 1500, 'maxHeight': 1500 });3
+                this.business.photos.splice(0, 0, {url: photoUrl, fromGoogle: true});
+            }
         }
 
         /**
