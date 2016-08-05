@@ -26,3 +26,23 @@ label {
   font-size: 0.8em;
   letter-spacing: 1px;
 }
+
+md-checkbox {
+  &.dark-bg {
+    .md-checkbox-frame {
+      border-color: white;
+    }
+  }
+
+  &.md-checkbox-checked {
+    .md-checkbox-background {
+      background-color: $oechrBlueColor;
+    }
+  }
+
+  &.md-checkbox-focused {
+    .md-ink-ripple {
+      background-color: rgba($oechrBlueColor, 0.25)
+    }
+  }
+}

@@ -1,17 +1,22 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container">
-        <input type="checkbox"
-               [checked]="allItemsChecked"
-               (change)="toggleAllItems()"/>
+    <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container"
+         [class.selected]="allItemsChecked"
+         (click)="toggleAllItems()">
+        <md-checkbox class="md-warn md-align-top-left"
+                     [checked]="allItemsChecked"
+                     class="dark-bg">
+        </md-checkbox>
     </div>
     <div class="col-md-7 col-sm-7 col-xs-6 items-count">
         <span *ngIf="checkedItemsList.length > 0">
             {{ checkedItemsList.length }}
         </span>
         <span *ngIf="checkedItemsList.length == 0">
-            {{ items.length }}
-        </span> expérience<span *ngIf="items.length > 1">s</span>
-        <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
+            {{ checkedItemsList.length }}
+        </span> expérience<span *ngIf="checkedItemsList.length > 1">s</span>
+        <span *ngIf="checkedItemsList.length > 0">
+            sélectionnée<span *ngIf="checkedItemsList.length > 1">s</span>
+        </span>
     </div>
     <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
         <button [routerLink]="['/Profile/CreateExperience']">
@@ -25,12 +30,13 @@
 
 <div class="col-md-12 list-container">
     <ul>
-        <li class="row" *ngFor="let item of items">
-            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
-                <input type="checkbox"
-                       class="action-checkbox"
-                       [checked]="checkedItemsList.indexOf(item.id) != -1"
-                       (change)="saveCheckedItem(item.id)"/>
+        <li class="row" *ngFor="let item of items"
+            [class.selected]="checkedItemsList.indexOf(item.id) != -1">
+            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container"
+                 (click)="saveCheckedItem(item.id)">
+                <md-checkbox class="md-warn md-align-top-left"
+                             [checked]="checkedItemsList.indexOf(item.id) != -1">
+                </md-checkbox>
             </div>
             <div class="col-md-10 col-sm-10 col-xs-9 item"
                  [class.logo]="item.business.logo">

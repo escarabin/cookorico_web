@@ -28,6 +28,14 @@ profile {
       border-right: 1px solid #e6e6e6;
       background: $mainBlueColor;
       border-top-left-radius: $mainBorderRadius;
+
+      md-checkbox {
+        pointer-events: none;
+      }
+
+      &.selected {
+        background-color: $oechrBlueColor;
+      }
     }
 
     .actions-container {
@@ -107,6 +115,10 @@ profile {
         margin: 0;
         border: 1px solid #ececec;
 
+        md-checkbox {
+          pointer-events: none;
+        }
+
         &:nth-child(odd) {
           background: white;
         }
@@ -114,6 +126,23 @@ profile {
         &:hover {
           background-color: lighten($oechrBlueColor, 40%);
           border-color: $oechrBlueColor;
+        }
+
+        &.selected {
+          background: $oechrBlueColor;
+          color: white;
+
+          .checkbox-container {
+            background: $oechrBlueColor;
+          }
+
+          .item-desc, h3 {
+            color: white;
+          }
+
+          md-checkbox .md-checkbox-frame {
+            border: none;
+          }
         }
 
         a {

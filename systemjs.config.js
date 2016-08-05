@@ -21,7 +21,8 @@
     'angular2-google-maps':       'node_modules/angular2-google-maps',
     'ng2-pagination':             'node_modules/ng2-pagination',
     'ng2-select':                 'node_modules/ng2-select',
-    'express':                    'node_modules/express'
+    'express':                    'node_modules/express',
+    '@angular2-material':         'node_modules/@angular2-material'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -37,7 +38,10 @@
     'file-droppa' :               { main: 'index.js', defaultExtension: 'js' },
     'ng2-file-upload':            { main: 'ng2-file-upload.js', defaultExtension: 'js' },
     'ng2-pagination':             { main: 'index.js', defaultExtension: 'js' },
-    'ng2-select':                 { main: 'ng2-select.js', defaultExtension: 'js' }
+    'ng2-select':                 { main: 'ng2-select.js', defaultExtension: 'js' },
+    '@angular2-material/core':    { main: 'core.js', defaultExtension: 'js' },
+    '@angular2-material/input':   { main: 'input.js', defaultExtension: 'js' },
+    '@angular2-material/checkbox':{ main: 'checkbox.js', defaultExtension: 'js' }
   };
 
   var ngPackageNames = [

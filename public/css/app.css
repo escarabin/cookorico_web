@@ -37,6 +37,15 @@ label {
   font-size: 0.8em;
   letter-spacing: 1px; }
 
+md-checkbox.dark-bg .md-checkbox-frame {
+  border-color: white; }
+
+md-checkbox.md-checkbox-checked .md-checkbox-background {
+  background-color: #35B6E1; }
+
+md-checkbox.md-checkbox-focused .md-ink-ripple {
+  background-color: rgba(53, 182, 225, 0.25); }
+
 button {
   height: 50px; }
 
@@ -465,6 +474,10 @@ profile {
       border-right: 1px solid #e6e6e6;
       background: #1a1f38;
       border-top-left-radius: 4px; }
+      profile .header-container .main-checkbox-container md-checkbox {
+        pointer-events: none; }
+      profile .header-container .main-checkbox-container.selected {
+        background-color: #35B6E1; }
     profile .header-container .actions-container {
       padding: 0;
       text-align: right; }
@@ -516,11 +529,22 @@ profile {
         padding: 0;
         margin: 0;
         border: 1px solid #ececec; }
+        profile .list-container ul li md-checkbox {
+          pointer-events: none; }
         profile .list-container ul li:nth-child(odd) {
           background: white; }
         profile .list-container ul li:hover {
           background-color: #e7f6fb;
           border-color: #35B6E1; }
+        profile .list-container ul li.selected {
+          background: #35B6E1;
+          color: white; }
+          profile .list-container ul li.selected .checkbox-container {
+            background: #35B6E1; }
+          profile .list-container ul li.selected .item-desc, profile .list-container ul li.selected h3 {
+            color: white; }
+          profile .list-container ul li.selected md-checkbox .md-checkbox-frame {
+            border: none; }
         profile .list-container ul li a {
           color: #333; }
         profile .list-container ul li h3 {
