@@ -16,6 +16,7 @@ import { Study } from './../models/study';
 export class UserService {
     signInUrl = appGlobals.apiUrl + '/sign-in/';
     getUserInfosUrl = appGlobals.apiUrl + '/user/get_infos';
+    getUserUrl = appGlobals.apiUrl + '/user/get';
     getApplicationsUrl = appGlobals.apiUrl + '/applications/all';
     getPlansUrl = appGlobals.apiUrl + '/user/plans/all';
     getExperiencesUrl = appGlobals.apiUrl + '/experiences/all';
@@ -62,6 +63,14 @@ export class UserService {
      */
     login(email, password) {
         return this.http.get(this.signInUrl + email + '/' + password);
+    }
+
+    /**
+     * Get data from specific user
+     * @param userId
+     */
+    get(userId) {
+        return this.http.get(this.getUserUrl + '/' + userId);
     }
 
     /**

@@ -43,8 +43,9 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
             }],
         execute: function() {
             ProfilePreviewComponent = (function () {
-                function ProfilePreviewComponent(userService, notificationService) {
+                function ProfilePreviewComponent(userService, routeParams, notificationService) {
                     this.userService = userService;
+                    this.routeParams = routeParams;
                     this.notificationService = notificationService;
                     this.profilePictureChanged = new core_1.EventEmitter();
                     this.user = [];
@@ -59,7 +60,19 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                     this.hasBaseDropZoneOver = false;
                     this.hasAnotherDropZoneOver = false;
                     var __this = this;
-                    this.user = JSON.parse(localStorage.getItem('user'));
+                    /**
+                     * If userId is defined, then show the profile of this user
+                     * else, get data from logged in user
+                     */
+                    var userIdParam = routeParams.get('userId');
+                    if (userIdParam) {
+                        this.userService.get(userIdParam).subscribe(function (res) {
+                            __this.user = res.json();
+                        });
+                    }
+                    else {
+                        this.user = JSON.parse(localStorage.getItem('user'));
+                    }
                     /**
                      * If user has a specific profile picture URL (Linkedin, Google, etc)
                      * then display this one instead of AWS's one
@@ -207,7 +220,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                         selector: 'profile-preview',
                         templateUrl: '../templates/profile-preview.component.html',
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService, notification_service_1.NotificationsService])
+                    __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.RouteParams, notification_service_1.NotificationsService])
                 ], ProfilePreviewComponent);
                 return ProfilePreviewComponent;
             }());

@@ -1,5 +1,5 @@
 import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
-import { RouterLink } from '@angular/router-deprecated'
+import { RouterLink, RouteParams } from '@angular/router-deprecated'
 import { Response } from '@angular/http';
 import { CORE_DIRECTIVES,
          FORM_DIRECTIVES,
@@ -61,10 +61,24 @@ export class ProfilePreviewComponent {
     public hasAnotherDropZoneOver:boolean = false;
 
     constructor(private userService: UserService,
+                private routeParams: RouteParams,
                 private notificationService: NotificationsService) {
         let __this = this;
 
-        this.user = JSON.parse(localStorage.getItem('user'));
+        /**
+         * If userId is defined, then show the profile of this user
+         * else, get data from logged in user
+         */
+        let userIdParam = routeParams.get('userId');
+
+        if (userIdParam) {
+            this.userService.get(userIdParam).subscribe((res: Response) => {
+                __this.user = res.json();
+            });
+        }
+        else {
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
 
         /**
          * If user has a specific profile picture URL (Linkedin, Google, etc)

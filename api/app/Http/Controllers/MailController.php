@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\MailTemplate;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Request;
 use Auth;
 use Log;
@@ -61,5 +62,15 @@ class MailController extends Controller
         $template->save();
 
         return $template;
+    }
+
+    public function saveTest() {
+        Mail::send('emails.new-email', [], function ($m) {
+            $m->from(env('COMPANY_EMAIL'), 'Your Application');
+
+            $m->to('scarabin-emmanuel@gmail.com', 'Emmanuel SCARABIN')->subject('Your Reminder!');
+        });
+
+        Log::info('test saved');
     }
 }

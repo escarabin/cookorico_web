@@ -34,5 +34,4 @@ bootstrap( AppComponent,
      * Use Angular 2 material directive globally (as a PLATFORM_DIRECTIVE)
      * in order to user its components in the app without having to import them
      */
-    provide(PLATFORM_DIRECTIVES, {useValue: MD_CHECKBOX_DIRECTIVES, multi: true})
-]).catch(console.error);
+    provide(PLATFORM_DIRECTIVES, {useValue: MD_CHECKBOX_DIRECTIVES, multi: true})]).catch(console.error);

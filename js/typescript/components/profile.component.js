@@ -102,6 +102,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                     router_deprecated_1.RouteConfig([
                         // Root
                         { path: '/show', name: 'ProfilePreview', component: profile_preview_component_1.ProfilePreviewComponent, useAsDefault: true },
+                        { path: '/show/:userId', name: 'ShowUserProfile', component: profile_preview_component_1.ProfilePreviewComponent },
                         // Experiences
                         { path: '/experiences/all', name: 'Experiences', component: experiences_component_1.ExperiencesComponent },
                         { path: '/experience/create', name: 'CreateExperience', component: create_experience_component_1.CreateExperienceComponent },

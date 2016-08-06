@@ -65,6 +65,17 @@ class UserController extends Controller
     }
 
     /**
+     * Get specific user data
+     * @param $userId
+     * @return mixed
+     */
+    public function get($userId) {
+        $user = User::find($userId);
+
+        return $user;
+    }
+
+    /**
      * Create new user
      * @param $email
      * @param $password

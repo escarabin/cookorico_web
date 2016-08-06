@@ -49,6 +49,7 @@ import { CreateMailTemplateComponent } from './create-mail-template.component';
 @RouteConfig([
     // Root
     { path: '/show', name: 'ProfilePreview', component: ProfilePreviewComponent, useAsDefault: true },
+    { path: '/show/:userId', name: 'ShowUserProfile', component: ProfilePreviewComponent},
 
     // Experiences
     { path: '/experiences/all', name: 'Experiences', component: ExperiencesComponent },

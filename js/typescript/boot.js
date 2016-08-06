@@ -41,8 +41,7 @@ System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular
                  * Use Angular 2 material directive globally (as a PLATFORM_DIRECTIVE)
                  * in order to user its components in the app without having to import them
                  */
-                core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: checkbox_1.MD_CHECKBOX_DIRECTIVES, multi: true })
-            ]).catch(console.error);
+                core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: checkbox_1.MD_CHECKBOX_DIRECTIVES, multi: true })]).catch(console.error);
         }
     }
 });
