@@ -17,22 +17,22 @@ export class UserService {
     signInUrl = appGlobals.apiUrl + '/sign-in/';
     getUserInfosUrl = appGlobals.apiUrl + '/user/get_infos';
     getUserUrl = appGlobals.apiUrl + '/user/get';
-    getApplicationsUrl = appGlobals.apiUrl + '/applications/all';
+    getApplicationsUrl = appGlobals.apiUrl + '/user/applications';
     getPlansUrl = appGlobals.apiUrl + '/user/plans/all';
-    getExperiencesUrl = appGlobals.apiUrl + '/experiences/all';
+    getExperiencesUrl = appGlobals.apiUrl + '/user/experiences';
     getExperienceUrl = appGlobals.apiUrl + '/experience';
     deleteExperiencesUrl = appGlobals.apiUrl + '/experience/delete';
     deleteEducationUrl = appGlobals.apiUrl + '/education/delete';
     getStudyUrl = appGlobals.apiUrl + '/study';
     updateStudyUrl = appGlobals.apiUrl + '/study/update';
     deleteAlertUrl = appGlobals.apiUrl + '/alert/delete';
-    getEducationUrl = appGlobals.apiUrl + '/education/all';
+    getEducationUrl = appGlobals.apiUrl + '/user/education';
     getAlertsUrl = appGlobals.apiUrl + '/alerts/all';
     getBusinessesUrl = appGlobals.apiUrl + '/user/businesses';
     getJobPostsUrl = appGlobals.apiUrl + '/user/job-posts/all';
     deleteJobPostsUrl = appGlobals.apiUrl + '/job-posts/delete';
     getBusinessUrl = appGlobals.apiUrl + '/business';
-    getTestimonialsUrl = appGlobals.apiUrl + '/testimonials/all';
+    getTestimonialsUrl = appGlobals.apiUrl + '/user/testimonials';
     getCreatedTestimonialsUrl = appGlobals.apiUrl + '/created_testimonials/all';
     createExperienceUrl = appGlobals.apiUrl + '/experience/create';
     updateExperienceUrl = appGlobals.apiUrl + '/experience/update';
@@ -121,15 +121,17 @@ export class UserService {
     /**
      * Get user's job applications
      */
-    getApplications() {
-        return this.http.get(this.getApplicationsUrl);
+    getApplications(userId?: number) {
+        return this.http.get(this.getApplicationsUrl + '/' + userId);
     }
 
     /**
      * Get user's work experiences
+     * @param userId
+     * @returns {Observable<Response>}
      */
-    getExperiences() {
-        return this.http.get(this.getExperiencesUrl);
+    getExperiences(userId?: number) {
+        return this.http.get(this.getExperiencesUrl + '/' + userId);
     }
 
     /**
@@ -152,9 +154,11 @@ export class UserService {
 
     /**
      * Get user's education
+     * @param userId
+     * @returns {Observable<Response>}
      */
-    getEducation() {
-        return this.http.get(this.getEducationUrl);
+    getEducation(userId?: number) {
+        return this.http.get(this.getEducationUrl + '/' + userId);
     }
 
     /**
@@ -215,9 +219,11 @@ export class UserService {
 
     /**
      * Get user's testimonials
+     * @param userId
+     * @returns {Observable<Response>}
      */
-    getTestimonials() {
-        return this.http.get(this.getTestimonialsUrl);
+    getTestimonials(userId?: number) {
+        return this.http.get(this.getTestimonialsUrl + '/' + userId);
     }
 
     /**

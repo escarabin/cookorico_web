@@ -52,7 +52,7 @@ export class ProfilePreviewComponent {
     profilePictureUrl: string;
     resumeData: any;
     isLoading:boolean = false;
-    editableProfile: boolean = true;
+    editableProfile: boolean = false;
     cropperSettings: CropperSettings;
     editingItems: any = [];
     public profilePictureUploader:FileUploader = new FileUploader({url: URL});
@@ -71,25 +71,28 @@ export class ProfilePreviewComponent {
          */
         let userIdParam = routeParams.get('userId');
 
-        if (userIdParam) {
-            this.userService.get(userIdParam).subscribe((res: Response) => {
-                __this.user = res.json();
-            });
-        }
-        else {
+        if (!userIdParam) {
             this.user = JSON.parse(localStorage.getItem('user'));
+            userIdParam = this.user['id'];
+
+            // The profile is logged user's one so he is able to edit it
+            this.editableProfile = true;
         }
 
-        this.userService.getExperiences().subscribe((res: Response) => {
-            __this.experiences = res.json();
-        });
+        this.userService.get(userIdParam).subscribe((res: Response) => {
+            __this.user = res.json();
 
-        this.userService.getEducation().subscribe((res: Response) => {
-            __this.education = res.json();
-        });
+            __this.userService.getExperiences(__this.user.id).subscribe((res: Response) => {
+                __this.experiences = res.json();
+            });
 
-        this.userService.getTestimonials().subscribe((res: Response) => {
-            __this.testimonials = res.json();
+            __this.userService.getEducation(__this.user.id).subscribe((res: Response) => {
+                __this.education = res.json();
+            });
+
+            __this.userService.getTestimonials(__this.user.id).subscribe((res: Response) => {
+                __this.testimonials = res.json();
+            });
         });
 
         /**

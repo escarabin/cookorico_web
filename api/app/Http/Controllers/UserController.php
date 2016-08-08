@@ -116,8 +116,12 @@ class UserController extends Controller
      * Get user's applications
      * @return mixed
      */
-    public function getApplications() {
-        $applications = Auth::user()->applications
+    public function getApplications($userId = null) {
+        if ($userId == "undefined") {
+            $userId = Auth::user()->id;
+        }
+
+        $applications = User::find($userId)->applications
                             ->load('job', 'job.business', 'user');
 
         return $applications;
@@ -128,9 +132,13 @@ class UserController extends Controller
      * Get user's work experiences
      * @return mixed
      */
-    public function getExperiences() {
-        $experiences = Auth::user()->experiences
-                        ->load('jobNaming', 'user', 'business');
+    public function getExperiences($userId = null) {
+        if ($userId == "undefined") {
+            $userId = Auth::user()->id;
+        }
+
+        $experiences = User::find($userId)->experiences
+                           ->load('jobNaming', 'user', 'business');
 
         return $experiences;
     }
@@ -149,9 +157,13 @@ class UserController extends Controller
      * Get user's education
      * @return mixed
      */
-    public function getEducation() {
-        $education = Auth::user()->education
-                        ->load('diploma', 'business');
+    public function getEducation($userId = null) {
+        if ($userId == "undefined") {
+            $userId = Auth::user()->id;
+        }
+
+        $education = User::find($userId)->education
+                         ->load('diploma', 'business');
 
         return $education;
     }
@@ -181,8 +193,12 @@ class UserController extends Controller
      * Get user's testimonials
      * @return mixed
      */
-    public function getTestimonials() {
-        $testimonials = Auth::user()->testimonials
+    public function getTestimonials($userId = null) {
+        if ($userId == "undefined") {
+            $userId = Auth::user()->id;
+        }
+
+        $testimonials = User::find($userId)->testimonials
                         ->load('jobNaming',
                                 'employee',
                                 'business',
@@ -246,7 +262,15 @@ class UserController extends Controller
 
         $applications = Application::whereIn('job_id', $userJobsIdList)
                                     ->get()
-                                    ->load('user');
+                                    ->load('user')
+                                    ->load('job');
+
+        /**
+         * Necessary workaround to return business data
+         */
+        foreach ($applications as $application) {
+            $application->job->business = $application->job->business;
+        }
 
         return $applications;
     }

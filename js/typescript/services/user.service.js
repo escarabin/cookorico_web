@@ -38,22 +38,22 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.signInUrl = appGlobals.apiUrl + '/sign-in/';
                     this.getUserInfosUrl = appGlobals.apiUrl + '/user/get_infos';
                     this.getUserUrl = appGlobals.apiUrl + '/user/get';
-                    this.getApplicationsUrl = appGlobals.apiUrl + '/applications/all';
+                    this.getApplicationsUrl = appGlobals.apiUrl + '/user/applications';
                     this.getPlansUrl = appGlobals.apiUrl + '/user/plans/all';
-                    this.getExperiencesUrl = appGlobals.apiUrl + '/experiences/all';
+                    this.getExperiencesUrl = appGlobals.apiUrl + '/user/experiences';
                     this.getExperienceUrl = appGlobals.apiUrl + '/experience';
                     this.deleteExperiencesUrl = appGlobals.apiUrl + '/experience/delete';
                     this.deleteEducationUrl = appGlobals.apiUrl + '/education/delete';
                     this.getStudyUrl = appGlobals.apiUrl + '/study';
                     this.updateStudyUrl = appGlobals.apiUrl + '/study/update';
                     this.deleteAlertUrl = appGlobals.apiUrl + '/alert/delete';
-                    this.getEducationUrl = appGlobals.apiUrl + '/education/all';
+                    this.getEducationUrl = appGlobals.apiUrl + '/user/education';
                     this.getAlertsUrl = appGlobals.apiUrl + '/alerts/all';
                     this.getBusinessesUrl = appGlobals.apiUrl + '/user/businesses';
                     this.getJobPostsUrl = appGlobals.apiUrl + '/user/job-posts/all';
                     this.deleteJobPostsUrl = appGlobals.apiUrl + '/job-posts/delete';
                     this.getBusinessUrl = appGlobals.apiUrl + '/business';
-                    this.getTestimonialsUrl = appGlobals.apiUrl + '/testimonials/all';
+                    this.getTestimonialsUrl = appGlobals.apiUrl + '/user/testimonials';
                     this.getCreatedTestimonialsUrl = appGlobals.apiUrl + '/created_testimonials/all';
                     this.createExperienceUrl = appGlobals.apiUrl + '/experience/create';
                     this.updateExperienceUrl = appGlobals.apiUrl + '/experience/update';
@@ -129,14 +129,16 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 /**
                  * Get user's job applications
                  */
-                UserService.prototype.getApplications = function () {
-                    return this.http.get(this.getApplicationsUrl);
+                UserService.prototype.getApplications = function (userId) {
+                    return this.http.get(this.getApplicationsUrl + '/' + userId);
                 };
                 /**
                  * Get user's work experiences
+                 * @param userId
+                 * @returns {Observable<Response>}
                  */
-                UserService.prototype.getExperiences = function () {
-                    return this.http.get(this.getExperiencesUrl);
+                UserService.prototype.getExperiences = function (userId) {
+                    return this.http.get(this.getExperiencesUrl + '/' + userId);
                 };
                 /**
                  * Get user's specific experience
@@ -156,9 +158,11 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 };
                 /**
                  * Get user's education
+                 * @param userId
+                 * @returns {Observable<Response>}
                  */
-                UserService.prototype.getEducation = function () {
-                    return this.http.get(this.getEducationUrl);
+                UserService.prototype.getEducation = function (userId) {
+                    return this.http.get(this.getEducationUrl + '/' + userId);
                 };
                 /**
                  * Get user's specific study regarding id
@@ -211,9 +215,11 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 };
                 /**
                  * Get user's testimonials
+                 * @param userId
+                 * @returns {Observable<Response>}
                  */
-                UserService.prototype.getTestimonials = function () {
-                    return this.http.get(this.getTestimonialsUrl);
+                UserService.prototype.getTestimonials = function (userId) {
+                    return this.http.get(this.getTestimonialsUrl + '/' + userId);
                 };
                 /**
                  * Get user's created testimonials

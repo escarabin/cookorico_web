@@ -86,11 +86,11 @@ Route::get('/civilities/all', 'ReferenceController@getAllCivilities')
     ->name('getAllCivilities');
 
 // Applications
-Route::get('/applications/all', 'UserController@getApplications')
-    ->name('getAllApplications');
+Route::get('/user/applications/{userId?}', 'UserController@getApplications')
+    ->name('getApplications');
 
 // Experiences
-Route::get('/experiences/all', 'UserController@getExperiences')
+Route::get('/user/experiences/{userId?}', 'UserController@getExperiences')
     ->name('getAllExperiences');
 Route::get('/experience/{experienceId}', 'UserController@getExperience')
     ->name('getExperience');
@@ -102,7 +102,7 @@ Route::get('/experience/delete/{experiences}', 'ExperienceController@deleteExper
     ->name('deleteExperiences');
 
 // Education
-Route::get('/education/all', 'UserController@getEducation')
+Route::get('/user/education/{userId?}', 'UserController@getEducation')
     ->name('getEducation');
 Route::get('/study/{studyId}', 'EducationController@getStudy')
     ->name('getStudy');
@@ -126,7 +126,7 @@ Route::post('/alert/create', 'AlertController@createAlert')
     ->name('createAlert');
 
 // Testimonials
-Route::get('/testimonials/all', 'UserController@getTestimonials')
+Route::get('/user/testimonials/{userId?}', 'UserController@getTestimonials')
     ->name('getTestimonials');
 Route::get('/created_testimonials/all', 'UserController@getCreatedTestimonials')
     ->name('getCreatedTestimonials');

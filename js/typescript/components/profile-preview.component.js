@@ -53,7 +53,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                     this.education = [];
                     this.testimonials = [];
                     this.isLoading = false;
-                    this.editableProfile = true;
+                    this.editableProfile = false;
                     this.editingItems = [];
                     this.profilePictureUploader = new ng2_file_upload_1.FileUploader({ url: URL });
                     this.resumeUploader = new ng2_file_upload_1.FileUploader({ url: URL });
@@ -65,22 +65,23 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                      * else, get data from logged in user
                      */
                     var userIdParam = routeParams.get('userId');
-                    if (userIdParam) {
-                        this.userService.get(userIdParam).subscribe(function (res) {
-                            __this.user = res.json();
-                        });
-                    }
-                    else {
+                    if (!userIdParam) {
                         this.user = JSON.parse(localStorage.getItem('user'));
+                        userIdParam = this.user['id'];
+                        // The profile is logged user's one so he is able to edit it
+                        this.editableProfile = true;
                     }
-                    this.userService.getExperiences().subscribe(function (res) {
-                        __this.experiences = res.json();
-                    });
-                    this.userService.getEducation().subscribe(function (res) {
-                        __this.education = res.json();
-                    });
-                    this.userService.getTestimonials().subscribe(function (res) {
-                        __this.testimonials = res.json();
+                    this.userService.get(userIdParam).subscribe(function (res) {
+                        __this.user = res.json();
+                        __this.userService.getExperiences(__this.user.id).subscribe(function (res) {
+                            __this.experiences = res.json();
+                        });
+                        __this.userService.getEducation(__this.user.id).subscribe(function (res) {
+                            __this.education = res.json();
+                        });
+                        __this.userService.getTestimonials(__this.user.id).subscribe(function (res) {
+                            __this.testimonials = res.json();
+                        });
                     });
                     /**
                      * Image cropper settings
