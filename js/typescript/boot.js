@@ -1,7 +1,7 @@
-System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular/core', '@angular/common', '@angular/router-deprecated', 'angular2-google-maps/core/index', './components/app.component', './services/notification.service', '@angular2-material/checkbox'], function(exports_1, context_1) {
+System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular/core', '@angular/common', '@angular/router-deprecated', 'angular2-google-maps/core/index', './components/app.component', './services/notification.service', '@angular2-material/input', '@angular2-material/checkbox'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var platform_browser_dynamic_1, http_1, core_1, common_1, router_deprecated_1, index_1, app_component_1, notification_service_1, checkbox_1;
+    var platform_browser_dynamic_1, http_1, core_1, common_1, router_deprecated_1, index_1, app_component_1, notification_service_1, input_1, checkbox_1;
     return {
         setters:[
             function (platform_browser_dynamic_1_1) {
@@ -28,6 +28,9 @@ System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular
             function (notification_service_1_1) {
                 notification_service_1 = notification_service_1_1;
             },
+            function (input_1_1) {
+                input_1 = input_1_1;
+            },
             function (checkbox_1_1) {
                 checkbox_1 = checkbox_1_1;
             }],
@@ -41,7 +44,9 @@ System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular
                  * Use Angular 2 material directive globally (as a PLATFORM_DIRECTIVE)
                  * in order to user its components in the app without having to import them
                  */
-                core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: checkbox_1.MD_CHECKBOX_DIRECTIVES, multi: true })]).catch(console.error);
+                core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: checkbox_1.MD_CHECKBOX_DIRECTIVES, multi: true }),
+                core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: input_1.MD_INPUT_DIRECTIVES, multi: true })
+            ]).catch(console.error);
         }
     }
 });

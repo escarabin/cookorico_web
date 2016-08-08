@@ -2,6 +2,7 @@
     <div class="profile-picture"
          [ngStyle]="{'background-image': 'url(' + user.profilePictureUrl + ')'}">
         <div class="edit-profile-picture"
+             *ngIf="editableProfile"
              (click)="profilePictureModal.show()">
             <span class="fa fa-camera"></span> &nbsp;Modifier
         </div>
@@ -86,7 +87,10 @@
         Voir le CV
         <br />
     </a>
-    <a (click)="editResumeModal.show()">Modifier</a>
+    <a *ngIf="editableProfile"
+       (click)="editResumeModal.show()">
+        Modifier
+    </a>
 </div>
 
 <div class="col-md-12">
@@ -108,12 +112,13 @@
 </div>
 
 <div class="col-md-12">
-    <a [routerLink]="['/Profile/Experiences']">
-        <h3>Expériences &nbsp;
-            <span class="badge">{{ experiences.length }}</span>
-            &nbsp; <span *ngIf="editableProfile" class="fa fa-pencil"></span>
-        </h3>
-    </a>
+    <h3>Expériences &nbsp;
+        <span class="badge">{{ experiences.length }}</span>
+        <a [routerLink]="['/Profile/Experiences']"
+           *ngIf="editableProfile">
+        &nbsp; <span class="fa fa-pencil"></span>
+        </a>
+    </h3>
     <ul>
         <li *ngFor="let experience of experiences">
             <a [routerLink]="['EditExperience', { experienceId: experience.id }]">
@@ -125,12 +130,13 @@
 </div>
 
 <div class="col-md-12">
-    <a [routerLink]="['/Profile/Education']">
-        <h3>Formations &nbsp;
-            <span class="badge">{{ education.length }}</span>
-            &nbsp; <span *ngIf="editableProfile" class="fa fa-pencil"></span>
-        </h3>
-    </a>
+    <h3>Formations &nbsp;
+        <span class="badge">{{ education.length }}</span>
+        <a [routerLink]="['/Profile/Education']"
+           *ngIf="editableProfile">
+        &nbsp; <span class="fa fa-pencil"></span>
+        </a>
+    </h3>
     <ul>
         <li *ngFor="let study of education">
             <a [routerLink]="['EditStudy', { studyId: study.id }]">
@@ -142,12 +148,13 @@
 </div>
 
 <div class="col-md-12">
-    <a [routerLink]="['/Profile/Testimonials']">
-        <h3>Recommendations &nbsp;
-            <span class="badge">{{ testimonials.length }}</span>
-            &nbsp; <span *ngIf="editableProfile" class="fa fa-pencil"></span>
-        </h3>
-    </a>
+    <h3>Recommendations &nbsp;
+        <span class="badge">{{ testimonials.length }}</span>
+        <a *ngIf="editableProfile"
+           [routerLink]="['/Profile/Testimonials']">
+        &nbsp; <span class="fa fa-pencil"></span>
+        </a>
+    </h3>
     <ul>
         <li *ngFor="let testimonial of testimonials">
             {{ testimonial.business.title }}

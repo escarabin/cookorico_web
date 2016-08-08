@@ -57,8 +57,10 @@ export class JobSearchResultsComponent {
 
         console.log('params bitch ', searchParameters);
 
-        this.jobService.searchJobs(searchParameters).subscribe((res: Response) => {
+        __this.jobs = [];
+
+        /*this.jobService.searchJobs(searchParameters).subscribe((res: Response) => {
             __this.jobs = res.json();
-        });
+        });*/
     }
 }

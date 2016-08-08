@@ -56,9 +56,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                 JobSearchResultsComponent.prototype.updateSearchResults = function (searchParameters) {
                     var __this = this;
                     console.log('params bitch ', searchParameters);
-                    this.jobService.searchJobs(searchParameters).subscribe(function (res) {
+                    __this.jobs = [];
+                    /*this.jobService.searchJobs(searchParameters).subscribe((res: Response) => {
                         __this.jobs = res.json();
-                    });
+                    });*/
                 };
                 JobSearchResultsComponent = __decorate([
                     core_1.Component({

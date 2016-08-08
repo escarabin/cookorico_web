@@ -33,7 +33,7 @@
              class="col-md-12">
             <ul>
                 <li *ngFor="let studyLevel of studyLevels"
-                    (click)="toggleSearchParameter('studyLevel', studyLevel.id)">
+                    (click)="updateSearchParameter('studyLevel', studyLevel.id)">
                     <div class="row">
                         <div class="col-md-2 checkbox-container">
                             <input type="checkbox" [checked]="!studyLevelIdList.indexOf(studyLevel.id)"/>
@@ -56,7 +56,7 @@
              class="col-md-12">
             <ul>
                 <li *ngFor="let contractType of contractTypes"
-                    (click)="toggleSearchParameter('contractType', contractType.id)">
+                    (click)="updateSearchParameter('contractType', contractType.id)">
                     <div class="row">
                         <div class="col-md-2 checkbox-container">
                             <input type="checkbox" [checked]="!contractTypeIdList.indexOf(contractType.id)"/>
@@ -80,7 +80,7 @@
             <ul>
                 <li *ngFor="let jobNaming of jobNamings"
                     [class.group]="jobNaming.is_naming_group"
-                    (click)="toggleSearchParameter('jobNaming', jobNaming.id)">
+                    (click)="updateSearchParameter('jobNaming', jobNaming.id)">
                     <div class="row">
                         <div class="col-md-2 checkbox-container">
                             <input type="checkbox" [checked]="!jobNamingIdList.indexOf(jobNaming.id)"/>
