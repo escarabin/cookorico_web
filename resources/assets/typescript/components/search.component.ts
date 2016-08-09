@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { RouteParams, RouterOutlet, RouteConfig, Router }
+import { RouteParams, RouterOutlet, RouteConfig }
     from '@angular/router-deprecated';
 
 // Components
@@ -12,7 +12,9 @@ import { JobComponent } from './job.component';
 @Component({
     directives: [JobSearchSidebarComponent,
                  RightSidebarComponent,
+                 JobSearchResultsComponent,
                  RouterOutlet],
+    providers: [JobSearchResultsComponent],
     templateUrl: '../templates/search.component.html',
     selector: 'search',
 })
@@ -35,9 +37,9 @@ export class SearchComponent {
     contractTypeId: number;
     searchText: string;
     searchParameters: any = [];
+    @ViewChild(JobSearchResultsComponent) jobSearchResults: JobSearchResultsComponent;
 
-    constructor(private routeParams: RouteParams,
-                private router: Router) {
+    constructor(private routeParams: RouteParams) {
         this.placeId = parseInt(routeParams.get('placeId'));
         this.jobNamingId = parseInt(routeParams.get('jobNamingId'));
         this.contractTypeId = parseInt(routeParams.get('contractTypeId'));
@@ -47,6 +49,6 @@ export class SearchComponent {
     updateSearchResults(parameters) {
         this.searchParameters = parameters;
 
-        this.router.navigate(['/JobSearch/SearchJobs', { parameters: parameters }]);
+        this.jobSearchResults.updateSearchResults(parameters);
     }
 }

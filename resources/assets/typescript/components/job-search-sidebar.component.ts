@@ -33,6 +33,7 @@ export class JobSearchSidebarComponent {
     contractTypeIdList: any = [];
     studyLevelIdList: any = [];
     searchText: string;
+    jobs: any = [];
     @Output() searchParametersChanged: EventEmitter = new EventEmitter();
 
     constructor(private referenceService: ReferenceService,
@@ -52,17 +53,38 @@ export class JobSearchSidebarComponent {
             __this.studyLevels = res.json();
         });
 
+        jobService.getAllJobs().subscribe((res: Response) => {
+            __this.jobs = res.json();
+        });
+
         this.studyLevelIdList.push(parseInt(routeParams.get('studyLevelId')));
         this.jobNamingIdList.push(parseInt(routeParams.get('jobNamingId')));
         this.contractTypeIdList.push(parseInt(routeParams.get('contractTypeId')));
         this.searchText = routeParams.get('searchText');
     }
 
+    /**
+     * Function used to get jobs count regarding given parameters
+     * @param parameterKey
+     * @param parameterValue
+     * @returns {number}
+     */
+    jobsCountFromParameterValue(parameterKey: string, parameterValue: number) {
+        let jobsCount = 0;
+
+        for (let i = 0; i < this.jobs.length; i++) {
+            if (this.jobs[i][parameterKey] == parameterValue) {
+                jobsCount += 1;
+            }
+        }
+
+        return jobsCount;
+    }
+
     updateSearchParameter(parameterType?: string, parameterValue?: string) {
         /**
          * Add or remove the parameters from their respective arrays
          */
-        console.log('params 1');
         switch(parameterType) {
             case "contractType":
                 let contractTypeIndex = this.contractTypeIdList.indexOf(parameterValue);
@@ -100,8 +122,10 @@ export class JobSearchSidebarComponent {
         parametersArray['place'] = this.place;
 
         // TODO : remove that shit
-        this.jobService.searchJobs(parametersArray).subscribe((res: Response) => {
-            console.log(res.json());
+        this.jobService.getAllJobs().subscribe((res: Response) => {
+            this.jobs = res.json();
+
+            console.log(this.jobs);
         });
 
         this.searchParametersChanged.emit(parametersArray);

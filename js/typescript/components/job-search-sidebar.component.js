@@ -45,6 +45,7 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     this.jobNamingIdList = [];
                     this.contractTypeIdList = [];
                     this.studyLevelIdList = [];
+                    this.jobs = [];
                     this.searchParametersChanged = new core_1.EventEmitter();
                     var __this = this;
                     referenceService.getAllContractTypes().subscribe(function (res) {
@@ -56,16 +57,34 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     referenceService.getAllStudyLevels().subscribe(function (res) {
                         __this.studyLevels = res.json();
                     });
+                    jobService.getAllJobs().subscribe(function (res) {
+                        __this.jobs = res.json();
+                    });
                     this.studyLevelIdList.push(parseInt(routeParams.get('studyLevelId')));
                     this.jobNamingIdList.push(parseInt(routeParams.get('jobNamingId')));
                     this.contractTypeIdList.push(parseInt(routeParams.get('contractTypeId')));
                     this.searchText = routeParams.get('searchText');
                 }
+                /**
+                 * Function used to get jobs count regarding given parameters
+                 * @param parameterKey
+                 * @param parameterValue
+                 * @returns {number}
+                 */
+                JobSearchSidebarComponent.prototype.jobsCountFromParameterValue = function (parameterKey, parameterValue) {
+                    var jobsCount = 0;
+                    for (var i = 0; i < this.jobs.length; i++) {
+                        if (this.jobs[i][parameterKey] == parameterValue) {
+                            jobsCount += 1;
+                        }
+                    }
+                    return jobsCount;
+                };
                 JobSearchSidebarComponent.prototype.updateSearchParameter = function (parameterType, parameterValue) {
+                    var _this = this;
                     /**
                      * Add or remove the parameters from their respective arrays
                      */
-                    console.log('params 1');
                     switch (parameterType) {
                         case "contractType":
                             var contractTypeIndex = this.contractTypeIdList.indexOf(parameterValue);
@@ -101,8 +120,9 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     parametersArray['studyLevelIdList'] = this.studyLevelIdList;
                     parametersArray['place'] = this.place;
                     // TODO : remove that shit
-                    this.jobService.searchJobs(parametersArray).subscribe(function (res) {
-                        console.log(res.json());
+                    this.jobService.getAllJobs().subscribe(function (res) {
+                        _this.jobs = res.json();
+                        console.log(_this.jobs);
                     });
                     this.searchParametersChanged.emit(parametersArray);
                 };

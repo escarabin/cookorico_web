@@ -40,6 +40,7 @@
                         </div>
                         <div class="col-md-10 title-container">
                             {{ studyLevel.title }}
+                            ({{ jobsCountFromParameterValue('study_level_id', studyLevel.id) }})
                         </div>
                     </div>
                 </li>
@@ -63,6 +64,7 @@
                         </div>
                         <div class="col-md-10 title-container">
                             {{ contractType.title }}
+                            ({{ jobsCountFromParameterValue('contract_type_id', contractType.id) }})
                         </div>
                     </div>
                 </li>
@@ -87,6 +89,7 @@
                         </div>
                         <div class="col-md-10 title-container">
                             {{ jobNaming.title }}
+                            ({{ jobsCountFromParameterValue('job_naming_id', jobNaming.id) }})
                         </div>
                     </div>
                 </li>
