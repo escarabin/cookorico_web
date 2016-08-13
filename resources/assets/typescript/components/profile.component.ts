@@ -23,21 +23,18 @@ import { BusinessesComponent } from "./businesses.component";
 import { RightSidebarComponent } from "./right-sidebar.component";
 import { MyJobPostsComponent } from './my-job-posts.component';
 import { CreateJobPostComponent } from './create-job-post.component';
-import { SignUpComponent } from './sign-up.component';
 import { ApplicantsComponent } from './applicants.component';
 import { ProfilePreviewComponent } from './profile-preview.component';
 import { MailTemplatesComponent } from './mail-templates.component';
 import { CreateMailTemplateComponent } from './create-mail-template.component';
+import { EditWebsiteComponent } from './edit-website.component';
 
 @Component({
     providers: [UserService],
     directives: [RouterLink,
                 RouterOutlet,
                 UserSidebarComponent,
-                RightSidebarComponent,
-                MailTemplatesComponent,
-                CreateMailTemplateComponent,
-                SignUpComponent],
+                RightSidebarComponent],
     selector: 'profile',
     templateUrl: '../templates/profile.component.html',
 })
@@ -91,7 +88,10 @@ import { CreateMailTemplateComponent } from './create-mail-template.component';
     // Mails
     { path: '/mail/templates', name: 'MailTemplates', component: MailTemplatesComponent },
     { path: '/mail/template/create', name: 'CreateMailTemplate', component: CreateMailTemplateComponent },
-    { path: '/mail/template/edit/:templateId', name: 'EditMailTemplate', component: CreateMailTemplateComponent }
+    { path: '/mail/template/edit/:templateId', name: 'EditMailTemplate', component: CreateMailTemplateComponent },
+
+    // Website editor
+    { path: '/website-editor', name: 'WebsiteEditor', component: EditWebsiteComponent }
 ])
 
 export class ProfileComponent {

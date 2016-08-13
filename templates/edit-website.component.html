@@ -1,0 +1,11 @@
+<accordion [closeOthers]="true">
+    <accordion-group heading="Bandeau promo page d'accueil">
+        <unity-tinymce [mceContent]="'test'"
+                       (newContentInput)="homePromoChanged($event)">
+
+        </unity-tinymce>
+    </accordion-group>
+    <accordion-group heading="Partenaires page d'accueil">
+        This content is straight in the template.
+    </accordion-group>
+</accordion>
