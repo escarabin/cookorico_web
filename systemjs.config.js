@@ -22,7 +22,8 @@
     'ng2-pagination':             'node_modules/ng2-pagination',
     'ng2-select':                 'node_modules/ng2-select',
     'express':                    'node_modules/express',
-    '@angular2-material':         'node_modules/@angular2-material'
+    '@angular2-material':         'node_modules/@angular2-material',
+    'ng2-meta':                   'node_modules/ng2-meta'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -41,7 +42,9 @@
     'ng2-select':                 { main: 'ng2-select.js', defaultExtension: 'js' },
     '@angular2-material/core':    { main: 'core.js', defaultExtension: 'js' },
     '@angular2-material/input':   { main: 'input.js', defaultExtension: 'js' },
-    '@angular2-material/checkbox':{ main: 'checkbox.js', defaultExtension: 'js' }
+    '@angular2-material/checkbox':{ main: 'checkbox.js', defaultExtension: 'js' },
+    '@angular2-material/tooltip': { main: 'tooltip.js', defaultExtension: 'js' },
+    'ng2-meta':                   { main: 'dist/meta.service.js', defaultExtension: 'js' }
   };
 
   var ngPackageNames = [

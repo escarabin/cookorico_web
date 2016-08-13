@@ -1,6 +1,7 @@
 import { bootstrap }    from '@angular/platform-browser-dynamic';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { provide, PLATFORM_DIRECTIVES } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import {
     PlatformLocation,
     Location,
@@ -19,16 +20,20 @@ import { AppComponent } from './components/app.component';
 
 // Services
 import { NotificationsService } from './services/notification.service';
+import { MetaService } from 'ng2-meta';
 
 // Directives
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 import { MD_CHECKBOX_DIRECTIVES } from '@angular2-material/checkbox';
+import { MD_TOOLTIP_DIRECTIVES } from '@angular2-material/tooltip';
 
 bootstrap( AppComponent,
             [HTTP_PROVIDERS,
              NotificationsService,
              ROUTER_PROVIDERS,
              GOOGLE_MAPS_PROVIDERS,
+             Title,
+             MetaService,
     provide(LocationStrategy, {useClass: HashLocationStrategy}),
     /**
      * Use Angular 2 material directive globally (as a PLATFORM_DIRECTIVE)

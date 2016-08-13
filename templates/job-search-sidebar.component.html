@@ -32,18 +32,20 @@
         <div [collapse]="isStudyLevelCollapsed"
              class="col-md-12">
             <ul>
-                <li *ngFor="let studyLevel of studyLevels"
-                    (click)="updateSearchParameter('studyLevel', studyLevel.id)">
-                    <div class="row">
-                        <div class="col-md-2 checkbox-container">
-                            <input type="checkbox" [checked]="!studyLevelIdList.indexOf(studyLevel.id)"/>
+                <div *ngFor="let studyLevel of studyLevels">
+                    <li (click)="updateSearchParameter('studyLevel', studyLevel.id)"
+                        *ngIf="jobsCountFromParameterValue('study_level_id', studyLevel.id) > 0">
+                        <div class="row">
+                            <div class="col-md-2 checkbox-container">
+                                <input type="checkbox" [checked]="!studyLevelIdList.indexOf(studyLevel.id)"/>
+                            </div>
+                            <div class="col-md-10 title-container">
+                                {{ studyLevel.title }}
+                                ({{ jobsCountFromParameterValue('study_level_id', studyLevel.id) }})
+                            </div>
                         </div>
-                        <div class="col-md-10 title-container">
-                            {{ studyLevel.title }}
-                            ({{ jobsCountFromParameterValue('study_level_id', studyLevel.id) }})
-                        </div>
-                    </div>
-                </li>
+                    </li>
+                </div>
             </ul>
         </div>
         <br />
@@ -56,18 +58,20 @@
         <div [collapse]="isContractTypeCollapsed"
              class="col-md-12">
             <ul>
-                <li *ngFor="let contractType of contractTypes"
-                    (click)="updateSearchParameter('contractType', contractType.id)">
-                    <div class="row">
-                        <div class="col-md-2 checkbox-container">
-                            <input type="checkbox" [checked]="!contractTypeIdList.indexOf(contractType.id)"/>
+                <div *ngFor="let contractType of contractTypes">
+                    <li *ngIf="jobsCountFromParameterValue('contract_type_id', contractType.id) > 0"
+                        (click)="updateSearchParameter('contractType', contractType.id)">
+                        <div class="row">
+                            <div class="col-md-2 checkbox-container">
+                                <input type="checkbox" [checked]="!contractTypeIdList.indexOf(contractType.id)"/>
+                            </div>
+                            <div class="col-md-10 title-container">
+                                {{ contractType.title }}
+                                ({{ jobsCountFromParameterValue('contract_type_id', contractType.id) }})
+                            </div>
                         </div>
-                        <div class="col-md-10 title-container">
-                            {{ contractType.title }}
-                            ({{ jobsCountFromParameterValue('contract_type_id', contractType.id) }})
-                        </div>
-                    </div>
-                </li>
+                    </li>
+                </div>
             </ul>
         </div>
         <br />
@@ -80,19 +84,20 @@
         <div [collapse]="isJobNamingCollapsed"
              class="col-md-12">
             <ul>
-                <li *ngFor="let jobNaming of jobNamings"
-                    [class.group]="jobNaming.is_naming_group"
-                    (click)="updateSearchParameter('jobNaming', jobNaming.id)">
-                    <div class="row">
-                        <div class="col-md-2 checkbox-container">
-                            <input type="checkbox" [checked]="!jobNamingIdList.indexOf(jobNaming.id)"/>
+                <div *ngFor="let jobNaming of jobNamings">
+                    <li [class.group]="jobNaming.is_naming_group"
+                        *ngIf="jobsCountFromParameterValue('job_naming_id', jobNaming.id) > 0"
+                        (click)="updateSearchParameter('jobNaming', jobNaming.id)">
+                        <div class="row">
+                            <div class="col-md-2 checkbox-container">
+                                <input type="checkbox" [checked]="!jobNamingIdList.indexOf(jobNaming.id)"/>
+                            </div>
+                            <div class="col-md-10 title-container">
+                                {{ jobNaming.title }} ({{ jobsCountFromParameterValue('job_naming_id', jobNaming.id) }})
+                            </div>
                         </div>
-                        <div class="col-md-10 title-container">
-                            {{ jobNaming.title }}
-                            ({{ jobsCountFromParameterValue('job_naming_id', jobNaming.id) }})
-                        </div>
-                    </div>
-                </li>
+                    </li>
+                </div>
             </ul>
         </div>
     </div>

@@ -151,6 +151,14 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                         }
                         _this.isLoading = false;
                         _this.profilePictureChanged.emit();
+                        /**
+                         * Full reloading of page because it appears to be a bug inside
+                         * this Angular's router function :
+                         * this.router.renavigate();
+                         */
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1000);
                     });
                 };
                 ProfilePreviewComponent.prototype.uploadResume = function () {

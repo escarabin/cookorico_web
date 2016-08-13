@@ -1,8 +1,9 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/local/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
-1 verbose cli   'i',
-1 verbose cli   'ng2-material-select' ]
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'ng2-meta' ]
 2 info using npm@2.15.8
 3 info using node@v4.4.7
 4 verbose install initial load of /Applications/MAMP/htdocs/oechr/package.json
@@ -33,872 +34,392 @@
 29 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap/package.json
 30 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-file-upload/package.json
 31 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-img-cropper/package.json
-32 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination/package.json
-33 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-select/package.json
-34 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-slim-loading-bar/package.json
-35 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/protractor/package.json
-36 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/reflect-metadata/package.json
-37 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rimraf/package.json
-38 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rxjs/package.json
-39 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/systemjs/package.json
-40 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/tslint/package.json
-41 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typescript/package.json
-42 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typings/package.json
-43 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/zone.js/package.json
-44 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/.DS_Store/package.json
-45 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/checkbox/package.json
-46 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/core/package.json
-47 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/input/package.json
-48 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/common/package.json
-49 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/compiler/package.json
-50 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/core/package.json
-51 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/forms/package.json
-52 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/http/package.json
-53 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser/package.json
-54 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser-dynamic/package.json
-55 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router/package.json
-56 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router-deprecated/package.json
-57 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/upgrade/package.json
-58 info package.json core-js@2.4.1 No README data
-59 info package.json typings@1.3.2 No README data
-60 info package.json @angular/core@2.0.0-rc.3 No description
-61 info package.json @angular/core@2.0.0-rc.3 No README data
-62 info package.json @angular/compiler@2.0.0-rc.3 No description
-63 info package.json @angular/compiler@2.0.0-rc.3 No README data
-64 info package.json @angular/common@2.0.0-rc.3 No description
-65 info package.json @angular/common@2.0.0-rc.3 No README data
-66 info package.json @angular/platform-browser@2.0.0-rc.3 No description
-67 info package.json @angular/platform-browser@2.0.0-rc.3 No README data
-68 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No description
-69 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No README data
+32 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/package.json
+33 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination/package.json
+34 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-select/package.json
+35 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-slim-loading-bar/package.json
+36 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/protractor/package.json
+37 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/reflect-metadata/package.json
+38 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rimraf/package.json
+39 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rxjs/package.json
+40 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/systemjs/package.json
+41 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/tslint/package.json
+42 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typescript/package.json
+43 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typings/package.json
+44 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/zone.js/package.json
+45 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/common/package.json
+46 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/compiler/package.json
+47 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/core/package.json
+48 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/forms/package.json
+49 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/http/package.json
+50 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser/package.json
+51 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser-dynamic/package.json
+52 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router/package.json
+53 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router-deprecated/package.json
+54 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/upgrade/package.json
+55 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/.DS_Store/package.json
+56 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/checkbox/package.json
+57 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/core/package.json
+58 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/input/package.json
+59 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/tooltip/package.json
+60 info package.json core-js@2.4.1 No README data
+61 info package.json typings@1.3.2 No README data
+62 info package.json @angular/common@2.0.0-rc.3 No description
+63 info package.json @angular/common@2.0.0-rc.3 No README data
+64 info package.json @angular/compiler@2.0.0-rc.3 No description
+65 info package.json @angular/compiler@2.0.0-rc.3 No README data
+66 info package.json @angular/core@2.0.0-rc.3 No description
+67 info package.json @angular/core@2.0.0-rc.3 No README data
+68 info package.json @angular/forms@0.1.1 No description
+69 info package.json @angular/forms@0.1.1 No README data
 70 info package.json @angular/http@2.0.0-rc.3 No description
 71 info package.json @angular/http@2.0.0-rc.3 No README data
-72 info package.json @angular/upgrade@2.0.0-rc.3 No description
-73 info package.json @angular/upgrade@2.0.0-rc.3 No README data
-74 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
-75 info package.json @angular/router-deprecated@2.0.0-rc.2 No README data
-76 info package.json @angular/forms@0.1.1 No description
-77 info package.json @angular/forms@0.1.1 No README data
-78 info package.json angular2-google-map-auto-complete@1.0.4 No repository field.
-79 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/package.json
-80 silly cache add args [ 'ng2-material-select', null ]
-81 verbose cache add spec ng2-material-select
-82 silly cache add parsed spec Result {
-82 silly cache add   raw: 'ng2-material-select',
-82 silly cache add   scope: null,
-82 silly cache add   name: 'ng2-material-select',
-82 silly cache add   rawSpec: '',
-82 silly cache add   spec: 'latest',
-82 silly cache add   type: 'tag' }
-83 silly addNamed ng2-material-select@latest
-84 verbose addNamed "latest" is being treated as a dist-tag for ng2-material-select
-85 info addNameTag [ 'ng2-material-select', 'latest' ]
-86 silly mapToRegistry name ng2-material-select
-87 silly mapToRegistry using default registry
-88 silly mapToRegistry registry https://registry.npmjs.org/
-89 silly mapToRegistry data Result {
-89 silly mapToRegistry   raw: 'ng2-material-select',
-89 silly mapToRegistry   scope: null,
-89 silly mapToRegistry   name: 'ng2-material-select',
-89 silly mapToRegistry   rawSpec: '',
-89 silly mapToRegistry   spec: 'latest',
-89 silly mapToRegistry   type: 'tag' }
-90 silly mapToRegistry uri https://registry.npmjs.org/ng2-material-select
-91 verbose addNameTag registry:https://registry.npmjs.org/ng2-material-select not in flight; fetching
-92 verbose request uri https://registry.npmjs.org/ng2-material-select
-93 verbose request no auth needed
-94 info attempt registry request try #1 at 5:10:09 PM
-95 verbose request id d8ad0ecba072c411
-96 http request GET https://registry.npmjs.org/ng2-material-select
-97 http 200 https://registry.npmjs.org/ng2-material-select
-98 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-98 verbose headers   etag: '"3QIAD3LMY6DZ838BK21N2HVIO"',
-98 verbose headers   'content-type': 'application/json',
-98 verbose headers   'content-encoding': 'gzip',
-98 verbose headers   'cache-control': 'max-age=300',
-98 verbose headers   'content-length': '2814',
-98 verbose headers   'accept-ranges': 'bytes',
-98 verbose headers   date: 'Fri, 05 Aug 2016 15:10:09 GMT',
-98 verbose headers   via: '1.1 varnish',
-98 verbose headers   age: '0',
-98 verbose headers   connection: 'keep-alive',
-98 verbose headers   'x-served-by': 'cache-lhr6338-LHR',
-98 verbose headers   'x-cache': 'MISS',
-98 verbose headers   'x-cache-hits': '0',
-98 verbose headers   'x-timer': 'S1470409809.579698,VS0,VE105',
-98 verbose headers   vary: 'Accept-Encoding' }
-99 silly get cb [ 200,
-99 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-99 silly get     etag: '"3QIAD3LMY6DZ838BK21N2HVIO"',
-99 silly get     'content-type': 'application/json',
-99 silly get     'content-encoding': 'gzip',
-99 silly get     'cache-control': 'max-age=300',
-99 silly get     'content-length': '2814',
-99 silly get     'accept-ranges': 'bytes',
-99 silly get     date: 'Fri, 05 Aug 2016 15:10:09 GMT',
-99 silly get     via: '1.1 varnish',
-99 silly get     age: '0',
-99 silly get     connection: 'keep-alive',
-99 silly get     'x-served-by': 'cache-lhr6338-LHR',
-99 silly get     'x-cache': 'MISS',
-99 silly get     'x-cache-hits': '0',
-99 silly get     'x-timer': 'S1470409809.579698,VS0,VE105',
-99 silly get     vary: 'Accept-Encoding' } ]
-100 verbose get saving ng2-material-select to /Users/escarabin/.npm/registry.npmjs.org/ng2-material-select/.cache.json
-101 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-102 silly addNameTag next cb for ng2-material-select with tag latest
-103 silly addNamed ng2-material-select@0.0.3
-104 verbose addNamed "0.0.3" is a plain semver version for ng2-material-select
-105 silly mapToRegistry name ng2-material-select
-106 silly mapToRegistry using default registry
-107 silly mapToRegistry registry https://registry.npmjs.org/
-108 silly mapToRegistry data Result {
-108 silly mapToRegistry   raw: 'ng2-material-select',
-108 silly mapToRegistry   scope: null,
-108 silly mapToRegistry   name: 'ng2-material-select',
-108 silly mapToRegistry   rawSpec: '',
-108 silly mapToRegistry   spec: 'latest',
-108 silly mapToRegistry   type: 'tag' }
-109 silly mapToRegistry uri https://registry.npmjs.org/ng2-material-select
-110 verbose addRemoteTarball https://registry.npmjs.org/ng2-material-select/-/ng2-material-select-0.0.3.tgz not in flight; adding
-111 verbose addRemoteTarball [ 'https://registry.npmjs.org/ng2-material-select/-/ng2-material-select-0.0.3.tgz',
-111 verbose addRemoteTarball   '8915e27b4730e08064d6e3ec40cc17df4eff8eb2' ]
-112 info retry fetch attempt 1 at 5:10:09 PM
-113 info attempt registry request try #1 at 5:10:09 PM
-114 http fetch GET https://registry.npmjs.org/ng2-material-select/-/ng2-material-select-0.0.3.tgz
-115 http fetch 200 https://registry.npmjs.org/ng2-material-select/-/ng2-material-select-0.0.3.tgz
-116 silly fetchAndShaCheck shasum 8915e27b4730e08064d6e3ec40cc17df4eff8eb2
-117 verbose addTmpTarball /tmp/npm-8542-814e7644/registry.npmjs.org/ng2-material-select/-/ng2-material-select-0.0.3.tgz not in flight; adding
-118 verbose addTmpTarball already have metadata; skipping unpack for ng2-material-select@0.0.3
-119 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-120 silly cache afterAdd ng2-material-select@0.0.3
-121 verbose afterAdd /Users/escarabin/.npm/ng2-material-select/0.0.3/package/package.json not in flight; writing
-122 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-123 verbose afterAdd /Users/escarabin/.npm/ng2-material-select/0.0.3/package/package.json written
-124 silly install resolved [ { name: 'ng2-material-select',
-124 silly install resolved     version: '0.0.3',
-124 silly install resolved     description: 'Angular 2 material-like Select Component',
-124 silly install resolved     scripts:
-124 silly install resolved      { 'typings-install': 'typings install',
-124 silly install resolved        'typings-bundle': 'typings bundle --out ./dist/typings.bundle.d.ts',
-124 silly install resolved        postinstall: 'npm run typings-install',
-124 silly install resolved        prepublish: 'npm run typings-bundle && npm run build && ./node_modules/.bin/tsc -p tsconfig.json',
-124 silly install resolved        build: 'webpack --inline --colors --progress --display-error-details --display-cached',
-124 silly install resolved        watch: 'npm run build -- --watch',
-124 silly install resolved        server: 'webpack-dev-server --config webpack.demo.js --inline --colors --progress --display-error-details --display-cached --port 3003  --content-base demo',
-124 silly install resolved        start: 'npm run server',
-124 silly install resolved        test: 'karma start karma.conf.js --single-run' },
-124 silly install resolved     author:
-124 silly install resolved      { name: 'Giancarlo Buomprisco',
-124 silly install resolved        email: 'giancarlopsk@gmail.com' },
-124 silly install resolved     contributors: [],
-124 silly install resolved     license: 'MIT',
-124 silly install resolved     devDependencies:
-124 silly install resolved      { '@angular/common': '2.0.0-rc.4',
-124 silly install resolved        '@angular/compiler': '2.0.0-rc.4',
-124 silly install resolved        '@angular/core': '2.0.0-rc.4',
-124 silly install resolved        '@angular/forms': '^0.2.0',
-124 silly install resolved        '@angular/http': '2.0.0-rc.4',
-124 silly install resolved        '@angular/platform-browser': '2.0.0-rc.4',
-124 silly install resolved        '@angular/platform-browser-dynamic': '2.0.0-rc.4',
-124 silly install resolved        '@angular/platform-server': '2.0.0-rc.4',
-124 silly install resolved        '@angular/router': '2.0.0-rc.2',
-124 silly install resolved        autoprefixer: '^6.3.6',
-124 silly install resolved        'awesome-typescript-loader': '~0.16.2',
-124 silly install resolved        'core-js': '^2.2.0',
-124 silly install resolved        'css-loader': '^0.23.1',
-124 silly install resolved        'es6-promise': '3.0.2',
-124 silly install resolved        'es6-shim': '0.35.0',
-124 silly install resolved        'file-loader': '^0.9.0',
-124 silly install resolved        'html-loader': '^0.4.3',
-124 silly install resolved        jasmine: '^2.4.1',
-124 silly install resolved        karma: '^0.13.22',
-124 silly install resolved        'karma-chrome-launcher': '^0.2.3',
-124 silly install resolved        'karma-coverage': '^1.0.0',
-124 silly install resolved        'karma-jasmine': '^0.3.8',
-124 silly install resolved        'karma-sourcemap-loader': '^0.3.7',
-124 silly install resolved        'karma-webpack': '1.7.0',
-124 silly install resolved        'node-sass': '^3.8.0',
-124 silly install resolved        'postcss-loader': '^0.9.1',
-124 silly install resolved        precss: '^1.4.0',
-124 silly install resolved        protractor: '^3.3.0',
-124 silly install resolved        'reflect-metadata': '0.1.2',
-124 silly install resolved        rxjs: '5.0.0-beta.6',
-124 silly install resolved        'sass-loader': '^3.2.1',
-124 silly install resolved        'source-map-loader': '^0.1.5',
-124 silly install resolved        'style-loader': '^0.13.1',
-124 silly install resolved        'svg-url-loader': '^1.0.3',
-124 silly install resolved        'ts-helpers': '1.1.1',
-124 silly install resolved        'ts-node': '^0.7.3',
-124 silly install resolved        tslint: '^3.5.0',
-124 silly install resolved        typescript: '~1.8.9',
-124 silly install resolved        typings: '~1.0.3',
-124 silly install resolved        'url-loader': '^0.5.7',
-124 silly install resolved        webpack: '^1.13.1',
-124 silly install resolved        'webpack-dev-server': '^1.14.0',
-124 silly install resolved        'webpack-merge': '^0.8.4',
-124 silly install resolved        'zone.js': '~0.6.12' },
-124 silly install resolved     dependencies: { equals: '^1.0.5', 'ng2-material-dropdown': '0.1.2' },
-124 silly install resolved     keywords:
-124 silly install resolved      [ 'angular 2',
-124 silly install resolved        'angular 2 select',
-124 silly install resolved        'angular 2 select component',
-124 silly install resolved        'angular 2 select dropdown' ],
-124 silly install resolved     repository:
-124 silly install resolved      { type: 'git',
-124 silly install resolved        url: 'git+https://github.com/Gbuomprisco/ng2-select-material.git' },
-124 silly install resolved     bugs: { url: 'https://github.com/Gbuomprisco/ng2-material-select/issues' },
-124 silly install resolved     homepage: 'https://github.com/Gbuomprisco/ng2-material-select',
-124 silly install resolved     main: './index.js',
-124 silly install resolved     files: [ 'dist', 'index.js', 'index.ts' ],
-124 silly install resolved     typings: 'src/ng2-select.d.ts',
-124 silly install resolved     gitHead: 'dccf4fac19c4b6d8c1716151323d6cea53dd96c1',
-124 silly install resolved     _id: 'ng2-material-select@0.0.3',
-124 silly install resolved     _shasum: '8915e27b4730e08064d6e3ec40cc17df4eff8eb2',
-124 silly install resolved     _from: 'ng2-material-select@latest',
-124 silly install resolved     _npmVersion: '3.8.5',
-124 silly install resolved     _nodeVersion: '5.10.0',
-124 silly install resolved     _npmUser: { name: 'giancarlo_psk', email: 'giancarlopsk@gmail.com' },
-124 silly install resolved     dist:
-124 silly install resolved      { shasum: '8915e27b4730e08064d6e3ec40cc17df4eff8eb2',
-124 silly install resolved        tarball: 'https://registry.npmjs.org/ng2-material-select/-/ng2-material-select-0.0.3.tgz' },
-124 silly install resolved     maintainers: [ [Object] ],
-124 silly install resolved     _npmOperationalInternal:
-124 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
-124 silly install resolved        tmp: 'tmp/ng2-material-select-0.0.3.tgz_1469108640833_0.44261367176659405' },
-124 silly install resolved     directories: {},
-124 silly install resolved     _resolved: 'https://registry.npmjs.org/ng2-material-select/-/ng2-material-select-0.0.3.tgz' } ]
-125 info install ng2-material-select@0.0.3 into /Applications/MAMP/htdocs/oechr
-126 info installOne ng2-material-select@0.0.3
-127 verbose installOne of ng2-material-select to /Applications/MAMP/htdocs/oechr not in flight; installing
-128 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
-129 verbose lock using /Users/escarabin/.npm/_locks/ng2-material-select-e605fc025e7de429.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select
-130 silly install write writing ng2-material-select 0.0.3 to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select
-131 verbose unbuild node_modules/ng2-material-select
-132 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select is being purged from base /Applications/MAMP/htdocs/oechr
-133 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select
-134 verbose tar unpack /Users/escarabin/.npm/ng2-material-select/0.0.3/package.tgz
-135 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select
-136 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select is being purged
-137 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select
-138 silly gunzTarPerm modes [ '755', '644' ]
-139 silly gunzTarPerm extractEntry package.json
-140 silly gunzTarPerm extractEntry README.md
-141 silly gunzTarPerm extractEntry index.js
-142 silly gunzTarPerm extractEntry dist/ng2-select.bundle.js
-143 silly gunzTarPerm extractEntry dist/vendor.bundle.js
-144 silly gunzTarPerm extractEntry dist/ng2-select.map
-145 silly gunzTarPerm extractEntry dist/typings.bundle.d.ts
-146 silly gunzTarPerm extractEntry dist/vendor.map
-147 silly gunzTarPerm extractEntry index.ts
-148 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/package.json
-149 info preinstall ng2-material-select@0.0.3
-150 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/package.json
-151 silly prepareForInstallMany adding equals@^1.0.5 from ng2-material-select dependencies
-152 silly prepareForInstallMany adding ng2-material-dropdown@0.1.2 from ng2-material-select dependencies
-153 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/package.json
-154 silly cache add args [ 'equals@^1.0.5', null ]
-155 verbose cache add spec equals@^1.0.5
-156 silly cache add args [ 'ng2-material-dropdown@0.1.2', null ]
-157 verbose cache add spec ng2-material-dropdown@0.1.2
-158 silly cache add parsed spec Result {
-158 silly cache add   raw: 'equals@^1.0.5',
-158 silly cache add   scope: null,
-158 silly cache add   name: 'equals',
-158 silly cache add   rawSpec: '^1.0.5',
-158 silly cache add   spec: '>=1.0.5 <2.0.0',
-158 silly cache add   type: 'range' }
-159 silly addNamed equals@>=1.0.5 <2.0.0
-160 verbose addNamed ">=1.0.5 <2.0.0" is a valid semver range for equals
-161 silly addNameRange { name: 'equals', range: '>=1.0.5 <2.0.0', hasData: false }
-162 silly mapToRegistry name equals
-163 silly mapToRegistry using default registry
-164 silly mapToRegistry registry https://registry.npmjs.org/
-165 silly mapToRegistry data Result {
-165 silly mapToRegistry   raw: 'equals',
-165 silly mapToRegistry   scope: null,
-165 silly mapToRegistry   name: 'equals',
-165 silly mapToRegistry   rawSpec: '',
-165 silly mapToRegistry   spec: 'latest',
-165 silly mapToRegistry   type: 'tag' }
-166 silly mapToRegistry uri https://registry.npmjs.org/equals
-167 verbose addNameRange registry:https://registry.npmjs.org/equals not in flight; fetching
-168 silly cache add parsed spec Result {
-168 silly cache add   raw: 'ng2-material-dropdown@0.1.2',
-168 silly cache add   scope: null,
-168 silly cache add   name: 'ng2-material-dropdown',
-168 silly cache add   rawSpec: '0.1.2',
-168 silly cache add   spec: '0.1.2',
-168 silly cache add   type: 'version' }
-169 silly addNamed ng2-material-dropdown@0.1.2
-170 verbose addNamed "0.1.2" is a plain semver version for ng2-material-dropdown
-171 silly mapToRegistry name ng2-material-dropdown
-172 silly mapToRegistry using default registry
-173 silly mapToRegistry registry https://registry.npmjs.org/
-174 silly mapToRegistry data Result {
-174 silly mapToRegistry   raw: 'ng2-material-dropdown',
-174 silly mapToRegistry   scope: null,
-174 silly mapToRegistry   name: 'ng2-material-dropdown',
-174 silly mapToRegistry   rawSpec: '',
-174 silly mapToRegistry   spec: 'latest',
-174 silly mapToRegistry   type: 'tag' }
-175 silly mapToRegistry uri https://registry.npmjs.org/ng2-material-dropdown
-176 verbose addNameVersion registry:https://registry.npmjs.org/ng2-material-dropdown not in flight; fetching
-177 verbose request uri https://registry.npmjs.org/equals
-178 verbose request no auth needed
-179 info attempt registry request try #1 at 5:10:09 PM
-180 http request GET https://registry.npmjs.org/equals
-181 verbose request uri https://registry.npmjs.org/ng2-material-dropdown
-182 verbose request no auth needed
-183 info attempt registry request try #1 at 5:10:09 PM
-184 http request GET https://registry.npmjs.org/ng2-material-dropdown
-185 http 200 https://registry.npmjs.org/ng2-material-dropdown
-186 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-186 verbose headers   etag: '"76YPL3XDZ2IZOMJANA35LP8NU"',
-186 verbose headers   'content-type': 'application/json',
-186 verbose headers   'content-encoding': 'gzip',
-186 verbose headers   'cache-control': 'max-age=300',
-186 verbose headers   'content-length': '6918',
-186 verbose headers   'accept-ranges': 'bytes',
-186 verbose headers   date: 'Fri, 05 Aug 2016 15:10:10 GMT',
-186 verbose headers   via: '1.1 varnish',
-186 verbose headers   age: '0',
-186 verbose headers   connection: 'keep-alive',
-186 verbose headers   'x-served-by': 'cache-lhr6333-LHR',
-186 verbose headers   'x-cache': 'MISS',
-186 verbose headers   'x-cache-hits': '0',
-186 verbose headers   'x-timer': 'S1470409810.023689,VS0,VE188',
-186 verbose headers   vary: 'Accept-Encoding' }
-187 silly get cb [ 200,
-187 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-187 silly get     etag: '"76YPL3XDZ2IZOMJANA35LP8NU"',
-187 silly get     'content-type': 'application/json',
-187 silly get     'content-encoding': 'gzip',
-187 silly get     'cache-control': 'max-age=300',
-187 silly get     'content-length': '6918',
-187 silly get     'accept-ranges': 'bytes',
-187 silly get     date: 'Fri, 05 Aug 2016 15:10:10 GMT',
-187 silly get     via: '1.1 varnish',
-187 silly get     age: '0',
-187 silly get     connection: 'keep-alive',
-187 silly get     'x-served-by': 'cache-lhr6333-LHR',
-187 silly get     'x-cache': 'MISS',
-187 silly get     'x-cache-hits': '0',
-187 silly get     'x-timer': 'S1470409810.023689,VS0,VE188',
-187 silly get     vary: 'Accept-Encoding' } ]
-188 verbose get saving ng2-material-dropdown to /Users/escarabin/.npm/registry.npmjs.org/ng2-material-dropdown/.cache.json
-189 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-190 silly mapToRegistry name ng2-material-dropdown
-191 silly mapToRegistry using default registry
-192 silly mapToRegistry registry https://registry.npmjs.org/
-193 silly mapToRegistry data Result {
-193 silly mapToRegistry   raw: 'ng2-material-dropdown',
-193 silly mapToRegistry   scope: null,
-193 silly mapToRegistry   name: 'ng2-material-dropdown',
-193 silly mapToRegistry   rawSpec: '',
-193 silly mapToRegistry   spec: 'latest',
-193 silly mapToRegistry   type: 'tag' }
-194 silly mapToRegistry uri https://registry.npmjs.org/ng2-material-dropdown
-195 verbose addRemoteTarball https://registry.npmjs.org/ng2-material-dropdown/-/ng2-material-dropdown-0.1.2.tgz not in flight; adding
-196 verbose addRemoteTarball [ 'https://registry.npmjs.org/ng2-material-dropdown/-/ng2-material-dropdown-0.1.2.tgz',
-196 verbose addRemoteTarball   'a1da4e4362703dca67143dc8403bfb522d844dbc' ]
-197 info retry fetch attempt 1 at 5:10:10 PM
-198 info attempt registry request try #1 at 5:10:10 PM
-199 http fetch GET https://registry.npmjs.org/ng2-material-dropdown/-/ng2-material-dropdown-0.1.2.tgz
-200 http fetch 200 https://registry.npmjs.org/ng2-material-dropdown/-/ng2-material-dropdown-0.1.2.tgz
-201 http 200 https://registry.npmjs.org/equals
-202 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
-202 verbose headers   etag: '"ER59V715J0SRGOHCHPMYZM2ZG"',
-202 verbose headers   'content-type': 'application/json',
-202 verbose headers   'content-encoding': 'gzip',
-202 verbose headers   'cache-control': 'max-age=300',
-202 verbose headers   'content-length': '3712',
-202 verbose headers   'accept-ranges': 'bytes',
-202 verbose headers   date: 'Fri, 05 Aug 2016 15:10:10 GMT',
-202 verbose headers   via: '1.1 varnish',
-202 verbose headers   age: '0',
-202 verbose headers   connection: 'keep-alive',
-202 verbose headers   'x-served-by': 'cache-lhr6338-LHR',
-202 verbose headers   'x-cache': 'HIT',
-202 verbose headers   'x-cache-hits': '1',
-202 verbose headers   'x-timer': 'S1470409809.952269,VS0,VE362',
-202 verbose headers   vary: 'Accept-Encoding' }
-203 silly get cb [ 200,
-203 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
-203 silly get     etag: '"ER59V715J0SRGOHCHPMYZM2ZG"',
-203 silly get     'content-type': 'application/json',
-203 silly get     'content-encoding': 'gzip',
-203 silly get     'cache-control': 'max-age=300',
-203 silly get     'content-length': '3712',
-203 silly get     'accept-ranges': 'bytes',
-203 silly get     date: 'Fri, 05 Aug 2016 15:10:10 GMT',
-203 silly get     via: '1.1 varnish',
-203 silly get     age: '0',
-203 silly get     connection: 'keep-alive',
-203 silly get     'x-served-by': 'cache-lhr6338-LHR',
-203 silly get     'x-cache': 'HIT',
-203 silly get     'x-cache-hits': '1',
-203 silly get     'x-timer': 'S1470409809.952269,VS0,VE362',
-203 silly get     vary: 'Accept-Encoding' } ]
-204 verbose get saving equals to /Users/escarabin/.npm/registry.npmjs.org/equals/.cache.json
-205 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-206 silly addNameRange number 2 { name: 'equals', range: '>=1.0.5 <2.0.0', hasData: true }
-207 silly addNameRange versions [ 'equals',
-207 silly addNameRange   [ '0.1.0',
-207 silly addNameRange     '0.1.1',
-207 silly addNameRange     '0.2.0',
-207 silly addNameRange     '0.3.2',
-207 silly addNameRange     '0.3.3',
-207 silly addNameRange     '0.3.4',
-207 silly addNameRange     '0.3.5',
-207 silly addNameRange     '0.3.6',
-207 silly addNameRange     '0.3.7',
-207 silly addNameRange     '1.0.0',
-207 silly addNameRange     '1.0.1',
-207 silly addNameRange     '1.0.2',
-207 silly addNameRange     '2.0.0',
-207 silly addNameRange     '1.0.3',
-207 silly addNameRange     '1.0.4',
-207 silly addNameRange     '1.1.0',
-207 silly addNameRange     '1.0.5' ] ]
-208 silly addNamed equals@1.0.5
-209 verbose addNamed "1.0.5" is a plain semver version for equals
-210 silly mapToRegistry name equals
-211 silly mapToRegistry using default registry
-212 silly mapToRegistry registry https://registry.npmjs.org/
-213 silly mapToRegistry data Result {
-213 silly mapToRegistry   raw: 'equals',
-213 silly mapToRegistry   scope: null,
-213 silly mapToRegistry   name: 'equals',
-213 silly mapToRegistry   rawSpec: '',
-213 silly mapToRegistry   spec: 'latest',
-213 silly mapToRegistry   type: 'tag' }
-214 silly mapToRegistry uri https://registry.npmjs.org/equals
-215 verbose addRemoteTarball https://registry.npmjs.org/equals/-/equals-1.0.5.tgz not in flight; adding
-216 verbose addRemoteTarball [ 'https://registry.npmjs.org/equals/-/equals-1.0.5.tgz',
-216 verbose addRemoteTarball   '212062dde5e1a510d955f13598efcc6a621b6ace' ]
-217 info retry fetch attempt 1 at 5:10:10 PM
-218 info attempt registry request try #1 at 5:10:10 PM
-219 http fetch GET https://registry.npmjs.org/equals/-/equals-1.0.5.tgz
-220 silly fetchAndShaCheck shasum a1da4e4362703dca67143dc8403bfb522d844dbc
-221 verbose addTmpTarball /tmp/npm-8542-814e7644/registry.npmjs.org/ng2-material-dropdown/-/ng2-material-dropdown-0.1.2.tgz not in flight; adding
-222 verbose addTmpTarball already have metadata; skipping unpack for ng2-material-dropdown@0.1.2
-223 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-224 silly cache afterAdd ng2-material-dropdown@0.1.2
-225 verbose afterAdd /Users/escarabin/.npm/ng2-material-dropdown/0.1.2/package/package.json not in flight; writing
-226 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-227 verbose afterAdd /Users/escarabin/.npm/ng2-material-dropdown/0.1.2/package/package.json written
-228 http fetch 200 https://registry.npmjs.org/equals/-/equals-1.0.5.tgz
-229 silly fetchAndShaCheck shasum 212062dde5e1a510d955f13598efcc6a621b6ace
-230 verbose addTmpTarball /tmp/npm-8542-814e7644/registry.npmjs.org/equals/-/equals-1.0.5.tgz not in flight; adding
-231 verbose addTmpTarball already have metadata; skipping unpack for equals@1.0.5
-232 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-233 silly cache afterAdd equals@1.0.5
-234 verbose afterAdd /Users/escarabin/.npm/equals/1.0.5/package/package.json not in flight; writing
-235 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-236 verbose afterAdd /Users/escarabin/.npm/equals/1.0.5/package/package.json written
-237 silly install resolved [ { name: 'ng2-material-dropdown',
-237 silly install resolved     version: '0.1.2',
-237 silly install resolved     description: 'Angular 2 material-like Dropdown Component',
-237 silly install resolved     scripts:
-237 silly install resolved      { 'typings-install': 'typings install',
-237 silly install resolved        'typings-bundle': 'typings bundle --out ./dist/typings.bundle.d.ts',
-237 silly install resolved        postinstall: 'npm run typings-install',
-237 silly install resolved        prepublish: 'npm run typings-bundle && npm run build && ./node_modules/.bin/tsc -p tsconfig.json',
-237 silly install resolved        build: 'webpack --inline --colors --progress --display-error-details --display-cached',
-237 silly install resolved        watch: 'npm run build -- --watch',
-237 silly install resolved        server: 'webpack-dev-server --config webpack.demo.js --inline --colors --progress --display-error-details --display-cached --port 3005  --content-base demo',
-237 silly install resolved        start: 'npm run server',
-237 silly install resolved        test: 'karma start karma.conf.js --single-run' },
-237 silly install resolved     author:
-237 silly install resolved      { name: 'Giancarlo Buomprisco',
-237 silly install resolved        email: 'giancarlopsk@gmail.com' },
-237 silly install resolved     contributors: [],
-237 silly install resolved     license: 'MIT',
-237 silly install resolved     devDependencies:
-237 silly install resolved      { '@angular/common': '2.0.0-rc.3',
-237 silly install resolved        '@angular/compiler': '2.0.0-rc.3',
-237 silly install resolved        '@angular/core': '2.0.0-rc.3',
-237 silly install resolved        '@angular/http': '2.0.0-rc.3',
-237 silly install resolved        '@angular/platform-browser': '2.0.0-rc.3',
-237 silly install resolved        '@angular/platform-browser-dynamic': '2.0.0-rc.3',
-237 silly install resolved        '@angular/platform-server': '2.0.0-rc.3',
-237 silly install resolved        '@angular/router': '2.0.0-rc.2',
-237 silly install resolved        autoprefixer: '^6.3.6',
-237 silly install resolved        'awesome-typescript-loader': '~0.16.2',
-237 silly install resolved        'core-js': '^2.2.0',
-237 silly install resolved        'css-loader': '^0.23.1',
-237 silly install resolved        'es6-promise': '3.0.2',
-237 silly install resolved        'es6-shim': '0.35.0',
-237 silly install resolved        'file-loader': '^0.9.0',
-237 silly install resolved        'html-loader': '^0.4.3',
-237 silly install resolved        jasmine: '^2.4.1',
-237 silly install resolved        karma: '^0.13.22',
-237 silly install resolved        'karma-chrome-launcher': '^0.2.3',
-237 silly install resolved        'karma-coverage': '^1.0.0',
-237 silly install resolved        'karma-jasmine': '^0.3.8',
-237 silly install resolved        'karma-sourcemap-loader': '^0.3.7',
-237 silly install resolved        'karma-webpack': '1.7.0',
-237 silly install resolved        'node-sass': '^3.8.0',
-237 silly install resolved        'postcss-loader': '^0.9.1',
-237 silly install resolved        precss: '^1.4.0',
-237 silly install resolved        protractor: '^3.3.0',
-237 silly install resolved        'reflect-metadata': '0.1.2',
-237 silly install resolved        rxjs: '5.0.0-beta.6',
-237 silly install resolved        'sass-loader': '^3.2.1',
-237 silly install resolved        'source-map-loader': '^0.1.5',
-237 silly install resolved        'style-loader': '^0.13.1',
-237 silly install resolved        'svg-url-loader': '^1.0.3',
-237 silly install resolved        'ts-helpers': '1.1.1',
-237 silly install resolved        'ts-node': '^0.7.3',
-237 silly install resolved        tslint: '^3.5.0',
-237 silly install resolved        typescript: '~1.8.9',
-237 silly install resolved        typings: '~1.0.3',
-237 silly install resolved        'url-loader': '^0.5.7',
-237 silly install resolved        webpack: '^1.13.1',
-237 silly install resolved        'webpack-dev-server': '^1.14.0',
-237 silly install resolved        'webpack-merge': '^0.8.4',
-237 silly install resolved        'zone.js': '~0.6.12' },
-237 silly install resolved     dependencies: {},
-237 silly install resolved     keywords:
-237 silly install resolved      [ 'angular 2',
-237 silly install resolved        'angular 2 material dropdown',
-237 silly install resolved        'angular 2 component dropdown',
-237 silly install resolved        'angular 2 dropdown',
-237 silly install resolved        'angular 2 menu' ],
-237 silly install resolved     repository:
-237 silly install resolved      { type: 'git',
-237 silly install resolved        url: 'git+https://github.com/Gbuomprisco/ng2-material-dropdown.git' },
-237 silly install resolved     bugs: { url: 'https://github.com/Gbuomprisco/ng2-material-dropdown/issues' },
-237 silly install resolved     homepage: 'https://github.com/Gbuomprisco/ng2-material-dropdown',
-237 silly install resolved     main: './index.js',
-237 silly install resolved     files: [ 'dist', 'index.js', 'index.ts' ],
-237 silly install resolved     typings: 'src/typings.d.ts',
-237 silly install resolved     gitHead: '743e50b42203d6c1836df6c869e263fe4073af48',
-237 silly install resolved     _id: 'ng2-material-dropdown@0.1.2',
-237 silly install resolved     _shasum: 'a1da4e4362703dca67143dc8403bfb522d844dbc',
-237 silly install resolved     _from: 'ng2-material-dropdown@0.1.2',
-237 silly install resolved     _npmVersion: '3.8.5',
-237 silly install resolved     _nodeVersion: '5.10.0',
-237 silly install resolved     _npmUser: { name: 'giancarlo_psk', email: 'giancarlopsk@gmail.com' },
-237 silly install resolved     dist:
-237 silly install resolved      { shasum: 'a1da4e4362703dca67143dc8403bfb522d844dbc',
-237 silly install resolved        tarball: 'https://registry.npmjs.org/ng2-material-dropdown/-/ng2-material-dropdown-0.1.2.tgz' },
-237 silly install resolved     maintainers: [ [Object] ],
-237 silly install resolved     _npmOperationalInternal:
-237 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
-237 silly install resolved        tmp: 'tmp/ng2-material-dropdown-0.1.2.tgz_1469107153892_0.29469273146241903' },
-237 silly install resolved     directories: {},
-237 silly install resolved     _resolved: 'https://registry.npmjs.org/ng2-material-dropdown/-/ng2-material-dropdown-0.1.2.tgz' },
-237 silly install resolved   { name: 'equals',
-237 silly install resolved     version: '1.0.5',
-237 silly install resolved     description: 'Check if two values are deeply equivalent',
-237 silly install resolved     dependencies: { 'jkroso-type': '1' },
-237 silly install resolved     devDependencies:
-237 silly install resolved      { serve: 'github:jkroso/serve',
-237 silly install resolved        'hydro-html': '*',
-237 silly install resolved        'hydro-chai': '*',
-237 silly install resolved        'hydro-dot': '*',
-237 silly install resolved        'hydro-bdd': '*',
-237 silly install resolved        hydro: '*',
-237 silly install resolved        chai: '*' },
-237 silly install resolved     repository: { type: 'git', url: 'git://github.com/jkroso/equals.git' },
-237 silly install resolved     keywords: [ 'equality', 'equal', 'equivalent', 'equivalence', '=' ],
-237 silly install resolved     files: [ 'index.js' ],
-237 silly install resolved     author: { name: 'Jake Rosoman' },
-237 silly install resolved     license: 'MIT',
-237 silly install resolved     gitHead: '86a6d30ebabfec7eaef6dbdcf7afa307f5c5cc99',
-237 silly install resolved     bugs: { url: 'https://github.com/jkroso/equals/issues' },
-237 silly install resolved     homepage: 'https://github.com/jkroso/equals#readme',
-237 silly install resolved     _id: 'equals@1.0.5',
-237 silly install resolved     scripts: {},
-237 silly install resolved     _shasum: '212062dde5e1a510d955f13598efcc6a621b6ace',
-237 silly install resolved     _from: 'equals@>=1.0.5 <2.0.0',
-237 silly install resolved     _npmVersion: '3.6.0',
-237 silly install resolved     _nodeVersion: '5.6.0',
-237 silly install resolved     _npmUser: { name: 'jkroso', email: 'jkroso@gmail.com' },
-237 silly install resolved     maintainers: [ [Object] ],
-237 silly install resolved     dist:
-237 silly install resolved      { shasum: '212062dde5e1a510d955f13598efcc6a621b6ace',
-237 silly install resolved        tarball: 'https://registry.npmjs.org/equals/-/equals-1.0.5.tgz' },
-237 silly install resolved     _npmOperationalInternal:
-237 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
-237 silly install resolved        tmp: 'tmp/equals-1.0.5.tgz_1467369785323_0.3682192051783204' },
-237 silly install resolved     directories: {},
-237 silly install resolved     _resolved: 'https://registry.npmjs.org/equals/-/equals-1.0.5.tgz' } ]
-238 info install ng2-material-dropdown@0.1.2 into /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select
-239 info install equals@1.0.5 into /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select
-240 info installOne ng2-material-dropdown@0.1.2
-241 verbose installOne of ng2-material-dropdown to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select not in flight; installing
-242 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
-243 info installOne equals@1.0.5
-244 verbose installOne of equals to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select not in flight; installing
-245 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
-246 verbose lock using /Users/escarabin/.npm/_locks/ng2-material-dropdown-66ca3c618b1e7a2e.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown
-247 silly install write writing ng2-material-dropdown 0.1.2 to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown
-248 verbose lock using /Users/escarabin/.npm/_locks/equals-83d726981d4e434d.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals
-249 silly install write writing equals 1.0.5 to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals
-250 verbose unbuild node_modules/ng2-material-select/node_modules/ng2-material-dropdown
-251 verbose unbuild node_modules/ng2-material-select/node_modules/equals
-252 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown is being purged from base /Applications/MAMP/htdocs/oechr
-253 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown
-254 verbose tar unpack /Users/escarabin/.npm/ng2-material-dropdown/0.1.2/package.tgz
-255 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown
-256 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown is being purged
-257 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown
-258 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals is being purged from base /Applications/MAMP/htdocs/oechr
-259 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals
-260 silly gunzTarPerm modes [ '755', '644' ]
-261 verbose tar unpack /Users/escarabin/.npm/equals/1.0.5/package.tgz
-262 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals
-263 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals is being purged
-264 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals
-265 silly gunzTarPerm modes [ '755', '644' ]
-266 silly gunzTarPerm extractEntry package.json
-267 silly gunzTarPerm extractEntry package.json
-268 silly gunzTarPerm extractEntry README.md
-269 silly gunzTarPerm extractEntry index.js
-270 silly gunzTarPerm extractEntry index.js
-271 silly gunzTarPerm extractEntry License
-272 silly gunzTarPerm extractEntry dist/ng2-dropdown.bundle.js
-273 silly gunzTarPerm extractEntry dist/vendor.bundle.js
-274 silly gunzTarPerm extractEntry dist/ng2-dropdown.map
-275 silly gunzTarPerm extractEntry dist/typings.bundle.d.ts
-276 silly gunzTarPerm extractEntry dist/vendor.map
-277 silly gunzTarPerm extractEntry index.ts
-278 silly gunzTarPerm extractEntry Readme.md
-279 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/package.json
-280 info preinstall equals@1.0.5
-281 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/package.json
-282 silly prepareForInstallMany adding jkroso-type@1 from equals dependencies
-283 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/package.json
-284 silly cache add args [ 'jkroso-type@1', null ]
-285 verbose cache add spec jkroso-type@1
-286 silly cache add parsed spec Result {
-286 silly cache add   raw: 'jkroso-type@1',
-286 silly cache add   scope: null,
-286 silly cache add   name: 'jkroso-type',
-286 silly cache add   rawSpec: '1',
-286 silly cache add   spec: '>=1.0.0 <2.0.0',
-286 silly cache add   type: 'range' }
-287 silly addNamed jkroso-type@>=1.0.0 <2.0.0
-288 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for jkroso-type
-289 silly addNameRange { name: 'jkroso-type', range: '>=1.0.0 <2.0.0', hasData: false }
-290 silly mapToRegistry name jkroso-type
-291 silly mapToRegistry using default registry
-292 silly mapToRegistry registry https://registry.npmjs.org/
-293 silly mapToRegistry data Result {
-293 silly mapToRegistry   raw: 'jkroso-type',
-293 silly mapToRegistry   scope: null,
-293 silly mapToRegistry   name: 'jkroso-type',
-293 silly mapToRegistry   rawSpec: '',
-293 silly mapToRegistry   spec: 'latest',
-293 silly mapToRegistry   type: 'tag' }
-294 silly mapToRegistry uri https://registry.npmjs.org/jkroso-type
-295 verbose addNameRange registry:https://registry.npmjs.org/jkroso-type not in flight; fetching
-296 verbose request uri https://registry.npmjs.org/jkroso-type
-297 verbose request no auth needed
-298 info attempt registry request try #1 at 5:10:10 PM
-299 http request GET https://registry.npmjs.org/jkroso-type
-300 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown/package.json
-301 info preinstall ng2-material-dropdown@0.1.2
-302 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown/package.json
-303 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown/package.json
-304 silly install resolved []
-305 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown
-306 info build /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown
-307 info linkStuff ng2-material-dropdown@0.1.2
-308 silly linkStuff ng2-material-dropdown@0.1.2 has /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules as its parent node_modules
-309 verbose linkBins ng2-material-dropdown@0.1.2
-310 verbose linkMans ng2-material-dropdown@0.1.2
-311 verbose rebuildBundles ng2-material-dropdown@0.1.2
-312 info install ng2-material-dropdown@0.1.2
-313 info postinstall ng2-material-dropdown@0.1.2
-314 verbose unsafe-perm in lifecycle false
-315 http 200 https://registry.npmjs.org/jkroso-type
-316 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
-316 verbose headers   etag: '"F4CQQM760RI74UJY4U96WVYVX"',
-316 verbose headers   'content-type': 'application/json',
-316 verbose headers   'content-encoding': 'gzip',
-316 verbose headers   'cache-control': 'max-age=300',
-316 verbose headers   'content-length': '1135',
-316 verbose headers   'accept-ranges': 'bytes',
-316 verbose headers   date: 'Fri, 05 Aug 2016 15:10:10 GMT',
-316 verbose headers   via: '1.1 varnish',
-316 verbose headers   age: '0',
-316 verbose headers   connection: 'keep-alive',
-316 verbose headers   'x-served-by': 'cache-lhr6333-LHR',
-316 verbose headers   'x-cache': 'HIT',
-316 verbose headers   'x-cache-hits': '1',
-316 verbose headers   'x-timer': 'S1470409810.437667,VS0,VE182',
-316 verbose headers   vary: 'Accept-Encoding' }
-317 silly get cb [ 200,
-317 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
-317 silly get     etag: '"F4CQQM760RI74UJY4U96WVYVX"',
-317 silly get     'content-type': 'application/json',
-317 silly get     'content-encoding': 'gzip',
-317 silly get     'cache-control': 'max-age=300',
-317 silly get     'content-length': '1135',
-317 silly get     'accept-ranges': 'bytes',
-317 silly get     date: 'Fri, 05 Aug 2016 15:10:10 GMT',
-317 silly get     via: '1.1 varnish',
-317 silly get     age: '0',
-317 silly get     connection: 'keep-alive',
-317 silly get     'x-served-by': 'cache-lhr6333-LHR',
-317 silly get     'x-cache': 'HIT',
-317 silly get     'x-cache-hits': '1',
-317 silly get     'x-timer': 'S1470409810.437667,VS0,VE182',
-317 silly get     vary: 'Accept-Encoding' } ]
-318 verbose get saving jkroso-type to /Users/escarabin/.npm/registry.npmjs.org/jkroso-type/.cache.json
-319 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-320 silly addNameRange number 2 { name: 'jkroso-type', range: '>=1.0.0 <2.0.0', hasData: true }
-321 silly addNameRange versions [ 'jkroso-type', [ '1.1.0', '1.1.1' ] ]
-322 silly addNamed jkroso-type@1.1.1
-323 verbose addNamed "1.1.1" is a plain semver version for jkroso-type
-324 silly mapToRegistry name jkroso-type
-325 silly mapToRegistry using default registry
-326 silly mapToRegistry registry https://registry.npmjs.org/
-327 silly mapToRegistry data Result {
-327 silly mapToRegistry   raw: 'jkroso-type',
-327 silly mapToRegistry   scope: null,
-327 silly mapToRegistry   name: 'jkroso-type',
-327 silly mapToRegistry   rawSpec: '',
-327 silly mapToRegistry   spec: 'latest',
-327 silly mapToRegistry   type: 'tag' }
-328 silly mapToRegistry uri https://registry.npmjs.org/jkroso-type
-329 verbose addRemoteTarball https://registry.npmjs.org/jkroso-type/-/jkroso-type-1.1.1.tgz not in flight; adding
-330 verbose addRemoteTarball [ 'https://registry.npmjs.org/jkroso-type/-/jkroso-type-1.1.1.tgz',
-330 verbose addRemoteTarball   'bc4ced6d6c45fe0745282bafc86a9f8c4fc9ce61' ]
-331 info retry fetch attempt 1 at 5:10:10 PM
-332 info attempt registry request try #1 at 5:10:10 PM
-333 http fetch GET https://registry.npmjs.org/jkroso-type/-/jkroso-type-1.1.1.tgz
-334 http fetch 200 https://registry.npmjs.org/jkroso-type/-/jkroso-type-1.1.1.tgz
-335 silly fetchAndShaCheck shasum bc4ced6d6c45fe0745282bafc86a9f8c4fc9ce61
-336 verbose addTmpTarball /tmp/npm-8542-814e7644/registry.npmjs.org/jkroso-type/-/jkroso-type-1.1.1.tgz not in flight; adding
-337 verbose addTmpTarball already have metadata; skipping unpack for jkroso-type@1.1.1
-338 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-339 silly cache afterAdd jkroso-type@1.1.1
-340 verbose afterAdd /Users/escarabin/.npm/jkroso-type/1.1.1/package/package.json not in flight; writing
-341 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-342 verbose afterAdd /Users/escarabin/.npm/jkroso-type/1.1.1/package/package.json written
-343 silly install resolved [ { name: 'jkroso-type',
-343 silly install resolved     description: 'less broken typeof',
-343 silly install resolved     version: '1.1.1',
-343 silly install resolved     dependencies: {},
-343 silly install resolved     devDependencies:
-343 silly install resolved      { assert: 'github:jkroso/assert',
-343 silly install resolved        serve: 'github:jkroso/serve',
-343 silly install resolved        'babel-core': '*',
-343 silly install resolved        'hydro-html': '1',
-343 silly install resolved        'hydro-bdd': '0',
-343 silly install resolved        'hydro-dot': '2',
-343 silly install resolved        hydro: '0' },
-343 silly install resolved     transpile: [ [Object] ],
-343 silly install resolved     keywords: [ 'typeof', 'type', 'utility' ],
-343 silly install resolved     files: [ 'index.js' ],
-343 silly install resolved     repository: { type: 'git', url: 'git+https://github.com/jkroso/type.git' },
-343 silly install resolved     license: 'MIT',
-343 silly install resolved     gitHead: '1e1cc67846f59affd1ddc67de05b6fdb02a84aaf',
-343 silly install resolved     bugs: { url: 'https://github.com/jkroso/type/issues' },
-343 silly install resolved     homepage: 'https://github.com/jkroso/type#readme',
-343 silly install resolved     _id: 'jkroso-type@1.1.1',
-343 silly install resolved     scripts: {},
-343 silly install resolved     _shasum: 'bc4ced6d6c45fe0745282bafc86a9f8c4fc9ce61',
-343 silly install resolved     _from: 'jkroso-type@>=1.0.0 <2.0.0',
-343 silly install resolved     _npmVersion: '2.14.7',
-343 silly install resolved     _nodeVersion: '4.2.0',
-343 silly install resolved     _npmUser: { name: 'jkroso', email: 'jkroso@gmail.com' },
-343 silly install resolved     maintainers: [ [Object] ],
-343 silly install resolved     dist:
-343 silly install resolved      { shasum: 'bc4ced6d6c45fe0745282bafc86a9f8c4fc9ce61',
-343 silly install resolved        tarball: 'https://registry.npmjs.org/jkroso-type/-/jkroso-type-1.1.1.tgz' },
-343 silly install resolved     directories: {},
-343 silly install resolved     _resolved: 'https://registry.npmjs.org/jkroso-type/-/jkroso-type-1.1.1.tgz' } ]
-344 info install jkroso-type@1.1.1 into /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals
-345 info installOne jkroso-type@1.1.1
-346 verbose installOne of jkroso-type to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals not in flight; installing
-347 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
-348 verbose lock using /Users/escarabin/.npm/_locks/jkroso-type-805af12fdc9cb538.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type
-349 silly install write writing jkroso-type 1.1.1 to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type
-350 verbose unbuild node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type
-351 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type is being purged from base /Applications/MAMP/htdocs/oechr
-352 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type
-353 verbose tar unpack /Users/escarabin/.npm/jkroso-type/1.1.1/package.tgz
-354 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type
-355 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type is being purged
-356 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type
-357 silly gunzTarPerm modes [ '755', '644' ]
-358 silly gunzTarPerm extractEntry package.json
-359 silly gunzTarPerm extractEntry index.js
-360 silly gunzTarPerm extractEntry Readme.md
-361 silly gunzTarPerm extractEntry History.md
-362 silly gunzTarPerm extractEntry License
-363 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type/package.json
-364 info preinstall jkroso-type@1.1.1
-365 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type/package.json
-366 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type/package.json
-367 silly install resolved []
-368 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type
-369 info build /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type
-370 info linkStuff jkroso-type@1.1.1
-371 silly linkStuff jkroso-type@1.1.1 has /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules as its parent node_modules
-372 verbose linkBins jkroso-type@1.1.1
-373 verbose linkMans jkroso-type@1.1.1
-374 verbose rebuildBundles jkroso-type@1.1.1
-375 info install jkroso-type@1.1.1
-376 info postinstall jkroso-type@1.1.1
-377 verbose unlock done using /Users/escarabin/.npm/_locks/jkroso-type-805af12fdc9cb538.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals/node_modules/jkroso-type
-378 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals
-379 info build /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals
-380 info linkStuff equals@1.0.5
-381 silly linkStuff equals@1.0.5 has /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules as its parent node_modules
-382 verbose linkBins equals@1.0.5
-383 verbose linkMans equals@1.0.5
-384 verbose rebuildBundles equals@1.0.5
-385 verbose rebuildBundles [ 'jkroso-type' ]
-386 info install equals@1.0.5
-387 info postinstall equals@1.0.5
-388 verbose unlock done using /Users/escarabin/.npm/_locks/equals-83d726981d4e434d.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/equals
-389 verbose unlock done using /Users/escarabin/.npm/_locks/ng2-material-dropdown-66ca3c618b1e7a2e.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/node_modules/ng2-material-dropdown
-390 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select
-391 info build /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select
-392 info linkStuff ng2-material-select@0.0.3
-393 silly linkStuff ng2-material-select@0.0.3 has /Applications/MAMP/htdocs/oechr/node_modules as its parent node_modules
-394 verbose linkBins ng2-material-select@0.0.3
-395 verbose linkMans ng2-material-select@0.0.3
-396 verbose rebuildBundles ng2-material-select@0.0.3
-397 verbose rebuildBundles [ 'equals', 'ng2-material-dropdown' ]
-398 info install ng2-material-select@0.0.3
-399 info postinstall ng2-material-select@0.0.3
-400 verbose unsafe-perm in lifecycle false
-401 verbose unlock done using /Users/escarabin/.npm/_locks/ng2-material-select-e605fc025e7de429.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select
-402 verbose validateInstall loading /Applications/MAMP/htdocs/oechr/package.json for validation
-403 verbose stack Error: The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
-403 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
-403 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
-403 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
-403 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-403 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-403 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-403 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-403 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-403 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-403 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-404 verbose cwd /Applications/MAMP/htdocs/oechr
-405 error Darwin 16.0.0
-406 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "i" "ng2-material-select"
-407 error node v4.4.7
-408 error npm  v2.15.8
-409 error code EPEERINVALID
-410 error peerinvalid The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
-410 error peerinvalid Peer @angular/forms@0.1.1 wants @angular/common@2.0.0-rc.3
-410 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
-410 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
-410 error peerinvalid Peer @angular/router@3.0.0-alpha.7 wants @angular/common@^2.0.0-rc.2
-410 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
-410 error peerinvalid Peer ng2-bootstrap@1.0.24 wants @angular/common@2.0.0-rc.4
-410 error peerinvalid Peer angular2-google-maps@0.12.0 wants @angular/common@2.0.0-rc.2
-410 error peerinvalid Peer @angular2-material/core@2.0.0-alpha.6 wants @angular/common@^2.0.0-rc.3
-410 error peerinvalid Peer ng2-file-upload@1.0.3 wants @angular/common@^2.0.0-rc.1
-410 error peerinvalid Peer ng2-select@1.0.3 wants @angular/common@^2.0.0-rc.1
-411 verbose exit [ 1, true ]
+72 info package.json @angular/platform-browser@2.0.0-rc.3 No description
+73 info package.json @angular/platform-browser@2.0.0-rc.3 No README data
+74 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No description
+75 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No README data
+76 info package.json @angular/upgrade@2.0.0-rc.3 No description
+77 info package.json @angular/upgrade@2.0.0-rc.3 No README data
+78 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
+79 info package.json @angular/router-deprecated@2.0.0-rc.2 No README data
+80 info package.json angular2-google-map-auto-complete@1.0.4 No repository field.
+81 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/package.json
+82 silly cache add args [ 'ng2-meta', null ]
+83 verbose cache add spec ng2-meta
+84 silly cache add parsed spec Result {
+84 silly cache add   raw: 'ng2-meta',
+84 silly cache add   scope: null,
+84 silly cache add   name: 'ng2-meta',
+84 silly cache add   rawSpec: '',
+84 silly cache add   spec: 'latest',
+84 silly cache add   type: 'tag' }
+85 silly addNamed ng2-meta@latest
+86 verbose addNamed "latest" is being treated as a dist-tag for ng2-meta
+87 info addNameTag [ 'ng2-meta', 'latest' ]
+88 silly mapToRegistry name ng2-meta
+89 silly mapToRegistry using default registry
+90 silly mapToRegistry registry https://registry.npmjs.org/
+91 silly mapToRegistry data Result {
+91 silly mapToRegistry   raw: 'ng2-meta',
+91 silly mapToRegistry   scope: null,
+91 silly mapToRegistry   name: 'ng2-meta',
+91 silly mapToRegistry   rawSpec: '',
+91 silly mapToRegistry   spec: 'latest',
+91 silly mapToRegistry   type: 'tag' }
+92 silly mapToRegistry uri https://registry.npmjs.org/ng2-meta
+93 verbose addNameTag registry:https://registry.npmjs.org/ng2-meta not in flight; fetching
+94 verbose request uri https://registry.npmjs.org/ng2-meta
+95 verbose request no auth needed
+96 info attempt registry request try #1 at 3:22:38 PM
+97 verbose request id 21705cfb41c96653
+98 http request GET https://registry.npmjs.org/ng2-meta
+99 http 200 https://registry.npmjs.org/ng2-meta
+100 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+100 verbose headers   etag: '"8ZVTYQLMD1BPQSMO6GRULXV6O"',
+100 verbose headers   'content-type': 'application/json',
+100 verbose headers   'content-encoding': 'gzip',
+100 verbose headers   'cache-control': 'max-age=300',
+100 verbose headers   'content-length': '3024',
+100 verbose headers   'accept-ranges': 'bytes',
+100 verbose headers   date: 'Fri, 12 Aug 2016 13:22:39 GMT',
+100 verbose headers   via: '1.1 varnish',
+100 verbose headers   age: '0',
+100 verbose headers   connection: 'keep-alive',
+100 verbose headers   'x-served-by': 'cache-lhr6330-LHR',
+100 verbose headers   'x-cache': 'MISS',
+100 verbose headers   'x-cache-hits': '0',
+100 verbose headers   'x-timer': 'S1471008159.014993,VS0,VE117',
+100 verbose headers   vary: 'Accept-Encoding' }
+101 silly get cb [ 200,
+101 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+101 silly get     etag: '"8ZVTYQLMD1BPQSMO6GRULXV6O"',
+101 silly get     'content-type': 'application/json',
+101 silly get     'content-encoding': 'gzip',
+101 silly get     'cache-control': 'max-age=300',
+101 silly get     'content-length': '3024',
+101 silly get     'accept-ranges': 'bytes',
+101 silly get     date: 'Fri, 12 Aug 2016 13:22:39 GMT',
+101 silly get     via: '1.1 varnish',
+101 silly get     age: '0',
+101 silly get     connection: 'keep-alive',
+101 silly get     'x-served-by': 'cache-lhr6330-LHR',
+101 silly get     'x-cache': 'MISS',
+101 silly get     'x-cache-hits': '0',
+101 silly get     'x-timer': 'S1471008159.014993,VS0,VE117',
+101 silly get     vary: 'Accept-Encoding' } ]
+102 verbose get saving ng2-meta to /Users/escarabin/.npm/registry.npmjs.org/ng2-meta/.cache.json
+103 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
+104 silly addNameTag next cb for ng2-meta with tag latest
+105 silly addNamed ng2-meta@1.0.0
+106 verbose addNamed "1.0.0" is a plain semver version for ng2-meta
+107 silly cache afterAdd ng2-meta@1.0.0
+108 verbose afterAdd /Users/escarabin/.npm/ng2-meta/1.0.0/package/package.json not in flight; writing
+109 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
+110 verbose afterAdd /Users/escarabin/.npm/ng2-meta/1.0.0/package/package.json written
+111 silly install resolved [ { name: 'ng2-meta',
+111 silly install resolved     description: 'Dynamic meta tags and SEO in Angular2',
+111 silly install resolved     version: '1.0.0',
+111 silly install resolved     scripts:
+111 silly install resolved      { lint: 'tslint src/**/*.ts',
+111 silly install resolved        test: 'tsc && karma start config/karma.conf.js',
+111 silly install resolved        postinstall: 'typings install',
+111 silly install resolved        prepublish: 'tsc',
+111 silly install resolved        tsc: 'tsc',
+111 silly install resolved        typings: 'typings' },
+111 silly install resolved     repository:
+111 silly install resolved      { type: 'git',
+111 silly install resolved        url: 'git+https://github.com/vinaygopinath/ng2-meta.git' },
+111 silly install resolved     author: { name: 'Vinay Gopinath', email: 'vinay@vinaygopinath.me' },
+111 silly install resolved     keywords: [ 'angular', 'angular2', 'seo', 'meta tags', 'open graph' ],
+111 silly install resolved     license: 'MIT',
+111 silly install resolved     bugs: { url: 'https://github.com/vinaygopinath/ng2-meta/issues' },
+111 silly install resolved     main: './dist/meta.service.js',
+111 silly install resolved     typings: './dist/meta.service.d.ts',
+111 silly install resolved     peerDependencies:
+111 silly install resolved      { '@angular/common': '^2.0.0-rc.4',
+111 silly install resolved        '@angular/compiler': '^2.0.0-rc.4',
+111 silly install resolved        '@angular/core': '^2.0.0-rc.4',
+111 silly install resolved        '@angular/platform-browser': '^2.0.0-rc.4',
+111 silly install resolved        '@angular/platform-browser-dynamic': '^2.0.0-rc.4',
+111 silly install resolved        '@angular/router': '^3.0.0-beta.2',
+111 silly install resolved        rxjs: '^5.0.0-beta.6',
+111 silly install resolved        'zone.js': '0.6.12' },
+111 silly install resolved     devDependencies:
+111 silly install resolved      { codelyzer: '^0.0.20',
+111 silly install resolved        tslint: '^3.6.0',
+111 silly install resolved        typescript: '^1.8.10',
+111 silly install resolved        typings: '^1.0.4' },
+111 silly install resolved     engines: { node: '>=4' },
+111 silly install resolved     gitHead: '65ec0e7a883f350969e13325a8df8a340ec0f48d',
+111 silly install resolved     homepage: 'https://github.com/vinaygopinath/ng2-meta#readme',
+111 silly install resolved     _id: 'ng2-meta@1.0.0',
+111 silly install resolved     _shasum: '8645a5601caf34c29aad40fed84dfa1056520806',
+111 silly install resolved     _from: 'ng2-meta@latest',
+111 silly install resolved     _npmVersion: '3.8.6',
+111 silly install resolved     _nodeVersion: '6.0.0',
+111 silly install resolved     _npmUser: { name: 'vinaygopinath', email: 'vinaygopinath@yandex.com' },
+111 silly install resolved     maintainers: [ [Object] ],
+111 silly install resolved     dist:
+111 silly install resolved      { shasum: '8645a5601caf34c29aad40fed84dfa1056520806',
+111 silly install resolved        tarball: 'https://registry.npmjs.org/ng2-meta/-/ng2-meta-1.0.0.tgz' },
+111 silly install resolved     _npmOperationalInternal:
+111 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+111 silly install resolved        tmp: 'tmp/ng2-meta-1.0.0.tgz_1470924563564_0.2994922229554504' },
+111 silly install resolved     directories: {},
+111 silly install resolved     _resolved: 'https://registry.npmjs.org/ng2-meta/-/ng2-meta-1.0.0.tgz',
+111 silly install resolved     readme: 'ERROR: No README data found!' } ]
+112 info install ng2-meta@1.0.0 into /Applications/MAMP/htdocs/oechr
+113 info installOne ng2-meta@1.0.0
+114 verbose installOne of ng2-meta to /Applications/MAMP/htdocs/oechr not in flight; installing
+115 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
+116 verbose lock using /Users/escarabin/.npm/_locks/ng2-meta-e7f3f6bb6d87f952.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta
+117 silly install write writing ng2-meta 1.0.0 to /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta
+118 verbose unbuild node_modules/ng2-meta
+119 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta is being purged from base /Applications/MAMP/htdocs/oechr
+120 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta
+121 verbose tar unpack /Users/escarabin/.npm/ng2-meta/1.0.0/package.tgz
+122 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta
+123 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta is being purged
+124 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta
+125 silly gunzTarPerm modes [ '755', '644' ]
+126 silly gunzTarPerm extractEntry package.json
+127 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+128 silly gunzTarPerm extractEntry .npmignore
+129 silly gunzTarPerm modified mode [ '.npmignore', 436, 420 ]
+130 silly gunzTarPerm extractEntry CHANGELOG.md
+131 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 420 ]
+132 silly gunzTarPerm extractEntry README.MD
+133 silly gunzTarPerm modified mode [ 'README.MD', 436, 420 ]
+134 silly gunzTarPerm extractEntry config/karma-test-shim.js
+135 silly gunzTarPerm modified mode [ 'config/karma-test-shim.js', 436, 420 ]
+136 silly gunzTarPerm extractEntry config/karma.conf.js
+137 silly gunzTarPerm modified mode [ 'config/karma.conf.js', 436, 420 ]
+138 silly gunzTarPerm extractEntry dist/meta.service.js
+139 silly gunzTarPerm modified mode [ 'dist/meta.service.js', 436, 420 ]
+140 silly gunzTarPerm extractEntry dist/meta.service.spec.js
+141 silly gunzTarPerm modified mode [ 'dist/meta.service.spec.js', 436, 420 ]
+142 silly gunzTarPerm extractEntry dist/meta.service.d.ts
+143 silly gunzTarPerm modified mode [ 'dist/meta.service.d.ts', 436, 420 ]
+144 silly gunzTarPerm extractEntry dist/meta.service.js.map
+145 silly gunzTarPerm modified mode [ 'dist/meta.service.js.map', 436, 420 ]
+146 silly gunzTarPerm extractEntry dist/meta.service.spec.d.ts
+147 silly gunzTarPerm modified mode [ 'dist/meta.service.spec.d.ts', 436, 420 ]
+148 silly gunzTarPerm extractEntry dist/meta.service.spec.js.map
+149 silly gunzTarPerm modified mode [ 'dist/meta.service.spec.js.map', 436, 420 ]
+150 silly gunzTarPerm extractEntry typings.json
+151 silly gunzTarPerm modified mode [ 'typings.json', 436, 420 ]
+152 silly gunzTarPerm extractEntry .travis.yml
+153 silly gunzTarPerm modified mode [ '.travis.yml', 436, 420 ]
+154 silly gunzTarPerm extractEntry src/meta.service.spec.ts
+155 silly gunzTarPerm modified mode [ 'src/meta.service.spec.ts', 436, 420 ]
+156 silly gunzTarPerm extractEntry src/meta.service.ts
+157 silly gunzTarPerm modified mode [ 'src/meta.service.ts', 436, 420 ]
+158 silly gunzTarPerm extractEntry tsconfig.json
+159 silly gunzTarPerm modified mode [ 'tsconfig.json', 436, 420 ]
+160 silly gunzTarPerm extractEntry tslint.json
+161 silly gunzTarPerm modified mode [ 'tslint.json', 436, 420 ]
+162 silly gunzTarPerm extractEntry typings/globals/angular-protractor/index.d.ts
+163 silly gunzTarPerm modified mode [ 'typings/globals/angular-protractor/index.d.ts', 436, 420 ]
+164 silly gunzTarPerm extractEntry typings/globals/angular-protractor/typings.json
+165 silly gunzTarPerm modified mode [ 'typings/globals/angular-protractor/typings.json', 436, 420 ]
+166 silly gunzTarPerm extractEntry typings/globals/es6-shim/index.d.ts
+167 silly gunzTarPerm modified mode [ 'typings/globals/es6-shim/index.d.ts', 436, 420 ]
+168 silly gunzTarPerm extractEntry typings/globals/es6-shim/typings.json
+169 silly gunzTarPerm modified mode [ 'typings/globals/es6-shim/typings.json', 436, 420 ]
+170 silly gunzTarPerm extractEntry typings/globals/jasmine/index.d.ts
+171 silly gunzTarPerm modified mode [ 'typings/globals/jasmine/index.d.ts', 436, 420 ]
+172 silly gunzTarPerm extractEntry typings/globals/jasmine/typings.json
+173 silly gunzTarPerm modified mode [ 'typings/globals/jasmine/typings.json', 436, 420 ]
+174 silly gunzTarPerm extractEntry typings/globals/selenium-webdriver/index.d.ts
+175 silly gunzTarPerm modified mode [ 'typings/globals/selenium-webdriver/index.d.ts', 436, 420 ]
+176 silly gunzTarPerm extractEntry typings/globals/selenium-webdriver/typings.json
+177 silly gunzTarPerm modified mode [ 'typings/globals/selenium-webdriver/typings.json', 436, 420 ]
+178 silly gunzTarPerm extractEntry typings/index.d.ts
+179 silly gunzTarPerm modified mode [ 'typings/index.d.ts', 436, 420 ]
+180 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta/package.json
+181 info preinstall ng2-meta@1.0.0
+182 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta/package.json
+183 silly prepareForInstallMany adding @angular/common@^2.0.0-rc.4 from ng2-meta peerDependencies
+184 silly prepareForInstallMany adding @angular/compiler@^2.0.0-rc.4 from ng2-meta peerDependencies
+185 silly prepareForInstallMany adding @angular/core@^2.0.0-rc.4 from ng2-meta peerDependencies
+186 silly prepareForInstallMany adding @angular/platform-browser@^2.0.0-rc.4 from ng2-meta peerDependencies
+187 silly prepareForInstallMany adding @angular/platform-browser-dynamic@^2.0.0-rc.4 from ng2-meta peerDependencies
+188 silly prepareForInstallMany adding @angular/router@^3.0.0-beta.2 from ng2-meta peerDependencies
+189 warn peerDependencies The peer dependency @angular/common@^2.0.0-rc.4 included from ng2-meta will no
+190 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+191 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+192 warn peerDependencies The peer dependency @angular/compiler@^2.0.0-rc.4 included from ng2-meta will no
+193 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+194 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+195 warn peerDependencies The peer dependency @angular/core@^2.0.0-rc.4 included from ng2-meta will no
+196 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+197 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+198 warn peerDependencies The peer dependency @angular/platform-browser@^2.0.0-rc.4 included from ng2-meta will no
+199 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+200 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+201 warn peerDependencies The peer dependency @angular/platform-browser-dynamic@^2.0.0-rc.4 included from ng2-meta will no
+202 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+203 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+204 warn peerDependencies The peer dependency @angular/router@^3.0.0-beta.2 included from ng2-meta will no
+205 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+206 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+207 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta/package.json
+208 silly install resolved []
+209 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta
+210 info build /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta
+211 info linkStuff ng2-meta@1.0.0
+212 silly linkStuff ng2-meta@1.0.0 has /Applications/MAMP/htdocs/oechr/node_modules as its parent node_modules
+213 verbose linkBins ng2-meta@1.0.0
+214 verbose linkMans ng2-meta@1.0.0
+215 verbose rebuildBundles ng2-meta@1.0.0
+216 info install ng2-meta@1.0.0
+217 info postinstall ng2-meta@1.0.0
+218 verbose unsafe-perm in lifecycle true
+219 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/package.json
+220 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-map-auto-complete/package.json
+221 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps/package.json
+222 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-in-memory-web-api/package.json
+223 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-notifications/package.json
+224 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/bootstrap/package.json
+225 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/canonical-path/package.json
+226 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/concurrently/package.json
+227 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/core-js/package.json
+228 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/elixir-typescript/package.json
+229 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/es6-shim/package.json
+230 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/express/package.json
+231 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/gulp/package.json
+232 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/http-server/package.json
+233 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/jasmine-core/package.json
+234 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/karma/package.json
+235 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-chrome-launcher/package.json
+236 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-cli/package.json
+237 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-htmlfile-reporter/package.json
+238 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-jasmine/package.json
+239 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/laravel-elixir/package.json
+240 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/lite-server/package.json
+241 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/lodash/package.json
+242 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/moment/package.json
+243 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap/package.json
+244 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-file-upload/package.json
+245 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-img-cropper/package.json
+246 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/package.json
+247 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta/package.json
+248 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination/package.json
+249 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-select/package.json
+250 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-slim-loading-bar/package.json
+251 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/protractor/package.json
+252 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/reflect-metadata/package.json
+253 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/rimraf/package.json
+254 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/rxjs/package.json
+255 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/systemjs/package.json
+256 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/tslint/package.json
+257 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/typescript/package.json
+258 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/typings/package.json
+259 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/zone.js/package.json
+260 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/concurrent/package.json
+261 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/concurrently/package.json
+262 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/gulp/package.json
+263 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/hs/package.json
+264 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/http-server/package.json
+265 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/karma/package.json
+266 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/lite-server/package.json
+267 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/protractor/package.json
+268 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/rimraf/package.json
+269 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/tsc/package.json
+270 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/tslint/package.json
+271 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/tsserver/package.json
+272 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/typings/package.json
+273 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/webdriver-manager/package.json
+274 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/common/package.json
+275 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/compiler/package.json
+276 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/core/package.json
+277 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/forms/package.json
+278 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/http/package.json
+279 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser/package.json
+280 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser-dynamic/package.json
+281 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router/package.json
+282 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router-deprecated/package.json
+283 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/upgrade/package.json
+284 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/checkbox/package.json
+285 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/core/package.json
+286 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/input/package.json
+287 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/tooltip/package.json
+288 verbose already installed skipping @angular/core@^2.0.0-rc.4 /Applications/MAMP/htdocs/oechr
+289 verbose already installed skipping @angular/platform-browser@^2.0.0-rc.4 /Applications/MAMP/htdocs/oechr
+290 verbose already installed skipping @angular/platform-browser-dynamic@^2.0.0-rc.4 /Applications/MAMP/htdocs/oechr
+291 verbose already installed skipping @angular/router@^3.0.0-beta.2 /Applications/MAMP/htdocs/oechr
+292 verbose already installed skipping @angular/common@^2.0.0-rc.4 /Applications/MAMP/htdocs/oechr
+293 verbose already installed skipping @angular/compiler@^2.0.0-rc.4 /Applications/MAMP/htdocs/oechr
+294 silly install resolved []
+295 verbose unlock done using /Users/escarabin/.npm/_locks/ng2-meta-e7f3f6bb6d87f952.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta
+296 verbose validateInstall loading /Applications/MAMP/htdocs/oechr/package.json for validation
+297 verbose stack Error: The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
+297 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+297 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
+297 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+297 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+297 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+297 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+297 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+297 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+297 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+297 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+298 verbose cwd /Applications/MAMP/htdocs/oechr
+299 error Darwin 16.0.0
+300 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--save" "ng2-meta"
+301 error node v4.4.7
+302 error npm  v2.15.8
+303 error code EPEERINVALID
+304 error peerinvalid The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
+304 error peerinvalid Peer @angular/forms@0.1.1 wants @angular/common@2.0.0-rc.3
+304 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
+304 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
+304 error peerinvalid Peer @angular/router@3.0.0-alpha.7 wants @angular/common@^2.0.0-rc.2
+304 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
+304 error peerinvalid Peer ng2-bootstrap@1.0.24 wants @angular/common@2.0.0-rc.4
+304 error peerinvalid Peer angular2-google-maps@0.12.0 wants @angular/common@2.0.0-rc.2
+304 error peerinvalid Peer ng2-meta@1.0.0 wants @angular/common@^2.0.0-rc.4
+304 error peerinvalid Peer @angular2-material/core@2.0.0-alpha.7 wants @angular/common@^2.0.0-rc.5
+304 error peerinvalid Peer ng2-file-upload@1.0.3 wants @angular/common@^2.0.0-rc.1
+304 error peerinvalid Peer ng2-select@1.0.3 wants @angular/common@^2.0.0-rc.1
+305 verbose exit [ 1, true ]

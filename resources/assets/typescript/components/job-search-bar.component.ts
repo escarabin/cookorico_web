@@ -9,16 +9,10 @@ import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directiv
 import { SELECT_DIRECTIVES } from 'ng2-select';
 
 // Services
-import { JobService } from './../services/job.service';
-import { PostService } from './../services/post.service';
-import { ClubService } from './../services/club.service';
 import { ReferenceService } from './../services/reference.service';
 
 @Component({
-    providers: [JobService,
-        PostService,
-        ClubService,
-        ReferenceService],
+    providers: [ReferenceService],
     directives: [RouterLink,
                  GoogleplaceDirective,
                  NgClass,
@@ -32,25 +26,16 @@ import { ReferenceService } from './../services/reference.service';
 
 export class JobSearchBarComponent {
     places: any;
-    contractTypes: any;
     jobNamingGroups: any;
 
-    contractTypeId: number = 0;
     jobNamingId: number = 0;
     placeId: number = 0;
 
-    constructor(private jobService: JobService,
-                private postService: PostService,
-                private clubService: ClubService,
-                private referenceService: ReferenceService) {
+    constructor(private referenceService: ReferenceService) {
         let __this = this;
 
         referenceService.getAllStates().subscribe((res: Response) => {
             __this.places = res.json();
-        });
-
-        referenceService.getAllContractTypes().subscribe((res: Response) => {
-            __this.contractTypes = res.json();
         });
 
         referenceService.getAllJobNamingGroups().subscribe((res: Response) => {

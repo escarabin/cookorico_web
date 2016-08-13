@@ -80,6 +80,11 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                     }
                     return jobsCount;
                 };
+                /**
+                 * Update search with new parameters
+                 * @param parameterType
+                 * @param parameterValue
+                 */
                 JobSearchSidebarComponent.prototype.updateSearchParameter = function (parameterType, parameterValue) {
                     var _this = this;
                     /**

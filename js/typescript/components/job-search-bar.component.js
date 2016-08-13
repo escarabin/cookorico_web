@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', 'ng2-bootstrap/ng2-bootstrap', '@angular/router-deprecated', 'angular2-google-map-auto-complete/directives/googleplace.directive', 'ng2-select', './../services/job.service', './../services/post.service', './../services/club.service', './../services/reference.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', 'ng2-bootstrap/ng2-bootstrap', '@angular/router-deprecated', 'angular2-google-map-auto-complete/directives/googleplace.directive', 'ng2-select', './../services/reference.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', 'ng2-bootstrap/ng2-bootstra
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, ng2_bootstrap_1, router_deprecated_1, googleplace_directive_1, ng2_select_1, job_service_1, post_service_1, club_service_1, reference_service_1;
+    var core_1, common_1, ng2_bootstrap_1, router_deprecated_1, googleplace_directive_1, ng2_select_1, reference_service_1;
     var JobSearchBarComponent;
     return {
         setters:[
@@ -32,34 +32,18 @@ System.register(['@angular/core', '@angular/common', 'ng2-bootstrap/ng2-bootstra
             function (ng2_select_1_1) {
                 ng2_select_1 = ng2_select_1_1;
             },
-            function (job_service_1_1) {
-                job_service_1 = job_service_1_1;
-            },
-            function (post_service_1_1) {
-                post_service_1 = post_service_1_1;
-            },
-            function (club_service_1_1) {
-                club_service_1 = club_service_1_1;
-            },
             function (reference_service_1_1) {
                 reference_service_1 = reference_service_1_1;
             }],
         execute: function() {
             JobSearchBarComponent = (function () {
-                function JobSearchBarComponent(jobService, postService, clubService, referenceService) {
-                    this.jobService = jobService;
-                    this.postService = postService;
-                    this.clubService = clubService;
+                function JobSearchBarComponent(referenceService) {
                     this.referenceService = referenceService;
-                    this.contractTypeId = 0;
                     this.jobNamingId = 0;
                     this.placeId = 0;
                     var __this = this;
                     referenceService.getAllStates().subscribe(function (res) {
                         __this.places = res.json();
-                    });
-                    referenceService.getAllContractTypes().subscribe(function (res) {
-                        __this.contractTypes = res.json();
                     });
                     referenceService.getAllJobNamingGroups().subscribe(function (res) {
                         __this.jobNamingGroups = res.json();
@@ -70,10 +54,7 @@ System.register(['@angular/core', '@angular/common', 'ng2-bootstrap/ng2-bootstra
                 };
                 JobSearchBarComponent = __decorate([
                     core_1.Component({
-                        providers: [job_service_1.JobService,
-                            post_service_1.PostService,
-                            club_service_1.ClubService,
-                            reference_service_1.ReferenceService],
+                        providers: [reference_service_1.ReferenceService],
                         directives: [router_deprecated_1.RouterLink,
                             googleplace_directive_1.GoogleplaceDirective,
                             common_1.NgClass,
@@ -84,7 +65,7 @@ System.register(['@angular/core', '@angular/common', 'ng2-bootstrap/ng2-bootstra
                         selector: 'job-search-bar',
                         templateUrl: '../templates/job-search-bar.component.html',
                     }), 
-                    __metadata('design:paramtypes', [job_service_1.JobService, post_service_1.PostService, club_service_1.ClubService, reference_service_1.ReferenceService])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService])
                 ], JobSearchBarComponent);
                 return JobSearchBarComponent;
             }());

@@ -81,6 +81,11 @@ export class JobSearchSidebarComponent {
         return jobsCount;
     }
 
+    /**
+     * Update search with new parameters
+     * @param parameterType
+     * @param parameterValue
+     */
     updateSearchParameter(parameterType?: string, parameterValue?: string) {
         /**
          * Add or remove the parameters from their respective arrays

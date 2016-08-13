@@ -12,12 +12,16 @@ import { SignUpComponent } from './sign-up.component';
 import { SearchComponent } from './search.component';
 import { NotificationsComponent } from './notification.component';
 
+// Services
+import { MetaService } from 'ng2-meta';
+
 @Component({
     directives:[RouterOutlet,
                 HomeComponent,
                 HeaderComponent,
                 FooterComponent,
                 NotificationsComponent],
+    providers: [MetaService],
     selector: 'app',
     templateUrl: '/templates/app.component.html'
 })
@@ -25,7 +29,13 @@ import { NotificationsComponent } from './notification.component';
 
 @RouteConfig([
     // Root
-    { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true },
+    { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true,
+        data: {
+            meta: {
+                title: 'Home page',
+                description: 'Description of the home page'
+            }
+        } },
 
     // Posts
     { path: '/post/:postId/', name: 'ShowPost', component: PostComponent },

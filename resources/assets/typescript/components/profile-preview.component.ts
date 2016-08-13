@@ -183,6 +183,15 @@ export class ProfilePreviewComponent {
             this.isLoading = false;
 
             this.profilePictureChanged.emit();
+
+            /**
+             * Full reloading of page because it appears to be a bug inside
+             * this Angular's router function :
+             * this.router.renavigate();
+             */
+            setTimeout(function() {
+                location.reload();
+            }, 1000);
         });
     }
 

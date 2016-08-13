@@ -1,7 +1,7 @@
-System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular/core', '@angular/common', '@angular/router-deprecated', 'angular2-google-maps/core/index', './components/app.component', './services/notification.service', '@angular2-material/input', '@angular2-material/checkbox'], function(exports_1, context_1) {
+System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular/core', '@angular/platform-browser', '@angular/common', '@angular/router-deprecated', 'angular2-google-maps/core/index', './components/app.component', './services/notification.service', 'ng2-meta', '@angular2-material/input', '@angular2-material/checkbox'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var platform_browser_dynamic_1, http_1, core_1, common_1, router_deprecated_1, index_1, app_component_1, notification_service_1, input_1, checkbox_1;
+    var platform_browser_dynamic_1, http_1, core_1, platform_browser_1, common_1, router_deprecated_1, index_1, app_component_1, notification_service_1, ng2_meta_1, input_1, checkbox_1;
     return {
         setters:[
             function (platform_browser_dynamic_1_1) {
@@ -12,6 +12,9 @@ System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular
             },
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (platform_browser_1_1) {
+                platform_browser_1 = platform_browser_1_1;
             },
             function (common_1_1) {
                 common_1 = common_1_1;
@@ -28,6 +31,9 @@ System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular
             function (notification_service_1_1) {
                 notification_service_1 = notification_service_1_1;
             },
+            function (ng2_meta_1_1) {
+                ng2_meta_1 = ng2_meta_1_1;
+            },
             function (input_1_1) {
                 input_1 = input_1_1;
             },
@@ -39,6 +45,8 @@ System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular
                 notification_service_1.NotificationsService,
                 router_deprecated_1.ROUTER_PROVIDERS,
                 index_1.GOOGLE_MAPS_PROVIDERS,
+                platform_browser_1.Title,
+                ng2_meta_1.MetaService,
                 core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy }),
                 /**
                  * Use Angular 2 material directive globally (as a PLATFORM_DIRECTIVE)
