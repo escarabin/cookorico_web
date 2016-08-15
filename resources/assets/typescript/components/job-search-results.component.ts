@@ -5,20 +5,11 @@ import { RouteParams } from '@angular/router-deprecated';
 // Services
 import { JobService } from './../services/job.service';
 
-// Components
-import { JobPreviewComponent } from './job-preview.component';
-import { CustomPaginationComponent } from './custom-pagination.component';
-
 // Pagination
-import {PaginatePipe,
-    PaginationControlsCmp,
-    PaginationService} from 'ng2-pagination';
+import {PaginatePipe, PaginationService} from 'ng2-pagination';
 
 @Component({
     selector: 'job-search-results',
-    directives: [JobPreviewComponent,
-                 PaginationControlsCmp,
-                 CustomPaginationComponent],
     providers: [JobService, PaginationService],
     pipes: [PaginatePipe],
     templateUrl: '../templates/job-search-results.component.html',
@@ -44,6 +35,8 @@ export class JobSearchResultsComponent {
 
         this.jobService.getAllJobs().subscribe((res: Response) => {
             __this.jobs = res.json();
+
+            console.log(__this.jobs);
         });
     }
 

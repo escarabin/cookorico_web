@@ -11,7 +11,7 @@ declare var tinymce: any;
                     '<textarea id="baseTextArea">{{htmlContent}}</textarea> ' +
                 '</div> ' +
               '</div>',
-    inputs: ['mceContent', 'readOnly'],
+    inputs: ['mceContent']
 })
 
 export class UNITYTinyMCE {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink, RouteParams, Router } from '@angular/router-deprecated';
+import { RouteParams, Router } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
@@ -17,7 +17,6 @@ import { BusinessSelectComponent } from './business-select.component';
 @Component({
     selector: 'create-experience',
     providers: [ReferenceService, UserService],
-    directives: [RouterLink, BusinessSelectComponent],
     templateUrl: '../templates/create-experience.component.html'
 })
 

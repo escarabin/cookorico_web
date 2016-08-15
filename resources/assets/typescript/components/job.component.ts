@@ -1,20 +1,13 @@
 import { Component } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { RouteParams, RouterLink }
+import { RouteParams }
     from '@angular/router-deprecated';
 
 // Services
 import { JobService } from './../services/job.service';
 
-// Components
-import { JobSearchSidebarComponent } from './job-search-sidebar.component'
-import { NewApplicationFormComponent } from './new-application-form.component'
-
 @Component({
     providers: [JobService],
-    directives: [RouterLink,
-                JobSearchSidebarComponent,
-                NewApplicationFormComponent],
     inputs: ['jobId'],
     selector: 'job',
     templateUrl: '../templates/job.component.html',

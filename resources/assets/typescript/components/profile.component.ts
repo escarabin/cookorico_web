@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { RouteParams,
-         RouterLink,
-         RouterOutlet,
          RouteConfig } from '@angular/router-deprecated';
 
 // Services
 import { UserService } from './../services/user.service';
 
 // Components
-import { UserSidebarComponent } from './user-sidebar.component';
 import { ApplicationsComponent } from "./applications.component";
 import { ExperiencesComponent } from "./experiences.component";
 import { EducationComponent } from "./education.component";
@@ -20,7 +17,6 @@ import { CreateStudyComponent } from "./create-study.component";
 import { CreateAlertComponent } from "./create-alert.component";
 import { CreateBusinessComponent } from "./create-business.component";
 import { BusinessesComponent } from "./businesses.component";
-import { RightSidebarComponent } from "./right-sidebar.component";
 import { MyJobPostsComponent } from './my-job-posts.component';
 import { CreateJobPostComponent } from './create-job-post.component';
 import { ApplicantsComponent } from './applicants.component';
@@ -31,10 +27,6 @@ import { EditWebsiteComponent } from './edit-website.component';
 
 @Component({
     providers: [UserService],
-    directives: [RouterLink,
-                RouterOutlet,
-                UserSidebarComponent,
-                RightSidebarComponent],
     selector: 'profile',
     templateUrl: '../templates/profile.component.html',
 })

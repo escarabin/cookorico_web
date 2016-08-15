@@ -1,64 +1,63 @@
-System.register(['@angular/platform-browser-dynamic', '@angular/http', '@angular/core', '@angular/platform-browser', '@angular/common', '@angular/router-deprecated', 'angular2-google-maps/core/index', './components/app.component', './services/notification.service', 'ng2-meta', '@angular2-material/input', '@angular2-material/checkbox', '@angular2-material/button'], function(exports_1, context_1) {
+/*import { bootstrap }    from '@angular/platform-browser-dynamic';
+import { HTTP_PROVIDERS } from '@angular/http';
+import { provide, PLATFORM_DIRECTIVES } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import {
+    PlatformLocation,
+    Location,
+    LocationStrategy,
+    HashLocationStrategy,
+    PathLocationStrategy,
+    APP_BASE_HREF}
+    from '@angular/common';
+import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
+import {
+    GOOGLE_MAPS_PROVIDERS,
+} from 'angular2-google-maps/core/index';
+import { AppModule } from './app.module';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+// Components
+import { AppComponent } from './components/app.component';
+
+// Services
+import { NotificationsService } from './services/notification.service';
+import { MetaService } from 'ng2-meta';
+
+// Directives
+import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
+import { MD_CHECKBOX_DIRECTIVES } from '@angular2-material/checkbox';
+import { SELECT_DIRECTIVES } from 'ng2-select';
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+
+bootstrap( AppComponent,
+            [HTTP_PROVIDERS,
+             NotificationsService,
+             ROUTER_PROVIDERS,
+             GOOGLE_MAPS_PROVIDERS,
+             Title,
+             MetaService,
+    provide(LocationStrategy, {useClass: HashLocationStrategy}),
+    provide(PLATFORM_DIRECTIVES, {useValue: MD_CHECKBOX_DIRECTIVES, multi: true}),
+    provide(PLATFORM_DIRECTIVES, {useValue: MD_INPUT_DIRECTIVES, multi: true}),
+    provide(PLATFORM_DIRECTIVES, {useValue: SELECT_DIRECTIVES, multi: true})
+]).catch(console.error);
+*/
+System.register(['@angular/platform-browser-dynamic', './app.module'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var platform_browser_dynamic_1, http_1, core_1, platform_browser_1, common_1, router_deprecated_1, index_1, app_component_1, notification_service_1, ng2_meta_1, input_1, checkbox_1, button_1;
+    var platform_browser_dynamic_1, app_module_1;
     return {
         setters:[
             function (platform_browser_dynamic_1_1) {
                 platform_browser_dynamic_1 = platform_browser_dynamic_1_1;
             },
-            function (http_1_1) {
-                http_1 = http_1_1;
-            },
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (platform_browser_1_1) {
-                platform_browser_1 = platform_browser_1_1;
-            },
-            function (common_1_1) {
-                common_1 = common_1_1;
-            },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
-            },
-            function (index_1_1) {
-                index_1 = index_1_1;
-            },
-            function (app_component_1_1) {
-                app_component_1 = app_component_1_1;
-            },
-            function (notification_service_1_1) {
-                notification_service_1 = notification_service_1_1;
-            },
-            function (ng2_meta_1_1) {
-                ng2_meta_1 = ng2_meta_1_1;
-            },
-            function (input_1_1) {
-                input_1 = input_1_1;
-            },
-            function (checkbox_1_1) {
-                checkbox_1 = checkbox_1_1;
-            },
-            function (button_1_1) {
-                button_1 = button_1_1;
+            function (app_module_1_1) {
+                app_module_1 = app_module_1_1;
             }],
         execute: function() {
-            platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [http_1.HTTP_PROVIDERS,
-                notification_service_1.NotificationsService,
-                router_deprecated_1.ROUTER_PROVIDERS,
-                index_1.GOOGLE_MAPS_PROVIDERS,
-                platform_browser_1.Title,
-                ng2_meta_1.MetaService,
-                core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy }),
-                /**
-                 * Use Angular 2 material directive globally (as a PLATFORM_DIRECTIVE)
-                 * in order to user its components in the app without having to import them
-                 */
-                core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: checkbox_1.MD_CHECKBOX_DIRECTIVES, multi: true }),
-                core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: input_1.MD_INPUT_DIRECTIVES, multi: true }),
-                core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: button_1.MD_BUTTON_DIRECTIVES, multi: true })
-            ]).catch(console.error);
+            platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
         }
     }
 });

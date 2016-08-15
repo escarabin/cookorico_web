@@ -95,7 +95,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                             '<textarea id="baseTextArea">{{htmlContent}}</textarea> ' +
                             '</div> ' +
                             '</div>',
-                        inputs: ['mceContent', 'readOnly'],
+                        inputs: ['mceContent']
                     }),
                     __param(0, core_1.Inject(core_1.ElementRef)), 
                     __metadata('design:paramtypes', [core_1.ElementRef])

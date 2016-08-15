@@ -1,4 +1,4 @@
-System.register(['@angular/core', 'angular2-google-maps/core/index'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', 'angular2-google-maps/core/index'], function(e
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, index_1;
+    var core_1;
     var MapComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (index_1_1) {
-                index_1 = index_1_1;
             }],
         execute: function() {
             MapComponent = (function () {
@@ -35,7 +32,7 @@ System.register(['@angular/core', 'angular2-google-maps/core/index'], function(e
                 MapComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        directives: [index_1.GOOGLE_MAPS_DIRECTIVES],
+                        directives: [GOOGLE_MAPS_DIRECTIVES],
                         templateUrl: '../templates/map.component.html'
                     }), 
                     __metadata('design:paramtypes', [])

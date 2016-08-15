@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink } from '@angular/router-deprecated';
 
 // Services
 import { UserService } from './../services/user.service';
@@ -12,7 +11,6 @@ import { Notification } from './../models/notification';
 @Component({
     selector: 'my-job-posts',
     providers: [UserService],
-    directives: [RouterLink],
     templateUrl: '../templates/my-job-posts.component.html'
 })
 

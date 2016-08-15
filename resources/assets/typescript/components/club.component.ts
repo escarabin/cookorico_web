@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouteParams, RouterLink }
+import { RouteParams }
     from '@angular/router-deprecated';
 
 // Services

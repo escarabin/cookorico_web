@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink, Router, RouteParams } from '@angular/router-deprecated';
+import { Router, RouteParams } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
@@ -11,13 +11,9 @@ import { NotificationsService } from './../services/notification.service';
 import { Study } from './../models/study';
 import { Notification } from './../models/notification';
 
-// Components
-import { BusinessSelectComponent } from './business-select.component';
-
 @Component({
     selector: 'create-experience',
     providers: [ReferenceService, UserService],
-    directives: [RouterLink, BusinessSelectComponent],
     templateUrl: '../templates/create-study.component.html'
 })
 

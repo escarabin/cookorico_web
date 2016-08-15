@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './home.component', './post.component', './header.component', './footer.component', './profile.component', './club.component', './sign-up.component', './search.component', './notification.component', 'ng2-meta'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './home.component', './post.component', './profile.component', './club.component', './sign-up.component', './search.component', 'ng2-meta'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, home_component_1, post_component_1, header_component_1, footer_component_1, profile_component_1, club_component_1, sign_up_component_1, search_component_1, notification_component_1, ng2_meta_1;
+    var core_1, router_deprecated_1, home_component_1, post_component_1, profile_component_1, club_component_1, sign_up_component_1, search_component_1, ng2_meta_1;
     var AppComponent;
     return {
         setters:[
@@ -26,12 +26,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
             function (post_component_1_1) {
                 post_component_1 = post_component_1_1;
             },
-            function (header_component_1_1) {
-                header_component_1 = header_component_1_1;
-            },
-            function (footer_component_1_1) {
-                footer_component_1 = footer_component_1_1;
-            },
             function (profile_component_1_1) {
                 profile_component_1 = profile_component_1_1;
             },
@@ -44,9 +38,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
             function (search_component_1_1) {
                 search_component_1 = search_component_1_1;
             },
-            function (notification_component_1_1) {
-                notification_component_1 = notification_component_1_1;
-            },
             function (ng2_meta_1_1) {
                 ng2_meta_1 = ng2_meta_1_1;
             }],
@@ -58,11 +49,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './home.componen
                 }
                 AppComponent = __decorate([
                     core_1.Component({
-                        directives: [router_deprecated_1.RouterOutlet,
-                            home_component_1.HomeComponent,
-                            header_component_1.HeaderComponent,
-                            footer_component_1.FooterComponent,
-                            notification_component_1.NotificationsComponent],
                         providers: [ng2_meta_1.MetaService],
                         selector: 'app',
                         templateUrl: '/templates/app.component.html'

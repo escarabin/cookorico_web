@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/notification.service', './../models/experience', './../models/notification', './business-select.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/notification.service', './../models/experience', './../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, notification_service_1, experience_1, notification_1, business_select_component_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, notification_service_1, experience_1, notification_1;
     var CreateExperienceComponent;
     return {
         setters:[
@@ -34,9 +34,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             },
             function (notification_1_1) {
                 notification_1 = notification_1_1;
-            },
-            function (business_select_component_1_1) {
-                business_select_component_1 = business_select_component_1_1;
             }],
         execute: function() {
             CreateExperienceComponent = (function () {
@@ -96,7 +93,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     core_1.Component({
                         selector: 'create-experience',
                         providers: [reference_service_1.ReferenceService, user_service_1.UserService],
-                        directives: [router_deprecated_1.RouterLink, business_select_component_1.BusinessSelectComponent],
                         templateUrl: '../templates/create-experience.component.html'
                     }), 
                     __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.RouteParams, router_deprecated_1.Router])

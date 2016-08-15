@@ -93,7 +93,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                     core_1.Component({
                         selector: 'create-alert',
                         providers: [reference_service_1.ReferenceService, user_service_1.UserService],
-                        directives: [router_deprecated_1.RouterLink],
                         templateUrl: '../templates/create-alert.component.html'
                     }), 
                     __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.Router, router_deprecated_1.RouteParams])

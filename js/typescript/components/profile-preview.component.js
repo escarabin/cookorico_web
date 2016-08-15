@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '@angular/common', './../services/user.service', './../services/notification.service', 'ng2-img-cropper', 'ng2-bootstrap', 'ng2-file-upload/ng2-file-upload', './../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/user.service', './../services/notification.service', 'ng2-img-cropper', 'ng2-file-upload/ng2-file-upload', './../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, common_1, user_service_1, notification_service_1, ng2_img_cropper_1, ng2_bootstrap_1, ng2_file_upload_1, notification_1;
+    var core_1, router_deprecated_1, user_service_1, notification_service_1, ng2_img_cropper_1, ng2_file_upload_1, notification_1;
     var ProfilePreviewComponent;
     return {
         setters:[
@@ -20,9 +20,6 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
             },
-            function (common_1_1) {
-                common_1 = common_1_1;
-            },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             },
@@ -31,9 +28,6 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
             },
             function (ng2_img_cropper_1_1) {
                 ng2_img_cropper_1 = ng2_img_cropper_1_1;
-            },
-            function (ng2_bootstrap_1_1) {
-                ng2_bootstrap_1 = ng2_bootstrap_1_1;
             },
             function (ng2_file_upload_1_1) {
                 ng2_file_upload_1 = ng2_file_upload_1_1;
@@ -206,16 +200,6 @@ System.register(['@angular/core', '@angular/router-deprecated', '@angular/common
                 ProfilePreviewComponent = __decorate([
                     core_1.Component({
                         providers: [user_service_1.UserService],
-                        directives: [router_deprecated_1.RouterLink,
-                            ng2_img_cropper_1.ImageCropperComponent,
-                            ng2_bootstrap_1.MODAL_DIRECTIVES,
-                            common_1.NgClass,
-                            common_1.NgStyle,
-                            common_1.CORE_DIRECTIVES,
-                            ng2_file_upload_1.FileDropDirective,
-                            ng2_file_upload_1.FileSelectDirective,
-                            common_1.FORM_DIRECTIVES],
-                        viewProviders: [ng2_bootstrap_1.BS_VIEW_PROVIDERS],
                         selector: 'profile-preview',
                         templateUrl: '../templates/profile-preview.component.html',
                     }), 

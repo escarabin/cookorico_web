@@ -4,15 +4,25 @@
         <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ job.business.id }}.jpg"/>
     </div>
 
-    <div class="title">
-        {{ job.title }}
+    <div class="basic_infos">
+        <div class="title">
+            {{ job.title }}
+        </div>
+        <div class="business_name">
+            <h4>{{ job.business.title }}</h4>
+        </div>
+        <div class="business_adress">
+            {{ job.business.place.adress }}
+        </div>
     </div>
 
-    <div class="business_name">
-        <h4>{{ job.business.title }}</h4>
-    </div>
+    <div class="additional_infos">
+        <div class="contract_type">
+            {{ job.contract_type.title }}
+        </div>
 
-    <div class="business_adress">
-        {{ job.business.place.adress }}
+        <div class="post_date">
+            {{ job.created_at }}
+        </div>
     </div>
 </a>

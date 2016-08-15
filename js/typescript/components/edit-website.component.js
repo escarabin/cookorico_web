@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-bootstrap', './tiny-mce.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-bootstrap'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, forms_1, ng2_bootstrap_1, tiny_mce_component_1;
+    var core_1, common_1, forms_1, ng2_bootstrap_1;
     var EditWebsiteComponent;
     return {
         setters:[
@@ -25,9 +25,6 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
             },
             function (ng2_bootstrap_1_1) {
                 ng2_bootstrap_1 = ng2_bootstrap_1_1;
-            },
-            function (tiny_mce_component_1_1) {
-                tiny_mce_component_1 = tiny_mce_component_1_1;
             }],
         execute: function() {
             EditWebsiteComponent = (function () {
@@ -40,8 +37,7 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
                         selector: 'edit-website',
                         directives: [ng2_bootstrap_1.ACCORDION_DIRECTIVES,
                             common_1.CORE_DIRECTIVES,
-                            forms_1.FORM_DIRECTIVES,
-                            tiny_mce_component_1.UNITYTinyMCE],
+                            forms_1.FORM_DIRECTIVES],
                         templateUrl: '../templates/edit-website.component.html',
                     }), 
                     __metadata('design:paramtypes', [])

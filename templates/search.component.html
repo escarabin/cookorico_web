@@ -1,8 +1,4 @@
-<job-search-sidebar [placeId]="placeId"
-                    [jobNamingId]="jobNamingId"
-                    [contractTypeId]="contractTypeId"
-                    [searchText]="searchText"
-                    (searchParametersChanged)="updateSearchResults($event)">
+<job-search-sidebar (searchParametersChanged)="updateSearchResults($event)">
 
 </job-search-sidebar>
 <div class="router-outlet-container">

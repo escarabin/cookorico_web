@@ -1,14 +1,4 @@
 import { Component } from '@angular/core';
-import { Response } from '@angular/http';
-import { RouterLink } from '@angular/router-deprecated';
-
-import {
-    MapsAPILoader,
-    NoOpMapsAPILoader,
-    MouseEvent,
-    GOOGLE_MAPS_PROVIDERS,
-    GOOGLE_MAPS_DIRECTIVES
-} from 'angular2-google-maps/core/index';
 
 // Models
 import { MapMarker } from './../models/map-marker';

@@ -1,26 +1,16 @@
 import { Component } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { RouterLink } from '@angular/router-deprecated';
 
 // Services
 import { JobService } from './../services/job.service';
 import { PostService } from './../services/post.service';
 import { ClubService } from './../services/club.service';
 
-// Components
-import { JobSearchBarComponent } from './job-search-bar.component';
-import { JobPreviewComponent } from './job-preview.component';
-import { PostPreviewComponent } from './post-preview.component';
-
 @Component({
     providers: [JobService,
                 PostService,
                 ClubService],
-    directives: [RouterLink,
-                JobSearchBarComponent,
-                JobPreviewComponent,
-                PostPreviewComponent],
     selector: 'home',
     templateUrl: '../templates/home.component.html',
 })

@@ -1,19 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { RouteParams, RouterOutlet, RouteConfig }
+import { RouteParams, RouteConfig }
     from '@angular/router-deprecated';
 
 // Components
-import { RightSidebarComponent } from './right-sidebar.component'
 import { JobSearchResultsComponent } from './job-search-results.component'
-import { JobSearchSidebarComponent } from './job-search-sidebar.component'
 import { NewApplicationFormComponent } from './new-application-form.component';
 import { JobComponent } from './job.component';
 
 @Component({
-    directives: [JobSearchSidebarComponent,
-                 RightSidebarComponent,
-                 JobSearchResultsComponent,
-                 RouterOutlet],
     providers: [JobSearchResultsComponent],
     templateUrl: '../templates/search.component.html',
     selector: 'search',

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink } from '@angular/router-deprecated';
 
 // Services
 import { UserService } from './../services/user.service';
@@ -8,7 +7,6 @@ import { UserService } from './../services/user.service';
 @Component({
     selector: 'applications',
     providers: [UserService],
-    directives: [RouterLink],
     templateUrl: '../templates/applications.component.html'
 })
 

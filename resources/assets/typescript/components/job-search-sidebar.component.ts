@@ -1,21 +1,14 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { RouterLink, RouteParams } from '@angular/router-deprecated'
+import { RouteParams } from '@angular/router-deprecated'
 import { Response } from '@angular/http';
-import { CollapseDirective } from 'ng2-bootstrap';
 
 // Components
 import { ReferenceService } from './../services/reference.service';
-
-// Directives
-import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
 
 // TODO : remove this service
 import { JobService } from './../services/job.service';
 
 @Component({
-    directives: [RouterLink,
-                 CollapseDirective,
-                 GoogleplaceDirective],
     providers: [ReferenceService, JobService],
     selector: 'job-search-sidebar',
     templateUrl: '../templates/job-search-sidebar.component.html',

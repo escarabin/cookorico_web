@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink, RouteParams, Router } from '@angular/router-deprecated';
+import { RouteParams, Router } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
@@ -12,14 +12,9 @@ import { NotificationsService } from './../services/notification.service';
 import { JobPost } from './../models/job-post';
 import { Notification } from './../models/notification';
 
-// Components
-import { BusinessSelectComponent } from './business-select.component';
-import { UNITYTinyMCE } from './tiny-mce.component';
-
 @Component({
     selector: 'create-job-post',
     providers: [ReferenceService, UserService, JobPostService],
-    directives: [RouterLink, BusinessSelectComponent, UNITYTinyMCE],
     templateUrl: '../templates/create-job-post.component.html'
 })
 

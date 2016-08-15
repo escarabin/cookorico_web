@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
 import { Router, RouterLink } from '@angular/router-deprecated';
 import { Response } from '@angular/http';
-
-// Components
-import { SignInComponent } from './sign-in.component';
 
 // Models
 import { User } from './../models/user';
@@ -16,9 +12,6 @@ import { UserService } from './../services/user.service';
     templateUrl: '../templates/header.component.html',
     selector: 'header',
     providers: [UserService],
-    directives: [RouterLink,
-                 SignInComponent,
-                 CORE_DIRECTIVES]
 })
 
 export class HeaderComponent {

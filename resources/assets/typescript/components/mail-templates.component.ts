@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink } from '@angular/router-deprecated';
 
 // Services
 import { MailService } from './../services/mail.service';
@@ -9,7 +8,6 @@ import { NotificationsService } from './../services/notification.service';
 @Component({
     selector: 'mail-templates',
     providers: [MailService],
-    directives: [RouterLink],
     templateUrl: '../templates/mail-templates.component.html'
 })
 

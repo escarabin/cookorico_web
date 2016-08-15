@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Router, RouterLink, RouteParams } from '@angular/router-deprecated';
+import { Router, RouteParams } from '@angular/router-deprecated';
 import { Response } from '@angular/http';
 
 // Services
@@ -7,18 +7,15 @@ import { JobService } from './../services/job.service';
 import { NotificationsService } from './../services/notification.service';
 import { UserService } from './../services/user.service';
 
-// Directives
-import { UNITYTinyMCE } from './tiny-mce.component';
-
 // Models
 import { Notification } from './../models/notification';
 import { Application } from './../models/application';
 
 @Component({
-    directives: [RouterLink, UNITYTinyMCE],
     providers: [JobService, UserService],
     selector: 'new-application-form',
     templateUrl: '../templates/new-application-form.component.html',
+    inputs: ['jobId']
 })
 
 export class NewApplicationFormComponent {

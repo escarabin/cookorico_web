@@ -18,14 +18,30 @@ job-preview {
     margin-right: 30px;
   }
 
-  .business_name {
-    font-size: 1.2em;
-    font-family: $mainBoldFontFamily;
-    margin-bottom: 5px;
+  .basic_infos {
+    float: left;
+    width: 70%;
+
+    .business_name {
+      font-size: 1.2em;
+      font-family: $mainBoldFontFamily;
+      margin-bottom: 5px;
+    }
+
+    .title, .business_adress {
+      color: $mainDarkTextColor;
+    }
   }
 
-  .title, .business_adress {
-    color: $mainDarkTextColor;
+  .additional_infos {
+    .contract_type {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .post_date {
+
+    }
   }
 
   &:hover {

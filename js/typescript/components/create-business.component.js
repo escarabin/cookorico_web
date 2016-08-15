@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/location.service', './../services/business.service', './../services/notification.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../models/business', './../models/place', './../models/notification', 'ng2-file-upload/ng2-file-upload'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/user.service', './../services/business.service', './../services/notification.service', './../models/business', './../models/place', './../models/notification', 'ng2-file-upload/ng2-file-upload'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, location_service_1, business_service_1, notification_service_1, googleplace_directive_1, business_1, place_1, notification_1, ng2_file_upload_1;
+    var core_1, router_deprecated_1, reference_service_1, user_service_1, business_service_1, notification_service_1, business_1, place_1, notification_1, ng2_file_upload_1;
     var CreateBusinessComponent;
     return {
         setters:[
@@ -26,17 +26,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             },
-            function (location_service_1_1) {
-                location_service_1 = location_service_1_1;
-            },
             function (business_service_1_1) {
                 business_service_1 = business_service_1_1;
             },
             function (notification_service_1_1) {
                 notification_service_1 = notification_service_1_1;
-            },
-            function (googleplace_directive_1_1) {
-                googleplace_directive_1 = googleplace_directive_1_1;
             },
             function (business_1_1) {
                 business_1 = business_1_1;
@@ -52,12 +46,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
             }],
         execute: function() {
             CreateBusinessComponent = (function () {
-                function CreateBusinessComponent(referenceService, userService, notificationService, businessService, locationService, ref, router, routeParams) {
+                function CreateBusinessComponent(referenceService, userService, notificationService, businessService, ref, router, routeParams) {
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.notificationService = notificationService;
                     this.businessService = businessService;
-                    this.locationService = locationService;
                     this.ref = ref;
                     this.router = router;
                     this.routeParams = routeParams;
@@ -213,15 +206,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/r
                         selector: 'create-business',
                         providers: [reference_service_1.ReferenceService,
                             user_service_1.UserService,
-                            location_service_1.LocationService,
                             business_service_1.BusinessService],
-                        directives: [router_deprecated_1.RouterLink,
-                            googleplace_directive_1.GoogleplaceDirective,
-                            ng2_file_upload_1.FileDropDirective,
-                            ng2_file_upload_1.FileSelectDirective],
                         templateUrl: '../templates/create-business.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, business_service_1.BusinessService, location_service_1.LocationService, core_1.ChangeDetectorRef, router_deprecated_1.Router, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, business_service_1.BusinessService, core_1.ChangeDetectorRef, router_deprecated_1.Router, router_deprecated_1.RouteParams])
                 ], CreateBusinessComponent);
                 return CreateBusinessComponent;
             }());

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/job.service', './job-search-sidebar.component', './new-application-form.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/job.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, job_service_1, job_search_sidebar_component_1, new_application_form_component_1;
+    var core_1, router_deprecated_1, job_service_1;
     var JobComponent;
     return {
         setters:[
@@ -22,12 +22,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
             },
             function (job_service_1_1) {
                 job_service_1 = job_service_1_1;
-            },
-            function (job_search_sidebar_component_1_1) {
-                job_search_sidebar_component_1 = job_search_sidebar_component_1_1;
-            },
-            function (new_application_form_component_1_1) {
-                new_application_form_component_1 = new_application_form_component_1_1;
             }],
         execute: function() {
             JobComponent = (function () {
@@ -44,9 +38,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/j
                 JobComponent = __decorate([
                     core_1.Component({
                         providers: [job_service_1.JobService],
-                        directives: [router_deprecated_1.RouterLink,
-                            job_search_sidebar_component_1.JobSearchSidebarComponent,
-                            new_application_form_component_1.NewApplicationFormComponent],
                         inputs: ['jobId'],
                         selector: 'job',
                         templateUrl: '../templates/job.component.html',

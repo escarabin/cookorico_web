@@ -1,41 +1,22 @@
 import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
-import { RouterLink, RouteParams } from '@angular/router-deprecated'
+import { RouteParams } from '@angular/router-deprecated'
 import { Response } from '@angular/http';
-import { CORE_DIRECTIVES,
-         FORM_DIRECTIVES,
-         NgClass,
-         NgStyle } from '@angular/common';
 
 // Services
 import { UserService } from './../services/user.service';
 import { NotificationsService } from './../services/notification.service';
 
 // Image cropping
-import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
-
-// Bootstrap (used to pop-up modals)
-import { MODAL_DIRECTIVES, BS_VIEW_PROVIDERS } from 'ng2-bootstrap';
+import { CropperSettings, ImageCropperComponent } from 'ng2-img-cropper';
 
 // File drop zone
-import { FileSelectDirective,
-         FileDropDirective,
-         FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 // Models
 import { Notification } from './../models/notification';
 
 @Component({
     providers: [UserService],
-    directives: [RouterLink,
-                 ImageCropperComponent,
-                 MODAL_DIRECTIVES,
-                 NgClass,
-                 NgStyle,
-                 CORE_DIRECTIVES,
-                 FileDropDirective,
-                 FileSelectDirective,
-                 FORM_DIRECTIVES],
-    viewProviders:[BS_VIEW_PROVIDERS],
     selector: 'profile-preview',
     templateUrl: '../templates/profile-preview.component.html',
 })

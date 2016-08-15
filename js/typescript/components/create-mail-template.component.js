@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/mail.service', './../models/mail-template', './../models/user', './../models/business', './tiny-mce.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/mail.service', './../models/mail-template', './../models/user', './../models/business'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/m
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, mail_service_1, mail_template_1, user_1, business_1, tiny_mce_component_1;
+    var core_1, router_deprecated_1, mail_service_1, mail_template_1, user_1, business_1;
     var CreateMailTemplateComponent;
     return {
         setters:[
@@ -31,9 +31,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/m
             },
             function (business_1_1) {
                 business_1 = business_1_1;
-            },
-            function (tiny_mce_component_1_1) {
-                tiny_mce_component_1 = tiny_mce_component_1_1;
             }],
         execute: function() {
             CreateMailTemplateComponent = (function () {
@@ -68,13 +65,12 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/m
                 };
                 __decorate([
                     core_1.ViewChild('mce-editor'), 
-                    __metadata('design:type', tiny_mce_component_1.UNITYTinyMCE)
+                    __metadata('design:type', Object)
                 ], CreateMailTemplateComponent.prototype, "mceEditor", void 0);
                 CreateMailTemplateComponent = __decorate([
                     core_1.Component({
                         selector: 'create-mail-template',
                         providers: [mail_service_1.MailService],
-                        directives: [router_deprecated_1.RouterLink, tiny_mce_component_1.UNITYTinyMCE],
                         templateUrl: '../templates/create-mail-template.component.html'
                     }), 
                     __metadata('design:paramtypes', [mail_service_1.MailService, router_deprecated_1.RouteParams])

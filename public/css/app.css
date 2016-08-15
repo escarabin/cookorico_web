@@ -430,12 +430,18 @@ job-preview {
     max-height: 90px;
     float: left;
     margin-right: 30px; }
-  job-preview .business_name {
-    font-size: 1.2em;
-    font-family: "Avenir Heavy", sans-serif;
-    margin-bottom: 5px; }
-  job-preview .title, job-preview .business_adress {
-    color: #333; }
+  job-preview .basic_infos {
+    float: left;
+    width: 70%; }
+    job-preview .basic_infos .business_name {
+      font-size: 1.2em;
+      font-family: "Avenir Heavy", sans-serif;
+      margin-bottom: 5px; }
+    job-preview .basic_infos .title, job-preview .basic_infos .business_adress {
+      color: #333; }
+  job-preview .additional_infos .contract_type {
+    font-weight: bold;
+    text-transform: uppercase; }
   job-preview:hover {
     background-color: #e7f6fb;
     border-color: #35B6E1; }

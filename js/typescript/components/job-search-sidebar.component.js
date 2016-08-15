@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap', './../services/reference.service', 'angular2-google-map-auto-complete/directives/googleplace.directive', './../services/job.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './../services/reference.service', './../services/job.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, ng2_bootstrap_1, reference_service_1, googleplace_directive_1, job_service_1;
+    var core_1, router_deprecated_1, reference_service_1, job_service_1;
     var JobSearchSidebarComponent;
     return {
         setters:[
@@ -20,14 +20,8 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
             },
-            function (ng2_bootstrap_1_1) {
-                ng2_bootstrap_1 = ng2_bootstrap_1_1;
-            },
             function (reference_service_1_1) {
                 reference_service_1 = reference_service_1_1;
-            },
-            function (googleplace_directive_1_1) {
-                googleplace_directive_1 = googleplace_directive_1_1;
             },
             function (job_service_1_1) {
                 job_service_1 = job_service_1_1;
@@ -141,9 +135,6 @@ System.register(['@angular/core', '@angular/router-deprecated', 'ng2-bootstrap',
                 ], JobSearchSidebarComponent.prototype, "searchParametersChanged", void 0);
                 JobSearchSidebarComponent = __decorate([
                     core_1.Component({
-                        directives: [router_deprecated_1.RouterLink,
-                            ng2_bootstrap_1.CollapseDirective,
-                            googleplace_directive_1.GoogleplaceDirective],
                         providers: [reference_service_1.ReferenceService, job_service_1.JobService],
                         selector: 'job-search-sidebar',
                         templateUrl: '../templates/job-search-sidebar.component.html',

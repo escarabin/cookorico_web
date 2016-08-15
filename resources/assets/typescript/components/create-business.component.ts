@@ -5,7 +5,6 @@ import { RouterLink, RouteParams, Router } from '@angular/router-deprecated';
 // Services
 import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
-import { LocationService } from './../services/location.service';
 import { BusinessService } from './../services/business.service';
 import { NotificationsService } from './../services/notification.service';
 
@@ -18,20 +17,13 @@ import { Place } from './../models/place'
 import { Notification } from './../models/notification';
 
 // File drop zone
-import { FileSelectDirective,
-    FileDropDirective,
-    FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 @Component({
     selector: 'create-business',
     providers: [ReferenceService,
                 UserService,
-                LocationService,
                 BusinessService],
-    directives: [RouterLink,
-                GoogleplaceDirective,
-                FileDropDirective,
-                FileSelectDirective],
     templateUrl: '../templates/create-business.component.html'
 })
 
@@ -50,7 +42,6 @@ export class CreateBusinessComponent {
                 private userService: UserService,
                 private notificationService: NotificationsService,
                 private businessService: BusinessService,
-                private locationService: LocationService,
                 private ref: ChangeDetectorRef,
                 private router: Router,
                 private routeParams: RouteParams) {

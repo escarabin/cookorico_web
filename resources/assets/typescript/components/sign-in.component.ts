@@ -1,9 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { Router, RouterLink } from '@angular/router-deprecated';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router-deprecated';
 import { Response } from '@angular/http';
-
-import { MODAL_DIRECTIVES, BS_VIEW_PROVIDERS } from 'ng2-bootstrap';
 
 // Services
 import { UserService } from './../services/user.service';
@@ -16,12 +13,7 @@ import { Notification } from './../models/notification';
 @Component({
     templateUrl: '../templates/sign-in.component.html',
     selector: 'sign-in',
-
     providers: [UserService],
-    viewProviders:[BS_VIEW_PROVIDERS],
-    directives: [RouterLink,
-        MODAL_DIRECTIVES,
-        CORE_DIRECTIVES]
 })
 
 export class SignInComponent {

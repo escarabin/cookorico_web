@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink, RouteParams, Router } from '@angular/router-deprecated';
+import { RouteParams, Router } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
@@ -14,7 +14,6 @@ import { Notification } from './../models/notification';
 @Component({
     selector: 'create-alert',
     providers: [ReferenceService, UserService],
-    directives: [RouterLink],
     templateUrl: '../templates/create-alert.component.html'
 })
 

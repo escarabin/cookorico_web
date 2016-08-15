@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink, RouteParams } from '@angular/router-deprecated';
+import { RouteParams } from '@angular/router-deprecated';
 
 // Services
 import { MailService } from './../services/mail.service';
@@ -10,13 +10,9 @@ import { MailTemplate } from './../models/mail-template';
 import { User } from './../models/user';
 import { Business } from './../models/business';
 
-// Components
-import { UNITYTinyMCE } from './tiny-mce.component';
-
 @Component({
     selector: 'create-mail-template',
     providers: [MailService],
-    directives: [RouterLink, UNITYTinyMCE],
     templateUrl: '../templates/create-mail-template.component.html'
 })
 

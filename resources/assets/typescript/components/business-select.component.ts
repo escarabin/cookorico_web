@@ -7,16 +7,9 @@ import { PlaceService } from './../services/place.service';
 import { UserService } from './../services/user.service';
 import { NotificationsService } from './../services/notification.service';
 
-// Directives
-import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
-
-// Models
-import { Notification } from './../models/notification';
-
 @Component({
     selector: 'business-select',
     providers: [BusinessService, PlaceService, UserService, NotificationsService],
-    directives: [GoogleplaceDirective],
     templateUrl: '../templates/business-select.component.html',
     inputs: ['businessId', 'onlyUserBusinesses', 'isRequired']
 })

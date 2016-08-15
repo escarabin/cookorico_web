@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router-deprecated';
 
 import { NotificationsService } from './../services/notification.service';
 import { Notification } from './../models/notification';
 
 @Component({
     selector: 'notifications',
-    directives: [RouterLink],
     templateUrl: '../templates/notification.component.html'
 })
 

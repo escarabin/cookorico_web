@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar.component', './job-search-results.component', './job-search-sidebar.component', './new-application-form.component', './job.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './job-search-results.component', './new-application-form.component', './job.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, right_sidebar_component_1, job_search_results_component_1, job_search_sidebar_component_1, new_application_form_component_1, job_component_1;
+    var core_1, router_deprecated_1, job_search_results_component_1, new_application_form_component_1, job_component_1;
     var SearchComponent;
     return {
         setters:[
@@ -20,14 +20,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
             },
-            function (right_sidebar_component_1_1) {
-                right_sidebar_component_1 = right_sidebar_component_1_1;
-            },
             function (job_search_results_component_1_1) {
                 job_search_results_component_1 = job_search_results_component_1_1;
-            },
-            function (job_search_sidebar_component_1_1) {
-                job_search_sidebar_component_1 = job_search_sidebar_component_1_1;
             },
             function (new_application_form_component_1_1) {
                 new_application_form_component_1 = new_application_form_component_1_1;
@@ -55,10 +49,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './right-sidebar
                 ], SearchComponent.prototype, "jobSearchResults", void 0);
                 SearchComponent = __decorate([
                     core_1.Component({
-                        directives: [job_search_sidebar_component_1.JobSearchSidebarComponent,
-                            right_sidebar_component_1.RightSidebarComponent,
-                            job_search_results_component_1.JobSearchResultsComponent,
-                            router_deprecated_1.RouterOutlet],
                         providers: [job_search_results_component_1.JobSearchResultsComponent],
                         templateUrl: '../templates/search.component.html',
                         selector: 'search',
