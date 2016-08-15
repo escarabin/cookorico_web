@@ -44,6 +44,7 @@
     '@angular2-material/input':   { main: 'input.js', defaultExtension: 'js' },
     '@angular2-material/checkbox':{ main: 'checkbox.js', defaultExtension: 'js' },
     '@angular2-material/tooltip': { main: 'tooltip.js', defaultExtension: 'js' },
+    '@angular2-material/button':  { main: 'button.js', defaultExtension: 'js' },
     'ng2-meta':                   { main: 'dist/meta.service.js', defaultExtension: 'js' }
   };
 
