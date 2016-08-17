@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { RouteParams }
-    from '@angular/router-deprecated';
+import { ActivatedRoute } from '@angular/router';
 
 // Services
 import { JobService } from '../../services/job.service';
@@ -18,11 +17,16 @@ export class JobComponent {
     job: any;
     user: any;
 
-    constructor(private routeParams: RouteParams,
+    constructor(private route: ActivatedRoute,
                 private jobService: JobService) {
         let __this = this;
         this.user = JSON.parse(localStorage.getItem('user'));
-        this.jobId = routeParams.get("jobId");
+
+        route.params.subscribe(params => {
+            if (params) {
+                this.jobId = params["jobId"];
+            }
+        });
 
         jobService.getJob(__this.jobId).subscribe((res: Response) => {
             __this.job = res.json();

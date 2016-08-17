@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouteParams } from '@angular/router-deprecated';
+import { ActivatedRoute } from '@angular/router';
 
 // Services
 import { JobService } from '../../services/job.service';
@@ -24,14 +24,18 @@ export class JobSearchResultsComponent {
     searchText: string;
 
     constructor(private jobService: JobService,
-                private routeParams: RouteParams) {
+                private route: ActivatedRoute) {
         let __this = this;
 
-        this.placeId = this.routeParams.get('placeId');
-        this.studyLevelId = this.routeParams.get('studyLevelId');
-        this.contractTypeId = this.routeParams.get('contractTypeId');
-        this.jobNamingId = this.routeParams.get('jobNamingId');
-        this.searchText = this.routeParams.get('searchText');
+        route.params.subscribe(params => {
+            if (params) {
+                __this.placeId = params['placeId'];
+                __this.studyLevelId = params['studyLevelId'];
+                __this.contractTypeId = params['contractTypeId'];
+                __this.jobNamingId = params['jobNamingId'];
+                __this.searchText = params['searchText'];
+            }
+        });
 
         this.jobService.getAllJobs().subscribe((res: Response) => {
             __this.jobs = res.json();

@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { RouteParams } from '@angular/router-deprecated'
+import { ActivatedRoute } from '@angular/router'
 import { Response } from '@angular/http';
 
 // Components
@@ -31,7 +31,7 @@ export class JobSearchSidebarComponent {
 
     constructor(private referenceService: ReferenceService,
                 private jobService: JobService,
-                private routeParams: RouteParams) {
+                private route: ActivatedRoute) {
         let __this = this;
 
         referenceService.getAllContractTypes().subscribe((res: Response) => {
@@ -50,10 +50,14 @@ export class JobSearchSidebarComponent {
             __this.jobs = res.json();
         });
 
-        this.studyLevelIdList.push(parseInt(routeParams.get('studyLevelId')));
-        this.jobNamingIdList.push(parseInt(routeParams.get('jobNamingId')));
-        this.contractTypeIdList.push(parseInt(routeParams.get('contractTypeId')));
-        this.searchText = routeParams.get('searchText');
+        route.params.subscribe(params => {
+            if (params) {
+                this.studyLevelIdList.push(parseInt(route['studyLevelId']));
+                this.jobNamingIdList.push(parseInt(route['jobNamingId']));
+                this.contractTypeIdList.push(parseInt(route['contractTypeId']));
+                this.searchText = route['searchText'];
+            }
+        });
     }
 
     /**

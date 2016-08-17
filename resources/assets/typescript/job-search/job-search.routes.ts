@@ -1,16 +1,26 @@
 import { Routes, RouterModule } from '@angular/router';
 
 // Components
-import { JobSearchResultsComponent } from './components/job-search-results.component'
+import { SearchComponent } from './components/search.component';
+import { JobSearchResultsComponent } from './components/job-search-results.component';
 import { NewApplicationFormComponent } from './components/new-application-form.component';
 import { JobComponent } from './components/job.component';
 
 const jobSearchRoutes: Routes = [
-    { path: 'jobs/search/', name: 'ShowAllJobs', component: JobSearchResultsComponent, useAsDefault: true },
-    { path: 'job/:jobId/', name: 'ShowJob', component: JobComponent },
-    { path: 'jobs/search/:parameters',
-        name: 'SearchJobs', component: JobSearchResultsComponent },
-    { path: 'apply/:jobId', name: 'Apply', component: NewApplicationFormComponent }
+    {
+        path: '',
+        component: SearchComponent,
+        children: [
+            {path: 'jobs/search/', component: JobSearchResultsComponent},
+            {path: 'jobs/search/:parameters', component: JobSearchResultsComponent},
+            {path: 'apply/:jobId', component: NewApplicationFormComponent},
+            {path: 'job/:jobId', component: JobComponent},
+            {
+                path: '',
+                component: JobSearchResultsComponent
+            }
+        ]
+    }
 ];
 
 // - Updated Export

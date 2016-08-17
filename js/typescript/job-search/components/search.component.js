@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './job-search-results.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', './job-search-results.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,28 +10,33 @@ System.register(['@angular/core', '@angular/router-deprecated', './job-search-re
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, job_search_results_component_1;
+    var core_1, router_1, job_search_results_component_1;
     var SearchComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (job_search_results_component_1_1) {
                 job_search_results_component_1 = job_search_results_component_1_1;
             }],
         execute: function() {
             SearchComponent = (function () {
-                function SearchComponent(routeParams) {
-                    this.routeParams = routeParams;
+                function SearchComponent(route) {
+                    var _this = this;
+                    this.route = route;
                     this.searchParameters = [];
-                    this.placeId = parseInt(routeParams.get('placeId'));
-                    this.jobNamingId = parseInt(routeParams.get('jobNamingId'));
-                    this.contractTypeId = parseInt(routeParams.get('contractTypeId'));
-                    this.searchText = routeParams.get('searchText');
+                    route.params.subscribe(function (params) {
+                        if (params) {
+                            _this.placeId = parseInt(route['placeId']);
+                            _this.jobNamingId = parseInt(route['jobNamingId']);
+                            _this.contractTypeId = parseInt(route['contractTypeId']);
+                            _this.searchText = route['searchText'];
+                        }
+                    });
                 }
                 SearchComponent.prototype.updateSearchResults = function (parameters) {
                     this.searchParameters = parameters;
@@ -47,7 +52,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './job-search-re
                         templateUrl: '../templates/search.component.html',
                         selector: 'search',
                     }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [router_1.ActivatedRoute])
                 ], SearchComponent);
                 return SearchComponent;
             }());

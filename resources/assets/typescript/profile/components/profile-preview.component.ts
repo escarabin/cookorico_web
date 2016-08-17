@@ -1,5 +1,5 @@
 import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
-import { RouteParams } from '@angular/router-deprecated'
+import { ActivatedRoute } from '@angular/router'
 import { Response } from '@angular/http';
 
 // Services
@@ -36,13 +36,14 @@ export class ProfilePreviewComponent {
     editableProfile: boolean = false;
     cropperSettings: CropperSettings;
     editingItems: any = [];
+    userIdRouteParam: string;
     public profilePictureUploader:FileUploader = new FileUploader({url: URL});
     public resumeUploader:FileUploader = new FileUploader({url: URL});
     public hasBaseDropZoneOver:boolean = false;
     public hasAnotherDropZoneOver:boolean = false;
 
     constructor(private userService: UserService,
-                private routeParams: RouteParams,
+                private route: ActivatedRoute,
                 private notificationService: NotificationsService) {
         let __this = this;
 
@@ -50,17 +51,21 @@ export class ProfilePreviewComponent {
          * If userId is defined, then show the profile of this user
          * else, get data from logged in user
          */
-        let userIdParam = routeParams.get('userId');
+        route.params.subscribe(params => {
+            if (params) {
+                __this.userIdRouteParam = params['id'];
+            }
+        });
 
-        if (!userIdParam) {
+        if (!this.userIdRouteParam) {
             this.user = JSON.parse(localStorage.getItem('user'));
-            userIdParam = this.user['id'];
+            this.userIdRouteParam = this.user['id'];
 
             // The profile is logged user's one so he is able to edit it
             this.editableProfile = true;
         }
 
-        this.userService.get(userIdParam).subscribe((res: Response) => {
+        this.userService.get(this.userIdRouteParam).subscribe((res: Response) => {
             __this.user = res.json();
 
             __this.userService.getExperiences(__this.user.id).subscribe((res: Response) => {

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../../services/user.service', '../../services/notification.service', 'ng2-img-cropper', 'ng2-file-upload/ng2-file-upload', '../../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/user.service', '../../services/notification.service', 'ng2-img-cropper', 'ng2-file-upload/ng2-file-upload', '../../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, user_service_1, notification_service_1, ng2_img_cropper_1, ng2_file_upload_1, notification_1;
+    var core_1, router_1, user_service_1, notification_service_1, ng2_img_cropper_1, ng2_file_upload_1, notification_1;
     var ProfilePreviewComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
@@ -37,9 +37,9 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
             }],
         execute: function() {
             ProfilePreviewComponent = (function () {
-                function ProfilePreviewComponent(userService, routeParams, notificationService) {
+                function ProfilePreviewComponent(userService, route, notificationService) {
                     this.userService = userService;
-                    this.routeParams = routeParams;
+                    this.route = route;
                     this.notificationService = notificationService;
                     this.profilePictureChanged = new core_1.EventEmitter();
                     this.user = [];
@@ -58,14 +58,18 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
                      * If userId is defined, then show the profile of this user
                      * else, get data from logged in user
                      */
-                    var userIdParam = routeParams.get('userId');
-                    if (!userIdParam) {
+                    route.params.subscribe(function (params) {
+                        if (params) {
+                            __this.userIdRouteParam = params['id'];
+                        }
+                    });
+                    if (!this.userIdRouteParam) {
                         this.user = JSON.parse(localStorage.getItem('user'));
-                        userIdParam = this.user['id'];
+                        this.userIdRouteParam = this.user['id'];
                         // The profile is logged user's one so he is able to edit it
                         this.editableProfile = true;
                     }
-                    this.userService.get(userIdParam).subscribe(function (res) {
+                    this.userService.get(this.userIdRouteParam).subscribe(function (res) {
                         __this.user = res.json();
                         __this.userService.getExperiences(__this.user.id).subscribe(function (res) {
                             __this.experiences = res.json();
@@ -203,7 +207,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
                         selector: 'profile-preview',
                         templateUrl: '../templates/profile-preview.component.html',
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.RouteParams, notification_service_1.NotificationsService])
+                    __metadata('design:paramtypes', [user_service_1.UserService, router_1.ActivatedRoute, notification_service_1.NotificationsService])
                 ], ProfilePreviewComponent);
                 return ProfilePreviewComponent;
             }());

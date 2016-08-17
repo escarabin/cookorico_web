@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-3 col-sm-3 col-xs-10">
-        <a [routerLink]="['Home']">
+        <a routerLink="/">
             <div class="logo"></div>
         </a>
     </div>
@@ -12,7 +12,7 @@
             <!-- User is connected -->
             <li *ngIf="!user"
                 class="recruiter_btn">
-                <a [routerLink]="['SignUp']">
+                <a routerLink="sign-up">
                     Espace recruteur
                 </a>
             </li>
@@ -23,13 +23,13 @@
             </sign-in>
 
             <li *ngIf="!user">
-                <a [routerLink]="['SignUp']">
+                <a routerLink="sign-up">
                     S'inscrire
                 </a>
             </li>
 
             <li *ngIf="user">
-                <a [routerLink]="['Profile']">
+                <a routerLink="profile">
                     Mon compte
                 </a>
             </li>

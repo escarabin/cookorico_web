@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { RouteParams }
-    from '@angular/router-deprecated';
+import { ActivatedRoute } from '@angular/router';
 
 // Components
 import { JobSearchResultsComponent } from './job-search-results.component'
@@ -19,16 +18,19 @@ export class SearchComponent {
     searchParameters: any = [];
     @ViewChild(JobSearchResultsComponent) jobSearchResults: JobSearchResultsComponent;
 
-    constructor(private routeParams: RouteParams) {
-        this.placeId = parseInt(routeParams.get('placeId'));
-        this.jobNamingId = parseInt(routeParams.get('jobNamingId'));
-        this.contractTypeId = parseInt(routeParams.get('contractTypeId'));
-        this.searchText = routeParams.get('searchText');
+    constructor(private route: ActivatedRoute) {
+        route.params.subscribe(params => {
+            if (params) {
+                this.placeId = parseInt(route['placeId']);
+                this.jobNamingId = parseInt(route['jobNamingId']);
+                this.contractTypeId = parseInt(route['contractTypeId']);
+                this.searchText = route['searchText'];
+            }
+        });
     }
 
     updateSearchResults(parameters) {
         this.searchParameters = parameters;
-
         this.jobSearchResults.updateSearchResults(parameters);
     }
 }

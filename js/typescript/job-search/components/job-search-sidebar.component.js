@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../../services/reference.service', '../../services/job.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/reference.service', '../../services/job.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, job_service_1;
+    var core_1, router_1, reference_service_1, job_service_1;
     var JobSearchSidebarComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (reference_service_1_1) {
                 reference_service_1 = reference_service_1_1;
@@ -28,10 +28,11 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
             }],
         execute: function() {
             JobSearchSidebarComponent = (function () {
-                function JobSearchSidebarComponent(referenceService, jobService, routeParams) {
+                function JobSearchSidebarComponent(referenceService, jobService, route) {
+                    var _this = this;
                     this.referenceService = referenceService;
                     this.jobService = jobService;
-                    this.routeParams = routeParams;
+                    this.route = route;
                     this.isStudyLevelCollapsed = true;
                     this.isContractTypeCollapsed = true;
                     this.isJobNamingCollapsed = true;
@@ -54,10 +55,14 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
                     jobService.getAllJobs().subscribe(function (res) {
                         __this.jobs = res.json();
                     });
-                    this.studyLevelIdList.push(parseInt(routeParams.get('studyLevelId')));
-                    this.jobNamingIdList.push(parseInt(routeParams.get('jobNamingId')));
-                    this.contractTypeIdList.push(parseInt(routeParams.get('contractTypeId')));
-                    this.searchText = routeParams.get('searchText');
+                    route.params.subscribe(function (params) {
+                        if (params) {
+                            _this.studyLevelIdList.push(parseInt(route['studyLevelId']));
+                            _this.jobNamingIdList.push(parseInt(route['jobNamingId']));
+                            _this.contractTypeIdList.push(parseInt(route['contractTypeId']));
+                            _this.searchText = route['searchText'];
+                        }
+                    });
                 }
                 /**
                  * Function used to get jobs count regarding given parameters
@@ -139,7 +144,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
                         selector: 'job-search-sidebar',
                         templateUrl: '../templates/job-search-sidebar.component.html',
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, job_service_1.JobService, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, job_service_1.JobService, router_1.ActivatedRoute])
                 ], JobSearchSidebarComponent);
                 return JobSearchSidebarComponent;
             }());

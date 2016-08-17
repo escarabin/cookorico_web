@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../../services/job.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/job.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,27 +10,32 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, job_service_1;
+    var core_1, router_1, job_service_1;
     var JobComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (job_service_1_1) {
                 job_service_1 = job_service_1_1;
             }],
         execute: function() {
             JobComponent = (function () {
-                function JobComponent(routeParams, jobService) {
-                    this.routeParams = routeParams;
+                function JobComponent(route, jobService) {
+                    var _this = this;
+                    this.route = route;
                     this.jobService = jobService;
                     var __this = this;
                     this.user = JSON.parse(localStorage.getItem('user'));
-                    this.jobId = routeParams.get("jobId");
+                    route.params.subscribe(function (params) {
+                        if (params) {
+                            _this.jobId = params["jobId"];
+                        }
+                    });
                     jobService.getJob(__this.jobId).subscribe(function (res) {
                         __this.job = res.json();
                     });
@@ -42,7 +47,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
                         selector: 'job',
                         templateUrl: '../templates/job.component.html',
                     }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, job_service_1.JobService])
+                    __metadata('design:paramtypes', [router_1.ActivatedRoute, job_service_1.JobService])
                 ], JobComponent);
                 return JobComponent;
             }());

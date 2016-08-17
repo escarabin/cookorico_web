@@ -1,4 +1,4 @@
-<a [routerLink]="['/JobSearch/ShowJob', { jobId: job.id }]">
+<a routerLink="/job-search/job/{{ job.id }}">
     <div class="logo"
           *ngIf="job.business.logo">
         <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ job.business.id }}.jpg"/>

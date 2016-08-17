@@ -20,54 +20,65 @@ import { CreateMailTemplateComponent } from './components/create-mail-template.c
 import { EditWebsiteComponent } from './components/edit-website.component';
 
 const profileRoutes: Routes = [
-    // Root
-    { path: 'show', name: 'ProfilePreview', component: ProfilePreviewComponent, useAsDefault: true },
-    { path: 'show/:userId', name: 'ShowUserProfile', component: ProfilePreviewComponent},
+    {
+        path: '',
+        component: ProfilePreviewComponent,
+        children: [
+            // Root
+            {path: 'show', component: ProfilePreviewComponent},
+            {path: 'show/:userId', component: ProfilePreviewComponent},
 
-    // Experiences
-    { path: 'experiences/all', name: 'Experiences', component: ExperiencesComponent },
-    { path: 'experience/create', name: 'CreateExperience', component: CreateExperienceComponent },
-    { path: 'experience/edit/:experienceId', name: 'EditExperience', component: CreateExperienceComponent },
+            // Experiences
+            {path: 'experiences/all', component: ExperiencesComponent},
+            {path: 'experience/create', component: CreateExperienceComponent},
+            {path: 'experience/edit/:experienceId', component: CreateExperienceComponent},
 
-    // Applications
-    { path: 'applications/all', name: 'Applications', component: ApplicationsComponent },
+            // Applications
+            {path: 'applications/all', component: ApplicationsComponent},
 
-    // Education
-    { path: 'education/all', name: 'Education', component: EducationComponent },
-    { path: 'education/edit/:studyId', name: 'EditStudy', component: CreateStudyComponent },
-    { path: 'education/create', name: 'CreateStudy', component: CreateStudyComponent },
+            // Education
+            {path: 'education/all', component: EducationComponent},
+            {path: 'education/edit/:studyId', component: CreateStudyComponent},
+            {path: 'education/create', component: CreateStudyComponent},
 
-    // Alerts
-    { path: 'alerts/all', name: 'Alerts', component: AlertsComponent },
-    { path: 'alert/:alertId', name: 'ShowAlert', component: AlertsComponent },
-    { path: 'alert/create', name: 'CreateAlert', component: CreateAlertComponent },
-    { path: 'alert/edit/:alertId', name: 'EditAlert', component: CreateAlertComponent },
+            // Alerts
+            {path: 'alerts/all', component: AlertsComponent},
+            {path: 'alert/:alertId', component: AlertsComponent},
+            {path: 'alert/create', component: CreateAlertComponent},
+            {path: 'alert/edit/:alertId', component: CreateAlertComponent},
 
-    // Testimonials
-    { path: 'testimonials/all', name: 'Testimonials', component: TestimonialsComponent },
-    { path: 'testimonials/:testimonialId', name: 'Testimonial', component: TestimonialsComponent },
+            // Testimonials
+            {path: 'testimonials/all', component: TestimonialsComponent},
+            {path: 'testimonials/:testimonialId', component: TestimonialsComponent},
 
-    // Businesses
-    { path: 'businesses/all', name: 'Businesses', component: BusinessesComponent },
-    { path: 'business/create', name: 'CreateBusiness', component: CreateBusinessComponent },
-    { path: 'business/edit/:businessId', name: 'EditBusiness', component: CreateBusinessComponent },
+            // Businesses
+            {path: 'businesses/all', component: BusinessesComponent},
+            {path: 'business/create', component: CreateBusinessComponent},
+            {path: 'business/edit/:businessId', component: CreateBusinessComponent},
 
-    // Job posts
-    { path: 'job-posts/all', name: 'JobPosts', component: MyJobPostsComponent },
-    { path: 'job-post/create', name: 'CreateJobPost', component: CreateJobPostComponent },
-    { path: 'job-post/edit/:jobPostId', name: 'EditJobPost', component: CreateJobPostComponent },
+            // Job posts
+            {path: 'job-posts/all', component: MyJobPostsComponent},
+            {path: 'job-post/create', component: CreateJobPostComponent},
+            {path: 'job-post/edit/:jobPostId', component: CreateJobPostComponent},
 
-    // Applicants
-    { path: 'applicants/all', name: 'Applicants', component: ApplicantsComponent },
-    { path: 'applicants/show_profile', name: 'ShowApplicantProfile', component: ApplicantsComponent },
+            // Applicants
+            {path: 'applicants/all', component: ApplicantsComponent},
+            {path: 'applicants/show_profile', component: ApplicantsComponent},
 
-    // Mails
-    { path: 'mail/templates', name: 'MailTemplates', component: MailTemplatesComponent },
-    { path: 'mail/template/create', name: 'CreateMailTemplate', component: CreateMailTemplateComponent },
-    { path: 'mail/template/edit/:templateId', name: 'EditMailTemplate', component: CreateMailTemplateComponent },
+            // Mails
+            {path: 'mail/templates', component: MailTemplatesComponent},
+            {path: 'mail/template/create', component: CreateMailTemplateComponent},
+            {path: 'mail/template/edit/:templateId', component: CreateMailTemplateComponent},
 
-    // Website editor
-    { path: 'website-editor', name: 'WebsiteEditor', component: EditWebsiteComponent }
+            // Website editor
+            {path: 'website-editor', component: EditWebsiteComponent},
+
+            {
+                path: '',
+                component: ProfilePreviewComponent
+            }
+        ]
+    }
 ];
 
 // - Updated Export

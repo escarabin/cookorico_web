@@ -1,6 +1,5 @@
 import { bind, Input, Component, View, ElementRef, OnInit, EventEmitter, Output, Inject, ComponentRef } from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router';
-import { Http } from '@angular/http';
+import { RouteConfig } from '@angular/router';
 
 declare var tinymce: any;
 
@@ -10,18 +9,17 @@ declare var tinymce: any;
                 '<div class="hidden"> ' +
                     '<textarea id="baseTextArea">{{htmlContent}}</textarea> ' +
                 '</div> ' +
-              '</div>',
-    inputs: ['mceContent']
+              '</div>'
 })
 
 export class UNITYTinyMCE {
-
     private elementRef: ElementRef;
     private elementID: string;
     public htmlContent: string;
 
     @Output() newContentInput: EventEmitter = new EventEmitter();
     @Input() readOnly: number;
+    @Input() mceContent: string;
 
     constructor(@Inject(ElementRef) elementRef: ElementRef)
     {
@@ -92,7 +90,7 @@ export class UNITYTinyMCE {
         this.newContentInput.emit(tinymce.get(this.elementID).getContent());
     }
 
-    set mceContent(content) {
+   /* set mceContent(content) {
         this.htmlContent = content;
-    }
+    }*/
 }

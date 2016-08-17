@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../../services/job.service', 'ng2-pagination'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/job.service', 'ng2-pagination'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, job_service_1, ng2_pagination_1;
+    var core_1, router_1, job_service_1, ng2_pagination_1;
     var JobSearchResultsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (job_service_1_1) {
                 job_service_1 = job_service_1_1;
@@ -28,16 +28,20 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
             }],
         execute: function() {
             JobSearchResultsComponent = (function () {
-                function JobSearchResultsComponent(jobService, routeParams) {
+                function JobSearchResultsComponent(jobService, route) {
                     this.jobService = jobService;
-                    this.routeParams = routeParams;
+                    this.route = route;
                     this.jobs = [];
                     var __this = this;
-                    this.placeId = this.routeParams.get('placeId');
-                    this.studyLevelId = this.routeParams.get('studyLevelId');
-                    this.contractTypeId = this.routeParams.get('contractTypeId');
-                    this.jobNamingId = this.routeParams.get('jobNamingId');
-                    this.searchText = this.routeParams.get('searchText');
+                    route.params.subscribe(function (params) {
+                        if (params) {
+                            __this.placeId = params['placeId'];
+                            __this.studyLevelId = params['studyLevelId'];
+                            __this.contractTypeId = params['contractTypeId'];
+                            __this.jobNamingId = params['jobNamingId'];
+                            __this.searchText = params['searchText'];
+                        }
+                    });
                     this.jobService.getAllJobs().subscribe(function (res) {
                         __this.jobs = res.json();
                         console.log(__this.jobs);
@@ -63,7 +67,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
                         pipes: [ng2_pagination_1.PaginatePipe],
                         templateUrl: '../templates/job-search-results.component.html',
                     }), 
-                    __metadata('design:paramtypes', [job_service_1.JobService, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [job_service_1.JobService, router_1.ActivatedRoute])
                 ], JobSearchResultsComponent);
                 return JobSearchResultsComponent;
             }());
