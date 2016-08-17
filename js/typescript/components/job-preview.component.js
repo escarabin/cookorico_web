@@ -29,6 +29,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     core_1.Component({
                         selector: 'job-preview',
                         templateUrl: '../templates/job-preview.component.html',
+                        inputs: ['job']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], JobPreviewComponent);

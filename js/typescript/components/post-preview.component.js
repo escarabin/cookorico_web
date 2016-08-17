@@ -29,6 +29,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     core_1.Component({
                         selector: 'post-preview',
                         templateUrl: '../templates/post-preview.component.html',
+                        inputs: ['post']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], PostPreviewComponent);

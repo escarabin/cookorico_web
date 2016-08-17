@@ -6,8 +6,8 @@
            googleplace/>
 </div>
 <div class="col-md-4 col-sm-4 input-container">
-    <!--<select class="form-control"
-            [(model)]="jobNamingId">
+    <select class="form-control"
+            [(ngModel)]="jobNamingId">
         <option disabled selected value="0">-- Type de poste --</option>
         <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
                   label="{{ jobNamingGroup.title }}">
@@ -16,7 +16,7 @@
                 {{ jobNaming.title }}
             </option>
         </optgroup>
-    </select>-->
+    </select>
 </div>
 <div class="col-md-4 col-sm-4 input-container">
     <a [routerLink]="['/JobSearch/ShowAllJobs']">

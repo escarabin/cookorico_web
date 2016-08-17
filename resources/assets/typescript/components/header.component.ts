@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router-deprecated';
 import { Response } from '@angular/http';
 
 // Models
@@ -17,8 +16,7 @@ import { UserService } from './../services/user.service';
 export class HeaderComponent {
     user: any;
 
-    constructor (private router: Router,
-                 private userService: UserService) {
+    constructor (private userService: UserService) {
         this.userService.getUserInfos().subscribe((res: Response) => {
             this.user = res.json();
             localStorage.setItem('user', JSON.stringify(this.user));

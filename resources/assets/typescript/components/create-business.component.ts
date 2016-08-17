@@ -1,15 +1,12 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouterLink, RouteParams, Router } from '@angular/router-deprecated';
+import { RouteParams, Router } from '@angular/router-deprecated';
 
 // Services
 import { ReferenceService } from './../services/reference.service';
 import { UserService } from './../services/user.service';
 import { BusinessService } from './../services/business.service';
 import { NotificationsService } from './../services/notification.service';
-
-// Directives
-import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
 
 // Models
 import { Business } from './../models/business'

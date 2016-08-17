@@ -29,21 +29,15 @@ System.register(['@angular/router', './components/home.component', './components
         execute: function() {
             routes = [
                 // Root
-                { path: '/', name: 'Home', component: home_component_1.HomeComponent, useAsDefault: true,
-                    data: {
-                        meta: {
-                            title: 'Home page',
-                            description: 'Description of the home page'
-                        }
-                    } },
+                { path: '', name: 'Home', component: home_component_1.HomeComponent, useAsDefault: true },
                 // Posts
-                { path: '/post/:postId/', name: 'ShowPost', component: post_component_1.PostComponent },
+                { path: 'post/:postId/', name: 'ShowPost', component: post_component_1.PostComponent },
                 // Clubs
-                { path: '/club/:clubId', name: 'ShowClub', component: club_component_1.ClubComponent },
+                { path: 'club/:clubId', name: 'ShowClub', component: club_component_1.ClubComponent },
                 // User
-                { path: '/sign-up/', name: 'SignUp', component: sign_up_component_1.SignUpComponent },
-                { path: '/profile/...', name: 'Profile', component: profile_component_1.ProfileComponent },
-                { path: '/job-search/...', name: 'JobSearch', component: search_component_1.SearchComponent }
+                { path: 'sign-up/', name: 'SignUp', component: sign_up_component_1.SignUpComponent },
+                { path: 'profile/...', name: 'Profile', component: profile_component_1.ProfileComponent },
+                { path: 'job-search/...', name: 'JobSearch', component: search_component_1.SearchComponent }
             ];
             // - Updated Export
             exports_1("routing", routing = router_1.RouterModule.forRoot(routes));
