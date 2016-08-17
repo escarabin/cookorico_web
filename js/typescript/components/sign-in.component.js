@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../services/user.service', '../services/notification.service', '../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../services/user.service', '../services/notification.service', '../models/notification', 'ng2-bootstrap/components/utils/components-helper.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../services/user.service',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, user_service_1, notification_service_1, notification_1;
+    var core_1, router_1, user_service_1, notification_service_1, notification_1, components_helper_service_1;
     var SignInComponent;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['@angular/core', '@angular/router', '../services/user.service',
             },
             function (notification_1_1) {
                 notification_1 = notification_1_1;
+            },
+            function (components_helper_service_1_1) {
+                components_helper_service_1 = components_helper_service_1_1;
             }],
         execute: function() {
             SignInComponent = (function () {
@@ -92,6 +95,7 @@ System.register(['@angular/core', '@angular/router', '../services/user.service',
                         templateUrl: '../templates/sign-in.component.html',
                         selector: 'sign-in',
                         providers: [user_service_1.UserService],
+                        viewProviders: [{ provide: components_helper_service_1.ComponentsHelper, useClass: components_helper_service_1.ComponentsHelper }],
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService, notification_service_1.NotificationsService, router_1.Router])
                 ], SignInComponent);

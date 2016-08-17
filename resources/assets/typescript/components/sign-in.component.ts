@@ -9,11 +9,15 @@ import { NotificationsService } from '../services/notification.service';
 // Models
 import { Notification } from '../models/notification';
 
+// ng2-bootstrap necessary workaround (17/08/16)
+import {ComponentsHelper} from
+    'ng2-bootstrap/components/utils/components-helper.service';
 
 @Component({
     templateUrl: '../templates/sign-in.component.html',
     selector: 'sign-in',
     providers: [UserService],
+    viewProviders: [{provide: ComponentsHelper, useClass: ComponentsHelper}],
 })
 
 export class SignInComponent {
