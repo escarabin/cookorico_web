@@ -28,8 +28,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 PostPreviewComponent = __decorate([
                     core_1.Component({
                         selector: 'post-preview',
-                        templateUrl: '../templates/post-preview.component.html',
-                        inputs: ['post']
+                        templateUrl: '../templates/post-preview.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], PostPreviewComponent);

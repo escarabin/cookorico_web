@@ -1,4 +1,4 @@
-System.register(['@angular/core', './../services/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '../services/user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -23,12 +23,12 @@ System.register(['@angular/core', './../services/user.service'], function(export
         execute: function() {
             HeaderComponent = (function () {
                 function HeaderComponent(userService) {
-                    var _this = this;
                     this.userService = userService;
-                    this.userService.getUserInfos().subscribe(function (res) {
-                        _this.user = res.json();
-                        localStorage.setItem('user', JSON.stringify(_this.user));
-                    });
+                    //todo uncomment this
+                    /*this.userService.getUserInfos().subscribe((res: Response) => {
+                        this.user = res.json();
+                        localStorage.setItem('user', JSON.stringify(this.user));
+                    });*/
                 }
                 /**
                  * Function triggered after sign-in-component.ts's

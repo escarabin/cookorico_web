@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
-var notification_service_1 = require('./../services/notification.service');
+var notification_service_1 = require('././notification.service');
 var NotificationsComponent = (function () {
     function NotificationsComponent(_notifications) {
         var _this = this;

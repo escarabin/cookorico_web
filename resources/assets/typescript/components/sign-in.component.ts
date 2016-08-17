@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { Response } from '@angular/http';
 
 // Services
-import { UserService } from './../services/user.service';
-import { NotificationsService } from './../services/notification.service';
+import { UserService } from '../services/user.service';
+import { NotificationsService } from '../services/notification.service';
 
 // Models
-import { Notification } from './../models/notification';
+import { Notification } from '../models/notification';
 
 
 @Component({
@@ -29,5 +29,57 @@ export class SignInComponent {
                  private notificationService: NotificationsService,
                  private router: Router) {
         this.user = JSON.parse(localStorage.getItem('user'));
+    }
+
+    login() {
+        let __this = this;
+
+        this.userService.login(__this.email, __this.password).subscribe((res:Response) => {
+            if (res['_body']) {
+                /**
+                 * User is logged in
+                 */
+                let user = res.json();
+
+                localStorage.setItem('user', JSON.stringify(user));
+
+                __this.user = JSON.parse(localStorage.getItem('user'));
+
+                __this.userSignedIn.emit(this.user);
+
+                __this.notificationService.show(
+                    new Notification('success', 'Vous êtes connecté')
+                );
+
+                console.log(user);
+
+                /**
+                 * Close the sign-in modal
+                 */
+                document.getElementById('close-sign-in-modal').click();
+            }
+            else {
+                /**
+                 * Credentials are not correct
+                 */
+                __this.notificationService.show(
+                    new Notification('error', 'Vos identifiants semblent incorrects, merci de rééssayer')
+                );
+            }
+        });
+    }
+
+    logout() {
+        localStorage.removeItem('user');
+        this.user = JSON.parse(localStorage.getItem('user'));
+        this.router.navigate(['Home']);
+
+        this.userSignedOut.emit('signing out');
+    }
+
+    resetPassword() {
+        this.userService.resetPassword().subscribe((res:Response) => {
+            console.log(res.json());
+        });
     }
 }

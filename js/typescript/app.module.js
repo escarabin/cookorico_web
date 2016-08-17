@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', './components/app.component', './app.routes', './services/notification.service', './components/home.component', './components/job.component', './components/new-application-form.component', './components/tiny-mce.component', './components/header.component', './components/footer.component', './components/job-search-bar.component', './components/sign-in.component', './components/post.component', './components/club.component', './components/sign-up.component', './components/profile.component', './components/search.component', 'angular2-google-map-auto-complete/directives/googleplace.directive', 'ng2-file-upload/ng2-file-upload', 'ng2-bootstrap/ng2-bootstrap', 'angular2-google-maps/core/index'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', './components/app.component', './app.routes', './services/notification.service', './components/home.component', './job-search/components/job.component', './job-search/components/new-application-form.component', './components/tiny-mce.component', './components/header.component', './components/footer.component', './job-search/components/job-search-bar.component', './components/business-select.component', './job-search/components/job-preview.component', './components/post-preview.component', './components/post.component', './components/club.component', './components/sign-up.component', './profile/components/profile.component', './job-search/components/search.component', './job-search/components/job-search-sidebar.component', './components/custom-pagination.component', './profile/components/profile-sidebar.component', './components/right-sidebar.component', 'ng2-pagination', 'ng2-img-cropper', 'angular2-google-map-auto-complete/directives/googleplace.directive', 'ng2-file-upload/ng2-file-upload', 'ng2-bootstrap/ng2-bootstrap', 'angular2-google-maps/core/index'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, http_1, router_1, app_component_1, app_routes_1, notification_service_1, home_component_1, job_component_1, new_application_form_component_1, tiny_mce_component_1, header_component_1, footer_component_1, job_search_bar_component_1, sign_in_component_1, post_component_1, club_component_1, sign_up_component_1, profile_component_1, search_component_1, googleplace_directive_1, ng2_file_upload_1, ng2_bootstrap_1, index_1;
+    var core_1, platform_browser_1, forms_1, http_1, router_1, app_component_1, app_routes_1, notification_service_1, home_component_1, job_component_1, new_application_form_component_1, tiny_mce_component_1, header_component_1, footer_component_1, job_search_bar_component_1, business_select_component_1, job_preview_component_1, post_preview_component_1, post_component_1, club_component_1, sign_up_component_1, profile_component_1, search_component_1, job_search_sidebar_component_1, custom_pagination_component_1, profile_sidebar_component_1, right_sidebar_component_1, ng2_pagination_1, ng2_img_cropper_1, googleplace_directive_1, ng2_file_upload_1, ng2_bootstrap_1, index_1;
     var AppModule;
     return {
         setters:[
@@ -59,8 +59,14 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             function (job_search_bar_component_1_1) {
                 job_search_bar_component_1 = job_search_bar_component_1_1;
             },
-            function (sign_in_component_1_1) {
-                sign_in_component_1 = sign_in_component_1_1;
+            function (business_select_component_1_1) {
+                business_select_component_1 = business_select_component_1_1;
+            },
+            function (job_preview_component_1_1) {
+                job_preview_component_1 = job_preview_component_1_1;
+            },
+            function (post_preview_component_1_1) {
+                post_preview_component_1 = post_preview_component_1_1;
             },
             function (post_component_1_1) {
                 post_component_1 = post_component_1_1;
@@ -76,6 +82,24 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             },
             function (search_component_1_1) {
                 search_component_1 = search_component_1_1;
+            },
+            function (job_search_sidebar_component_1_1) {
+                job_search_sidebar_component_1 = job_search_sidebar_component_1_1;
+            },
+            function (custom_pagination_component_1_1) {
+                custom_pagination_component_1 = custom_pagination_component_1_1;
+            },
+            function (profile_sidebar_component_1_1) {
+                profile_sidebar_component_1 = profile_sidebar_component_1_1;
+            },
+            function (right_sidebar_component_1_1) {
+                right_sidebar_component_1 = right_sidebar_component_1_1;
+            },
+            function (ng2_pagination_1_1) {
+                ng2_pagination_1 = ng2_pagination_1_1;
+            },
+            function (ng2_img_cropper_1_1) {
+                ng2_img_cropper_1 = ng2_img_cropper_1_1;
             },
             function (googleplace_directive_1_1) {
                 googleplace_directive_1 = googleplace_directive_1_1;
@@ -110,14 +134,26 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                             header_component_1.HeaderComponent,
                             footer_component_1.FooterComponent,
                             job_search_bar_component_1.JobSearchBarComponent,
-                            sign_in_component_1.SignInComponent,
                             post_component_1.PostComponent,
                             club_component_1.ClubComponent,
                             sign_up_component_1.SignUpComponent,
                             search_component_1.SearchComponent,
-                            profile_component_1.ProfileComponent
+                            profile_component_1.ProfileComponent,
+                            profile_sidebar_component_1.ProfileSidebarComponent,
+                            ng2_img_cropper_1.ImageCropperComponent,
+                            right_sidebar_component_1.RightSidebarComponent,
+                            custom_pagination_component_1.CustomPaginationComponent,
+                            business_select_component_1.BusinessSelectComponent,
+                            ng2_pagination_1.PaginationControlsCmp,
+                            job_search_sidebar_component_1.JobSearchSidebarComponent,
+                            job_preview_component_1.JobPreviewComponent,
+                            post_preview_component_1.PostPreviewComponent,
                         ],
-                        imports: [platform_browser_1.BrowserModule, router_1.RouterModule, forms_1.FormsModule, http_1.HttpModule, app_routes_1.routing],
+                        imports: [platform_browser_1.BrowserModule,
+                            router_1.RouterModule,
+                            forms_1.FormsModule,
+                            http_1.HttpModule,
+                            app_routes_1.routing],
                         providers: [notification_service_1.NotificationsService],
                         bootstrap: [app_component_1.AppComponent],
                     }), 

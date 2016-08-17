@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { Response } from '@angular/http';
 
 // Models
-import { User } from './../models/user';
+import { User } from '../models/user';
 
 // Services
-import { UserService } from './../services/user.service';
+import { UserService } from '../services/user.service';
 
 @Component({
     templateUrl: '../templates/header.component.html',
@@ -17,10 +17,11 @@ export class HeaderComponent {
     user: any;
 
     constructor (private userService: UserService) {
-        this.userService.getUserInfos().subscribe((res: Response) => {
+        //todo uncomment this
+        /*this.userService.getUserInfos().subscribe((res: Response) => {
             this.user = res.json();
             localStorage.setItem('user', JSON.stringify(this.user));
-        });
+        });*/
     }
 
     /**

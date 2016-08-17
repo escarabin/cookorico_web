@@ -12,9 +12,9 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var router_deprecated_1 = require('@angular/router-deprecated');
 // Components
-var sign_in_component_1 = require('./sign-in.component');
+var sign_in_component_1 = require('./sign-in.component.ts');
 // Services
-var user_service_1 = require('./../services/user.service');
+var user_service_1 = require('././user.service');
 var HeaderComponent = (function () {
     function HeaderComponent(router, userService) {
         var _this = this;

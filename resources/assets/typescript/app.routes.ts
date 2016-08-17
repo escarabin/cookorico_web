@@ -1,12 +1,14 @@
 import { Routes, RouterModule } from '@angular/router';
 
+// Child routing
+import { profileRouting } from './profile/profile.routes';
+import { jobSearchRouting } from './job-search/job-search.routes';
+
 // Components
 import { HomeComponent } from './components/home.component';
 import { PostComponent } from './components/post.component';
-import { ProfileComponent } from './components/profile.component';
 import { ClubComponent } from './components/club.component';
 import { SignUpComponent } from './components/sign-up.component';
-import { SearchComponent } from './components/search.component';
 
 const routes: Routes = [
     // Root
@@ -20,8 +22,8 @@ const routes: Routes = [
 
     // User
     { path: 'sign-up/', name: 'SignUp', component: SignUpComponent },
-    { path: 'profile/...', name: 'Profile', component: ProfileComponent },
-    { path: 'job-search/...', name: 'JobSearch', component: SearchComponent }
+    ...profileRouting,
+    ...jobSearchRouting
 ];
 
 // - Updated Export

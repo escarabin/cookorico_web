@@ -13,7 +13,7 @@ var http_1 = require('@angular/http');
 require('rxjs/add/operator/catch');
 var appGlobals = require('./../globals'); //<==== this one
 // Services
-var notification_service_1 = require('./notification.service');
+var notification_service_1 = require('./notification.service.ts');
 // Models
 var notification_1 = require('./../models/notification');
 var UserService = (function () {

@@ -2,10 +2,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Response } from '@angular/http';
 
 // Services
-import { BusinessService } from './../services/business.service';
-import { PlaceService } from './../services/place.service';
-import { UserService } from './../services/user.service';
-import { NotificationsService } from './../services/notification.service';
+import { BusinessService } from '../services/business.service';
+import { PlaceService } from '../services/place.service';
+import { UserService } from '../services/user.service';
+import { NotificationsService } from '../services/notification.service';
 
 @Component({
     selector: 'business-select',

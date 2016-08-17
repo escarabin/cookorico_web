@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', './../services/user.service', './../services/notification.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../services/user.service', '../services/notification.service', '../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', './../services/user.service
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, user_service_1, notification_service_1;
+    var core_1, router_1, user_service_1, notification_service_1, notification_1;
     var SignInComponent;
     return {
         setters:[
@@ -25,6 +25,9 @@ System.register(['@angular/core', '@angular/router', './../services/user.service
             },
             function (notification_service_1_1) {
                 notification_service_1 = notification_service_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
             }],
         execute: function() {
             SignInComponent = (function () {
@@ -38,6 +41,44 @@ System.register(['@angular/core', '@angular/router', './../services/user.service
                     this.userSignedOut = new core_1.EventEmitter();
                     this.user = JSON.parse(localStorage.getItem('user'));
                 }
+                SignInComponent.prototype.login = function () {
+                    var _this = this;
+                    var __this = this;
+                    this.userService.login(__this.email, __this.password).subscribe(function (res) {
+                        if (res['_body']) {
+                            /**
+                             * User is logged in
+                             */
+                            var user = res.json();
+                            localStorage.setItem('user', JSON.stringify(user));
+                            __this.user = JSON.parse(localStorage.getItem('user'));
+                            __this.userSignedIn.emit(_this.user);
+                            __this.notificationService.show(new notification_1.Notification('success', 'Vous êtes connecté'));
+                            console.log(user);
+                            /**
+                             * Close the sign-in modal
+                             */
+                            document.getElementById('close-sign-in-modal').click();
+                        }
+                        else {
+                            /**
+                             * Credentials are not correct
+                             */
+                            __this.notificationService.show(new notification_1.Notification('error', 'Vos identifiants semblent incorrects, merci de rééssayer'));
+                        }
+                    });
+                };
+                SignInComponent.prototype.logout = function () {
+                    localStorage.removeItem('user');
+                    this.user = JSON.parse(localStorage.getItem('user'));
+                    this.router.navigate(['Home']);
+                    this.userSignedOut.emit('signing out');
+                };
+                SignInComponent.prototype.resetPassword = function () {
+                    this.userService.resetPassword().subscribe(function (res) {
+                        console.log(res.json());
+                    });
+                };
                 __decorate([
                     core_1.Output(), 
                     __metadata('design:type', core_1.EventEmitter)

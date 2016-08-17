@@ -45,7 +45,7 @@ System.register(['@angular/core', './../services/user.service'], function(export
                     core_1.Component({
                         providers: [user_service_1.UserService],
                         selector: 'user-sidebar',
-                        templateUrl: '../templates/user-sidebar.component.html',
+                        templateUrl: '../templates/profile-sidebar.component.html',
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService])
                 ], UserSidebarComponent);

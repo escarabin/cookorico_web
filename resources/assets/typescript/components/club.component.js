@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 // Services
-var club_service_1 = require('./../services/club.service');
+var club_service_1 = require('././club.service');
 var ClubComponent = (function () {
     function ClubComponent(routeParams, clubService) {
         this.routeParams = routeParams;

@@ -11,13 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 // Services
-var job_service_1 = require('./../services/job.service');
-var post_service_1 = require('./../services/post.service');
-var club_service_1 = require('./../services/club.service');
+var job_service_1 = require('././job.service');
+var post_service_1 = require('././post.service');
+var club_service_1 = require('././club.service');
 // Components
-var job_search_bar_component_1 = require('./job-search-bar.component');
-var job_preview_component_1 = require('./job-preview.component');
-var post_preview_component_1 = require('./post-preview.component');
+var job_search_bar_component_1 = require('./../job-search/job-search-bar.component.ts');
+var job_preview_component_1 = require('./../job-search/job-preview.component.ts');
+var post_preview_component_1 = require('./post-preview.component.ts');
 var HomeComponent = (function () {
     function HomeComponent(jobService, postService, clubService) {
         this.jobService = jobService;

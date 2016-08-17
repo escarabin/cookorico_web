@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 // Services
-var post_service_1 = require('./../services/post.service');
+var post_service_1 = require('././post.service');
 var PostComponent = (function () {
     function PostComponent(routeParams, postService) {
         this.routeParams = routeParams;

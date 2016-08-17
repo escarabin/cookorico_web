@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 // Services
-var user_service_1 = require('./../services/user.service');
+var user_service_1 = require('././user.service');
 var RightSidebarComponent = (function () {
     function RightSidebarComponent() {
         (function (d, s, id) {

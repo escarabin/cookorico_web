@@ -8,6 +8,9 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "exclude": [
+      "/Applications/MAMP/htdocs/oechr/node_modules/"
+    ]
   }
 }

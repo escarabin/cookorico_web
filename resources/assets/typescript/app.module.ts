@@ -11,25 +11,25 @@ import { NotificationsService } from './services/notification.service'
 
 // Components
 import { HomeComponent } from './components/home.component';
-import { JobComponent } from './components/job.component';
-import { NewApplicationFormComponent } from './components/new-application-form.component';
+import { JobComponent } from './job-search/components/job.component';
+import { NewApplicationFormComponent } from './job-search/components/new-application-form.component';
 import { UNITYTinyMCE } from './components/tiny-mce.component';
 import { HeaderComponent } from './components/header.component';
 import { FooterComponent } from './components/footer.component';
-import { JobSearchBarComponent } from './components/job-search-bar.component';
+import { JobSearchBarComponent } from './job-search/components/job-search-bar.component';
 import { SignInComponent } from './components/sign-in.component';
 import { NotificationsComponent } from './components/notification.component';
 import { BusinessSelectComponent } from './components/business-select.component';
-import { JobPreviewComponent } from './components/job-preview.component';
+import { JobPreviewComponent } from './job-search/components/job-preview.component';
 import { PostPreviewComponent } from './components/post-preview.component';
 import { PostComponent } from './components/post.component';
 import { ClubComponent } from './components/club.component';
 import { SignUpComponent } from './components/sign-up.component';
-import { ProfileComponent } from './components/profile.component';
-import { SearchComponent } from './components/search.component';
-import { JobSearchSidebarComponent } from './components/job-search-sidebar.component';
+import { ProfileComponent } from './profile/components/profile.component';
+import { SearchComponent } from './job-search/components/search.component';
+import { JobSearchSidebarComponent } from './job-search/components/job-search-sidebar.component';
 import { CustomPaginationComponent } from './components/custom-pagination.component';
-import { UserSidebarComponent } from './components/user-sidebar.component';
+import { ProfileSidebarComponent } from './profile/components/profile-sidebar.component';
 import { RightSidebarComponent } from './components/right-sidebar.component';
 import { PaginationControlsCmp } from 'ng2-pagination';
 import { ImageCropperComponent } from 'ng2-img-cropper';
@@ -55,25 +55,30 @@ import { GOOGLE_MAPS_DIRECTIVES } from 'angular2-google-maps/core/index';
                     UNITYTinyMCE,
                     HeaderComponent,
                     FooterComponent,
-        JobSearchBarComponent,
-        SignInComponent,
-        PostComponent,
-        ClubComponent,
-        SignUpComponent,
-        SearchComponent,
-        ProfileComponent
-        /*UserSidebarComponent,
-        ImageCropperComponent,
-        RightSidebarComponent,
-        NotificationsComponent,
-        CustomPaginationComponent,
-        BusinessSelectComponent,
-        PaginationControlsCmp,
-        JobSearchSidebarComponent,
-        JobPreviewComponent,
-        PostPreviewComponent,
-        */],
-    imports:      [BrowserModule, RouterModule, FormsModule, HttpModule, routing],
+                    JobSearchBarComponent,
+                    PostComponent,
+                    ClubComponent,
+                    SignUpComponent,
+                    SearchComponent,
+                    ProfileComponent,
+                    ProfileSidebarComponent,
+                    ImageCropperComponent,
+                    RightSidebarComponent,
+                    CustomPaginationComponent,
+                    BusinessSelectComponent,
+                    PaginationControlsCmp,
+                    JobSearchSidebarComponent,
+                    JobPreviewComponent,
+                    PostPreviewComponent,
+                    /*
+                    SignInComponent,
+                    NotificationsComponent,
+                    */],
+    imports:      [BrowserModule,
+                    RouterModule,
+                    FormsModule,
+                    HttpModule,
+                    routing],
     providers:    [NotificationsService],
     bootstrap:    [AppComponent],
 })

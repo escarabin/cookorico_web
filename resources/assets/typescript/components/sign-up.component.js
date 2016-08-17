@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 // Services
-var user_service_1 = require('./../services/user.service');
-var reference_service_1 = require('./../services/reference.service');
+var user_service_1 = require('././user.service');
+var reference_service_1 = require('././reference.service');
 // Models
-var user_1 = require('./../models/user');
+var user_1 = require('././user');
 var SignUpComponent = (function () {
     function SignUpComponent(referenceService, userService) {
         this.referenceService = referenceService;

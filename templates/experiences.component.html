@@ -2,9 +2,7 @@
     <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container"
          [class.selected]="allItemsChecked"
          (click)="toggleAllItems()">
-        <md-checkbox class="md-warn md-align-top-left"
-                     [checked]="allItemsChecked"
-                     class="dark-bg">
+        <md-checkbox class="md-warn md-align-top-left dark-bg">
         </md-checkbox>
     </div>
     <div class="col-md-7 col-sm-7 col-xs-6 items-count">
@@ -34,8 +32,7 @@
             [class.selected]="checkedItemsList.indexOf(item.id) != -1">
             <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container"
                  (click)="saveCheckedItem(item.id)">
-                <md-checkbox class="md-warn md-align-top-left"
-                             [checked]="checkedItemsList.indexOf(item.id) != -1">
+                <md-checkbox class="md-warn md-align-top-left">
                 </md-checkbox>
             </div>
             <div class="col-md-10 col-sm-10 col-xs-9 item"

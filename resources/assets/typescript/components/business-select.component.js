@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 // Services
-var business_service_1 = require('./../services/business.service');
-var place_service_1 = require('./../services/place.service');
-var user_service_1 = require('./../services/user.service');
-var notification_service_1 = require('./../services/notification.service');
+var business_service_1 = require('././business.service');
+var place_service_1 = require('././place.service');
+var user_service_1 = require('././user.service');
+var notification_service_1 = require('././notification.service');
 // Directives
 var googleplace_directive_1 = require('angular2-google-map-auto-complete/directives/googleplace.directive');
 var BusinessSelectComponent = (function () {

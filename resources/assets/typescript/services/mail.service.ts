@@ -3,7 +3,7 @@ import { HTTP_PROVIDERS, Http, RequestOptions, Headers } from '@angular/http';
 import appGlobals = require('./../globals'); //<==== this one
 
 // Models
-import { MailTemplate } from './../models/mail-template';
+import { MailTemplate } from '../models/mail-template';
 
 @Injectable()
 export class MailService {

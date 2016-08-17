@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Response } from '@angular/http';
 
 // Services
-import { JobService } from './../services/job.service';
-import { PostService } from './../services/post.service';
-import { ClubService } from './../services/club.service';
+import { JobService } from '../services/job.service';
+import { PostService } from '../services/post.service';
+import { ClubService } from '../services/club.service';
 
 @Component({
     providers: [JobService,

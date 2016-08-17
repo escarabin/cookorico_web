@@ -6,7 +6,7 @@ var common_1 = require('@angular/common');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var index_1 = require('angular2-google-maps/core/index');
 // Components
-var app_component_1 = require('./components/app.component');
+var app_component_1 = require('./components/app.component.ts');
 // Services
 var notification_service_1 = require('./services/notification.service');
 platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [http_1.HTTP_PROVIDERS,

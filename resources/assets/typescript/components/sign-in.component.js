@@ -13,10 +13,10 @@ var common_1 = require('@angular/common');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var ng2_bootstrap_1 = require('ng2-bootstrap');
 // Services
-var user_service_1 = require('./../services/user.service');
-var notification_service_1 = require('./../services/notification.service');
+var user_service_1 = require('././user.service');
+var notification_service_1 = require('././notification.service');
 // Models
-var notification_1 = require('./../models/notification');
+var notification_1 = require('././notification');
 var SignInComponent = (function () {
     function SignInComponent(userService, notificationService, router) {
         this.userService = userService;

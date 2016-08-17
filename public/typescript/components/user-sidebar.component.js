@@ -39,7 +39,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/u
                         providers: [user_service_1.UserService],
                         directives: [router_deprecated_1.RouterLink],
                         selector: 'user-sidebar',
-                        templateUrl: '../templates/user-sidebar.component.html',
+                        templateUrl: '../templates/profile-sidebar.component.html',
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService])
                 ], UserSidebarComponent);

@@ -7,10 +7,10 @@ import appGlobals = require('./../globals'); //<==== this one
 import { NotificationsService } from './notification.service';
 
 // Models
-import { Notification } from './../models/notification';
-import { User } from './../models/user';
-import { Experience } from './../models/experience';
-import { Study } from './../models/study';
+import { Notification } from '../models/notification';
+import { User } from '../models/user';
+import { Experience } from '../models/experience';
+import { Study } from '../models/study';
 
 @Injectable()
 export class UserService {

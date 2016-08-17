@@ -3,7 +3,7 @@ import { HTTP_PROVIDERS, Http, Headers, RequestOptions } from '@angular/http';
 import appGlobals = require('./../globals'); //<==== this one
 
 // Models
-import { Application } from './../models/application';
+import { Application } from '../models/application';
 
 @Injectable()
 export class JobService {
