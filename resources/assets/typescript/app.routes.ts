@@ -12,7 +12,9 @@ import { SignUpComponent } from './components/sign-up.component';
 
 const routes: Routes = [
     // Root
-    { path: '', name: 'Home', component: HomeComponent, useAsDefault: true },
+    { path: '', redirectTo: '/home', pathMatch: 'full'},
+
+    { path: 'home', component: HomeComponent},
 
     // Posts
     { path: 'post/:postId/', name: 'ShowPost', component: PostComponent },
@@ -21,9 +23,7 @@ const routes: Routes = [
     { path: 'club/:clubId', name: 'ShowClub', component: ClubComponent },
 
     // User
-    { path: 'sign-up/', name: 'SignUp', component: SignUpComponent },
-    ...profileRouting,
-    ...jobSearchRouting
+    { path: 'sign-up/', name: 'SignUp', component: SignUpComponent }
 ];
 
 // - Updated Export
