@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 import { CommonModule }   from '@angular/common';
 import { jobSearchRouting } from './job-search.routes';
-import { CollapseDirective, MODAL_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 import { SELECT_DIRECTIVES } from 'ng2-select';
 
 // Components
@@ -21,8 +20,6 @@ import { SearchService } from './../services/search.service';
                     NewApplicationFormComponent,
                     JobPreviewComponent,
                     JobSearchSidebarComponent,
-                    CollapseDirective,
-                    // MODAL_DIRECTIVES,
                     SELECT_DIRECTIVES,
                     UNITYTinyMCE,
                     CustomPaginationComponent ],

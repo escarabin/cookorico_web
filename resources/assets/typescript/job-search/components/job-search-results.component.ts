@@ -7,7 +7,7 @@ import { JobService } from '../../services/job.service';
 import { SearchService } from '../../services/search.service';
 
 // Pagination
-import {PaginatePipe, PaginationService} from 'ng2-pagination';
+import { PaginatePipe, PaginationService } from 'ng2-pagination';
 
 @Component({
     selector: 'job-search-results',

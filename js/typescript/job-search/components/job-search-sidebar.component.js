@@ -158,13 +158,6 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                     this.place = place;
                     this.updateSearchParameter();
                 };
-                JobSearchSidebarComponent.prototype.ngOnInit = function () {
-                    /**
-                     * Update search parameters if they changed from
-                     * outside of this component
-                     */
-                    console.log('on init baby');
-                };
                 __decorate([
                     core_1.Output(), 
                     __metadata('design:type', core_1.EventEmitter)

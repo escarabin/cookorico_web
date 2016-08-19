@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
 // Components
+import { ProfileComponent } from './components/profile.component';
 import { ApplicationsComponent } from "./components/applications.component";
 import { ExperiencesComponent } from "./components/experiences.component";
 import { EducationComponent } from "./components/education.component";
@@ -22,7 +23,7 @@ import { EditWebsiteComponent } from './components/edit-website.component';
 const profileRoutes: Routes = [
     {
         path: '',
-        component: ProfilePreviewComponent,
+        component: ProfileComponent,
         children: [
             // Root
             {path: 'show', component: ProfilePreviewComponent},

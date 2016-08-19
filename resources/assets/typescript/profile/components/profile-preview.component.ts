@@ -15,10 +15,15 @@ import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 // Models
 import { Notification } from '../../models/notification';
 
+// ng2-bootstrap necessary workaround (17/08/16)
+import {ComponentsHelper} from
+    'ng2-bootstrap/components/utils/components-helper.service';
+
 @Component({
     providers: [UserService],
     selector: 'profile-preview',
     templateUrl: '../templates/profile-preview.component.html',
+    viewProviders: [{provide: ComponentsHelper, useClass: ComponentsHelper}]
 })
 
 export class ProfilePreviewComponent {

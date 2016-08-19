@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../../services/user.service', '../../services/notification.service', 'ng2-img-cropper', 'ng2-file-upload/ng2-file-upload', '../../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/user.service', '../../services/notification.service', 'ng2-img-cropper', 'ng2-file-upload/ng2-file-upload', '../../models/notification', 'ng2-bootstrap/components/utils/components-helper.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, user_service_1, notification_service_1, ng2_img_cropper_1, ng2_file_upload_1, notification_1;
+    var core_1, router_1, user_service_1, notification_service_1, ng2_img_cropper_1, ng2_file_upload_1, notification_1, components_helper_service_1;
     var ProfilePreviewComponent;
     return {
         setters:[
@@ -34,6 +34,9 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
             },
             function (notification_1_1) {
                 notification_1 = notification_1_1;
+            },
+            function (components_helper_service_1_1) {
+                components_helper_service_1 = components_helper_service_1_1;
             }],
         execute: function() {
             ProfilePreviewComponent = (function () {
@@ -206,6 +209,7 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
                         providers: [user_service_1.UserService],
                         selector: 'profile-preview',
                         templateUrl: '../templates/profile-preview.component.html',
+                        viewProviders: [{ provide: components_helper_service_1.ComponentsHelper, useClass: components_helper_service_1.ComponentsHelper }]
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService, router_1.ActivatedRoute, notification_service_1.NotificationsService])
                 ], ProfilePreviewComponent);

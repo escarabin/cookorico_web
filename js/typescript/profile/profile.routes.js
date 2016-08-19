@@ -1,12 +1,15 @@
-System.register(['@angular/router', "./components/applications.component", "./components/experiences.component", "./components/education.component", "./components/alerts.component", "./components/testimonials.component", "./components/create-experience.component", "./components/create-study.component", "./components/create-alert.component", "./components/create-business.component", "./components/businesses.component", './components/my-job-posts.component', './components/create-job-post.component', './components/applicants.component', './components/profile-preview.component', './components/mail-templates.component', './components/create-mail-template.component', './components/edit-website.component'], function(exports_1, context_1) {
+System.register(['@angular/router', './components/profile.component', "./components/applications.component", "./components/experiences.component", "./components/education.component", "./components/alerts.component", "./components/testimonials.component", "./components/create-experience.component", "./components/create-study.component", "./components/create-alert.component", "./components/create-business.component", "./components/businesses.component", './components/my-job-posts.component', './components/create-job-post.component', './components/applicants.component', './components/profile-preview.component', './components/mail-templates.component', './components/create-mail-template.component', './components/edit-website.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var router_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1, create_study_component_1, create_alert_component_1, create_business_component_1, businesses_component_1, my_job_posts_component_1, create_job_post_component_1, applicants_component_1, profile_preview_component_1, mail_templates_component_1, create_mail_template_component_1, edit_website_component_1;
+    var router_1, profile_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1, create_study_component_1, create_alert_component_1, create_business_component_1, businesses_component_1, my_job_posts_component_1, create_job_post_component_1, applicants_component_1, profile_preview_component_1, mail_templates_component_1, create_mail_template_component_1, edit_website_component_1;
     var profileRoutes, profileRouting;
     return {
         setters:[
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (profile_component_1_1) {
+                profile_component_1 = profile_component_1_1;
             },
             function (applications_component_1_1) {
                 applications_component_1 = applications_component_1_1;
@@ -63,7 +66,7 @@ System.register(['@angular/router', "./components/applications.component", "./co
             profileRoutes = [
                 {
                     path: '',
-                    component: profile_preview_component_1.ProfilePreviewComponent,
+                    component: profile_component_1.ProfileComponent,
                     children: [
                         // Root
                         { path: 'show', component: profile_preview_component_1.ProfilePreviewComponent },

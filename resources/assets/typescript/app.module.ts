@@ -22,7 +22,6 @@ import { PostPreviewComponent } from './components/post-preview.component';
 import { PostComponent } from './components/post.component';
 import { ClubComponent } from './components/club.component';
 import { SignUpComponent } from './components/sign-up.component';
-import { ProfileSidebarComponent } from './profile/components/profile-sidebar.component';
 import { RightSidebarComponent } from './components/right-sidebar.component';
 import { PaginationControlsCmp } from 'ng2-pagination';
 
@@ -35,7 +34,7 @@ import { GOOGLE_MAPS_DIRECTIVES } from 'angular2-google-maps/core/index';
     declarations: [ BUTTON_DIRECTIVES,
                     GOOGLE_MAPS_DIRECTIVES,
                     GoogleplaceDirective,
-                    MODAL_DIRECTIVES,
+                    // MODAL_DIRECTIVES,
                     // SELECT_DIRECTIVES,
                     AppComponent,
                     HomeComponent,
@@ -45,19 +44,18 @@ import { GOOGLE_MAPS_DIRECTIVES } from 'angular2-google-maps/core/index';
                     PostComponent,
                     ClubComponent,
                     SignUpComponent,
-                    ProfileSidebarComponent,
                     RightSidebarComponent,
                     PaginationControlsCmp,
                     PostPreviewComponent,
                     SignInComponent,
                     /*NotificationsComponent,
                     */ ],
-    imports:      [BrowserModule,
+    imports:      [ BrowserModule,
                     RouterModule,
                     FormsModule,
                     HttpModule,
-                    routing],
-    providers:    [NotificationsService],
-    bootstrap:    [AppComponent],
+                    routing ],
+    providers:    [ NotificationsService ],
+    bootstrap:    [ AppComponent ],
 })
 export class AppModule {}

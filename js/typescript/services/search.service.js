@@ -23,7 +23,6 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     this.parametersEmitter = new core_1.EventEmitter();
                 }
                 SearchService.prototype.sendSearchParameters = function (placeId, jobNamingListId, contractTypeIdList, studyLevelId) {
-                    console.log('emitting');
                     this.parametersEmitter.emit({
                         'placeId': placeId,
                         'jobNamingListId': jobNamingListId,
