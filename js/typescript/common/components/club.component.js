@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './../services/post.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '../../services/club.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/p
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, post_service_1;
-    var PostComponent;
+    var core_1, router_deprecated_1, club_service_1;
+    var ClubComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -20,32 +20,32 @@ System.register(['@angular/core', '@angular/router-deprecated', './../services/p
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
             },
-            function (post_service_1_1) {
-                post_service_1 = post_service_1_1;
+            function (club_service_1_1) {
+                club_service_1 = club_service_1_1;
             }],
         execute: function() {
-            PostComponent = (function () {
-                function PostComponent(routeParams, postService) {
+            ClubComponent = (function () {
+                function ClubComponent(routeParams, clubService) {
                     this.routeParams = routeParams;
-                    this.postService = postService;
+                    this.clubService = clubService;
                     var __this = this;
-                    this.postId = routeParams.get("postId");
-                    postService.getPost(__this.postId).subscribe(function (res) {
-                        __this.post = res.json();
+                    this.clubId = routeParams.get("clubId");
+                    clubService.getClub(__this.clubId).subscribe(function (res) {
+                        __this.club = res.json();
                     });
                 }
-                PostComponent = __decorate([
+                ClubComponent = __decorate([
                     core_1.Component({
-                        providers: [post_service_1.PostService],
-                        inputs: ['postId'],
-                        selector: 'post',
-                        templateUrl: '../templates/post.component.html',
+                        providers: [club_service_1.ClubService],
+                        inputs: ['clubId'],
+                        selector: 'club',
+                        templateUrl: '../templates/club.component.html',
                     }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, post_service_1.PostService])
-                ], PostComponent);
-                return PostComponent;
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, club_service_1.ClubService])
+                ], ClubComponent);
+                return ClubComponent;
             }());
-            exports_1("PostComponent", PostComponent);
+            exports_1("ClubComponent", ClubComponent);
         }
     }
 });

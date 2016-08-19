@@ -1,4 +1,4 @@
-System.register(['@angular/core', './../services/business.service', './../services/place.service', './../services/user.service', './../services/notification.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '../../services/business.service', '../../services/place.service', '../../services/user.service', '../../services/notification.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

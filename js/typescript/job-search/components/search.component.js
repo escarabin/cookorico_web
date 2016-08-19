@@ -31,10 +31,10 @@ System.register(['@angular/core', '@angular/router', './job-search-results.compo
                     this.searchParameters = [];
                     route.params.subscribe(function (params) {
                         if (params) {
-                            _this.placeId = parseInt(route['placeId']);
-                            _this.jobNamingId = parseInt(route['jobNamingId']);
-                            _this.contractTypeId = parseInt(route['contractTypeId']);
-                            _this.searchText = route['searchText'];
+                            _this.placeId = params['placeId'];
+                            _this.jobNamingId = parseInt(params['jobNamingId']);
+                            _this.contractTypeId = parseInt(params['contractTypeId']);
+                            _this.studyLevelId = parseInt(params['studyLevelId']);
                         }
                     });
                 }

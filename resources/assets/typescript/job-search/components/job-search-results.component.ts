@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Response } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 
 // Services
 import { JobService } from '../../services/job.service';
+import { SearchService } from '../../services/search.service';
 
 // Pagination
 import {PaginatePipe, PaginationService} from 'ng2-pagination';
@@ -24,6 +25,7 @@ export class JobSearchResultsComponent {
     searchText: string;
 
     constructor(private jobService: JobService,
+                @Inject(SearchService) SearchService,
                 private route: ActivatedRoute) {
         let __this = this;
 
@@ -34,6 +36,12 @@ export class JobSearchResultsComponent {
                 __this.contractTypeId = params['contractTypeId'];
                 __this.jobNamingId = params['jobNamingId'];
                 __this.searchText = params['searchText'];
+
+                SearchService.sendSearchParameters(
+                    __this.placeId,
+                    [__this.jobNamingId],
+                    [__this.contractTypeId],
+                    __this.studyLevelId)
             }
         });
 

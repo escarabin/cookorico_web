@@ -1,14 +1,20 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="input-group">
+        <label>Type de poste</label>
+        <!-- TODO : remove dirty workaround CSS -->
+        <div class="input-group" style="z-index: 10;">
             <span class="input-group-addon">
                 <span class="fa fa-search"></span>
             </span>
-            <input type="text"
-                   class="form-control"
-                   placeholder="Mots-clés"/>
+            <ng-select [multiple]="true"
+                       [items]="jobNamingTextList"
+                       (data)="refreshValue($event)"
+                       (selected)="selected($event)"
+                       (removed)="removed($event)"
+                       placeholder="Type d'emploi"></ng-select>
         </div>
         <br />
+        <label>Localisation</label>
         <div class="input-group">
             <span class="input-group-addon">
                 <span class="fa fa-location-arrow"></span>
@@ -18,9 +24,10 @@
                    placeholder="Localisation"
                    (setAddress)="parseAdress($event)"
                    googleplace/>
+
         </div>
     </div>
-    <br />
+    <!--<br />
     <br />
     <div class="col-md-12">
         <h3 (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
@@ -100,5 +107,5 @@
                 </div>
             </ul>
         </div>
-    </div>
+    </div>-->
 </div>

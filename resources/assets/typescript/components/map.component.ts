@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 // Models
-import { MapMarker } from '../models/map-marker';
+import { MapMarker } from '../../models/map-marker';
 
 @Component({
     selector: 'my-app',

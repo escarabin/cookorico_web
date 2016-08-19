@@ -42,10 +42,9 @@ System.register(['@angular/core', '../../services/notification.service'], functi
                         selector: 'notifications',
                         templateUrl: '../templates/notification.component.html'
                     }), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof notification_service_1.NotificationsService !== 'undefined' && notification_service_1.NotificationsService) === 'function' && _a) || Object])
+                    __metadata('design:paramtypes', [notification_service_1.NotificationsService])
                 ], NotificationsComponent);
                 return NotificationsComponent;
-                var _a;
             }());
             exports_1("NotificationsComponent", NotificationsComponent);
         }

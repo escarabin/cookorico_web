@@ -11,10 +11,10 @@ const jobSearchRoutes: Routes = [
         path: '',
         component: SearchComponent,
         children: [
-            {path: 'jobs/search/', component: JobSearchResultsComponent},
-            {path: 'jobs/search/:parameters', component: JobSearchResultsComponent},
-            {path: 'apply/:jobId', component: NewApplicationFormComponent},
-            {path: 'job/:jobId', component: JobComponent},
+            { path: 'all-jobs', component: JobSearchResultsComponent },
+            { path: ':placeId/:jobNamingId/:contractTypeId/:studyLevelId', component: JobSearchResultsComponent },
+            { path: 'apply/:jobId', component: NewApplicationFormComponent },
+            { path: 'job/:jobId', component: JobComponent },
             {
                 path: '',
                 component: JobSearchResultsComponent

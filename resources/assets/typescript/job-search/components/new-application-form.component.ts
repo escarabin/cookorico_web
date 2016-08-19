@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Router, RouteParams } from '@angular/router-deprecated';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
 
 // Services
@@ -23,12 +23,18 @@ export class NewApplicationFormComponent {
     comment: string;
     application:Application = new Application();
 
-    constructor(private routeParams: RouteParams,
+    constructor(private route: ActivatedRoute,
                 private jobService: JobService,
                 private userService: UserService,
                 private notificationService: NotificationsService,
                 private router: Router) {
-        this.jobId = routeParams.get("jobId");
+
+        route.params.subscribe(params => {
+            if (params) {
+                this.jobId = params["jobId"];
+            }
+        });
+
         this.application.job_id = parseInt(this.jobId);
 
         let __this = this;

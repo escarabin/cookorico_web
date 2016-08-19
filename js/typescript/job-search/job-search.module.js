@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms', '@angular/common', './job-search.routes', 'ng2-bootstrap/ng2-bootstrap', './components/job.component', './components/new-application-form.component', './components/job-preview.component', './../components/custom-pagination.component', './../job-search/components/job-search-sidebar.component', './../components/tiny-mce.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', '@angular/common', './job-search.routes', 'ng2-bootstrap/ng2-bootstrap', 'ng2-select', './components/job.component', './components/new-application-form.component', './components/job-preview.component', './../components/custom-pagination.component', './../job-search/components/job-search-sidebar.component', './../components/tiny-mce.component', './../services/search.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/forms', '@angular/common', './job-se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, forms_1, common_1, job_search_routes_1, ng2_bootstrap_1, job_component_1, new_application_form_component_1, job_preview_component_1, custom_pagination_component_1, job_search_sidebar_component_1, tiny_mce_component_1;
+    var core_1, forms_1, common_1, job_search_routes_1, ng2_bootstrap_1, ng2_select_1, job_component_1, new_application_form_component_1, job_preview_component_1, custom_pagination_component_1, job_search_sidebar_component_1, tiny_mce_component_1, search_service_1;
     var JobSearchModule;
     return {
         setters:[
@@ -29,6 +29,9 @@ System.register(['@angular/core', '@angular/forms', '@angular/common', './job-se
             function (ng2_bootstrap_1_1) {
                 ng2_bootstrap_1 = ng2_bootstrap_1_1;
             },
+            function (ng2_select_1_1) {
+                ng2_select_1 = ng2_select_1_1;
+            },
             function (job_component_1_1) {
                 job_component_1 = job_component_1_1;
             },
@@ -46,6 +49,9 @@ System.register(['@angular/core', '@angular/forms', '@angular/common', './job-se
             },
             function (tiny_mce_component_1_1) {
                 tiny_mce_component_1 = tiny_mce_component_1_1;
+            },
+            function (search_service_1_1) {
+                search_service_1 = search_service_1_1;
             }],
         execute: function() {
             JobSearchModule = (function () {
@@ -58,13 +64,14 @@ System.register(['@angular/core', '@angular/forms', '@angular/common', './job-se
                             job_preview_component_1.JobPreviewComponent,
                             job_search_sidebar_component_1.JobSearchSidebarComponent,
                             ng2_bootstrap_1.CollapseDirective,
-                            ng2_bootstrap_1.MODAL_DIRECTIVES,
+                            // MODAL_DIRECTIVES,
+                            ng2_select_1.SELECT_DIRECTIVES,
                             tiny_mce_component_1.UNITYTinyMCE,
                             custom_pagination_component_1.CustomPaginationComponent],
                         imports: [job_search_routes_1.jobSearchRouting,
                             common_1.CommonModule,
                             forms_1.FormsModule],
-                        providers: [],
+                        providers: [search_service_1.SearchService],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], JobSearchModule);

@@ -3,11 +3,11 @@ import { FormsModule }    from '@angular/forms';
 import { CommonModule }   from '@angular/common';
 import { profileRouting } from './profile.routes';
 import { ProfileComponent } from './components/profile.component';
-import { CollapseDirective, MODAL_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
+import { CollapseDirective } from 'ng2-bootstrap/ng2-bootstrap';
 import { ImageCropperComponent } from 'ng2-img-cropper';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload/ng2-file-upload';
-import { BusinessSelectComponent } from './../components/business-select.component';
-import { UNITYTinyMCE } from './../components/tiny-mce.component';
+import { BusinessSelectComponent } from '../common/components/business-select.component';
+import { UNITYTinyMCE } from '../common/components/tiny-mce.component';
 import { ProfilePreviewComponent } from './components/profile-preview.component';
 import { ExperiencesComponent } from './components/experiences.component';
 import { CreateExperienceComponent } from './components/create-experience.component';
@@ -31,7 +31,6 @@ import { EditWebsiteComponent } from './components/edit-website.component';
                     CollapseDirective,
                     FileSelectDirective,
                     FileDropDirective,
-                    MODAL_DIRECTIVES,
                     UNITYTinyMCE,
                     BusinessSelectComponent,
                     ProfilePreviewComponent,

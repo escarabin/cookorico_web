@@ -43,7 +43,8 @@ select[required].ng-invalid, input[required].ng-invalid {
 label {
   text-transform: uppercase;
   font-size: 0.8em;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  font-family: "Avenir Heavy", sans-serif; }
 
 md-checkbox.dark-bg .md-checkbox-frame {
   border-color: white; }
@@ -56,6 +57,40 @@ md-checkbox.md-checkbox-focused .md-ink-ripple {
 
 md-checkbox .md-checkbox-frame {
   border: 2px solid rgba(0, 0, 0, 0.36); }
+
+/**
+  ng2-select
+**/
+.ui-select-multiple {
+  z-index: 10;
+  padding-top: 0; }
+
+ng-select .ui-select-choices {
+  width: 100%;
+  border-radius: 4px; }
+  ng-select .ui-select-choices .ui-select-choices-row {
+    display: block;
+    padding: 5px 10px; }
+    ng-select .ui-select-choices .ui-select-choices-row:hover {
+      background: #35B6E1; }
+      ng-select .ui-select-choices .ui-select-choices-row:hover a {
+        color: white; }
+
+ng-select .ui-select-search {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 50px; }
+
+ng-select .ui-select-match {
+  position: absolute;
+  margin-top: 10px; }
+
+ng-select .ui-select-match-item {
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: none;
+  background-color: #F1F1F1; }
 
 button {
   height: 50px; }
@@ -389,7 +424,31 @@ sign-up {
 
 job-search-sidebar {
   width: 25%;
-  float: left; }
+  float: left;
+  /*ul  {
+    padding-left: 4px;
+
+    li  {
+      padding: 5px 10px 5px 0;
+      font-family: $mainMediumFontFamily;
+      color: #6d6d6d;
+      cursor: pointer;
+      margin-bottom: 10px;
+      border-radius: $mainBorderRadius;
+
+      &:hover {
+        background: white;
+      }
+
+      .group  {
+        font-family: $mainBoldFontFamily;
+      }
+
+      .title-container {
+        padding-left: 0;
+      }
+    }
+  }*/ }
   job-search-sidebar h3 {
     cursor: pointer;
     font-size: 1.15em;
@@ -399,21 +458,6 @@ job-search-sidebar {
     padding: 0; }
   job-search-sidebar label {
     font-weight: inherit; }
-  job-search-sidebar ul {
-    padding-left: 4px; }
-    job-search-sidebar ul li {
-      padding: 5px 10px 5px 0;
-      font-family: "Avenir Medium", sans-serif;
-      color: #6d6d6d;
-      cursor: pointer;
-      margin-bottom: 10px;
-      border-radius: 4px; }
-      job-search-sidebar ul li:hover {
-        background: white; }
-      job-search-sidebar ul li .group {
-        font-family: "Avenir Heavy", sans-serif; }
-      job-search-sidebar ul li .title-container {
-        padding-left: 0; }
 
 job-preview {
   display: block;

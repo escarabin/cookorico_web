@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 // Services
@@ -13,9 +13,8 @@ import { ReferenceService } from '../../services/reference.service';
 export class JobSearchBarComponent {
     places: any;
     jobNamingGroups: any;
-
     jobNamingId: number = 0;
-    placeId: number = 0;
+    placeId: string = "0";
 
     constructor(private referenceService: ReferenceService) {
         let __this = this;
@@ -30,6 +29,6 @@ export class JobSearchBarComponent {
     }
 
     parseAdress(place: Object) {
-        console.log(place);
+        this.placeId = place['id'];
     }
 }

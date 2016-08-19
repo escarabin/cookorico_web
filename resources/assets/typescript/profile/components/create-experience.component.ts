@@ -12,7 +12,7 @@ import { Experience } from '../../models/experience';
 import { Notification } from '../../models/notification';
 
 // Components
-import { BusinessSelectComponent } from '../../components/business-select.component';
+import { BusinessSelectComponent } from '../../common/components/business-select.component';
 
 @Component({
     selector: 'create-experience',

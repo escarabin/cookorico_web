@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms', '@angular/common', './profile.routes', './components/profile.component', 'ng2-bootstrap/ng2-bootstrap', 'ng2-img-cropper', 'ng2-file-upload/ng2-file-upload', './../components/business-select.component', './../components/tiny-mce.component', './components/profile-preview.component', './components/experiences.component', './components/create-experience.component', './components/applications.component', './components/education.component', './components/create-study.component', './components/alerts.component', './components/create-alert.component', './components/testimonials.component', './components/businesses.component', './components/create-business.component', './components/my-job-posts.component', './components/create-job-post.component', './components/applicants.component', './components/mail-templates.component', './components/create-mail-template.component', './components/edit-website.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', '@angular/common', './profile.routes', './components/profile.component', 'ng2-bootstrap/ng2-bootstrap', 'ng2-img-cropper', 'ng2-file-upload/ng2-file-upload', '../common/components/business-select.component', '../common/components/tiny-mce.component', './components/profile-preview.component', './components/experiences.component', './components/create-experience.component', './components/applications.component', './components/education.component', './components/create-study.component', './components/alerts.component', './components/create-alert.component', './components/testimonials.component', './components/businesses.component', './components/create-business.component', './components/my-job-posts.component', './components/create-job-post.component', './components/applicants.component', './components/mail-templates.component', './components/create-mail-template.component', './components/edit-website.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -105,7 +105,6 @@ System.register(['@angular/core', '@angular/forms', '@angular/common', './profil
                             ng2_bootstrap_1.CollapseDirective,
                             ng2_file_upload_1.FileSelectDirective,
                             ng2_file_upload_1.FileDropDirective,
-                            ng2_bootstrap_1.MODAL_DIRECTIVES,
                             tiny_mce_component_1.UNITYTinyMCE,
                             business_select_component_1.BusinessSelectComponent,
                             profile_preview_component_1.ProfilePreviewComponent,

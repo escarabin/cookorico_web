@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../../services/job.service', 'ng2-pagination'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/job.service', '../../services/search.service', 'ng2-pagination'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,10 @@ System.register(['@angular/core', '@angular/router', '../../services/job.service
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, job_service_1, ng2_pagination_1;
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
+    var core_1, router_1, job_service_1, search_service_1, ng2_pagination_1;
     var JobSearchResultsComponent;
     return {
         setters:[
@@ -23,12 +26,15 @@ System.register(['@angular/core', '@angular/router', '../../services/job.service
             function (job_service_1_1) {
                 job_service_1 = job_service_1_1;
             },
+            function (search_service_1_1) {
+                search_service_1 = search_service_1_1;
+            },
             function (ng2_pagination_1_1) {
                 ng2_pagination_1 = ng2_pagination_1_1;
             }],
         execute: function() {
             JobSearchResultsComponent = (function () {
-                function JobSearchResultsComponent(jobService, route) {
+                function JobSearchResultsComponent(jobService, SearchService, route) {
                     this.jobService = jobService;
                     this.route = route;
                     this.jobs = [];
@@ -40,6 +46,7 @@ System.register(['@angular/core', '@angular/router', '../../services/job.service
                             __this.contractTypeId = params['contractTypeId'];
                             __this.jobNamingId = params['jobNamingId'];
                             __this.searchText = params['searchText'];
+                            SearchService.sendSearchParameters(__this.placeId, [__this.jobNamingId], [__this.contractTypeId], __this.studyLevelId);
                         }
                     });
                     this.jobService.getAllJobs().subscribe(function (res) {
@@ -66,8 +73,9 @@ System.register(['@angular/core', '@angular/router', '../../services/job.service
                         providers: [job_service_1.JobService, ng2_pagination_1.PaginationService],
                         pipes: [ng2_pagination_1.PaginatePipe],
                         templateUrl: '../templates/job-search-results.component.html',
-                    }), 
-                    __metadata('design:paramtypes', [job_service_1.JobService, router_1.ActivatedRoute])
+                    }),
+                    __param(1, core_1.Inject(search_service_1.SearchService)), 
+                    __metadata('design:paramtypes', [job_service_1.JobService, Object, router_1.ActivatedRoute])
                 ], JobSearchResultsComponent);
                 return JobSearchResultsComponent;
             }());

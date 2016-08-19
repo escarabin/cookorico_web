@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent }   from './components/app.component';
 import { routing } from './app.routes';
 import { MODAL_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
+import { SELECT_DIRECTIVES } from 'ng2-select';
 
 // Services
 import { NotificationsService } from './services/notification.service'
@@ -35,6 +36,7 @@ import { GOOGLE_MAPS_DIRECTIVES } from 'angular2-google-maps/core/index';
                     GOOGLE_MAPS_DIRECTIVES,
                     GoogleplaceDirective,
                     MODAL_DIRECTIVES,
+                    // SELECT_DIRECTIVES,
                     AppComponent,
                     HomeComponent,
                     HeaderComponent,

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { Response } from '@angular/http';
 
 // Services
-import { JobService } from '../services/job.service';
-import { PostService } from '../services/post.service';
-import { ClubService } from '../services/club.service';
+import { JobService } from './../services/job.service';
+import { PostService } from './../services/post.service';
+import { ClubService } from './../services/club.service';
 
 @Component({
     providers: [JobService,

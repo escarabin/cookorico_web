@@ -11,15 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 // Components
-var home_component_1 = require('./home.component.ts');
-var post_component_1 = require('./post.component.ts');
-var header_component_1 = require('./header.component.ts');
-var footer_component_1 = require('./footer.component.ts');
+var home_component_1 = require('./../common/components/home.component.ts');
+var post_component_1 = require('./../common/components/post.component.ts');
+var header_component_1 = require('./../common/components/header.component.ts');
+var footer_component_1 = require('./../common/components/footer.component.ts');
 var profile_component_1 = require('./../profile/profile.component.ts');
-var club_component_1 = require('./club.component.ts');
-var sign_up_component_1 = require('./sign-up.component.ts');
+var club_component_1 = require('./../common/components/club.component.ts');
+var sign_up_component_1 = require('./../common/components/sign-up.component.ts');
 var search_component_1 = require('./../job-search/search.component.ts');
-var notification_component_1 = require('./notification.component.ts');
+var notification_component_1 = require('./../common/components/notification.component.ts');
 var AppComponent = (function () {
     function AppComponent(viewContainerRef) {
         // You need this small hack in order to catch application root view container ref

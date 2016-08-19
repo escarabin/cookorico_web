@@ -4,7 +4,7 @@ import { RouteParams }
     from '@angular/router-deprecated';
 
 // Services
-import { ClubService } from '../services/club.service';
+import { ClubService } from './../services/club.service';
 
 @Component({
     providers: [ClubService],

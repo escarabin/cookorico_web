@@ -11,20 +11,20 @@ import { JobSearchResultsComponent } from './job-search-results.component'
 })
 
 export class SearchComponent {
-    placeId: number;
+    placeId: string;
     jobNamingId: number;
     contractTypeId: number;
-    searchText: string;
+    studyLevelId: number;
     searchParameters: any = [];
     @ViewChild(JobSearchResultsComponent) jobSearchResults: JobSearchResultsComponent;
 
     constructor(private route: ActivatedRoute) {
         route.params.subscribe(params => {
             if (params) {
-                this.placeId = parseInt(route['placeId']);
-                this.jobNamingId = parseInt(route['jobNamingId']);
-                this.contractTypeId = parseInt(route['contractTypeId']);
-                this.searchText = route['searchText'];
+                this.placeId = params['placeId'];
+                this.jobNamingId = parseInt(params['jobNamingId']);
+                this.contractTypeId = parseInt(params['contractTypeId']);
+                this.studyLevelId = parseInt(params['studyLevelId']);
             }
         });
     }

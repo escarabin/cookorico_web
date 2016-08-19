@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', './components/app.component', './app.routes', 'ng2-bootstrap/ng2-bootstrap', './services/notification.service', './components/home.component', './components/header.component', './components/footer.component', './job-search/components/job-search-bar.component', './components/sign-in.component', './components/post-preview.component', './components/post.component', './components/club.component', './components/sign-up.component', './profile/components/profile-sidebar.component', './components/right-sidebar.component', 'ng2-pagination', 'angular2-google-map-auto-complete/directives/googleplace.directive', 'angular2-google-maps/core/index'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', './common.routes', 'ng2-bootstrap/ng2-bootstrap', 'ng2-select', './components/home.component', './components/header.component', './components/footer.component', './../job-search/components/job-search-bar.component', './components/sign-in.component', './components/post-preview.component', './components/post.component', './components/club.component', './components/sign-up.component', './../profile/components/profile-sidebar.component', './components/right-sidebar.component', 'ng2-pagination', 'angular2-google-map-auto-complete/directives/googleplace.directive', 'angular2-google-maps/core/index'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, http_1, router_1, app_component_1, app_routes_1, ng2_bootstrap_1, notification_service_1, home_component_1, header_component_1, footer_component_1, job_search_bar_component_1, sign_in_component_1, post_preview_component_1, post_component_1, club_component_1, sign_up_component_1, profile_sidebar_component_1, right_sidebar_component_1, ng2_pagination_1, googleplace_directive_1, ng2_bootstrap_2, index_1;
-    var AppModule;
+    var core_1, platform_browser_1, forms_1, http_1, router_1, common_routes_1, ng2_bootstrap_1, ng2_select_1, home_component_1, header_component_1, footer_component_1, job_search_bar_component_1, sign_in_component_1, post_preview_component_1, post_component_1, club_component_1, sign_up_component_1, profile_sidebar_component_1, right_sidebar_component_1, ng2_pagination_1, googleplace_directive_1, ng2_bootstrap_2, index_1;
+    var CommonModule;
     return {
         setters:[
             function (core_1_1) {
@@ -29,18 +29,15 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (app_component_1_1) {
-                app_component_1 = app_component_1_1;
-            },
-            function (app_routes_1_1) {
-                app_routes_1 = app_routes_1_1;
+            function (common_routes_1_1) {
+                common_routes_1 = common_routes_1_1;
             },
             function (ng2_bootstrap_1_1) {
                 ng2_bootstrap_1 = ng2_bootstrap_1_1;
                 ng2_bootstrap_2 = ng2_bootstrap_1_1;
             },
-            function (notification_service_1_1) {
-                notification_service_1 = notification_service_1_1;
+            function (ng2_select_1_1) {
+                ng2_select_1 = ng2_select_1_1;
             },
             function (home_component_1_1) {
                 home_component_1 = home_component_1_1;
@@ -85,18 +82,12 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                 index_1 = index_1_1;
             }],
         execute: function() {
-            AppModule = (function () {
-                function AppModule() {
+            CommonModule = (function () {
+                function CommonModule() {
                 }
-                AppModule = __decorate([
+                CommonModule = __decorate([
                     core_1.NgModule({
-                        declarations: [ng2_bootstrap_2.BUTTON_DIRECTIVES,
-                            index_1.GOOGLE_MAPS_DIRECTIVES,
-                            googleplace_directive_1.GoogleplaceDirective,
-                            ng2_bootstrap_1.MODAL_DIRECTIVES,
-                            // SELECT_DIRECTIVES,
-                            app_component_1.AppComponent,
-                            home_component_1.HomeComponent,
+                        declarations: [home_component_1.HomeComponent,
                             header_component_1.HeaderComponent,
                             footer_component_1.FooterComponent,
                             job_search_bar_component_1.JobSearchBarComponent,
@@ -108,20 +99,23 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                             ng2_pagination_1.PaginationControlsCmp,
                             post_preview_component_1.PostPreviewComponent,
                             sign_in_component_1.SignInComponent,
+                            googleplace_directive_1.GoogleplaceDirective,
+                            ng2_bootstrap_2.BUTTON_DIRECTIVES,
+                            ng2_bootstrap_1.MODAL_DIRECTIVES,
+                            ng2_select_1.SELECT_DIRECTIVES,
+                            index_1.GOOGLE_MAPS_DIRECTIVES,
                         ],
                         imports: [platform_browser_1.BrowserModule,
                             router_1.RouterModule,
                             forms_1.FormsModule,
                             http_1.HttpModule,
-                            app_routes_1.routing],
-                        providers: [notification_service_1.NotificationsService],
-                        bootstrap: [app_component_1.AppComponent],
+                            common_routes_1.commonRouting],
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppModule);
-                return AppModule;
+                ], CommonModule);
+                return CommonModule;
             }());
-            exports_1("AppModule", AppModule);
+            exports_1("CommonModule", CommonModule);
         }
     }
 });

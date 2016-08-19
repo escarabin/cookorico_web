@@ -26,8 +26,8 @@ System.register(['@angular/router', './components/search.component', './componen
                     path: '',
                     component: search_component_1.SearchComponent,
                     children: [
-                        { path: 'jobs/search/', component: job_search_results_component_1.JobSearchResultsComponent },
-                        { path: 'jobs/search/:parameters', component: job_search_results_component_1.JobSearchResultsComponent },
+                        { path: 'all-jobs', component: job_search_results_component_1.JobSearchResultsComponent },
+                        { path: ':placeId/:jobNamingId/:contractTypeId/:studyLevelId', component: job_search_results_component_1.JobSearchResultsComponent },
                         { path: 'apply/:jobId', component: new_application_form_component_1.NewApplicationFormComponent },
                         { path: 'job/:jobId', component: job_component_1.JobComponent },
                         {

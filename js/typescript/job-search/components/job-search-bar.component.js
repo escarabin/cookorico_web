@@ -25,7 +25,7 @@ System.register(['@angular/core', '../../services/reference.service'], function(
                 function JobSearchBarComponent(referenceService) {
                     this.referenceService = referenceService;
                     this.jobNamingId = 0;
-                    this.placeId = 0;
+                    this.placeId = "0";
                     var __this = this;
                     referenceService.getAllStates().subscribe(function (res) {
                         __this.places = res.json();
@@ -35,7 +35,7 @@ System.register(['@angular/core', '../../services/reference.service'], function(
                     });
                 }
                 JobSearchBarComponent.prototype.parseAdress = function (place) {
-                    console.log(place);
+                    this.placeId = place['id'];
                 };
                 JobSearchBarComponent = __decorate([
                     core_1.Component({

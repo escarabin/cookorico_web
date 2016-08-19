@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { Response } from '@angular/http';
 
@@ -7,6 +7,7 @@ import { ReferenceService } from '../../services/reference.service';
 
 // TODO : remove this service
 import { JobService } from '../../services/job.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
     providers: [ReferenceService, JobService],
@@ -23,6 +24,7 @@ export class JobSearchSidebarComponent {
     public isJobNamingCollapsed:boolean = true;
     place: any = [];
     jobNamingIdList: any = [];
+    jobNamingTextList: any = ["Cuisinier", "Chef de salle", "Serveur", "Dentiste"];
     contractTypeIdList: any = [];
     studyLevelIdList: any = [];
     searchText: string;
@@ -31,8 +33,11 @@ export class JobSearchSidebarComponent {
 
     constructor(private referenceService: ReferenceService,
                 private jobService: JobService,
+                @Inject(SearchService) SearchService,
                 private route: ActivatedRoute) {
         let __this = this;
+
+        SearchService.parametersEmitter.subscribe(res => console.log('yihaaaaa', res));
 
         referenceService.getAllContractTypes().subscribe((res: Response) => {
             __this.contractTypes = res.json();
@@ -40,6 +45,10 @@ export class JobSearchSidebarComponent {
 
         referenceService.getAllJobNamings().subscribe((res: Response) => {
             __this.jobNamings = res.json();
+
+            for (let i = 0; i < __this.jobNamings.length; i++) {
+                __this.jobNamingTextList.push(__this.jobNamings[i].title);
+            }
         });
 
         referenceService.getAllStudyLevels().subscribe((res: Response) => {
@@ -58,6 +67,22 @@ export class JobSearchSidebarComponent {
                 this.searchText = route['searchText'];
             }
         });
+    }
+
+    /**
+     * ng2-select functions
+     * @param value
+     */
+    public selected(value:any):void {
+        console.log('Selected value is: ', value);
+    }
+
+    public removed(value:any):void {
+        console.log('Removed value is: ', value);
+    }
+
+    public refreshValue(value:any):void {
+        this.value = value;
     }
 
     /**

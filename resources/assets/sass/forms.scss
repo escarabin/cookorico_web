@@ -35,6 +35,7 @@ label {
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 1px;
+  font-family: $mainBoldFontFamily;
 }
 
 md-checkbox {
@@ -58,5 +59,52 @@ md-checkbox {
 
   .md-checkbox-frame {
     border: 2px solid rgba(0, 0, 0, 0.36);
+  }
+}
+
+/**
+  ng2-select
+**/
+.ui-select-multiple {
+  z-index: 10;
+  padding-top: 0;
+}
+
+ng-select {
+  .ui-select-choices {
+    width: 100%;
+    border-radius: $mainBorderRadius;
+
+    .ui-select-choices-row {
+      display: block;
+      padding: 5px 10px;
+
+      &:hover {
+        background: $oechrBlueColor;
+
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .ui-select-search {
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 50px;
+  }
+
+  .ui-select-match {
+    position: absolute;
+    margin-top: 10px;
+  }
+
+  .ui-select-match-item {
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: #F1F1F1;
   }
 }

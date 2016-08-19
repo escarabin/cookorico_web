@@ -3,6 +3,7 @@ import { FormsModule }    from '@angular/forms';
 import { CommonModule }   from '@angular/common';
 import { jobSearchRouting } from './job-search.routes';
 import { CollapseDirective, MODAL_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
+import { SELECT_DIRECTIVES } from 'ng2-select';
 
 // Components
 import { JobComponent } from './components/job.component';
@@ -12,18 +13,22 @@ import { CustomPaginationComponent } from './../components/custom-pagination.com
 import { JobSearchSidebarComponent } from './../job-search/components/job-search-sidebar.component';
 import { UNITYTinyMCE } from './../components/tiny-mce.component';
 
+// Services
+import { SearchService } from './../services/search.service';
+
 @NgModule({
     declarations: [ JobComponent,
                     NewApplicationFormComponent,
                     JobPreviewComponent,
                     JobSearchSidebarComponent,
                     CollapseDirective,
-                    MODAL_DIRECTIVES,
+                    // MODAL_DIRECTIVES,
+                    SELECT_DIRECTIVES,
                     UNITYTinyMCE,
                     CustomPaginationComponent ],
     imports:      [ jobSearchRouting,
                     CommonModule,
                     FormsModule ],
-    providers:    [],
+    providers:    [ SearchService ],
 })
 export class JobSearchModule {}
