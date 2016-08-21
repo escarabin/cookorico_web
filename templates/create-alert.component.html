@@ -6,6 +6,7 @@
                     required
                     [(ngModel)]="alert.alert_frequency_id"
                     ngControl="alert.alert_frequency_id"
+                    name="alert_frequency"
                     class="form-control">
                 <option disabled selected>-- Fréquence --</option>
                 <option *ngFor="let alertFrequency of alertFrequencies"
@@ -21,6 +22,7 @@
                    name="title"
                    [(ngModel)]="alert.title"
                    ngControl="alert.title"
+                   name="alert_title"
                    value="alert.title"
                    placeholder="Titre de votre alerte (ex : Chef cuisinier - CDI)"
                    class="form-control"/>
@@ -30,6 +32,7 @@
             <select name="job"
                     [(ngModel)]="alert.job_naming_id"
                     ngControl="alert.job_naming_id"
+                    name="alert_job_naming"
                     required
                     class="form-control">
                 <option disabled selected>-- Type de poste --</option>
@@ -49,6 +52,7 @@
                    name="place"
                    [(ngModel)]="alert.place"
                    ngControl="alert.place"
+                   name="alert_place"
                    value="alert.place"
                    placeholder="Zone de recherche (ex : Bretagne)"
                    class="form-control"/>
@@ -80,7 +84,7 @@
             </h3>
         </div>
         <div class="col-md-6 hidden-xs hidden-sm">
-            <a [routerLink]="['/Profile/Alerts']">
+            <a routerLink="/profile/alerts">
                 <button class="btn btn-default back-btn">
                     <span class="fa fa-arrow-left"></span> &nbsp; Retour aux alertes
                 </button>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouteParams, Router } from '@angular/router-deprecated';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Services
 import { ReferenceService } from '../../services/reference.service';
@@ -27,17 +27,21 @@ export class CreateAlertComponent {
                 private userService: UserService,
                 private notificationService: NotificationsService,
                 private router: Router,
-                private routeParams: RouteParams) {
+                private route: ActivatedRoute) {
         let __this = this;
 
-        this.alert.id = routeParams.get("alertId");
+        route.params.subscribe(params => {
+            if (params) {
+                __this.alert.id = params["alertId"];
 
-        if (this.alert.id) {
-            // Editing a specific alert, let's retrieve it's data
-            this.userService.getAlert(__this.alert.id).subscribe((res: Response) => {
-                __this.alert = res.json();
-            });
-        }
+                if (__this.alert.id) {
+                    // Editing a specific item, let's retrieve it's data
+                    __this.userService.getAlert(__this.alert.id).subscribe((res: Response) => {
+                        __this.alert = res.json();
+                    });
+                }
+            }
+        });
 
         this.referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
             __this.jobNamingGroups = res.json();

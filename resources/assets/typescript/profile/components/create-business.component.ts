@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouteParams, Router } from '@angular/router-deprecated';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Services
 import { ReferenceService } from '../../services/reference.service';
@@ -41,18 +41,21 @@ export class CreateBusinessComponent {
                 private businessService: BusinessService,
                 private ref: ChangeDetectorRef,
                 private router: Router,
-                private routeParams: RouteParams) {
+                private route: ActivatedRoute) {
         let __this = this;
 
-        this.business.id = parseInt(routeParams.get("businessId"));
+        route.params.subscribe(params => {
+            if (params) {
+                __this.business.id = params["businessId"];
 
-        if (this.business.id) {
-            // Editing a specific business, let's retrieve it's data
-            this.userService.getBusiness(__this.business.id).subscribe((res: Response) => {
-                __this.business = res.json();
-                __this.place = res.json()['place'];
-            });
-        }
+                if (__this.business.id) {
+                    // Editing a specific item, let's retrieve it's data
+                    __this.userService.getBusiness(__this.business.id).subscribe((res: Response) => {
+                        __this.business = res.json();
+                    });
+                }
+            }
+        });
 
         this.referenceService.getAllBusinessTypes().subscribe((res: Response) => {
             __this.businessTypes = res.json();

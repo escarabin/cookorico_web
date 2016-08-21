@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../../services/reference.service', '../../services/user.service', '../../services/business.service', '../../services/notification.service', '../../models/business', '../../models/place', '../../models/notification', 'ng2-file-upload/ng2-file-upload'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/reference.service', '../../services/user.service', '../../services/business.service', '../../services/notification.service', '../../models/business', '../../models/place', '../../models/notification', 'ng2-file-upload/ng2-file-upload'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, business_service_1, notification_service_1, business_1, place_1, notification_1, ng2_file_upload_1;
+    var core_1, router_1, reference_service_1, user_service_1, business_service_1, notification_service_1, business_1, place_1, notification_1, ng2_file_upload_1;
     var CreateBusinessComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (reference_service_1_1) {
                 reference_service_1 = reference_service_1_1;
@@ -46,14 +46,14 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
             }],
         execute: function() {
             CreateBusinessComponent = (function () {
-                function CreateBusinessComponent(referenceService, userService, notificationService, businessService, ref, router, routeParams) {
+                function CreateBusinessComponent(referenceService, userService, notificationService, businessService, ref, router, route) {
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.notificationService = notificationService;
                     this.businessService = businessService;
                     this.ref = ref;
                     this.router = router;
-                    this.routeParams = routeParams;
+                    this.route = route;
                     this.business = new business_1.Business();
                     this.place = new place_1.Place();
                     this.isLoading = false;
@@ -62,14 +62,17 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
                     this.hasBaseDropZoneOver = false;
                     this.hasAnotherDropZoneOver = false;
                     var __this = this;
-                    this.business.id = parseInt(routeParams.get("businessId"));
-                    if (this.business.id) {
-                        // Editing a specific business, let's retrieve it's data
-                        this.userService.getBusiness(__this.business.id).subscribe(function (res) {
-                            __this.business = res.json();
-                            __this.place = res.json()['place'];
-                        });
-                    }
+                    route.params.subscribe(function (params) {
+                        if (params) {
+                            __this.business.id = params["businessId"];
+                            if (__this.business.id) {
+                                // Editing a specific item, let's retrieve it's data
+                                __this.userService.getBusiness(__this.business.id).subscribe(function (res) {
+                                    __this.business = res.json();
+                                });
+                            }
+                        }
+                    });
                     this.referenceService.getAllBusinessTypes().subscribe(function (res) {
                         __this.businessTypes = res.json();
                     });
@@ -209,7 +212,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
                             business_service_1.BusinessService],
                         templateUrl: '../templates/create-business.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, business_service_1.BusinessService, core_1.ChangeDetectorRef, router_deprecated_1.Router, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, business_service_1.BusinessService, core_1.ChangeDetectorRef, router_1.Router, router_1.ActivatedRoute])
                 ], CreateBusinessComponent);
                 return CreateBusinessComponent;
             }());

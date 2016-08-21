@@ -8,7 +8,8 @@
                    [disabled]=!userCanPostJob
                    placeholder="Donnez un titre à votre annonce"
                    [(ngModel)]="jobPost.title"
-                   ngControl="jobPost.title"/>
+                   ngControl="jobPost.title"
+                   name="job_post_title"/>
         </div>
         <div class="col-md-12" [class.disabled]="!userCanPostJob">
             <business-select [businessId]="jobPost.business_id"
@@ -24,6 +25,7 @@
                     required
                     [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.job_type_id"
+                    name="job_post_job_type"
                     ngControl="jobPost.job_type_id">
                 <option selected disabled>-- Choisissez un type d'offre --</option>
                 <option *ngFor="let jobType of jobTypes"
@@ -38,6 +40,7 @@
                     required
                     [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.contract_type_id"
+                    name="job_post_contract_type"
                     ngControl="jobPost.contract_type_id">
                 <option selected disabled>-- Choisissez un type de contrat --</option>
                 <option *ngFor="let contractType of contractTypes"
@@ -54,6 +57,7 @@
                    [disabled]="!userCanPostJob"
                    placeholder="h / semaine"
                    [(ngModel)]="jobPost.week_work_hours"
+                   name="job_post_week_work_hours"
                    ngControl="jobPost.week_work_hours"/>
         </div>
         <div class="col-md-4">
@@ -64,6 +68,7 @@
                    [disabled]="!userCanPostJob"
                    placeholder="Date de début"
                    [(ngModel)]="jobPost.start_date"
+                   name="job_post_start_date"
                    ngControl="jobPost.start_date"/>
         </div>
         <div class="col-md-4">
@@ -74,6 +79,7 @@
                    [disabled]="!userCanPostJob"
                    placeholder="Date de fin"
                    [(ngModel)]="jobPost.end_date"
+                   name="job_post_end_date"
                    ngControl="jobPost.end_date"/>
         </div>
         <div class="col-md-6">
@@ -82,6 +88,7 @@
                     required
                     [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.job_naming_id"
+                    name="job_post_job_naming"
                     ngControl="jobPost.job_naming_id">
                 <option selected disabled>-- Choisissez un type d'emploi --</option>
                 <option *ngFor="let jobNaming of jobNamings"
@@ -96,6 +103,7 @@
                     required
                     [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.diploma_id"
+                    name="job_post_diploma"
                     ngControl="jobPost.diploma_id">
                 <option selected disabled>-- Choisissez une formation professionnelle --</option>
                 <option *ngFor="let diploma of diplomas"
@@ -110,6 +118,7 @@
                     [(ngModel)]="jobPost.study_level_id"
                     required
                     [disabled]="!userCanPostJob"
+                    name="job_post_study_level"
                     ngControl="jobPost.study_level_id">
                 <option selected disabled>-- Choisissez une formation générale --</option>
                 <option *ngFor="let studyLevel of studyLevels"
@@ -124,6 +133,7 @@
                     required
                     [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.job_xp_level_id"
+                    name="job_post_xp_level"
                     ngControl="jobPost.job_xp_level_id">
                 <option selected disabled>-- Choisissez un nomde d'année d'expérience --</option>
                 <option *ngFor="let jobXpLevel of jobXpLevels"
@@ -138,6 +148,7 @@
                     required
                     [disabled]="!userCanPostJob"
                     [(ngModel)]="jobPost.alert_frequency_id"
+                    name="job_post_alert_frequency"
                     ngControl="jobPost.alert_frequency_id">
                 <option selected disabled>-- Choisissez à quelle fréquence vous serez alerté des postulants --</option>
                 <option *ngFor="let alertFrequency of alertFrequencies"
@@ -159,6 +170,7 @@
                 <input type="checkbox"
                        [disabled]="!userCanPostJob"
                        [(ngModel)]="jobPost.is_asap"
+                       name="job_post_is_asap"
                        ngControl="jobPost.is_asap"/>
             </div>
             <div class="col-md-4">
@@ -166,6 +178,7 @@
                 <input type="checkbox"
                        [disabled]="!userCanPostJob"
                        [(ngModel)]="jobPost.is_urgent"
+                       name="job_post_is_urgent"
                        ngControl="jobPost.is_urgent"/>
             </div>
             <div class="col-md-4">
@@ -173,11 +186,12 @@
                 <input type="checkbox"
                        [disabled]="!userCanPostJob"
                        [(ngModel)]="jobPost.is_hosting_employee"
+                       name="job_post_is_hosting_employee"
                        ngControl="jobPost.is_hosting_employee"/>
             </div>
         </div>
         <div class="col-md-6">
-            <a [routerLink]="['/Profile/JobPosts']">
+            <a routerLink="/profile/job-posts">
                 <button class="btn btn-default back-btn">
                     <span class="fa fa-arrow-left"></span> &nbsp;
                     Retour aux annonces

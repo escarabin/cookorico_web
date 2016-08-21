@@ -72,38 +72,38 @@ System.register(['@angular/router', './components/profile.component', "./compone
                         { path: 'show', component: profile_preview_component_1.ProfilePreviewComponent },
                         { path: 'show/:userId', component: profile_preview_component_1.ProfilePreviewComponent },
                         // Experiences
-                        { path: 'experiences/all', component: experiences_component_1.ExperiencesComponent },
+                        { path: 'experiences', component: experiences_component_1.ExperiencesComponent },
                         { path: 'experience/create', component: create_experience_component_1.CreateExperienceComponent },
                         { path: 'experience/edit/:experienceId', component: create_experience_component_1.CreateExperienceComponent },
                         // Applications
-                        { path: 'applications/all', component: applications_component_1.ApplicationsComponent },
+                        { path: 'applications', component: applications_component_1.ApplicationsComponent },
                         // Education
-                        { path: 'education/all', component: education_component_1.EducationComponent },
+                        { path: 'education', component: education_component_1.EducationComponent },
                         { path: 'education/edit/:studyId', component: create_study_component_1.CreateStudyComponent },
                         { path: 'education/create', component: create_study_component_1.CreateStudyComponent },
                         // Alerts
-                        { path: 'alerts/all', component: alerts_component_1.AlertsComponent },
+                        { path: 'alerts', component: alerts_component_1.AlertsComponent },
                         { path: 'alert/:alertId', component: alerts_component_1.AlertsComponent },
                         { path: 'alert/create', component: create_alert_component_1.CreateAlertComponent },
                         { path: 'alert/edit/:alertId', component: create_alert_component_1.CreateAlertComponent },
                         // Testimonials
-                        { path: 'testimonials/all', component: testimonials_component_1.TestimonialsComponent },
-                        { path: 'testimonials/:testimonialId', component: testimonials_component_1.TestimonialsComponent },
+                        { path: 'testimonials', component: testimonials_component_1.TestimonialsComponent },
+                        { path: 'testimonial/:testimonialId', component: testimonials_component_1.TestimonialsComponent },
                         // Businesses
-                        { path: 'businesses/all', component: businesses_component_1.BusinessesComponent },
+                        { path: 'businesses', component: businesses_component_1.BusinessesComponent },
                         { path: 'business/create', component: create_business_component_1.CreateBusinessComponent },
                         { path: 'business/edit/:businessId', component: create_business_component_1.CreateBusinessComponent },
                         // Job posts
-                        { path: 'job-posts/all', component: my_job_posts_component_1.MyJobPostsComponent },
+                        { path: 'job-posts', component: my_job_posts_component_1.MyJobPostsComponent },
                         { path: 'job-post/create', component: create_job_post_component_1.CreateJobPostComponent },
                         { path: 'job-post/edit/:jobPostId', component: create_job_post_component_1.CreateJobPostComponent },
                         // Applicants
-                        { path: 'applicants/all', component: applicants_component_1.ApplicantsComponent },
+                        { path: 'applicants', component: applicants_component_1.ApplicantsComponent },
                         { path: 'applicants/show_profile', component: applicants_component_1.ApplicantsComponent },
                         // Mails
-                        { path: 'mail/templates', component: mail_templates_component_1.MailTemplatesComponent },
-                        { path: 'mail/template/create', component: create_mail_template_component_1.CreateMailTemplateComponent },
-                        { path: 'mail/template/edit/:templateId', component: create_mail_template_component_1.CreateMailTemplateComponent },
+                        { path: 'mail-templates', component: mail_templates_component_1.MailTemplatesComponent },
+                        { path: 'mail-template/create', component: create_mail_template_component_1.CreateMailTemplateComponent },
+                        { path: 'mail-template/edit/:templateId', component: create_mail_template_component_1.CreateMailTemplateComponent },
                         // Website editor
                         { path: 'website-editor', component: edit_website_component_1.EditWebsiteComponent },
                         {

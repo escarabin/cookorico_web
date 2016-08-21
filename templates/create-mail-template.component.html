@@ -6,6 +6,7 @@
                    disabled
                    class="form-control"
                    placeholder="Identifiant"
+                   name="mail_template_slug"
                    [(ngModel)]="mailTemplate.slug"/>
         </div>
         <div class="col-md-12">
@@ -14,6 +15,7 @@
                    required
                    class="form-control"
                    placeholder="Sujet du mail"
+                   name="mail_template_subject"
                    [(ngModel)]="mailTemplate.subject"/>
         </div>
         <div class="col-md-12">
@@ -41,7 +43,7 @@
             </unity-tinymce>
         </div>
         <div class="col-md-6 hidden-xs hidden-sm">
-            <a [routerLink]="['/Profile/MailTemplates']">
+            <a routerLink="/profile/mail-templates">
                 <button class="btn btn-default back-btn">
                     <span class="fa fa-arrow-left"></span> &nbsp;
                     Retour aux mails

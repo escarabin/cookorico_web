@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouteParams, Router } from '@angular/router-deprecated';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Services
 import { ReferenceService } from '../../services/reference.service';
@@ -34,19 +34,22 @@ export class CreateJobPostComponent {
                 private userService: UserService,
                 private jobPostService: JobPostService,
                 private notificationService: NotificationsService,
-                private routeParams: RouteParams,
+                private route: ActivatedRoute,
                 private router: Router) {
         let __this = this;
 
-        this.jobPost.id = routeParams.get("jobPostId");
+        route.params.subscribe(params => {
+            if (params) {
+                __this.jobPost.id = params["jobPostId"];
 
-        if (this.jobPost.id) {
-            this.userCanPostJob = true;
-            // Editing a specific experience, let's retrieve it's data
-            this.jobPostService.get(__this.jobPost.id).subscribe((res: Response) => {
-                __this.jobPost = res.json();
-            });
-        }
+                if (__this.jobPost.id) {
+                    // Editing a specific item, let's retrieve it's data
+                    __this.jobPostService.get(__this.jobPost.id).subscribe((res: Response) => {
+                        __this.jobPost = res.json();
+                    });
+                }
+            }
+        });
 
         /**
          * Check if user is able to post a new job regarding credits amount on his account

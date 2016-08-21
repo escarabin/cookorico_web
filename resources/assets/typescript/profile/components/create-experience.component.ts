@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouteParams, Router } from '@angular/router-deprecated';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Services
 import { ReferenceService } from '../../services/reference.service';
@@ -10,9 +10,6 @@ import { NotificationsService } from '../../services/notification.service';
 // Models
 import { Experience } from '../../models/experience';
 import { Notification } from '../../models/notification';
-
-// Components
-import { BusinessSelectComponent } from '../../common/components/business-select.component';
 
 @Component({
     selector: 'create-experience',
@@ -29,18 +26,22 @@ export class CreateExperienceComponent {
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
                 private notificationService: NotificationsService,
-                private routeParams: RouteParams,
+                private route: ActivatedRoute,
                 private router: Router) {
         let __this = this;
 
-        this.experience.id = routeParams.get("experienceId");
+        route.params.subscribe(params => {
+            if (params) {
+                __this.experience.id = params["experienceId"];
 
-        if (this.experience.id) {
-            // Editing a specific experience, let's retrieve it's data
-            this.userService.getExperience(__this.experience.id).subscribe((res: Response) => {
-                __this.experience = res.json();
-            });
-        }
+                if (__this.experience.id) {
+                    // Editing a specific item, let's retrieve it's data
+                    __this.userService.getExperience(__this.experience.id).subscribe((res: Response) => {
+                        __this.experience = res.json();
+                    });
+                }
+            }
+        });
 
         this.referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
             __this.jobNamingGroups = res.json();

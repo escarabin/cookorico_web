@@ -23,7 +23,7 @@
     <h2>Ils nous font confiance</h2>
 
     <ul>
-        <a [routerLink]="['ShowClub', { clubId: club.id }]"
+        <a routerLink="['ShowClub', { clubId: club.id }]"
            *ngFor="let club of clubs">
             <li>
                 <img src="/uploads/club/logo/{{ club.logoUrl }}"/><br />

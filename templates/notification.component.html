@@ -8,6 +8,6 @@
           *ngIf="note.type == 'warning'"> &nbsp;</span>
     {{ note.message }}
     <span *ngIf="note.linkTitle">
-        <a [routerLink]="[note.linkRoute]">{{ note.linkTitle }}</a>
+        <a routerLink="[note.linkRoute]">{{ note.linkTitle }}</a>
     </span>
 </div>

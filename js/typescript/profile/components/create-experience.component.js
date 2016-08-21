@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../../services/reference.service', '../../services/user.service', '../../services/notification.service', '../../models/experience', '../../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/reference.service', '../../services/user.service', '../../services/notification.service', '../../models/experience', '../../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, notification_service_1, experience_1, notification_1;
+    var core_1, router_1, reference_service_1, user_service_1, notification_service_1, experience_1, notification_1;
     var CreateExperienceComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (reference_service_1_1) {
                 reference_service_1 = reference_service_1_1;
@@ -37,22 +37,26 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
             }],
         execute: function() {
             CreateExperienceComponent = (function () {
-                function CreateExperienceComponent(referenceService, userService, notificationService, routeParams, router) {
+                function CreateExperienceComponent(referenceService, userService, notificationService, route, router) {
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.notificationService = notificationService;
-                    this.routeParams = routeParams;
+                    this.route = route;
                     this.router = router;
                     this.experience = new experience_1.Experience();
                     this.isLoading = false;
                     var __this = this;
-                    this.experience.id = routeParams.get("experienceId");
-                    if (this.experience.id) {
-                        // Editing a specific experience, let's retrieve it's data
-                        this.userService.getExperience(__this.experience.id).subscribe(function (res) {
-                            __this.experience = res.json();
-                        });
-                    }
+                    route.params.subscribe(function (params) {
+                        if (params) {
+                            __this.experience.id = params["experienceId"];
+                            if (__this.experience.id) {
+                                // Editing a specific item, let's retrieve it's data
+                                __this.userService.getExperience(__this.experience.id).subscribe(function (res) {
+                                    __this.experience = res.json();
+                                });
+                            }
+                        }
+                    });
                     this.referenceService.getAllJobNamingGroups().subscribe(function (res) {
                         __this.jobNamingGroups = res.json();
                     });
@@ -95,7 +99,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
                         providers: [reference_service_1.ReferenceService, user_service_1.UserService],
                         templateUrl: '../templates/create-experience.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, router_1.ActivatedRoute, router_1.Router])
                 ], CreateExperienceComponent);
                 return CreateExperienceComponent;
             }());

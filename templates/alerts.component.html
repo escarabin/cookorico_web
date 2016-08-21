@@ -14,7 +14,7 @@
         <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
     </div>
     <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
-        <button [routerLink]="['/Profile/CreateAlert']">
+        <button routerLink="/profile/alert/create']">
             <span class="fa fa-plus"></span>
         </button>
         <button (click)="deleteSelectedItems()">
@@ -33,7 +33,7 @@
                        (change)="saveCheckedItem(item.id)"/>
             </div>
             <div class="col-md-10 col-sm-10 col-xs-9 item">
-                <a [routerLink]="['/Profile/EditAlert', { alertId: item.id }]">
+                <a routerLink="/profile/alert/edit/{{ item.id }}">
                     <div class="item-desc">
                         <h3>{{ item.job_naming.title }}</h3>
                         {{ item.title }} -- {{ item.place }}

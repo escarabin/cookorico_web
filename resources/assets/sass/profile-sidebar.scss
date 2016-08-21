@@ -1,4 +1,4 @@
-user-sidebar {
+profile-sidebar {
   display: block;
   background-color: $mainBlueColor;
   border-radius: $mainBorderRadius;
@@ -11,23 +11,23 @@ user-sidebar {
   float: left;
 }
 
-user-sidebar .user-infos {
+profile-sidebar .user-infos {
   text-align: left;
   padding-top: 15px;
   margin: 0;
 }
 
-user-sidebar .user-infos .user-title {
+profile-sidebar .user-infos .user-title {
   font-family: $mainBoldFontFamily;
   text-align: center;
   color: white;
 }
 
-user-sidebar .user-infos .profile-picture {
+profile-sidebar .user-infos .profile-picture {
   margin-bottom: 20px;
 }
 
-user-sidebar .user-infos .profile-picture .img {
+profile-sidebar .user-infos .profile-picture .img {
   width: 70px;
   height: 70px;
   margin: auto;
@@ -37,13 +37,13 @@ user-sidebar .user-infos .profile-picture .img {
   border: 3px solid white;
 }
 
-user-sidebar .user-sidebar-menu {
+profile-sidebar .profile-sidebar-menu {
   text-align: left;
   margin-top: 20px;
   display: inline-block;
 }
 
-user-sidebar .user-sidebar-menu .menu-item {
+profile-sidebar .profile-sidebar-menu .menu-item {
   padding: 15px;
   font-size: 1.15em;
   border-top: 1px solid #DDD;
@@ -51,25 +51,25 @@ user-sidebar .user-sidebar-menu .menu-item {
   cursor: pointer;
   color: $mainDarkTextColor;
 }
-user-sidebar .user-sidebar-menu .menu-item:hover {
+profile-sidebar .profile-sidebar-menu .menu-item:hover {
   background: whitesmoke;
 }
 
-user-sidebar .user-sidebar-menu .menu-item a {
+profile-sidebar .profile-sidebar-menu .menu-item a {
   color: $mainDarkTextColor;
 }
 
-user-sidebar .plan {
+profile-sidebar .plan {
   padding-top: 15px;
   text-align: center;
 }
 
-user-sidebar .plan .plan-credits, user-sidebar .plan .plan-contacts {
+profile-sidebar .plan .plan-credits, profile-sidebar .plan .plan-contacts {
   text-align: center;
   font-family: $mainBoldFontFamily;
 }
 
-user-sidebar .plan .new-job-post-btn {
+profile-sidebar .plan .new-job-post-btn {
   background-color: #35b6e1;
   color: white;
   font-family: $mainBoldFontFamily;

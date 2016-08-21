@@ -18,8 +18,10 @@ export class HeaderComponent {
 
     constructor (private userService: UserService) {
         this.userService.getUserInfos().subscribe((res: Response) => {
-            this.user = res.json();
-            localStorage.setItem('user', JSON.stringify(this.user));
+            if (res.json().length > 1) {
+                this.user = res.json();
+                localStorage.setItem('user', JSON.stringify(this.user));
+            }
         });
     }
 

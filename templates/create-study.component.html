@@ -8,9 +8,9 @@
         </div>
         <div class="col-md-6">
             <label>Diplôme</label>
-            <select name="job"
-                    required
+            <select required
                     [(ngModel)]="study.diploma_id"
+                    name="study_diploma"
                     class="form-control">
                 <option disabled selected>-- Diplôme --</option>
                 <option *ngFor="let diploma of diplomas"
@@ -24,6 +24,7 @@
             <input type="date"
                    required
                    [(ngModel)]="study.start_date"
+                   name="study_start_date"
                    class="form-control"
                    placeholder="Date de début"/>
         </div>
@@ -33,17 +34,19 @@
                    required
                    class="form-control"
                    [(ngModel)]="study.end_date"
+                   name="study_end_date"
                    placeholder="Date de fin"/>
         </div>
         <div class="col-md-12">
             <label>Description</label>
             <textarea name="description"
                       [(ngModel)]="study.description"
+                      name="study_description"
                       class="form-control"
                       placeholder="Description"></textarea>
         </div>
         <div class="col-md-6 hidden-xs hidden-sm">
-            <a [routerLink]="['/Profile/Education']">
+            <a routerLink="/profile/education">
                 <button class="btn btn-default back-btn">
                     <span class="fa fa-arrow-left"></span> &nbsp;
                     Retour aux formations

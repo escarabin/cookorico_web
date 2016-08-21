@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Response } from '@angular/http';
-import { RouteParams } from '@angular/router-deprecated';
+import { ActivatedRoute } from '@angular/router';
 
 // Services
 import { MailService } from '../../services/mail.service';
@@ -9,6 +9,8 @@ import { MailService } from '../../services/mail.service';
 import { MailTemplate } from '../../models/mail-template';
 import { User } from '../../models/user';
 import { Business } from '../../models/business';
+
+import { UNITYTinyMCE } from './../../components/tiny-mce.component';
 
 @Component({
     selector: 'create-mail-template',
@@ -25,18 +27,26 @@ export class CreateMailTemplateComponent {
     public businessKeys;
 
     constructor(private mailService: MailService,
-                private routeParams: RouteParams) {
+                private route: ActivatedRoute) {
         this.userKeys = Object.keys(this.user);
         this.businessKeys = Object.keys(this.business);
 
-        this.mailTemplate.id = parseInt(routeParams.get("templateId"));
+        let __this = this;
 
-        if (this.mailTemplate.id) {
-            // Editing a specific mail template, let's retrieve it's data
-            this.mailService.getTemplate(this.mailTemplate.id).subscribe((res: Response) => {
-                this.mailTemplate = res.json();
-            });
-        }
+        route.params.subscribe(params => {
+            if (params) {
+                __this.mailTemplate.id = params["mailTemplateId"];
+
+                if (__this.mailTemplate.id) {
+                    // Editing a specific item, let's retrieve it's data
+                    __this.mailService.getTemplate(__this.mailTemplate.id).subscribe((res: Response) => {
+                        __this.mailTemplate = res.json();
+
+                        console.log('mail template is', __this.mailTemplate);
+                    });
+                }
+            }
+        });
     }
 
     submitMailTemplate() {

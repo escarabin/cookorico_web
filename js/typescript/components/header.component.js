@@ -26,8 +26,10 @@ System.register(['@angular/core', './../services/user.service'], function(export
                     var _this = this;
                     this.userService = userService;
                     this.userService.getUserInfos().subscribe(function (res) {
-                        _this.user = res.json();
-                        localStorage.setItem('user', JSON.stringify(_this.user));
+                        if (res.json().length > 1) {
+                            _this.user = res.json();
+                            localStorage.setItem('user', JSON.stringify(_this.user));
+                        }
                     });
                 }
                 /**

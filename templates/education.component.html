@@ -14,7 +14,7 @@
         <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
     </div>
     <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
-        <button [routerLink]="['/Profile/CreateStudy']">
+        <button routerLink="/profile/education/create']">
             <span class="fa fa-plus"></span>
         </button>
         <button (click)="deleteSelectedItems()">
@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-10 col-sm-10 col-xs-9 item"
                  [class.logo]="item.business.logo">
-                <a [routerLink]="['/Profile/EditStudy', { studyId: item.id }]">
+                <a routerLink="/profile/education/edit/{{ item.id }}">
                     <div class="item-desc">
                         <h3>{{ item.diploma.title }}</h3>
                         {{ item.business.title }}

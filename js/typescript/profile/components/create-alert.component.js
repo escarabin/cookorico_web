@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../../services/reference.service', '../../services/user.service', '../../services/notification.service', '../../models/alert', '../../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/reference.service', '../../services/user.service', '../../services/notification.service', '../../models/alert', '../../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, notification_service_1, alert_1, notification_1;
+    var core_1, router_1, reference_service_1, user_service_1, notification_service_1, alert_1, notification_1;
     var CreateAlertComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (reference_service_1_1) {
                 reference_service_1 = reference_service_1_1;
@@ -37,22 +37,26 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
             }],
         execute: function() {
             CreateAlertComponent = (function () {
-                function CreateAlertComponent(referenceService, userService, notificationService, router, routeParams) {
+                function CreateAlertComponent(referenceService, userService, notificationService, router, route) {
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.notificationService = notificationService;
                     this.router = router;
-                    this.routeParams = routeParams;
+                    this.route = route;
                     this.alert = new alert_1.Alert();
                     this.isLoading = false;
                     var __this = this;
-                    this.alert.id = routeParams.get("alertId");
-                    if (this.alert.id) {
-                        // Editing a specific alert, let's retrieve it's data
-                        this.userService.getAlert(__this.alert.id).subscribe(function (res) {
-                            __this.alert = res.json();
-                        });
-                    }
+                    route.params.subscribe(function (params) {
+                        if (params) {
+                            __this.alert.id = params["alertId"];
+                            if (__this.alert.id) {
+                                // Editing a specific item, let's retrieve it's data
+                                __this.userService.getAlert(__this.alert.id).subscribe(function (res) {
+                                    __this.alert = res.json();
+                                });
+                            }
+                        }
+                    });
                     this.referenceService.getAllJobNamingGroups().subscribe(function (res) {
                         __this.jobNamingGroups = res.json();
                     });
@@ -95,7 +99,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
                         providers: [reference_service_1.ReferenceService, user_service_1.UserService],
                         templateUrl: '../templates/create-alert.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, router_deprecated_1.Router, router_deprecated_1.RouteParams])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, user_service_1.UserService, notification_service_1.NotificationsService, router_1.Router, router_1.ActivatedRoute])
                 ], CreateAlertComponent);
                 return CreateAlertComponent;
             }());

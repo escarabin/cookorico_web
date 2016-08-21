@@ -53,13 +53,17 @@ class UserController extends Controller
      * @return mixed
      */
     public function getInfos() {
-        $user = Auth::user()
-             ->load('plans',
+        $user = array();
+
+        if (Auth::user()) {
+            $user = Auth::user()
+                ->load('plans',
                     'status',
                     'type',
                     'civility',
                     'place',
                     'lookingForJobNaming');
+        }
 
         return $user;
     }

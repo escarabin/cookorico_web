@@ -12,6 +12,7 @@
                    required
                    [disabled]="business.id"
                    [(ngModel)]="business.title"
+                   name="business_title"
                    (setAddress)="parseAdress($event)"
                    googleplace/>
         </div>
@@ -21,7 +22,8 @@
                    required
                    class="form-control"
                    placeholder="Adresse"
-                   [(ngModel)]="place.adress"/>
+                   [(ngModel)]="place.adress"
+                   name="business_adress"/>
         </div>
         <div class="col-md-6">
             <label>Code postal</label>
@@ -29,7 +31,8 @@
                    required
                    class="form-control"
                    placeholder="Code postal"
-                   [(ngModel)]="place.postalCode"/>
+                   [(ngModel)]="place.postalCode"
+                   name="business_postal_code"/>
         </div>
         <div class="col-md-6">
             <label>Ville</label>
@@ -37,14 +40,16 @@
                    required
                    class="form-control"
                    placeholder="Ville"
-                   [(ngModel)]="place.city"/>
+                   [(ngModel)]="place.city"
+                   name="business_city"/>
         </div>
         <div class="col-md-6">
             <label>Site web</label>
             <input type="text"
                    class="form-control"
                    placeholder="Site web"
-                   [(ngModel)]="business.website"/>
+                   [(ngModel)]="business.website"
+                   name="business_website"/>
         </div>
         <div class="col-md-6">
             <label>Type</label>
@@ -52,7 +57,8 @@
                     required
                     [(ngModel)]="business.business_type_id"
                     required
-                    class="form-control">
+                    class="form-control"
+                    name="business_type">
                 <option disabled selected>-- Type --</option>
                 <option *ngFor="let businessType of businessTypes"
                         value="{{ businessType.id }}">
@@ -66,7 +72,8 @@
                    required
                    class="form-control"
                    placeholder="Téléphone"
-                   [(ngModel)]="business.phone"/>
+                   [(ngModel)]="business.phone"
+                   name="business_phone"/>
         </div>
         <div class="col-md-6">
             <label>Email</label>
@@ -75,7 +82,8 @@
                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                    class="form-control"
                    placeholder="Email"
-                   [(ngModel)]="business.email"/>
+                   [(ngModel)]="business.email"
+                   name="business_email"/>
         </div>
         <div class="col-md-6">
             <br /><br />
@@ -117,10 +125,11 @@
             <label>Description</label>
             <textarea class="form-control"
                       [(ngModel)]="business.description"
+                      name="business_description"
                       placeholder="Votre établissement en quelques lignes"></textarea>
         </div>
         <div class="col-md-6 hidden-xs hidden-sm">
-            <a [routerLink]="['/Profile/Businesses']">
+            <a routerLink="/profile/businesses">
                 <button class="btn btn-default back-btn">
                     <span class="fa fa-arrow-left"></span> &nbsp;
                     Retour aux établissements

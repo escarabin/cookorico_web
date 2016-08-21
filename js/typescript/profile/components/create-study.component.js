@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../../services/reference.service', '../../services/user.service', '../../services/notification.service', '../../models/study', '../../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/reference.service', '../../services/user.service', '../../services/notification.service', '../../models/study', '../../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, reference_service_1, user_service_1, notification_service_1, study_1, notification_1;
+    var core_1, router_1, reference_service_1, user_service_1, notification_service_1, study_1, notification_1;
     var CreateStudyComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (reference_service_1_1) {
                 reference_service_1 = reference_service_1_1;
@@ -37,22 +37,26 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
             }],
         execute: function() {
             CreateStudyComponent = (function () {
-                function CreateStudyComponent(referenceService, notificationService, userService, routeParams, router) {
+                function CreateStudyComponent(referenceService, notificationService, userService, route, router) {
                     this.referenceService = referenceService;
                     this.notificationService = notificationService;
                     this.userService = userService;
-                    this.routeParams = routeParams;
+                    this.route = route;
                     this.router = router;
                     this.isLoading = false;
                     this.study = new study_1.Study();
                     var __this = this;
-                    this.study.id = routeParams.get("studyId");
-                    if (this.study.id) {
-                        // Editing a specific experience, let's retrieve it's data
-                        this.userService.getStudy(__this.study.id).subscribe(function (res) {
-                            __this.study = res.json();
-                        });
-                    }
+                    route.params.subscribe(function (params) {
+                        if (params) {
+                            __this.study.id = params["studyId"];
+                            if (__this.study.id) {
+                                // Editing a specific item, let's retrieve it's data
+                                __this.userService.getStudy(__this.study.id).subscribe(function (res) {
+                                    __this.study = res.json();
+                                });
+                            }
+                        }
+                    });
                     this.referenceService.getAllDiplomas().subscribe(function (res) {
                         __this.diplomas = res.json();
                     });
@@ -95,7 +99,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../services/
                         providers: [reference_service_1.ReferenceService, user_service_1.UserService],
                         templateUrl: '../templates/create-study.component.html'
                     }), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, notification_service_1.NotificationsService, user_service_1.UserService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, notification_service_1.NotificationsService, user_service_1.UserService, router_1.ActivatedRoute, router_1.Router])
                 ], CreateStudyComponent);
                 return CreateStudyComponent;
             }());

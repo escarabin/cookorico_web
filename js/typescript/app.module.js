@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', './components/app.component', './app.routes', './services/notification.service', './components/home.component', './components/header.component', './components/footer.component', './job-search/components/job-search-bar.component', './components/sign-in.component', './components/post-preview.component', './components/post.component', './components/club.component', './components/sign-up.component', './profile/components/profile-sidebar.component', './components/right-sidebar.component', 'ng2-pagination', 'angular2-google-map-auto-complete/directives/googleplace.directive', 'ng2-bootstrap/ng2-bootstrap', 'angular2-google-maps/core/index'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', './components/app.component', './app.routes', './services/notification.service', './components/home.component', './components/header.component', './components/footer.component', './job-search/components/job-search-bar.component', './components/sign-in.component', './components/post-preview.component', './components/post.component', './components/club.component', './components/sign-up.component', './components/right-sidebar.component', 'ng2-pagination', 'angular2-google-map-auto-complete/directives/googleplace.directive', 'ng2-bootstrap/ng2-bootstrap', 'angular2-google-maps/core/index'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, http_1, router_1, app_component_1, app_routes_1, notification_service_1, home_component_1, header_component_1, footer_component_1, job_search_bar_component_1, sign_in_component_1, post_preview_component_1, post_component_1, club_component_1, sign_up_component_1, profile_sidebar_component_1, right_sidebar_component_1, ng2_pagination_1, googleplace_directive_1, ng2_bootstrap_1, index_1;
+    var core_1, platform_browser_1, forms_1, http_1, router_1, app_component_1, app_routes_1, notification_service_1, home_component_1, header_component_1, footer_component_1, job_search_bar_component_1, sign_in_component_1, post_preview_component_1, post_component_1, club_component_1, sign_up_component_1, right_sidebar_component_1, ng2_pagination_1, googleplace_directive_1, ng2_bootstrap_1, index_1;
     var AppModule;
     return {
         setters:[
@@ -65,9 +65,6 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             function (sign_up_component_1_1) {
                 sign_up_component_1 = sign_up_component_1_1;
             },
-            function (profile_sidebar_component_1_1) {
-                profile_sidebar_component_1 = profile_sidebar_component_1_1;
-            },
             function (right_sidebar_component_1_1) {
                 right_sidebar_component_1 = right_sidebar_component_1_1;
             },
@@ -102,7 +99,6 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                             post_component_1.PostComponent,
                             club_component_1.ClubComponent,
                             sign_up_component_1.SignUpComponent,
-                            profile_sidebar_component_1.ProfileSidebarComponent,
                             right_sidebar_component_1.RightSidebarComponent,
                             ng2_pagination_1.PaginationControlsCmp,
                             post_preview_component_1.PostPreviewComponent,
