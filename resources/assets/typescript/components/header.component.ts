@@ -37,7 +37,6 @@ export class HeaderComponent {
     /**
      * Function triggered after sign-in-component.ts's
      * (userSignedOut) EventEmitter emitted something
-     * @param user
      */
     handleUserSignedOut() {
         this.userService.signOut().subscribe((res: Response) => {
