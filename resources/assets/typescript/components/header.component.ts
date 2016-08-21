@@ -39,7 +39,7 @@ export class HeaderComponent {
      * (userSignedOut) EventEmitter emitted something
      * @param user
      */
-    handleUserSignedOut(user: User) {
+    handleUserSignedOut() {
         this.userService.signOut().subscribe((res: Response) => {
             this.user = null;
         });
