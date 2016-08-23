@@ -40,20 +40,20 @@ return [
     ],
 
     'linkedin' => [
-        'client_id' => '77pzdtz69axly4',
-        'client_secret' => 'G2aEA7CNlFJVttCD',
+        'client_id' => env('LINKEDIN_ID'),
+        'client_secret' => env('LINKEDIN_SECRET'),
         'redirect' => 'http://localhost:8888/api/public/auth/linkedin/callback',
     ],
 
     'google' => [
-        'client_id' => 'oechr-1380',
-        'client_secret' => 'AIzaSyDHar3rTVpUcvpFDj88PttAPy85Bk17R18',
+        'client_id' => env('GOOGLE_ID'),
+        'client_secret' => env('GOOGLE_SECRET'),
         'redirect' => 'http://localhost:8888/api/public/auth/google/callback',
     ],
 
     'facebook' => [
-        'client_id' => '1753966591484784',
-        'client_secret' => '8069d2716e5b15d97df6dd665ada1335',
+        'client_id' => env('FACEBOOK_ID'),
+        'client_secret' => env('FACEBOOK_SECRET'),
         'redirect' => 'http://localhost:8888/api/public/auth/facebook/callback',
     ],
 ];
