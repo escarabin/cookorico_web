@@ -51,4 +51,9 @@ return [
         'redirect' => 'http://localhost:8888/api/public/auth/google/callback',
     ],
 
+    'facebook' => [
+        'client_id' => '1753966591484784',
+        'client_secret' => '8069d2716e5b15d97df6dd665ada1335',
+        'redirect' => 'http://localhost:8888/api/public/auth/facebook/callback',
+    ],
 ];
