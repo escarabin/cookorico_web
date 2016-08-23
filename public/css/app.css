@@ -318,7 +318,7 @@ post-preview:nth-child(odd) {
 #sign-in-modal .forgot-password {
   text-align: right; }
 
-#sign-in-modal .google-login, #sign-in-modal .linkedin-login {
+#sign-in-modal .facebook-login, #sign-in-modal .linkedin-login {
   text-align: center;
   padding: 25px;
   margin-left: 4%;
@@ -329,7 +329,7 @@ post-preview:nth-child(odd) {
   cursor: pointer;
   font-family: "Avenir Heavy", sans-serif; }
 
-#sign-in-modal .google-login:hover, #sign-in-modal .linkedin-login:hover {
+#sign-in-modal .facebook-login:hover, #sign-in-modal .linkedin-login:hover {
   opacity: 0.9; }
 
 #sign-in-modal .linkedin-login {
@@ -337,8 +337,8 @@ post-preview:nth-child(odd) {
   margin-top: 5px;
   margin-bottom: 5px; }
 
-#sign-in-modal .google-login {
-  background: #c53929;
+#sign-in-modal .facebook-login {
+  background: #3b5998;
   margin-bottom: 5px; }
 
 #sign-in-modal .email-sent, #sign-in-modal .loading {

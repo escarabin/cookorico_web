@@ -4,7 +4,6 @@ import { CommonModule }   from '@angular/common';
 import { SharedModule }   from './../shared/shared.module';
 import { profileRouting } from './profile.routes';
 import { ProfileComponent } from './components/profile.component';
-import { CollapseDirective } from 'ng2-bootstrap/ng2-bootstrap';
 import { ImageCropperComponent } from 'ng2-img-cropper';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload/ng2-file-upload';
 import { BusinessSelectComponent } from './../components/business-select.component';
@@ -29,10 +28,8 @@ import { EditWebsiteComponent } from './components/edit-website.component';
 
 @NgModule({
     declarations: [ ProfileComponent,
-                    CollapseDirective,
                     FileSelectDirective,
                     FileDropDirective,
-                    UNITYTinyMCE,
                     BusinessSelectComponent,
                     ProfilePreviewComponent,
                     ExperiencesComponent,

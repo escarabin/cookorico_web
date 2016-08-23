@@ -39,8 +39,11 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                 SharedModule = __decorate([
                     core_1.NgModule({
                         declarations: [ng2_bootstrap_1.MODAL_DIRECTIVES,
-                            tiny_mce_component_1.UNITYTinyMCE],
-                        exports: [ng2_bootstrap_1.MODAL_DIRECTIVES],
+                            tiny_mce_component_1.UNITYTinyMCE,
+                            ng2_bootstrap_1.CollapseDirective],
+                        exports: [ng2_bootstrap_1.MODAL_DIRECTIVES,
+                            tiny_mce_component_1.UNITYTinyMCE,
+                            ng2_bootstrap_1.CollapseDirective],
                         imports: [platform_browser_1.BrowserModule,
                             forms_1.FormsModule,
                             http_1.HttpModule],
