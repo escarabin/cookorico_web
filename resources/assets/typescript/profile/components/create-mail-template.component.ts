@@ -35,6 +35,7 @@ export class CreateMailTemplateComponent {
 
         route.params.subscribe(params => {
             if (params) {
+                console.log(params);
                 __this.mailTemplate.id = params["mailTemplateId"];
 
                 if (__this.mailTemplate.id) {

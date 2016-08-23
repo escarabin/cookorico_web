@@ -10,7 +10,7 @@ import { NotificationsService } from './../services/notification.service';
 import { Notification } from './../models/notification';
 
 // ng2-bootstrap necessary workaround (17/08/16)
-import {ComponentsHelper} from
+import { ComponentsHelper } from
     'ng2-bootstrap/components/utils/components-helper.service';
 
 @Component({
@@ -54,8 +54,6 @@ export class SignInComponent {
                 __this.notificationService.show(
                     new Notification('success', 'Vous êtes connecté')
                 );
-
-                console.log(user);
 
                 /**
                  * Close the sign-in modal

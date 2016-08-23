@@ -57,7 +57,6 @@ System.register(['@angular/core', '@angular/router', './../services/user.service
                             __this.user = JSON.parse(localStorage.getItem('user'));
                             __this.userSignedIn.emit(_this.user);
                             __this.notificationService.show(new notification_1.Notification('success', 'Vous êtes connecté'));
-                            console.log(user);
                             /**
                              * Close the sign-in modal
                              */

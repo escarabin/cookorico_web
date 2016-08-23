@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-bootstrap'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', 'ng2-bootstrap/ng2-bootstrap', './../components/tiny-mce.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,41 +10,46 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, forms_1, ng2_bootstrap_1;
-    var EditWebsiteComponent;
+    var core_1, platform_browser_1, forms_1, http_1, ng2_bootstrap_1, tiny_mce_component_1;
+    var SharedModule;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (common_1_1) {
-                common_1 = common_1_1;
+            function (platform_browser_1_1) {
+                platform_browser_1 = platform_browser_1_1;
             },
             function (forms_1_1) {
                 forms_1 = forms_1_1;
             },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
             function (ng2_bootstrap_1_1) {
                 ng2_bootstrap_1 = ng2_bootstrap_1_1;
+            },
+            function (tiny_mce_component_1_1) {
+                tiny_mce_component_1 = tiny_mce_component_1_1;
             }],
         execute: function() {
-            EditWebsiteComponent = (function () {
-                function EditWebsiteComponent() {
+            SharedModule = (function () {
+                function SharedModule() {
                 }
-                EditWebsiteComponent.prototype.homePromoChanged = function (newPromoContent) {
-                };
-                EditWebsiteComponent = __decorate([
-                    core_1.Component({
-                        selector: 'edit-website',
-                        directives: [ng2_bootstrap_1.ACCORDION_DIRECTIVES,
-                            common_1.CORE_DIRECTIVES,
-                            forms_1.FORM_DIRECTIVES],
-                        templateUrl: '../templates/edit-website.component.html',
+                SharedModule = __decorate([
+                    core_1.NgModule({
+                        declarations: [ng2_bootstrap_1.MODAL_DIRECTIVES,
+                            tiny_mce_component_1.UNITYTinyMCE],
+                        exports: [ng2_bootstrap_1.MODAL_DIRECTIVES],
+                        imports: [platform_browser_1.BrowserModule,
+                            forms_1.FormsModule,
+                            http_1.HttpModule],
                     }), 
                     __metadata('design:paramtypes', [])
-                ], EditWebsiteComponent);
-                return EditWebsiteComponent;
+                ], SharedModule);
+                return SharedModule;
             }());
-            exports_1("EditWebsiteComponent", EditWebsiteComponent);
+            exports_1("SharedModule", SharedModule);
         }
     }
 });

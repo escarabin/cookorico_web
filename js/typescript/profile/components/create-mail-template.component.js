@@ -48,6 +48,7 @@ System.register(['@angular/core', '@angular/router', '../../services/mail.servic
                     var __this = this;
                     route.params.subscribe(function (params) {
                         if (params) {
+                            console.log(params);
                             __this.mailTemplate.id = params["mailTemplateId"];
                             if (__this.mailTemplate.id) {
                                 // Editing a specific item, let's retrieve it's data

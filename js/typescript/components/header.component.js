@@ -43,9 +43,8 @@ System.register(['@angular/core', './../services/user.service'], function(export
                 /**
                  * Function triggered after sign-in-component.ts's
                  * (userSignedOut) EventEmitter emitted something
-                 * @param user
                  */
-                HeaderComponent.prototype.handleUserSignedOut = function (user) {
+                HeaderComponent.prototype.handleUserSignedOut = function () {
                     var _this = this;
                     this.userService.signOut().subscribe(function (res) {
                         _this.user = null;

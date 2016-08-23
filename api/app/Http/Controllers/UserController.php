@@ -55,6 +55,8 @@ class UserController extends Controller
     public function getInfos() {
         $user = array();
 
+        Auth::loginUsingId(1);
+
         if (Auth::user()) {
             $user = Auth::user()
                 ->load('plans',

@@ -28,4 +28,5 @@ import { SearchService } from './../services/search.service';
                     FormsModule ],
     providers:    [ SearchService ],
 })
+
 export class JobSearchModule {}
