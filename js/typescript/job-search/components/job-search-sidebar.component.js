@@ -44,7 +44,7 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                     this.isJobNamingCollapsed = true;
                     this.place = [];
                     this.jobNamingIdList = [];
-                    this.jobNamingTextList = ["Cuisinier", "Chef de salle", "Serveur", "Dentiste"];
+                    this.jobNamingTextList = [];
                     this.contractTypeIdList = [];
                     this.studyLevelIdList = [];
                     this.jobs = [];
@@ -59,6 +59,7 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                         for (var i = 0; i < __this.jobNamings.length; i++) {
                             __this.jobNamingTextList.push(__this.jobNamings[i].title);
                         }
+                        console.log('job namings are', __this.jobNamingTextList);
                     });
                     referenceService.getAllStudyLevels().subscribe(function (res) {
                         __this.studyLevels = res.json();

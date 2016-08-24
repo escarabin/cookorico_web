@@ -7,7 +7,7 @@
                 <span class="fa fa-search"></span>
             </span>
             <ng-select [multiple]="true"
-                       [items]="jobNamingTextList"
+                       [(items)]="jobNamingTextList"
                        (data)="refreshValue($event)"
                        (selected)="selected($event)"
                        (removed)="removed($event)"

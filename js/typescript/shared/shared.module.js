@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', 'ng2-bootstrap/ng2-bootstrap', './../components/tiny-mce.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', 'ng2-bootstrap/ng2-bootstrap', './../components/tiny-mce.component', 'ng2-select/ng2-select'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, http_1, ng2_bootstrap_1, tiny_mce_component_1;
+    var core_1, platform_browser_1, forms_1, http_1, ng2_bootstrap_1, tiny_mce_component_1, ng2_select_1;
     var SharedModule;
     return {
         setters:[
@@ -31,6 +31,9 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             },
             function (tiny_mce_component_1_1) {
                 tiny_mce_component_1 = tiny_mce_component_1_1;
+            },
+            function (ng2_select_1_1) {
+                ng2_select_1 = ng2_select_1_1;
             }],
         execute: function() {
             SharedModule = (function () {
@@ -40,10 +43,12 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                     core_1.NgModule({
                         declarations: [ng2_bootstrap_1.MODAL_DIRECTIVES,
                             tiny_mce_component_1.UNITYTinyMCE,
-                            ng2_bootstrap_1.CollapseDirective],
+                            ng2_bootstrap_1.CollapseDirective,
+                            ng2_select_1.SELECT_DIRECTIVES],
                         exports: [ng2_bootstrap_1.MODAL_DIRECTIVES,
                             tiny_mce_component_1.UNITYTinyMCE,
-                            ng2_bootstrap_1.CollapseDirective],
+                            ng2_bootstrap_1.CollapseDirective,
+                            ng2_select_1.SELECT_DIRECTIVES],
                         imports: [platform_browser_1.BrowserModule,
                             forms_1.FormsModule,
                             http_1.HttpModule],

@@ -10,7 +10,7 @@ import { JobService } from '../../services/job.service';
 import { SearchService } from '../../services/search.service';
 
 @Component({
-    providers: [ReferenceService, JobService],
+    providers: [ ReferenceService, JobService ],
     selector: 'job-search-sidebar',
     templateUrl: '../templates/job-search-sidebar.component.html',
 })
@@ -24,7 +24,7 @@ export class JobSearchSidebarComponent {
     public isJobNamingCollapsed:boolean = true;
     place: any = [];
     jobNamingIdList: any = [];
-    jobNamingTextList: any = ["Cuisinier", "Chef de salle", "Serveur", "Dentiste"];
+    jobNamingTextList: any = [];
     contractTypeIdList: any = [];
     studyLevelIdList: any = [];
     searchText: string;
@@ -49,6 +49,8 @@ export class JobSearchSidebarComponent {
             for (let i = 0; i < __this.jobNamings.length; i++) {
                 __this.jobNamingTextList.push(__this.jobNamings[i].title);
             }
+
+            console.log('job namings are', __this.jobNamingTextList);
         });
 
         referenceService.getAllStudyLevels().subscribe((res: Response) => {
