@@ -30,7 +30,24 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
             WebsiteEditorComponent = (function () {
                 function WebsiteEditorComponent() {
                 }
+                /**
+                 * Save home banner
+                 * @param newPromoContent
+                 */
                 WebsiteEditorComponent.prototype.homePromoChanged = function (newPromoContent) {
+                };
+                /**
+                 * Save partners displayed on home page
+                 */
+                WebsiteEditorComponent.prototype.saveHomePartners = function () {
+                    console.log('partners', this.homePartnersIdList);
+                };
+                /**
+                 * Triggered after a change on business-select
+                 * @param businessIdList
+                 */
+                WebsiteEditorComponent.prototype.handleBusinessIdListChange = function (businessIdList) {
+                    this.homePartnersIdList = businessIdList;
                 };
                 WebsiteEditorComponent = __decorate([
                     core_1.Component({

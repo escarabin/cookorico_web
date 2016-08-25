@@ -4,11 +4,17 @@
                        (newContentInput)="homePromoChanged($event)">
 
         </unity-tinymce>
+        <button class="btn btn-primary">
+            Sauvegarder
+        </button>
     </accordion-group>
     <accordion-group heading="Partenaires page d'accueil">
-        <business-select [isMultiple]="true"></business-select>
-        <button class="btn btn-primary">
-            Sauvegarder les partenaires
+        <business-select (businessIdChange)="handleBusinessIdListChange($event)">
+
+        </business-select>
+        <button class="btn btn-primary"
+                (click)="saveHomePartners()">
+            Sauvegarder
         </button>
     </accordion-group>
 </accordion>

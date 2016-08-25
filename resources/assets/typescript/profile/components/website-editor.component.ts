@@ -12,11 +12,32 @@ import { ACCORDION_DIRECTIVES } from 'ng2-bootstrap';
 })
 
 export class WebsiteEditorComponent {
+    homePartnersIdList:any;
+
     constructor() {
 
     }
 
+    /**
+     * Save home banner
+     * @param newPromoContent
+     */
     homePromoChanged(newPromoContent) {
 
+    }
+
+    /**
+     * Save partners displayed on home page
+     */
+    saveHomePartners() {
+        console.log('partners', this.homePartnersIdList);
+    }
+
+    /**
+     * Triggered after a change on business-select
+     * @param businessIdList
+     */
+    handleBusinessIdListChange(businessIdList) {
+        this.homePartnersIdList = businessIdList;
     }
 }
