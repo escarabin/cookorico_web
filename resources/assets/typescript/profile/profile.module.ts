@@ -6,7 +6,7 @@ import { profileRouting } from './profile.routes';
 import { ProfileComponent } from './components/profile.component';
 import { ImageCropperComponent } from 'ng2-img-cropper';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload/ng2-file-upload';
-import { BusinessSelectComponent } from './../components/business-select.component';
+import { BusinessSelectComponent } from './../shared/components/business-select.component';
 import { ProfilePreviewComponent } from './components/profile-preview.component';
 import { ExperiencesComponent } from './components/experiences.component';
 import { CreateExperienceComponent } from './components/create-experience.component';

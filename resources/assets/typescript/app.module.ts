@@ -10,18 +10,18 @@ import { SharedModule } from './shared/shared.module';
 import { NotificationsService } from './services/notification.service'
 
 // Components
-import { AppComponent }   from './components/app.component';
-import { HomeComponent } from './components/home.component';
-import { HeaderComponent } from './components/header.component';
-import { FooterComponent } from './components/footer.component';
-import { JobSearchBarComponent } from './job-search/components/job-search-bar.component';
-import { SignInComponent } from './components/sign-in.component';
-import { NotificationsComponent } from './components/notification.component';
-import { PostPreviewComponent } from './components/post-preview.component';
-import { PostComponent } from './components/post.component';
-import { ClubComponent } from './components/club.component';
-import { SignUpComponent } from './components/sign-up.component';
-import { RightSidebarComponent } from './components/right-sidebar.component';
+import { AppComponent }   from './app.component';
+import { HomeComponent } from './shared/components/home.component';
+import { HeaderComponent } from './shared/components/header.component';
+import { FooterComponent } from './shared/components/footer.component';
+import { JobSearchBarComponent } from './shared/components/job-search-bar.component';
+import { SignInComponent } from './shared/components/sign-in.component';
+import { NotificationsComponent } from './shared/components/notification.component';
+import { PostPreviewComponent } from './shared/components/post-preview.component';
+import { PostComponent } from './shared/components/post.component';
+import { ClubComponent } from './shared/components/club.component';
+import { SignUpComponent } from './shared/components/sign-up.component';
+import { RightSidebarComponent } from './shared/components/right-sidebar.component';
 import { PaginationControlsCmp } from 'ng2-pagination';
 
 // Directives

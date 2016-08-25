@@ -8,7 +8,7 @@ import { SharedModule }   from './../shared/shared.module';
 import { JobComponent } from './components/job.component';
 import { NewApplicationFormComponent } from './components/new-application-form.component';
 import { JobPreviewComponent } from './components/job-preview.component';
-import { CustomPaginationComponent } from './../components/custom-pagination.component';
+import { CustomPaginationComponent } from './../shared/components/custom-pagination.component';
 import { JobSearchSidebarComponent } from './../job-search/components/job-search-sidebar.component';
 
 // Services
