@@ -24,7 +24,7 @@ import { CreateJobPostComponent } from './components/create-job-post.component';
 import { ApplicantsComponent } from './components/applicants.component';
 import { MailTemplatesComponent } from './components/mail-templates.component';
 import { CreateMailTemplateComponent } from './components/create-mail-template.component';
-import { EditWebsiteComponent } from './components/edit-website.component';
+import { WebsiteEditorComponent } from './components/website-editor.component';
 
 @NgModule({
     declarations: [ ProfileComponent,
@@ -48,7 +48,7 @@ import { EditWebsiteComponent } from './components/edit-website.component';
                     ProfileSidebarComponent,
                     MailTemplatesComponent,
                     CreateMailTemplateComponent,
-                    EditWebsiteComponent,
+                    WebsiteEditorComponent,
                     ImageCropperComponent ],
     imports:      [ profileRouting,
                     FormsModule,

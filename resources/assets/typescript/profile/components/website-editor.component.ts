@@ -4,14 +4,14 @@ import { FORM_DIRECTIVES } from '@angular/forms';
 import { ACCORDION_DIRECTIVES } from 'ng2-bootstrap';
 
 @Component({
-    selector: 'edit-website',
+    selector: 'website-editor',
     directives: [ACCORDION_DIRECTIVES,
                  CORE_DIRECTIVES,
                  FORM_DIRECTIVES],
-    templateUrl: '../templates/edit-website.component.html',
+    templateUrl: '../templates/website-editor.component.html',
 })
 
-export class EditWebsiteComponent {
+export class WebsiteEditorComponent {
     constructor() {
 
     }

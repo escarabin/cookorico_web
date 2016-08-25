@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms', '@angular/common', './../shared/shared.module', './profile.routes', './components/profile.component', 'ng2-img-cropper', 'ng2-file-upload/ng2-file-upload', './../shared/components/business-select.component', './components/profile-preview.component', './components/experiences.component', './components/create-experience.component', './components/applications.component', './components/education.component', './components/create-study.component', './components/profile-sidebar.component', './components/alerts.component', './components/create-alert.component', './components/testimonials.component', './components/businesses.component', './components/create-business.component', './components/my-job-posts.component', './components/create-job-post.component', './components/applicants.component', './components/mail-templates.component', './components/create-mail-template.component', './components/edit-website.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', '@angular/common', './../shared/shared.module', './profile.routes', './components/profile.component', 'ng2-img-cropper', 'ng2-file-upload/ng2-file-upload', './../shared/components/business-select.component', './components/profile-preview.component', './components/experiences.component', './components/create-experience.component', './components/applications.component', './components/education.component', './components/create-study.component', './components/profile-sidebar.component', './components/alerts.component', './components/create-alert.component', './components/testimonials.component', './components/businesses.component', './components/create-business.component', './components/my-job-posts.component', './components/create-job-post.component', './components/applicants.component', './components/mail-templates.component', './components/create-mail-template.component', './components/website-editor.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/forms', '@angular/common', './../sha
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, forms_1, common_1, shared_module_1, profile_routes_1, profile_component_1, ng2_img_cropper_1, ng2_file_upload_1, business_select_component_1, profile_preview_component_1, experiences_component_1, create_experience_component_1, applications_component_1, education_component_1, create_study_component_1, profile_sidebar_component_1, alerts_component_1, create_alert_component_1, testimonials_component_1, businesses_component_1, create_business_component_1, my_job_posts_component_1, create_job_post_component_1, applicants_component_1, mail_templates_component_1, create_mail_template_component_1, edit_website_component_1;
+    var core_1, forms_1, common_1, shared_module_1, profile_routes_1, profile_component_1, ng2_img_cropper_1, ng2_file_upload_1, business_select_component_1, profile_preview_component_1, experiences_component_1, create_experience_component_1, applications_component_1, education_component_1, create_study_component_1, profile_sidebar_component_1, alerts_component_1, create_alert_component_1, testimonials_component_1, businesses_component_1, create_business_component_1, my_job_posts_component_1, create_job_post_component_1, applicants_component_1, mail_templates_component_1, create_mail_template_component_1, website_editor_component_1;
     var ProfileModule;
     return {
         setters:[
@@ -92,8 +92,8 @@ System.register(['@angular/core', '@angular/forms', '@angular/common', './../sha
             function (create_mail_template_component_1_1) {
                 create_mail_template_component_1 = create_mail_template_component_1_1;
             },
-            function (edit_website_component_1_1) {
-                edit_website_component_1 = edit_website_component_1_1;
+            function (website_editor_component_1_1) {
+                website_editor_component_1 = website_editor_component_1_1;
             }],
         execute: function() {
             ProfileModule = (function () {
@@ -122,7 +122,7 @@ System.register(['@angular/core', '@angular/forms', '@angular/common', './../sha
                             profile_sidebar_component_1.ProfileSidebarComponent,
                             mail_templates_component_1.MailTemplatesComponent,
                             create_mail_template_component_1.CreateMailTemplateComponent,
-                            edit_website_component_1.EditWebsiteComponent,
+                            website_editor_component_1.WebsiteEditorComponent,
                             ng2_img_cropper_1.ImageCropperComponent],
                         imports: [profile_routes_1.profileRouting,
                             forms_1.FormsModule,

@@ -11,7 +11,7 @@ import { NotificationsService } from './../../services/notification.service';
     selector: 'business-select',
     providers: [BusinessService, PlaceService, UserService, NotificationsService],
     templateUrl: '../templates/business-select.component.html',
-    inputs: ['businessId', 'onlyUserBusinesses', 'isRequired']
+    inputs: ['businessId', 'onlyUserBusinesses', 'isRequired', 'isMultiple']
 })
 
 export class BusinessSelectComponent {
@@ -20,6 +20,7 @@ export class BusinessSelectComponent {
     @Input public businessId: number;
     @Input public onlyUserBusinesses: boolean;
     @Input public isRequired: boolean;
+    @Input public isMultiple: boolean;
     @Output() businessIdChange: EventEmitter = new EventEmitter();
     public adress: Object;
 

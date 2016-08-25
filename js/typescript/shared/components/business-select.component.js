@@ -84,6 +84,10 @@ System.register(['@angular/core', './../../services/business.service', './../../
                     __metadata('design:type', Boolean)
                 ], BusinessSelectComponent.prototype, "isRequired", void 0);
                 __decorate([
+                    core_1.Input, 
+                    __metadata('design:type', Boolean)
+                ], BusinessSelectComponent.prototype, "isMultiple", void 0);
+                __decorate([
                     core_1.Output(), 
                     __metadata('design:type', core_1.EventEmitter)
                 ], BusinessSelectComponent.prototype, "businessIdChange", void 0);
@@ -92,7 +96,7 @@ System.register(['@angular/core', './../../services/business.service', './../../
                         selector: 'business-select',
                         providers: [business_service_1.BusinessService, place_service_1.PlaceService, user_service_1.UserService, notification_service_1.NotificationsService],
                         templateUrl: '../templates/business-select.component.html',
-                        inputs: ['businessId', 'onlyUserBusinesses', 'isRequired']
+                        inputs: ['businessId', 'onlyUserBusinesses', 'isRequired', 'isMultiple']
                     }), 
                     __metadata('design:paramtypes', [business_service_1.BusinessService, place_service_1.PlaceService, notification_service_1.NotificationsService, user_service_1.UserService])
                 ], BusinessSelectComponent);

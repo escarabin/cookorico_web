@@ -18,7 +18,7 @@ import { ApplicantsComponent } from './components/applicants.component';
 import { ProfilePreviewComponent } from './components/profile-preview.component';
 import { MailTemplatesComponent } from './components/mail-templates.component';
 import { CreateMailTemplateComponent } from './components/create-mail-template.component';
-import { EditWebsiteComponent } from './components/edit-website.component';
+import { WebsiteEditorComponent } from "./components/website-editor.component";
 
 const profileRoutes: Routes = [
     {
@@ -72,7 +72,7 @@ const profileRoutes: Routes = [
             {path: 'mail-template/edit/:templateId', component: CreateMailTemplateComponent},
 
             // Website editor
-            {path: 'website-editor', component: EditWebsiteComponent},
+            {path: 'website-editor', component: WebsiteEditorComponent},
 
             {
                 path: '',
