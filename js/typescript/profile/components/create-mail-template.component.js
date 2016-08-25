@@ -74,7 +74,7 @@ System.register(['@angular/core', '@angular/router', '../../services/mail.servic
                 };
                 __decorate([
                     core_1.ViewChild('mce-editor'), 
-                    __metadata('design:type', tiny_mce_component_1.UNITYTinyMCE)
+                    __metadata('design:type', (typeof (_a = typeof tiny_mce_component_1.UNITYTinyMCE !== 'undefined' && tiny_mce_component_1.UNITYTinyMCE) === 'function' && _a) || Object)
                 ], CreateMailTemplateComponent.prototype, "mceEditor", void 0);
                 CreateMailTemplateComponent = __decorate([
                     core_1.Component({
@@ -85,6 +85,7 @@ System.register(['@angular/core', '@angular/router', '../../services/mail.servic
                     __metadata('design:paramtypes', [mail_service_1.MailService, router_1.ActivatedRoute])
                 ], CreateMailTemplateComponent);
                 return CreateMailTemplateComponent;
+                var _a;
             }());
             exports_1("CreateMailTemplateComponent", CreateMailTemplateComponent);
         }

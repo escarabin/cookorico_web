@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Response } from '@angular/http'
 
 // Services
-import { UserService } from './../services/user.service';
-import { ReferenceService } from './../services/reference.service';
+import { UserService } from './../../services/user.service';
+import { ReferenceService } from './../../services/reference.service';
 
 // Models
-import { User } from './../models/user';
+import { User } from './../../models/user';
 
 @Component({
     providers: [UserService, ReferenceService],

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms', '@angular/common', './job-search.routes', './../shared/shared.module', './components/job.component', './components/new-application-form.component', './components/job-preview.component', './../components/custom-pagination.component', './../job-search/components/job-search-sidebar.component', './../services/search.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', '@angular/common', './job-search.routes', './../shared/shared.module', './components/job.component', './components/new-application-form.component', './components/job-preview.component', './../shared/components/custom-pagination.component', './../job-search/components/job-search-sidebar.component', './../services/search.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

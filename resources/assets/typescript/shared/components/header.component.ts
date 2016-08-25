@@ -5,7 +5,7 @@ import { Response } from '@angular/http';
 import { User } from './../models/user';
 
 // Services
-import { UserService } from './../services/user.service';
+import { UserService } from './../../services/user.service';
 
 @Component({
     templateUrl: '../templates/header.component.html',

@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { Response } from '@angular/http';
 
 // Services
-import { UserService } from './../services/user.service';
-import { NotificationsService } from './../services/notification.service';
+import { UserService } from './../../services/user.service';
+import { NotificationsService } from './../../services/notification.service';
 
 // Models
-import { Notification } from './../models/notification';
+import { Notification } from './../../models/notification';
 
 // ng2-bootstrap necessary workaround (17/08/16)
 import { ComponentsHelper } from

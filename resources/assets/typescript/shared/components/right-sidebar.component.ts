@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 // Services
-import { UserService } from './../services/user.service';
+import { UserService } from './../../services/user.service';
 
 @Component({
     selector: 'right-sidebar',

@@ -4,7 +4,7 @@ import { RouteParams }
     from '@angular/router-deprecated';
 
 // Services
-import { PostService } from './../services/post.service';
+import { PostService } from './../../services/post.service';
 
 @Component({
     providers: [PostService],
