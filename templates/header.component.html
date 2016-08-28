@@ -18,8 +18,9 @@
             </li>
 
             <sign-in (userSignedIn)="handleUserSignedIn($event)"
-                     (userSignedOut)="handleUserSignedOut($event)">
-
+                     (userSignedOut)="handleUserSignedOut($event)"
+                     [user]="user">
+                
             </sign-in>
 
             <li *ngIf="!user">

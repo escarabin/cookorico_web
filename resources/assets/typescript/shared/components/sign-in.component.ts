@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Response } from '@angular/http';
 
@@ -23,16 +23,16 @@ import { ComponentsHelper } from
 export class SignInComponent {
     email: string;
     password: string;
-    user: any;
     forgotPassword: boolean = false;
     loading: boolean = false;
     @Output() userSignedIn: EventEmitter = new EventEmitter();
     @Output() userSignedOut: EventEmitter = new EventEmitter();
+    @Input() user: any;
 
     constructor (private userService: UserService,
                  private notificationService: NotificationsService,
                  private router: Router) {
-        this.user = JSON.parse(localStorage.getItem('user'));
+
     }
 
     login() {

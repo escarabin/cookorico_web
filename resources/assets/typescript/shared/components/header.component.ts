@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Response } from '@angular/http';
 
 // Models
-import { User } from './../models/user';
+import { User } from './../../models/user';
 
 // Services
 import { UserService } from './../../services/user.service';
@@ -18,7 +18,7 @@ export class HeaderComponent {
 
     constructor (private userService: UserService) {
         this.userService.getUserInfos().subscribe((res: Response) => {
-            if (res.json().length > 1) {
+            if (res.text().length > 10) {
                 this.user = res.json();
                 localStorage.setItem('user', JSON.stringify(this.user));
             }

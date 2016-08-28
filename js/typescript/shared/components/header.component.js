@@ -26,7 +26,7 @@ System.register(['@angular/core', './../../services/user.service'], function(exp
                     var _this = this;
                     this.userService = userService;
                     this.userService.getUserInfos().subscribe(function (res) {
-                        if (res.json().length > 1) {
+                        if (res.text().length > 10) {
                             _this.user = res.json();
                             localStorage.setItem('user', JSON.stringify(_this.user));
                         }

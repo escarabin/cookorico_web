@@ -13,6 +13,7 @@ import { ACCORDION_DIRECTIVES } from 'ng2-bootstrap';
 
 export class WebsiteEditorComponent {
     homePartnersIdList:any;
+    homeBannerHtmlContent: string;
 
     constructor() {
 
@@ -23,7 +24,14 @@ export class WebsiteEditorComponent {
      * @param newPromoContent
      */
     homePromoChanged(newPromoContent) {
+        this.homeBannerHtmlContent = newPromoContent;
+    }
 
+    /**
+     * Save partners displayed on home page
+     */
+    saveHomeBanner() {
+        console.log('home banner', this.homeBannerHtmlContent);
     }
 
     /**

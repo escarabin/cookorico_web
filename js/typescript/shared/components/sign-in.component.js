@@ -42,7 +42,6 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                     this.loading = false;
                     this.userSignedIn = new core_1.EventEmitter();
                     this.userSignedOut = new core_1.EventEmitter();
-                    this.user = JSON.parse(localStorage.getItem('user'));
                 }
                 SignInComponent.prototype.login = function () {
                     var _this = this;
@@ -89,6 +88,10 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                     core_1.Output(), 
                     __metadata('design:type', core_1.EventEmitter)
                 ], SignInComponent.prototype, "userSignedOut", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], SignInComponent.prototype, "user", void 0);
                 SignInComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../templates/sign-in.component.html',
