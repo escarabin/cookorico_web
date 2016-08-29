@@ -171,6 +171,10 @@ Route::post('/mail/edit_template', 'MailController@editTemplate')
 Route::get('/mail/template/{id}', 'MailController@getTemplate')
     ->name('getMailTemplate');
 
+// Options
+Route::post('/option/save', 'OptionController@save')
+    ->name('saveOption');
+
 // Socialite
 Route::get('/auth/{provider}', 'Auth\AuthController@redirectToProvider')
     ->name('redirectToAuthProvider');
