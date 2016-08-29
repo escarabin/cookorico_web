@@ -47,13 +47,9 @@ export class UNITYTinyMCE {
         var formGroup = this.elementRef.nativeElement.querySelector("#tinyFormGroup");
         formGroup.appendChild(clonedTextArea);
 
-        console.log('read only was ' + __this.readOnly);
-
         if (this.readOnly > 0) {
             this.readOnly = 1;
         }
-
-        console.log('read only is ' + __this.readOnly);
 
         //Attach tinyMCE to cloned textarea
         tinymce.init(

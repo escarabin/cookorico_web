@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
-import appGlobals = require('./../globals'); //<==== this one
+import appGlobals = require('./../globals');
 
 // Services
 import { NotificationsService } from './notification.service';

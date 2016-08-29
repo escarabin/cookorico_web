@@ -39,11 +39,9 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     clonedTextArea.id = this.elementID;
                     var formGroup = this.elementRef.nativeElement.querySelector("#tinyFormGroup");
                     formGroup.appendChild(clonedTextArea);
-                    console.log('read only was ' + __this.readOnly);
                     if (this.readOnly > 0) {
                         this.readOnly = 1;
                     }
-                    console.log('read only is ' + __this.readOnly);
                     //Attach tinyMCE to cloned textarea
                     tinymce.init({
                         language: 'fr_FR',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http } from '@angular/http';
-import appGlobals = require('./../globals'); //<==== this one
+import appGlobals = require('./../globals');
 
 @Injectable()
 export class PostService {

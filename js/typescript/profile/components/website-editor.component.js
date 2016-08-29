@@ -36,6 +36,7 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
                  */
                 WebsiteEditorComponent.prototype.homePromoChanged = function (newPromoContent) {
                     this.homeBannerHtmlContent = newPromoContent;
+                    console.log(this.homeBannerHtmlContent);
                 };
                 /**
                  * Save partners displayed on home page

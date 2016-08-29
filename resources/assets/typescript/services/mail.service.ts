@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
-import appGlobals = require('./../globals'); //<==== this one
+import appGlobals = require('./../globals');
 
 // Models
 import { MailTemplate } from '../models/mail-template';

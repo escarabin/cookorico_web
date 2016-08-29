@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http, Headers, RequestOptions } from '@angular/http';
-import appGlobals = require('./../globals'); //<==== this one
+import appGlobals = require('./../globals');
 
 // Models
 import { Place } from '../models/place';
