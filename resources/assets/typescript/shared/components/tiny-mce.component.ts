@@ -30,6 +30,8 @@ export class UNITYTinyMCE {
 
         this.elementID = 'tinymce' + uniqid;
 
+        this.htmlContent = this.mceContent;
+
         // this.contentChanged = new EventEmitter();
     }
 

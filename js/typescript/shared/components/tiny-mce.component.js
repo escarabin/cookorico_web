@@ -28,6 +28,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     var randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
                     var uniqid = randLetter + Date.now();
                     this.elementID = 'tinymce' + uniqid;
+                    this.htmlContent = this.mceContent;
                     // this.contentChanged = new EventEmitter();
                 }
                 UNITYTinyMCE.prototype.ngAfterViewInit = function () {
