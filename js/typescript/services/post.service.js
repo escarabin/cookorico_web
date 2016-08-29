@@ -47,7 +47,6 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                     return this.http.request(__this.showPostListingUrl + postId);
                 };
                 PostService = __decorate([
-                    //<==== this one
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
                 ], PostService);

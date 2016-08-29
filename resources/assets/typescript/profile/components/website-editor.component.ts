@@ -7,11 +7,15 @@ import { Response } from '@angular/http';
 // Services
 import { WebsiteEditorService } from './../../services/website-editor.service';
 
+// Models
+import { Option } from './../../models/option';
+
 @Component({
     selector: 'website-editor',
     directives: [ACCORDION_DIRECTIVES,
                  CORE_DIRECTIVES,
                  FORM_DIRECTIVES],
+    providers: [ WebsiteEditorService ],
     templateUrl: '../templates/website-editor.component.html',
 })
 
@@ -24,18 +28,20 @@ export class WebsiteEditorComponent {
     }
 
     /**
-     * Save home banner
+     * Triggered after a change in home banner changed
      * @param newPromoContent
      */
-    homePromoChanged(newPromoContent) {
+    homeBannerHtmlChanged(newPromoContent) {
         this.homeBannerHtmlContent = newPromoContent;
     }
 
     /**
-     * Save partners displayed on home page
+     * Save home banner HTML content from tinyMCE editor
      */
-    saveHomeBanner() {
-        this.websiteEditorService.save('home_banner_content', this.homeBannerHtmlContent).subscribe((res: Response) => {
+    saveHomeBannerHtml() {
+        let option = new Option('home_banner_content', this.homeBannerHtmlContent);
+
+        this.websiteEditorService.saveOption(option).subscribe((res: Response) => {
             console.log(res.json());
         });
     }

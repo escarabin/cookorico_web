@@ -1,6 +1,6 @@
 export class Option {
     constructor(
-        public slug: number,
-        public value: string,
+        public slug: string,
+        public value: string
     ) {  }
 }

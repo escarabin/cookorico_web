@@ -18,10 +18,10 @@ export class WebsiteEditorService {
      * @param Option
      * @returns {any}
      */
-    save(option: Option) {
+    saveOption(option: Option) {
         let __this = this;
 
-        let body = JSON.stringify({ Option });
+        let body = JSON.stringify({ option });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

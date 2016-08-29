@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-bootstrap'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-bootstrap', './../../services/website-editor.service', './../../models/option'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, forms_1, ng2_bootstrap_1;
+    var core_1, common_1, forms_1, ng2_bootstrap_1, website_editor_service_1, option_1;
     var WebsiteEditorComponent;
     return {
         setters:[
@@ -25,24 +25,33 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
             },
             function (ng2_bootstrap_1_1) {
                 ng2_bootstrap_1 = ng2_bootstrap_1_1;
+            },
+            function (website_editor_service_1_1) {
+                website_editor_service_1 = website_editor_service_1_1;
+            },
+            function (option_1_1) {
+                option_1 = option_1_1;
             }],
         execute: function() {
             WebsiteEditorComponent = (function () {
-                function WebsiteEditorComponent() {
+                function WebsiteEditorComponent(websiteEditorService) {
+                    this.websiteEditorService = websiteEditorService;
                 }
                 /**
-                 * Save home banner
+                 * Triggered after a change in home banner changed
                  * @param newPromoContent
                  */
-                WebsiteEditorComponent.prototype.homePromoChanged = function (newPromoContent) {
+                WebsiteEditorComponent.prototype.homeBannerHtmlChanged = function (newPromoContent) {
                     this.homeBannerHtmlContent = newPromoContent;
-                    console.log(this.homeBannerHtmlContent);
                 };
                 /**
-                 * Save partners displayed on home page
+                 * Save home banner HTML content from tinyMCE editor
                  */
-                WebsiteEditorComponent.prototype.saveHomeBanner = function () {
-                    console.log('home banner', this.homeBannerHtmlContent);
+                WebsiteEditorComponent.prototype.saveHomeBannerHtml = function () {
+                    var option = new option_1.Option('home_banner_content', this.homeBannerHtmlContent);
+                    this.websiteEditorService.saveOption(option).subscribe(function (res) {
+                        console.log(res.json());
+                    });
                 };
                 /**
                  * Save partners displayed on home page
@@ -63,9 +72,10 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
                         directives: [ng2_bootstrap_1.ACCORDION_DIRECTIVES,
                             common_1.CORE_DIRECTIVES,
                             forms_1.FORM_DIRECTIVES],
+                        providers: [website_editor_service_1.WebsiteEditorService],
                         templateUrl: '../templates/website-editor.component.html',
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [website_editor_service_1.WebsiteEditorService])
                 ], WebsiteEditorComponent);
                 return WebsiteEditorComponent;
             }());

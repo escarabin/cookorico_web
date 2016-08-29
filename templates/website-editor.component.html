@@ -1,11 +1,11 @@
 <accordion [closeOthers]="true">
     <accordion-group heading="Bandeau promo page d'accueil">
         <unity-tinymce [mceContent]="'test'"
-                       (newContentInput)="homePromoChanged($event)">
+                       (newContentInput)="homeBannerHtmlChanged($event)">
 
         </unity-tinymce>
         <button class="btn btn-primary"
-                (click)="saveHomeBanner()">
+                (click)="saveHomeBannerHtml()">
             Sauvegarder
         </button>
     </accordion-group>
