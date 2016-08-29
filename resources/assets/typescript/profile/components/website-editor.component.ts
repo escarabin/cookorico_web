@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { CORE_DIRECTIVES} from '@angular/common';
 import { FORM_DIRECTIVES } from '@angular/forms';
 import { ACCORDION_DIRECTIVES } from 'ng2-bootstrap';
+import { Response } from '@angular/http';
+
+// Services
+import { WebsiteEditorService } from './../../services/website-editor.service';
 
 @Component({
     selector: 'website-editor',
@@ -15,7 +19,7 @@ export class WebsiteEditorComponent {
     homePartnersIdList:any;
     homeBannerHtmlContent: string;
 
-    constructor() {
+    constructor(private websiteEditorService: WebsiteEditorService) {
 
     }
 
@@ -31,7 +35,9 @@ export class WebsiteEditorComponent {
      * Save partners displayed on home page
      */
     saveHomeBanner() {
-        console.log('home banner', this.homeBannerHtmlContent);
+        this.websiteEditorService.save('home_banner_content', this.homeBannerHtmlContent).subscribe((res: Response) => {
+            console.log(res.json());
+        });
     }
 
     /**

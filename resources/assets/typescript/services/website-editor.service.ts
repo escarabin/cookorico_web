@@ -6,8 +6,8 @@ import appGlobals = require('./../globals');
 import { Option } from '../models/option';
 
 @Injectable()
-export class JobPostService {
-    saveOptionUrl = appGlobals.apiUrl + "/job-post/create";
+export class WebsiteEditorService {
+    saveOptionUrl = appGlobals.apiUrl + "/option/save";
 
     constructor(private http: Http) {
 
@@ -25,6 +25,6 @@ export class JobPostService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(__this.createJobPostUrl, body, options);
+        return this.http.post(__this.saveOptionUrl, body, options);
     }
 }
