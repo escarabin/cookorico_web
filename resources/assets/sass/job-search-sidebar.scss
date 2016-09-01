@@ -6,7 +6,11 @@ job-search-sidebar {
     cursor: pointer;
     font-size: 1.15em;
     text-transform: uppercase;
-    font-family: $mainMediumFontFamily;
+    font-family: $mainBoldFontFamily;
+    padding: 10px 7px;
+    border-radius: 3px;
+    background: white;
+    margin: 0;
   }
 
   .collapse {
@@ -17,20 +21,17 @@ job-search-sidebar {
     font-weight: inherit;
   }
 
-  /*ul  {
-    padding-left: 4px;
+  ul  {
+    padding-left: 0;
 
     li  {
-      padding: 5px 10px 5px 0;
+      padding: 10px 10px 10px 10px;
       font-family: $mainMediumFontFamily;
       color: #6d6d6d;
       cursor: pointer;
       margin-bottom: 10px;
       border-radius: $mainBorderRadius;
-
-      &:hover {
-        background: white;
-      }
+      background: white;
 
       .group  {
         font-family: $mainBoldFontFamily;
@@ -38,7 +39,29 @@ job-search-sidebar {
 
       .title-container {
         padding-left: 0;
+        color: #333;
+      }
+
+      &.active {
+        background-color: $oechrBlueColor;
+
+        .title-container {
+          color: white;
+        }
+      }
+
+      &:hover {
+        background-color: lighten($oechrBlueColor, 15%);
       }
     }
-  }*/
+  }
+}
+
+@media (max-width: $mobileWidth) {
+  job-search-sidebar {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 110px;
+    margin-bottom: 15px;
+  }
 }

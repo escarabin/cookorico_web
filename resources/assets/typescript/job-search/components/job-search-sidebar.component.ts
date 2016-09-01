@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Inject } from '@angular/core';
+import { Component, Output, EventEmitter, Inject, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { Response } from '@angular/http';
 
@@ -33,6 +33,7 @@ export class JobSearchSidebarComponent {
 
     constructor(private referenceService: ReferenceService,
                 private jobService: JobService,
+                private ref: ChangeDetectorRef,
                 @Inject(SearchService) SearchService,
                 private route: ActivatedRoute) {
         let __this = this;
@@ -49,8 +50,6 @@ export class JobSearchSidebarComponent {
             for (let i = 0; i < __this.jobNamings.length; i++) {
                 __this.jobNamingTextList.push(__this.jobNamings[i].title);
             }
-
-            console.log('job namings are', __this.jobNamingTextList);
         });
 
         referenceService.getAllStudyLevels().subscribe((res: Response) => {
@@ -63,12 +62,14 @@ export class JobSearchSidebarComponent {
 
         route.params.subscribe(params => {
             if (params) {
-                this.studyLevelIdList.push(parseInt(route['studyLevelId']));
-                this.jobNamingIdList.push(parseInt(route['jobNamingId']));
-                this.contractTypeIdList.push(parseInt(route['contractTypeId']));
-                this.searchText = route['searchText'];
+                this.studyLevelIdList.push(parseInt(params['studyLevelId']));
+                this.jobNamingIdList.push(parseInt(params['jobNamingId']));
+                this.contractTypeIdList.push(parseInt(params['contractTypeId']));
+                this.searchText = params['searchText'];
             }
         });
+
+        SearchService.parametersEmitter.emit('test');
     }
 
     /**
@@ -153,11 +154,14 @@ export class JobSearchSidebarComponent {
         // TODO : remove that shit
         this.jobService.getAllJobs().subscribe((res: Response) => {
             this.jobs = res.json();
-
-            console.log(this.jobs);
         });
 
+        console.log('tsete', this.studyLevelIdList);
+
         this.searchParametersChanged.emit(parametersArray);
+        this.ref.detectChanges();
+
+        // SearchService.parametersEmitter.emit(parametersArray);
     }
 
     parseAdress(place: Object) {

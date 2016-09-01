@@ -28,9 +28,4 @@ export class SearchComponent {
             }
         });
     }
-
-    updateSearchResults(parameters) {
-        this.searchParameters = parameters;
-        this.jobSearchResults.updateSearchResults(parameters);
-    }
 }

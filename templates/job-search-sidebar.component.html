@@ -1,7 +1,6 @@
 <div class="row">
-    <div class="col-md-12">
+    <!--<div class="col-md-12">
         <label>Type de poste</label>
-        <!-- TODO : remove dirty workaround CSS -->
         <div class="input-group" style="z-index: 10;">
             <span class="input-group-addon">
                 <span class="fa fa-search"></span>
@@ -26,10 +25,34 @@
                    googleplace/>
 
         </div>
-    </div>
-    <!--<br />
-    <br />
+    </div>-->
     <div class="col-md-12">
+        <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
+            <span class="badge" [class.inactive]="jobNamingIdList.length == 1">
+                {{ jobNamingIdList.length - 1 }}
+            </span> &nbsp;
+            Type de poste
+        </h3>
+        <br />
+        <div [collapse]="isJobNamingCollapsed"
+             class="col-md-12">
+            <ul>
+                <div *ngFor="let jobNaming of jobNamings">
+                    <li [class.group]="jobNaming.is_naming_group"
+                        *ngIf="jobsCountFromParameterValue('job_naming_id', jobNaming.id) > 0"
+                        (click)="updateSearchParameter('jobNaming', jobNaming.id)">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
+                                <input type="checkbox" [checked]="!jobNamingIdList.indexOf(jobNaming.id)"/>
+                            </div>
+                            <div class="col-md-10 col-sm-10 col-xs-10 title-container">
+                                {{ jobNaming.title }} ({{ jobsCountFromParameterValue('job_naming_id', jobNaming.id) }})
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
         <h3 (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
             <span class="badge" [class.inactive]="studyLevelIdList.length == 1">
                 {{ studyLevelIdList.length - 1 }}
@@ -41,12 +64,13 @@
             <ul>
                 <div *ngFor="let studyLevel of studyLevels">
                     <li (click)="updateSearchParameter('studyLevel', studyLevel.id)"
+                        [class.active]="!studyLevelIdList.indexOf(studyLevel.id)"
                         *ngIf="jobsCountFromParameterValue('study_level_id', studyLevel.id) > 0">
                         <div class="row">
-                            <div class="col-md-2 checkbox-container">
+                            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
                                 <input type="checkbox" [checked]="!studyLevelIdList.indexOf(studyLevel.id)"/>
                             </div>
-                            <div class="col-md-10 title-container">
+                            <div class="col-md-10 col-sm-10 col-xs-10 title-container">
                                 {{ studyLevel.title }}
                                 ({{ jobsCountFromParameterValue('study_level_id', studyLevel.id) }})
                             </div>
@@ -69,10 +93,10 @@
                     <li *ngIf="jobsCountFromParameterValue('contract_type_id', contractType.id) > 0"
                         (click)="updateSearchParameter('contractType', contractType.id)">
                         <div class="row">
-                            <div class="col-md-2 checkbox-container">
+                            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
                                 <input type="checkbox" [checked]="!contractTypeIdList.indexOf(contractType.id)"/>
                             </div>
-                            <div class="col-md-10 title-container">
+                            <div class="col-md-10 col-sm-10 col-xs-10 title-container">
                                 {{ contractType.title }}
                                 ({{ jobsCountFromParameterValue('contract_type_id', contractType.id) }})
                             </div>
@@ -81,31 +105,5 @@
                 </div>
             </ul>
         </div>
-        <br />
-        <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
-            <span class="badge" [class.inactive]="jobNamingIdList.length == 1">
-                {{ jobNamingIdList.length - 1 }}
-            </span> &nbsp;
-            Type de poste
-        </h3>
-        <div [collapse]="isJobNamingCollapsed"
-             class="col-md-12">
-            <ul>
-                <div *ngFor="let jobNaming of jobNamings">
-                    <li [class.group]="jobNaming.is_naming_group"
-                        *ngIf="jobsCountFromParameterValue('job_naming_id', jobNaming.id) > 0"
-                        (click)="updateSearchParameter('jobNaming', jobNaming.id)">
-                        <div class="row">
-                            <div class="col-md-2 checkbox-container">
-                                <input type="checkbox" [checked]="!jobNamingIdList.indexOf(jobNaming.id)"/>
-                            </div>
-                            <div class="col-md-10 title-container">
-                                {{ jobNaming.title }} ({{ jobsCountFromParameterValue('job_naming_id', jobNaming.id) }})
-                            </div>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-        </div>
-    </div>-->
+    </div>
 </div>

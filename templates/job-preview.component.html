@@ -1,10 +1,16 @@
 <a routerLink="/job-search/job/{{ job.id }}">
-    <div class="logo"
+    <div class="logo col-md-2 col-sm-2 col-xs-2"
           *ngIf="job.business.logo">
         <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ job.business.id }}.jpg"/>
     </div>
 
-    <div class="basic_infos">
+    <div class="basic-infos"
+         [class.col-xs-9]="!job.business.logo"
+         [class.col-xs-7]="job.business.logo"
+         [class.col-sm-9]="!job.business.logo"
+         [class.col-sm-7]="job.business.logo"
+         [class.col-md-9]="!job.business.logo"
+         [class.col-md-7]="job.business.logo">
         <div class="title">
             {{ job.title }}
         </div>
@@ -16,7 +22,7 @@
         </div>
     </div>
 
-    <div class="additional_infos">
+    <div class="additional_infos col-md-3 col-sm-3 col-xs-3">
         <div class="contract_type">
             {{ job.contract_type.title }}
         </div>

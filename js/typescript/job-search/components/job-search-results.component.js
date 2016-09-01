@@ -49,6 +49,9 @@ System.register(['@angular/core', '@angular/router', '../../services/job.service
                             SearchService.sendSearchParameters(__this.placeId, [__this.jobNamingId], [__this.contractTypeId], __this.studyLevelId);
                         }
                     });
+                    SearchService.parametersEmitter.subscribe(function (log) {
+                        console.log('got something' + log);
+                    });
                     this.jobService.getAllJobs().subscribe(function (res) {
                         __this.jobs = res.json();
                         console.log(__this.jobs);

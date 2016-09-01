@@ -1,5 +1,6 @@
 job-preview {
-  display: block;
+  display: inline-block;
+  width: 100%;
   border: 1px solid #ececec;
   padding: 25px;
   background: whitesmoke;
@@ -16,11 +17,11 @@ job-preview {
     max-height: 90px;
     float: left;
     margin-right: 30px;
+    width: 100%;
   }
 
-  .basic_infos {
+  .basic-infos {
     float: left;
-    width: 70%;
 
     .business_name {
       font-size: 1.2em;
@@ -56,4 +57,9 @@ job-preview:nth-child(odd) {
   &:hover {
     background-color: lighten($oechrBlueColor, 40%);
   }
+}
+
+
+@media (max-width: $mobileWidth) {
+
 }

@@ -45,6 +45,10 @@ export class JobSearchResultsComponent {
             }
         });
 
+        SearchService.parametersEmitter.subscribe(function(log) {
+            console.log('got something' + log);
+        });
+
         this.jobService.getAllJobs().subscribe((res: Response) => {
             __this.jobs = res.json();
 

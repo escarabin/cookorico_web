@@ -34,10 +34,11 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
             }],
         execute: function() {
             JobSearchSidebarComponent = (function () {
-                function JobSearchSidebarComponent(referenceService, jobService, SearchService, route) {
+                function JobSearchSidebarComponent(referenceService, jobService, ref, SearchService, route) {
                     var _this = this;
                     this.referenceService = referenceService;
                     this.jobService = jobService;
+                    this.ref = ref;
                     this.route = route;
                     this.isStudyLevelCollapsed = true;
                     this.isContractTypeCollapsed = true;
@@ -59,7 +60,6 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                         for (var i = 0; i < __this.jobNamings.length; i++) {
                             __this.jobNamingTextList.push(__this.jobNamings[i].title);
                         }
-                        console.log('job namings are', __this.jobNamingTextList);
                     });
                     referenceService.getAllStudyLevels().subscribe(function (res) {
                         __this.studyLevels = res.json();
@@ -69,12 +69,13 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                     });
                     route.params.subscribe(function (params) {
                         if (params) {
-                            _this.studyLevelIdList.push(parseInt(route['studyLevelId']));
-                            _this.jobNamingIdList.push(parseInt(route['jobNamingId']));
-                            _this.contractTypeIdList.push(parseInt(route['contractTypeId']));
-                            _this.searchText = route['searchText'];
+                            _this.studyLevelIdList.push(parseInt(params['studyLevelId']));
+                            _this.jobNamingIdList.push(parseInt(params['jobNamingId']));
+                            _this.contractTypeIdList.push(parseInt(params['contractTypeId']));
+                            _this.searchText = params['searchText'];
                         }
                     });
+                    SearchService.parametersEmitter.emit('test');
                 }
                 /**
                  * ng2-select functions
@@ -151,9 +152,11 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                     // TODO : remove that shit
                     this.jobService.getAllJobs().subscribe(function (res) {
                         _this.jobs = res.json();
-                        console.log(_this.jobs);
                     });
+                    console.log('tsete', this.studyLevelIdList);
                     this.searchParametersChanged.emit(parametersArray);
+                    this.ref.detectChanges();
+                    // SearchService.parametersEmitter.emit(parametersArray);
                 };
                 JobSearchSidebarComponent.prototype.parseAdress = function (place) {
                     this.place = place;
@@ -169,8 +172,8 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                         selector: 'job-search-sidebar',
                         templateUrl: '../templates/job-search-sidebar.component.html',
                     }),
-                    __param(2, core_1.Inject(search_service_1.SearchService)), 
-                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, job_service_1.JobService, Object, router_1.ActivatedRoute])
+                    __param(3, core_1.Inject(search_service_1.SearchService)), 
+                    __metadata('design:paramtypes', [reference_service_1.ReferenceService, job_service_1.JobService, core_1.ChangeDetectorRef, Object, router_1.ActivatedRoute])
                 ], JobSearchSidebarComponent);
                 return JobSearchSidebarComponent;
             }());

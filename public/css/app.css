@@ -241,9 +241,16 @@ search {
   padding-top: 150px;
   display: block; }
   search .router-outlet-container {
-    width: 50%;
+    width: 70%;
     float: left;
     margin-left: 3%; }
+
+@media (max-width: 700px) {
+  search {
+    width: 100%;
+    padding-top: 0; }
+    search .router-outlet-container {
+      width: 100%; } }
 
 post-preview {
   display: block;
@@ -424,43 +431,52 @@ sign-up {
 
 job-search-sidebar {
   width: 25%;
-  float: left;
-  /*ul  {
-    padding-left: 4px;
-
-    li  {
-      padding: 5px 10px 5px 0;
-      font-family: $mainMediumFontFamily;
-      color: #6d6d6d;
-      cursor: pointer;
-      margin-bottom: 10px;
-      border-radius: $mainBorderRadius;
-
-      &:hover {
-        background: white;
-      }
-
-      .group  {
-        font-family: $mainBoldFontFamily;
-      }
-
-      .title-container {
-        padding-left: 0;
-      }
-    }
-  }*/ }
+  float: left; }
   job-search-sidebar h3 {
     cursor: pointer;
     font-size: 1.15em;
     text-transform: uppercase;
-    font-family: "Avenir Medium", sans-serif; }
+    font-family: "Avenir Heavy", sans-serif;
+    padding: 10px 7px;
+    border-radius: 3px;
+    background: white;
+    margin: 0; }
   job-search-sidebar .collapse {
     padding: 0; }
   job-search-sidebar label {
     font-weight: inherit; }
+  job-search-sidebar ul {
+    padding-left: 0; }
+    job-search-sidebar ul li {
+      padding: 10px 10px 10px 10px;
+      font-family: "Avenir Medium", sans-serif;
+      color: #6d6d6d;
+      cursor: pointer;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      background: white; }
+      job-search-sidebar ul li .group {
+        font-family: "Avenir Heavy", sans-serif; }
+      job-search-sidebar ul li .title-container {
+        padding-left: 0;
+        color: #333; }
+      job-search-sidebar ul li.active {
+        background-color: #35B6E1; }
+        job-search-sidebar ul li.active .title-container {
+          color: white; }
+      job-search-sidebar ul li:hover {
+        background-color: #78ceeb; }
+
+@media (max-width: 700px) {
+  job-search-sidebar {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 110px;
+    margin-bottom: 15px; } }
 
 job-preview {
-  display: block;
+  display: inline-block;
+  width: 100%;
   border: 1px solid #ececec;
   padding: 25px;
   background: whitesmoke;
@@ -473,15 +489,15 @@ job-preview {
     max-width: 90px;
     max-height: 90px;
     float: left;
-    margin-right: 30px; }
-  job-preview .basic_infos {
-    float: left;
-    width: 70%; }
-    job-preview .basic_infos .business_name {
+    margin-right: 30px;
+    width: 100%; }
+  job-preview .basic-infos {
+    float: left; }
+    job-preview .basic-infos .business_name {
       font-size: 1.2em;
       font-family: "Avenir Heavy", sans-serif;
       margin-bottom: 5px; }
-    job-preview .basic_infos .title, job-preview .basic_infos .business_adress {
+    job-preview .basic-infos .title, job-preview .basic-infos .business_adress {
       color: #333; }
   job-preview .additional_infos .contract_type {
     font-weight: bold;
@@ -510,6 +526,12 @@ job-search-results {
     background-color: #35B6E1; }
   job-search-results h2 {
     padding-left: 20px; }
+
+@media (max-width: 700px) {
+  job-search-results .search-results-container {
+    padding: 0; }
+  job-search-results .jobs-count {
+    margin: 0; } }
 
 profile {
   padding-top: 150px;
@@ -849,10 +871,10 @@ right-sidebar {
 
 .badge {
   position: relative;
-  top: -3px;
+  top: -2px;
   background-color: #35B6E1; }
   .badge.inactive {
-    background-color: #CCC; }
+    background-color: #333; }
 
 .spinner {
   margin: auto;

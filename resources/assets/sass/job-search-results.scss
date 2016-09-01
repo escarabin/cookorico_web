@@ -18,3 +18,15 @@ job-search-results {
     padding-left: 20px;
   }
 }
+
+@media (max-width: $mobileWidth) {
+  job-search-results {
+
+    .search-results-container {
+      padding: 0;
+    }
+    .jobs-count {
+      margin: 0;
+    }
+  }
+}

@@ -5,8 +5,19 @@ search {
   display: block;
 
   .router-outlet-container {
-    width: 50%;
+    width: 70%;
     float: left;
     margin-left: 3%;
+  }
+}
+
+@media (max-width: $mobileWidth) {
+  search {
+    width: 100%;
+    padding-top: 0;
+
+    .router-outlet-container {
+      width: 100%;
+    }
   }
 }

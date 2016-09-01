@@ -38,10 +38,6 @@ System.register(['@angular/core', '@angular/router', './job-search-results.compo
                         }
                     });
                 }
-                SearchComponent.prototype.updateSearchResults = function (parameters) {
-                    this.searchParameters = parameters;
-                    this.jobSearchResults.updateSearchResults(parameters);
-                };
                 __decorate([
                     core_1.ViewChild(job_search_results_component_1.JobSearchResultsComponent), 
                     __metadata('design:type', job_search_results_component_1.JobSearchResultsComponent)

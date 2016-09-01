@@ -2,7 +2,7 @@
     <div class="jobs-count">
         <b>{{ jobs.length }} offres</b> correspondent à vos critères
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 search-results-container">
         <job-preview *ngFor="let job of jobs | paginate: { itemsPerPage: 10, currentPage: p }"
                      [job]="job">
         </job-preview>
