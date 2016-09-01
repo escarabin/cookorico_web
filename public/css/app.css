@@ -173,23 +173,30 @@ job {
     color: #35B6E1; }
   job .job-description {
     padding-top: 20px; }
-  job .job-info {
-    margin-bottom: 20px;
-    height: 30px;
-    width: 45%; }
-    job .job-info i {
-      font-size: 2em;
-      color: #757575;
-      position: relative;
-      top: 5px; }
+  job .job-infos-list {
+    color: white;
+    background: #35B6E1;
+    padding: 15px; }
+    job .job-infos-list .job-info {
+      margin-bottom: 20px;
+      height: 30px; }
+      job .job-infos-list .job-info i {
+        font-size: 2em;
+        color: white;
+        position: relative;
+        top: 5px;
+        width: 40px;
+        display: inline-block; }
   job .logo {
     float: left;
-    margin-right: 20px; }
+    margin: 20px 20px 20px 0; }
     job .logo img {
       width: 100%; }
   job .business {
     margin-top: 25px;
     margin-bottom: 25px; }
+    job .business .adress {
+      margin-top: 15px; }
 
 create-business .logo {
   height: 90px;
@@ -230,7 +237,8 @@ search {
     width: 100%;
     padding-top: 0; }
     search .router-outlet-container {
-      width: 100%; } }
+      width: 100%;
+      margin: 0; } }
 
 post-preview {
   display: block;

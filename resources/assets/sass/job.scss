@@ -18,22 +18,30 @@ job {
     padding-top: 20px;
   }
 
-  .job-info {
-    margin-bottom: 20px;
-    height: 30px;
-    width: 45%;
+  .job-infos-list {
+    color: white;
+    background: $oechrBlueColor;
+    padding: 15px;
 
-    i {
-      font-size: 2em;
-      color: #757575;
-      position: relative;
-      top: 5px;
+    .job-info {
+      margin-bottom: 20px;
+      height: 30px;
+
+      i {
+        font-size: 2em;
+        color: white;
+        position: relative;
+        top: 5px;
+        width: 40px;
+        display: inline-block;
+      }
     }
   }
 
+
   .logo {
     float: left;
-    margin-right: 20px;
+    margin: 20px 20px 20px 0;
 
     img {
       width: 100%;
@@ -43,5 +51,9 @@ job {
   .business {
     margin-top: 25px;
     margin-bottom: 25px;
+
+    .adress {
+      margin-top: 15px;
+    }
   }
 }

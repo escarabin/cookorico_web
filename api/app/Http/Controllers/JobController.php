@@ -31,6 +31,11 @@ class JobController extends Controller
                         'jobXpLevel',
                         'languages');
 
+        /**
+         * Necessary ugly workaround
+         */
+        $job->business->place = $job->business->place;
+
         return $job;
     }
 
