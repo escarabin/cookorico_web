@@ -1,9 +1,11 @@
 .badge {
   position: relative;
   top: -2px;
-  background-color: $oechrBlueColor;
+  background-color: white;
+  color: #333;
+  font-size: 1em;
 
   &.inactive {
-    background-color: #333;
+    color: #CCC;
   }
 }

@@ -11,32 +11,6 @@ home {
     background-image: url('/img/home_bg.jpg');
     background-size: cover;
     background-position: center top;
-
-    .job-search {
-      max-width: 650px;
-      margin: auto;
-      margin-top: 50px;
-      padding: 10px;
-      background: #697f9a;
-      border-radius: $mainBorderRadius;
-
-      select, input {
-        border: none;
-        border-radius: 0;
-        -webkit-appearance: none;
-        border-right: 1px solid #333438;
-      }
-
-      .input-container {
-        padding: 0;
-      }
-
-      .find-btn {
-        width: 100%;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-    }
   }
 }
 

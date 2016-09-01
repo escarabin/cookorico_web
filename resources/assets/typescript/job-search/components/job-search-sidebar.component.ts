@@ -16,17 +16,17 @@ import { SearchService } from '../../services/search.service';
 })
 
 export class JobSearchSidebarComponent {
-    contractTypes: any;
-    jobNamings: any;
-    studyLevels: any;
-    public isStudyLevelCollapsed:boolean = true;
-    public isContractTypeCollapsed:boolean = true;
-    public isJobNamingCollapsed:boolean = true;
+    contractTypes: any = [];
+    jobNamings: any = [];
+    studyLevels: any = [];
+    public isStudyLevelCollapsed:boolean = false;
+    public isContractTypeCollapsed:boolean = false;
+    public isJobNamingCollapsed:boolean = false;
     place: any = [];
-    jobNamingIdList: any = [];
+    jobNamingList: any = [];
     jobNamingTextList: any = [];
-    contractTypeIdList: any = [];
-    studyLevelIdList: any = [];
+    contractTypeList: any = [];
+    studyLevelList: any = [];
     searchText: string;
     jobs: any = [];
     @Output() searchParametersChanged: EventEmitter = new EventEmitter();
@@ -61,12 +61,12 @@ export class JobSearchSidebarComponent {
         });
 
         route.params.subscribe(params => {
-            if (params) {
-                this.studyLevelIdList.push(parseInt(params['studyLevelId']));
-                this.jobNamingIdList.push(parseInt(params['jobNamingId']));
-                this.contractTypeIdList.push(parseInt(params['contractTypeId']));
+            /*if (params) {
+                this.studyLevelList.push(parseInt(params['studyLevelId']));
+                this.jobNamingList.push(parseInt(params['jobNamingId']));
+                this.contractTypeList.push(parseInt(params['contractTypeId']));
                 this.searchText = params['searchText'];
-            }
+            }*/
         });
 
         SearchService.parametersEmitter.emit('test');
@@ -109,46 +109,48 @@ export class JobSearchSidebarComponent {
     /**
      * Update search with new parameters
      * @param parameterType
-     * @param parameterValue
+     * @param parameterId
+     * @param parameterTitle
      */
-    updateSearchParameter(parameterType?: string, parameterValue?: string) {
+    updateSearchParameter(parameterType?: string, parameterId?: string, parameterTitle?: string) {
         /**
          * Add or remove the parameters from their respective arrays
          */
         switch(parameterType) {
             case "contractType":
-                let contractTypeIndex = this.contractTypeIdList.indexOf(parameterValue);
-                if (contractTypeIndex == -1) {
-                    this.contractTypeIdList.push(parseInt(parameterValue));
+                let jobNamingIndex = this.jobNamingList.indexOf(parameterId);
+                if (jobNamingIndex == -1) {
+                    this.jobNamingList[parameterId] = parameterTitle;
                 }
                 else {
-                    this.contractTypeIdList.splice(contractTypeIndex, 1);
+                    this.jobNamingList.splice(jobNamingIndex, 1);
                 }
+
                 break;
             case "jobNaming":
-                let jobNamingIndex = this.contractTypeIdList.indexOf(parameterValue);
-                if (jobNamingIndex == -1) {
-                    this.jobNamingIdList.push(parseInt(parameterValue));
+                let contractTypeIndex = this.contractTypeList.indexOf(parameterId);
+                if (contractTypeIndex == -1) {
+                    this.contractTypeList[parameterId] = parameterTitle;
                 }
                 else {
-                    this.jobNamingIdList.splice(jobNamingIndex, 1);
+                    this.contractTypeList.splice(contractTypeIndex, 1);
                 }
                 break;
             case "studyLevel":
-                let studyLevelIndex = this.studyLevelIdList.indexOf(parameterValue);
+                let studyLevelIndex = this.studyLevelList.indexOf(parameterId);
                 if (studyLevelIndex == -1) {
-                    this.studyLevelIdList.push(parseInt(parameterValue));
+                    this.studyLevelList[parameterId] = parameterTitle;
                 }
                 else {
-                    this.studyLevelIdList.splice(studyLevelIndex, 1);
+                    this.studyLevelList.splice(studyLevelIndex, 1);
                 }
                 break;
         }
 
         let parametersArray = {};
-        parametersArray['contractTypeIdList'] = this.contractTypeIdList;
-        parametersArray['jobNamingIdList'] = this.jobNamingIdList;
-        parametersArray['studyLevelIdList'] = this.studyLevelIdList;
+        parametersArray['contractTypeList'] = this.contractTypeList;
+        parametersArray['jobNamingList'] = this.jobNamingList;
+        parametersArray['studyLevelList'] = this.studyLevelList;
         parametersArray['place'] = this.place;
 
         // TODO : remove that shit
@@ -156,7 +158,7 @@ export class JobSearchSidebarComponent {
             this.jobs = res.json();
         });
 
-        console.log('tsete', this.studyLevelIdList);
+        console.log('tsete', this.studyLevelList);
 
         this.searchParametersChanged.emit(parametersArray);
         this.ref.detectChanges();

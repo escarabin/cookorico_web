@@ -8,9 +8,10 @@ job {
   -o-box-shadow: $mainBoxShadow;
   box-shadow: $mainBoxShadow;
 
-  .job-title {
-    text-align: center;
-    margin-top: 20px;
+  h2 {
+    text-transform: uppercase;
+    font-family: $mainBoldFontFamily;
+    color: $oechrBlueColor;
   }
 
   .job-description {
@@ -19,24 +20,28 @@ job {
 
   .job-info {
     margin-bottom: 20px;
-    margin-top: 20px;
-    border-left: 1px solid #CCC;
-    margin-left: 15px;
+    height: 30px;
     width: 45%;
+
+    i {
+      font-size: 2em;
+      color: #757575;
+      position: relative;
+      top: 5px;
+    }
+  }
+
+  .logo {
+    float: left;
+    margin-right: 20px;
+
+    img {
+      width: 100%;
+    }
   }
 
   .business {
     margin-top: 25px;
     margin-bottom: 25px;
-
-    .logo {
-      float: left;
-      margin-right: 20px;
-
-      img {
-        max-width: 80px;
-        max-height: 80px;
-      }
-    }
   }
 }

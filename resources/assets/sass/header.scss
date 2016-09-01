@@ -4,7 +4,7 @@ header {
   height: 90px;
   position: fixed;
   z-index: 10;
-  background-color: $mainBlueColor;
+  background-color: white;
 
   .logo {
     background-image: url("/img/oechr_logo.png");
@@ -19,14 +19,10 @@ header {
     padding: 30px;
 
     a {
-      color: white;
+      color: #333;
       letter-spacing: 1px;
       cursor: pointer;
       font-weight: 400;
-
-      &:hover {
-        color: white;
-      }
     }
 
     .recruiter_btn a {
@@ -36,11 +32,6 @@ header {
       font-weight: 600;
       background: white;
       color: $mainBlueColor;
-    }
-
-    &:hover {
-      background: $mainBlueColor;
-      color: white;
     }
   }
 

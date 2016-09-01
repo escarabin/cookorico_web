@@ -93,12 +93,12 @@ ng-select .ui-select-match-item {
   background-color: #F1F1F1; }
 
 button {
-  height: 50px; }
+  height: 60px; }
 
 .btn-primary, input[type=button] {
-  font-family: "Avenir Medium", sans-serif;
+  font-family: "Avenir Heavy", sans-serif;
   border-radius: 4px;
-  background-color: #1a1f38;
+  background-color: #35B6E1;
   color: white;
   border: none; }
 
@@ -108,7 +108,7 @@ header {
   height: 90px;
   position: fixed;
   z-index: 10;
-  background-color: #1a1f38; }
+  background-color: white; }
   header .logo {
     background-image: url("/img/oechr_logo.png");
     background-size: 100%;
@@ -119,12 +119,10 @@ header {
     float: right;
     padding: 30px; }
     header ul li a {
-      color: white;
+      color: #333;
       letter-spacing: 1px;
       cursor: pointer;
       font-weight: 400; }
-      header ul li a:hover {
-        color: white; }
     header ul li .recruiter_btn a {
       border: 2px solid white;
       border-radius: 4px;
@@ -132,9 +130,6 @@ header {
       font-weight: 600;
       background: white;
       color: #1a1f38; }
-    header ul li:hover {
-      background: #1a1f38;
-      color: white; }
   header .mobile-menu-toggle {
     color: white;
     font-size: 2em;
@@ -152,24 +147,6 @@ home {
     background-image: url("/img/home_bg.jpg");
     background-size: cover;
     background-position: center top; }
-    home .heading .job-search {
-      max-width: 650px;
-      margin: auto;
-      margin-top: 50px;
-      padding: 10px;
-      background: #697f9a;
-      border-radius: 4px; }
-      home .heading .job-search select, home .heading .job-search input {
-        border: none;
-        border-radius: 0;
-        -webkit-appearance: none;
-        border-right: 1px solid #333438; }
-      home .heading .job-search .input-container {
-        padding: 0; }
-      home .heading .job-search .find-btn {
-        width: 100%;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0; }
 
 @media (max-width: 760px) {
   home .heading {
@@ -188,28 +165,31 @@ job {
   background: white;
   padding-bottom: 20px;
   border-radius: 4px;
-  -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
-  box-shadow: 0px 0px 40px 0px #d8d8d8; }
-  job .job-title {
-    text-align: center;
-    margin-top: 20px; }
+  -o-box-shadow: 0px 0px 40px 0px #c0d0d6;
+  box-shadow: 0px 0px 40px 0px #c0d0d6; }
+  job h2 {
+    text-transform: uppercase;
+    font-family: "Avenir Heavy", sans-serif;
+    color: #35B6E1; }
   job .job-description {
     padding-top: 20px; }
   job .job-info {
     margin-bottom: 20px;
-    margin-top: 20px;
-    border-left: 1px solid #CCC;
-    margin-left: 15px;
+    height: 30px;
     width: 45%; }
+    job .job-info i {
+      font-size: 2em;
+      color: #757575;
+      position: relative;
+      top: 5px; }
+  job .logo {
+    float: left;
+    margin-right: 20px; }
+    job .logo img {
+      width: 100%; }
   job .business {
     margin-top: 25px;
     margin-bottom: 25px; }
-    job .business .logo {
-      float: left;
-      margin-right: 20px; }
-      job .business .logo img {
-        max-width: 80px;
-        max-height: 80px; }
 
 create-business .logo {
   height: 90px;
@@ -229,7 +209,7 @@ new-application-form .apply-btn-container {
 new-application-form .back-btn-container button,
 new-application-form .apply-btn-container button {
   width: 100%;
-  height: 50px; }
+  height: 60px; }
 
 business-select {
   display: inline-block;
@@ -357,8 +337,8 @@ profile-sidebar {
   display: block;
   background-color: #1a1f38;
   border-radius: 4px;
-  -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
-  box-shadow: 0px 0px 40px 0px #d8d8d8;
+  -o-box-shadow: 0px 0px 40px 0px #c0d0d6;
+  box-shadow: 0px 0px 40px 0px #c0d0d6;
   color: white;
   width: 20%;
   float: left; }
@@ -432,6 +412,15 @@ sign-up {
 job-search-sidebar {
   width: 25%;
   float: left; }
+  job-search-sidebar .search-summary {
+    font-size: 1.7em;
+    margin-bottom: 35px; }
+    job-search-sidebar .search-summary .badge {
+      color: white; }
+      job-search-sidebar .search-summary .badge.job-badge {
+        background-color: #35B6E1; }
+      job-search-sidebar .search-summary .badge.location-badge {
+        background-color: #07ad70; }
   job-search-sidebar h3 {
     cursor: pointer;
     font-size: 1.15em;
@@ -439,8 +428,12 @@ job-search-sidebar {
     font-family: "Avenir Heavy", sans-serif;
     padding: 10px 7px;
     border-radius: 3px;
-    background: white;
-    margin: 0; }
+    background: #35b6e1;
+    color: white;
+    display: inline-block;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 15px; }
   job-search-sidebar .collapse {
     padding: 0; }
   job-search-sidebar label {
@@ -515,9 +508,9 @@ job-search-results {
   background: white;
   display: block;
   border-radius: 4px;
-  box-shadow: 0px 0px 40px 0px #d8d8d8;
-  -webkit-box-shadow: 0px 0px 40px 0px #d8d8d8;
-  -moz-box-shadow: 0px 0px 40px 0px #d8d8d8; }
+  box-shadow: 0px 0px 40px 0px #c0d0d6;
+  -webkit-box-shadow: 0px 0px 40px 0px #c0d0d6;
+  -moz-box-shadow: 0px 0px 40px 0px #c0d0d6; }
   job-search-results .jobs-count {
     text-align: center;
     padding: 25px;
@@ -585,8 +578,8 @@ profile {
     background: white;
     padding: 0;
     border-radius: 4px;
-    -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
-    box-shadow: 0px 0px 40px 0px #d8d8d8; }
+    -o-box-shadow: 0px 0px 40px 0px #c0d0d6;
+    box-shadow: 0px 0px 40px 0px #c0d0d6; }
   profile .page-title-container h3 {
     padding: 25px;
     border-top: 1px solid #DDD;
@@ -872,9 +865,11 @@ right-sidebar {
 .badge {
   position: relative;
   top: -2px;
-  background-color: #35B6E1; }
+  background-color: white;
+  color: #333;
+  font-size: 1em; }
   .badge.inactive {
-    background-color: #333; }
+    color: #CCC; }
 
 .spinner {
   margin: auto;
@@ -915,6 +910,26 @@ right-sidebar {
   100% {
     stroke-dashoffset: 187;
     transform: rotate(450deg); } }
+
+.job-search {
+  max-width: 650px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
+  -o-box-shadow: 0px 0px 40px 0px #343434;
+  box-shadow: 0px 0px 40px 0px #343434;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=NaN, Strength=40); }
+  .job-search select, .job-search input {
+    border: none;
+    border-radius: 0;
+    height: 60px;
+    -webkit-appearance: none; }
+  .job-search .input-container {
+    padding: 0; }
+  .job-search .find-btn {
+    width: 100%; }
 
 body {
   background-color: #f7f7f8;

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 
 // Models
 import { User } from './../../models/user';
@@ -16,7 +17,8 @@ import { UserService } from './../../services/user.service';
 export class HeaderComponent {
     user: any;
 
-    constructor (private userService: UserService) {
+    constructor (private userService: UserService,
+                 private route: ActivatedRoute) {
         this.userService.getUserInfos().subscribe((res: Response) => {
             if (res.text().length > 10) {
                 this.user = res.json();

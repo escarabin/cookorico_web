@@ -3,9 +3,9 @@ button {
 }
 
 .btn-primary, input[type=button] {
-  font-family: $mainMediumFontFamily;
+  font-family: $mainBoldFontFamily;
   border-radius: $mainBorderRadius;
-  background-color: $mainBlueColor;
+  background-color: $oechrBlueColor;
   color: white;
   border: none;
 }
