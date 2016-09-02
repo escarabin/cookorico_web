@@ -8,7 +8,8 @@
     <div class="col-md-12 user-title">
         {{ user.firstName }} {{ user.lastName }}<br/>
     </div>
-    <div *ngFor="let plan of plans"
+    <div *ngIf="user.user_type_id == 2"
+         *ngFor="let plan of plans"
          class="col-md-12">
         <div class="plan" *ngIf="plan.credits > 0">
             <div class="col-md-6 plan-credits">
