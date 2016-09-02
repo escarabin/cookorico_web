@@ -444,7 +444,8 @@ job-search-sidebar {
     font-size: 1.7em;
     margin-bottom: 35px; }
     job-search-sidebar .search-summary .badge {
-      color: white; }
+      color: white;
+      margin: 5px; }
       job-search-sidebar .search-summary .badge.job-badge {
         background-color: #35B6E1; }
       job-search-sidebar .search-summary .badge.location-badge {

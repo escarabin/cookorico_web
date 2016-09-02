@@ -26,40 +26,63 @@
     </div>
 </div>
 <div class="profile-sidebar-menu">
-    <a routerLink="/profile/show" routerLinkActive="active">
+    <a routerLink="/profile/show"
+       routerLinkActive="active">
         Aperçu du profil
     </a>
-    <a routerLink="/profile/experiences" routerLinkActive="active">
+    <a *ngIf="user.user_type_id == 3"
+       routerLink="/profile/experiences"
+       routerLinkActive="active">
         Experiences
     </a>
-    <a routerLink="/profile/education" routerLinkActive="active">
+    <a *ngIf="user.user_type_id == 3"
+       routerLink="/profile/education"
+       routerLinkActive="active">
         Formations
     </a>
-    <a routerLink="/profile/applications" routerLinkActive="active">
+    <a *ngIf="user.user_type_id == 3"
+       routerLink="/profile/applications"
+       routerLinkActive="active">
         Candidatures
     </a>
-    <a routerLink="/profile/alerts" routerLinkActive="active">
+    <a *ngIf="user.user_type_id == 3"
+       routerLink="/profile/alerts"
+       routerLinkActive="active">
         Alertes
     </a>
-    <a routerLink="/profile/testimonials" routerLinkActive="active">
+    <a *ngIf="user.user_type_id == 3"
+       routerLink="/profile/testimonials"
+       routerLinkActive="active">
         Recommandations
     </a>
-    <a routerLink="/profile/businesses" routerLinkActive="active">
+    <a *ngIf="user.user_type_id == 2"
+       routerLink="/profile/businesses"
+       routerLinkActive="active">
         Établissements
     </a>
-    <a routerLink="/profile/job-posts" routerLinkActive="active">
+    <a *ngIf="user.user_type_id == 2"
+       routerLink="/profile/job-posts"
+       routerLinkActive="active">
         Annonces
     </a>
-    <a routerLink="/profile/applicants" routerLinkActive="active">
+    <a *ngIf="user.user_type_id == 2"
+       routerLink="/profile/applicants"
+       routerLinkActive="active">
         Postulants
     </a>
-    <a routerLink="/profile/mail-templates" routerLinkActive="active">
+    <a *ngIf="user.user_type_id == 2"
+       routerLink="/profile/mail-templates"
+       routerLinkActive="active">
         Profils correspondants
     </a>
-    <a routerLink="/profile/mail-templates" routerLinkActive="active">
+    <a *ngIf="user.user_type_id == 1"
+       routerLink="/profile/mail-templates"
+       routerLinkActive="active">
         Mails
     </a>
-    <a routerLink="/profile/website-editor" routerLinkActive="active">
+    <a *ngIf="user.user_type_id == 1"
+       routerLink="/profile/website-editor"
+       routerLinkActive="active">
         Éditeur
     </a>
 
