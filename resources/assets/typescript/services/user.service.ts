@@ -18,6 +18,7 @@ export class UserService {
     getUserInfosUrl = appGlobals.apiUrl + '/user/get_infos';
     getUserUrl = appGlobals.apiUrl + '/user/get';
     getApplicationsUrl = appGlobals.apiUrl + '/user/applications';
+    archivateApplicationUrl = appGlobals.apiUrl + '/application/archivate';
     getPlansUrl = appGlobals.apiUrl + '/user/plans/all';
     getExperiencesUrl = appGlobals.apiUrl + '/user/experiences';
     getExperienceUrl = appGlobals.apiUrl + '/experience';
@@ -120,9 +121,22 @@ export class UserService {
 
     /**
      * Get user's job applications
+     * @param userId
+     * @returns {Observable<Response>}
      */
     getApplications(userId?: number) {
         return this.http.get(this.getApplicationsUrl + '/' + userId);
+    }
+
+    /**
+     * Archivate specific user application
+     * @param applicationId
+     * @returns {Observable<Response>}
+     */
+    archivateApplication(applicationId: number) {
+        let requestBody = JSON.stringify({ applicationId });
+
+        return this.http.post(this.archivateApplicationUrl + '/' + applicationId, requestBody, this.postRequestOptions);
     }
 
     /**

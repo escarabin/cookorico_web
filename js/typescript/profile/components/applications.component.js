@@ -27,19 +27,46 @@ System.register(['@angular/core', '../../services/user.service'], function(expor
                     this.applications = [];
                     this.statusId = 0;
                     var __this = this;
-                    this.userService.getApplications().subscribe(function (res) {
-                        __this.applications = res.json();
-                        console.log(__this.applications);
-                    });
+                    __this.refreshApplications();
                 }
+                /**
+                 * Get applications count via status_id (sent, accepted, refused, archived)
+                 * @param statusId
+                 * @returns {number}
+                 */
                 ApplicationsComponent.prototype.countApplicationsWithStatus = function (statusId) {
                     var count = 0;
                     for (var i = 0; i < this.applications.length; i++) {
-                        if (this.applications[i].status_id == statusId) {
+                        if (this.applications[i].status_id == statusId && !this.applications[i].archived) {
+                            count += 1;
+                        }
+                        if (this.applications[i].archived && statusId == 4) {
+                            count += 1;
+                        }
+                        if (statusId == 0) {
                             count += 1;
                         }
                     }
                     return count;
+                };
+                /**
+                 * Refresh items listing
+                 */
+                ApplicationsComponent.prototype.refreshApplications = function () {
+                    var __this = this;
+                    this.userService.getApplications().subscribe(function (res) {
+                        __this.applications = res.json();
+                    });
+                };
+                /**
+                 * Archivate specific application
+                 * @param applicationId
+                 */
+                ApplicationsComponent.prototype.archivateApplication = function (applicationId) {
+                    var __this = this;
+                    this.userService.archivateApplication(applicationId).subscribe(function (res) {
+                        __this.refreshApplications();
+                    });
                 };
                 ApplicationsComponent = __decorate([
                     core_1.Component({

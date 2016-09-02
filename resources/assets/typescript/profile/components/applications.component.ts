@@ -17,20 +17,50 @@ export class ApplicationsComponent {
     constructor(private userService: UserService) {
         let __this = this;
 
-        this.userService.getApplications().subscribe((res: Response) => {
-            __this.applications = res.json();
-
-            console.log(__this.applications);
-        });
+        __this.refreshApplications()
     }
 
+    /**
+     * Get applications count via status_id (sent, accepted, refused, archived)
+     * @param statusId
+     * @returns {number}
+     */
     countApplicationsWithStatus(statusId: number) {
         let count = 0;
         for (let i = 0; i < this.applications.length; i++) {
-            if (this.applications[i].status_id == statusId) {
+            if (this.applications[i].status_id == statusId && !this.applications[i].archived) {
+                count += 1;
+            }
+            if (this.applications[i].archived && statusId == 4) {
+                count += 1;
+            }
+            if (statusId == 0) {
                 count += 1;
             }
         }
         return count;
+    }
+
+    /**
+     * Refresh items listing
+     */
+    refreshApplications() {
+        let __this = this;
+
+        this.userService.getApplications().subscribe((res: Response) => {
+            __this.applications = res.json();
+        });
+    }
+
+    /**
+     * Archivate specific application
+     * @param applicationId
+     */
+    archivateApplication(applicationId: number) {
+        let __this = this;
+
+        this.userService.archivateApplication(applicationId).subscribe((res: Response) => {
+            __this.refreshApplications()
+        });
     }
 }

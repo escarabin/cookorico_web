@@ -88,6 +88,8 @@ Route::get('/civilities/all', 'ReferenceController@getAllCivilities')
 // Applications
 Route::get('/user/applications/{userId?}', 'UserController@getApplications')
     ->name('getApplications');
+Route::post('/application/archivate/{applicationId}', 'UserController@archivateApplication')
+    ->name('archivateApplication');
 
 // Experiences
 Route::get('/user/experiences/{userId?}', 'UserController@getExperiences')

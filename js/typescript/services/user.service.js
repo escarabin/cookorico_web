@@ -39,6 +39,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getUserInfosUrl = appGlobals.apiUrl + '/user/get_infos';
                     this.getUserUrl = appGlobals.apiUrl + '/user/get';
                     this.getApplicationsUrl = appGlobals.apiUrl + '/user/applications';
+                    this.archivateApplicationUrl = appGlobals.apiUrl + '/application/archivate';
                     this.getPlansUrl = appGlobals.apiUrl + '/user/plans/all';
                     this.getExperiencesUrl = appGlobals.apiUrl + '/user/experiences';
                     this.getExperienceUrl = appGlobals.apiUrl + '/experience';
@@ -128,9 +129,20 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 };
                 /**
                  * Get user's job applications
+                 * @param userId
+                 * @returns {Observable<Response>}
                  */
                 UserService.prototype.getApplications = function (userId) {
                     return this.http.get(this.getApplicationsUrl + '/' + userId);
+                };
+                /**
+                 * Archivate specific user application
+                 * @param applicationId
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.archivateApplication = function (applicationId) {
+                    var requestBody = JSON.stringify({ applicationId: applicationId });
+                    return this.http.post(this.archivateApplicationUrl + '/' + applicationId, requestBody, this.postRequestOptions);
                 };
                 /**
                  * Get user's work experiences

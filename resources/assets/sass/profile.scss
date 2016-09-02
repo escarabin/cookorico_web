@@ -138,6 +138,9 @@ profile {
         background: whitesmoke;
         padding: 0;
         margin: 0;
+        transition-property: all;
+        transition-duration: 150ms;
+        border: 1px solid transparent;
 
         md-checkbox {
           pointer-events: none;
@@ -190,10 +193,18 @@ profile {
 
         .item {
           margin-bottom: 15px;
+          padding: 10px;
 
           .item-desc {
             float: left;
             padding-left: 10px;
+          }
+
+          .item-action-btn {
+            border: none;
+            background: none;
+            position: absolute;
+            right: 50px;
           }
 
           &.logo .item-desc {
@@ -206,7 +217,8 @@ profile {
             top: 5px;
             display: inline-block;
             text-align: center;
-            width: 25%;
+            width: 12%;
+            float: left;
 
             img {
               max-width: 80px;

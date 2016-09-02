@@ -424,6 +424,12 @@ profile-sidebar {
 
 applications {
   display: block; }
+  applications .application.accepted {
+    background-color: #caf0cf !important; }
+  applications .application.sent {
+    background-color: #e7f6fb !important; }
+  applications .application.rejected {
+    background-color: #fbe7e8 !important; }
 
 sign-up {
   padding-top: 150px;
@@ -640,7 +646,10 @@ profile {
       profile .list-container ul li {
         background: whitesmoke;
         padding: 0;
-        margin: 0; }
+        margin: 0;
+        transition-property: all;
+        transition-duration: 150ms;
+        border: 1px solid transparent; }
         profile .list-container ul li md-checkbox {
           pointer-events: none; }
         profile .list-container ul li:nth-child(odd) {
@@ -671,10 +680,16 @@ profile {
           text-transform: uppercase;
           font-size: 0.9em; }
         profile .list-container ul li .item {
-          margin-bottom: 15px; }
+          margin-bottom: 15px;
+          padding: 10px; }
           profile .list-container ul li .item .item-desc {
             float: left;
             padding-left: 10px; }
+          profile .list-container ul li .item .item-action-btn {
+            border: none;
+            background: none;
+            position: absolute;
+            right: 50px; }
           profile .list-container ul li .item.logo .item-desc {
             width: 65%;
             margin-right: 15px; }
@@ -683,7 +698,8 @@ profile {
             top: 5px;
             display: inline-block;
             text-align: center;
-            width: 25%; }
+            width: 12%;
+            float: left; }
             profile .list-container ul li .item .logo img, profile .list-container ul li .item .photo img {
               max-width: 80px;
               max-height: 80px; }

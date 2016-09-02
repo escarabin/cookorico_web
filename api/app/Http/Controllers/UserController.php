@@ -131,6 +131,21 @@ class UserController extends Controller
         return $applications;
     }
 
+    /**
+     * Archivate specific application
+     * @param Request $request
+     * @return mixed
+     */
+    public function archivateApplication(Request $request) {
+        $applicationId = $request::get('applicationId');
+
+        $application = Application::find($applicationId);
+        $application->archived = true;
+
+        $application->save();
+
+        return $application;
+    }
 
     /**
      * Get user's work experiences

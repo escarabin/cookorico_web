@@ -1,3 +1,17 @@
 applications {
   display: block;
+
+  .application {
+    &.accepted {
+      background-color: lighten($successColor, 40%) !important;
+    }
+
+    &.sent {
+      background-color: lighten($infoColor, 40%) !important;
+    }
+
+    &.rejected {
+      background-color: lighten($dangerColor, 40%) !important;
+    }
+  }
 }
