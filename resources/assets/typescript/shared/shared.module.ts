@@ -10,7 +10,7 @@ import { SELECT_DIRECTIVES } from 'ng2-select/ng2-select';
     declarations: [ MODAL_DIRECTIVES,
                     UNITYTinyMCE,
                     CollapseDirective,
-                    SELECT_DIRECTIVES ],
+                    SELECT_DIRECTIVES],
     exports:      [ MODAL_DIRECTIVES,
                     UNITYTinyMCE,
                     CollapseDirective,

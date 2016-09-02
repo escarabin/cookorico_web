@@ -1,10 +1,14 @@
 header {
-  width: 100%;
-  padding: 5px;
-  height: 90px;
-  position: fixed;
   z-index: 10;
+  width: 100%;
   background-color: white;
+
+  .header-fixed {
+    position: fixed;
+    width: 100%;
+    height: $headerHeight;
+    background-color: white;
+  }
 
   .logo {
     background-image: url("/img/oechr_logo.png");

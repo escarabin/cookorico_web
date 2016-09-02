@@ -1,12 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Response } from '@angular/http';
 
-// Components
-import { JobSearchResultsComponent } from './job-search-results.component'
+// Services
+import { UserService } from './../../services/user.service';
 
 @Component({
-    providers: [JobSearchResultsComponent],
     templateUrl: '../templates/search.component.html',
+    providers: [ UserService ],
     selector: 'search',
 })
 
@@ -16,9 +17,16 @@ export class SearchComponent {
     contractTypeId: number;
     studyLevelId: number;
     searchParameters: any = [];
-    @ViewChild(JobSearchResultsComponent) jobSearchResults: JobSearchResultsComponent;
+    user: any;
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private route: ActivatedRoute,
+                private userService: UserService) {
+        this.userService.getUserInfos().subscribe((res: Response) => {
+            if (res.text().length > 10) {
+                this.user = res.json();
+            }
+        });
+
         route.params.subscribe(params => {
             if (params) {
                 this.placeId = params['placeId'];

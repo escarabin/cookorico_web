@@ -11,7 +11,7 @@ import { UserService } from './../../services/user.service';
 @Component({
     templateUrl: '../templates/header.component.html',
     selector: 'header',
-    providers: [UserService],
+    providers: [ UserService ],
 })
 
 export class HeaderComponent {

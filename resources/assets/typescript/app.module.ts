@@ -22,6 +22,7 @@ import { PostComponent } from './shared/components/post.component';
 import { ClubComponent } from './shared/components/club.component';
 import { SignUpComponent } from './shared/components/sign-up.component';
 import { RightSidebarComponent } from './shared/components/right-sidebar.component';
+import { ProfileSubHeaderComponent } from './shared/components/profile-sub-header.component';
 import { PaginationControlsCmp } from 'ng2-pagination';
 
 // Directives
@@ -45,6 +46,7 @@ import { GOOGLE_MAPS_DIRECTIVES } from 'angular2-google-maps/core/index';
                     PaginationControlsCmp,
                     PostPreviewComponent,
                     SignInComponent,
+                    ProfileSubHeaderComponent,
                     /* NotificationsComponent,
                     */ ],
     imports:      [ BrowserModule,

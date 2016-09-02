@@ -1,3 +1,12 @@
 profile-sub-header {
+  background: $oechrBlueColor;
+  display: inline-block;
+  width: 100%;
+  color: white;
+  padding: 25px;
+  margin-top: $headerHeight;
 
+  h2 {
+    margin: 0;
+  }
 }

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row header-fixed">
     <div class="col-md-3 col-sm-3 col-xs-10">
         <a routerLink="/">
             <div class="logo"></div>
@@ -37,3 +37,5 @@
         </ul>
     </div>
 </div>
+
+<profile-sub-header *ngIf="user"></profile-sub-header>

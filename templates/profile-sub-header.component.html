@@ -1,1 +1,14 @@
-TEST
+<div *ngIf="user">
+    <div class="profile-picture">
+        <div class="img"
+             [ngStyle]="{'background-image': 'url(' + profilePictureUrl + ')'}">
+        </div>
+    </div>
+    <h2>Bonjour {{ user.firstName }}</h2><br />
+    Profil renseigné à 80%
+    <br />
+    <br />
+    <span class="badge">
+        Complétez votre profil <span class="fa fa-angle-right"></span>
+    </span>
+</div>

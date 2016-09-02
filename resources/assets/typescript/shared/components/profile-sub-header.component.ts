@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Response } from '@angular/http';
 
 // Services
 import { UserService } from './../../services/user.service';
@@ -10,7 +11,13 @@ import { UserService } from './../../services/user.service';
 })
 
 export class ProfileSubHeaderComponent {
-    constructor(private userService: UserService) {
+    user: any;
 
+    constructor(private userService: UserService) {
+        this.userService.getUserInfos().subscribe((res: Response) => {
+            if (res.text().length > 10) {
+                this.user = res.json();
+            }
+        });
     }
 }

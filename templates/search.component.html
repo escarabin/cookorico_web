@@ -1,7 +1,10 @@
-<job-search-sidebar>
+<div [class.user-logged-in]="user"
+     [class.user-not-logged-in]="!user">
+    <job-search-sidebar></job-search-sidebar>
 
-</job-search-sidebar>
-<div class="router-outlet-container">
-    <router-outlet></router-outlet>
+    <div class="router-outlet-container">
+        <router-outlet></router-outlet>
+    </div>
+
+    <right-sidebar></right-sidebar>
 </div>
-<right-sidebar></right-sidebar>

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', './../../services/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', './../../services/user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,51 +10,38 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, user_service_1;
-    var SearchComponent;
+    var core_1, user_service_1;
+    var ProfileSubHeaderComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_1_1) {
-                router_1 = router_1_1;
-            },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             }],
         execute: function() {
-            SearchComponent = (function () {
-                function SearchComponent(route, userService) {
+            ProfileSubHeaderComponent = (function () {
+                function ProfileSubHeaderComponent(userService) {
                     var _this = this;
-                    this.route = route;
                     this.userService = userService;
-                    this.searchParameters = [];
                     this.userService.getUserInfos().subscribe(function (res) {
                         if (res.text().length > 10) {
                             _this.user = res.json();
                         }
                     });
-                    route.params.subscribe(function (params) {
-                        if (params) {
-                            _this.placeId = params['placeId'];
-                            _this.jobNamingId = parseInt(params['jobNamingId']);
-                            _this.contractTypeId = parseInt(params['contractTypeId']);
-                            _this.studyLevelId = parseInt(params['studyLevelId']);
-                        }
-                    });
                 }
-                SearchComponent = __decorate([
+                ProfileSubHeaderComponent = __decorate([
                     core_1.Component({
-                        templateUrl: '../templates/search.component.html',
+                        selector: 'profile-sub-header',
                         providers: [user_service_1.UserService],
-                        selector: 'search',
+                        templateUrl: '../templates/profile-sub-header.component.html'
                     }), 
-                    __metadata('design:paramtypes', [router_1.ActivatedRoute, user_service_1.UserService])
-                ], SearchComponent);
-                return SearchComponent;
+                    __metadata('design:paramtypes', [user_service_1.UserService])
+                ], ProfileSubHeaderComponent);
+                return ProfileSubHeaderComponent;
             }());
-            exports_1("SearchComponent", SearchComponent);
+            exports_1("ProfileSubHeaderComponent", ProfileSubHeaderComponent);
         }
     }
 });

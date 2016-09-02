@@ -1,8 +1,15 @@
 search {
   max-width: 1100px;
   margin: auto;
-  padding-top: $mainPagePaddingTop;
   display: block;
+
+  .user-not-logged-in {
+    padding-top: $mainPagePaddingTop;
+  }
+
+  .user-logged-in {
+    padding-top: 40px;
+  }
 
   .router-outlet-container {
     width: 70%;

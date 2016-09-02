@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', './app.routes', './shared/shared.module', './services/notification.service', './app.component', './shared/components/home.component', './shared/components/header.component', './shared/components/footer.component', './shared/components/job-search-bar.component', './shared/components/sign-in.component', './shared/components/post-preview.component', './shared/components/post.component', './shared/components/club.component', './shared/components/sign-up.component', './shared/components/right-sidebar.component', 'ng2-pagination', 'angular2-google-map-auto-complete/directives/googleplace.directive', 'ng2-bootstrap/ng2-bootstrap', 'angular2-google-maps/core/index'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', './app.routes', './shared/shared.module', './services/notification.service', './app.component', './shared/components/home.component', './shared/components/header.component', './shared/components/footer.component', './shared/components/job-search-bar.component', './shared/components/sign-in.component', './shared/components/post-preview.component', './shared/components/post.component', './shared/components/club.component', './shared/components/sign-up.component', './shared/components/right-sidebar.component', './shared/components/profile-sub-header.component', 'ng2-pagination', 'angular2-google-map-auto-complete/directives/googleplace.directive', 'ng2-bootstrap/ng2-bootstrap', 'angular2-google-maps/core/index'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, http_1, router_1, app_routes_1, shared_module_1, notification_service_1, app_component_1, home_component_1, header_component_1, footer_component_1, job_search_bar_component_1, sign_in_component_1, post_preview_component_1, post_component_1, club_component_1, sign_up_component_1, right_sidebar_component_1, ng2_pagination_1, googleplace_directive_1, ng2_bootstrap_1, index_1;
+    var core_1, platform_browser_1, forms_1, http_1, router_1, app_routes_1, shared_module_1, notification_service_1, app_component_1, home_component_1, header_component_1, footer_component_1, job_search_bar_component_1, sign_in_component_1, post_preview_component_1, post_component_1, club_component_1, sign_up_component_1, right_sidebar_component_1, profile_sub_header_component_1, ng2_pagination_1, googleplace_directive_1, ng2_bootstrap_1, index_1;
     var AppModule;
     return {
         setters:[
@@ -71,6 +71,9 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             function (right_sidebar_component_1_1) {
                 right_sidebar_component_1 = right_sidebar_component_1_1;
             },
+            function (profile_sub_header_component_1_1) {
+                profile_sub_header_component_1 = profile_sub_header_component_1_1;
+            },
             function (ng2_pagination_1_1) {
                 ng2_pagination_1 = ng2_pagination_1_1;
             },
@@ -104,6 +107,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                             ng2_pagination_1.PaginationControlsCmp,
                             post_preview_component_1.PostPreviewComponent,
                             sign_in_component_1.SignInComponent,
+                            profile_sub_header_component_1.ProfileSubHeaderComponent,
                         ],
                         imports: [platform_browser_1.BrowserModule,
                             router_1.RouterModule,
