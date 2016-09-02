@@ -25,6 +25,7 @@ System.register(['@angular/core', '../../services/user.service'], function(expor
                 function ApplicationsComponent(userService) {
                     this.userService = userService;
                     this.applications = [];
+                    this.statusId = 0;
                     var __this = this;
                     this.userService.getApplications().subscribe(function (res) {
                         __this.applications = res.json();
@@ -34,7 +35,6 @@ System.register(['@angular/core', '../../services/user.service'], function(expor
                 ApplicationsComponent.prototype.countApplicationsWithStatus = function (statusId) {
                     var count = 0;
                     for (var i = 0; i < this.applications.length; i++) {
-                        console.log('difff', statusId, this.applications[i].status_id);
                         if (this.applications[i].status_id == statusId) {
                             count += 1;
                         }

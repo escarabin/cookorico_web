@@ -566,7 +566,16 @@ profile {
       padding: 20px;
       float: left;
       text-transform: uppercase;
-      font-family: "Avenir Heavy", sans-serif; }
+      font-family: "Avenir Heavy", sans-serif;
+      cursor: pointer; }
+      profile .header-container .filter label {
+        cursor: pointer; }
+      profile .header-container .filter:hover {
+        background-color: whitesmoke; }
+      profile .header-container .filter.active {
+        background-color: #35B6E1; }
+        profile .header-container .filter.active label {
+          color: white; }
     profile .header-container .items-count {
       text-align: center;
       text-transform: uppercase;
@@ -631,8 +640,7 @@ profile {
       profile .list-container ul li {
         background: whitesmoke;
         padding: 0;
-        margin: 0;
-        border: 1px solid #ececec; }
+        margin: 0; }
         profile .list-container ul li md-checkbox {
           pointer-events: none; }
         profile .list-container ul li:nth-child(odd) {

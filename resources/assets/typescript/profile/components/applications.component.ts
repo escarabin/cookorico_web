@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 
 export class ApplicationsComponent {
     applications: any = [];
+    statusId: number = 0;
 
     constructor(private userService: UserService) {
         let __this = this;
@@ -26,8 +27,6 @@ export class ApplicationsComponent {
     countApplicationsWithStatus(statusId: number) {
         let count = 0;
         for (let i = 0; i < this.applications.length; i++) {
-            console.log('difff', statusId, this.applications[i].status_id);
-
             if (this.applications[i].status_id == statusId) {
                 count += 1;
             }

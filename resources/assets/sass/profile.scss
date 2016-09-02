@@ -21,6 +21,23 @@ profile {
       float: left;
       text-transform: uppercase;
       font-family: $mainBoldFontFamily;
+      cursor: pointer;
+
+      label {
+        cursor: pointer;
+      }
+
+      &:hover {
+        background-color: whitesmoke;
+      }
+
+      &.active {
+        background-color: $oechrBlueColor;
+
+        label {
+          color: white;
+        }
+      }
     }
 
     .items-count {
@@ -121,7 +138,6 @@ profile {
         background: whitesmoke;
         padding: 0;
         margin: 0;
-        border: 1px solid #ececec;
 
         md-checkbox {
           pointer-events: none;
