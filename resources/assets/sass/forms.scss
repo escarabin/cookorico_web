@@ -36,6 +36,22 @@ label {
   font-size: 1em;
   letter-spacing: 1px;
   font-family: $mainBoldFontFamily;
+
+  &.success {
+     color: $successColor;
+   }
+
+  &.danger {
+    color: $dangerColor;
+  }
+
+  &.info {
+    color: $infoColor;
+  }
+
+  &.warning {
+    color: $warningColor;
+  }
 }
 
 md-checkbox {

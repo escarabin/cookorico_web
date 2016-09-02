@@ -1,11 +1,18 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-10 col-sm-10 col-xs-9 items-count">
-        {{ applications.length }} candidature<span *ngIf="applications.length > 1">s</span>
+    <div class="filter">
+        <label class="success">Acceptées ({{ countApplicationsWithStatus(1) }}) &nbsp; <input type="checkbox"/></label>
     </div>
-    <div class="col-md-2 col-sm-2 col-xs-3 actions-container">
-        <button routerLink="/job-search">
-            <span class="fa fa-plus"></span>
-        </button>
+    <div class="filter">
+        <label class="info">Envoyées ({{ countApplicationsWithStatus(2) }}) &nbsp; <input type="checkbox"/></label>
+    </div>
+    <div class="filter">
+        <label class="danger">Refusées ({{ countApplicationsWithStatus(3) }}) &nbsp; <input type="checkbox"/></label>
+    </div>
+    <div class="filter">
+        <label>Archivées ({{ countApplicationsWithStatus(4) }}) &nbsp; <input type="checkbox"/></label>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-2 items-count">
+        {{ applications.length }} candidature<span *ngIf="applications.length > 1">s</span>
     </div>
 </div>
 

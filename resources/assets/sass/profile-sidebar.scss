@@ -1,11 +1,6 @@
 profile-sidebar {
   display: block;
-  background-color: $oechrBlueColor;
   border-radius: $mainBorderRadius;
-  -moz-box-shadow: $mainBoxShadow;
-  -webkit-box-shadow: $mainBoxShadow;
-  -o-box-shadow: $mainBoxShadow;
-  box-shadow: $mainBoxShadow;
   color: white;
   width: 20%;
   float: left;
@@ -14,6 +9,9 @@ profile-sidebar {
     text-align: left;
     padding-top: 15px;
     margin: 0;
+    background-color: $oechrBlueColor;
+    border-radius: $mainBorderRadius;
+    padding: 15px;
 
     .user-title {
       font-family: $mainBoldFontFamily;
@@ -60,20 +58,29 @@ profile-sidebar {
       }
     }
 
-    .menu-item {
-      padding: 15px;
-      font-size: 1.15em;
-      border-top: 1px solid #DDD;
-      background: white;
-      cursor: pointer;
+    a {
       color: $mainDarkTextColor;
+      display: inline-block;
+      width: 100%;
+      padding: 15px;
+      background: white;
+      font-size: 1.15em;
+      margin: 5px 0;
+      border-radius: $mainBorderRadius;
+      color: #333;
+
+      &.active {
+        background: $oechrBlueColor;
+        color: white;
+
+        &:hover {
+          color: #333;
+        }
+      }
 
       &:hover {
         background: whitesmoke;
-      }
-
-      a {
-        color: $mainDarkTextColor;
+        border-left: 3px solid $oechrBlueColor;
       }
     }
   }

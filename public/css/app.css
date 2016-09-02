@@ -45,6 +45,14 @@ label {
   font-size: 1em;
   letter-spacing: 1px;
   font-family: "Avenir Heavy", sans-serif; }
+  label.success {
+    color: #34ba47; }
+  label.danger {
+    color: #E13543; }
+  label.info {
+    color: #35B6E1; }
+  label.warning {
+    color: #E47F1B; }
 
 md-checkbox.dark-bg .md-checkbox-frame {
   border-color: white; }
@@ -353,17 +361,17 @@ post-preview:nth-child(odd) {
 
 profile-sidebar {
   display: block;
-  background-color: #35B6E1;
   border-radius: 4px;
-  -o-box-shadow: 0px 0px 40px 0px #c0d0d6;
-  box-shadow: 0px 0px 40px 0px #c0d0d6;
   color: white;
   width: 20%;
   float: left; }
   profile-sidebar .user-infos {
     text-align: left;
     padding-top: 15px;
-    margin: 0; }
+    margin: 0;
+    background-color: #35B6E1;
+    border-radius: 4px;
+    padding: 15px; }
     profile-sidebar .user-infos .user-title {
       font-family: "Avenir Heavy", sans-serif;
       text-align: center;
@@ -395,17 +403,24 @@ profile-sidebar {
       profile-sidebar .profile-sidebar-menu .plan .plan-credits, profile-sidebar .profile-sidebar-menu .plan .plan-contacts {
         text-align: center;
         font-family: "Avenir Heavy", sans-serif; }
-    profile-sidebar .profile-sidebar-menu .menu-item {
+    profile-sidebar .profile-sidebar-menu a {
+      color: #333;
+      display: inline-block;
+      width: 100%;
       padding: 15px;
-      font-size: 1.15em;
-      border-top: 1px solid #DDD;
       background: white;
-      cursor: pointer;
+      font-size: 1.15em;
+      margin: 5px 0;
+      border-radius: 4px;
       color: #333; }
-      profile-sidebar .profile-sidebar-menu .menu-item:hover {
-        background: whitesmoke; }
-      profile-sidebar .profile-sidebar-menu .menu-item a {
-        color: #333; }
+      profile-sidebar .profile-sidebar-menu a.active {
+        background: #35B6E1;
+        color: white; }
+        profile-sidebar .profile-sidebar-menu a.active:hover {
+          color: #333; }
+      profile-sidebar .profile-sidebar-menu a:hover {
+        background: whitesmoke;
+        border-left: 3px solid #35B6E1; }
 
 applications {
   display: block; }
@@ -546,6 +561,12 @@ profile {
     padding: 0;
     height: 60px;
     border-bottom: 1px solid #e6e6e6; }
+    profile .header-container .filter {
+      border-right: 1px solid #e6e6e6;
+      padding: 20px;
+      float: left;
+      text-transform: uppercase;
+      font-family: "Avenir Heavy", sans-serif; }
     profile .header-container .items-count {
       text-align: center;
       text-transform: uppercase;
@@ -735,7 +756,7 @@ notifications {
     transition-property: all;
     transition-duration: 250ms; }
     notifications .notification-container.success {
-      background-color: #35B6E1; }
+      background-color: #34ba47; }
     notifications .notification-container.warning {
       background-color: #E47F1B; }
     notifications .notification-container.error {
@@ -965,6 +986,8 @@ profile-sub-header {
     profile-sub-header .sub-header-wrapper .sub-header-menu-item {
       text-align: center;
       margin-top: 15px; }
+      profile-sub-header .sub-header-wrapper .sub-header-menu-item a {
+        color: white; }
       profile-sub-header .sub-header-wrapper .sub-header-menu-item i {
         font-size: 2.5em; }
 

@@ -15,6 +15,14 @@ profile {
     height: 60px;
     border-bottom: 1px solid #e6e6e6;
 
+    .filter {
+      border-right: 1px solid #e6e6e6;
+      padding: 20px;
+      float: left;
+      text-transform: uppercase;
+      font-family: $mainBoldFontFamily;
+    }
+
     .items-count {
       text-align: center;
       text-transform: uppercase;

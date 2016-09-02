@@ -14,20 +14,28 @@
         Profil renseigné à 80%
         <br />
         <br />
-        <span class="badge">
-            Complétez votre profil <span class="fa fa-angle-right"></span>
-        </span>
+        <a routerLink="/profile">
+            <span class="badge">
+                Complétez votre profil <span class="fa fa-angle-right"></span>
+            </span>
+        </a>
     </div>
     <div class="col-md-2 sub-header-menu-item">
-        <i class="icon-bell"></i><br />
-        <h3>Mes alertes emploi</h3>
+        <a routerLink="/profile/alerts">
+            <i class="icon-bell"></i><br />
+            <h3>Mes alertes emploi</h3>
+        </a>
     </div>
     <div class="col-md-2 sub-header-menu-item">
-        <i class="icon-user-following"></i><br />
-        <h3>Mes candidatures</h3>
+        <a routerLink="/profile/applications">
+            <i class="icon-user-following"></i><br />
+            <h3>Mes candidatures</h3>
+        </a>
     </div>
     <div class="col-md-2 sub-header-menu-item">
-        <i class="icon-magnifier"></i><br />
-        <h3>Toutes les offres</h3>
+        <a routerLink="/job-search">
+            <i class="icon-magnifier"></i><br />
+            <h3>Toutes les offres</h3>
+        </a>
     </div>
 </div>

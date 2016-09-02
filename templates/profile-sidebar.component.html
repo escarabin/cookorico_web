@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="col-md-12 user-title">
-        {{ user.firstName }} {{ user.lastName }}<br />
+        {{ user.firstName }} {{ user.lastName }}<br/>
     </div>
     <div *ngFor="let plan of plans"
          class="col-md-12">
@@ -24,66 +24,43 @@
             </a>
         </div>
     </div>
-    <div class="profile-sidebar-menu">
-        <div class="col-md-12 menu-item">
-            <a routerLink="profile-preview">
-                Aperçu du profil
-            </a>
-        </div>
-        <div class="col-md-12 menu-item">
-            <a routerLink="/profile/experiences">
-                Experiences
-            </a>
-        </div>
-        <div class="col-md-12 menu-item">
-            <a routerLink="/profile/education">
-                Formations
-            </a>
-        </div>
-        <div class="col-md-12 menu-item">
-            <a routerLink="/profile/applications">
-                Candidatures
-            </a>
-        </div>
-        <div class="col-md-12 menu-item">
-            <a routerLink="/profile/alerts">
-                Alertes
-            </a>
-        </div>
-        <div class="col-md-12 menu-item">
-            <a routerLink="/profile/testimonials">
-                Recommandations
-            </a>
-        </div>
-        <div class="col-md-12 menu-item">
-            <a routerLink="/profile/businesses">
-                Établissements
-            </a>
-        </div>
-        <div class="col-md-12 menu-item">
-            <a routerLink="/profile/job-posts">
-                Annonces
-            </a>
-        </div>
-        <div class="col-md-12 menu-item">
-            <a routerLink="/profile/applicants">
-                Postulants
-            </a>
-        </div>
-        <div class="col-md-12 menu-item">
-            <a href="#">
-                Profils correspondants
-            </a>
-        </div>
-        <div class="col-md-12 menu-item">
-            <a routerLink="/profile/mail-templates">
-                Mails
-            </a>
-        </div>
-        <div class="col-md-12 menu-item">
-            <a routerLink="/profile/website-editor">
-                Éditeur
-            </a>
-        </div>
-    </div>
+</div>
+<div class="profile-sidebar-menu">
+    <a routerLink="/profile/show" routerLinkActive="active">
+        Aperçu du profil
+    </a>
+    <a routerLink="/profile/experiences" routerLinkActive="active">
+        Experiences
+    </a>
+    <a routerLink="/profile/education" routerLinkActive="active">
+        Formations
+    </a>
+    <a routerLink="/profile/applications" routerLinkActive="active">
+        Candidatures
+    </a>
+    <a routerLink="/profile/alerts" routerLinkActive="active">
+        Alertes
+    </a>
+    <a routerLink="/profile/testimonials" routerLinkActive="active">
+        Recommandations
+    </a>
+    <a routerLink="/profile/businesses" routerLinkActive="active">
+        Établissements
+    </a>
+    <a routerLink="/profile/job-posts" routerLinkActive="active">
+        Annonces
+    </a>
+    <a routerLink="/profile/applicants" routerLinkActive="active">
+        Postulants
+    </a>
+    <a routerLink="/profile/mail-templates" routerLinkActive="active">
+        Profils correspondants
+    </a>
+    <a routerLink="/profile/mail-templates" routerLinkActive="active">
+        Mails
+    </a>
+    <a routerLink="/profile/website-editor" routerLinkActive="active">
+        Éditeur
+    </a>
+
 </div>

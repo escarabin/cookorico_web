@@ -28,8 +28,19 @@ System.register(['@angular/core', '../../services/user.service'], function(expor
                     var __this = this;
                     this.userService.getApplications().subscribe(function (res) {
                         __this.applications = res.json();
+                        console.log(__this.applications);
                     });
                 }
+                ApplicationsComponent.prototype.countApplicationsWithStatus = function (statusId) {
+                    var count = 0;
+                    for (var i = 0; i < this.applications.length; i++) {
+                        console.log('difff', statusId, this.applications[i].status_id);
+                        if (this.applications[i].status_id == statusId) {
+                            count += 1;
+                        }
+                    }
+                    return count;
+                };
                 ApplicationsComponent = __decorate([
                     core_1.Component({
                         selector: 'applications',

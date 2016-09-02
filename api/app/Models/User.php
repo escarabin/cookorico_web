@@ -78,7 +78,7 @@ class User extends Authenticatable
      */
     public function applications()
     {
-        return $this->hasMany(Application::class);
+        return $this->hasMany(Application::class)->orderBy('status_id', 'ASC');
     }
 
     /**

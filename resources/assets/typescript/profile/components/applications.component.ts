@@ -18,6 +18,20 @@ export class ApplicationsComponent {
 
         this.userService.getApplications().subscribe((res: Response) => {
             __this.applications = res.json();
+
+            console.log(__this.applications);
         });
+    }
+
+    countApplicationsWithStatus(statusId: number) {
+        let count = 0;
+        for (let i = 0; i < this.applications.length; i++) {
+            console.log('difff', statusId, this.applications[i].status_id);
+
+            if (this.applications[i].status_id == statusId) {
+                count += 1;
+            }
+        }
+        return count;
     }
 }
