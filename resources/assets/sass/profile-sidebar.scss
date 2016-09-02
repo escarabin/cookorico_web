@@ -1,6 +1,6 @@
 profile-sidebar {
   display: block;
-  background-color: $mainBlueColor;
+  background-color: $oechrBlueColor;
   border-radius: $mainBorderRadius;
   -moz-box-shadow: $mainBoxShadow;
   -webkit-box-shadow: $mainBoxShadow;
@@ -9,71 +9,72 @@ profile-sidebar {
   color: white;
   width: 20%;
   float: left;
-}
 
-profile-sidebar .user-infos {
-  text-align: left;
-  padding-top: 15px;
-  margin: 0;
-}
+  .user-infos {
+    text-align: left;
+    padding-top: 15px;
+    margin: 0;
 
-profile-sidebar .user-infos .user-title {
-  font-family: $mainBoldFontFamily;
-  text-align: center;
-  color: white;
-}
+    .user-title {
+      font-family: $mainBoldFontFamily;
+      text-align: center;
+      color: white;
+    }
 
-profile-sidebar .user-infos .profile-picture {
-  margin-bottom: 20px;
-}
+    .profile-picture {
+      margin-bottom: 20px;
+    }
 
-profile-sidebar .user-infos .profile-picture .img {
-  width: 70px;
-  height: 70px;
-  margin: auto;
-  background-size: cover;
-  background-position: center center;
-  border-radius: 50%;
-  border: 3px solid white;
-}
+    .profile-picture .img {
+      width: 70px;
+      height: 70px;
+      margin: auto;
+      background-size: cover;
+      background-position: center center;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+  }
 
-profile-sidebar .profile-sidebar-menu {
-  text-align: left;
-  margin-top: 20px;
-  display: inline-block;
-}
+  .new-job-post-btn {
+    background-color: white;
+    color: $mainDarkTextColor;
+    font-family: $mainBoldFontFamily;
+    border: none;
+    height: 45px;
+    margin-top: 20px;
+  }
 
-profile-sidebar .profile-sidebar-menu .menu-item {
-  padding: 15px;
-  font-size: 1.15em;
-  border-top: 1px solid #DDD;
-  background: white;
-  cursor: pointer;
-  color: $mainDarkTextColor;
-}
-profile-sidebar .profile-sidebar-menu .menu-item:hover {
-  background: whitesmoke;
-}
+  .profile-sidebar-menu {
+    text-align: left;
+    margin-top: 20px;
+    display: inline-block;
 
-profile-sidebar .profile-sidebar-menu .menu-item a {
-  color: $mainDarkTextColor;
-}
+    .plan {
+      padding-top: 15px;
+      text-align: center;
 
-profile-sidebar .plan {
-  padding-top: 15px;
-  text-align: center;
-}
+      .plan-credits, .plan-contacts {
+        text-align: center;
+        font-family: $mainBoldFontFamily;
+      }
+    }
 
-profile-sidebar .plan .plan-credits, profile-sidebar .plan .plan-contacts {
-  text-align: center;
-  font-family: $mainBoldFontFamily;
-}
+    .menu-item {
+      padding: 15px;
+      font-size: 1.15em;
+      border-top: 1px solid #DDD;
+      background: white;
+      cursor: pointer;
+      color: $mainDarkTextColor;
 
-profile-sidebar .plan .new-job-post-btn {
-  background-color: #35b6e1;
-  color: white;
-  font-family: $mainBoldFontFamily;
-  border: none;
-  height: 45px;
-  margin-top: 20px;
+      &:hover {
+        background: whitesmoke;
+      }
+
+      a {
+        color: $mainDarkTextColor;
+      }
+    }
+  }
 }

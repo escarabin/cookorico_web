@@ -42,7 +42,7 @@ select[required].ng-invalid, input[required].ng-invalid {
 
 label {
   text-transform: uppercase;
-  font-size: 0.8em;
+  font-size: 1em;
   letter-spacing: 1px;
   font-family: "Avenir Heavy", sans-serif; }
 
@@ -92,15 +92,20 @@ ng-select .ui-select-match-item {
   border: none;
   background-color: #F1F1F1; }
 
-button {
+button, input[type=button] {
   height: 60px; }
-
-.btn-primary, input[type=button] {
-  font-family: "Avenir Heavy", sans-serif;
-  border-radius: 4px;
-  background-color: #35B6E1;
-  color: white;
-  border: none; }
+  button i, input[type=button] i {
+    font-size: 1.4em;
+    position: absolute;
+    margin-left: -20px; }
+  button.btn-default, input[type=button].btn-default {
+    border-color: #333; }
+  button.btn-primary, input[type=button].btn-primary {
+    font-family: "Avenir Heavy", sans-serif;
+    border-radius: 4px;
+    background-color: #35B6E1;
+    color: white;
+    border: none; }
 
 header {
   width: 100%;
@@ -343,70 +348,59 @@ post-preview:nth-child(odd) {
 
 profile-sidebar {
   display: block;
-  background-color: #1a1f38;
+  background-color: #35B6E1;
   border-radius: 4px;
   -o-box-shadow: 0px 0px 40px 0px #c0d0d6;
   box-shadow: 0px 0px 40px 0px #c0d0d6;
   color: white;
   width: 20%;
   float: left; }
-
-profile-sidebar .user-infos {
-  text-align: left;
-  padding-top: 15px;
-  margin: 0; }
-
-profile-sidebar .user-infos .user-title {
-  font-family: "Avenir Heavy", sans-serif;
-  text-align: center;
-  color: white; }
-
-profile-sidebar .user-infos .profile-picture {
-  margin-bottom: 20px; }
-
-profile-sidebar .user-infos .profile-picture .img {
-  width: 70px;
-  height: 70px;
-  margin: auto;
-  background-size: cover;
-  background-position: center center;
-  border-radius: 50%;
-  border: 3px solid white; }
-
-profile-sidebar .profile-sidebar-menu {
-  text-align: left;
-  margin-top: 20px;
-  display: inline-block; }
-
-profile-sidebar .profile-sidebar-menu .menu-item {
-  padding: 15px;
-  font-size: 1.15em;
-  border-top: 1px solid #DDD;
-  background: white;
-  cursor: pointer;
-  color: #333; }
-
-profile-sidebar .profile-sidebar-menu .menu-item:hover {
-  background: whitesmoke; }
-
-profile-sidebar .profile-sidebar-menu .menu-item a {
-  color: #333; }
-
-profile-sidebar .plan {
-  padding-top: 15px;
-  text-align: center; }
-
-profile-sidebar .plan .plan-credits, profile-sidebar .plan .plan-contacts {
-  text-align: center;
-  font-family: "Avenir Heavy", sans-serif; }
-
-profile-sidebar .plan .new-job-post-btn {
-  background-color: #35b6e1;
-  color: white;
-  font-family: "Avenir Heavy", sans-serif;
-  border: none;
-  height: 45px;
-  margin-top: 20px; }
+  profile-sidebar .user-infos {
+    text-align: left;
+    padding-top: 15px;
+    margin: 0; }
+    profile-sidebar .user-infos .user-title {
+      font-family: "Avenir Heavy", sans-serif;
+      text-align: center;
+      color: white; }
+    profile-sidebar .user-infos .profile-picture {
+      margin-bottom: 20px; }
+    profile-sidebar .user-infos .profile-picture .img {
+      width: 70px;
+      height: 70px;
+      margin: auto;
+      background-size: cover;
+      background-position: center center;
+      border-radius: 50%;
+      border: 3px solid white; }
+  profile-sidebar .new-job-post-btn {
+    background-color: white;
+    color: #333;
+    font-family: "Avenir Heavy", sans-serif;
+    border: none;
+    height: 45px;
+    margin-top: 20px; }
+  profile-sidebar .profile-sidebar-menu {
+    text-align: left;
+    margin-top: 20px;
+    display: inline-block; }
+    profile-sidebar .profile-sidebar-menu .plan {
+      padding-top: 15px;
+      text-align: center; }
+      profile-sidebar .profile-sidebar-menu .plan .plan-credits, profile-sidebar .profile-sidebar-menu .plan .plan-contacts {
+        text-align: center;
+        font-family: "Avenir Heavy", sans-serif; }
+    profile-sidebar .profile-sidebar-menu .menu-item {
+      padding: 15px;
+      font-size: 1.15em;
+      border-top: 1px solid #DDD;
+      background: white;
+      cursor: pointer;
+      color: #333; }
+      profile-sidebar .profile-sidebar-menu .menu-item:hover {
+        background: whitesmoke; }
+      profile-sidebar .profile-sidebar-menu .menu-item a {
+        color: #333; }
 
 applications {
   display: block; }
@@ -436,7 +430,7 @@ job-search-sidebar {
     font-family: "Avenir Heavy", sans-serif;
     padding: 10px 7px;
     border-radius: 3px;
-    background: #35b6e1;
+    background: #35B6E1;
     color: white;
     display: inline-block;
     width: 100%;
@@ -556,7 +550,7 @@ profile {
       padding: 22px;
       text-align: center;
       border-right: 1px solid #e6e6e6;
-      background: #1a1f38;
+      background: #35B6E1;
       border-top-left-radius: 4px; }
       profile .header-container .main-checkbox-container md-checkbox {
         pointer-events: none; }

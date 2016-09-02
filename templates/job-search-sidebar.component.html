@@ -2,6 +2,9 @@
 
     <div class="col-md-12 search-summary">
         Vous recherchez un poste de
+        <span class="job-badge badge">
+            Pizzaïolo / Crêpier
+        </span>
         <span *ngFor="let jobNamingId of jobNamingList" class="job-badge badge">
             {{ jobNamings[jobNamings.indexOf(jobNamingId) - 1]['title'] }}
         </span>

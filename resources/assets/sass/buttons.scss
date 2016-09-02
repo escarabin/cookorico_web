@@ -1,11 +1,22 @@
-button {
+button, input[type=button] {
   height: $mainButtonHeight;
+
+  i {
+    font-size: 1.4em;
+    position: absolute;
+    margin-left: -20px;
+  }
+
+  &.btn-default {
+    border-color: #333;
+  }
+
+  &.btn-primary {
+    font-family: $mainBoldFontFamily;
+    border-radius: $mainBorderRadius;
+    background-color: $oechrBlueColor;
+    color: white;
+    border: none;
+  }
 }
 
-.btn-primary, input[type=button] {
-  font-family: $mainBoldFontFamily;
-  border-radius: $mainBorderRadius;
-  background-color: $oechrBlueColor;
-  color: white;
-  border: none;
-}
