@@ -1,11 +1,11 @@
 profile {
-  padding-top: $mainPagePaddingTop;
+  padding-top: 40px;
   display: block;
   max-width: $mainPageMaxWidth;
   margin: auto;
 
   .router-outlet-container {
-    width: 55%;
+    width: 75%;
     float: left;
     margin-left: 3%;
   }

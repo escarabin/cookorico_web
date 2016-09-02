@@ -6,7 +6,36 @@ profile-sub-header {
   padding: 25px;
   margin-top: $headerHeight;
 
-  h2 {
-    margin: 0;
+  .sub-header-wrapper {
+    max-width: $mainPageMaxWidth;
+    margin: auto;
+
+    .profile-picture {
+      padding-top: 5px;
+
+      .img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center center;
+        margin: auto;
+      }
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .sub-header-menu-item {
+      text-align: center;
+      margin-top: 15px;
+
+      i {
+        font-size: 2.5em;
+      }
+    }
   }
 }

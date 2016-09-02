@@ -1,14 +1,33 @@
-<div *ngIf="user">
-    <div class="profile-picture">
-        <div class="img"
-             [ngStyle]="{'background-image': 'url(' + profilePictureUrl + ')'}">
+<div class="sub-header-wrapper"
+     *ngIf="user">
+    <div class="profile-picture col-md-2">
+        <div class="progress-radial progress-75">
+            <div class="overlay">
+                <div class="img"
+                     [ngStyle]="{'background-image': 'url(' + user.profilePictureUrl + ')'}">
+                </div>
+            </div>
         </div>
     </div>
-    <h2>Bonjour {{ user.firstName }}</h2><br />
-    Profil renseigné à 80%
-    <br />
-    <br />
-    <span class="badge">
-        Complétez votre profil <span class="fa fa-angle-right"></span>
-    </span>
+    <div class="col-md-4">
+        <h2>Bonjour {{ user.firstName }}</h2>
+        Profil renseigné à 80%
+        <br />
+        <br />
+        <span class="badge">
+            Complétez votre profil <span class="fa fa-angle-right"></span>
+        </span>
+    </div>
+    <div class="col-md-2 sub-header-menu-item">
+        <i class="icon-bell"></i><br />
+        <h3>Mes alertes emploi</h3>
+    </div>
+    <div class="col-md-2 sub-header-menu-item">
+        <i class="icon-user-following"></i><br />
+        <h3>Mes candidatures</h3>
+    </div>
+    <div class="col-md-2 sub-header-menu-item">
+        <i class="icon-magnifier"></i><br />
+        <h3>Toutes les offres</h3>
+    </div>
 </div>

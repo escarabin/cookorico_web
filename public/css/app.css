@@ -108,12 +108,12 @@ button, input[type=button] {
     border: none; }
 
 header {
-  z-index: 10;
   width: 100%;
   background-color: white; }
   header .header-fixed {
     position: fixed;
     width: 100%;
+    z-index: 10;
     height: 90px;
     background-color: white; }
   header .logo {
@@ -230,7 +230,7 @@ business-select {
   width: 100%; }
 
 search {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
   display: block; }
   search .user-not-logged-in {
@@ -534,12 +534,12 @@ job-search-results {
     margin: 0; } }
 
 profile {
-  padding-top: 150px;
+  padding-top: 40px;
   display: block;
   max-width: 1200px;
   margin: auto; }
   profile .router-outlet-container {
-    width: 55%;
+    width: 75%;
     float: left;
     margin-left: 3%; }
   profile .header-container {
@@ -874,7 +874,8 @@ right-sidebar {
   top: -2px;
   background-color: white;
   color: #333;
-  font-size: 1em; }
+  font-size: 1em;
+  padding: 5px 15px; }
   .badge.inactive {
     color: #CCC; }
 
@@ -945,8 +946,120 @@ profile-sub-header {
   color: white;
   padding: 25px;
   margin-top: 90px; }
-  profile-sub-header h2 {
-    margin: 0; }
+  profile-sub-header .sub-header-wrapper {
+    max-width: 1200px;
+    margin: auto; }
+    profile-sub-header .sub-header-wrapper .profile-picture {
+      padding-top: 5px; }
+      profile-sub-header .sub-header-wrapper .profile-picture .img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center center;
+        margin: auto; }
+    profile-sub-header .sub-header-wrapper h2 {
+      margin: 0;
+      font-size: 2.5em;
+      margin-bottom: 10px; }
+    profile-sub-header .sub-header-wrapper .sub-header-menu-item {
+      text-align: center;
+      margin-top: 15px; }
+      profile-sub-header .sub-header-wrapper .sub-header-menu-item i {
+        font-size: 2.5em; }
+
+/* -------------------------------------
+ * Bar container
+ * ------------------------------------- */
+.progress-radial {
+  float: left;
+  margin-right: 30px;
+  position: relative;
+  width: 101px;
+  height: 101px;
+  border-radius: 50%;
+  background-color: white; }
+
+/* -------------------------------------
+ * Optional centered circle w/text
+ * ------------------------------------- */
+.progress-radial .overlay {
+  position: absolute;
+  width: 79px;
+  height: 79px;
+  background-color: #fffde8;
+  border-radius: 50%;
+  margin-left: 11px;
+  margin-top: 11px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 16px; }
+
+/* -------------------------------------
+ * Mixin for progress-% class
+ * ------------------------------------- */
+.progress-0 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(90deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-5 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(108deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-10 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(126deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-15 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(144deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-20 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(162deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-25 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(180deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-30 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(198deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-35 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(216deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-40 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(234deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-45 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(252deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-50 {
+  background-image: linear-gradient(-90deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-55 {
+  background-image: linear-gradient(-72deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-60 {
+  background-image: linear-gradient(-54deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-65 {
+  background-image: linear-gradient(-36deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-70 {
+  background-image: linear-gradient(-18deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-75 {
+  background-image: linear-gradient(0deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-80 {
+  background-image: linear-gradient(18deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-85 {
+  background-image: linear-gradient(36deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-90 {
+  background-image: linear-gradient(54deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-95 {
+  background-image: linear-gradient(72deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-100 {
+  background-image: linear-gradient(90deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
 
 body {
   background-color: #f7f7f8;

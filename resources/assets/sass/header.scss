@@ -1,11 +1,11 @@
 header {
-  z-index: 10;
   width: 100%;
   background-color: white;
 
   .header-fixed {
     position: fixed;
     width: 100%;
+    z-index: 10;
     height: $headerHeight;
     background-color: white;
   }
