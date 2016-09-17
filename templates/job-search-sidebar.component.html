@@ -1,0 +1,168 @@
+<div class="row sidebar-container" [class.shown]="!mobileMenuHidden">
+    <div class="col-md-12">
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="ton-li-map-pin-4"></i>
+            </span>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Localisation"
+                   (setAddress)="parseAdress($event)"
+                   googleplace/>
+        </div>
+        <br />
+    </div>
+
+    <div class="col-md-12 search-summary">
+        Vous recherchez un poste
+
+        <span *ngIf="jobNamingList.length > 0">
+            de
+            <span *ngFor="let jobNaming of jobNamingList">
+                <span class="job-badge badge"
+                          *ngIf="jobNaming">
+                    {{ jobNaming }}
+                </span>
+                <span *ngIf="parametersCount(jobNamingList) > 1
+                        && jobNaming
+                        && jobNamingList.indexOf(jobNaming) != jobNamingList.length - 1">
+                    ou
+                </span>
+            </span>
+        </span>
+
+        <span *ngIf="studyLevelList.length > 0">
+            <span *ngFor="let studyLevel of studyLevelList">
+                <span class="study-level-badge badge"
+                      *ngIf="studyLevel">
+                    {{ studyLevel }}
+                </span>
+                <span *ngIf="parametersCount(studyLevelList) > 1
+                        && studyLevel
+                        && studyLevelList.indexOf(studyLevel) != studyLevelList.length - 1">
+                    ou
+                </span>
+            </span>
+            <span *ngIf="parametersCount(studyLevelList) > 1">
+                ou
+            </span>
+        </span>
+
+        <span *ngIf="contractTypeList.length > 0">
+            en
+            <span *ngFor="let contractType of contractTypeList">
+                <span class="contract-type-badge badge"
+                      *ngIf="contractType">
+                    {{ contractType }}
+                </span>
+                <span *ngIf="parametersCount(contractTypeList) > 1
+                        && contractType
+                        && contractTypeList.indexOf(contractType) != contractTypeList.length - 1">
+                    ou
+                </span>
+            </span>
+        </span>
+
+        <span *ngIf="place">
+            à
+            <span class="location-badge badge">{{ place.name }} </span>
+        </span>
+    </div>
+
+    <div class="col-md-12 google-maps-container">
+        <sebm-google-map [latitude]="mapLat"
+                         [longitude]="mapLng"
+                         [mapDraggable]="false"
+                         [zoom]="zoom"
+                         [zoomControl]="false"
+                         [streetViewControl]="false"
+                         (mapClick)="mapClicked($event)">
+            <sebm-google-map-marker [latitude]="mapLat"
+                                    [longitude]="mapLng">
+
+            </sebm-google-map-marker>
+        </sebm-google-map>
+    </div>
+
+    <div class="col-md-12">
+        <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
+            <span class="badge" [class.inactive]="parametersCount(jobNamingList) == 0">
+                {{ parametersCount(jobNamingList) }}
+            </span> &nbsp;
+            Type de poste
+        </h3>
+        <br />
+        <div [collapse]="isJobNamingCollapsed"
+             class="col-md-12">
+            <ul>
+                <div *ngFor="let jobNaming of jobNamings">
+                    <li (click)="updateSearchParameter('jobNaming', jobNaming.id, jobNaming.title)"
+                        [class.active]="jobNamingList[jobNaming.id]"
+                        *ngIf="jobsCountFromParameterValue('job_naming_id', jobNaming.id) > 0">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
+                                <input type="checkbox" [checked]="jobNamingList[jobNaming.id]"/>
+                            </div>
+                            <div class="col-md-10 col-sm-10 col-xs-10 title-container">
+                                {{ jobNaming.title }} ({{ jobsCountFromParameterValue('job_naming_id', jobNaming.id) }})
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <h3 (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
+            <span class="badge" [class.inactive]="parametersCount(studyLevelList) == 0">
+                {{ parametersCount(studyLevelList) }}
+            </span> &nbsp;
+             Niveau d'étude
+        </h3>
+        <div [collapse]="isStudyLevelCollapsed"
+             class="col-md-12">
+            <ul>
+                <div *ngFor="let studyLevel of studyLevels">
+                    <li (click)="updateSearchParameter('studyLevel', studyLevel.id, studyLevel.title)"
+                        [class.active]="studyLevelList[studyLevel.id]"
+                        *ngIf="jobsCountFromParameterValue('study_level_id', studyLevel.id) > 0">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
+                                <input type="checkbox" [checked]="studyLevelList[studyLevel.id]"/>
+                            </div>
+                            <div class="col-md-10 col-sm-10 col-xs-10 title-container">
+                                {{ studyLevel.title }}
+                                ({{ jobsCountFromParameterValue('study_level_id', studyLevel.id) }})
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <br />
+        <h3 (click)="isContractTypeCollapsed = !isContractTypeCollapsed">
+            <span class="badge" [class.inactive]="parametersCount(contractTypeList) == 0">
+                {{ parametersCount(contractTypeList) }}
+            </span> &nbsp;
+            Type de contrat
+        </h3>
+        <div [collapse]="isContractTypeCollapsed"
+             class="col-md-12">
+            <ul>
+                <div *ngFor="let contractType of contractTypes">
+                    <li (click)="updateSearchParameter('contractType', contractType.id, contractType.title)"
+                        *ngIf="jobsCountFromParameterValue('contract_type_id', contractType.id) > 0"
+                        [class.active]="contractTypeList[contractType.id]">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
+                                <input type="checkbox" [checked]="contractTypeList[contractType.id]"/>
+                            </div>
+                            <div class="col-md-10 col-sm-10 col-xs-10 title-container">
+                                {{ contractType.title }}
+                                ({{ jobsCountFromParameterValue('contract_type_id', contractType.id) }})
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>

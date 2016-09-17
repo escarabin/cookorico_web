@@ -1,0 +1,1288 @@
+@font-face {
+  font-family: "Avenir Light";
+  src: url("/fonts/Avenir-Light.ttf"); }
+
+@font-face {
+  font-family: "Avenir Book";
+  src: url("/fonts/Avenir-Book.ttf"); }
+
+@font-face {
+  font-family: "Avenir Medium";
+  src: url("/fonts/Avenir-Medium.ttf"); }
+
+@font-face {
+  font-family: "Avenir Heavy";
+  src: url("/fonts/Avenir-Heavy.ttf"); }
+
+.form-control {
+  height: 50px;
+  box-shadow: none;
+  -webkit-appearance: none;
+  border: none;
+  border-bottom: 1px solid #CCC;
+  border-radius: 0; }
+  .form-control:focus {
+    box-shadow: none; }
+
+.input-group-addon:first-child {
+  background: white;
+  border: none;
+  border-bottom: 1px solid #CCC;
+  border-radius: 0;
+  font-size: 2em; }
+
+.input-group input {
+  border-left: 0;
+  color: #9c9c9c; }
+
+select[required], input[required] {
+  border-left: 3px solid #1a1f38; }
+
+select[required].ng-invalid, input[required].ng-invalid {
+  border-left: 3px solid #d40000; }
+
+label {
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-family: "Avenir Heavy", sans-serif; }
+  label.success {
+    color: #34ba47; }
+  label.danger {
+    color: #E13543; }
+  label.info {
+    color: #35B6E1; }
+  label.warning {
+    color: #E47F1B; }
+
+md-checkbox.dark-bg .md-checkbox-frame {
+  border-color: white; }
+
+md-checkbox.md-checkbox-checked .md-checkbox-background {
+  background-color: #35B6E1; }
+
+md-checkbox.md-checkbox-focused .md-ink-ripple {
+  background-color: rgba(53, 182, 225, 0.25); }
+
+md-checkbox .md-checkbox-frame {
+  border: 2px solid rgba(0, 0, 0, 0.36); }
+
+/**
+  ng2-select
+**/
+.ui-select-multiple {
+  z-index: 10;
+  padding-top: 0; }
+
+ng-select .ui-select-choices {
+  width: 100%;
+  border-radius: 4px; }
+  ng-select .ui-select-choices .ui-select-choices-row {
+    display: block;
+    padding: 5px 10px; }
+    ng-select .ui-select-choices .ui-select-choices-row:hover {
+      background: #35B6E1; }
+      ng-select .ui-select-choices .ui-select-choices-row:hover a {
+        color: white; }
+
+ng-select .ui-select-search {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 50px; }
+
+ng-select .ui-select-match {
+  position: absolute;
+  margin-top: 10px; }
+
+ng-select .ui-select-match-item {
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: none;
+  background-color: #F1F1F1; }
+
+button, input[type=button] {
+  height: 60px; }
+  button i, input[type=button] i {
+    font-size: 1.4em;
+    position: absolute;
+    margin-left: -20px; }
+  button.btn-default, input[type=button].btn-default {
+    border-color: #333; }
+  button.btn-primary, input[type=button].btn-primary {
+    font-family: "Avenir Heavy", sans-serif;
+    border-radius: 4px;
+    background-color: #35B6E1;
+    color: white;
+    border: none; }
+
+header {
+  width: 100%;
+  background-color: white; }
+  header .header-wrapper {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    height: 100px;
+    background: url("/img/header_bg.jpg");
+    background-position: center bottom;
+    background-size: cover;
+    /* Transparent header on home page */ }
+    header .header-wrapper.transparent {
+      background: none;
+      color: white; }
+      header .header-wrapper.transparent a {
+        color: white; }
+  header .logo {
+    background-image: url("/img/oechr_logo.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    width: 190px;
+    height: 67px;
+    margin: 15px 25px; }
+  header ul li {
+    float: right;
+    padding: 40px; }
+    header ul li a {
+      color: white;
+      letter-spacing: 1px;
+      cursor: pointer;
+      font-weight: 400; }
+    header ul li .recruiter_btn a {
+      border: 2px solid white;
+      border-radius: 4px;
+      padding: 10px 15px 10px 15px;
+      font-weight: 600;
+      background: white;
+      color: #1a1f38; }
+  header .mobile-menu-toggle {
+    color: white;
+    font-size: 2em;
+    padding: 20px 25px;
+    text-align: right; }
+
+@media (max-width: 1024px) {
+  header .header-wrapper {
+    height: 70px;
+    background: #35B6E1; }
+  header .logo {
+    width: 115px;
+    height: 40px;
+    margin: 15px 5px; } }
+
+home {
+  width: 100%;
+  display: block; }
+  home .heading {
+    color: white;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 100px;
+    width: 100%;
+    background-image: url("/img/home_bg.jpg");
+    background-size: cover;
+    background-position: center top; }
+
+@media (max-width: 700px) {
+  home .heading {
+    padding-top: 50px; }
+    home .heading h1 {
+      margin-bottom: 35px; }
+    home .heading h2 {
+      display: none; }
+    home .heading .job-search {
+      margin: 15px; }
+      home .heading .job-search select {
+        margin-bottom: 15px; } }
+
+job {
+  display: inline-block;
+  background: white;
+  padding-bottom: 20px;
+  border-radius: 4px;
+  -o-box-shadow: 0px 0px 40px 0px #c0d0d6;
+  box-shadow: 0px 0px 40px 0px #c0d0d6; }
+  job h2 {
+    text-transform: uppercase;
+    font-family: "Avenir Heavy", sans-serif;
+    color: #35B6E1; }
+  job .job-description {
+    padding-top: 20px; }
+  job .job-infos-list {
+    color: white;
+    background: #35B6E1;
+    padding: 15px; }
+    job .job-infos-list .job-info {
+      margin-bottom: 20px;
+      height: 30px; }
+      job .job-infos-list .job-info i {
+        font-size: 2em;
+        color: white;
+        position: relative;
+        top: 5px;
+        width: 40px;
+        display: inline-block; }
+  job .logo {
+    float: left;
+    margin: 20px 20px 20px 0; }
+    job .logo img {
+      width: 100%;
+      max-height: 200px; }
+  job .business {
+    margin-top: 25px;
+    margin-bottom: 25px; }
+    job .business .adress {
+      margin-top: 15px; }
+
+create-business .logo {
+  height: 90px;
+  overflow: hidden; }
+  create-business .logo img {
+    width: 100%;
+    padding-top: 20px; }
+
+new-application-form {
+  display: inline-block;
+  padding-top: 20px; }
+
+new-application-form .back-btn-container,
+new-application-form .apply-btn-container {
+  margin-top: 15px; }
+
+new-application-form .back-btn-container button,
+new-application-form .apply-btn-container button {
+  width: 100%;
+  height: 60px; }
+
+business-select {
+  display: inline-block;
+  width: 100%; }
+
+search {
+  max-width: 1200px;
+  margin: auto;
+  display: block; }
+  search .user-not-logged-in {
+    padding-top: 150px; }
+  search .user-logged-in {
+    padding-top: 40px; }
+  search .router-outlet-container {
+    width: 70%;
+    float: left;
+    margin-left: 3%; }
+
+@media (max-width: 700px) {
+  search {
+    width: 100%;
+    padding-top: 0; }
+    search .router-outlet-container {
+      width: 100%;
+      margin: 0; } }
+
+post-preview {
+  display: block;
+  border: 1px solid #ececec;
+  padding: 25px;
+  background: whitesmoke;
+  transition-property: all;
+  transition-duration: 250ms; }
+  post-preview .logo {
+    position: relative;
+    top: -5px; }
+  post-preview .logo img {
+    max-width: 90px;
+    max-height: 90px;
+    float: left;
+    margin-right: 30px; }
+  post-preview .business_name {
+    font-size: 1.2em;
+    font-family: "Avenir Heavy", sans-serif;
+    margin-bottom: 5px; }
+  post-preview .title, post-preview .business_adress {
+    color: #333; }
+  post-preview:hover {
+    background-color: #e7f6fb;
+    border-color: #35B6E1; }
+
+post-preview:nth-child(odd) {
+  background: white; }
+  post-preview:nth-child(odd):hover {
+    background-color: #e7f6fb; }
+
+#sign-in-modal .modal-dialog {
+  max-width: 400px;
+  width: 100%; }
+
+#sign-in-modal a {
+  color: #333; }
+
+#sign-in-modal form {
+  margin-bottom: 0; }
+
+#sign-in-modal button, #sign-in-modal input[type=button] {
+  width: 100%;
+  font-family: "Avenir Heavy", sans-serif;
+  padding: 15px 0px 15px 0px;
+  font-size: 1.2em;
+  height: 55px; }
+
+#sign-in-modal input[type=button]:hover {
+  background: #333;
+  color: white; }
+
+#sign-in-modal input[type=text], #sign-in-modal input[type=password] {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 60px;
+  font-size: 1.4em;
+  color: #333;
+  border: 1px solid #CCC; }
+
+#sign-in-modal button.close-modal, #sign-in-modal input.back-to-login {
+  background: transparent;
+  border: 1px solid #CCC;
+  color: #CCC; }
+
+#sign-in-modal .remember-me, #sign-in-modal .forgot-password {
+  padding: 20px;
+  margin-bottom: 15px;
+  height: 50px;
+  color: #333; }
+
+#sign-in-modal .forgot-password {
+  text-align: right; }
+
+#sign-in-modal .facebook-login, #sign-in-modal .linkedin-login {
+  text-align: center;
+  padding: 25px;
+  margin-left: 4%;
+  width: 92%;
+  color: white;
+  font-size: 1.3em;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: "Avenir Heavy", sans-serif; }
+
+#sign-in-modal .facebook-login:hover, #sign-in-modal .linkedin-login:hover {
+  opacity: 0.9; }
+
+#sign-in-modal .linkedin-login {
+  background: #0077B5;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+#sign-in-modal .facebook-login {
+  background: #3b5998;
+  margin-bottom: 5px; }
+
+#sign-in-modal .email-sent, #sign-in-modal .loading {
+  color: #333;
+  text-align: center;
+  margin-left: -10px; }
+
+profile-sidebar {
+  display: block;
+  border-radius: 4px;
+  color: white;
+  width: 20%;
+  float: left; }
+  profile-sidebar .user-infos {
+    text-align: left;
+    padding-top: 15px;
+    margin: 0 15px;
+    background-color: #35B6E1;
+    border-radius: 4px;
+    padding: 15px; }
+    profile-sidebar .user-infos .user-title {
+      font-family: "Avenir Heavy", sans-serif;
+      text-align: center;
+      color: white; }
+  profile-sidebar .new-job-post-btn {
+    background-color: white;
+    color: #333;
+    font-family: "Avenir Heavy", sans-serif;
+    border: none;
+    height: 45px;
+    margin-top: 20px; }
+  profile-sidebar .profile-sidebar-menu {
+    text-align: left;
+    margin-top: 20px;
+    display: inline-block;
+    width: 100%; }
+    profile-sidebar .profile-sidebar-menu .plan {
+      padding-top: 15px;
+      text-align: center; }
+      profile-sidebar .profile-sidebar-menu .plan .plan-credits, profile-sidebar .profile-sidebar-menu .plan .plan-contacts {
+        text-align: center;
+        font-family: "Avenir Heavy", sans-serif; }
+    profile-sidebar .profile-sidebar-menu a {
+      color: #333;
+      display: inline-block;
+      width: 100%;
+      padding: 15px;
+      background: white;
+      font-size: 1.15em;
+      margin: 5px 0;
+      border-radius: 4px;
+      color: #333; }
+      profile-sidebar .profile-sidebar-menu a.active {
+        background: #35B6E1;
+        color: white; }
+        profile-sidebar .profile-sidebar-menu a.active:hover {
+          color: #333; }
+      profile-sidebar .profile-sidebar-menu a:hover {
+        background: whitesmoke;
+        border-left: 3px solid #35B6E1; }
+  profile-sidebar .mobile-menu-toggle {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5em;
+    color: #35B6E1; }
+
+@media (max-width: 1024px) {
+  profile-sidebar {
+    width: 100%;
+    padding: 25px;
+    margin-top: 25px;
+    position: fixed;
+    background: #f7f7f8;
+    z-index: 10;
+    border-radius: 0; }
+    profile-sidebar .profile-sidebar-menu {
+      margin: 0; }
+      profile-sidebar .profile-sidebar-menu a {
+        display: none; }
+        profile-sidebar .profile-sidebar-menu a.active, profile-sidebar .profile-sidebar-menu a.visible {
+          display: inline-block; }
+    profile-sidebar .mobile-menu-toggle {
+      display: inline-block; } }
+
+applications {
+  display: block; }
+  applications .application.accepted {
+    background-color: #caf0cf !important; }
+  applications .application.sent {
+    background-color: #e7f6fb !important; }
+  applications .application.rejected {
+    background-color: #fbe7e8 !important; }
+
+sign-up {
+  padding-top: 150px;
+  display: block;
+  background: white;
+  border-radius: 4px; }
+
+job-search-sidebar {
+  width: 25%;
+  float: left; }
+  job-search-sidebar .google-maps-container {
+    padding: 0 15px 15px 15px;
+    margin-top: 0;
+    margin-bottom: 30px; }
+    job-search-sidebar .google-maps-container .sebm-google-map-container {
+      height: 200px;
+      display: block; }
+  job-search-sidebar .search-summary {
+    font-size: 1.2em;
+    margin-bottom: 35px;
+    text-align: center; }
+    job-search-sidebar .search-summary .badge {
+      color: white;
+      margin: 5px;
+      text-transform: lowercase; }
+      job-search-sidebar .search-summary .badge.job-badge {
+        background-color: #35B6E1; }
+      job-search-sidebar .search-summary .badge.location-badge {
+        background-color: #07ad70;
+        text-transform: capitalize; }
+      job-search-sidebar .search-summary .badge.contract-type-badge {
+        background-color: #E47F1B; }
+      job-search-sidebar .search-summary .badge.study-level-badge {
+        background-color: #752794; }
+  job-search-sidebar h3 {
+    cursor: pointer;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    font-family: "Avenir Heavy", sans-serif;
+    padding: 10px 7px;
+    background: #35B6E1;
+    color: white;
+    display: inline-block;
+    width: 100%;
+    margin: 0; }
+  job-search-sidebar .collapse {
+    padding: 0; }
+  job-search-sidebar label {
+    font-weight: inherit; }
+  job-search-sidebar ul {
+    padding-left: 0; }
+    job-search-sidebar ul li {
+      padding: 10px 10px 10px 10px;
+      font-family: "Avenir Medium", sans-serif;
+      color: #6d6d6d;
+      cursor: pointer;
+      background: white; }
+      job-search-sidebar ul li .group {
+        font-family: "Avenir Heavy", sans-serif; }
+      job-search-sidebar ul li .title-container {
+        padding-left: 0;
+        color: #333; }
+      job-search-sidebar ul li.active {
+        background-color: #0a3340; }
+        job-search-sidebar ul li.active .title-container {
+          color: white; }
+      job-search-sidebar ul li:hover {
+        background-color: #78ceeb; }
+
+@media (max-width: 700px) {
+  job-search-sidebar {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.61);
+    margin: 0;
+    width: 100%;
+    display: none; }
+    job-search-sidebar .sidebar-container {
+      padding: 20px; }
+      job-search-sidebar .sidebar-container.shown {
+        display: block; }
+    job-search-sidebar .search-summary {
+      color: white; } }
+
+job-preview {
+  display: inline-block;
+  width: 100%;
+  border: 1px solid #ececec;
+  padding: 25px;
+  background: whitesmoke;
+  transition-property: all;
+  transition-duration: 250ms; }
+  job-preview .logo {
+    position: relative;
+    top: -5px; }
+  job-preview .logo img {
+    max-width: 90px;
+    max-height: 90px;
+    float: left;
+    margin-right: 30px;
+    width: 100%; }
+  job-preview .basic-infos {
+    float: left; }
+    job-preview .basic-infos .business_name {
+      font-size: 1.2em;
+      font-family: "Avenir Heavy", sans-serif;
+      margin-bottom: 5px; }
+    job-preview .basic-infos .title, job-preview .basic-infos .business_adress {
+      color: #333; }
+  job-preview .additional_infos .contract_type {
+    font-weight: bold;
+    text-transform: uppercase; }
+  job-preview:hover {
+    background-color: #e7f6fb;
+    border-color: #35B6E1; }
+
+job-preview:nth-child(odd) {
+  background: white; }
+  job-preview:nth-child(odd):hover {
+    background-color: #e7f6fb; }
+
+job-search-results {
+  background: white;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0px 0px 40px 0px #c0d0d6;
+  -webkit-box-shadow: 0px 0px 40px 0px #c0d0d6;
+  -moz-box-shadow: 0px 0px 40px 0px #c0d0d6; }
+  job-search-results .sebm-google-map-container {
+    height: 900px;
+    padding: 0 15px;
+    display: block; }
+  job-search-results .jobs-count {
+    text-align: center;
+    padding: 25px;
+    margin: 0 15px;
+    color: white;
+    background-color: #35B6E1; }
+  job-search-results h2 {
+    padding-left: 20px; }
+
+@media (max-width: 700px) {
+  job-search-results .search-results-container {
+    padding: 0; }
+  job-search-results .jobs-count {
+    margin: 0; } }
+
+profile {
+  padding-top: 40px;
+  display: block;
+  max-width: 1200px;
+  margin: auto; }
+  profile .router-outlet-container {
+    width: 75%;
+    float: left;
+    margin-left: 3%; }
+    profile .router-outlet-container.full-width {
+      width: 100%;
+      margin-left: 0; }
+  profile .header-container {
+    padding: 0;
+    height: 60px;
+    border-bottom: 1px solid #e6e6e6; }
+    profile .header-container .filter {
+      border-right: 1px solid #e6e6e6;
+      padding: 20px;
+      float: left;
+      text-transform: uppercase;
+      font-family: "Avenir Heavy", sans-serif;
+      cursor: pointer; }
+      profile .header-container .filter label {
+        cursor: pointer; }
+      profile .header-container .filter:hover {
+        background-color: whitesmoke; }
+      profile .header-container .filter.active {
+        background-color: #35B6E1; }
+        profile .header-container .filter.active label {
+          color: white; }
+    profile .header-container .items-count {
+      text-align: center;
+      text-transform: uppercase;
+      font-family: "Avenir Heavy", sans-serif;
+      padding: 20px; }
+    profile .header-container .main-checkbox-container {
+      padding: 22px;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      background: #35B6E1;
+      border-top-left-radius: 4px; }
+      profile .header-container .main-checkbox-container md-checkbox {
+        pointer-events: none; }
+      profile .header-container .main-checkbox-container.selected {
+        background-color: #35B6E1; }
+    profile .header-container .actions-container {
+      padding: 0;
+      text-align: right; }
+      profile .header-container .actions-container button {
+        width: 60px;
+        background: transparent;
+        border: none;
+        border-left: 1px solid #e6e6e6;
+        color: #1a1f38; }
+        profile .header-container .actions-container button:hover {
+          background: #eeeeee; }
+  profile h2 {
+    text-align: center;
+    font-size: 2.3em; }
+  profile form .submit-btn, profile form .back-btn {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    height: 60px; }
+  profile form label {
+    margin-top: 25px; }
+  profile .router-outlet-container {
+    background: white;
+    padding: 0;
+    border-radius: 4px;
+    -o-box-shadow: 0px 0px 40px 0px #c0d0d6;
+    box-shadow: 0px 0px 40px 0px #c0d0d6; }
+  profile .page-title-container h3 {
+    padding: 25px;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    color: #a4acb3;
+    text-align: center; }
+  profile .dynamic_data {
+    font-family: "Avenir Medium", sans-serif;
+    color: #1a1f38; }
+  profile .list-container {
+    padding: 0; }
+    profile .list-container .checkbox-container {
+      float: left;
+      padding: 40px 0;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      cursor: pointer; }
+    profile .list-container ul {
+      padding: 0;
+      margin-bottom: 0; }
+      profile .list-container ul li {
+        background: whitesmoke;
+        padding: 0;
+        margin: 0;
+        transition-property: all;
+        transition-duration: 150ms;
+        border: 1px solid transparent; }
+        profile .list-container ul li md-checkbox {
+          pointer-events: none; }
+        profile .list-container ul li:nth-child(odd) {
+          background: white; }
+        profile .list-container ul li:hover {
+          background-color: #e7f6fb;
+          border-color: #35B6E1; }
+        profile .list-container ul li.selected {
+          background: #35B6E1;
+          color: white; }
+          profile .list-container ul li.selected .checkbox-container {
+            background: #35B6E1; }
+          profile .list-container ul li.selected .item-desc, profile .list-container ul li.selected h3 {
+            color: white; }
+          profile .list-container ul li.selected md-checkbox .md-checkbox-frame {
+            border: none; }
+        profile .list-container ul li a {
+          color: #333; }
+        profile .list-container ul li h3 {
+          font-family: "Avenir Medium", sans-serif;
+          max-height: 20px;
+          overflow: hidden;
+          color: #1a1f38; }
+        profile .list-container ul li .date {
+          float: right;
+          color: #a9a9a9;
+          font-family: "Avenir Medium", sans-serif;
+          text-transform: uppercase;
+          font-size: 0.9em; }
+        profile .list-container ul li .item {
+          margin-bottom: 15px;
+          padding: 10px;
+          display: inline-block; }
+          profile .list-container ul li .item .item-desc {
+            float: left;
+            padding-left: 10px; }
+          profile .list-container ul li .item .item-action-btn {
+            border: none;
+            background: none;
+            position: absolute;
+            right: 50px; }
+          profile .list-container ul li .item.logo .item-desc {
+            width: 65%;
+            margin-right: 15px; }
+          profile .list-container ul li .item .logo, profile .list-container ul li .item .photo {
+            position: relative;
+            top: 5px;
+            display: inline-block;
+            text-align: center;
+            width: 12%;
+            float: left; }
+            profile .list-container ul li .item .logo img, profile .list-container ul li .item .photo img {
+              max-width: 80px;
+              max-height: 80px; }
+
+@media (max-width: 1024px) {
+  profile .list-container ul li .date {
+    display: none; }
+  profile .router-outlet-container {
+    width: 100%;
+    margin-left: 0;
+    padding-top: 140px; } }
+
+experiences {
+  display: block; }
+
+alerts {
+  display: block; }
+
+testimonials {
+  display: block; }
+
+.photo-preview {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 15px;
+  background-size: cover;
+  background-position: center center;
+  border: 7px solid #f5f5f5;
+  border-radius: 3px;
+  cursor: pointer; }
+  .photo-preview.logo {
+    height: 135px;
+    margin-bottom: 10px;
+    border-color: #35B6E1; }
+
+.photo-title {
+  text-align: center;
+  font-family: "Avenir Medium", sans-serif; }
+
+.delete-photo {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #1a1f38;
+  color: white;
+  position: absolute;
+  top: -10px;
+  right: 0;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer; }
+
+#business-photos {
+  margin-top: 15px;
+  padding: 0; }
+
+.business-select-container {
+  padding: 0; }
+
+.toggle-business-creation-container {
+  padding: 15px;
+  text-align: center;
+  cursor: pointer; }
+
+notifications {
+  position: relative;
+  z-index: 10000; }
+  notifications .notification-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #35B6E1;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    height: 85px;
+    font-size: 1.3em;
+    font-family: "Avenir Medium", sans-serif;
+    z-index: 100;
+    animation: show-note 250ms;
+    transition-property: all;
+    transition-duration: 250ms; }
+    notifications .notification-container.success {
+      background-color: #34ba47; }
+    notifications .notification-container.warning {
+      background-color: #E47F1B; }
+    notifications .notification-container.error {
+      background-color: #E13543; }
+    notifications .notification-container.info {
+      background-color: #35B6E1; }
+
+.notification-container a {
+  position: absolute;
+  left: 30px; }
+
+.notification-container.success a {
+  color: black; }
+
+.notification-container.warning a {
+  color: black; }
+
+.notification-container.error a {
+  color: black; }
+
+.notification-container.info a {
+  color: black; }
+
+.notification-container.shown {
+  bottom: 0; }
+
+@keyframes show-note {
+  0% {
+    bottom: -85px; }
+  100% {
+    bottom: 0; } }
+
+.cropping-result {
+  position: absolute;
+  margin-left: 20px; }
+
+.file-drop-zone {
+  text-align: center;
+  background-color: white;
+  border: 2px dashed #d0d0d0;
+  font-family: "Avenir Medium", sans-serif;
+  padding: 15px; }
+  .file-drop-zone.nv-file-over {
+    color: #35B6E1;
+    border: 2px solid #35B6E1; }
+
+profile-preview h2 {
+  text-transform: uppercase;
+  text-align: left;
+  font-family: "Avenir Heavy", sans-serif;
+  color: white;
+  font-size: 1em;
+  background: #35B6E1;
+  padding: 15px;
+  margin: 0; }
+
+profile-preview .form-control[input] {
+  height: 35px;
+  width: auto; }
+
+profile-preview .profile-picture-container {
+  padding: 0 15px; }
+  profile-preview .profile-picture-container .profile-picture {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    background-size: cover;
+    background-position: center center; }
+    profile-preview .profile-picture-container .profile-picture .edit-profile-picture {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      padding: 10px;
+      color: black;
+      background: #35B6E1;
+      opacity: .5;
+      cursor: pointer; }
+      profile-preview .profile-picture-container .profile-picture .edit-profile-picture:hover {
+        opacity: .8; }
+
+profile-preview .user-basic-infos {
+  padding-top: 25px;
+  line-height: 23px; }
+  profile-preview .user-basic-infos .user-identity {
+    font-size: 1.5em;
+    font-family: "Avenir Heavy", sans-serif;
+    color: #1a1f38;
+    text-transform: uppercase; }
+
+profile-preview .resume-container {
+  text-align: center;
+  padding: 25px;
+  margin: 0 -15px; }
+  profile-preview .resume-container .edit-button {
+    background: #35B6E1;
+    border-radius: 4px;
+    padding: 10px 15px;
+    color: white;
+    height: 45px;
+    border: none; }
+  profile-preview .resume-container a {
+    color: #333; }
+  profile-preview .resume-container .icon {
+    font-size: 3em; }
+
+profile-preview .description {
+  margin: 0 25px;
+  padding: 15px;
+  pointer-events: none; }
+
+profile-preview .editable {
+  pointer-events: all;
+  cursor: pointer;
+  border-radius: 4px; }
+
+profile-preview .editable:hover {
+  background: rgba(53, 182, 225, 0.3);
+  color: #10566d; }
+
+profile-preview #resume-preview-modal iframe {
+  height: 500px;
+  width: 100%; }
+
+@media (max-width: 1024px) {
+  profile-preview .description {
+    margin: 0; } }
+
+custom-pagination {
+  padding: 15px; }
+  custom-pagination .pagination-previous, custom-pagination .page, custom-pagination .pagination-next {
+    float: left;
+    cursor: pointer; }
+  custom-pagination .pagination-previous, custom-pagination .pagination-next {
+    width: 15%;
+    text-align: center;
+    padding: 15px;
+    font-family: "Avenir Heavy", sans-serif; }
+  custom-pagination .pagination-next {
+    position: absolute;
+    right: 0;
+    display: inline-block; }
+  custom-pagination .pages {
+    display: inline-block; }
+    custom-pagination .pages .page {
+      padding: 15px; }
+
+right-sidebar {
+  display: inline-block;
+  width: 18%;
+  margin-left: 3%; }
+
+.badge {
+  position: relative;
+  top: -2px;
+  background-color: white;
+  color: #333;
+  font-size: 1em;
+  padding: 5px 15px;
+  border-radius: 4px; }
+  .badge.inactive {
+    color: #CCC; }
+
+.spinner {
+  margin: auto;
+  display: block;
+  margin-top: 15%;
+  animation: rotator 1.4s linear infinite; }
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(270deg); } }
+
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite; }
+
+@keyframes colors {
+  0% {
+    stroke: #4285F4; }
+  25% {
+    stroke: #DE3E35; }
+  50% {
+    stroke: #F7C223; }
+  75% {
+    stroke: #1B9A59; }
+  100% {
+    stroke: #4285F4; } }
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187; }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg); }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg); } }
+
+.job-search {
+  max-width: 650px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
+  -o-box-shadow: 0px 0px 40px 0px #343434;
+  box-shadow: 0px 0px 40px 0px #343434;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=NaN, Strength=40); }
+  .job-search select, .job-search input {
+    border: none;
+    border-radius: 0;
+    height: 60px;
+    -webkit-appearance: none; }
+  .job-search .input-container {
+    padding: 0; }
+  .job-search .find-btn {
+    width: 100%; }
+
+profile-sub-header {
+  background: #35B6E1;
+  display: inline-block;
+  width: 100%;
+  color: white;
+  padding: 15px;
+  margin-top: 100px; }
+  profile-sub-header .sub-header-wrapper {
+    max-width: 1200px;
+    margin: auto; }
+    profile-sub-header .sub-header-wrapper .profile-picture {
+      padding-top: 5px; }
+      profile-sub-header .sub-header-wrapper .profile-picture .img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center center;
+        margin: auto; }
+    profile-sub-header .sub-header-wrapper h2 {
+      margin: 0;
+      margin-top: 7px;
+      font-size: 2.5em; }
+    profile-sub-header .sub-header-wrapper h3 {
+      font-size: 1em;
+      text-transform: uppercase;
+      font-family: "Avenir Medium", sans-serif; }
+    profile-sub-header .sub-header-wrapper .sub-header-menu-item {
+      text-align: center;
+      margin-top: 15px; }
+      profile-sub-header .sub-header-wrapper .sub-header-menu-item a {
+        color: white; }
+      profile-sub-header .sub-header-wrapper .sub-header-menu-item i {
+        font-size: 2em; }
+
+@media (max-width: 1024px) {
+  profile-sub-header {
+    display: none; } }
+
+/* -------------------------------------
+ * Bar container
+ * ------------------------------------- */
+.progress-radial {
+  float: left;
+  position: relative;
+  width: 91px;
+  height: 91px;
+  border-radius: 50%;
+  margin-left: 30%;
+  background-color: white; }
+
+/* -------------------------------------
+ * Optional centered circle w/text
+ * ------------------------------------- */
+.progress-radial .overlay {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  background-color: #fffde8;
+  border-radius: 50%;
+  margin-left: 6px;
+  margin-top: 6px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 16px; }
+
+/* -------------------------------------
+ * Mixin for progress-% class
+ * ------------------------------------- */
+.progress-0 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(90deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-5 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(108deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-10 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(126deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-15 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(144deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-20 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(162deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-25 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(180deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-30 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(198deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-35 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(216deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-40 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(234deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-45 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(252deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-50 {
+  background-image: linear-gradient(-90deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-55 {
+  background-image: linear-gradient(-72deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-60 {
+  background-image: linear-gradient(-54deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-65 {
+  background-image: linear-gradient(-36deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-70 {
+  background-image: linear-gradient(-18deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-75 {
+  background-image: linear-gradient(0deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-80 {
+  background-image: linear-gradient(18deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-85 {
+  background-image: linear-gradient(36deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-90 {
+  background-image: linear-gradient(54deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-95 {
+  background-image: linear-gradient(72deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-100 {
+  background-image: linear-gradient(90deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+recruiter-promo {
+  padding-top: 150px;
+  display: block; }
+
+sign-up-steps {
+  display: block; }
+  sign-up-steps .steps {
+    margin: auto;
+    display: block;
+    width: 250px; }
+    sign-up-steps .steps .steps-line {
+      position: relative;
+      top: 42px;
+      z-index: 1;
+      border: 1px solid #d2c5dd;
+      width: 70%; }
+    sign-up-steps .steps .step {
+      float: left;
+      margin: 0 20px;
+      z-index: 10;
+      position: relative; }
+      sign-up-steps .steps .step .step-number {
+        padding: 10px;
+        text-align: center;
+        background-color: #d2c5dd;
+        color: white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-family: "Avenir Heavy", sans-serif; }
+      sign-up-steps .steps .step.active .step-number {
+        background-color: #9375AE; }
+
+confirm-account-creation {
+  display: block;
+  padding: 25px; }
+
+body {
+  background-color: #f7f7f8;
+  font-family: "Avenir Book", sans-serif;
+  color: #333;
+  -webkit-font-smoothing: antialiased; }
+
+h1 {
+  font-family: "Avenir Medium", sans-serif; }
+
+h2 {
+  font-size: 1.7em; }
+
+h3 {
+  font-size: 1.3em; }
+
+h4 {
+  font-family: "Avenir Heavy", sans-serif; }
+
+ul {
+  list-style-type: none; }
+
+b, strong {
+  font-family: "Avenir Heavy", sans-serif;
+  font-weight: normal; }
+
+a:hover {
+  text-decoration: none; }
+
+.modal-backdrop {
+  z-index: 9; }
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed; }
+
+.centered {
+  text-align: center; }
+
+#main {
+  margin-bottom: 200px; }
+
+/*# sourceMappingURL=app.css.map */

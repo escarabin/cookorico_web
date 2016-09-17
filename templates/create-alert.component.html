@@ -1,0 +1,106 @@
+<div class="col-md-12">
+    <form #alertForm="ngForm">
+        <div class="col-md-6">
+            <label>Fréquence</label>
+            <select name="alertFrequencyId"
+                    required
+                    [(ngModel)]="alert.alert_frequency_id"
+                    ngControl="alert.alert_frequency_id"
+                    name="alert_frequency"
+                    class="form-control">
+                <option disabled selected>-- Fréquence --</option>
+                <option *ngFor="let alertFrequency of alertFrequencies"
+                        [selected]="alertFrequency.id == alert.alert_frequency_id"
+                        value="{{ alertFrequency.id }}">
+                    {{ alertFrequency.title }}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label>Titre</label>
+            <input type="text"
+                   name="title"
+                   [(ngModel)]="alert.title"
+                   ngControl="alert.title"
+                   name="alert_title"
+                   value="alert.title"
+                   placeholder="Titre de votre alerte (ex : Chef cuisinier - CDI)"
+                   class="form-control"/>
+        </div>
+        <div class="col-md-6">
+            <label>Poste</label>
+            <select name="job"
+                    [(ngModel)]="alert.job_naming_id"
+                    ngControl="alert.job_naming_id"
+                    name="alert_job_naming"
+                    required
+                    class="form-control">
+                <option disabled selected>-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label>Zone de recherche</label>
+            <input type="text"
+                   required
+                   name="place"
+                   [(ngModel)]="alert.place"
+                   ngControl="alert.place"
+                   name="alert_place"
+                   value="alert.place"
+                   placeholder="Zone de recherche (ex : Bretagne)"
+                   class="form-control"/>
+        </div>
+        <div class="col-md-12 page-title-container"
+             *ngIf="alertForm.valid">
+            <h3>
+                <span class="fa fa-clock-o"></span> &nbsp;
+                Être alerté
+                <span class="dynamic_data text-lowercase">
+                    <span *ngFor="let alertFrequency of alertFrequencies">
+                        <span *ngIf="alertFrequency.id == alert.alert_frequency_id">
+                            {{ alertFrequency.title }}
+                        </span>
+                    </span>
+                </span>
+                des offres de
+                <span class="dynamic_data text-lowercase">
+                    <span *ngFor="let jobNamingGroup of jobNamingGroups">
+                        <span *ngFor="let jobNaming of jobNamingGroup.job_namings">
+                            <span *ngIf="jobNaming.id == alert.job_naming_id">
+                                {{ jobNaming.title }}
+                            </span>
+                        </span>
+                    </span>
+                </span>
+                autour de
+                <span class="dynamic_data">{{ alert.place }}</span>
+            </h3>
+        </div>
+        <div class="col-md-6 hidden-xs hidden-sm">
+            <a routerLink="/profile/alerts">
+                <button class="btn btn-default back-btn">
+                    <span class="fa fa-arrow-left"></span> &nbsp; Retour aux alertes
+                </button>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary submit-btn"
+                    [disabled]="!alertForm.valid || isLoading"
+                    (click)="submitAlert()">
+                <span *ngIf="!isLoading">
+                    Sauvegarder
+                </span>
+                <span *ngIf="isLoading">
+                    <span class="fa fa-spinner fa-spin"></span> &nbsp; Chargement
+                </span>
+            </button>
+        </div>
+    </form>
+</div>

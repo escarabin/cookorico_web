@@ -1,0 +1,21 @@
+<accordion [closeOthers]="true">
+    <accordion-group heading="Bandeau promo page d'accueil">
+        <unity-tinymce [mceContent]="'test'"
+                       (newContentInput)="homeBannerHtmlChanged($event)">
+
+        </unity-tinymce>
+        <button class="btn btn-primary"
+                (click)="saveHomeBannerHtml()">
+            Sauvegarder
+        </button>
+    </accordion-group>
+    <accordion-group heading="Partenaires page d'accueil">
+        <business-select (businessIdChange)="handleBusinessIdListChange($event)">
+
+        </business-select>
+        <button class="btn btn-primary"
+                (click)="saveHomePartners()">
+            Sauvegarder
+        </button>
+    </accordion-group>
+</accordion>

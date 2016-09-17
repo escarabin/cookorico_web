@@ -1,0 +1,110 @@
+profile-sidebar {
+  display: block;
+  border-radius: $mainBorderRadius;
+  color: white;
+  width: 20%;
+  float: left;
+
+  .user-infos {
+    text-align: left;
+    padding-top: 15px;
+    margin: 0 15px;
+    background-color: $oechrBlueColor;
+    border-radius: $mainBorderRadius;
+    padding: 15px;
+
+    .user-title {
+      font-family: $mainBoldFontFamily;
+      text-align: center;
+      color: white;
+    }
+  }
+
+  .new-job-post-btn {
+    background-color: white;
+    color: $mainDarkTextColor;
+    font-family: $mainBoldFontFamily;
+    border: none;
+    height: 45px;
+    margin-top: 20px;
+  }
+
+  .profile-sidebar-menu {
+    text-align: left;
+    margin-top: 20px;
+    display: inline-block;
+    width: 100%;
+
+    .plan {
+      padding-top: 15px;
+      text-align: center;
+
+      .plan-credits, .plan-contacts {
+        text-align: center;
+        font-family: $mainBoldFontFamily;
+      }
+    }
+
+    a {
+      color: $mainDarkTextColor;
+      display: inline-block;
+      width: 100%;
+      padding: 15px;
+      background: white;
+      font-size: 1.15em;
+      margin: 5px 0;
+      border-radius: $mainBorderRadius;
+      color: #333;
+
+      &.active {
+        background: $oechrBlueColor;
+        color: white;
+
+        &:hover {
+          color: #333;
+        }
+      }
+
+      &:hover {
+        background: whitesmoke;
+        border-left: 3px solid $oechrBlueColor;
+      }
+    }
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5em;
+    color: $oechrBlueColor;
+  }
+}
+
+@media (max-width: $tabletWidth) {
+  profile-sidebar {
+    width: 100%;
+    padding: 25px;
+    margin-top: 25px;
+    position: fixed;
+    background: #f7f7f8;
+    z-index: 10;
+    border-radius: 0;
+
+    .profile-sidebar-menu {
+      margin: 0;
+
+      a {
+        display: none;
+
+        &.active, &.visible {
+          display: inline-block;
+        }
+      }
+    }
+
+    .mobile-menu-toggle {
+      display: inline-block;
+    }
+  }
+}

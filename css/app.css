@@ -1,0 +1,1070 @@
+@font-face {
+  font-family: "Avenir Light";
+  src: url("/fonts/Avenir-Light.ttf"); }
+
+@font-face {
+  font-family: "Avenir Book";
+  src: url("/fonts/Avenir-Book.ttf"); }
+
+@font-face {
+  font-family: "Avenir Medium";
+  src: url("/fonts/Avenir-Medium.ttf"); }
+
+@font-face {
+  font-family: "Avenir Heavy";
+  src: url("/fonts/Avenir-Heavy.ttf"); }
+
+.form-control {
+  height: 50px;
+  box-shadow: none; }
+
+.input-group-addon:first-child {
+  background: white; }
+
+.input-group input {
+  border-left: 0;
+  color: #9c9c9c; }
+
+select[required], input[required] {
+  border-left: 5px solid #1a1f38; }
+
+select[required].ng-invalid, input[required].ng-invalid {
+  border-left: 5px solid #d40000; }
+
+label {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 1px; }
+
+/** The width/height of the checkbox element. */
+/** The width of the line used to draw the checkmark / mixedmark. */
+/** The width of the checkbox border shown when the checkbox is unchecked. */
+/** The color of the checkbox border. */
+/** The color of the checkbox's checkmark / mixedmark. */
+/** The color that is used as the checkbox background when it is checked. */
+/** The base duration used for the majority of transitions for the checkbox. */
+/** The amount of spacing between the checkbox and its label. */
+/**
+ * Fades in the background of the checkbox when it goes from unchecked -> {checked,indeterminate}.
+ */
+@keyframes md-checkbox-fade-in-background {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; } }
+
+/**
+ * Fades out the background of the checkbox when it goes from {checked,indeterminate} -> unchecked.
+ */
+@keyframes md-checkbox-fade-out-background {
+  0%, 50% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+/**
+ * "Draws" in the checkmark when the checkbox goes from unchecked -> checked.
+ */
+@keyframes md-checkbox-unchecked-checked-checkmark-path {
+  0%, 50% {
+    stroke-dashoffset: 22.910259; }
+  50% {
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 0.1); }
+  100% {
+    stroke-dashoffset: 0; } }
+
+/**
+ * Horizontally expands the mixedmark when the checkbox goes from unchecked -> indeterminate.
+ */
+@keyframes md-checkbox-unchecked-indeterminate-mixedmark {
+  0%, 68.2% {
+    transform: scaleX(0); }
+  68.2% {
+    animation-timing-function: cubic-bezier(0, 0, 0, 1); }
+  100% {
+    transform: scaleX(1); } }
+
+/**
+ * "Erases" the checkmark when the checkbox goes from checked -> unchecked.
+ */
+@keyframes md-checkbox-checked-unchecked-checkmark-path {
+  from {
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    stroke-dashoffset: 0; }
+  to {
+    stroke-dashoffset: -22.910259; } }
+
+/**
+ * Rotates and fades out the checkmark when the checkbox goes from checked -> indeterminate. This
+ * animation helps provide the illusion of the checkmark "morphing" into the mixedmark.
+ */
+@keyframes md-checkbox-checked-indeterminate-checkmark {
+  from {
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 0.1);
+    opacity: 1;
+    transform: rotate(0deg); }
+  to {
+    opacity: 0;
+    transform: rotate(45deg); } }
+
+/**
+ * Rotates and fades the checkmark back into position when the checkbox goes from indeterminate ->
+ * checked. This animation helps provide the illusion that the mixedmark is "morphing" into the
+ * checkmark.
+ */
+@keyframes md-checkbox-indeterminate-checked-checkmark {
+  from {
+    animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
+    opacity: 0;
+    transform: rotate(45deg); }
+  to {
+    opacity: 1;
+    transform: rotate(360deg); } }
+
+/**
+ * Rotates and fades in the mixedmark when the checkbox goes from checked -> indeterminate. This
+ * animation, similar to md-checkbox-checked-indeterminate-checkmark, helps provide an illusion
+ * of "morphing" from checkmark -> mixedmark.
+ */
+@keyframes md-checkbox-checked-indeterminate-mixedmark {
+  from {
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 0.1);
+    opacity: 0;
+    transform: rotate(-45deg); }
+  to {
+    opacity: 1;
+    transform: rotate(0deg); } }
+
+/**
+ * Rotates and fades out the mixedmark when the checkbox goes from indeterminate -> checked. This
+ * animation, similar to md-checkbox-indeterminate-checked-checkmark, helps provide an illusion
+ * of "morphing" from mixedmark -> checkmark.
+ */
+@keyframes md-checkbox-indeterminate-checked-mixedmark {
+  from {
+    animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
+    opacity: 1;
+    transform: rotate(0deg); }
+  to {
+    opacity: 0;
+    transform: rotate(315deg); } }
+
+/**
+ * Horizontally collapses and fades out the mixedmark when the checkbox goes from indeterminate ->
+ * unchecked.
+ */
+@keyframes md-checkbox-indeterminate-unchecked-mixedmark {
+  0% {
+    animation-timing-function: linear;
+    opacity: 1;
+    transform: scaleX(1); }
+  32.8%, 100% {
+    opacity: 0;
+    transform: scaleX(0); } }
+
+/**
+ * Applied to elements that cover the checkbox's entire inner container.
+ */
+.md-checkbox-frame, .md-checkbox-background, .md-checkbox-checkmark {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+/**
+ * Applied to elements that are considered "marks" within the checkbox, e.g. the checkmark and
+ * the mixedmark.
+ */
+.md-checkbox-checkmark, .md-checkbox-mixedmark {
+  width: calc(100% - 4px); }
+
+/**
+ * Applied to elements that appear to make up the outer box of the checkmark, such as the frame
+ * that contains the border and the actual background element that contains the marks.
+ */
+.md-checkbox-frame, .md-checkbox-background {
+  border-radius: 2px;
+  box-sizing: border-box;
+  pointer-events: none; }
+
+.md-checkbox {
+  cursor: pointer; }
+  .md-checkbox:focus {
+    outline: none; }
+
+.md-checkbox-layout {
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
+
+.md-checkbox-inner-container {
+  display: inline-block;
+  height: 18px;
+  line-height: 0;
+  margin: auto;
+  margin-right: 4px;
+  -ms-flex-order: 0;
+  order: 0;
+  position: relative;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 18px; }
+  [dir="rtl"] .md-checkbox-inner-container {
+    margin-left: 4px;
+    margin-right: auto; }
+
+.md-checkbox-frame {
+  background-color: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.54);
+  transition: border-color 140ms cubic-bezier(0, 0, 0.2, 0.1);
+  will-change: border-color; }
+
+.md-checkbox-background {
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #2196f3;
+  opacity: 0;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  transition: background-color 140ms cubic-bezier(0, 0, 0.2, 0.1), opacity 140ms cubic-bezier(0, 0, 0.2, 0.1);
+  will-change: background-color, opacity; }
+
+.md-checkbox-checkmark {
+  fill: #fafafa;
+  width: 100%; }
+
+.md-checkbox-checkmark-path {
+  stroke: #fafafa !important;
+  stroke-dashoffset: 22.910259;
+  stroke-dasharray: 22.910259;
+  stroke-width: 2.4px; }
+
+.md-checkbox-mixedmark {
+  background-color: #fafafa;
+  height: 2.4px;
+  opacity: 0;
+  transform: scaleX(0) rotate(0deg); }
+
+.md-checkbox-align-end .md-checkbox-inner-container {
+  -ms-flex-order: 1;
+  order: 1;
+  margin-left: 4px;
+  margin-right: auto; }
+  [dir="rtl"] .md-checkbox-align-end .md-checkbox-inner-container {
+    margin-left: auto;
+    margin-right: 4px; }
+
+.md-checkbox-checked .md-checkbox-checkmark {
+  opacity: 1; }
+
+.md-checkbox-checked .md-checkbox-checkmark-path {
+  stroke-dashoffset: 0; }
+
+.md-checkbox-checked .md-checkbox-mixedmark {
+  transform: scaleX(1) rotate(-45deg); }
+
+.md-checkbox-checked .md-checkbox-background {
+  opacity: 1; }
+
+.md-checkbox-indeterminate .md-checkbox-background {
+  opacity: 1; }
+
+.md-checkbox-indeterminate .md-checkbox-checkmark {
+  opacity: 0;
+  transform: rotate(45deg); }
+
+.md-checkbox-indeterminate .md-checkbox-checkmark-path {
+  stroke-dashoffset: 0; }
+
+.md-checkbox-indeterminate .md-checkbox-mixedmark {
+  opacity: 1;
+  transform: scaleX(1) rotate(0deg); }
+
+.md-checkbox-disabled {
+  cursor: default; }
+  .md-checkbox-disabled.md-checkbox-checked .md-checkbox-background, .md-checkbox-disabled.md-checkbox-indeterminate .md-checkbox-background {
+    background-color: #b0b0b0; }
+  .md-checkbox-disabled:not(.md-checkbox-checked) .md-checkbox-frame {
+    border-color: #b0b0b0; }
+
+.md-checkbox-anim-unchecked-checked .md-checkbox-background {
+  animation: 280ms linear 0s md-checkbox-fade-in-background; }
+
+.md-checkbox-anim-unchecked-checked .md-checkbox-checkmark-path {
+  animation: 280ms linear 0s md-checkbox-unchecked-checked-checkmark-path; }
+
+.md-checkbox-anim-unchecked-indeterminate .md-checkbox-background {
+  animation: 280ms linear 0s md-checkbox-fade-in-background; }
+
+.md-checkbox-anim-unchecked-indeterminate .md-checkbox-mixedmark {
+  animation: 140ms linear 0s md-checkbox-unchecked-indeterminate-mixedmark; }
+
+.md-checkbox-anim-checked-unchecked .md-checkbox-background {
+  animation: 280ms linear 0s md-checkbox-fade-out-background; }
+
+.md-checkbox-anim-checked-unchecked .md-checkbox-checkmark-path {
+  animation: 140ms linear 0s md-checkbox-checked-unchecked-checkmark-path; }
+
+.md-checkbox-anim-checked-indeterminate .md-checkbox-checkmark {
+  animation: 140ms linear 0s md-checkbox-checked-indeterminate-checkmark; }
+
+.md-checkbox-anim-checked-indeterminate .md-checkbox-mixedmark {
+  animation: 140ms linear 0s md-checkbox-checked-indeterminate-mixedmark; }
+
+.md-checkbox-anim-indeterminate-checked .md-checkbox-checkmark {
+  animation: 500ms linear 0s md-checkbox-indeterminate-checked-checkmark; }
+
+.md-checkbox-anim-indeterminate-checked .md-checkbox-mixedmark {
+  animation: 500ms linear 0s md-checkbox-indeterminate-checked-mixedmark; }
+
+.md-checkbox-anim-indeterminate-unchecked .md-checkbox-background {
+  animation: 280ms linear 0s md-checkbox-fade-out-background; }
+
+.md-checkbox-anim-indeterminate-unchecked .md-checkbox-mixedmark {
+  animation: 300ms linear 0s md-checkbox-indeterminate-unchecked-mixedmark; }
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
+button {
+  height: 50px; }
+
+.btn-primary, input[type=button] {
+  font-family: "Avenir Medium", sans-serif;
+  border-radius: 4px;
+  background-color: #1a1f38;
+  color: white;
+  border: none; }
+
+header {
+  width: 100%;
+  padding: 5px;
+  height: 90px;
+  position: fixed;
+  z-index: 10;
+  background-color: #1a1f38; }
+  header .logo {
+    background-image: url("/img/oechr_logo.png");
+    background-size: 100%;
+    background-position: center top;
+    width: 250px;
+    height: 60px; }
+  header ul li {
+    float: right;
+    padding: 30px; }
+    header ul li a {
+      color: white;
+      letter-spacing: 1px;
+      cursor: pointer;
+      font-weight: 400; }
+      header ul li a:hover {
+        color: white; }
+    header ul li .recruiter_btn a {
+      border: 2px solid white;
+      border-radius: 4px;
+      padding: 10px 15px 10px 15px;
+      font-weight: 600;
+      background: white;
+      color: #1a1f38; }
+    header ul li:hover {
+      background: #1a1f38;
+      color: white; }
+  header .mobile-menu-toggle {
+    color: white;
+    font-size: 2em;
+    padding-top: 25px; }
+
+home {
+  width: 100%;
+  display: block; }
+  home .heading {
+    color: white;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 100px;
+    width: 100%;
+    background-image: url("/img/home_bg.jpg");
+    background-size: cover;
+    background-position: center top; }
+    home .heading .job-search {
+      max-width: 950px;
+      margin: auto;
+      margin-top: 50px;
+      padding: 10px;
+      background: #697f9a;
+      border-radius: 4px; }
+      home .heading .job-search select {
+        border: none;
+        border-radius: 0;
+        -webkit-appearance: none;
+        border-right: 1px solid #333438; }
+      home .heading .job-search .input-container {
+        padding: 0; }
+      home .heading .job-search .find-btn {
+        width: 100%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0; }
+
+@media (max-width: 760px) {
+  home .heading {
+    padding-top: 50px; }
+    home .heading h1 {
+      margin-bottom: 35px; }
+    home .heading h2 {
+      display: none; }
+    home .heading .job-search {
+      margin: 15px; }
+      home .heading .job-search select {
+        margin-bottom: 15px; } }
+
+job {
+  display: block;
+  background: white;
+  padding-bottom: 20px;
+  border-radius: 4px;
+  -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
+  box-shadow: 0px 0px 40px 0px #d8d8d8; }
+  job .job-title {
+    text-align: center;
+    margin-top: 20px; }
+  job .job-description {
+    padding-top: 20px; }
+  job .job-info {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-left: 1px solid #CCC;
+    margin-left: 15px;
+    width: 45%; }
+  job .business {
+    margin-top: 25px;
+    margin-bottom: 25px; }
+    job .business .logo {
+      float: left;
+      margin-right: 20px; }
+      job .business .logo img {
+        max-width: 80px;
+        max-height: 80px; }
+
+new-application-form {
+  display: inline-block;
+  padding-top: 20px; }
+
+new-application-form .back-btn-container,
+new-application-form .apply-btn-container {
+  margin-top: 15px; }
+
+new-application-form .back-btn-container button,
+new-application-form .apply-btn-container button {
+  width: 100%;
+  height: 50px; }
+
+business-select {
+  display: inline-block;
+  width: 100%; }
+
+search {
+  max-width: 1100px;
+  margin: auto;
+  padding-top: 150px;
+  display: block; }
+  search .router-outlet-container {
+    width: 50%;
+    float: left;
+    margin-left: 3%; }
+
+post-preview {
+  display: block;
+  border: 1px solid #ececec;
+  padding: 25px;
+  background: whitesmoke;
+  transition-property: all;
+  transition-duration: 250ms; }
+  post-preview .logo {
+    position: relative;
+    top: -5px; }
+  post-preview .logo img {
+    max-width: 90px;
+    max-height: 90px;
+    float: left;
+    margin-right: 30px; }
+  post-preview .business_name {
+    font-size: 1.2em;
+    font-family: "Avenir Heavy", sans-serif;
+    margin-bottom: 5px; }
+  post-preview .title, post-preview .business_adress {
+    color: #333; }
+  post-preview:hover {
+    background-color: #e7f6fb;
+    border-color: #35B6E1; }
+
+post-preview:nth-child(odd) {
+  background: white; }
+  post-preview:nth-child(odd):hover {
+    background-color: #e7f6fb; }
+
+#sign-in-modal .modal-dialog {
+  max-width: 400px;
+  width: 100%; }
+
+#sign-in-modal a {
+  color: #333; }
+
+#sign-in-modal form {
+  margin-bottom: 0; }
+
+#sign-in-modal button, #sign-in-modal input[type=button] {
+  width: 100%;
+  font-family: "Avenir Heavy", sans-serif;
+  padding: 15px 0px 15px 0px;
+  font-size: 1.2em;
+  height: 55px; }
+
+#sign-in-modal input[type=button]:hover {
+  background: #333;
+  color: white; }
+
+#sign-in-modal input[type=text], #sign-in-modal input[type=password] {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 60px;
+  font-size: 1.4em;
+  color: #333;
+  border: 1px solid #CCC; }
+
+#sign-in-modal button.close-modal, #sign-in-modal input.back-to-login {
+  background: transparent;
+  border: 1px solid #CCC;
+  color: #CCC; }
+
+#sign-in-modal .remember-me, #sign-in-modal .forgot-password {
+  padding: 20px;
+  margin-bottom: 15px;
+  height: 50px;
+  color: #333; }
+
+#sign-in-modal .forgot-password {
+  text-align: right; }
+
+#sign-in-modal .google-login, #sign-in-modal .linkedin-login {
+  text-align: center;
+  padding: 25px;
+  margin-left: 4%;
+  width: 92%;
+  color: white;
+  font-size: 1.3em;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: "Avenir Heavy", sans-serif; }
+
+#sign-in-modal .google-login:hover, #sign-in-modal .linkedin-login:hover {
+  opacity: 0.9; }
+
+#sign-in-modal .linkedin-login {
+  background: #0077B5;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+#sign-in-modal .google-login {
+  background: #c53929;
+  margin-bottom: 5px; }
+
+#sign-in-modal .email-sent, #sign-in-modal .loading {
+  color: #333;
+  text-align: center;
+  margin-left: -10px; }
+
+user-sidebar {
+  display: block;
+  background-color: #1a1f38;
+  border-radius: 4px;
+  -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
+  box-shadow: 0px 0px 40px 0px #d8d8d8;
+  color: white;
+  width: 20%;
+  float: left; }
+
+user-sidebar .user-infos {
+  text-align: left;
+  padding-top: 15px;
+  margin: 0; }
+
+user-sidebar .user-infos .user-title {
+  font-family: "Avenir Heavy", sans-serif;
+  text-align: center;
+  color: white; }
+
+user-sidebar .user-infos .profile-picture {
+  margin-bottom: 20px; }
+
+user-sidebar .user-infos .profile-picture .img {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 50%;
+  border: 3px solid white; }
+
+user-sidebar .user-sidebar-menu {
+  text-align: left;
+  margin-top: 20px;
+  display: inline-block; }
+
+user-sidebar .user-sidebar-menu .menu-item {
+  padding: 15px;
+  font-size: 1.15em;
+  border-top: 1px solid #DDD;
+  background: white;
+  cursor: pointer;
+  color: #333; }
+
+user-sidebar .user-sidebar-menu .menu-item:hover {
+  background: whitesmoke; }
+
+user-sidebar .user-sidebar-menu .menu-item a {
+  color: #333; }
+
+user-sidebar .plan {
+  padding-top: 15px;
+  text-align: center; }
+
+user-sidebar .plan .plan-credits, user-sidebar .plan .plan-contacts {
+  text-align: center;
+  font-family: "Avenir Heavy", sans-serif; }
+
+user-sidebar .plan .new-job-post-btn {
+  background-color: #35b6e1;
+  color: white;
+  font-family: "Avenir Heavy", sans-serif;
+  border: none;
+  height: 45px;
+  margin-top: 20px; }
+
+applications {
+  display: block; }
+
+sign-up {
+  padding-top: 150px;
+  display: block;
+  background: white;
+  border-radius: 4px; }
+
+job-search-sidebar {
+  width: 25%;
+  float: left; }
+  job-search-sidebar h3 {
+    cursor: pointer;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    font-family: "Avenir Medium", sans-serif; }
+  job-search-sidebar .collapse {
+    padding: 0; }
+  job-search-sidebar label {
+    font-weight: inherit; }
+  job-search-sidebar ul {
+    padding-left: 4px; }
+    job-search-sidebar ul li {
+      padding: 5px 10px 5px 0;
+      font-family: "Avenir Medium", sans-serif;
+      color: #6d6d6d;
+      cursor: pointer;
+      margin-bottom: 10px;
+      border-radius: 4px; }
+      job-search-sidebar ul li:hover {
+        background: white; }
+      job-search-sidebar ul li .group {
+        font-family: "Avenir Heavy", sans-serif; }
+      job-search-sidebar ul li .title-container {
+        padding-left: 0; }
+
+job-preview {
+  display: block;
+  border: 1px solid #ececec;
+  padding: 25px;
+  background: whitesmoke;
+  transition-property: all;
+  transition-duration: 250ms; }
+  job-preview .logo {
+    position: relative;
+    top: -5px; }
+  job-preview .logo img {
+    max-width: 90px;
+    max-height: 90px;
+    float: left;
+    margin-right: 30px; }
+  job-preview .business_name {
+    font-size: 1.2em;
+    font-family: "Avenir Heavy", sans-serif;
+    margin-bottom: 5px; }
+  job-preview .title, job-preview .business_adress {
+    color: #333; }
+  job-preview:hover {
+    background-color: #e7f6fb;
+    border-color: #35B6E1; }
+
+job-preview:nth-child(odd) {
+  background: white; }
+  job-preview:nth-child(odd):hover {
+    background-color: #e7f6fb; }
+
+job-search-results {
+  background: white;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0px 0px 40px 0px #d8d8d8;
+  -webkit-box-shadow: 0px 0px 40px 0px #d8d8d8;
+  -moz-box-shadow: 0px 0px 40px 0px #d8d8d8; }
+  job-search-results .jobs-count {
+    text-align: center;
+    padding: 25px;
+    margin: 0 15px;
+    color: white;
+    background-color: #35B6E1; }
+  job-search-results h2 {
+    padding-left: 20px; }
+
+profile {
+  padding-top: 150px;
+  display: block;
+  max-width: 1200px;
+  margin: auto; }
+  profile .router-outlet-container {
+    width: 55%;
+    float: left;
+    margin-left: 3%; }
+  profile .header-container {
+    padding: 0;
+    height: 60px;
+    border-bottom: 1px solid #e6e6e6; }
+    profile .header-container .items-count {
+      text-align: center;
+      text-transform: uppercase;
+      font-family: "Avenir Heavy", sans-serif;
+      padding: 20px; }
+    profile .header-container .main-checkbox-container {
+      padding: 22px;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      background: #1a1f38;
+      border-top-left-radius: 4px; }
+    profile .header-container .actions-container {
+      padding: 0;
+      text-align: right; }
+      profile .header-container .actions-container button {
+        width: 60px;
+        background: transparent;
+        border: none;
+        border-left: 1px solid #e6e6e6;
+        color: #1a1f38; }
+        profile .header-container .actions-container button:hover {
+          background: #eeeeee; }
+  profile h2 {
+    text-align: center; }
+  profile form .submit-btn, profile form .back-btn {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    height: 60px; }
+  profile form label {
+    margin-top: 25px; }
+  profile .router-outlet-container {
+    background: white;
+    padding: 0;
+    border-radius: 4px;
+    -o-box-shadow: 0px 0px 40px 0px #d8d8d8;
+    box-shadow: 0px 0px 40px 0px #d8d8d8; }
+  profile .page-title-container h3 {
+    padding: 25px;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    color: #a4acb3;
+    text-align: center; }
+  profile .dynamic_data {
+    font-family: "Avenir Medium", sans-serif;
+    color: #1a1f38; }
+  profile .list-container {
+    padding: 0; }
+    profile .list-container .checkbox-container {
+      float: left;
+      padding: 40px 0;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      background: #f4f5fd; }
+    profile .list-container ul {
+      padding: 0;
+      margin-bottom: 0; }
+      profile .list-container ul li {
+        background: whitesmoke;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ececec; }
+        profile .list-container ul li:nth-child(odd) {
+          background: white; }
+        profile .list-container ul li:hover {
+          background-color: #e7f6fb;
+          border-color: #35B6E1; }
+        profile .list-container ul li a {
+          color: #333; }
+        profile .list-container ul li h3 {
+          font-family: "Avenir Medium", sans-serif;
+          max-height: 20px;
+          overflow: hidden;
+          color: #1a1f38; }
+        profile .list-container ul li .date {
+          float: right;
+          color: #a9a9a9;
+          font-family: "Avenir Medium", sans-serif;
+          text-transform: uppercase;
+          font-size: 0.9em; }
+        profile .list-container ul li .item {
+          margin-bottom: 15px; }
+          profile .list-container ul li .item .item-desc {
+            float: left;
+            padding-left: 10px; }
+          profile .list-container ul li .item.logo .item-desc {
+            width: 65%;
+            margin-right: 15px; }
+          profile .list-container ul li .item .logo {
+            position: relative;
+            top: 5px;
+            display: inline-block;
+            text-align: center;
+            width: 25%; }
+            profile .list-container ul li .item .logo img {
+              max-width: 80px;
+              max-height: 80px; }
+
+@media (max-width: 700px) {
+  profile .list-container ul li .date {
+    display: none; } }
+
+experiences {
+  display: block; }
+
+alerts {
+  display: block; }
+
+testimonials {
+  display: block; }
+
+.photo-preview {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 15px;
+  background-size: cover;
+  background-position: center center;
+  border: 7px solid #f5f5f5;
+  border-radius: 3px; }
+
+#business-photos {
+  margin-top: 15px;
+  padding: 0; }
+
+.business-select-container {
+  padding: 0; }
+
+.toggle-business-creation-container {
+  padding: 15px;
+  text-align: center;
+  cursor: pointer; }
+
+notifications {
+  position: relative;
+  z-index: 10000; }
+  notifications .notification-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #35B6E1;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    height: 85px;
+    font-size: 1.3em;
+    font-family: "Avenir Medium", sans-serif;
+    z-index: 100;
+    animation: show-note 250ms;
+    transition-property: all;
+    transition-duration: 250ms; }
+    notifications .notification-container.success {
+      background-color: #35B6E1; }
+    notifications .notification-container.warning {
+      background-color: #E47F1B; }
+    notifications .notification-container.error {
+      background-color: #E13543; }
+    notifications .notification-container.info {
+      background-color: #35B6E1; }
+
+.notification-container a {
+  position: absolute;
+  left: 30px; }
+
+.notification-container.success a {
+  color: black; }
+
+.notification-container.warning a {
+  color: black; }
+
+.notification-container.error a {
+  color: black; }
+
+.notification-container.info a {
+  color: black; }
+
+.notification-container.shown {
+  top: 0; }
+
+@keyframes show-note {
+  0% {
+    top: -85px; }
+  100% {
+    top: 0; } }
+
+.cropping-result {
+  position: absolute;
+  margin-left: 20px; }
+
+.file-drop-zone {
+  text-align: center; }
+
+.file-drop-zone .hasBaseDropZoneOver {
+  border: 1px solid #35B6E1; }
+
+profile-preview h3 {
+  text-transform: uppercase;
+  font-family: "Avenir Heavy", sans-serif;
+  color: #333; }
+
+profile-preview .form-control[input] {
+  height: 35px;
+  width: auto; }
+
+profile-preview .profile-picture-container {
+  padding: 0; }
+  profile-preview .profile-picture-container .profile-picture {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    background-size: cover;
+    background-position: center center; }
+    profile-preview .profile-picture-container .profile-picture .edit-profile-picture {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      padding: 10px;
+      color: black;
+      background: #35B6E1;
+      opacity: .5;
+      cursor: pointer; }
+      profile-preview .profile-picture-container .profile-picture .edit-profile-picture:hover {
+        opacity: .8; }
+
+profile-preview .user-basic-infos {
+  padding-top: 15px;
+  line-height: 23px; }
+  profile-preview .user-basic-infos .user-identity {
+    font-size: 1.5em;
+    font-family: "Avenir Heavy", sans-serif;
+    color: #1a1f38;
+    text-transform: uppercase; }
+
+profile-preview .resume-container {
+  text-align: center;
+  padding: 45px 0; }
+  profile-preview .resume-container .icon {
+    font-size: 3em; }
+
+profile-preview .description {
+  margin: 0 25px;
+  padding: 15px;
+  pointer-events: none; }
+
+profile-preview .editable {
+  pointer-events: all;
+  cursor: pointer;
+  border-radius: 4px; }
+
+profile-preview .editable:hover {
+  background: rgba(53, 182, 225, 0.3);
+  color: #10566d; }
+
+profile-preview #resume-preview-modal iframe {
+  height: 500px;
+  width: 100%; }
+
+custom-pagination {
+  padding: 15px; }
+  custom-pagination .pagination-previous, custom-pagination .page, custom-pagination .pagination-next {
+    float: left;
+    cursor: pointer; }
+  custom-pagination .pagination-previous, custom-pagination .pagination-next {
+    width: 15%;
+    text-align: center;
+    padding: 15px;
+    font-family: "Avenir Heavy", sans-serif; }
+  custom-pagination .pagination-next {
+    position: absolute;
+    right: 0;
+    display: inline-block; }
+  custom-pagination .pages {
+    display: inline-block; }
+    custom-pagination .pages .page {
+      padding: 15px; }
+
+right-sidebar {
+  display: inline-block;
+  width: 18%;
+  margin-left: 3%; }
+
+.badge {
+  position: relative;
+  top: -3px;
+  background-color: #35B6E1; }
+  .badge.inactive {
+    background-color: #CCC; }
+
+body {
+  background-color: #f7f7f8;
+  font-family: "Avenir Book", sans-serif;
+  color: #333;
+  -webkit-font-smoothing: antialiased; }
+
+h1 {
+  font-family: "Avenir Medium", sans-serif; }
+
+h2 {
+  font-size: 1.7em; }
+
+h3 {
+  font-size: 1.3em; }
+
+h4 {
+  font-family: "Avenir Heavy", sans-serif; }
+
+ul {
+  list-style-type: none; }
+
+b, strong {
+  font-family: "Avenir Heavy", sans-serif;
+  font-weight: normal; }
+
+a:hover {
+  text-decoration: none; }
+
+.modal-backdrop {
+  z-index: 9; }
+
+.disabled {
+  opacity: 0.7;
+  pointer-events: none;
+  cursor: not-allowed; }
+
+/*# sourceMappingURL=app.css.map */

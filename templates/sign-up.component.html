@@ -1,0 +1,104 @@
+<div class="row">
+    <form #signUpForm="ngForm">
+        <div class="col-md-12">
+            <label>Email</label>
+            <input type="text"
+                   class="form-control"
+                   required
+                   [(ngModel)]="user.email"
+                   ngControl="user.email"
+                   placeholder="E-mail"/>
+        </div>
+        <div class="col-md-12">
+            <label>Mot de passe</label>
+            <input type="password"
+                   class="form-control"
+                   required
+                   [(ngModel)]="user.password"
+                   ngControl="user.password"
+                   placeholder="Mot de passe souhaité"/>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-default"
+                    [disabled]="!user.email || !user.password"
+                    (click)="user.user_type_id = 2">
+                Je suis recruteur
+            </button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary"
+                    [disabled]="!user.email || !user.password"
+                    (click)="user.user_type_id = 3">
+                Je suis candidat
+            </button>
+        </div>
+
+        <div *ngIf="user.user_type_id">
+            <div class="col-md-6">
+                <label>Civilité</label>
+                <select class="form-control"
+                        required
+                        [(ngModel)]="user.civility_id"
+                        ngControl="user.civility_id">
+                    <option selected required>-- Civilité --</option>
+                    <option *ngFor="let civility of civilities"
+                            value="{{ civility.id }}">
+                        {{ civility.title }}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label>Nom</label>
+                <input type="text"
+                       class="form-control"
+                       required
+                       [(ngModel)]="user.lastName"
+                       ngControl="user.lastName"
+                       placeholder="Nom"/>
+            </div>
+            <div class="col-md-6">
+                <label>Prénom</label>
+                <input type="text"
+                       class="form-control"
+                       required
+                       [(ngModel)]="user.firstName"
+                       ngControl="user.firstName"
+                       placeholder="Prénom"/>
+            </div>
+            <div class="col-md-6">
+                <label>Téléphone</label>
+                <input type="text"
+                       class="form-control"
+                       required
+                       [(ngModel)]="user.phone"
+                       ngControl="user.phone"
+                       placeholder="Téléphone"/>
+            </div>
+            <div class="col-md-6">
+                <label>Date de naissance</label>
+                <input type="date"
+                       class="form-control"
+                       required
+                       [(ngModel)]="user.birth_date"
+                       ngControl="user.birth_date"
+                       placeholder="Téléphone"/>
+            </div>
+        </div>
+
+        <div *ngIf="userTypeId == 3">
+
+        </div>
+
+        <div *ngIf="userTypeId == 2">
+
+        </div>
+
+        <div class="col-md-12"
+             *ngIf="user.user_type_id">
+            <button class="btn btn-primary"
+                    (click)="signUp()">
+                M'inscrire
+            </button>
+        </div>
+    </form>
+</div>

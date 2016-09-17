@@ -1,0 +1,253 @@
+profile {
+  padding-top: 40px;
+  display: block;
+  max-width: $mainPageMaxWidth;
+  margin: auto;
+
+  .router-outlet-container {
+    width: 75%;
+    float: left;
+    margin-left: 3%;
+
+    &.full-width {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  .header-container {
+    padding: 0;
+    height: 60px;
+    border-bottom: 1px solid #e6e6e6;
+
+    .filter {
+      border-right: 1px solid #e6e6e6;
+      padding: 20px;
+      float: left;
+      text-transform: uppercase;
+      font-family: $mainBoldFontFamily;
+      cursor: pointer;
+
+      label {
+        cursor: pointer;
+      }
+
+      &:hover {
+        background-color: whitesmoke;
+      }
+
+      &.active {
+        background-color: $oechrBlueColor;
+
+        label {
+          color: white;
+        }
+      }
+    }
+
+    .items-count {
+      text-align: center;
+      text-transform: uppercase;
+      font-family: $mainBoldFontFamily;
+      padding: 20px;
+    }
+
+    .main-checkbox-container {
+      padding: 22px;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      background: $oechrBlueColor;
+      border-top-left-radius: $mainBorderRadius;
+
+      md-checkbox {
+        pointer-events: none;
+      }
+
+      &.selected {
+        background-color: $oechrBlueColor;
+      }
+    }
+
+    .actions-container {
+      padding: 0;
+      text-align: right;
+
+      button {
+        width: 60px;
+        background: transparent;
+        border: none;
+        border-left: 1px solid #e6e6e6;
+        color: $mainBlueColor;
+
+        &:hover {
+          background: #eeeeee;
+        }
+      }
+    }
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.3em;
+  }
+
+  form .submit-btn, form .back-btn {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    height: 60px;
+  }
+
+  form label {
+    margin-top: 25px;
+  }
+
+  .router-outlet-container {
+    background: white;
+    padding: 0;
+    border-radius: $mainBorderRadius;
+    -moz-box-shadow: $mainBoxShadow;
+    -webkit-box-shadow: $mainBoxShadow;
+    -o-box-shadow: $mainBoxShadow;
+    box-shadow: $mainBoxShadow;
+  }
+
+  .page-title-container h3 {
+    padding: 25px;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    color: #a4acb3;
+    text-align: center;
+  }
+
+  .dynamic_data {
+    font-family: $mainMediumFontFamily;
+    color: $mainBlueColor;
+  }
+
+  .list-container {
+    padding: 0;
+
+    .checkbox-container {
+      float: left;
+      padding: 40px 0;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      cursor: pointer;
+    }
+
+    ul {
+      padding: 0;
+      margin-bottom: 0;
+
+      li {
+        background: whitesmoke;
+        padding: 0;
+        margin: 0;
+        transition-property: all;
+        transition-duration: 150ms;
+        border: 1px solid transparent;
+
+        md-checkbox {
+          pointer-events: none;
+        }
+
+        &:nth-child(odd) {
+          background: white;
+        }
+
+        &:hover {
+          background-color: lighten($oechrBlueColor, 40%);
+          border-color: $oechrBlueColor;
+        }
+
+        &.selected {
+          background: $oechrBlueColor;
+          color: white;
+
+          .checkbox-container {
+            background: $oechrBlueColor;
+          }
+
+          .item-desc, h3 {
+            color: white;
+          }
+
+          md-checkbox .md-checkbox-frame {
+            border: none;
+          }
+        }
+
+        a {
+          color: #333;
+        }
+
+        h3 {
+          font-family: $mainMediumFontFamily;
+          max-height: 20px;
+          overflow: hidden;
+          color: $mainBlueColor;
+        }
+
+        .date {
+          float: right;
+          color: #a9a9a9;
+          font-family: $mainMediumFontFamily;
+          text-transform: uppercase;
+          font-size: 0.9em;
+        }
+
+        .item {
+          margin-bottom: 15px;
+          padding: 10px;
+          display: inline-block;
+
+          .item-desc {
+            float: left;
+            padding-left: 10px;
+          }
+
+          .item-action-btn {
+            border: none;
+            background: none;
+            position: absolute;
+            right: 50px;
+          }
+
+          &.logo .item-desc {
+            width: 65%;
+            margin-right: 15px;
+          }
+
+          .logo, .photo {
+            position: relative;
+            top: 5px;
+            display: inline-block;
+            text-align: center;
+            width: 12%;
+            float: left;
+
+            img {
+              max-width: 80px;
+              max-height: 80px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $tabletWidth) {
+  profile {
+    .list-container ul li .date {
+      display: none;
+    }
+
+    .router-outlet-container {
+      width: 100%;
+      margin-left: 0;
+      padding-top: 140px;
+    }
+  }
+}

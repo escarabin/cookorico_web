@@ -1,0 +1,34 @@
+<div class="heading"
+     [ngStyle]="{'height': innerHeight}"
+     (window:resize)="fitMainDivToWindow()">
+    <h1 [ngStyle]="{'margin-top': innerHeight / 9}">Le premier réseau d'emploi dans l'Ouest sans intermediaires</h1>
+    <h2>3250 offres en moins de 30 jours en hôtellerie-restauration</h2>
+    <div class="job-search row">
+        <job-search-bar></job-search-bar>
+    </div>
+</div>
+
+<!--<div class="col-md-6">
+    <job-preview *ngFor="let job of jobs"
+                 [job]="job">
+    </job-preview>
+</div>-->
+<div class="col-md-6">
+    <post-preview *ngFor="let post of posts"
+                  [post]="post">
+    </post-preview>
+</div>
+
+<div class="col-md-12">
+    <h2>Ils nous font confiance</h2>
+
+    <ul>
+        <a routerLink="['ShowClub', { clubId: club.id }]"
+           *ngFor="let club of clubs">
+            <li>
+                <img src="/uploads/club/logo/{{ club.logoUrl }}"/><br />
+                {{ club.title }}
+            </li>
+        </a>
+    </ul>
+</div>

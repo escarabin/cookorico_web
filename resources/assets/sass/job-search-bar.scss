@@ -1,0 +1,28 @@
+.job-search {
+  max-width: 650px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+  background: white;
+  border-radius: $mainBorderRadius;
+  -moz-box-shadow: 0px 0px 40px 0px #343434;
+  -webkit-box-shadow: 0px 0px 40px 0px #343434;
+  -o-box-shadow: 0px 0px 40px 0px #343434;
+  box-shadow: 0px 0px 40px 0px #343434;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=NaN, Strength=40);
+
+  select, input {
+    border: none;
+    border-radius: 0;
+    height: $mainButtonHeight;
+    -webkit-appearance: none;
+  }
+
+  .input-container {
+    padding: 0;
+  }
+
+  .find-btn {
+    width: 100%;
+  }
+}

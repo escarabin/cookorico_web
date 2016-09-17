@@ -1,0 +1,5 @@
+<profile-sidebar *ngIf="user && user.is_active"></profile-sidebar>
+<div class="router-outlet-container"
+     [class.full-width]="!user || !user.is_active">
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,53 @@
+// Custom fonts
+
+@font-face {
+  font-family: "Avenir Light";
+  src: url("/fonts/Avenir-Light.ttf");
+}
+
+@font-face {
+  font-family: "Avenir Book";
+  src: url("/fonts/Avenir-Book.ttf");
+}
+
+@font-face {
+  font-family: "Avenir Medium";
+  src: url("/fonts/Avenir-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Avenir Heavy";
+  src: url("/fonts/Avenir-Heavy.ttf");
+}
+
+$mainBgColor: #f7f7f8;
+$mainBlueColor: #1a1f38;
+$mainDarkTextColor: #333;
+$mainInvalidColor: #d40000;
+$oechrBlueColor: #35B6E1;
+
+$mobileWidth: 700px;
+$tabletWidth: 1024px;
+$desktopWidth: 1280px;
+$largeDesktopWidth: 2500px;
+
+$infoColor: $oechrBlueColor;
+$successColor: #34ba47;
+$warningColor: #E47F1B;
+$dangerColor: #E13543;
+$errorColor: $dangerColor;
+$recruiterColor: #9375AE;
+
+$mainPageMaxWidth: 1200px;
+$mainBorderRadius: 4px;
+$mainPagePaddingTop: 150px;
+$mainButtonHeight: 60px;
+$headerHeight: 100px;
+$mainBoxShadow: 0px 0px 40px 0px #c0d0d6;
+$mainPageMarginBottom: 200px;
+
+$mainLightFontFamily: 'Avenir Light', sans-serif;
+$mainFontFamily: 'Avenir Book', sans-serif;
+$mainMediumFontFamily: 'Avenir Medium', sans-serif;
+$mainBoldFontFamily: 'Avenir Heavy', sans-serif;
+$secondMainFontFamily: 'Open Sans', sans-serif;

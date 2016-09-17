@@ -1,0 +1,110 @@
+profile-preview {
+  h2 {
+    text-transform: uppercase;
+    text-align: left;
+    font-family: $mainBoldFontFamily;
+    color: white;
+    font-size: 1em;
+    background: $oechrBlueColor;
+    padding: 15px;
+    margin: 0;
+  }
+
+  .form-control[input] {
+    height: 35px;
+    width: auto;
+  }
+
+  .profile-picture-container {
+    padding: 0 15px;
+
+    .profile-picture {
+      width: 100%;
+      height: 150px;
+      position: relative;
+      background-size: cover;
+      background-position: center center;
+
+      .edit-profile-picture {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        padding: 10px;
+        color: black;
+        background: $oechrBlueColor;
+        opacity: .5;
+        cursor: pointer;
+
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+  }
+
+  .user-basic-infos {
+    padding-top: 25px;
+    line-height: 23px;
+
+    .user-identity {
+      font-size: 1.5em;
+      font-family: $mainBoldFontFamily;
+      color: $mainBlueColor;
+      text-transform: uppercase;
+    }
+  }
+
+  .resume-container {
+    text-align: center;
+    padding: 25px;
+    margin: 0 -15px;
+
+    .edit-button {
+      background: $oechrBlueColor;
+      border-radius: $mainBorderRadius;
+      padding: 10px 15px;
+      color: white;
+      height: 45px;
+      border: none;
+    }
+
+    a {
+      color: $mainDarkTextColor;
+    }
+
+    .icon {
+      font-size: 3em;
+    }
+  }
+
+  .description {
+    margin: 0 25px;
+    padding: 15px;
+    pointer-events: none;
+  }
+
+  .editable {
+    pointer-events: all;
+    cursor: pointer;
+    border-radius: $mainBorderRadius;
+  }
+
+  .editable:hover {
+    background: rgba($oechrBlueColor, .3);
+    color: darken($oechrBlueColor, 30%);
+  }
+
+  #resume-preview-modal iframe {
+    height: 500px;
+    width: 100%;
+  }
+}
+
+@media(max-width: $tabletWidth) {
+  profile-preview {
+    .description {
+      margin: 0;
+    }
+  }
+}

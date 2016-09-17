@@ -1,0 +1,92 @@
+@import "variables";
+@import "forms";
+@import "buttons";
+@import "header";
+@import "home";
+@import "job";
+@import "create-business";
+@import "new-application-form.component";
+@import "business-select.component";
+@import "search";
+@import "post-preview";
+@import "sign-in-modal";
+@import "profile-sidebar";
+@import "applications";
+@import "sign-up";
+@import "job-search-sidebar";
+@import "job-preview";
+@import "job-search-results";
+@import "profile";
+@import "experiences";
+@import "alerts";
+@import "testimonials";
+@import "photos";
+@import "business";
+@import "notifications";
+@import "applicants";
+@import "file-upload";
+@import "profile-preview";
+@import "pagination";
+@import "right-sidebar";
+@import "badges";
+@import "loaders";
+@import "job-search-bar";
+@import "profile-sub-header";
+@import "radial-progress";
+@import "recruiter-promo";
+@import "sign-up-steps";
+@import "confirm-account-creation";
+
+body {
+  background-color: $mainBgColor;
+  font-family: $mainFontFamily;
+  color: $mainDarkTextColor;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-family: $mainMediumFontFamily;
+}
+
+h2 {
+  font-size: 1.7em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+h4 {
+  font-family: $mainBoldFontFamily;
+}
+
+ul {
+  list-style-type: none;
+}
+
+b, strong {
+  font-family: $mainBoldFontFamily;
+  font-weight: normal;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.modal-backdrop {
+  z-index: 9;
+}
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.centered {
+  text-align: center;
+}
+
+#main {
+  margin-bottom: $mainPageMarginBottom;
+}

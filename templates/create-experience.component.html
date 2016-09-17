@@ -1,0 +1,77 @@
+<div class="col-md-12">
+    <form #experienceForm="ngForm" action="#">
+        <div class="col-md-12">
+            <business-select [businessId]="experience.business_id"
+                             (businessIdChange)="handleBusinessIdChange($event)">
+
+            </business-select>
+        </div>
+        <div class="col-md-6">
+            <label>Date de début</label>
+            <input type="date"
+                   required
+                   [(ngModel)]="experience.start_date"
+                   ngControl="experience.start_date"
+                   name="exp_start_date"
+                   class="form-control"
+                   placeholder="Date de début"/>
+        </div>
+        <div class="col-md-6">
+            <label>Date de fin</label>
+            <input type="date"
+                   required
+                   [(ngModel)]="experience.end_date"
+                   ngControl="experience.end_date"
+                   name="exp_end_date"
+                   class="form-control"
+                   placeholder="Date de fin"/>
+        </div>
+        <div class="col-md-6">
+            <label>Poste</label>
+            <select name="job"
+                    [(ngModel)]="experience.job_naming_id"
+                    ngControl="experience.job_naming_id"
+                    name="exp_job_naming_id"
+                    required
+                    class="form-control">
+                <option disabled selected>-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label>Description</label>
+            <textarea name="experience.description"
+                      [(ngModel)]="experience.description"
+                      ngControl="experience.description"
+                      name="exp_description"
+                      class="form-control"
+                      placeholder="Dites nous-en plus sur votre expérience"></textarea>
+        </div>
+        <div class="col-md-6">
+            <a routerLink="/profile/experiences">
+                <button class="btn btn-default back-btn">
+                    <span class="fa fa-arrow-left"></span> &nbsp;
+                    Retour aux expériences
+                </button>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary submit-btn"
+                    [disabled]="!experienceForm.valid || isLoading"
+                    (click)="submitExperience()">
+                <span *ngIf="!isLoading">
+                    Sauvegarder
+                </span>
+                <span *ngIf="isLoading">
+                    <span class="fa fa-spinner fa-spin"></span> &nbsp; Chargement
+                </span>
+            </button>
+        </div>
+    </form>
+</div>

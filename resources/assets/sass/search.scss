@@ -1,0 +1,31 @@
+search {
+  max-width: $mainPageMaxWidth;
+  margin: auto;
+  display: block;
+
+  .user-not-logged-in {
+    padding-top: $mainPagePaddingTop;
+  }
+
+  .user-logged-in {
+    padding-top: 40px;
+  }
+
+  .router-outlet-container {
+    width: 70%;
+    float: left;
+    margin-left: 3%;
+  }
+}
+
+@media (max-width: $mobileWidth) {
+  search {
+    width: 100%;
+    padding-top: 0;
+
+    .router-outlet-container {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,604 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'angular2-google-maps' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose install initial load of /Applications/MAMP/htdocs/oechr/package.json
+5 warn package.json angular2-quickstart@1.0.0 No README data
+6 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/amdefine/package.json
+7 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-map-auto-complete/package.json
+8 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps/package.json
+9 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-in-memory-web-api/package.json
+10 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-notifications/package.json
+11 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/balanced-match/package.json
+12 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/bootstrap/package.json
+13 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/brace-expansion/package.json
+14 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/canonical-path/package.json
+15 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/colors/package.json
+16 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/concat-map/package.json
+17 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/concurrently/package.json
+18 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/core-js/package.json
+19 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/diff/package.json
+20 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/elixir-typescript/package.json
+21 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/es6-promise/package.json
+22 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/es6-shim/package.json
+23 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/express/package.json
+24 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/findup-sync/package.json
+25 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/fs.realpath/package.json
+26 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/glob/package.json
+27 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/gulp/package.json
+28 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/http-server/package.json
+29 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/inflight/package.json
+30 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/inherits/package.json
+31 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/jasmine-core/package.json
+32 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma/package.json
+33 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-chrome-launcher/package.json
+34 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-cli/package.json
+35 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-htmlfile-reporter/package.json
+36 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-jasmine/package.json
+37 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/laravel-elixir/package.json
+38 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/lite-server/package.json
+39 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/lodash/package.json
+40 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/minimatch/package.json
+41 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/minimist/package.json
+42 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/moment/package.json
+43 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap/package.json
+44 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-file-upload/package.json
+45 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-img-cropper/package.json
+46 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-map/package.json
+47 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/package.json
+48 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta/package.json
+49 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination/package.json
+50 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-select/package.json
+51 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-slim-loading-bar/package.json
+52 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/once/package.json
+53 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/optimist/package.json
+54 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/parse5/package.json
+55 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/path-is-absolute/package.json
+56 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/protractor/package.json
+57 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/reflect-metadata/package.json
+58 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/resolve/package.json
+59 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rimraf/package.json
+60 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rxjs/package.json
+61 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/source-map/package.json
+62 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/source-map-support/package.json
+63 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/sprintf-js/package.json
+64 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/systemjs/package.json
+65 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/tsickle/package.json
+66 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/tslint/package.json
+67 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typescript/package.json
+68 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typings/package.json
+69 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/underscore.string/package.json
+70 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/util-deprecate/package.json
+71 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/wordwrap/package.json
+72 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/wrappy/package.json
+73 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/zone.js/package.json
+74 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/.DS_Store/package.json
+75 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/button/package.json
+76 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/checkbox/package.json
+77 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/core/package.json
+78 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/input/package.json
+79 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/tooltip/package.json
+80 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/.DS_Store/package.json
+81 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/README.js.md/package.json
+82 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/common/package.json
+83 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/compiler/package.json
+84 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/compiler-cli/package.json
+85 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/core/package.json
+86 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/docs/package.json
+87 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/examples/package.json
+88 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/facade/package.json
+89 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/forms/package.json
+90 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/http/package.json
+91 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/license-banner.txt/package.json
+92 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/package.json/package.json
+93 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser/package.json
+94 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser-dynamic/package.json
+95 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-server/package.json
+96 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router/package.json
+97 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router-deprecated/package.json
+98 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/tsc-wrapped/package.json
+99 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/upgrade/package.json
+100 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@types/google-maps/package.json
+101 info package.json core-js@2.4.1 No README data
+102 info package.json findup-sync@0.3.0 No license field.
+103 info package.json optimist@0.6.1 license should be a valid SPDX license expression
+104 info package.json parse5@1.3.2 No license field.
+105 info package.json typings@1.3.2 No README data
+106 info package.json @angular/common@2.0.0-rc.5 No description
+107 info package.json @angular/compiler@2.0.0-rc.5 No description
+108 info package.json @angular/core@2.0.0-rc.5 No description
+109 info package.json @angular/forms@0.3.0 No description
+110 info package.json @angular/http@2.0.0-rc.5 No description
+111 info package.json @angular/platform-browser@2.0.0-rc.5 No description
+112 info package.json @angular/platform-browser-dynamic@2.0.0-rc.5 No description
+113 info package.json @angular/platform-server@0.0.0-PLACEHOLDER No description
+114 info package.json @angular/platform-server@0.0.0-PLACEHOLDER No README data
+115 info package.json @angular/router@3.0.0-rc.1 No description
+116 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
+117 info package.json @angular/router-deprecated@2.0.0-rc.2 No README data
+118 info package.json @angular/upgrade@2.0.0-rc.5 No description
+119 info package.json angular2-google-map-auto-complete@1.0.4 No repository field.
+120 info package.json @angular/compiler-cli@0.0.0-PLACEHOLDER No bin file found at ./src/main.js
+121 info package.json @angular/compiler-cli@0.0.0-PLACEHOLDER No bin file found at ./src/extract_i18n.js
+122 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/package.json
+123 verbose install angular2-google-maps is installed as 0.12.0
+124 silly cache add args [ 'angular2-google-maps', null ]
+125 verbose cache add spec angular2-google-maps
+126 silly cache add parsed spec Result {
+126 silly cache add   raw: 'angular2-google-maps',
+126 silly cache add   scope: null,
+126 silly cache add   name: 'angular2-google-maps',
+126 silly cache add   rawSpec: '',
+126 silly cache add   spec: 'latest',
+126 silly cache add   type: 'tag' }
+127 silly addNamed angular2-google-maps@latest
+128 verbose addNamed "latest" is being treated as a dist-tag for angular2-google-maps
+129 info addNameTag [ 'angular2-google-maps', 'latest' ]
+130 silly mapToRegistry name angular2-google-maps
+131 silly mapToRegistry using default registry
+132 silly mapToRegistry registry https://registry.npmjs.org/
+133 silly mapToRegistry data Result {
+133 silly mapToRegistry   raw: 'angular2-google-maps',
+133 silly mapToRegistry   scope: null,
+133 silly mapToRegistry   name: 'angular2-google-maps',
+133 silly mapToRegistry   rawSpec: '',
+133 silly mapToRegistry   spec: 'latest',
+133 silly mapToRegistry   type: 'tag' }
+134 silly mapToRegistry uri https://registry.npmjs.org/angular2-google-maps
+135 verbose addNameTag registry:https://registry.npmjs.org/angular2-google-maps not in flight; fetching
+136 verbose request uri https://registry.npmjs.org/angular2-google-maps
+137 verbose request no auth needed
+138 info attempt registry request try #1 at 12:20:17 PM
+139 verbose request id 09d895e089a92e43
+140 verbose etag "AI7SVVVECJ7DFMKB5VL7P7PWR"
+141 http request GET https://registry.npmjs.org/angular2-google-maps
+142 http 200 https://registry.npmjs.org/angular2-google-maps
+143 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+143 verbose headers   etag: '"16S6K0C1QZ0NIS6K1O3EIDFCN"',
+143 verbose headers   'content-type': 'application/json',
+143 verbose headers   'content-encoding': 'gzip',
+143 verbose headers   'cache-control': 'max-age=300',
+143 verbose headers   'content-length': '4086',
+143 verbose headers   'accept-ranges': 'bytes',
+143 verbose headers   date: 'Wed, 14 Sep 2016 10:20:17 GMT',
+143 verbose headers   via: '1.1 varnish',
+143 verbose headers   age: '42',
+143 verbose headers   connection: 'keep-alive',
+143 verbose headers   'x-served-by': 'cache-lhr6344-LHR',
+143 verbose headers   'x-cache': 'HIT',
+143 verbose headers   'x-cache-hits': '1',
+143 verbose headers   'x-timer': 'S1473848417.560944,VS0,VE0',
+143 verbose headers   vary: 'Accept-Encoding' }
+144 silly get cb [ 200,
+144 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+144 silly get     etag: '"16S6K0C1QZ0NIS6K1O3EIDFCN"',
+144 silly get     'content-type': 'application/json',
+144 silly get     'content-encoding': 'gzip',
+144 silly get     'cache-control': 'max-age=300',
+144 silly get     'content-length': '4086',
+144 silly get     'accept-ranges': 'bytes',
+144 silly get     date: 'Wed, 14 Sep 2016 10:20:17 GMT',
+144 silly get     via: '1.1 varnish',
+144 silly get     age: '42',
+144 silly get     connection: 'keep-alive',
+144 silly get     'x-served-by': 'cache-lhr6344-LHR',
+144 silly get     'x-cache': 'HIT',
+144 silly get     'x-cache-hits': '1',
+144 silly get     'x-timer': 'S1473848417.560944,VS0,VE0',
+144 silly get     vary: 'Accept-Encoding' } ]
+145 verbose get saving angular2-google-maps to /Users/escarabin/.npm/registry.npmjs.org/angular2-google-maps/.cache.json
+146 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
+147 silly addNameTag next cb for angular2-google-maps with tag latest
+148 silly addNamed angular2-google-maps@0.14.0
+149 verbose addNamed "0.14.0" is a plain semver version for angular2-google-maps
+150 silly mapToRegistry name angular2-google-maps
+151 silly mapToRegistry using default registry
+152 silly mapToRegistry registry https://registry.npmjs.org/
+153 silly mapToRegistry data Result {
+153 silly mapToRegistry   raw: 'angular2-google-maps',
+153 silly mapToRegistry   scope: null,
+153 silly mapToRegistry   name: 'angular2-google-maps',
+153 silly mapToRegistry   rawSpec: '',
+153 silly mapToRegistry   spec: 'latest',
+153 silly mapToRegistry   type: 'tag' }
+154 silly mapToRegistry uri https://registry.npmjs.org/angular2-google-maps
+155 verbose addRemoteTarball https://registry.npmjs.org/angular2-google-maps/-/angular2-google-maps-0.14.0.tgz not in flight; adding
+156 verbose addRemoteTarball [ 'https://registry.npmjs.org/angular2-google-maps/-/angular2-google-maps-0.14.0.tgz',
+156 verbose addRemoteTarball   '87249a6fdf24279d492d53c77475b029a98475df' ]
+157 info retry fetch attempt 1 at 12:20:17 PM
+158 info attempt registry request try #1 at 12:20:17 PM
+159 http fetch GET https://registry.npmjs.org/angular2-google-maps/-/angular2-google-maps-0.14.0.tgz
+160 http fetch 200 https://registry.npmjs.org/angular2-google-maps/-/angular2-google-maps-0.14.0.tgz
+161 silly fetchAndShaCheck shasum 87249a6fdf24279d492d53c77475b029a98475df
+162 verbose addTmpTarball /var/folders/7d/ts0bs_bn1q7_kqtspbtc9gsc0000gn/T/npm-24004-27cd4588/registry.npmjs.org/angular2-google-maps/-/angular2-google-maps-0.14.0.tgz not in flight; adding
+163 verbose addTmpTarball already have metadata; skipping unpack for angular2-google-maps@0.14.0
+164 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
+165 silly cache afterAdd angular2-google-maps@0.14.0
+166 verbose afterAdd /Users/escarabin/.npm/angular2-google-maps/0.14.0/package/package.json not in flight; writing
+167 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
+168 verbose afterAdd /Users/escarabin/.npm/angular2-google-maps/0.14.0/package/package.json written
+169 silly install resolved [ { name: 'angular2-google-maps',
+169 silly install resolved     version: '0.14.0',
+169 silly install resolved     description: 'Angular 2 components for Google Maps',
+169 silly install resolved     repository:
+169 silly install resolved      { type: 'git',
+169 silly install resolved        url: 'git+https://github.com/SebastianM/angular2-google-maps.git' },
+169 silly install resolved     keywords: [ 'angular2', 'google-maps', 'ng2', 'maps' ],
+169 silly install resolved     author:
+169 silly install resolved      { name: 'Sebastian Müller',
+169 silly install resolved        email: 'info@sebastian-mueller.net' },
+169 silly install resolved     license: 'MIT',
+169 silly install resolved     bugs: { url: 'https://github.com/SebastianM/angular2-google-maps/issues' },
+169 silly install resolved     homepage: 'https://github.com/SebastianM/angular2-google-maps#readme',
+169 silly install resolved     dependencies: {},
+169 silly install resolved     jspm: { jspmNodeConversion: false, dependencies: [Object] },
+169 silly install resolved     peerDependencies:
+169 silly install resolved      { '@angular/common': '2.0.0-rc.6',
+169 silly install resolved        '@angular/compiler': '2.0.0-rc.6',
+169 silly install resolved        '@angular/core': '2.0.0-rc.6',
+169 silly install resolved        '@angular/platform-browser': '2.0.0-rc.6',
+169 silly install resolved        '@angular/platform-browser-dynamic': '2.0.0-rc.6',
+169 silly install resolved        rxjs: '5.0.0-beta.11',
+169 silly install resolved        'zone.js': '^0.6.17' },
+169 silly install resolved     _id: 'angular2-google-maps@0.14.0',
+169 silly install resolved     scripts: {},
+169 silly install resolved     _shasum: '87249a6fdf24279d492d53c77475b029a98475df',
+169 silly install resolved     _from: 'angular2-google-maps@latest',
+169 silly install resolved     _resolved: 'https://registry.npmjs.org/angular2-google-maps/-/angular2-google-maps-0.14.0.tgz',
+169 silly install resolved     _npmVersion: '3.8.6',
+169 silly install resolved     _nodeVersion: '5.11.1',
+169 silly install resolved     _npmUser: { name: 'sebastianm', email: 'info@sebastian-mueller.net' },
+169 silly install resolved     dist:
+169 silly install resolved      { shasum: '87249a6fdf24279d492d53c77475b029a98475df',
+169 silly install resolved        tarball: 'https://registry.npmjs.org/angular2-google-maps/-/angular2-google-maps-0.14.0.tgz' },
+169 silly install resolved     maintainers: [ [Object] ],
+169 silly install resolved     _npmOperationalInternal:
+169 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+169 silly install resolved        tmp: 'tmp/angular2-google-maps-0.14.0.tgz_1472853879637_0.6771336854435503' },
+169 silly install resolved     directories: {} } ]
+170 info install angular2-google-maps@0.14.0 into /Applications/MAMP/htdocs/oechr
+171 info installOne angular2-google-maps@0.14.0
+172 verbose installOne of angular2-google-maps to /Applications/MAMP/htdocs/oechr not in flight; installing
+173 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
+174 verbose lock using /Users/escarabin/.npm/_locks/angular2-google-maps-c665b02ca72eff11.lock for /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps
+175 silly install write writing angular2-google-maps 0.14.0 to /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps
+176 verbose unbuild node_modules/angular2-google-maps
+177 info preuninstall angular2-google-maps@0.12.0
+178 info uninstall angular2-google-maps@0.12.0
+179 verbose unbuild rmStuff angular2-google-maps@0.12.0 from /Applications/MAMP/htdocs/oechr/node_modules
+180 info postuninstall angular2-google-maps@0.12.0
+181 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps is being purged from base /Applications/MAMP/htdocs/oechr
+182 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps
+183 silly vacuum-fs purging /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps
+184 silly vacuum-fs quitting because other entries in /Applications/MAMP/htdocs/oechr/node_modules
+185 verbose tar unpack /Users/escarabin/.npm/angular2-google-maps/0.14.0/package.tgz
+186 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps
+187 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps is being purged
+188 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps
+189 silly gunzTarPerm modes [ '755', '644' ]
+190 silly gunzTarPerm extractEntry package.json
+191 silly gunzTarPerm extractEntry README.md
+192 silly gunzTarPerm extractEntry LICENSE
+193 silly gunzTarPerm extractEntry core/index.js
+194 silly gunzTarPerm extractEntry core/core.umd.js
+195 silly gunzTarPerm extractEntry core/directives.js
+196 silly gunzTarPerm extractEntry core/core-module.js
+197 silly gunzTarPerm extractEntry core/map-types.js
+198 silly gunzTarPerm extractEntry core/services.js
+199 silly gunzTarPerm extractEntry core/core-module.js.map
+200 silly gunzTarPerm extractEntry core/directives.js.map
+201 silly gunzTarPerm extractEntry core/index.d.ts
+202 silly gunzTarPerm extractEntry core/core-module.d.ts
+203 silly gunzTarPerm extractEntry core/index.js.map
+204 silly gunzTarPerm extractEntry core/map-types.d.ts
+205 silly gunzTarPerm extractEntry core/directives/google-map-info-window.js
+206 silly gunzTarPerm extractEntry core/directives/google-map-marker.js
+207 silly gunzTarPerm extractEntry core/directives/google-map-circle.js
+208 silly gunzTarPerm extractEntry core/directives/google-map-polyline-point.js
+209 silly gunzTarPerm extractEntry core/directives/google-map-polyline.js
+210 silly gunzTarPerm extractEntry core/directives/google-map.js
+211 silly gunzTarPerm extractEntry core/directives/google-map-polyline-point.d.ts
+212 silly gunzTarPerm extractEntry core/directives/google-map-circle.js.map
+213 silly gunzTarPerm extractEntry core/directives/google-map-marker.js.map
+214 silly gunzTarPerm extractEntry core/directives/google-map-info-window.d.ts
+215 silly gunzTarPerm extractEntry core/directives/google-map-circle.d.ts
+216 silly gunzTarPerm extractEntry core/directives/google-map-polyline-point.js.map
+217 silly gunzTarPerm extractEntry core/directives/google-map-polyline.d.ts
+218 silly gunzTarPerm extractEntry core/directives/google-map-info-window.js.map
+219 silly gunzTarPerm extractEntry core/directives/google-map-polyline.js.map
+220 silly gunzTarPerm extractEntry core/directives/google-map.d.ts
+221 silly gunzTarPerm extractEntry core/directives/google-map-marker.d.ts
+222 silly gunzTarPerm extractEntry core/directives/google-map.js.map
+223 silly gunzTarPerm extractEntry core/map-types.js.map
+224 silly gunzTarPerm extractEntry core/services/google-maps-api-wrapper.js
+225 silly gunzTarPerm extractEntry core/services/google-maps-types.js
+226 silly gunzTarPerm extractEntry core/services/google-maps-api-wrapper.d.ts
+227 silly gunzTarPerm extractEntry core/services/google-maps-api-wrapper.js.map
+228 silly gunzTarPerm extractEntry core/services/google-maps-types.d.ts
+229 silly gunzTarPerm extractEntry core/services/google-maps-types.js.map
+230 silly gunzTarPerm extractEntry core/services/managers/info-window-manager.js
+231 silly gunzTarPerm extractEntry core/services/managers/circle-manager.js
+232 silly gunzTarPerm extractEntry core/services/managers/marker-manager.js
+233 silly gunzTarPerm extractEntry core/services/managers/polyline-manager.js
+234 silly gunzTarPerm extractEntry core/services/managers/marker-manager.d.ts
+235 silly gunzTarPerm extractEntry core/services/managers/info-window-manager.js.map
+236 silly gunzTarPerm extractEntry core/services/managers/circle-manager.js.map
+237 silly gunzTarPerm extractEntry core/services/managers/info-window-manager.d.ts
+238 silly gunzTarPerm extractEntry core/services/managers/marker-manager.js.map
+239 silly gunzTarPerm extractEntry core/services/managers/polyline-manager.d.ts
+240 silly gunzTarPerm extractEntry core/services/managers/circle-manager.d.ts
+241 silly gunzTarPerm extractEntry core/services/managers/polyline-manager.js.map
+242 silly gunzTarPerm extractEntry core/services/maps-api-loader/lazy-maps-api-loader.js
+243 silly gunzTarPerm extractEntry core/services/maps-api-loader/maps-api-loader.js
+244 silly gunzTarPerm extractEntry core/services/maps-api-loader/noop-maps-api-loader.js
+245 silly gunzTarPerm extractEntry core/services/maps-api-loader/lazy-maps-api-loader.d.ts
+246 silly gunzTarPerm extractEntry core/services/maps-api-loader/lazy-maps-api-loader.js.map
+247 silly gunzTarPerm extractEntry core/services/maps-api-loader/maps-api-loader.d.ts
+248 silly gunzTarPerm extractEntry core/services/maps-api-loader/maps-api-loader.js.map
+249 silly gunzTarPerm extractEntry core/services/maps-api-loader/noop-maps-api-loader.d.ts
+250 silly gunzTarPerm extractEntry core/services/maps-api-loader/noop-maps-api-loader.js.map
+251 silly gunzTarPerm extractEntry core/services.d.ts
+252 silly gunzTarPerm extractEntry core/directives.d.ts
+253 silly gunzTarPerm extractEntry core/services.js.map
+254 silly gunzTarPerm extractEntry core/utils/browser-globals.js
+255 silly gunzTarPerm extractEntry core/utils/browser-globals.d.ts
+256 silly gunzTarPerm extractEntry core/utils/browser-globals.js.map
+257 silly gunzTarPerm extractEntry esm/core/core-module.js
+258 silly gunzTarPerm extractEntry esm/core/directives.js
+259 silly gunzTarPerm extractEntry esm/core/index.js
+260 silly gunzTarPerm extractEntry esm/core/map-types.js
+261 silly gunzTarPerm extractEntry esm/core/services.js
+262 silly gunzTarPerm extractEntry esm/core/directives/google-map-circle.js
+263 silly gunzTarPerm extractEntry esm/core/directives/google-map-info-window.js
+264 silly gunzTarPerm extractEntry esm/core/directives/google-map.js
+265 silly gunzTarPerm extractEntry esm/core/directives/google-map-marker.js
+266 silly gunzTarPerm extractEntry esm/core/directives/google-map-polyline.js
+267 silly gunzTarPerm extractEntry esm/core/directives/google-map-polyline-point.js
+268 silly gunzTarPerm extractEntry esm/core/directives/google-map-circle.js.map
+269 silly gunzTarPerm extractEntry esm/core/directives/google-map-polyline-point.js.map
+270 silly gunzTarPerm extractEntry esm/core/directives/google-map-marker.js.map
+271 silly gunzTarPerm extractEntry esm/core/directives/google-map-polyline.js.map
+272 silly gunzTarPerm extractEntry esm/core/directives/google-map-info-window.js.map
+273 silly gunzTarPerm extractEntry esm/core/directives/google-map.js.map
+274 silly gunzTarPerm extractEntry esm/core/core-module.js.map
+275 silly gunzTarPerm extractEntry esm/core/utils/browser-globals.js
+276 silly gunzTarPerm extractEntry esm/core/utils/browser-globals.js.map
+277 silly gunzTarPerm extractEntry esm/core/map-types.js.map
+278 silly gunzTarPerm extractEntry esm/core/services/google-maps-api-wrapper.js
+279 silly gunzTarPerm extractEntry esm/core/services/google-maps-types.js
+280 silly gunzTarPerm extractEntry esm/core/services/google-maps-api-wrapper.js.map
+281 silly gunzTarPerm extractEntry esm/core/services/google-maps-types.js.map
+282 silly gunzTarPerm extractEntry esm/core/services/managers/circle-manager.js
+283 silly gunzTarPerm extractEntry esm/core/services/managers/info-window-manager.js
+284 silly gunzTarPerm extractEntry esm/core/services/managers/marker-manager.js
+285 silly gunzTarPerm extractEntry esm/core/services/managers/polyline-manager.js
+286 silly gunzTarPerm extractEntry esm/core/services/managers/circle-manager.js.map
+287 silly gunzTarPerm extractEntry esm/core/services/managers/info-window-manager.js.map
+288 silly gunzTarPerm extractEntry esm/core/services/managers/marker-manager.js.map
+289 silly gunzTarPerm extractEntry esm/core/services/managers/polyline-manager.js.map
+290 silly gunzTarPerm extractEntry esm/core/services/maps-api-loader/lazy-maps-api-loader.js
+291 silly gunzTarPerm extractEntry esm/core/services/maps-api-loader/maps-api-loader.js
+292 silly gunzTarPerm extractEntry esm/core/services/maps-api-loader/noop-maps-api-loader.js
+293 silly gunzTarPerm extractEntry esm/core/services/maps-api-loader/lazy-maps-api-loader.js.map
+294 silly gunzTarPerm extractEntry esm/core/services/maps-api-loader/maps-api-loader.js.map
+295 silly gunzTarPerm extractEntry esm/core/services/maps-api-loader/noop-maps-api-loader.js.map
+296 silly gunzTarPerm extractEntry esm/core/directives.js.map
+297 silly gunzTarPerm extractEntry esm/core/services.js.map
+298 silly gunzTarPerm extractEntry esm/core/index.js.map
+299 silly gunzTarPerm extractEntry ts/core/core-module.ts
+300 silly gunzTarPerm extractEntry ts/core/directives/google-map-circle.ts
+301 silly gunzTarPerm extractEntry ts/core/directives/google-map-info-window.ts
+302 silly gunzTarPerm extractEntry ts/core/directives/google-map-marker.ts
+303 silly gunzTarPerm extractEntry ts/core/directives/google-map-polyline-point.ts
+304 silly gunzTarPerm extractEntry ts/core/directives/google-map-polyline.ts
+305 silly gunzTarPerm extractEntry ts/core/directives/google-map.ts
+306 silly gunzTarPerm extractEntry ts/core/directives.ts
+307 silly gunzTarPerm extractEntry ts/core/index.ts
+308 silly gunzTarPerm extractEntry ts/core/map-types.ts
+309 silly gunzTarPerm extractEntry ts/core/services/google-maps-api-wrapper.ts
+310 silly gunzTarPerm extractEntry ts/core/services/google-maps-types.ts
+311 silly gunzTarPerm extractEntry ts/core/services/managers/circle-manager.ts
+312 silly gunzTarPerm extractEntry ts/core/services/managers/info-window-manager.ts
+313 silly gunzTarPerm extractEntry ts/core/services/managers/marker-manager.ts
+314 silly gunzTarPerm extractEntry ts/core/services/managers/polyline-manager.ts
+315 silly gunzTarPerm extractEntry ts/core/services/maps-api-loader/lazy-maps-api-loader.ts
+316 silly gunzTarPerm extractEntry ts/core/services/maps-api-loader/maps-api-loader.ts
+317 silly gunzTarPerm extractEntry ts/core/services/maps-api-loader/noop-maps-api-loader.ts
+318 silly gunzTarPerm extractEntry ts/core/services.ts
+319 silly gunzTarPerm extractEntry ts/core/utils/browser-globals.ts
+320 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps/package.json
+321 info preinstall angular2-google-maps@0.14.0
+322 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps/package.json
+323 silly prepareForInstallMany adding @angular/common@2.0.0-rc.6 from angular2-google-maps peerDependencies
+324 silly prepareForInstallMany adding @angular/compiler@2.0.0-rc.6 from angular2-google-maps peerDependencies
+325 silly prepareForInstallMany adding @angular/core@2.0.0-rc.6 from angular2-google-maps peerDependencies
+326 silly prepareForInstallMany adding @angular/platform-browser@2.0.0-rc.6 from angular2-google-maps peerDependencies
+327 silly prepareForInstallMany adding @angular/platform-browser-dynamic@2.0.0-rc.6 from angular2-google-maps peerDependencies
+328 silly prepareForInstallMany adding rxjs@5.0.0-beta.11 from angular2-google-maps peerDependencies
+329 silly prepareForInstallMany adding zone.js@^0.6.17 from angular2-google-maps peerDependencies
+330 warn peerDependencies The peer dependency @angular/common@2.0.0-rc.6 included from angular2-google-maps will no
+331 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+332 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+333 warn peerDependencies The peer dependency @angular/compiler@2.0.0-rc.6 included from angular2-google-maps will no
+334 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+335 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+336 warn peerDependencies The peer dependency @angular/core@2.0.0-rc.6 included from angular2-google-maps will no
+337 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+338 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+339 warn peerDependencies The peer dependency @angular/platform-browser@2.0.0-rc.6 included from angular2-google-maps will no
+340 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+341 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+342 warn peerDependencies The peer dependency @angular/platform-browser-dynamic@2.0.0-rc.6 included from angular2-google-maps will no
+343 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+344 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+345 warn peerDependencies The peer dependency rxjs@5.0.0-beta.11 included from angular2-google-maps will no
+346 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+347 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+348 warn peerDependencies The peer dependency zone.js@^0.6.17 included from angular2-google-maps will no
+349 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+350 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+351 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps/package.json
+352 silly install resolved []
+353 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps
+354 info build /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps
+355 info linkStuff angular2-google-maps@0.14.0
+356 silly linkStuff angular2-google-maps@0.14.0 has /Applications/MAMP/htdocs/oechr/node_modules as its parent node_modules
+357 verbose linkBins angular2-google-maps@0.14.0
+358 verbose linkMans angular2-google-maps@0.14.0
+359 verbose rebuildBundles angular2-google-maps@0.14.0
+360 info install angular2-google-maps@0.14.0
+361 info postinstall angular2-google-maps@0.14.0
+362 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/package.json
+363 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/amdefine/package.json
+364 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-map-auto-complete/package.json
+365 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps/package.json
+366 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-in-memory-web-api/package.json
+367 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-notifications/package.json
+368 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/balanced-match/package.json
+369 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/bootstrap/package.json
+370 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/brace-expansion/package.json
+371 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/canonical-path/package.json
+372 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/colors/package.json
+373 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/concat-map/package.json
+374 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/concurrently/package.json
+375 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/core-js/package.json
+376 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/diff/package.json
+377 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/elixir-typescript/package.json
+378 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/es6-promise/package.json
+379 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/es6-shim/package.json
+380 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/express/package.json
+381 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/findup-sync/package.json
+382 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/fs.realpath/package.json
+383 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/glob/package.json
+384 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/gulp/package.json
+385 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/http-server/package.json
+386 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/inflight/package.json
+387 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/inherits/package.json
+388 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/jasmine-core/package.json
+389 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/karma/package.json
+390 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-chrome-launcher/package.json
+391 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-cli/package.json
+392 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-htmlfile-reporter/package.json
+393 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-jasmine/package.json
+394 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/laravel-elixir/package.json
+395 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/lite-server/package.json
+396 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/lodash/package.json
+397 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/minimatch/package.json
+398 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/minimist/package.json
+399 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/moment/package.json
+400 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap/package.json
+401 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-file-upload/package.json
+402 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-img-cropper/package.json
+403 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-map/package.json
+404 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-material-select/package.json
+405 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-meta/package.json
+406 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination/package.json
+407 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-select/package.json
+408 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-slim-loading-bar/package.json
+409 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/once/package.json
+410 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/optimist/package.json
+411 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/parse5/package.json
+412 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/path-is-absolute/package.json
+413 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/protractor/package.json
+414 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/reflect-metadata/package.json
+415 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/resolve/package.json
+416 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/rimraf/package.json
+417 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/rxjs/package.json
+418 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/source-map/package.json
+419 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/source-map-support/package.json
+420 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/sprintf-js/package.json
+421 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/systemjs/package.json
+422 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/tsickle/package.json
+423 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/tslint/package.json
+424 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/typescript/package.json
+425 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/typings/package.json
+426 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/underscore.string/package.json
+427 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/util-deprecate/package.json
+428 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/wordwrap/package.json
+429 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/wrappy/package.json
+430 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/zone.js/package.json
+431 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/concurrent/package.json
+432 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/concurrently/package.json
+433 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/gulp/package.json
+434 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/hs/package.json
+435 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/http-server/package.json
+436 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/karma/package.json
+437 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/lite-server/package.json
+438 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/protractor/package.json
+439 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/rimraf/package.json
+440 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/tsc/package.json
+441 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/tsickle/package.json
+442 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/tslint/package.json
+443 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/tsserver/package.json
+444 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/typings/package.json
+445 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/.bin/webdriver-manager/package.json
+446 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@types/google-maps/package.json
+447 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/button/package.json
+448 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/checkbox/package.json
+449 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/core/package.json
+450 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/input/package.json
+451 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular2-material/tooltip/package.json
+452 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/README.js.md/package.json
+453 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/common/package.json
+454 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/compiler/package.json
+455 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/compiler-cli/package.json
+456 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/core/package.json
+457 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/docs/package.json
+458 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/examples/package.json
+459 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/facade/package.json
+460 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/forms/package.json
+461 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/http/package.json
+462 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/license-banner.txt/package.json
+463 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/package.json/package.json
+464 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser/package.json
+465 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser-dynamic/package.json
+466 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-server/package.json
+467 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router/package.json
+468 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router-deprecated/package.json
+469 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/tsc-wrapped/package.json
+470 verbose targetResolver reading package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/upgrade/package.json
+471 verbose already installed skipping @angular/platform-browser-dynamic@2.0.0-rc.6 /Applications/MAMP/htdocs/oechr
+472 verbose already installed skipping rxjs@5.0.0-beta.11 /Applications/MAMP/htdocs/oechr
+473 verbose already installed skipping zone.js@^0.6.17 /Applications/MAMP/htdocs/oechr
+474 verbose already installed skipping @angular/common@2.0.0-rc.6 /Applications/MAMP/htdocs/oechr
+475 verbose already installed skipping @angular/compiler@2.0.0-rc.6 /Applications/MAMP/htdocs/oechr
+476 verbose already installed skipping @angular/core@2.0.0-rc.6 /Applications/MAMP/htdocs/oechr
+477 verbose already installed skipping @angular/platform-browser@2.0.0-rc.6 /Applications/MAMP/htdocs/oechr
+478 silly install resolved []
+479 verbose unlock done using /Users/escarabin/.npm/_locks/angular2-google-maps-c665b02ca72eff11.lock for /Applications/MAMP/htdocs/oechr/node_modules/angular2-google-maps
+480 verbose validateInstall loading /Applications/MAMP/htdocs/oechr/package.json for validation
+481 verbose stack Error: The package @angular/common@2.0.0-rc.5 does not satisfy its siblings' peerDependencies requirements!
+481 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+481 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
+481 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+481 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+481 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+481 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+481 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+481 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+481 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+481 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+482 verbose cwd /Applications/MAMP/htdocs/oechr
+483 error Darwin 16.0.0
+484 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--save" "angular2-google-maps"
+485 error node v4.4.7
+486 error npm  v2.15.8
+487 error code EPEERINVALID
+488 error peerinvalid The package @angular/common@2.0.0-rc.5 does not satisfy its siblings' peerDependencies requirements!
+488 error peerinvalid Peer @angular/forms@0.3.0 wants @angular/common@^2.0.0-rc.5
+488 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.5 wants @angular/common@^2.0.0-rc.5
+488 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.5 wants @angular/common@^2.0.0-rc.5
+488 error peerinvalid Peer @angular/router@3.0.0-rc.1 wants @angular/common@^2.0.0-rc.5
+488 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
+488 error peerinvalid Peer ng2-bootstrap@1.0.24 wants @angular/common@2.0.0-rc.4
+488 error peerinvalid Peer ng2-meta@1.0.0 wants @angular/common@^2.0.0-rc.4
+488 error peerinvalid Peer @angular/platform-server@0.0.0-PLACEHOLDER wants @angular/common@0.0.0-PLACEHOLDER
+488 error peerinvalid Peer @angular2-material/core@2.0.0-alpha.7 wants @angular/common@^2.0.0-rc.5
+488 error peerinvalid Peer angular2-google-maps@0.14.0 wants @angular/common@2.0.0-rc.6
+488 error peerinvalid Peer ng2-file-upload@1.0.3 wants @angular/common@^2.0.0-rc.1
+488 error peerinvalid Peer ng2-select@1.0.3 wants @angular/common@^2.0.0-rc.1
+489 verbose exit [ 1, true ]

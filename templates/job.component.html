@@ -1,0 +1,59 @@
+<div *ngIf="job">
+    <div class="logo col-md-12">
+        <div class="col-md-3">
+            <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ job.business.id }}.jpg"/>
+        </div>
+        <div class="col-md-9">
+            <div class="business">
+                <div class="name"><h3>{{ job.business.title }}</h3></div>
+                <h2>{{ job.title }}</h2>
+                <div class="adress">{{ job.business.place.adress }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 job-infos-list">
+        <div class="col-md-6 job-info created_at">
+            <i class="ton-li-calendar-1"></i> &nbsp; <label>Publiée le</label> {{ job.created_at }}
+        </div>
+
+        <div class="col-md-6 job-info contract_type">
+            <i class="ton-li-file-2"></i> &nbsp; <label>{{ job.contract_type.title }}</label>
+        </div>
+        <div class="col-md-6 job-info xp_level">
+            <i class="ton-li-people-6"></i> &nbsp; <label>{{ job.job_xp_level.title }}</label>
+        </div>
+        <div class="col-md-6 job-info hosting">
+            <i class="ton-li-home"></i> &nbsp;<label>Logé :</label>
+            <span *ngIf="job.is_hosting_employee">Oui</span>
+            <span *ngIf="!job.is_hosting_employee">Non</span>
+        </div>
+        <div class="col-md-6 job-info start_date">
+            <i class="ton-li-clock-1"></i> &nbsp;<label>Début :</label>
+            <span *ngIf="job.is_urgent">
+                Dés que possible
+            </span>
+            <span *ngIf="job.start_date">
+                {{ job.start_date }}
+            </span>
+        </div>
+        <div class="col-md-6 job-info end_date" *ngIf="job.end_date">
+            <i class="ton-li-clock-2"></i> &nbsp;<label>Fin :</label> {{ job.end_date }}
+        </div>
+        <div class="col-md-6 job-info languages" *ngIf="job.end_date">
+            <i class="ton-li-speech-buble-4"></i>
+            <span *ngFor="let language of job.languages">
+                <label>{{ language.title }},</label>
+            </span>
+        </div>
+        <div class="col-md-6 job-info education">
+            <i class="ton-li-id"></i> &nbsp;<label>{{ job.study_level.title }}</label>
+        </div>
+    </div>
+
+    <div class="col-md-12 job-description" [innerHTML]="job.description">
+
+    </div>
+
+    <new-application-form [jobId]="job.id" *ngIf="user && user.user_type_id == 3"></new-application-form>
+</div>

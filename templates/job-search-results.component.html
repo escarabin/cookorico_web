@@ -1,0 +1,40 @@
+<div class="row"
+     *ngIf="!isMapModeEnabled">
+    <div class="jobs-count">
+        <b>{{ jobs.length }} offres</b> correspondent à vos critères
+    </div>
+    <div class="col-md-12 search-results-container">
+        <div *ngIf="jobs.length == 0 && parametersList['place']">
+            Aucune offre d'emploi n'a été trouvée à {{ parametersList['place'].adress }}<br /><br />
+            <button class="btn btn-primary"
+                    (click)="resetPlace()">
+                Élargissez votre rechercher
+            </button>
+        </div>
+
+        <job-preview *ngFor="let job of jobs | paginate: { itemsPerPage: 10, currentPage: p }"
+                     [job]="job">
+        </job-preview>
+
+        <!-- TODO : MAKE PAGINATION WORKING -->
+        <!--<pagination-controls #pagination (pageChange)="p = $event">
+            <custom-pagination [pagination]="pagination"></custom-pagination>
+        </pagination-controls>-->
+    </div>
+</div>
+
+<div class="row"
+     *ngIf="isMapModeEnabled">
+        <div class="jobs-count">
+            <b>{{ jobs.length }} offres</b> correspondent à vos critères
+        </div>
+        <sebm-google-map [latitude]="mapLat"
+                         [longitude]="mapLng"
+                         [zoom]="zoom">
+            <sebm-google-map-marker *ngFor="let job of jobs"
+                                    [latitude]="job.business.place.lat"
+                                    [longitude]="job.business.place.lon">
+
+            </sebm-google-map-marker>
+        </sebm-google-map>
+</div>

@@ -1,0 +1,76 @@
+<div class="sub-header-wrapper">
+    <div class="profile-picture col-md-2 col-sm-2"
+         *ngIf="user.profilePictureUrl">
+        <div class="progress-radial progress-75">
+            <div class="overlay">
+                <div class="img"
+                     [ngStyle]="{'background-image': 'url(' + user.profilePictureUrl + ')'}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div [class.col-md-4]="user.profilePictureUrl"
+         [class.col-md-6]="!user.profilePictureUrl"
+         [class.col-sm-4]="user.profilePictureUrl"
+         [class.col-sm-6]="!user.profilePictureUrl">
+        <h2 *ngIf="user.is_active">Bonjour {{ user.firstName }}</h2>
+        <h2 *ngIf="!user.is_active">Bienvenue</h2>
+        <br />
+        <a routerLink="/profile"
+           *ngIf="user.is_active">
+            <span class="badge complete-profile">
+                Profil renseigné à 80% <span class="fa fa-angle-right"></span>
+            </span>
+        </a>
+    </div>
+
+    <!-- Candidate menu -->
+    <div *ngIf="user.user_type_id == 3">
+        <div class="col-md-2 col-sm-2 sub-header-menu-item"
+             [class.disabled]="!user.is_active">
+            <a routerLink="/profile/alerts">
+                <i class="icon-bell"></i><br />
+                <h3>Mes alertes emploi</h3>
+            </a>
+        </div>
+        <div class="col-md-2 col-sm-2 sub-header-menu-item"
+             [class.disabled]="!user.is_active">
+            <a routerLink="/profile/applications">
+                <i class="icon-user-following"></i><br />
+                <h3>Mes candidatures</h3>
+            </a>
+        </div>
+        <div class="col-md-2 col-sm-2 sub-header-menu-item"
+             [class.disabled]="!user.is_active">
+            <a routerLink="/job-search">
+                <i class="icon-magnifier"></i><br />
+                <h3>Toutes les offres</h3>
+            </a>
+        </div>
+    </div>
+
+    <!-- Recruiter menu -->
+    <div *ngIf="user.user_type_id == 2">
+        <div class="col-md-2 col-sm-2 sub-header-menu-item"
+             [class.disabled]="!user.is_active">
+            <a routerLink="/profile/my-job-posts">
+                <i class="icon-note"></i><br />
+                <h3>Mes offres</h3>
+            </a>
+        </div>
+        <div class="col-md-2 col-sm-2 sub-header-menu-item"
+             [class.disabled]="!user.is_active">
+            <a routerLink="/profile/applicants">
+                <i class="icon-user-following"></i><br />
+                <h3>Mes postulants</h3>
+            </a>
+        </div>
+        <div class="col-md-2 col-sm-2 sub-header-menu-item"
+             [class.disabled]="!user.is_active">
+            <a routerLink="/profile/businesses">
+                <i class="icon-layers"></i><br />
+                <h3>Mes établissements</h3>
+            </a>
+        </div>
+    </div>
+</div>

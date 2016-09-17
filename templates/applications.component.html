@@ -1,0 +1,74 @@
+<div class="col-md-12 header-container">
+    <div class="filter"
+         [class.active]="statusId == 0"
+         (click)="statusId = 0">
+        <label>
+            Toutes ({{ countApplicationsWithStatus(0) }}) &nbsp;
+        </label>
+    </div>
+    <div class="filter"
+         [class.active]="statusId == 1"
+         (click)="statusId = 1">
+        <label class="success">
+            Acceptées ({{ countApplicationsWithStatus(1) }}) &nbsp;
+        </label>
+    </div>
+    <div class="filter"
+         [class.active]="statusId == 2"
+         (click)="statusId = 2">
+        <label class="info">
+            Envoyées ({{ countApplicationsWithStatus(2) }}) &nbsp;
+        </label>
+    </div>
+    <div class="filter"
+         [class.active]="statusId == 3"
+         (click)="statusId = 3">
+        <label class="danger">
+            Refusées ({{ countApplicationsWithStatus(3) }}) &nbsp;
+        </label>
+    </div>
+    <div class="filter"
+         [class.active]="statusId == 4"
+         (click)="statusId = 4">
+        <label>
+            Archivées ({{ countApplicationsWithStatus(4) }}) &nbsp;
+        </label>
+    </div>
+</div>
+
+<div class="col-md-12 list-container">
+    <ul>
+        <li class="row application"
+            *ngFor="let application of applications"
+            [class.accepted]="application.status_id == 1"
+            [class.sent]="application.status_id == 2"
+            [class.rejected]="application.status_id == 3"
+            [class.archived]="application.archived">
+            <div *ngIf="( application.status_id == statusId && !application.archived )
+                        || statusId == 0
+                        || ( application.archived && statusId == 4 )">
+                 <div class="col-md-12 col-sm-12 col-xs-12 item"
+                      [class.logo]="application.job.business.logo">
+                    <div class="logo"
+                         *ngIf="application.job.business.logo">
+                        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ application.job.business.id }}.jpg"/>
+                    </div>
+                    <div class="item-desc">
+                        <a routerLink="/job-search/job/{{ application.job.id }}">
+                            <h3>{{ application.job.title }}</h3>
+                        </a>
+                        {{ application.job.business.title }}
+                        <!--span class="date">
+                            <span class="fa fa-calendar-o"></span> &nbsp;
+                            {{ application.created_at }}
+                        </span>-->
+                    </div>
+                    <button class="item-action-btn"
+                            (click)="archivateApplication(application.id)">
+                        <i class="icon-trash"></i>
+                    </button>
+                 </div>
+            </div>
+        </li>
+    </ul>
+</div>

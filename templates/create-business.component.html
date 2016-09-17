@@ -1,0 +1,162 @@
+<div class="col-md-12">
+    <div *ngIf="!user.is_active">
+        <sign-up-steps [stepId]="1">
+
+        </sign-up-steps>
+        <br />
+        <br />
+        <h2>Votre établissement</h2>
+        <h3 class="centered">Trouvez votre établissement et vérifiez les informations</h3>
+    </div>
+    <form>
+        <div class="col-md-2 logo"
+             *ngIf="business.logo">
+            <img src="{{ business.logo }}"/>
+        </div>
+        <div [class.col-md-10]="business.logo"
+             [class.col-md-12]="!business.logo">
+            <label>Nom de votre établissement</label>
+            <input type="text"
+                   class="form-control"
+                   required
+                   [disabled]="business.id"
+                   [(ngModel)]="business.title"
+                   name="business_title"
+                   (setAddress)="parseAdress($event)"
+                   googleplace/>
+        </div>
+        <div *ngIf="business.id || isAddressParsed">
+            <div class="col-md-6">
+                <label>Adresse</label>
+                <input type="text"
+                       required
+                       class="form-control"
+                       placeholder="Adresse"
+                       [(ngModel)]="place.adress"
+                       name="business_adress"/>
+            </div>
+            <div class="col-md-6">
+                <label>Code postal</label>
+                <input type="text"
+                       required
+                       class="form-control"
+                       placeholder="Code postal"
+                       [(ngModel)]="place.postalCode"
+                       name="business_postal_code"/>
+            </div>
+            <div class="col-md-6">
+                <label>Ville</label>
+                <input type="text"
+                       required
+                       class="form-control"
+                       placeholder="Ville"
+                       [(ngModel)]="place.city"
+                       name="business_city"/>
+            </div>
+            <div class="col-md-6">
+                <label>Site web</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="Site web"
+                       [(ngModel)]="business.website"
+                       name="business_website"/>
+            </div>
+            <div class="col-md-6">
+                <label>Type</label>
+                <select name="type"
+                        required
+                        [(ngModel)]="business.business_type_id"
+                        required
+                        class="form-control"
+                        name="business_type">
+                    <option disabled selected>-- Type --</option>
+                    <option *ngFor="let businessType of businessTypes"
+                            value="{{ businessType.id }}">
+                        {{ businessType.title }}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label>Téléphone</label>
+                <input type="text"
+                       required
+                       class="form-control"
+                       placeholder="Téléphone"
+                       [(ngModel)]="business.phone"
+                       name="business_phone"/>
+            </div>
+            <div class="col-md-6">
+                <label>Email</label>
+                <input type="text"
+                       required
+                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                       class="form-control"
+                       placeholder="Email"
+                       [(ngModel)]="business.email"
+                       name="business_email"/>
+            </div>
+            <div class="col-md-6">
+                <br /><br />
+                <div ng2FileDrop
+                     [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                     (fileOver)="fileOverBase($event)"
+                     (onFileDrop)="photoFileDropped($event)"
+                     [uploader]="photoUploader"
+                     [class.disabled]="isIntepretingFile"
+                     class="well file-drop-zone">
+                    <span *ngIf="!isIntepretingFile">Déposez vos images ici</span>
+                    <span *ngIf="isIntepretingFile">Chargement de vos fichiers...</span>
+                </div>
+            </div>
+            <div class="col-md-12" id="business-photos">
+                <span *ngIf="business.photos.length > 0">
+                    <h3 class="centered">Cliquez sur l'image que vous souhaitez utiliser comme logo</h3>
+                    <br />
+                </span>
+                <div class="col-md-3"
+                     *ngFor="let photo of business.photos">
+                    <div class="photo-preview"
+                         [class.logo]="photo.url == business.logo"
+                         (click)="business.logo = photo.url"
+                         [ngStyle]="{'background-image': 'url(' + photo.url + ')'}">
+
+                    </div>
+                    <div class="photo-title"
+                         *ngIf="photo.url == business.logo">
+                        Ceci est votre logo
+                    </div>
+                    <div class="delete-photo"
+                         (click)="deleteBusinessPhoto(photo.url)">
+                        <span class="fa fa-times"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label>Description</label>
+                <textarea class="form-control"
+                          [(ngModel)]="business.description"
+                          name="business_description"
+                          placeholder="Votre établissement en quelques lignes"></textarea>
+            </div>
+        </div>
+
+        <!-- Hide back button if user is not active yet -->
+        <div class="col-md-6 hidden-xs hidden-sm"
+             *ngIf="user.is_active">
+            <a routerLink="/profile/businesses">
+                <button class="btn btn-default back-btn">
+                    <span class="fa fa-arrow-left"></span> &nbsp;
+                    Retour aux établissements
+                </button>
+            </a>
+        </div>
+        <div [class.col-md-6]="user.is_active"
+             [class.col-md-12]="!user.is_active">
+            <button class="btn btn-primary submit-btn"
+                    [class.disabled]="!isAddressParsed"
+                    (click)="submitBusiness()">
+                Sauvegarder
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>Cookorico</title>
+    <meta charset="UTF-8">
+    <base href="/"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <!-- Menu bar color on Chrome mobile -->
+    <meta name="theme-color" content="#1a1f38">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHar3rTVpUcvpFDj88PttAPy85Bk17R18&libraries=places"></script>
+
+    <link rel="stylesheet" href="/public/css/app.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/tonicons.css">
+    <link rel="stylesheet" href="/css/simple-line-icons.css">
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+
+    <script src="node_modules/ng2-bootstrap/ng2-bootstrap.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="resources/tinyMCE/tinymce.min.js"></script>
+
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.config({
+            "defaultJSExtensions": true,
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+
+
+        System.import('js/typescript/boot')
+                .then(null, console.error.bind(console));
+    </script>
+    <base href="/">
+</head>
+
+<body>
+    <app>
+        <!-- Loading spinner (material style baby) -->
+        <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+            <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+        </svg>
+    </app>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer/>
+</body>
+</html>

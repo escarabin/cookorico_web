@@ -1,0 +1,65 @@
+job-preview {
+  display: inline-block;
+  width: 100%;
+  border: 1px solid #ececec;
+  padding: 25px;
+  background: whitesmoke;
+  transition-property: all;
+  transition-duration: 250ms;
+
+  .logo {
+    position: relative;
+    top: -5px;
+  }
+
+  .logo img {
+    max-width: 90px;
+    max-height: 90px;
+    float: left;
+    margin-right: 30px;
+    width: 100%;
+  }
+
+  .basic-infos {
+    float: left;
+
+    .business_name {
+      font-size: 1.2em;
+      font-family: $mainBoldFontFamily;
+      margin-bottom: 5px;
+    }
+
+    .title, .business_adress {
+      color: $mainDarkTextColor;
+    }
+  }
+
+  .additional_infos {
+    .contract_type {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .post_date {
+
+    }
+  }
+
+  &:hover {
+    background-color: lighten($oechrBlueColor, 40%);
+    border-color: $oechrBlueColor;
+  }
+}
+
+job-preview:nth-child(odd) {
+  background: white;
+
+  &:hover {
+    background-color: lighten($oechrBlueColor, 40%);
+  }
+}
+
+
+@media (max-width: $mobileWidth) {
+
+}

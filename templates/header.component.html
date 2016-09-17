@@ -1,0 +1,42 @@
+<div class="header-wrapper"
+    [class.transparent]="isHomePage">
+    <div class="col-md-3 col-sm-10 col-xs-10">
+        <a routerLink="/">
+            <div class="logo"></div>
+        </a>
+    </div>
+    <div class="col-md-9 col-sm-2 col-xs-2 hidden-md hidden-lg mobile-menu-toggle">
+        <i class="icon-user"></i>
+    </div>
+    <div class="col-md-9 hidden-sm hidden-xs">
+        <ul>
+            <!-- User is connected -->
+            <li *ngIf="!user"
+                class="recruiter_btn">
+                <a routerLink="recruiter-promo">
+                    Espace recruteur
+                </a>
+            </li>
+
+            <sign-in (userSignedIn)="handleUserSignedIn($event)"
+                     (userSignedOut)="handleUserSignedOut($event)"
+                     [user]="user">
+                
+            </sign-in>
+
+            <li *ngIf="!user">
+                <a routerLink="sign-up">
+                    S'inscrire
+                </a>
+            </li>
+
+            <li *ngIf="user && user.is_active">
+                <a routerLink="profile">
+                    Mon compte
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<profile-sub-header *ngIf="user && !isHomePage"></profile-sub-header>

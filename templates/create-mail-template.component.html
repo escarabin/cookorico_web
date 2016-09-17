@@ -1,0 +1,60 @@
+<div class="col-md-12">
+    <form>
+        <div class="col-md-12">
+            <label>Identifiant</label>
+            <input type="text"
+                   disabled
+                   class="form-control"
+                   placeholder="Identifiant"
+                   name="mail_template_slug"
+                   [(ngModel)]="mailTemplate.slug"/>
+        </div>
+        <div class="col-md-12">
+            <label>Sujet</label>
+            <input type="text"
+                   required
+                   class="form-control"
+                   placeholder="Sujet du mail"
+                   name="mail_template_subject"
+                   [(ngModel)]="mailTemplate.subject"/>
+        </div>
+        <div class="col-md-12">
+            <br />
+            <h3>Propriétés utilisateur</h3>
+            <button class="btn btn-default"
+                    *ngFor="let key of userKeys"
+                    (click)="addPropertyToContent('user', key)">
+                {{ key }}
+            </button>
+        </div>
+        <div class="col-md-12">
+            <br />
+            <h3>Propriétés établissement</h3>
+            <button class="btn btn-default"
+                    *ngFor="let key of businessKeys"
+                    (click)="addPropertyToContent('business', key)">
+                {{ key }}
+            </button>
+        </div>
+        <div class="col-md-12">
+            <unity-tinymce [mceContent]="mailTemplate.message"
+                           (newContentInput)="contentChanged($event)">
+
+            </unity-tinymce>
+        </div>
+        <div class="col-md-6 hidden-xs hidden-sm">
+            <a routerLink="/profile/mail-templates">
+                <button class="btn btn-default back-btn">
+                    <span class="fa fa-arrow-left"></span> &nbsp;
+                    Retour aux mails
+                </button>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary submit-btn"
+                    (click)="submitMailTemplate()">
+                Sauvegarder
+            </button>
+        </div>
+    </form>
+</div>

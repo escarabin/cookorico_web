@@ -1,0 +1,328 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'ng2-pagination',
+1 verbose cli   '--save' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose install initial load of /Applications/MAMP/htdocs/oechr/package.json
+5 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-in-memory-web-api/package.json
+6 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/angular2-notifications/package.json
+7 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/bootstrap/package.json
+8 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/canonical-path/package.json
+9 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/concurrently/package.json
+10 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/core-js/package.json
+11 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/elixir-typescript/package.json
+12 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/gulp/package.json
+13 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/http-server/package.json
+14 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/jasmine-core/package.json
+15 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma/package.json
+16 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-chrome-launcher/package.json
+17 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-cli/package.json
+18 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-htmlfile-reporter/package.json
+19 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/karma-jasmine/package.json
+20 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/laravel-elixir/package.json
+21 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/lite-server/package.json
+22 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/lodash/package.json
+23 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap/package.json
+24 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-file-upload/package.json
+25 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-img-cropper/package.json
+26 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/ng2-slim-loading-bar/package.json
+27 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/protractor/package.json
+28 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/reflect-metadata/package.json
+29 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rimraf/package.json
+30 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/rxjs/package.json
+31 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/systemjs/package.json
+32 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/tslint/package.json
+33 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typescript/package.json
+34 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/typings/package.json
+35 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/zone.js/package.json
+36 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/common/package.json
+37 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/compiler/package.json
+38 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/core/package.json
+39 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/forms/package.json
+40 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/http/package.json
+41 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser/package.json
+42 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/platform-browser-dynamic/package.json
+43 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router/package.json
+44 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/router-deprecated/package.json
+45 verbose installManyTop reading scoped package data from /Applications/MAMP/htdocs/oechr/node_modules/@angular/upgrade/package.json
+46 info package.json core-js@2.4.1 No README data
+47 info package.json typings@1.3.2 No README data
+48 info package.json @angular/compiler@2.0.0-rc.3 No description
+49 info package.json @angular/compiler@2.0.0-rc.3 No README data
+50 info package.json @angular/common@2.0.0-rc.3 No description
+51 info package.json @angular/common@2.0.0-rc.3 No README data
+52 info package.json @angular/core@2.0.0-rc.3 No description
+53 info package.json @angular/core@2.0.0-rc.3 No README data
+54 info package.json @angular/forms@0.1.1 No description
+55 info package.json @angular/forms@0.1.1 No README data
+56 info package.json @angular/http@2.0.0-rc.3 No description
+57 info package.json @angular/http@2.0.0-rc.3 No README data
+58 info package.json @angular/platform-browser@2.0.0-rc.3 No description
+59 info package.json @angular/platform-browser@2.0.0-rc.3 No README data
+60 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No description
+61 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No README data
+62 info package.json @angular/upgrade@2.0.0-rc.3 No description
+63 info package.json @angular/upgrade@2.0.0-rc.3 No README data
+64 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
+65 info package.json @angular/router-deprecated@2.0.0-rc.2 No README data
+66 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/package.json
+67 silly cache add args [ 'ng2-pagination', null ]
+68 verbose cache add spec ng2-pagination
+69 silly cache add parsed spec Result {
+69 silly cache add   raw: 'ng2-pagination',
+69 silly cache add   scope: null,
+69 silly cache add   name: 'ng2-pagination',
+69 silly cache add   rawSpec: '',
+69 silly cache add   spec: 'latest',
+69 silly cache add   type: 'tag' }
+70 silly addNamed ng2-pagination@latest
+71 verbose addNamed "latest" is being treated as a dist-tag for ng2-pagination
+72 info addNameTag [ 'ng2-pagination', 'latest' ]
+73 silly mapToRegistry name ng2-pagination
+74 silly mapToRegistry using default registry
+75 silly mapToRegistry registry https://registry.npmjs.org/
+76 silly mapToRegistry data Result {
+76 silly mapToRegistry   raw: 'ng2-pagination',
+76 silly mapToRegistry   scope: null,
+76 silly mapToRegistry   name: 'ng2-pagination',
+76 silly mapToRegistry   rawSpec: '',
+76 silly mapToRegistry   spec: 'latest',
+76 silly mapToRegistry   type: 'tag' }
+77 silly mapToRegistry uri https://registry.npmjs.org/ng2-pagination
+78 verbose addNameTag registry:https://registry.npmjs.org/ng2-pagination not in flight; fetching
+79 verbose request uri https://registry.npmjs.org/ng2-pagination
+80 verbose request no auth needed
+81 info attempt registry request try #1 at 6:16:25 PM
+82 verbose request id 134d9d78e5f58abd
+83 http request GET https://registry.npmjs.org/ng2-pagination
+84 http 200 https://registry.npmjs.org/ng2-pagination
+85 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+85 verbose headers   etag: '"DF4G25HOGIW6RGF1NLV7NXFPH"',
+85 verbose headers   'content-type': 'application/json',
+85 verbose headers   'content-encoding': 'gzip',
+85 verbose headers   'cache-control': 'max-age=300',
+85 verbose headers   'content-length': '8889',
+85 verbose headers   'accept-ranges': 'bytes',
+85 verbose headers   date: 'Sun, 24 Jul 2016 16:16:26 GMT',
+85 verbose headers   via: '1.1 varnish',
+85 verbose headers   age: '0',
+85 verbose headers   connection: 'keep-alive',
+85 verbose headers   'x-served-by': 'cache-lhr6339-LHR',
+85 verbose headers   'x-cache': 'MISS',
+85 verbose headers   'x-cache-hits': '0',
+85 verbose headers   'x-timer': 'S1469376985.836822,VS0,VE726',
+85 verbose headers   vary: 'Accept-Encoding' }
+86 silly get cb [ 200,
+86 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+86 silly get     etag: '"DF4G25HOGIW6RGF1NLV7NXFPH"',
+86 silly get     'content-type': 'application/json',
+86 silly get     'content-encoding': 'gzip',
+86 silly get     'cache-control': 'max-age=300',
+86 silly get     'content-length': '8889',
+86 silly get     'accept-ranges': 'bytes',
+86 silly get     date: 'Sun, 24 Jul 2016 16:16:26 GMT',
+86 silly get     via: '1.1 varnish',
+86 silly get     age: '0',
+86 silly get     connection: 'keep-alive',
+86 silly get     'x-served-by': 'cache-lhr6339-LHR',
+86 silly get     'x-cache': 'MISS',
+86 silly get     'x-cache-hits': '0',
+86 silly get     'x-timer': 'S1469376985.836822,VS0,VE726',
+86 silly get     vary: 'Accept-Encoding' } ]
+87 verbose get saving ng2-pagination to /Users/escarabin/.npm/registry.npmjs.org/ng2-pagination/.cache.json
+88 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
+89 silly addNameTag next cb for ng2-pagination with tag latest
+90 silly addNamed ng2-pagination@0.3.5
+91 verbose addNamed "0.3.5" is a plain semver version for ng2-pagination
+92 silly mapToRegistry name ng2-pagination
+93 silly mapToRegistry using default registry
+94 silly mapToRegistry registry https://registry.npmjs.org/
+95 silly mapToRegistry data Result {
+95 silly mapToRegistry   raw: 'ng2-pagination',
+95 silly mapToRegistry   scope: null,
+95 silly mapToRegistry   name: 'ng2-pagination',
+95 silly mapToRegistry   rawSpec: '',
+95 silly mapToRegistry   spec: 'latest',
+95 silly mapToRegistry   type: 'tag' }
+96 silly mapToRegistry uri https://registry.npmjs.org/ng2-pagination
+97 verbose addRemoteTarball https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.5.tgz not in flight; adding
+98 verbose addRemoteTarball [ 'https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.5.tgz',
+98 verbose addRemoteTarball   'f912ac38f6e6f243375e960881298b8d232e1ac2' ]
+99 info retry fetch attempt 1 at 6:16:26 PM
+100 info attempt registry request try #1 at 6:16:26 PM
+101 http fetch GET https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.5.tgz
+102 http fetch 200 https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.5.tgz
+103 silly fetchAndShaCheck shasum f912ac38f6e6f243375e960881298b8d232e1ac2
+104 verbose addTmpTarball /tmp/npm-51493-9759cdc9/registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.5.tgz not in flight; adding
+105 verbose addTmpTarball already have metadata; skipping unpack for ng2-pagination@0.3.5
+106 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
+107 silly cache afterAdd ng2-pagination@0.3.5
+108 verbose afterAdd /Users/escarabin/.npm/ng2-pagination/0.3.5/package/package.json not in flight; writing
+109 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
+110 verbose afterAdd /Users/escarabin/.npm/ng2-pagination/0.3.5/package/package.json written
+111 silly install resolved [ { name: 'ng2-pagination',
+111 silly install resolved     version: '0.3.5',
+111 silly install resolved     description: 'Pagination for Angular 2',
+111 silly install resolved     main: 'index.js',
+111 silly install resolved     scripts:
+111 silly install resolved      { 'typings:install': 'node node_modules/typings/dist/bin install',
+111 silly install resolved        'build:system': 'node node_modules/typescript/bin/tsc -p tsconfig.system.json',
+111 silly install resolved        'build:cjs': 'node node_modules/typescript/bin/tsc',
+111 silly install resolved        build: 'npm run build:cjs && npm run build:system',
+111 silly install resolved        test: 'karma start karma.conf.js',
+111 silly install resolved        'test:watch': 'npm run test -- --auto-watch --no-single-run',
+111 silly install resolved        'demo:watch': 'webpack --progress --colors --watch',
+111 silly install resolved        'demo:dist': 'webpack --progress --colors --dist',
+111 silly install resolved        'publish-lib': 'npm run build && npm run demo:dist' },
+111 silly install resolved     files: [ 'dist', 'index.js', 'index.d.ts' ],
+111 silly install resolved     keywords: [ 'angular2', 'pagination' ],
+111 silly install resolved     repository:
+111 silly install resolved      { type: 'git',
+111 silly install resolved        url: 'git+https://github.com/michaelbromley/ng2-pagination.git' },
+111 silly install resolved     bugs: { url: 'https://github.com/michaelbromley/ng2-pagination/issues' },
+111 silly install resolved     author:
+111 silly install resolved      { name: 'Michael Bromley',
+111 silly install resolved        email: 'michael@michaelbromley.co.uk' },
+111 silly install resolved     license: 'MIT',
+111 silly install resolved     devDependencies:
+111 silly install resolved      { '@angular/common': '2.0.0-rc.4',
+111 silly install resolved        '@angular/compiler': '2.0.0-rc.4',
+111 silly install resolved        '@angular/core': '2.0.0-rc.4',
+111 silly install resolved        '@angular/platform-browser': '2.0.0-rc.4',
+111 silly install resolved        '@angular/platform-browser-dynamic': '2.0.0-rc.4',
+111 silly install resolved        bulma: '^0.0.14',
+111 silly install resolved        'core-js': '^2.4.0',
+111 silly install resolved        'css-loader': '^0.23.1',
+111 silly install resolved        'es6-promise': '^3.0.2',
+111 silly install resolved        'es6-shim': '^0.35.0',
+111 silly install resolved        'highlight.js': '^9.1.0',
+111 silly install resolved        'html-loader': '^0.4.3',
+111 silly install resolved        'jasmine-core': '^2.4.1',
+111 silly install resolved        karma: '^0.13.15',
+111 silly install resolved        'karma-chrome-launcher': '^0.2.2',
+111 silly install resolved        'karma-jasmine': '^0.3.6',
+111 silly install resolved        'karma-phantomjs-launcher': '^1.0.0',
+111 silly install resolved        'karma-webpack': '^1.7.0',
+111 silly install resolved        'node-sass': '^3.6.0',
+111 silly install resolved        'phantomjs-prebuilt': '^2.1.7',
+111 silly install resolved        'raw-loader': '^0.5.1',
+111 silly install resolved        'reflect-metadata': '0.1.2',
+111 silly install resolved        rxjs: '5.0.0-beta.6',
+111 silly install resolved        'sass-loader': '^3.1.2',
+111 silly install resolved        'style-loader': '^0.13.1',
+111 silly install resolved        'ts-loader': '^0.7.2',
+111 silly install resolved        typescript: '^1.8.0',
+111 silly install resolved        typings: '^1.0.4',
+111 silly install resolved        webpack: '^1.12.9',
+111 silly install resolved        'zone.js': '0.6.12' },
+111 silly install resolved     dependencies: {},
+111 silly install resolved     gitHead: '2a98b3bdce1dd03973e8d3f3fc24dc6340b558a3',
+111 silly install resolved     homepage: 'https://github.com/michaelbromley/ng2-pagination#readme',
+111 silly install resolved     _id: 'ng2-pagination@0.3.5',
+111 silly install resolved     _shasum: 'f912ac38f6e6f243375e960881298b8d232e1ac2',
+111 silly install resolved     _from: 'ng2-pagination@latest',
+111 silly install resolved     _npmVersion: '3.5.2',
+111 silly install resolved     _nodeVersion: '5.11.1',
+111 silly install resolved     _npmUser:
+111 silly install resolved      { name: 'michaelbromley',
+111 silly install resolved        email: 'michael@michaelbromley.co.uk' },
+111 silly install resolved     maintainers: [ [Object] ],
+111 silly install resolved     dist:
+111 silly install resolved      { shasum: 'f912ac38f6e6f243375e960881298b8d232e1ac2',
+111 silly install resolved        tarball: 'https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.5.tgz' },
+111 silly install resolved     _npmOperationalInternal:
+111 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+111 silly install resolved        tmp: 'tmp/ng2-pagination-0.3.5.tgz_1468491836936_0.5423776453826576' },
+111 silly install resolved     directories: {},
+111 silly install resolved     _resolved: 'https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.5.tgz' } ]
+112 info install ng2-pagination@0.3.5 into /Applications/MAMP/htdocs/oechr
+113 info installOne ng2-pagination@0.3.5
+114 verbose installOne of ng2-pagination to /Applications/MAMP/htdocs/oechr not in flight; installing
+115 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
+116 verbose lock using /Users/escarabin/.npm/_locks/ng2-pagination-2e8eb68173f57104.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination
+117 silly install write writing ng2-pagination 0.3.5 to /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination
+118 verbose unbuild node_modules/ng2-pagination
+119 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination is being purged from base /Applications/MAMP/htdocs/oechr
+120 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination
+121 verbose tar unpack /Users/escarabin/.npm/ng2-pagination/0.3.5/package.tgz
+122 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination
+123 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination is being purged
+124 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination
+125 silly gunzTarPerm modes [ '755', '644' ]
+126 silly gunzTarPerm extractEntry package.json
+127 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+128 silly gunzTarPerm extractEntry index.js
+129 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+130 silly gunzTarPerm extractEntry readme.md
+131 silly gunzTarPerm modified mode [ 'readme.md', 438, 420 ]
+132 silly gunzTarPerm extractEntry dist/ng2-pagination-bundle.js
+133 silly gunzTarPerm modified mode [ 'dist/ng2-pagination-bundle.js', 438, 420 ]
+134 silly gunzTarPerm extractEntry dist/ng2-pagination.js
+135 silly gunzTarPerm modified mode [ 'dist/ng2-pagination.js', 438, 420 ]
+136 silly gunzTarPerm extractEntry dist/pagination-service.js
+137 silly gunzTarPerm modified mode [ 'dist/pagination-service.js', 438, 420 ]
+138 silly gunzTarPerm extractEntry dist/paginate-pipe.js
+139 silly gunzTarPerm modified mode [ 'dist/paginate-pipe.js', 438, 420 ]
+140 silly gunzTarPerm extractEntry dist/pagination-controls-cmp.js
+141 silly gunzTarPerm modified mode [ 'dist/pagination-controls-cmp.js', 438, 420 ]
+142 silly gunzTarPerm extractEntry dist/template.js
+143 silly gunzTarPerm modified mode [ 'dist/template.js', 438, 420 ]
+144 silly gunzTarPerm extractEntry dist/ng2-pagination.d.ts
+145 silly gunzTarPerm modified mode [ 'dist/ng2-pagination.d.ts', 438, 420 ]
+146 silly gunzTarPerm extractEntry dist/pagination-service.d.ts
+147 silly gunzTarPerm modified mode [ 'dist/pagination-service.d.ts', 438, 420 ]
+148 silly gunzTarPerm extractEntry dist/paginate-pipe.d.ts
+149 silly gunzTarPerm modified mode [ 'dist/paginate-pipe.d.ts', 438, 420 ]
+150 silly gunzTarPerm extractEntry dist/template.d.ts
+151 silly gunzTarPerm modified mode [ 'dist/template.d.ts', 438, 420 ]
+152 silly gunzTarPerm extractEntry dist/pagination-controls-cmp.d.ts
+153 silly gunzTarPerm modified mode [ 'dist/pagination-controls-cmp.d.ts', 438, 420 ]
+154 silly gunzTarPerm extractEntry index.d.ts
+155 silly gunzTarPerm modified mode [ 'index.d.ts', 438, 420 ]
+156 silly gunzTarPerm extractEntry CHANGELOG.md
+157 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 438, 420 ]
+158 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination/package.json
+159 info preinstall ng2-pagination@0.3.5
+160 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination/package.json
+161 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination/package.json
+162 silly install resolved []
+163 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination
+164 info build /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination
+165 info linkStuff ng2-pagination@0.3.5
+166 silly linkStuff ng2-pagination@0.3.5 has /Applications/MAMP/htdocs/oechr/node_modules as its parent node_modules
+167 verbose linkBins ng2-pagination@0.3.5
+168 verbose linkMans ng2-pagination@0.3.5
+169 verbose rebuildBundles ng2-pagination@0.3.5
+170 info install ng2-pagination@0.3.5
+171 info postinstall ng2-pagination@0.3.5
+172 verbose unlock done using /Users/escarabin/.npm/_locks/ng2-pagination-2e8eb68173f57104.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-pagination
+173 verbose validateInstall loading /Applications/MAMP/htdocs/oechr/package.json for validation
+174 verbose stack Error: The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
+174 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+174 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
+174 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+174 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+174 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+174 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+174 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+174 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+174 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+174 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+175 verbose cwd /Applications/MAMP/htdocs/oechr/public
+176 error Darwin 16.0.0
+177 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "ng2-pagination" "--save"
+178 error node v4.4.7
+179 error npm  v2.15.8
+180 error code EPEERINVALID
+181 error peerinvalid The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
+181 error peerinvalid Peer @angular/forms@0.1.1 wants @angular/common@2.0.0-rc.3
+181 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
+181 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
+181 error peerinvalid Peer @angular/router@3.0.0-alpha.7 wants @angular/common@^2.0.0-rc.2
+181 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
+181 error peerinvalid Peer ng2-bootstrap@1.0.24 wants @angular/common@2.0.0-rc.4
+181 error peerinvalid Peer ng2-file-upload@1.0.3 wants @angular/common@^2.0.0-rc.1
+182 verbose exit [ 1, true ]

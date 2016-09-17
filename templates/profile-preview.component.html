@@ -1,0 +1,311 @@
+<div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-3 profile-picture-container">
+        <div class="profile-picture"
+             [ngStyle]="{'background-image': 'url(' + user.profilePictureUrl + ')'}">
+            <div class="edit-profile-picture"
+                 *ngIf="editableProfile"
+                 (click)="profilePictureModal.show()">
+                <span class="fa fa-camera"></span> &nbsp;Modifier
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-9 user-basic-infos">
+        <span class="user-identity">
+            <span *ngIf="user.civility">
+                {{ user.civility.title }}
+            </span>
+            {{ user.firstName }} {{ user.lastName }}<br />
+        </span>
+
+        <b class="editable"
+           *ngIf="!editingItems['birthDate']"
+           (click)="editingItems['birthDate'] = true">
+            {{ user.birthDate }}
+        </b>
+        <input type="date"
+               *ngIf="editingItems['birthDate']"
+               [(ngModel)]="user.birthDate"
+               (change)="saveProfileInfo('birthDate', user.birthDate)"
+               class="form-control"/>
+
+        -
+
+        <span *ngIf="user.place">
+            <b class="editable"
+               *ngIf="!editingAdress"
+               (click)="editingAdress = true">
+                {{ user.place.adress }}
+            </b>
+            <input type="text"
+                   *ngIf="editingAdress"
+                   [(ngModel)]="user.place.adress"
+                   (change)="editingAdress = false"
+                   class="form-control"/>
+        </span>
+
+        <br />
+        <span *ngIf="user.phone">
+            <span *ngIf="!editingItems['phone']">Tél : </span>
+            <b class="editable"
+               *ngIf="!editingItems['phone']"
+               (click)="editingItems['phone'] = true">
+                {{ user.phone }}
+            </b>
+            <input type="text"
+                   *ngIf="editingItems['phone']"
+                   [(ngModel)]="user.phone"
+                   (change)="saveProfileInfo('phone', user.phone)"
+                   class="form-control"/>
+        </span>
+        <br />
+
+        <span *ngIf="!editingItems['new_email']">E-mail : </span>
+        <b class="editable"
+           *ngIf="!editingItems['new_email']"
+           (click)="editingItems['new_email'] = true">
+            {{ user.email }}
+        </b>
+        <input type="text"
+               *ngIf="editingItems['new_email']"
+               [(ngModel)]="user.new_email"
+               placeholder="Saisissez votre nouvel email"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+               (change)="saveProfileInfo('new_email', user.new_email)"
+               class="form-control"/>
+        <br />
+
+        <span *ngIf="user.status">
+            {{ user.status.title }}<br />
+        </span>
+        <span *ngIf="user.looking_for_job_naming">
+            Profil recherché : <b>{{ user.looking_for_job_naming.title }}</b><br />
+        </span>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-12 resume-container">
+        <button *ngIf="editableProfile"
+           class="edit-button"
+           (click)="editResumeModal.show()">
+            Modifier le CV
+        </button>
+        <a (click)="resumePreviewModal.show()"
+           class="hidden-xs">
+            <br />
+            <br />
+            Voir le CV
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Présentation</h2>
+        <div class="description"
+             [class.editable]="editableProfile"
+             (click)="editingItems['description'] = true"
+             *ngIf="!editingItems['description']"
+             [innerHTML]="user.description">
+
+        </div>
+        <textarea class="form-control"
+                  rows="10"
+                  *ngIf="editingItems['description']"
+                  (change)="saveProfileInfo('description', user.description)"
+                  [(ngModel)]="user.description">
+
+        </textarea>
+    </div>
+
+    <div class="col-md-12">
+        <h2>Expériences &nbsp;
+            <span class="badge">{{ experiences.length }}</span>
+            <a routerLink="['/Profile/Experiences']"
+               *ngIf="editableProfile">
+            &nbsp; <span class="fa fa-pencil"></span>
+            </a>
+        </h2>
+        <div class="list-container col-md-12">
+            <ul>
+                <li *ngFor="let experience of experiences">
+                    <div class="item">
+                        <a routerLink="['EditExperience', { experienceId: experience.id }]">
+                            <div class="item-desc">
+                                <h3>{{ experience.job_naming.title }}</h3>
+                                {{ experience.business.title }}
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <h2>Formations &nbsp;
+            <span class="badge">{{ education.length }}</span>
+            <a routerLink="['/Profile/Education']"
+               *ngIf="editableProfile">
+            &nbsp; <span class="fa fa-pencil"></span>
+            </a>
+        </h2>
+        <div class="list-container col-md-12">
+            <ul>
+                <li *ngFor="let study of education">
+                    <div class="item">
+                        <a routerLink="['EditStudy', { studyId: study.id }]">
+                            <div class="item-desc">
+                                <h3>{{ study.diploma.title }}</h3>
+                                {{ study.business.title }}
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <h2>Recommendations &nbsp;
+            <span class="badge">{{ testimonials.length }}</span>
+            <a *ngIf="editableProfile"
+               routerLink="['/Profile/Testimonials']">
+            &nbsp; <span class="fa fa-pencil"></span>
+            </a>
+        </h2>
+        <div class="list-container col-md-12">
+            <ul>
+                <li *ngFor="let testimonial of testimonials">
+                    <div class="item">
+                        <a>
+                            <div class="item-desc">
+                                <h3>{{ testimonial.business.title }}</h3>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div bsModal
+     #profilePictureModal="bs-modal"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     id="profile-picture-modal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div ng2FileDrop
+                     [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                     (fileOver)="fileOverBase($event)"
+                     (onFileDrop)="profilePictureFileDropped($event)"
+                     [uploader]="profilePictureUploader"
+                     class="well file-drop-zone">
+                    Déposez votre fichier ici
+                </div>
+
+                <input type="file"
+                       ng2FileSelect
+                       [uploader]="profilePictureUploader"
+                       (change)="fileChangeListener($event)"/>
+                <br />
+                <img-cropper #cropper [image]="profilePictureData" [settings]="cropperSettings">
+
+                </img-cropper>
+                <span class="cropping-result" *ngIf="profilePictureData.image" >
+                    <img [src]="profilePictureData.image"
+                         [width]="cropperSettings.croppedWidth"
+                         [height]="cropperSettings.croppedHeight">
+                </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-default"
+                        id="close-profile-picture-modal"
+                        (click)="profilePictureModal.hide()"
+                        data-dismiss="modal">
+                    Annuler
+                </button>
+                <button type="button"
+                        class="btn btn-primary"
+                        [disabled]="isLoading"
+                        (click)="uploadProfilePicture()">
+                    <span *ngIf="!isLoading">Enregistrer</span>
+                    <span *ngIf="isLoading">
+                        <span class="fa fa-spinner fa-spin"></span> &nbsp;Chargement...
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bsModal
+     #resumePreviewModal="bs-modal"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     id="resume-preview-modal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <iframe src="http://www.pdf995.com/samples/pdf.pdf" align="middle"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-default"
+                        id="close-resume-preview-modal"
+                        (click)="resumePreviewModal.hide()"
+                        data-dismiss="modal">
+                    Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bsModal
+     #editResumeModal="bs-modal"
+     class="modal fade"
+     tabindex="-1"
+     role="dialog"
+     id="edit-resume-modal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div ng2FileDrop
+                     [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                     (fileOver)="fileOverBase($event)"
+                     (onFileDrop)="resumeFileDropped($event)"
+                     [uploader]="resumeUploader"
+                     class="well file-drop-zone">
+                    Déposez votre fichier ici
+                </div>
+
+                <input type="file"
+                       ng2FileSelect
+                       [uploader]="resumeUploader"
+                       (change)="fileChangeListener($event)"/>
+            </div>
+            <div class="modal-footer">
+                <button md-raised-button
+                        [disabled]="isLoading"
+                        (click)="uploadResume()">
+                    <span *ngIf="!isLoading">Enregistrer</span>
+                    <span *ngIf="isLoading">
+                        <span class="fa fa-spinner fa-spin"></span> &nbsp;Chargement...
+                    </span>
+                </button>
+                <button class="btn btn-default"
+                        id="close-edit-resume-modal"
+                        (click)="editResumeModal.hide()"
+                        data-dismiss="modal">
+                    Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

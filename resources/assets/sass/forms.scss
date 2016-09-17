@@ -1,0 +1,128 @@
+.form-control {
+  height: 50px;
+  box-shadow: none;
+  -webkit-appearance:none;
+  border: none;
+  border-bottom: 1px solid #CCC;
+  border-radius: 0;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.input-group-addon:first-child {
+  background: white;
+  border: none;
+  border-bottom: 1px solid #CCC;
+  border-radius: 0;
+  font-size: 2em;
+}
+
+.input-group input {
+  border-left: 0;
+  color: #9c9c9c;
+}
+
+select[required], input[required] {
+  border-left: 3px solid $mainBlueColor;
+}
+
+select[required].ng-invalid, input[required].ng-invalid {
+  border-left: 3px solid $mainInvalidColor;
+}
+
+label {
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-family: $mainBoldFontFamily;
+
+  &.success {
+     color: $successColor;
+   }
+
+  &.danger {
+    color: $dangerColor;
+  }
+
+  &.info {
+    color: $infoColor;
+  }
+
+  &.warning {
+    color: $warningColor;
+  }
+}
+
+md-checkbox {
+  &.dark-bg {
+    .md-checkbox-frame {
+      border-color: white;
+    }
+  }
+
+  &.md-checkbox-checked {
+    .md-checkbox-background {
+      background-color: $oechrBlueColor;
+    }
+  }
+
+  &.md-checkbox-focused {
+    .md-ink-ripple {
+      background-color: rgba($oechrBlueColor, 0.25)
+    }
+  }
+
+  .md-checkbox-frame {
+    border: 2px solid rgba(0, 0, 0, 0.36);
+  }
+}
+
+/**
+  ng2-select
+**/
+.ui-select-multiple {
+  z-index: 10;
+  padding-top: 0;
+}
+
+ng-select {
+  .ui-select-choices {
+    width: 100%;
+    border-radius: $mainBorderRadius;
+
+    .ui-select-choices-row {
+      display: block;
+      padding: 5px 10px;
+
+      &:hover {
+        background: $oechrBlueColor;
+
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .ui-select-search {
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 50px;
+  }
+
+  .ui-select-match {
+    position: absolute;
+    margin-top: 10px;
+  }
+
+  .ui-select-match-item {
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: #F1F1F1;
+  }
+}
+

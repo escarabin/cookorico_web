@@ -1,0 +1,80 @@
+notifications {
+  position: relative;
+  z-index: 10000;
+
+  .notification-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: $oechrBlueColor;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    height: 85px;
+    font-size: 1.3em;
+    font-family: $mainMediumFontFamily;
+    z-index: 100;
+    animation: show-note 250ms;
+    transition-property: all;
+    transition-duration: 250ms;
+
+    &.success {
+      background-color: $successColor;
+    }
+
+    &.warning {
+      background-color: $warningColor;
+    }
+
+    &.error {
+      background-color: $errorColor;
+    }
+
+    &.info {
+      background-color: $infoColor;
+    }
+  }
+}
+
+.notification-container a {
+  position: absolute;
+  left: 30px;
+}
+
+.notification-container.success a {
+  color: darken($successColor, 60%);
+}
+
+.notification-container.warning a {
+  color: darken($warningColor, 60%);
+}
+
+.notification-container.error a {
+  color: darken($errorColor, 60%);
+}
+
+.notification-container.info a {
+  color: darken($infoColor, 60%);
+}
+
+.notification-container.shown {
+  bottom: 0;
+}
+
+@-webkit-keyframes show-note {
+  0%   { bottom: -85px; }
+  100% { bottom: 0; }
+}
+@-moz-keyframes show-note {
+  0%   { bottom: -85px; }
+  100% { bottom: 0; }
+}
+@-o-keyframes show-note {
+  0%   { bottom: -85px; }
+  100% { bottom: 0; }
+}
+@keyframes show-note {
+  0%   { bottom: -85px; }
+  100% { bottom: 0; }
+}

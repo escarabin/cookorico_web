@@ -1,0 +1,60 @@
+job {
+  display: inline-block;
+  background: white;
+  padding-bottom: 20px;
+  border-radius: $mainBorderRadius;
+  -moz-box-shadow: $mainBoxShadow;
+  -webkit-box-shadow: $mainBoxShadow;
+  -o-box-shadow: $mainBoxShadow;
+  box-shadow: $mainBoxShadow;
+
+  h2 {
+    text-transform: uppercase;
+    font-family: $mainBoldFontFamily;
+    color: $oechrBlueColor;
+  }
+
+  .job-description {
+    padding-top: 20px;
+  }
+
+  .job-infos-list {
+    color: white;
+    background: $oechrBlueColor;
+    padding: 15px;
+
+    .job-info {
+      margin-bottom: 20px;
+      height: 30px;
+
+      i {
+        font-size: 2em;
+        color: white;
+        position: relative;
+        top: 5px;
+        width: 40px;
+        display: inline-block;
+      }
+    }
+  }
+
+
+  .logo {
+    float: left;
+    margin: 20px 20px 20px 0;
+
+    img {
+      width: 100%;
+      max-height: 200px;
+    }
+  }
+
+  .business {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    .adress {
+      margin-top: 15px;
+    }
+  }
+}

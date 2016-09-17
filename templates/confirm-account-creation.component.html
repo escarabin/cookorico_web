@@ -1,0 +1,84 @@
+Votre adresse email a bien été confirmée !
+
+<a routerLink="/profile/business/create">
+    <button class="btn btn-primary"
+            *ngIf="user.user_type_id == 2">
+        Trouver mon établissement >
+    </button>
+</a>
+
+<div class="row"
+     *ngIf="user.user_type_id == 3">
+    <div class="col-md-6">
+        <label>Nom</label>
+        <input type="text"
+               class="form-control"
+               name="lastName"
+               placeholder="Nom"
+               required
+               [(ngModel)]="user.lastName"
+               ngControl="user.lastName"/>
+    </div>
+    <div class="col-md-6">
+        <label>Prénom</label>
+        <input type="text"
+               class="form-control"
+               name="firstName"
+               placeholder="Prénom"
+               required
+               [(ngModel)]="user.firstName"
+               ngControl="user.firstName"/>
+    </div>
+    <div class="col-md-6">
+        <label>Date de naissance</label>
+        <input type="date"
+               class="form-control"
+               name="birthDate"
+               placeholder="Date de naissance"
+               required
+               [(ngModel)]="user.birthDate"
+               ngControl="user.birthDate"/>
+    </div>
+    <div class="col-md-6">
+        <label>Postes recherchés</label>
+        <select multiple
+                name="lookingForJobNamingList"
+                [(ngModel)]="lookingForJobNamingIdList"
+                ngControl="lookingForJobNamingIdList"
+                required
+                class="form-control">
+            <option *ngFor="let jobNaming of jobNamings"
+                    value="{{ jobNaming.id }}">
+                {{ jobNaming.title }}
+            </option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label>Zone géographique</label>
+        <input type="text"
+               class="form-control"
+               name="location"
+               placeholder="Zone géographique"
+               required
+               (setAddress)="parseAdress($event)"
+               googleplace/>
+    </div>
+    <div class="col-md-6">
+        <label>Dernier poste occupé</label>
+        <select class="form-control"
+                name="lastJobNaming"
+                [(ngModel)]="user.last_job_naming_id"
+                ngControl="user.last_job_naming_id"
+                required>
+            <option *ngFor="let jobNaming of jobNamings"
+                    value="{{ jobNaming.id }}">
+                {{ jobNaming.title }}
+            </option>
+        </select>
+    </div>
+    <button class="btn btn-primary"
+            (click)="submitCandidateInfos()">
+        Valider et compléter mon profil >
+    </button>
+</div>
+

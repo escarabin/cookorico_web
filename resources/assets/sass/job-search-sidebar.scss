@@ -1,0 +1,123 @@
+job-search-sidebar {
+  width: 25%;
+  float: left;
+
+  .google-maps-container {
+    padding: 0 15px 15px 15px;
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    .sebm-google-map-container {
+      height: 200px;
+      display: block;
+    }
+  }
+
+  .search-summary {
+    font-size: 1.2em;
+    margin-bottom: 35px;
+    text-align: center;
+
+    .badge {
+      color: white;
+      margin: 5px;
+      text-transform: lowercase;
+
+      &.job-badge {
+        background-color: $oechrBlueColor;
+      }
+
+      &.location-badge {
+        background-color: #07ad70;
+        text-transform: capitalize;
+      }
+
+      &.contract-type-badge {
+        background-color: $warningColor;
+      }
+
+      &.study-level-badge {
+        background-color: #752794;
+      }
+    }
+  }
+
+  h3 {
+    cursor: pointer;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    font-family: $mainBoldFontFamily;
+    padding: 10px 7px;
+    background: $oechrBlueColor;
+    color: white;
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+  }
+
+  .collapse {
+    padding: 0;
+
+  }
+
+  label {
+    font-weight: inherit;
+  }
+
+  ul  {
+    padding-left: 0;
+
+    li  {
+      padding: 10px 10px 10px 10px;
+      font-family: $mainMediumFontFamily;
+      color: #6d6d6d;
+      cursor: pointer;
+      background: white;
+
+      .group  {
+        font-family: $mainBoldFontFamily;
+      }
+
+      .title-container {
+        padding-left: 0;
+        color: #333;
+      }
+
+      &.active {
+        background-color: darken($oechrBlueColor, 40%);
+
+        .title-container {
+          color: white;
+        }
+      }
+
+      &:hover {
+        background-color: lighten($oechrBlueColor, 15%);
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileWidth) {
+  job-search-sidebar {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.61);
+    margin: 0;
+    width: 100%;
+    display: none;
+
+    .sidebar-container {
+      padding: 20px;
+
+      &.shown {
+        display: block;
+      }
+    }
+
+    .search-summary {
+      color: white;
+    }
+  }
+}

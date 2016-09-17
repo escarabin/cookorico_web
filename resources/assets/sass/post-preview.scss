@@ -1,0 +1,43 @@
+post-preview {
+  display: block;
+  border: 1px solid #ececec;
+  padding: 25px;
+  background: whitesmoke;
+  transition-property: all;
+  transition-duration: 250ms;
+
+  .logo {
+    position: relative;
+    top: -5px;
+  }
+
+  .logo img {
+    max-width: 90px;
+    max-height: 90px;
+    float: left;
+    margin-right: 30px;
+  }
+
+  .business_name {
+    font-size: 1.2em;
+    font-family: $mainBoldFontFamily;
+    margin-bottom: 5px;
+  }
+
+  .title, .business_adress {
+    color: $mainDarkTextColor;
+  }
+
+  &:hover {
+    background-color: lighten($oechrBlueColor, 40%);
+    border-color: $oechrBlueColor;
+  }
+}
+
+post-preview:nth-child(odd) {
+  background: white;
+
+  &:hover {
+    background-color: lighten($oechrBlueColor, 40%);
+  }
+}
