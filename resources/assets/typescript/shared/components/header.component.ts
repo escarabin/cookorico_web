@@ -17,6 +17,7 @@ import { UserService } from './../../services/user.service';
 export class HeaderComponent {
     user: any;
     isHomePage: boolean = false;
+    scrollTop: number;
 
     constructor (private userService: UserService,
                  private router: Router) {
@@ -60,5 +61,13 @@ export class HeaderComponent {
         this.userService.signOut().subscribe((res: Response) => {
             this.user = null;
         });
+    }
+
+    /**
+     * Event fired on page scroll to adapt visual elements
+     * @param event
+     */
+    onPageScroll(event: any) {
+        this.scrollTop = event.target['scrollingElement']['scrollTop'];
     }
 }

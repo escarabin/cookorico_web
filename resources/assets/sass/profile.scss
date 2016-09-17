@@ -4,6 +4,10 @@ profile {
   max-width: $mainPageMaxWidth;
   margin: auto;
 
+  .scrolled-down {
+    margin-top: 230px;
+  }
+
   .router-outlet-container {
     width: 75%;
     float: left;

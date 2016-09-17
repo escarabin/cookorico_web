@@ -39,4 +39,8 @@
     </div>
 </div>
 
-<profile-sub-header *ngIf="user && !isHomePage"></profile-sub-header>
+<profile-sub-header (window:scroll)="onPageScroll($event)"
+                    [class.fixed]="scrollTop > 100"
+                    *ngIf="user && !isHomePage">
+
+</profile-sub-header>

@@ -68,6 +68,13 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                         _this.user = null;
                     });
                 };
+                /**
+                 * Event fired on page scroll to adapt visual elements
+                 * @param event
+                 */
+                HeaderComponent.prototype.onPageScroll = function (event) {
+                    this.scrollTop = event.target['scrollingElement']['scrollTop'];
+                };
                 HeaderComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../templates/header.component.html',

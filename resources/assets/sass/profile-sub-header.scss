@@ -4,7 +4,52 @@ profile-sub-header {
   width: 100%;
   color: white;
   padding: 15px;
+  height: 130px;
   margin-top: $headerHeight;
+
+  /**
+    Fixed profile-sub-header style
+  */
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    margin: 0;
+    height: 80px;
+
+    .progress-radial {
+      width: 51px;
+      height: 51px;
+
+      .overlay {
+        width: 40px;
+        height: 40px;
+
+        .img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+    
+    .complete-profile {
+      top: -10px;
+    }
+
+    .profile-picture {
+      padding-top: 0;
+      top: -10px;
+    }
+
+    i, h2 {
+      display: none;
+    }
+
+    h3 {
+      margin: 0;
+    }
+  }
 
   .sub-header-wrapper {
     max-width: $mainPageMaxWidth;

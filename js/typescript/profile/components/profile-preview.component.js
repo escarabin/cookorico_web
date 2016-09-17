@@ -196,6 +196,13 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
                         }
                     });
                 };
+                /**
+                 * Event fired on page scroll to adapt visual elements
+                 * @param event
+                 */
+                ProfilePreviewComponent.prototype.onPageScroll = function (event) {
+                    this.scrollTop = event.target['scrollingElement']['scrollTop'];
+                };
                 __decorate([
                     core_1.ViewChild('cropper', undefined), 
                     __metadata('design:type', ng2_img_cropper_1.ImageCropperComponent)

@@ -22,6 +22,13 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 function ProfileComponent() {
                     this.user = JSON.parse(localStorage.getItem('user'));
                 }
+                /**
+                 * Event fired on page scroll to adapt visual elements
+                 * @param event
+                 */
+                ProfileComponent.prototype.onPageScroll = function (event) {
+                    this.scrollTop = event.target['scrollingElement']['scrollTop'];
+                };
                 ProfileComponent = __decorate([
                     core_1.Component({
                         selector: 'profile',

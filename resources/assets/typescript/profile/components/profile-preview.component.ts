@@ -42,6 +42,7 @@ export class ProfilePreviewComponent {
     cropperSettings: CropperSettings;
     editingItems: any = [];
     userIdRouteParam: string;
+    scrollTop: number;
     public profilePictureUploader:FileUploader = new FileUploader({url: URL});
     public resumeUploader:FileUploader = new FileUploader({url: URL});
     public hasBaseDropZoneOver:boolean = false;
@@ -228,5 +229,14 @@ export class ProfilePreviewComponent {
                 );
             }
         });
+    }
+
+
+    /**
+     * Event fired on page scroll to adapt visual elements
+     * @param event
+     */
+    onPageScroll(event: any) {
+        this.scrollTop = event.target['scrollingElement']['scrollTop'];
     }
 }

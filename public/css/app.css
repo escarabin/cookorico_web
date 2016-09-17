@@ -620,6 +620,8 @@ profile {
   display: block;
   max-width: 1200px;
   margin: auto; }
+  profile .scrolled-down {
+    margin-top: 230px; }
   profile .router-outlet-container {
     width: 75%;
     float: left;
@@ -905,7 +907,10 @@ profile-preview h2 {
   font-size: 1em;
   background: #35B6E1;
   padding: 15px;
-  margin: 0; }
+  margin: 0 !important; }
+
+profile-preview .row.scrolled-down {
+  margin-top: 200px; }
 
 profile-preview .form-control[input] {
   height: 35px;
@@ -1080,7 +1085,35 @@ profile-sub-header {
   width: 100%;
   color: white;
   padding: 15px;
-  margin-top: 100px; }
+  height: 130px;
+  margin-top: 100px;
+  /**
+    Fixed profile-sub-header style
+  */ }
+  profile-sub-header.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    margin: 0;
+    height: 80px; }
+    profile-sub-header.fixed .progress-radial {
+      width: 51px;
+      height: 51px; }
+      profile-sub-header.fixed .progress-radial .overlay {
+        width: 40px;
+        height: 40px; }
+        profile-sub-header.fixed .progress-radial .overlay .img {
+          width: 40px;
+          height: 40px; }
+    profile-sub-header.fixed .complete-profile {
+      top: -10px; }
+    profile-sub-header.fixed .profile-picture {
+      padding-top: 0;
+      top: -10px; }
+    profile-sub-header.fixed i, profile-sub-header.fixed h2 {
+      display: none; }
+    profile-sub-header.fixed h3 {
+      margin: 0; }
   profile-sub-header .sub-header-wrapper {
     max-width: 1200px;
     margin: auto; }

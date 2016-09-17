@@ -7,7 +7,13 @@ profile-preview {
     font-size: 1em;
     background: $oechrBlueColor;
     padding: 15px;
-    margin: 0;
+    margin: 0 !important;
+  }
+
+  .row {
+    &.scrolled-down {
+      margin-top: 200px;
+    }
   }
 
   .form-control[input] {

@@ -115,12 +115,13 @@
     </div>
 
     <div class="col-md-12">
-        <h2>Expériences &nbsp;
-            <span class="badge">{{ experiences.length }}</span>
-            <a routerLink="['/Profile/Experiences']"
-               *ngIf="editableProfile">
-            &nbsp; <span class="fa fa-pencil"></span>
-            </a>
+        <h2 class="row">
+            <div class="col-md-11 col-sm-11 col-xs-10">
+                Expériences
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-2">
+                <span class="badge">{{ experiences.length }}</span>
+            </div>
         </h2>
         <div class="list-container col-md-12">
             <ul>
@@ -139,13 +140,15 @@
     </div>
 
     <div class="col-md-12">
-        <h2>Formations &nbsp;
-            <span class="badge">{{ education.length }}</span>
-            <a routerLink="['/Profile/Education']"
-               *ngIf="editableProfile">
-            &nbsp; <span class="fa fa-pencil"></span>
-            </a>
+        <h2 class="row">
+            <div class="col-md-11 col-sm-11 col-xs-10">
+                Formations
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-2">
+                <span class="badge">{{ education.length }}</span>
+            </div>
         </h2>
+
         <div class="list-container col-md-12">
             <ul>
                 <li *ngFor="let study of education">
@@ -163,12 +166,13 @@
     </div>
 
     <div class="col-md-12">
-        <h2>Recommendations &nbsp;
-            <span class="badge">{{ testimonials.length }}</span>
-            <a *ngIf="editableProfile"
-               routerLink="['/Profile/Testimonials']">
-            &nbsp; <span class="fa fa-pencil"></span>
-            </a>
+        <h2 class="row">
+            <div class="col-md-11 col-sm-11 col-xs-10">
+                Recommandations
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-2">
+                <span class="badge">{{ testimonials.length }}</span>
+            </div>
         </h2>
         <div class="list-container col-md-12">
             <ul>
