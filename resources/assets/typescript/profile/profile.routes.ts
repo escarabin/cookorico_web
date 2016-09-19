@@ -20,6 +20,7 @@ import { MailTemplatesComponent } from './components/mail-templates.component';
 import { CreateMailTemplateComponent } from './components/create-mail-template.component';
 import { WebsiteEditorComponent } from "./components/website-editor.component";
 import { ConfirmAccountCreationComponent } from "./components/confirm-account-creation.component";
+import { MatchingProfilesComponent } from './components/matching-profiles.component';
 
 const profileRoutes: Routes = [
     {
@@ -67,6 +68,10 @@ const profileRoutes: Routes = [
             {path: 'applicants', component: ApplicantsComponent},
             {path: 'applicants/:jobPostId', component: ApplicantsComponent},
             {path: 'applicants/show_profile', component: ApplicantsComponent},
+
+            // Matching profiles
+            {path: 'matching-profiles', component: MatchingProfilesComponent},
+            {path: 'matching-profiles/:jobPostId', component: MatchingProfilesComponent},
 
             // Mails
             {path: 'mail-templates', component: MailTemplatesComponent},

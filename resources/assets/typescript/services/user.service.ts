@@ -27,6 +27,7 @@ export class UserService {
     getEducationUrl = appGlobals.apiUrl + '/user/education';
     getAlertsUrl = appGlobals.apiUrl + '/alerts/all';
     getBusinessesUrl = appGlobals.apiUrl + '/user/businesses';
+    getMatchingProfilesUrl = appGlobals.apiUrl + '/user/matching_profiles';
     getJobPostsUrl = appGlobals.apiUrl + '/user/job-posts/all';
     deleteJobPostsUrl = appGlobals.apiUrl + '/job-posts/delete';
     getBusinessUrl = appGlobals.apiUrl + '/business';
@@ -220,6 +221,13 @@ export class UserService {
      */
     getAlerts() {
         return this.http.get(this.getAlertsUrl);
+    }
+
+    /**
+     * Get user's matching profiles for all job-posts
+     */
+    getMatchingProfiles() {
+        return this.http.get(this.getMatchingProfilesUrl);
     }
 
     /**

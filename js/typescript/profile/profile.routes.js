@@ -1,7 +1,7 @@
-System.register(['@angular/router', './components/profile.component', "./components/applications.component", "./components/experiences.component", "./components/education.component", "./components/alerts.component", "./components/testimonials.component", "./components/create-experience.component", "./components/create-study.component", "./components/create-alert.component", "./components/create-business.component", "./components/businesses.component", './components/my-job-posts.component', './components/create-job-post.component', './components/applicants.component', './components/profile-preview.component', './components/mail-templates.component', './components/create-mail-template.component', "./components/website-editor.component", "./components/confirm-account-creation.component"], function(exports_1, context_1) {
+System.register(['@angular/router', './components/profile.component', "./components/applications.component", "./components/experiences.component", "./components/education.component", "./components/alerts.component", "./components/testimonials.component", "./components/create-experience.component", "./components/create-study.component", "./components/create-alert.component", "./components/create-business.component", "./components/businesses.component", './components/my-job-posts.component', './components/create-job-post.component', './components/applicants.component', './components/profile-preview.component', './components/mail-templates.component', './components/create-mail-template.component', "./components/website-editor.component", "./components/confirm-account-creation.component", './components/matching-profiles.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var router_1, profile_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1, create_study_component_1, create_alert_component_1, create_business_component_1, businesses_component_1, my_job_posts_component_1, create_job_post_component_1, applicants_component_1, profile_preview_component_1, mail_templates_component_1, create_mail_template_component_1, website_editor_component_1, confirm_account_creation_component_1;
+    var router_1, profile_component_1, applications_component_1, experiences_component_1, education_component_1, alerts_component_1, testimonials_component_1, create_experience_component_1, create_study_component_1, create_alert_component_1, create_business_component_1, businesses_component_1, my_job_posts_component_1, create_job_post_component_1, applicants_component_1, profile_preview_component_1, mail_templates_component_1, create_mail_template_component_1, website_editor_component_1, confirm_account_creation_component_1, matching_profiles_component_1;
     var profileRoutes, profileRouting;
     return {
         setters:[
@@ -64,6 +64,9 @@ System.register(['@angular/router', './components/profile.component', "./compone
             },
             function (confirm_account_creation_component_1_1) {
                 confirm_account_creation_component_1 = confirm_account_creation_component_1_1;
+            },
+            function (matching_profiles_component_1_1) {
+                matching_profiles_component_1 = matching_profiles_component_1_1;
             }],
         execute: function() {
             profileRoutes = [
@@ -104,6 +107,9 @@ System.register(['@angular/router', './components/profile.component', "./compone
                         { path: 'applicants', component: applicants_component_1.ApplicantsComponent },
                         { path: 'applicants/:jobPostId', component: applicants_component_1.ApplicantsComponent },
                         { path: 'applicants/show_profile', component: applicants_component_1.ApplicantsComponent },
+                        // Matching profiles
+                        { path: 'matching-profiles', component: matching_profiles_component_1.MatchingProfilesComponent },
+                        { path: 'matching-profiles/:jobPostId', component: matching_profiles_component_1.MatchingProfilesComponent },
                         // Mails
                         { path: 'mail-templates', component: mail_templates_component_1.MailTemplatesComponent },
                         { path: 'mail-template/create', component: create_mail_template_component_1.CreateMailTemplateComponent },

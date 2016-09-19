@@ -13,11 +13,6 @@
             <div class="col-md-6 plan-contacts">
                 {{ plan.pricing_plan.daily_contacts }} contacts
             </div>
-            <a routerLink="/profile/job-post/create">
-                <button class="btn btn-default new-job-post-btn">
-                    <span class="fa fa-plus-circle"></span> &nbsp;Publier une offre
-                </button>
-            </a>
         </div>
     </div >
 </div>
@@ -80,7 +75,7 @@
             Postulants
         </a>
         <a *ngIf="user.user_type_id == 2"
-           routerLink="/profile/applicants"
+           routerLink="/profile/matching-profiles"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
             Profils correspondants

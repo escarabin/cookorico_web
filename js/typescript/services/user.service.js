@@ -47,6 +47,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.getEducationUrl = appGlobals.apiUrl + '/user/education';
                     this.getAlertsUrl = appGlobals.apiUrl + '/alerts/all';
                     this.getBusinessesUrl = appGlobals.apiUrl + '/user/businesses';
+                    this.getMatchingProfilesUrl = appGlobals.apiUrl + '/user/matching_profiles';
                     this.getJobPostsUrl = appGlobals.apiUrl + '/user/job-posts/all';
                     this.deleteJobPostsUrl = appGlobals.apiUrl + '/job-posts/delete';
                     this.getBusinessUrl = appGlobals.apiUrl + '/business';
@@ -214,6 +215,12 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  */
                 UserService.prototype.getAlerts = function () {
                     return this.http.get(this.getAlertsUrl);
+                };
+                /**
+                 * Get user's matching profiles for all job-posts
+                 */
+                UserService.prototype.getMatchingProfiles = function () {
+                    return this.http.get(this.getMatchingProfilesUrl);
                 };
                 /**
                  * Get user's job posts

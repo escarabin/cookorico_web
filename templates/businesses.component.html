@@ -1,10 +1,10 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container">
+    <div class="col-md-1 col-sm-1 col-xs-1 main-checkbox-container">
         <input type="checkbox"
                [checked]="allItemsChecked"
                (change)="toggleAllItems()"/>
     </div>
-    <div class="col-md-7 col-sm-7 col-xs-6 items-count">
+    <div class="col-md-8 col-sm-8 col-xs-7 items-count">
         <span *ngIf="checkedItemsList.length > 0">
             {{ checkedItemsList.length }}
         </span>
@@ -26,13 +26,13 @@
 <div class="col-md-12 list-container">
     <ul>
         <li class="row" *ngFor="let item of items">
-            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
+            <div class="col-md-1 col-sm-1 col-xs-1 checkbox-container">
                 <input type="checkbox"
                        class="action-checkbox"
                        [checked]="checkedItemsList.indexOf(item.id) != -1"
                        (change)="saveCheckedItem(item.id)"/>
             </div>
-            <div class="col-md-10 col-sm-10 col-xs-10 item"
+            <div class="col-md-11 col-sm-11 col-xs-11 item"
                  [class.logo]="item.logo">
                 <a routerLink="/profile/business/edit/{{ item.id }}">
                     <div class="item-desc">

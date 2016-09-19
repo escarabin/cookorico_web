@@ -52,6 +52,8 @@ Route::get('/user/login_using_id/{userId}', 'UserController@loginUsingId')
     ->name('loginUsingId');
 Route::post('/user/create', 'UserController@createUser')
     ->name('createUser');
+Route::get('/user/matching_profiles/', 'UserController@getMatchingProfiles')
+    ->name('getMatchingProfiles');
 Route::get('/user/businesses/', 'UserController@getBusinesses')
     ->name('getAllUserBusinesses');
 Route::post('/user/upload_profile_picture', 'UserController@uploadProfilePicture')

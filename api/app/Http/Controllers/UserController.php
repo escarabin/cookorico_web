@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\MailTemplate;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use App\Models\Job;
 use Auth;
@@ -119,6 +120,60 @@ class UserController extends Controller
         $user = User::find($userId);
 
         return $user;
+    }
+
+
+    /**
+     * Function used to get current user
+     * matching profiles for all job posts
+     */
+    public function getMatchingProfiles() {
+        /**
+         * First, list all user jobs posts values
+         * & populate arrays of parameter ids
+         */
+        $jobPostList = Auth::user()
+                        ->jobPosts
+                        ->load('jobNaming');
+
+        Log::info(count($jobPostList));
+
+        $jobNamingIdList = array();
+        foreach ($jobPostList as $jobPost) {
+            $jobNamingIdList[] = $jobPost->jobNaming->id;
+        }
+
+        /**
+         * Remove duplicate values from array
+         */
+        $jobNamingIdList = array_unique($jobNamingIdList);
+
+        /**
+         * Get users looking for job-posts job-namings
+         */
+        $jobNamingUserList = DB::table('job_naming_user')
+                             ->whereIn('job_naming_id', $jobNamingIdList)
+                             ->get();
+
+        $userIdList = array();
+        foreach ($jobNamingUserList as $jobNamingUser) {
+            $userIdList[] = $jobNamingUser->user_id;
+        }
+
+        /**
+         * Remove duplicate values from array
+         */
+        $userIdList = array_unique($userIdList);
+
+        /**
+         * Get only users that are currently looking for a job
+         */
+        $userList = User::whereIn('id', $userIdList)
+                        ->where('user_status_id', 1)
+                        ->get()
+                        ->load('lookingForJobNamings');
+
+        return $userList;
     }
 
     /**
