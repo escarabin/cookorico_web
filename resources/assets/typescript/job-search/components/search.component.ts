@@ -18,6 +18,7 @@ export class SearchComponent {
     studyLevelId: number;
     searchParameters: any = [];
     user: any;
+    scrollTop: number;
 
     constructor(private route: ActivatedRoute,
                 private userService: UserService) {
@@ -35,5 +36,13 @@ export class SearchComponent {
                 this.studyLevelId = parseInt(params['studyLevelId']);
             }
         });
+    }
+
+    /**
+     * Event fired on page scroll to adapt visual elements
+     * @param event
+     */
+    onPageScroll(event: any) {
+        this.scrollTop = event.target['scrollingElement']['scrollTop'];
     }
 }

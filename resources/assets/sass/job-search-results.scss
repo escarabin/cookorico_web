@@ -27,6 +27,7 @@ job-search-results {
 
 @media (max-width: $mobileWidth) {
   job-search-results {
+    box-shadow: none;
 
     .search-results-container {
       padding: 0;

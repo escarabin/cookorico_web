@@ -25,13 +25,25 @@
             </sign-in>
 
             <li *ngIf="!user">
-                <a routerLink="sign-up">
+                <a routerLink="/sign-up">
                     S'inscrire
                 </a>
             </li>
 
             <li *ngIf="user && user.is_active">
-                <a routerLink="profile">
+                <!-- If user is an admin, create a link to website editor -->
+                <a *ngIf="user.user_type_id == 1"
+                   routerLink="/profile/website-editor">
+                    Administration
+                </a>
+                <!-- If user is a recruiter, create a link to his job posts -->
+                <a *ngIf="user.user_type_id == 2"
+                   routerLink="/profile/job-posts">
+                    Mon compte
+                </a>
+                <!-- If user is a candidate, create a link to his profile preview -->
+                <a *ngIf="user.user_type_id == 3"
+                   routerLink="/profile/show">
                     Mon compte
                 </a>
             </li>

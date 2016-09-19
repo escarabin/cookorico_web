@@ -22,14 +22,14 @@
     </div >
 </div>
 
-<div class="profile-sidebar-menu">
+<div class="profile-sidebar-menu"
+     [class.full-height]="isMobileMenuVisible">
     <div class="col-md-12 col-sm-10 col-xs-10">
-        <a routerLink="/profile/show"
-           [class.visible]="isMobileMenuVisible"
-           routerLinkActive="active">
-            <div class="col-md-12 col-sm-10 col-xs-10">
-                Aperçu du profil
-            </div>
+        <a *ngIf="user.user_type_id == 3"
+           routerLink="/profile/show"
+           routerLinkActive="active"
+           [class.visible]="isMobileMenuVisible">
+            Aperçu du profil
         </a>
         <a *ngIf="user.user_type_id == 3"
            routerLink="/profile/experiences"

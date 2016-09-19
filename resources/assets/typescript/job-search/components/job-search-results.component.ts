@@ -74,10 +74,12 @@ export class JobSearchResultsComponent {
         searchService.mapModeEmitter.subscribe((place) => {
             this.isMapModeEnabled = !this.isMapModeEnabled;
 
-            this.parametersList['place'] = place;
-            this.mapLat = place.geometry.location.lat;
-            this.mapLng = place.geometry.location.lng;
-            this.zoom = 8;
+            if (place) {
+                this.parametersList['place'] = place;
+                this.mapLat = place['geometry']['location'].lat();
+                this.mapLng = place['geometry']['location'].lng();
+                this.zoom = 8;
+            }
         });
 
         /**

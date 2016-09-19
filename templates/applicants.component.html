@@ -1,17 +1,20 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container">
+    <div class="col-md-1 col-sm-1 col-xs-1 main-checkbox-container">
         <input type="checkbox"
                [checked]="allItemsChecked"
                (change)="toggleAllItems()"/>
     </div>
-    <div class="col-md-7 col-sm-7 col-xs-6 items-count">
-        <span *ngIf="checkedItemsList.length > 0">
-            {{ checkedItemsList.length }}
-        </span>
-        <span *ngIf="checkedItemsList.length == 0">
-            {{ items.length }}
-        </span> candidat<span *ngIf="items.length > 1">s</span>
-        <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
+    <div class="col-md-8 col-sm-8 col-xs-7">
+        <select class="form-control"
+                name="jobPostId"
+                ngControl="jobPostId"
+                [(ngModel)]="jobPostId">
+            <option selected value="">-- Sélectionnez une offre d'emploi --</option>
+            <option *ngFor="let jobPost of jobPosts"
+                    value="{{ jobPost.id }}">
+                {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
+            </option>
+        </select>
     </div>
     <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
         <!--<button routerLink="['/Profile/CreateAlert']">
@@ -25,30 +28,32 @@
 
 <div class="col-md-12 list-container">
     <ul>
-        <li class="row" *ngFor="let item of items">
-            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
-                <input type="checkbox"
-                       class="action-checkbox"
-                       [checked]="checkedItemsList.indexOf(item.id) != -1"
-                       (change)="saveCheckedItem(item.id)"/>
-            </div>
-            <div class="col-md-10 col-sm-10 col-xs-9 item"
-                 [class.photo]="item.user.profilePictureUrl">
-                <a routerLink="/profile/show/{{ item.user.id }}">
-                    <div class="item-desc">
-                        <h3>{{ item.user.firstName }}</h3>
-                        {{ item.user.firstName }} -- {{ item.user.firstName }}
-                        <span class="date">
-                            {{ item.user.firstName }} &nbsp;
-                            <span class="fa fa-clock-o"></span>
-                        </span>
-                    </div>
-                    <div class="logo"
-                         *ngIf="item.user.profilePictureUrl">
-                        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.job.business.id }}.jpg"/>
-                    </div>
-                </a>
-            </div>
-        </li>
+        <div *ngFor="let item of items">
+            <li class="row" *ngIf="item.job_id == jobPostId || !jobPostId">
+                <div class="col-md-1 col-sm-1 col-xs-1 checkbox-container">
+                    <input type="checkbox"
+                           class="action-checkbox"
+                           [checked]="checkedItemsList.indexOf(item.id) != -1"
+                           (change)="saveCheckedItem(item.id)"/>
+                </div>
+                <div class="col-md-11 col-sm-11 col-xs-10 item"
+                     [class.photo]="item.user.profilePictureUrl">
+                    <a routerLink="/profile/show/{{ item.user.id }}">
+                        <div class="logo"
+                             *ngIf="item.user.profilePictureUrl">
+                            <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.job.business.id }}.jpg"/>
+                        </div>
+                        <div class="item-desc">
+                            <h3>{{ item.user.firstName }}</h3>
+                            {{ item.user.firstName }} -- {{ item.user.firstName }}
+                            <span class="date">
+                                {{ item.user.firstName }} &nbsp;
+                                <span class="fa fa-clock-o"></span>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </div>
     </ul>
 </div>

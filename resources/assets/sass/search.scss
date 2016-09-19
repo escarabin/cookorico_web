@@ -3,6 +3,11 @@ search {
   margin: auto;
   display: block;
 
+  .scrolled-down {
+    margin-top: 230px;
+    display: inline-block;
+  }
+
   .user-not-logged-in {
     padding-top: $mainPagePaddingTop;
   }
@@ -22,6 +27,21 @@ search {
   search {
     width: 100%;
     padding-top: 0;
+
+    .scrolled-down {
+      margin-top: 110px;
+
+      job-search-sidebar {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        margin: 0;
+      }
+    }
+
+    .user-not-logged-in {
+      padding-top: 40px;
+    }
 
     .router-outlet-container {
       width: 100%;

@@ -65,6 +65,7 @@ const profileRoutes: Routes = [
 
             // Applicants
             {path: 'applicants', component: ApplicantsComponent},
+            {path: 'applicants/:jobPostId', component: ApplicantsComponent},
             {path: 'applicants/show_profile', component: ApplicantsComponent},
 
             // Mails

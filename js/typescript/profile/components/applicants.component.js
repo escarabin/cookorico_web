@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../../services/user.service', '../../services/notification.service', '../../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/user.service', '../../services/notification.service', '../../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['@angular/core', '../../services/user.service', '../../services
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, user_service_1, notification_service_1, notification_1;
+    var core_1, router_1, user_service_1, notification_service_1, notification_1;
     var ApplicantsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
@@ -28,14 +31,27 @@ System.register(['@angular/core', '../../services/user.service', '../../services
             }],
         execute: function() {
             ApplicantsComponent = (function () {
-                function ApplicantsComponent(userService, notificationService) {
+                function ApplicantsComponent(userService, notificationService, route) {
                     this.userService = userService;
                     this.notificationService = notificationService;
+                    this.route = route;
                     this.items = [];
+                    this.jobPosts = [];
                     this.checkedItemsList = [];
                     var __this = this;
+                    this.userService.getJobPosts().subscribe(function (res) {
+                        __this.jobPosts = res.json();
+                    });
                     this.userService.getApplicants().subscribe(function (res) {
                         __this.items = res.json();
+                    });
+                    /**
+                     * Get current jobPostId
+                     */
+                    route.params.subscribe(function (params) {
+                        if (params) {
+                            __this.jobPostId = parseInt(params["jobPostId"]);
+                        }
                     });
                 }
                 ApplicantsComponent.prototype.toggleAllItems = function () {
@@ -85,7 +101,7 @@ System.register(['@angular/core', '../../services/user.service', '../../services
                         providers: [user_service_1.UserService],
                         templateUrl: '../templates/applicants.component.html'
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService, notification_service_1.NotificationsService])
+                    __metadata('design:paramtypes', [user_service_1.UserService, notification_service_1.NotificationsService, router_1.ActivatedRoute])
                 ], ApplicantsComponent);
                 return ApplicantsComponent;
             }());

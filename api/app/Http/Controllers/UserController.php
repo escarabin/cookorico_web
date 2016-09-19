@@ -351,7 +351,14 @@ class UserController extends Controller
      */
     public function getJobPosts() {
         $jobPosts = Auth::user()->jobPosts
-                    ->load('jobNaming', 'business');
+                    ->load('jobNaming', 'business', 'contractType', 'applications');
+
+        /**
+         * Necessary workaround to return business place
+         */
+        foreach ($jobPosts as $jobPost) {
+            $jobPost->business->place = $jobPost->business->place;
+        }
 
         return $jobPosts;
     }

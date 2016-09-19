@@ -18,6 +18,14 @@ class Job extends Model
 
 
     /**
+     * Get job post applications
+     */
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
+    }
+
+    /**
      * Get the job's business
      */
     public function business()

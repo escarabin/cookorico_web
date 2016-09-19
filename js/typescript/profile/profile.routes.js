@@ -102,6 +102,7 @@ System.register(['@angular/router', './components/profile.component', "./compone
                         { path: 'job-post/edit/:jobPostId', component: create_job_post_component_1.CreateJobPostComponent },
                         // Applicants
                         { path: 'applicants', component: applicants_component_1.ApplicantsComponent },
+                        { path: 'applicants/:jobPostId', component: applicants_component_1.ApplicantsComponent },
                         { path: 'applicants/show_profile', component: applicants_component_1.ApplicantsComponent },
                         // Mails
                         { path: 'mail-templates', component: mail_templates_component_1.MailTemplatesComponent },

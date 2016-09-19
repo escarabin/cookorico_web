@@ -3,9 +3,6 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import appGlobals = require('./../globals');
 
-// Services
-import { NotificationsService } from './notification.service';
-
 // Models
 import { Notification } from '../models/notification';
 import { User } from '../models/user';
@@ -57,8 +54,7 @@ export class UserService {
 
     userChangeEmitter: EventEmitter;
 
-    constructor(private http: Http,
-                private notificationService: NotificationsService) {
+    constructor(private http: Http) {
         this.userChangeEmitter = new EventEmitter();
     }
 

@@ -3,6 +3,7 @@
 @import "buttons";
 @import "header";
 @import "home";
+@import "my-job-posts";
 @import "job";
 @import "create-business";
 @import "new-application-form.component";
@@ -89,4 +90,8 @@ a:hover {
 
 #main {
   margin-bottom: $mainPageMarginBottom;
+}
+
+.full-width {
+  width: 100%;
 }

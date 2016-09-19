@@ -44,6 +44,13 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                         }
                     });
                 }
+                /**
+                 * Event fired on page scroll to adapt visual elements
+                 * @param event
+                 */
+                SearchComponent.prototype.onPageScroll = function (event) {
+                    this.scrollTop = event.target['scrollingElement']['scrollTop'];
+                };
                 SearchComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../templates/search.component.html',

@@ -49,6 +49,7 @@ System.register(['@angular/core', '../../services/reference.service', '../../ser
                     this.studyLevelList = [];
                     this.parametersList = {};
                     this.jobs = [];
+                    this.isMobileSearchVisible = false;
                     /**
                      * By default, populate place object with France coords
                      */
@@ -214,8 +215,8 @@ System.register(['@angular/core', '../../services/reference.service', '../../ser
                 JobSearchSidebarComponent.prototype.parseAdress = function (place) {
                     this.parametersList['place'] = place;
                     this.searchService.search(this.parametersList);
-                    this.mapLat = place.geometry.location.lat();
-                    this.mapLng = place.geometry.location.lng();
+                    this.mapLat = place['geometry']['location'].lat();
+                    this.mapLng = place['geometry']['location'].lng();
                     this.zoom = 8;
                     this.ref.detectChanges();
                 };

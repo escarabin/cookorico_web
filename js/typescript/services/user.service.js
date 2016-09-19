@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', './../globals', './notification.service', '../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', './../globals', '../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, appGlobals, notification_service_1, notification_1;
+    var core_1, http_1, appGlobals, notification_1;
     var UserService;
     return {
         setters:[
@@ -24,17 +24,13 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
             function (appGlobals_1) {
                 appGlobals = appGlobals_1;
             },
-            function (notification_service_1_1) {
-                notification_service_1 = notification_service_1_1;
-            },
             function (notification_1_1) {
                 notification_1 = notification_1_1;
             }],
         execute: function() {
             UserService = (function () {
-                function UserService(http, notificationService) {
+                function UserService(http) {
                     this.http = http;
-                    this.notificationService = notificationService;
                     this.signInUrl = appGlobals.apiUrl + '/sign-in/';
                     this.getUserInfosUrl = appGlobals.apiUrl + '/user/get_infos';
                     this.getUserUrl = appGlobals.apiUrl + '/user/get';
@@ -399,7 +395,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_1.Http, notification_service_1.NotificationsService])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], UserService);
                 return UserService;
             }());

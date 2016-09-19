@@ -1,10 +1,10 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container">
+    <div class="col-md-1 col-sm-1 col-xs-1 main-checkbox-container">
         <input type="checkbox"
                [checked]="allItemsChecked"
                (change)="toggleAllItems()"/>
     </div>
-    <div class="col-md-7 col-sm-7 col-xs-6 items-count">
+    <div class="col-md-8 col-sm-8 col-xs-7 items-count">
         <span *ngIf="checkedItemsList.length > 0">
             {{ checkedItemsList.length }}
         </span>
@@ -26,26 +26,49 @@
 <div class="col-md-12 list-container">
     <ul>
         <li class="row" *ngFor="let item of items">
-            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
+            <div class="col-md-1 col-sm-1 col-xs-1 checkbox-container">
                 <input type="checkbox"
                        class="action-checkbox"
                        [checked]="checkedItemsList.indexOf(item.id) != -1"
                        (change)="saveCheckedItem(item.id)"/>
             </div>
-            <div class="col-md-10 col-sm-10 col-xs-9 item"
+            <div class="col-md-11 col-sm-11 col-xs-10 item"
                  [class.logo]="item.business.logo">
                 <a routerLink="/profile/job-post/edit/{{ item.id }}">
-                    <div class="item-desc">
-                        <h3>{{ item.job_naming.title }}</h3>
-                        {{ item.business.title }}
+                    <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
+                        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.business.id }}.jpg"
+                             class="full-width"/>
+                    </div>
+                    <div [class.col-md-6]="item.business.logo"
+                         [class.col-md-8]="!item.business.logo"
+                         [class.col-sm-6]="item.business.logo"
+                         [class.col-sm-8]="!item.business.logo"
+                         class="col-xs-8">
+                        <h3>{{ item.business.title }}</h3>
+                        {{ item.job_naming.title.substr(0, 30) }}... REF{{ item.id }}<br />
+                        {{ item.contract_type.title }} - {{ item.week_work_hours }}h<br />
+                        {{ item.business.place.city }}
                         <!-- <span class="date">
                             {{ item.start_date }} &nbsp;
                             <span class="fa fa-arrow-right"></span> &nbsp;
                             {{ item.end_date }}
                         </span> -->
                     </div>
-                    <div class="logo" *ngIf="item.business.logo">
-                        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.business.id }}.jpg"/>
+                    <div class="col-md-2 col-sm-2 col-xs-4 job-applications"
+                         [class.disabled]="item.applications.length == 0">
+                        <a routerLink="/profile/applicants/{{ item.id }}">
+                            <button>
+                                {{ item.applications.length }} candidats
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-sm-2 hidden-xs job-stats">
+                        <span *ngIf="item.print_count">
+                            <i class="icon-eyeglasses"></i> &nbsp; {{ item.print_count }} vues<br />
+                        </span>
+                        <span *ngIf="item.click_count">
+                            <i class="icon-cursor"></i> &nbsp; {{ item.click_count }} clics
+                        </span>
                     </div>
                 </a>
             </div>

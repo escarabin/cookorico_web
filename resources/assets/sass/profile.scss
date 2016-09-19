@@ -12,6 +12,7 @@ profile {
     width: 75%;
     float: left;
     margin-left: 3%;
+    padding-top: 100px;
 
     &.full-width {
       width: 100%;
@@ -23,6 +24,11 @@ profile {
     padding: 0;
     height: 60px;
     border-bottom: 1px solid #e6e6e6;
+
+    select {
+      border: none;
+      height: 59px;
+    }
 
     .filter {
       border-right: 1px solid #e6e6e6;

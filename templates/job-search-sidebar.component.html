@@ -1,5 +1,6 @@
 <div class="row sidebar-container" [class.shown]="!mobileMenuHidden">
-    <div class="col-md-12">
+    <div class="col-md-12 location-input-container"
+         [class.visible]="isMobileSearchVisible">
         <div class="input-group">
             <span class="input-group-addon">
                 <i class="ton-li-map-pin-4"></i>
@@ -13,60 +14,72 @@
         <br />
     </div>
 
-    <div class="col-md-12 search-summary">
-        Vous recherchez un poste
+    <div class="col-md-12 search-summary"
+         [class.mobile-menu-open]="isMobileSearchVisible">
+        <div class="row">
+            <div class="col-md-12 col-sm-10 col-xs-10">
+                Vous recherchez un poste
 
-        <span *ngIf="jobNamingList.length > 0">
-            de
-            <span *ngFor="let jobNaming of jobNamingList">
-                <span class="job-badge badge"
-                          *ngIf="jobNaming">
-                    {{ jobNaming }}
+                <span *ngIf="jobNamingList.length > 0">
+                    de
+                    <span *ngFor="let jobNaming of jobNamingList">
+                        <span class="job-badge badge"
+                              *ngIf="jobNaming">
+                            {{ jobNaming }}
+                        </span>
+                        <span *ngIf="parametersCount(jobNamingList) > 1
+                                && jobNaming
+                                && jobNamingList.indexOf(jobNaming) != jobNamingList.length - 1">
+                            ou
+                        </span>
+                    </span>
                 </span>
-                <span *ngIf="parametersCount(jobNamingList) > 1
-                        && jobNaming
-                        && jobNamingList.indexOf(jobNaming) != jobNamingList.length - 1">
-                    ou
-                </span>
-            </span>
-        </span>
 
-        <span *ngIf="studyLevelList.length > 0">
-            <span *ngFor="let studyLevel of studyLevelList">
-                <span class="study-level-badge badge"
-                      *ngIf="studyLevel">
-                    {{ studyLevel }}
+                <span *ngIf="studyLevelList.length > 0">
+                    <span *ngFor="let studyLevel of studyLevelList">
+                        <span class="study-level-badge badge"
+                              *ngIf="studyLevel">
+                            {{ studyLevel }}
+                        </span>
+                        <span *ngIf="parametersCount(studyLevelList) > 1
+                                && studyLevel
+                                && studyLevelList.indexOf(studyLevel) != studyLevelList.length - 1">
+                            ou
+                        </span>
+                    </span>
+                    <span *ngIf="parametersCount(studyLevelList) > 1">
+                        ou
+                    </span>
                 </span>
-                <span *ngIf="parametersCount(studyLevelList) > 1
-                        && studyLevel
-                        && studyLevelList.indexOf(studyLevel) != studyLevelList.length - 1">
-                    ou
-                </span>
-            </span>
-            <span *ngIf="parametersCount(studyLevelList) > 1">
-                ou
-            </span>
-        </span>
 
-        <span *ngIf="contractTypeList.length > 0">
-            en
-            <span *ngFor="let contractType of contractTypeList">
-                <span class="contract-type-badge badge"
-                      *ngIf="contractType">
-                    {{ contractType }}
+                <span *ngIf="contractTypeList.length > 0">
+                    en
+                    <span *ngFor="let contractType of contractTypeList">
+                        <span class="contract-type-badge badge"
+                              *ngIf="contractType">
+                            {{ contractType }}
+                        </span>
+                        <span *ngIf="parametersCount(contractTypeList) > 1
+                                && contractType
+                                && contractTypeList.indexOf(contractType) != contractTypeList.length - 1">
+                            ou
+                        </span>
+                    </span>
                 </span>
-                <span *ngIf="parametersCount(contractTypeList) > 1
-                        && contractType
-                        && contractTypeList.indexOf(contractType) != contractTypeList.length - 1">
-                    ou
-                </span>
-            </span>
-        </span>
 
-        <span *ngIf="place">
-            à
-            <span class="location-badge badge">{{ place.name }} </span>
-        </span>
+                <span *ngIf="place">
+                    à
+                    <span class="location-badge badge">{{ place.name }} </span>
+                </span>
+            </div>
+            <div class="hidden-md hidden-lg col-sm-2 col-xs-2 mobile-search-toggle"
+                 (click)="isMobileSearchVisible = !isMobileSearchVisible">
+                <i [class.icon-magnifier]="!isMobileSearchVisible"
+                   [class.icon-close]="isMobileSearchVisible">
+
+                </i>
+            </div>
+        </div>
     </div>
 
     <div class="col-md-12 google-maps-container">
@@ -84,7 +97,8 @@
         </sebm-google-map>
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-12 params-container"
+         [class.visible]="isMobileSearchVisible">
         <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
             <span class="badge" [class.inactive]="parametersCount(jobNamingList) == 0">
                 {{ parametersCount(jobNamingList) }}

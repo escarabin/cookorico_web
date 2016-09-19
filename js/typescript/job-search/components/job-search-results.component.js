@@ -77,10 +77,12 @@ System.register(['@angular/core', '@angular/router', '../../services/job.service
                      */
                     searchService.mapModeEmitter.subscribe(function (place) {
                         _this.isMapModeEnabled = !_this.isMapModeEnabled;
-                        _this.parametersList['place'] = place;
-                        _this.mapLat = place.geometry.location.lat;
-                        _this.mapLng = place.geometry.location.lng;
-                        _this.zoom = 8;
+                        if (place) {
+                            _this.parametersList['place'] = place;
+                            _this.mapLat = place['geometry']['location'].lat();
+                            _this.mapLng = place['geometry']['location'].lng();
+                            _this.zoom = 8;
+                        }
                     });
                     /**
                      * Do initial search without params (getting all jobs)

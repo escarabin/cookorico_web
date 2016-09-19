@@ -1,4 +1,6 @@
 <div [class.user-logged-in]="user"
+     [class.scrolled-down]="scrollTop > 100"
+     (window:scroll)="onPageScroll($event)"
      [class.user-not-logged-in]="!user">
     <job-search-sidebar></job-search-sidebar>
 

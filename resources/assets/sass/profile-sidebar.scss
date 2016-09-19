@@ -34,6 +34,9 @@ profile-sidebar {
     margin-top: 20px;
     display: inline-block;
     width: 100%;
+    max-height: 70px;
+    transition-property: all;
+    transition-duration: 350ms;
 
     .plan {
       padding-top: 15px;
@@ -84,15 +87,30 @@ profile-sidebar {
 @media (max-width: $tabletWidth) {
   profile-sidebar {
     width: 100%;
-    padding: 25px;
+    padding: 10px;
     margin-top: 25px;
     position: fixed;
     background: #f7f7f8;
     z-index: 10;
     border-radius: 0;
 
+    &.scrolled-down {
+      position: fixed;
+      top: 0;
+      margin: 0 !important;
+      -moz-box-shadow: 0px 5px 10px 0px #c0c0c0;
+      -webkit-box-shadow: 0px 5px 10px 0px #c0c0c0;
+      -o-box-shadow: 0px 5px 10px 0px #c0c0c0;
+      box-shadow: 0px 5px 10px 0px #c0c0c0;
+      filter:progid:DXImageTransform.Microsoft.Shadow(color=#c0c0c0, Direction=180, Strength=10);
+    }
+
     .profile-sidebar-menu {
       margin: 0;
+
+      &.full-height {
+        max-height: 500px;
+      }
 
       a {
         display: none;

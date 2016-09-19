@@ -1,0 +1,18 @@
+my-job-posts {
+  .job-stats, .job-applications {
+    text-align: center;
+    font-family: $mainMediumFontFamily;
+    margin-top: 3%;
+  }
+
+  .job-applications {
+    button {
+      border: none;
+      background-color: #9375AE;
+      border-radius: 4px;
+      color: white;
+      height: 50px;
+      padding: 15px;
+    }
+  }
+}

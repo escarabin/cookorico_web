@@ -196,6 +196,19 @@ home {
       home .heading .job-search select {
         margin-bottom: 15px; } }
 
+my-job-posts .job-stats, my-job-posts .job-applications {
+  text-align: center;
+  font-family: "Avenir Medium", sans-serif;
+  margin-top: 3%; }
+
+my-job-posts .job-applications button {
+  border: none;
+  background-color: #9375AE;
+  border-radius: 4px;
+  color: white;
+  height: 50px;
+  padding: 15px; }
+
 job {
   display: inline-block;
   background: white;
@@ -263,6 +276,9 @@ search {
   max-width: 1200px;
   margin: auto;
   display: block; }
+  search .scrolled-down {
+    margin-top: 230px;
+    display: inline-block; }
   search .user-not-logged-in {
     padding-top: 150px; }
   search .user-logged-in {
@@ -276,6 +292,15 @@ search {
   search {
     width: 100%;
     padding-top: 0; }
+    search .scrolled-down {
+      margin-top: 110px; }
+      search .scrolled-down job-search-sidebar {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        margin: 0; }
+    search .user-not-logged-in {
+      padding-top: 40px; }
     search .router-outlet-container {
       width: 100%;
       margin: 0; } }
@@ -409,7 +434,10 @@ profile-sidebar {
     text-align: left;
     margin-top: 20px;
     display: inline-block;
-    width: 100%; }
+    width: 100%;
+    max-height: 70px;
+    transition-property: all;
+    transition-duration: 350ms; }
     profile-sidebar .profile-sidebar-menu .plan {
       padding-top: 15px;
       text-align: center; }
@@ -444,14 +472,23 @@ profile-sidebar {
 @media (max-width: 1024px) {
   profile-sidebar {
     width: 100%;
-    padding: 25px;
+    padding: 10px;
     margin-top: 25px;
     position: fixed;
     background: #f7f7f8;
     z-index: 10;
     border-radius: 0; }
+    profile-sidebar.scrolled-down {
+      position: fixed;
+      top: 0;
+      margin: 0 !important;
+      -o-box-shadow: 0px 5px 10px 0px #c0c0c0;
+      box-shadow: 0px 5px 10px 0px #c0c0c0;
+      filter: progid:DXImageTransform.Microsoft.Shadow(color=#c0c0c0, Direction=180, Strength=10); }
     profile-sidebar .profile-sidebar-menu {
       margin: 0; }
+      profile-sidebar .profile-sidebar-menu.full-height {
+        max-height: 500px; }
       profile-sidebar .profile-sidebar-menu a {
         display: none; }
         profile-sidebar .profile-sidebar-menu a.active, profile-sidebar .profile-sidebar-menu a.visible {
@@ -538,19 +575,26 @@ job-search-sidebar {
 
 @media (max-width: 700px) {
   job-search-sidebar {
-    position: fixed;
-    z-index: 10;
-    top: 0;
     background-color: rgba(0, 0, 0, 0.61);
-    margin: 0;
-    width: 100%;
-    display: none; }
+    margin: 30px 0 0 0;
+    width: 100%; }
+    job-search-sidebar .visible {
+      display: block !important; }
+    job-search-sidebar .mobile-search-toggle {
+      font-size: 1.5em; }
+    job-search-sidebar .params-container,
+    job-search-sidebar .google-maps-container,
+    job-search-sidebar .location-input-container {
+      display: none; }
     job-search-sidebar .sidebar-container {
       padding: 20px; }
       job-search-sidebar .sidebar-container.shown {
         display: block; }
     job-search-sidebar .search-summary {
-      color: white; } }
+      color: white;
+      margin: 0; }
+      job-search-sidebar .search-summary.mobile-menu-open {
+        margin-bottom: 25px; } }
 
 job-preview {
   display: inline-block;
@@ -610,10 +654,12 @@ job-search-results {
     padding-left: 20px; }
 
 @media (max-width: 700px) {
-  job-search-results .search-results-container {
-    padding: 0; }
-  job-search-results .jobs-count {
-    margin: 0; } }
+  job-search-results {
+    box-shadow: none; }
+    job-search-results .search-results-container {
+      padding: 0; }
+    job-search-results .jobs-count {
+      margin: 0; } }
 
 profile {
   padding-top: 40px;
@@ -625,7 +671,8 @@ profile {
   profile .router-outlet-container {
     width: 75%;
     float: left;
-    margin-left: 3%; }
+    margin-left: 3%;
+    padding-top: 100px; }
     profile .router-outlet-container.full-width {
       width: 100%;
       margin-left: 0; }
@@ -633,6 +680,9 @@ profile {
     padding: 0;
     height: 60px;
     border-bottom: 1px solid #e6e6e6; }
+    profile .header-container select {
+      border: none;
+      height: 59px; }
     profile .header-container .filter {
       border-right: 1px solid #e6e6e6;
       padding: 20px;
@@ -1317,5 +1367,8 @@ a:hover {
 
 #main {
   margin-bottom: 200px; }
+
+.full-width {
+  width: 100%; }
 
 /*# sourceMappingURL=app.css.map */

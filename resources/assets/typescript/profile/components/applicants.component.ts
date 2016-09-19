@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 
 // Services
 import { UserService } from '../../services/user.service';
@@ -16,15 +17,31 @@ import { Notification } from '../../models/notification';
 
 export class ApplicantsComponent {
     items: any = [];
+    jobPosts: any = [];
+    jobPostId: number;
     allItemsChecked: boolean;
     checkedItemsList: any = [];
 
     constructor(private userService: UserService,
-                private notificationService: NotificationsService) {
+                private notificationService: NotificationsService,
+                private route: ActivatedRoute) {
         let __this = this;
+
+        this.userService.getJobPosts().subscribe((res: Response) => {
+            __this.jobPosts = res.json();
+        });
 
         this.userService.getApplicants().subscribe((res: Response) => {
             __this.items = res.json();
+        });
+
+        /**
+         * Get current jobPostId
+         */
+        route.params.subscribe(params => {
+            if (params) {
+                __this.jobPostId = parseInt(params["jobPostId"]);
+            }
         });
     }
 

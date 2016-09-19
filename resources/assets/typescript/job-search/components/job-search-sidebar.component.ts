@@ -28,6 +28,7 @@ export class JobSearchSidebarComponent {
     parametersList: any = {};
     searchText: string;
     jobs: any = [];
+    isMobileSearchVisible: boolean = false;
 
     /**
      * By default, populate place object with France coords
@@ -223,8 +224,8 @@ export class JobSearchSidebarComponent {
     parseAdress(place: Object) {
         this.parametersList['place'] = place;
         this.searchService.search(this.parametersList);
-        this.mapLat = place.geometry.location.lat();
-        this.mapLng = place.geometry.location.lng();
+        this.mapLat = place['geometry']['location'].lat();
+        this.mapLng = place['geometry']['location'].lng();
         this.zoom = 8;
 
         this.ref.detectChanges();
