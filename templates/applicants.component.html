@@ -9,7 +9,7 @@
                 name="jobPostId"
                 ngControl="jobPostId"
                 [(ngModel)]="jobPostId">
-            <option disabled value="">-- Sélectionnez une offre d'emploi --</option>
+            <option disabled value="0">-- Sélectionnez une offre d'emploi --</option>
             <option *ngFor="let jobPost of jobPosts"
                     value="{{ jobPost.id }}">
                 {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})

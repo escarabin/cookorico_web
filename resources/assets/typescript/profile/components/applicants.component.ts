@@ -18,7 +18,7 @@ import { Notification } from '../../models/notification';
 export class ApplicantsComponent {
     items: any = [];
     jobPosts: any = [];
-    jobPostId: number;
+    jobPostId: number = 0;
     allItemsChecked: boolean;
     checkedItemsList: any = [];
 

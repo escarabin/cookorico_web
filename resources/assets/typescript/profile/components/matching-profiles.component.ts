@@ -13,6 +13,7 @@ import { UserService } from './../../services/user.service';
 export class MatchingProfilesComponent {
     items: any = [];
     jobPosts: any = [];
+    jobPostId: number = 0;
 
     constructor(private userService: UserService) {
         let __this = this;
