@@ -95,6 +95,7 @@
         </a>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12">
         <h2>Présentation</h2>
@@ -181,6 +182,31 @@
                         <a>
                             <div class="item-desc">
                                 <h3>{{ testimonial.business.title }}</h3>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-12"
+         *ngIf="user.languages">
+        <h2 class="row">
+            <div class="col-md-11 col-sm-11 col-xs-10">
+                Langues parlées
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-2">
+                <span class="badge">{{ user.languages.length }}</span>
+            </div>
+        </h2>
+        <div class="list-container col-md-12">
+            <ul>
+                <li *ngFor="let language of user.languages">
+                    <div class="item">
+                        <a>
+                            <div class="item-desc">
+                                <h3>{{ language.title }}</h3>
                             </div>
                         </a>
                     </div>

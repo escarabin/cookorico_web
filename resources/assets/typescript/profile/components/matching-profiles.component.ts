@@ -24,8 +24,6 @@ export class MatchingProfilesComponent {
 
         this.userService.getMatchingProfiles().subscribe((res: Response) => {
             __this.items = res.json();
-
-            console.log('matching profiles are', __this.items);
         });
 
         this.userService.getJobPosts().subscribe((res: Response) => {

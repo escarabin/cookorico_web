@@ -117,7 +117,8 @@ class UserController extends Controller
      * @return mixed
      */
     public function get($userId) {
-        $user = User::find($userId);
+        $user = User::find($userId)
+                    ->load('languages');
 
         return $user;
     }

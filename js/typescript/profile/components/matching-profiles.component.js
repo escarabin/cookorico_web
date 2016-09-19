@@ -36,7 +36,6 @@ System.register(['@angular/core', './../../services/user.service', './../../serv
                     var __this = this;
                     this.userService.getMatchingProfiles().subscribe(function (res) {
                         __this.items = res.json();
-                        console.log('matching profiles are', __this.items);
                     });
                     this.userService.getJobPosts().subscribe(function (res) {
                         __this.jobPosts = res.json();
