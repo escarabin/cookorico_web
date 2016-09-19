@@ -1,40 +1,53 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-10 col-sm-10 col-xs-9">
+    <div class="col-md-6 col-sm-6 col-xs-6 no-padding">
         <select class="form-control"
-                name="jobPostId"
-                ngControl="jobPostId"
-                [(ngModel)]="jobPostId">
-            <option disabled value="0">-- Sélectionnez une offre d'emploi --</option>
+                name="jobNamingId"
+                ngControl="jobNamingId"
+                [(ngModel)]="jobNamingId">
+            <option disabled value="0">-- Offre d'emploi --</option>
             <option *ngFor="let jobPost of jobPosts"
-                    value="{{ jobPost.id }}">
+                    value="{{ jobPost.job_naming.id }}">
                 {{ jobPost.job_naming.title }} - {{ jobPost.business.title }}
             </option>
         </select>
     </div>
-    <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
-        <!--<button routerLink="['/Profile/CreateAlert']">
-            <span class="fa fa-plus"></span>
-        </button>-->
-        <button (click)="deleteSelectedItems()">
-            <span class="fa fa-trash-o"></span>
-        </button>
+    <div class="col-md-6 col-sm-6 col-xs-6 no-padding">
+        <select class="form-control"
+                ngControl="xpLevelId"
+                [(ngModel)]="xpLevelId">
+            <option disabled value="0">-- Expérience minimale --</option>
+            <option *ngFor="let xpLevel of xpLevels"
+                    value="{{ xpLevel.id }}">
+                {{ xpLevel.title }}
+            </option>
+        </select>
     </div>
 </div>
 
 <div class="col-md-12 list-container">
     <ul>
         <div *ngFor="let item of items">
-            <li class="row" *ngIf="item.job_id == jobPostId || !jobPostId">
+            <li class="row" *ngIf="item.lookingForJobNamingIdList.indexOf(jobNamingId) != -1 || !jobNamingId">
                 <div class="col-md-12 col-sm-12 col-xs-12 item"
                      [class.photo]="item.profilePictureUrl">
                     <a routerLink="/profile/show/{{ item.id }}">
-                        <div class="logo"
+                        <div class="col-md-2"
                              *ngIf="item.profilePictureUrl">
-                            <img src="{{ item.profilePictureUrl }}"/>
+                            <img src="{{ item.profilePictureUrl }}" class="full-width"/>
                         </div>
-                        <div class="item-desc">
-                            <h3>{{ item.firstName }}</h3>
-                            {{ item.firstName }} -- {{ item.lastName }}
+                        <div class="col-md-8">
+                            <h3>{{ item.firstName }} {{ item.lastName.substr(0, 1) }}.</h3>
+                            <span *ngIf="item.xp_level">
+                                Expérience : {{ item.xp_level.title }}
+                            </span>
+                            <p>
+                                {{ item.description.substr(0, 200) }}...
+                            </p>
+                        </div>
+                        <div class="col-md-2 show-profile">
+                            <button>
+                                Voir le profil
+                            </button>
                         </div>
                     </a>
                 </div>

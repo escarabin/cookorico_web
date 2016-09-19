@@ -1,4 +1,4 @@
-System.register(['@angular/core', './../../services/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', './../../services/user.service', './../../services/reference.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './../../services/user.service'], function(exp
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, user_service_1;
+    var core_1, user_service_1, reference_service_1;
     var MatchingProfilesComponent;
     return {
         setters:[
@@ -19,29 +19,39 @@ System.register(['@angular/core', './../../services/user.service'], function(exp
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
+            },
+            function (reference_service_1_1) {
+                reference_service_1 = reference_service_1_1;
             }],
         execute: function() {
             MatchingProfilesComponent = (function () {
-                function MatchingProfilesComponent(userService) {
+                function MatchingProfilesComponent(userService, referenceService) {
                     this.userService = userService;
+                    this.referenceService = referenceService;
                     this.items = [];
                     this.jobPosts = [];
-                    this.jobPostId = 0;
+                    this.jobNamingId = 0;
+                    this.xpLevelId = 0;
+                    this.xpLevels = [];
                     var __this = this;
                     this.userService.getMatchingProfiles().subscribe(function (res) {
                         __this.items = res.json();
+                        console.log('matching profiles are', __this.items);
                     });
                     this.userService.getJobPosts().subscribe(function (res) {
                         __this.jobPosts = res.json();
+                    });
+                    this.referenceService.getAllJobXpLevels().subscribe(function (res) {
+                        __this.xpLevels = res.json();
                     });
                 }
                 MatchingProfilesComponent = __decorate([
                     core_1.Component({
                         selector: 'matching-profiles',
-                        providers: [user_service_1.UserService],
+                        providers: [user_service_1.UserService, reference_service_1.ReferenceService],
                         templateUrl: '../templates/matching-profiles.component.html',
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService])
+                    __metadata('design:paramtypes', [user_service_1.UserService, reference_service_1.ReferenceService])
                 ], MatchingProfilesComponent);
                 return MatchingProfilesComponent;
             }());

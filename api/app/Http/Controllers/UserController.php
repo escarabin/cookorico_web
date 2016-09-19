@@ -171,7 +171,21 @@ class UserController extends Controller
         $userList = User::whereIn('id', $userIdList)
                         ->where('user_status_id', 1)
                         ->get()
-                        ->load('lookingForJobNamings');
+                        ->load('lookingForJobNamings', 'xpLevel');
+
+        /**
+         * Transform relationship lists to id lists
+         */
+        foreach ($userList as $user) {
+            $lookingForJobNamings = $user->lookingForJobNamings;
+            $lookingForJobNamingIdList = array();
+
+            foreach ($lookingForJobNamings as $lookingForJobNaming) {
+                $lookingForJobNamingIdList[] = strval($lookingForJobNaming->id);
+            }
+
+            $user->lookingForJobNamingIdList = $lookingForJobNamingIdList;
+        }
 
         return $userList;
     }

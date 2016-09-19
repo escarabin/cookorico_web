@@ -37,6 +37,7 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
                     this.route = route;
                     this.items = [];
                     this.jobPosts = [];
+                    this.jobPostId = 0;
                     this.checkedItemsList = [];
                     var __this = this;
                     this.userService.getJobPosts().subscribe(function (res) {

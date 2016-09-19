@@ -335,6 +335,15 @@ post-preview:nth-child(odd) {
   post-preview:nth-child(odd):hover {
     background-color: #e7f6fb; }
 
+matching-profiles .show-profile button {
+  border-radius: 4px;
+  background: #FF8402;
+  border: none;
+  padding: 15px;
+  margin-top: 25px;
+  color: white;
+  font-family: "Avenir Medium", sans-serif; }
+
 #sign-in-modal .modal-dialog {
   max-width: 400px;
   width: 100%; }
@@ -681,8 +690,11 @@ profile {
     height: 60px;
     border-bottom: 1px solid #e6e6e6; }
     profile .header-container select {
+      height: 59px;
       border: none;
-      height: 59px; }
+      border-right: 1px solid white;
+      background: #35B6E1;
+      color: white; }
     profile .header-container .filter {
       border-right: 1px solid #e6e6e6;
       padding: 20px;
@@ -1370,5 +1382,8 @@ a:hover {
 
 .full-width {
   width: 100%; }
+
+.no-padding {
+  padding: 0; }
 
 /*# sourceMappingURL=app.css.map */

@@ -10,6 +10,7 @@
 @import "business-select.component";
 @import "search";
 @import "post-preview";
+@import "matching-profiles";
 @import "sign-in-modal";
 @import "profile-sidebar";
 @import "applications";
@@ -94,4 +95,8 @@ a:hover {
 
 .full-width {
   width: 100%;
+}
+
+.no-padding {
+  padding: 0;
 }

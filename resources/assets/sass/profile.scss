@@ -26,8 +26,11 @@ profile {
     border-bottom: 1px solid #e6e6e6;
 
     select {
-      border: none;
       height: 59px;
+      border: none;
+      border-right: 1px solid white;
+      background: $oechrBlueColor;
+      color: white;
     }
 
     .filter {
