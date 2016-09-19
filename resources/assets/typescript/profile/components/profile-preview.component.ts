@@ -59,7 +59,7 @@ export class ProfilePreviewComponent {
          */
         route.params.subscribe(params => {
             if (params) {
-                __this.userIdRouteParam = params['id'];
+                __this.userIdRouteParam = params['userId'];
             }
         });
 

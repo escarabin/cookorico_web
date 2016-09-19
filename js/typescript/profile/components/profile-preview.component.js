@@ -63,7 +63,7 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
                      */
                     route.params.subscribe(function (params) {
                         if (params) {
-                            __this.userIdRouteParam = params['id'];
+                            __this.userIdRouteParam = params['userId'];
                         }
                     });
                     if (!this.userIdRouteParam) {
