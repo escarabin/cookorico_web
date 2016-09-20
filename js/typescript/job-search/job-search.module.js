@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms', '@angular/common', './job-search.routes', './../shared/shared.module', 'angular2-google-maps/core/index', './components/job.component', './components/new-application-form.component', './components/job-preview.component', './../shared/components/custom-pagination.component', './../job-search/components/job-search-sidebar.component', './../services/search.service', './../services/job.service', './../globals'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', '@angular/common', './job-search.routes', './../shared/shared.module', 'angular2-google-maps/core/index', './components/job.component', './components/new-application-form.component', './../shared/components/custom-pagination.component', './../job-search/components/job-search-sidebar.component', './../services/search.service', './../services/job.service', './../globals'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/forms', '@angular/common', './job-se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, forms_1, common_1, job_search_routes_1, shared_module_1, index_1, job_component_1, new_application_form_component_1, job_preview_component_1, custom_pagination_component_1, job_search_sidebar_component_1, search_service_1, job_service_1, appGlobals;
+    var core_1, forms_1, common_1, job_search_routes_1, shared_module_1, index_1, job_component_1, new_application_form_component_1, custom_pagination_component_1, job_search_sidebar_component_1, search_service_1, job_service_1, appGlobals;
     var JobSearchModule;
     return {
         setters:[
@@ -38,9 +38,6 @@ System.register(['@angular/core', '@angular/forms', '@angular/common', './job-se
             function (new_application_form_component_1_1) {
                 new_application_form_component_1 = new_application_form_component_1_1;
             },
-            function (job_preview_component_1_1) {
-                job_preview_component_1 = job_preview_component_1_1;
-            },
             function (custom_pagination_component_1_1) {
                 custom_pagination_component_1 = custom_pagination_component_1_1;
             },
@@ -64,7 +61,6 @@ System.register(['@angular/core', '@angular/forms', '@angular/common', './job-se
                     core_1.NgModule({
                         declarations: [job_component_1.JobComponent,
                             new_application_form_component_1.NewApplicationFormComponent,
-                            job_preview_component_1.JobPreviewComponent,
                             job_search_sidebar_component_1.JobSearchSidebarComponent,
                             custom_pagination_component_1.CustomPaginationComponent],
                         imports: [job_search_routes_1.jobSearchRouting,

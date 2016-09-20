@@ -52,4 +52,11 @@ class Business extends Model
     public function photos() {
         return $this->hasMany(BusinessPhoto::class);
     }
+
+    /**
+     * Get the business's photos
+     */
+    public function jobs() {
+        return $this->hasMany(Job::class);
+    }
 }

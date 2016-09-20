@@ -3,7 +3,6 @@ import { Response } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 
 // Services
-import { JobService } from '../../services/job.service';
 import { SearchService } from '../../services/search.service';
 
 // Pagination
@@ -11,7 +10,7 @@ import { PaginatePipe, PaginationService } from 'ng2-pagination';
 
 @Component({
     selector: 'job-search-results',
-    providers: [JobService, PaginationService],
+    providers: [PaginationService],
     pipes: [PaginatePipe],
     templateUrl: '../templates/job-search-results.component.html',
 })
@@ -24,6 +23,7 @@ export class JobSearchResultsComponent {
     searchText: string;
     isMapModeEnabled: boolean = false;
     parametersList: any = [];
+    placeId: string;
 
     /**
      * By default, populate place object with France coords
@@ -32,8 +32,7 @@ export class JobSearchResultsComponent {
     mapLat: number = 46.227638;
     mapLng: number = 2.213749;
 
-    constructor(private jobService: JobService,
-                @Inject(SearchService) private searchService: SearchService,
+    constructor(@Inject(SearchService) private searchService: SearchService,
                 private route: ActivatedRoute) {
         let __this = this;
 
@@ -43,15 +42,23 @@ export class JobSearchResultsComponent {
                 __this.contractTypeId = params['contractTypeId'];
                 __this.jobNamingId = params['jobNamingId'];
                 __this.searchText = params['searchText'];
+                __this.placeId = params['placeId'];
 
                 this.parametersList['contractTypeIdList'] = [ this.contractTypeId ];
                 this.parametersList['jobNamingIdList'] = [ this.jobNamingId ];
                 this.parametersList['studyLevelIdList'] = [ this.studyLevelId ];
 
-                console.log('params are and params stay ', params);
+                /**
+                 * Get google maps data from placeId using reverse geocoding API
+                 */
+                let geocoder = new google.maps.Geocoder;
+                geocoder.geocode({'placeId': __this.placeId}, function(results) {
+                    let place = results[0];
 
-                // TODO
-                // SearchService.search(parametersArray);
+                    __this.parametersList['place'] = place;
+
+                    searchService.search(__this.parametersList);
+                });
             }
         });
 
@@ -86,8 +93,9 @@ export class JobSearchResultsComponent {
 
         /**
          * Do initial search without params (getting all jobs)
+         * TODO: remove it
          */
-        searchService.search();
+        // searchService.search();
     }
 
     /**

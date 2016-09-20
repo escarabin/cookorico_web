@@ -151,8 +151,10 @@ Route::get('/diplomas/all', 'ReferenceController@getAllDiplomas')
 // Businesses
 Route::post('/business/create', 'BusinessController@create')
     ->name('createBusiness');
-Route::get('/business/{businessId}/', 'BusinessController@get')
+Route::get('/business/{businessId}', 'BusinessController@get')
     ->name('getBusiness');
+Route::get('/business/jobs/{businessId}', 'BusinessController@getJobs')
+    ->name('getJobsFromBusiness');
 Route::get('/businesses/all/', 'BusinessController@getAll')
     ->name('getAllBusinesses');
 

@@ -8,6 +8,9 @@
             <input type="text"
                    class="form-control"
                    placeholder="Localisation"
+                   [(ngModel)]="locationName"
+                   ngControl="locationName"
+                   name="location_name"
                    (setAddress)="parseAdress($event)"
                    googleplace/>
         </div>

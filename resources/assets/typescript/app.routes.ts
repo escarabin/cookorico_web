@@ -6,6 +6,7 @@ import { PostComponent } from './components/post.component';
 import { ClubComponent } from './components/club.component';
 import { SignUpComponent } from './components/sign-up.component';
 import { RecruiterPromoComponent } from './shared/components/recruiter-promo.component';
+import { BusinessPageComponent } from './shared/components/business-page.component';
 
 const appRoutes: Routes = [
     // Child routing
@@ -18,6 +19,9 @@ const appRoutes: Routes = [
         path: 'recherche',
         loadChildren: '/js/typescript/job-search/job-search.module#JobSearchModule'
     },
+
+    // Business page
+    { path: 'business/:businessId', component: BusinessPageComponent },
 
     // Posts
     { path: 'post/:postId', component: PostComponent },

@@ -28,6 +28,7 @@ export class JobSearchSidebarComponent {
     parametersList: any = {};
     searchText: string;
     jobs: any = [];
+    locationName: string;
     isMobileSearchVisible: boolean = false;
 
     /**
@@ -71,6 +72,17 @@ export class JobSearchSidebarComponent {
          */
         SearchService.parametersEmitter.subscribe(
             res => {
+                /**
+                 * Parse place infos
+                 */
+                let place = res['place'];
+                if (res['place']) {
+                    __this.locationName = place['formatted_address'];
+                    __this.mapLat = place['geometry']['location'].lat();
+                    __this.mapLng = place['geometry']['location'].lng();
+                    __this.zoom = 8;
+                }
+
                 for (let i = 0; i < res['contractTypeIdList']; i++) {
                     let paramId = res['contractTypeIdList'][i];
                     __this.contractTypeList[paramId] = this.getParamTitleFromId(paramId, 'contractType');

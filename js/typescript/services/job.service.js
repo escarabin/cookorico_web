@@ -29,6 +29,7 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                     this.http = http;
                     this.allJobsListingUrl = appGlobals.apiUrl + '/jobs/all';
                     this.showJobListingUrl = appGlobals.apiUrl + '/job/';
+                    this.jobsFromBusinessUrl = appGlobals.apiUrl + '/business/jobs/';
                     this.applyJobUrl = appGlobals.apiUrl + '/apply_job';
                     this.searchJobsUrl = appGlobals.apiUrl + '/jobs/search';
                     this.user = JSON.parse(localStorage.getItem('user'));
@@ -38,8 +39,7 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                  * @returns {Observable<Response>}
                  */
                 JobService.prototype.getAllJobs = function () {
-                    var __this = this;
-                    return this.http.request(__this.allJobsListingUrl);
+                    return this.http.request(this.allJobsListingUrl);
                 };
                 /**
                  * Search jobs regarding parameters
@@ -47,12 +47,10 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                  * @returns {Observable<Response>}
                  */
                 JobService.prototype.searchJobs = function (searchParameters) {
-                    var __this = this;
                     var body = JSON.stringify({ searchParameters: searchParameters });
-                    console.log('body sent to controller is ', searchParameters);
                     var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
                     var options = new http_1.RequestOptions({ headers: headers });
-                    return this.http.post(__this.searchJobsUrl, body, options);
+                    return this.http.post(this.searchJobsUrl, body, options);
                 };
                 /**
                  * Returns specific job
@@ -60,8 +58,15 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                  * @returns {Observable<Response>}
                  */
                 JobService.prototype.getJob = function (jobId) {
-                    var __this = this;
-                    return this.http.request(__this.showJobListingUrl + jobId);
+                    return this.http.request(this.showJobListingUrl + jobId);
+                };
+                /**
+                 * List jobs from businessId
+                 * @param businessId
+                 * @returns {Observable<Response>}
+                 */
+                JobService.prototype.getJobsFromBusiness = function (businessId) {
+                    return this.http.get(this.jobsFromBusinessUrl + businessId);
                 };
                 /**
                  * Apply to a specific job
@@ -69,11 +74,10 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                  * @returns {Observable<Response>}
                  */
                 JobService.prototype.apply = function (application) {
-                    var __this = this;
                     var body = JSON.stringify({ application: application });
                     var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
                     var options = new http_1.RequestOptions({ headers: headers });
-                    return this.http.post(__this.applyJobUrl, body, options);
+                    return this.http.post(this.applyJobUrl, body, options);
                 };
                 JobService = __decorate([
                     core_1.Injectable(), 

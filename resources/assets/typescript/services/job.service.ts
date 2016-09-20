@@ -9,6 +9,7 @@ import { Application } from '../models/application';
 export class JobService {
     allJobsListingUrl = appGlobals.apiUrl + '/jobs/all';
     showJobListingUrl = appGlobals.apiUrl + '/job/';
+    jobsFromBusinessUrl = appGlobals.apiUrl + '/business/jobs/';
     applyJobUrl = appGlobals.apiUrl + '/apply_job';
     searchJobsUrl = appGlobals.apiUrl + '/jobs/search';
     jobId: number;
@@ -23,9 +24,7 @@ export class JobService {
      * @returns {Observable<Response>}
      */
     getAllJobs() {
-        let __this = this;
-
-        return this.http.request(__this.allJobsListingUrl);
+        return this.http.request(this.allJobsListingUrl);
     }
 
     /**
@@ -34,16 +33,12 @@ export class JobService {
      * @returns {Observable<Response>}
      */
     searchJobs(searchParameters: any) {
-        let __this = this;
-
         let body = JSON.stringify({ searchParameters });
-
-        console.log('body sent to controller is ', searchParameters);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(__this.searchJobsUrl, body, options);
+        return this.http.post(this.searchJobsUrl, body, options);
     }
 
     /**
@@ -51,10 +46,17 @@ export class JobService {
      * @param jobId
      * @returns {Observable<Response>}
      */
-    getJob(jobId) {
-        let __this = this;
+    getJob(jobId: number) {
+        return this.http.request(this.showJobListingUrl + jobId);
+    }
 
-        return this.http.request(__this.showJobListingUrl + jobId);
+    /**
+     * List jobs from businessId
+     * @param businessId
+     * @returns {Observable<Response>}
+     */
+    getJobsFromBusiness(businessId: number) {
+        return this.http.get(this.jobsFromBusinessUrl + businessId);
     }
 
     /**
@@ -63,12 +65,10 @@ export class JobService {
      * @returns {Observable<Response>}
      */
     apply(application: Application) {
-        let __this = this;
-
         let body = JSON.stringify({ application });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(__this.applyJobUrl, body, options);
+        return this.http.post(this.applyJobUrl, body, options);
     }
 }

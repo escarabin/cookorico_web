@@ -1,0 +1,39 @@
+<div class="business-infos row">
+    <div class="logo col-md-2 col-sm-2 col-xs-2"
+         *ngIf="business.logo">
+        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ business.id }}.jpg"
+             class="full-width"/>
+    </div>
+
+    <div class="col-md-10 infos">
+        <h2>{{ business.title }}</h2>
+        <p *ngIf="business.place">
+            {{ business.place.adress }}
+        </p>
+    </div>
+</div>
+
+<div class="business-desc row">
+    <h2>Présentation</h2>
+    <br />
+    <p>
+        {{ business.description }}
+    </p>
+</div>
+
+<div class="business-photos row">
+    <div class="col-md-3 photo-container"
+         *ngFor="let photo of business.photos">
+        <img src="{{ photo.url }}"
+             class="full-width"/>
+    </div>
+</div>
+
+<div class="jobs-listing row">
+    <h3 class="centered">
+        Nos offres d'emploi
+    </h3>
+    <job-preview *ngFor="let job of jobs"
+                 [job]="job">
+    </job-preview>
+</div>

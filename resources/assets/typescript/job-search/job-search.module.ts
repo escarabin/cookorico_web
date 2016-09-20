@@ -8,7 +8,6 @@ import { AgmCoreModule } from 'angular2-google-maps/core/index';
 // Components
 import { JobComponent } from './components/job.component';
 import { NewApplicationFormComponent } from './components/new-application-form.component';
-import { JobPreviewComponent } from './components/job-preview.component';
 import { CustomPaginationComponent } from './../shared/components/custom-pagination.component';
 import { JobSearchSidebarComponent } from './../job-search/components/job-search-sidebar.component';
 
@@ -23,7 +22,6 @@ import appGlobals = require('./../globals');
 @NgModule({
     declarations: [ JobComponent,
                     NewApplicationFormComponent,
-                    JobPreviewComponent,
                     JobSearchSidebarComponent,
                     CustomPaginationComponent ],
     imports:      [ jobSearchRouting,

@@ -1,7 +1,7 @@
-System.register(['@angular/router', './components/home.component', './components/post.component', './components/club.component', './components/sign-up.component', './shared/components/recruiter-promo.component'], function(exports_1, context_1) {
+System.register(['@angular/router', './components/home.component', './components/post.component', './components/club.component', './components/sign-up.component', './shared/components/recruiter-promo.component', './shared/components/business-page.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var router_1, home_component_1, post_component_1, club_component_1, sign_up_component_1, recruiter_promo_component_1;
+    var router_1, home_component_1, post_component_1, club_component_1, sign_up_component_1, recruiter_promo_component_1, business_page_component_1;
     var appRoutes, routing;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['@angular/router', './components/home.component', './components
             },
             function (recruiter_promo_component_1_1) {
                 recruiter_promo_component_1 = recruiter_promo_component_1_1;
+            },
+            function (business_page_component_1_1) {
+                business_page_component_1 = business_page_component_1_1;
             }],
         execute: function() {
             appRoutes = [
@@ -34,6 +37,8 @@ System.register(['@angular/router', './components/home.component', './components
                     path: 'recherche',
                     loadChildren: '/js/typescript/job-search/job-search.module#JobSearchModule'
                 },
+                // Business page
+                { path: 'business/:businessId', component: business_page_component_1.BusinessPageComponent },
                 // Posts
                 { path: 'post/:postId', component: post_component_1.PostComponent },
                 // Clubs

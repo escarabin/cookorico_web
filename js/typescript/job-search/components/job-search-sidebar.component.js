@@ -78,6 +78,16 @@ System.register(['@angular/core', '../../services/reference.service', '../../ser
                      * Subscribe to new search parameters coming from other components
                      */
                     SearchService.parametersEmitter.subscribe(function (res) {
+                        /**
+                         * Parse place infos
+                         */
+                        var place = res['place'];
+                        if (res['place']) {
+                            __this.locationName = place['formatted_address'];
+                            __this.mapLat = place['geometry']['location'].lat();
+                            __this.mapLng = place['geometry']['location'].lng();
+                            __this.zoom = 8;
+                        }
                         for (var i = 0; i < res['contractTypeIdList']; i++) {
                             var paramId = res['contractTypeIdList'][i];
                             __this.contractTypeList[paramId] = _this.getParamTitleFromId(paramId, 'contractType');

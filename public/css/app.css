@@ -1083,6 +1083,12 @@ right-sidebar {
   border-radius: 4px; }
   .badge.inactive {
     color: #CCC; }
+  .badge.danger {
+    background-color: #E13543;
+    color: white; }
+  .badge.info {
+    background-color: #35B6E1;
+    color: white; }
 
 .spinner {
   margin: auto;
@@ -1339,6 +1345,26 @@ sign-up-steps {
 
 website-editor .delete-url {
   padding: 15px; }
+
+business-page {
+  padding-top: 50px;
+  display: block; }
+  business-page .business-desc, business-page .business-infos, business-page .business-photos, business-page .jobs-listing {
+    max-width: 800px;
+    width: 100%;
+    margin: 25px auto;
+    box-shadow: 0px 0px 40px 0px #c0d0d6;
+    background: white;
+    border-radius: 4px;
+    padding: 20px; }
+  business-page .business-infos {
+    margin-top: 0; }
+  business-page .jobs-listing {
+    padding: 0; }
+  business-page .business-photos .photo-container {
+    height: 100px;
+    overflow: hidden;
+    margin: 15px 0; }
 
 confirm-account-creation {
   display: block;

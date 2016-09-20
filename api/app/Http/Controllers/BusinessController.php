@@ -38,7 +38,7 @@ class BusinessController extends Controller
         $business->save();
 
         /**
-         * Loop through business photos
+         * Loop throueth business photos
          */
         $i = 1;
         foreach ($businessData['photos'] as $photo) {
@@ -120,6 +120,22 @@ class BusinessController extends Controller
                             ->load('place');
 
         return $business;
+    }
+
+    /**
+     * get jobs from business specific id
+     * @param $businessId
+     */
+    public function getJobs($businessId) {
+        $business = Business::find($businessId);
+
+        $jobs = $business->jobs->load('business', 'contractType');
+
+        foreach ($jobs as $job) {
+            $job->business->place = $job->business->place;
+        }
+
+        return $jobs;
     }
 
     /**

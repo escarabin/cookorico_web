@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ChangeDetectorRef } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 // Services
@@ -14,9 +14,10 @@ export class JobSearchBarComponent {
     places: any;
     jobNamingGroups: any;
     jobNamingId: number = 0;
-    placeId: string = "0";
+    place: any = {place_id: 0};
 
-    constructor(private referenceService: ReferenceService) {
+    constructor(private referenceService: ReferenceService,
+                private ref: ChangeDetectorRef) {
         let __this = this;
 
         referenceService.getAllStates().subscribe((res: Response) => {
@@ -29,6 +30,8 @@ export class JobSearchBarComponent {
     }
 
     parseAdress(place: Object) {
-        this.placeId = place['id'];
+        this.place = place;
+
+        this.ref.detectChanges();
     }
 }

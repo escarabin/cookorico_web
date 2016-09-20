@@ -161,10 +161,7 @@ class JobController extends Controller
             $job->print_count = $job->print_count + 1;
             $job->save();
 
-            Log::info('saving prints');
-
-            if ($parameters['place']) {
-                Log::info('looking for jobs with place');
+            if (array_key_exists('place', $parameters)) {
                 $viewport_north = $parameters['place']['geometry']['viewport']['north'];
                 $viewport_south = $parameters['place']['geometry']['viewport']['south'];
                 $viewport_west = $parameters['place']['geometry']['viewport']['west'];

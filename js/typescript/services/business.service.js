@@ -28,6 +28,7 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                 function BusinessService(http) {
                     this.http = http;
                     this.createBusinessUrl = appGlobals.apiUrl + "/business/create";
+                    this.getBusinessUrl = appGlobals.apiUrl + "/business";
                     this.getAllBusinessesUrl = appGlobals.apiUrl + "/businesses/all";
                     this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
                     this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
@@ -48,6 +49,14 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                  */
                 BusinessService.prototype.getAll = function () {
                     return this.http.request(this.getAllBusinessesUrl);
+                };
+                /**
+                 * Get specific business data from its id
+                 * @param businessId
+                 * @returns {Observable<Response>}
+                 */
+                BusinessService.prototype.get = function (businessId) {
+                    return this.http.get(this.getBusinessUrl + '/' + businessId);
                 };
                 BusinessService = __decorate([
                     core_1.Injectable(), 
