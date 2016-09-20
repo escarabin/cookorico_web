@@ -43,6 +43,48 @@ class UserController extends Controller
     }
 
     /**
+     * Get the percentage which the profile is filled in
+     */
+    public function getProfilePercentage() {
+        $user = Auth::user();
+
+        /**
+         * Initial percentage
+         */
+        $percentage = 10;
+
+        if ($user->experiences) {
+            $percentage += 15;
+        }
+
+        if ($user->education) {
+            $percentage += 15;
+        }
+
+        if ($user->languages) {
+            $percentage += 15;
+        }
+
+        if ($user->description) {
+            $percentage += 15;
+        }
+
+        if ($user->profilePictureUrl) {
+            $percentage += 10;
+        }
+
+        if ($user->resumeUrl) {
+            $percentage += 10;
+        }
+
+        if ($user->testimonials) {
+            $percentage += 10;
+        }
+
+        return $percentage;
+    }
+
+    /**
      * Create candidate user
      * @param Request $request
      */

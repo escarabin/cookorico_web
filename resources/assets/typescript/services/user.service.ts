@@ -50,6 +50,7 @@ export class UserService {
     confirmEmailAddressUrl = appGlobals.apiUrl + '/user/confirm_address';
     activateUserUrl = appGlobals.apiUrl + '/user/activate';
     loginUsingIdUrl = appGlobals.apiUrl + '/user/login_using_id';
+    getFillPercentageUrl = appGlobals.apiUrl + '/user/get_profile_percentage';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
@@ -426,6 +427,13 @@ export class UserService {
         let requestBody = JSON.stringify({ user, lookingForJobsNamingIdList });
 
         return this.http.post(this.createCandidateUrl, requestBody, this.postRequestOptions);
+    }
+
+    /**
+     * Get the percentage which the profile is filled in
+     */
+    getProfilePercentage() {
+        return this.http.get(this.getFillPercentageUrl);
     }
 
     /**

@@ -1,14 +1,1 @@
-[2016-09-20 15:15:01] local.INFO: test saved  
-[2016-09-20 15:16:01] local.INFO: test saved  
-[2016-09-20 15:17:01] local.INFO: test saved  
-[2016-09-20 15:18:01] local.INFO: test saved  
-[2016-09-20 15:18:22] local.INFO: array (
-  'searchParameters' => 
-  array (
-  ),
-)  
-[2016-09-20 15:18:42] local.INFO: array (
-  'searchParameters' => 
-  array (
-  ),
-)  
+[2016-09-20 15:38:02] local.INFO: test saved  

@@ -63,6 +63,8 @@ Route::post('/user/upload_resume', 'UserController@uploadResume')
 Route::post('/user/save_info', 'UserController@saveInfo');
 Route::post('/user/create_candidate', 'UserController@fillCandidateInfos')
     ->name('createCandidate');
+Route::get('/user/get_profile_percentage', 'UserController@getProfilePercentage')
+    ->name('getProfilePercentage');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')

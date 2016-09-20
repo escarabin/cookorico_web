@@ -12,6 +12,7 @@ import { UserService } from './../../services/user.service';
 
 export class ProfileSubHeaderComponent {
     user: any;
+    profilePercentage: number;
 
     constructor(@Inject(UserService) UserService) {
         /**
@@ -33,6 +34,13 @@ export class ProfileSubHeaderComponent {
          */
         UserService.userChangeEmitter.subscribe((res: Response) => {
             console.log('received a new user', res.json());
+        });
+
+        /**
+         * Get profile percentage of fill
+         */
+        UserService.getProfilePercentage().subscribe((res: Response) => {
+            this.profilePercentage = res.json();
         });
     }
 }

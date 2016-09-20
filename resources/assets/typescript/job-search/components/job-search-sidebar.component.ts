@@ -75,11 +75,11 @@ export class JobSearchSidebarComponent {
                 /**
                  * Parse place infos
                  */
-                let place = res['place'];
+                __this.place = res['place'];
                 if (res['place']) {
-                    __this.locationName = place['formatted_address'];
-                    __this.mapLat = place['geometry']['location'].lat();
-                    __this.mapLng = place['geometry']['location'].lng();
+                    __this.locationName = __this.place['formatted_address'];
+                    __this.mapLat = __this.place['geometry']['location'].lat();
+                    __this.mapLng = __this.place['geometry']['location'].lng();
                     __this.zoom = 8;
                 }
 

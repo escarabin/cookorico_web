@@ -70,6 +70,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.confirmEmailAddressUrl = appGlobals.apiUrl + '/user/confirm_address';
                     this.activateUserUrl = appGlobals.apiUrl + '/user/activate';
                     this.loginUsingIdUrl = appGlobals.apiUrl + '/user/login_using_id';
+                    this.getFillPercentageUrl = appGlobals.apiUrl + '/user/get_profile_percentage';
                     this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
                     this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
                     this.userChangeEmitter = new core_1.EventEmitter();
@@ -386,6 +387,12 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 UserService.prototype.createCandidate = function (user, lookingForJobsNamingIdList) {
                     var requestBody = JSON.stringify({ user: user, lookingForJobsNamingIdList: lookingForJobsNamingIdList });
                     return this.http.post(this.createCandidateUrl, requestBody, this.postRequestOptions);
+                };
+                /**
+                 * Get the percentage which the profile is filled in
+                 */
+                UserService.prototype.getProfilePercentage = function () {
+                    return this.http.get(this.getFillPercentageUrl);
                 };
                 /**
                  * Error handling

@@ -45,6 +45,12 @@ System.register(['@angular/core', './../../services/user.service'], function(exp
                     UserService.userChangeEmitter.subscribe(function (res) {
                         console.log('received a new user', res.json());
                     });
+                    /**
+                     * Get profile percentage of fill
+                     */
+                    UserService.getProfilePercentage().subscribe(function (res) {
+                        _this.profilePercentage = res.json();
+                    });
                 }
                 ProfileSubHeaderComponent = __decorate([
                     core_1.Component({

@@ -81,11 +81,11 @@ System.register(['@angular/core', '../../services/reference.service', '../../ser
                         /**
                          * Parse place infos
                          */
-                        var place = res['place'];
+                        __this.place = res['place'];
                         if (res['place']) {
-                            __this.locationName = place['formatted_address'];
-                            __this.mapLat = place['geometry']['location'].lat();
-                            __this.mapLng = place['geometry']['location'].lng();
+                            __this.locationName = __this.place['formatted_address'];
+                            __this.mapLat = __this.place['geometry']['location'].lat();
+                            __this.mapLng = __this.place['geometry']['location'].lng();
                             __this.zoom = 8;
                         }
                         for (var i = 0; i < res['contractTypeIdList']; i++) {

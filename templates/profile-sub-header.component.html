@@ -1,7 +1,7 @@
 <div class="sub-header-wrapper">
     <div class="profile-picture col-md-2 col-sm-2"
          *ngIf="user.profilePictureUrl">
-        <div class="progress-radial progress-75">
+        <div class="progress-radial progress-{{ profilePercentage }}">
             <div class="overlay">
                 <div class="img"
                      [ngStyle]="{'background-image': 'url(' + user.profilePictureUrl + ')'}">
@@ -19,7 +19,7 @@
         <a routerLink="/profile"
            *ngIf="user.is_active">
             <span class="badge complete-profile">
-                Profil renseigné à 80% <span class="fa fa-angle-right"></span>
+                Profil renseigné à {{ profilePercentage }}% <span class="fa fa-angle-right"></span>
             </span>
         </a>
     </div>
