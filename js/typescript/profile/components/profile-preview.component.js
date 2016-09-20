@@ -74,7 +74,6 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
                     }
                     this.userService.get(this.userIdRouteParam).subscribe(function (res) {
                         __this.user = res.json();
-                        console.log('user is', __this.user);
                         __this.userService.getExperiences(__this.user.id).subscribe(function (res) {
                             __this.experiences = res.json();
                         });

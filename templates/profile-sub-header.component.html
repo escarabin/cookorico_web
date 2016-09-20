@@ -42,7 +42,7 @@
         </div>
         <div class="col-md-2 col-sm-2 sub-header-menu-item"
              [class.disabled]="!user.is_active">
-            <a routerLink="/job-search">
+            <a routerLink="/recherche">
                 <i class="icon-magnifier"><br /></i>
                 <h3>Toutes les offres</h3>
             </a>
@@ -53,7 +53,7 @@
     <div *ngIf="user.user_type_id == 2">
         <div class="col-md-2 col-sm-2 sub-header-menu-item"
              [class.disabled]="!user.is_active">
-            <a routerLink="/profile/my-job-posts">
+            <a routerLink="/profile/job-posts">
                 <i class="icon-note"><br /></i>
                 <h3>Mes offres</h3>
             </a>

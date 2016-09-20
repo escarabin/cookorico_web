@@ -194,6 +194,11 @@ Route::get('/auth/{provider}', 'Auth\AuthController@redirectToProvider')
 Route::get('/auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback')
     ->name('handleAuthProviderCallback');
 
+// Editor
+Route::get('/website_editor/traffic_cats', 'WebsiteEditorController@getTrafficDrivenCats')
+    ->name('getTrafficDrivenCats');
+
+
 // Password reset link request routes
 Route::get('/password/email', 'Auth\PasswordController@getEmail');
 Route::post('/password/email', 'Auth\PasswordController@postEmail');

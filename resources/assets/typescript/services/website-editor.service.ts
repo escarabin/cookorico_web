@@ -8,6 +8,7 @@ import { Option } from '../models/option';
 @Injectable()
 export class WebsiteEditorService {
     saveOptionUrl = appGlobals.apiUrl + "/option/save";
+    getTrafficDrivenCatsUrl = appGlobals.apiUrl + "/website_editor/traffic_cats";
 
     constructor(private http: Http) {
 
@@ -26,5 +27,13 @@ export class WebsiteEditorService {
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(__this.saveOptionUrl, body, options);
+    }
+
+    /**
+     * Get traffic driven categories listing (SEO urls)
+     * @returns {any}
+     */
+    getTraficDrivenCategories() {
+        return this.http.get(this.getTrafficDrivenCatsUrl);
     }
 }

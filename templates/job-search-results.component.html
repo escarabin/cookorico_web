@@ -4,8 +4,10 @@
         <b>{{ jobs.length }} offres</b> correspondent à vos critères
     </div>
     <div class="col-md-12 search-results-container">
-        <div *ngIf="jobs.length == 0 && parametersList['place']">
-            Aucune offre d'emploi n'a été trouvée à {{ parametersList['place'].adress }}<br /><br />
+        <div *ngIf="jobs.length == 0 && parametersList['place']"
+             class="no-results">
+            <h2>Aucune offre d'emploi n'a été trouvée à {{ parametersList['place'].adress }}</h2>
+            <br /><br />
             <button class="btn btn-primary"
                     (click)="resetPlace()">
                 Élargissez votre rechercher

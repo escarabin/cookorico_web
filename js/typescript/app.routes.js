@@ -31,7 +31,7 @@ System.register(['@angular/router', './components/home.component', './components
                     loadChildren: '/js/typescript/profile/profile.module#ProfileModule'
                 },
                 {
-                    path: 'job-search',
+                    path: 'recherche',
                     loadChildren: '/js/typescript/job-search/job-search.module#JobSearchModule'
                 },
                 // Posts

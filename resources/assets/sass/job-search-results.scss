@@ -6,6 +6,11 @@ job-search-results {
   -webkit-box-shadow: $mainBoxShadow;
   -moz-box-shadow: $mainBoxShadow;
 
+  .no-results {
+    text-align: center;
+    padding: 150px;
+  }
+
   .sebm-google-map-container {
     height: 900px;
     padding: 0 15px;

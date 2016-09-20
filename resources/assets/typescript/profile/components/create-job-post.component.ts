@@ -28,7 +28,7 @@ export class CreateJobPostComponent {
     jobXpLevels: any = [];
     user: any = [];
 
-    jobPost:JobPost = new JobPost();
+    jobPost:JobPost = new JobPost(0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', false, false, false);
     userCanPostJob: boolean = false;
 
     constructor(private referenceService: ReferenceService,

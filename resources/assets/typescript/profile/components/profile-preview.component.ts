@@ -73,7 +73,7 @@ export class ProfilePreviewComponent {
 
         this.userService.get(this.userIdRouteParam).subscribe((res: Response) => {
             __this.user = res.json();
-            
+
             __this.userService.getExperiences(__this.user.id).subscribe((res: Response) => {
                 __this.experiences = res.json();
             });

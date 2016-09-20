@@ -48,6 +48,8 @@ export class JobSearchResultsComponent {
                 this.parametersList['jobNamingIdList'] = [ this.jobNamingId ];
                 this.parametersList['studyLevelIdList'] = [ this.studyLevelId ];
 
+                console.log('params are and params stay ', params);
+
                 // TODO
                 // SearchService.search(parametersArray);
             }

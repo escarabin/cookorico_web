@@ -4,11 +4,10 @@
         <select class="form-control"
                 [(ngModel)]="businessId"
                 ngControl="businessId"
-                name="business_id"
+                name="businessId"
                 [required]="isRequired"
                 *ngIf="!isGooglePlaceInput"
-                [multiple]="isMultiple"
-                (change)="businessIdChanged($event.target.value)">
+                [multiple]="isMultiple">
             <option selected disabled>-- Établissement --</option>
             <option *ngFor="let business of businesses"
                     value="{{ business.id }}"

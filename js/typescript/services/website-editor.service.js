@@ -28,6 +28,7 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                 function WebsiteEditorService(http) {
                     this.http = http;
                     this.saveOptionUrl = appGlobals.apiUrl + "/option/save";
+                    this.getTrafficDrivenCatsUrl = appGlobals.apiUrl + "/website_editor/traffic_cats";
                 }
                 /**
                  * Save an option value
@@ -40,6 +41,13 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                     var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
                     var options = new http_1.RequestOptions({ headers: headers });
                     return this.http.post(__this.saveOptionUrl, body, options);
+                };
+                /**
+                 * Get traffic driven categories listing (SEO urls)
+                 * @returns {any}
+                 */
+                WebsiteEditorService.prototype.getTraficDrivenCategories = function () {
+                    return this.http.get(this.getTrafficDrivenCatsUrl);
                 };
                 WebsiteEditorService = __decorate([
                     core_1.Injectable(), 

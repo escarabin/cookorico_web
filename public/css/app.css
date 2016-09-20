@@ -649,6 +649,9 @@ job-search-results {
   box-shadow: 0px 0px 40px 0px #c0d0d6;
   -webkit-box-shadow: 0px 0px 40px 0px #c0d0d6;
   -moz-box-shadow: 0px 0px 40px 0px #c0d0d6; }
+  job-search-results .no-results {
+    text-align: center;
+    padding: 150px; }
   job-search-results .sebm-google-map-container {
     height: 900px;
     padding: 0 15px;
@@ -1333,6 +1336,9 @@ sign-up-steps {
         font-family: "Avenir Heavy", sans-serif; }
       sign-up-steps .steps .step.active .step-number {
         background-color: #9375AE; }
+
+website-editor .delete-url {
+  padding: 15px; }
 
 confirm-account-creation {
   display: block;

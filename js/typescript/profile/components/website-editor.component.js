@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-bootstrap', './../../services/website-editor.service', './../../models/option'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-bootstrap', './../../services/website-editor.service', './../../services/reference.service', './../../models/option'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, forms_1, ng2_bootstrap_1, website_editor_service_1, option_1;
+    var core_1, common_1, forms_1, ng2_bootstrap_1, website_editor_service_1, reference_service_1, option_1;
     var WebsiteEditorComponent;
     return {
         setters:[
@@ -29,13 +29,48 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
             function (website_editor_service_1_1) {
                 website_editor_service_1 = website_editor_service_1_1;
             },
+            function (reference_service_1_1) {
+                reference_service_1 = reference_service_1_1;
+            },
             function (option_1_1) {
                 option_1 = option_1_1;
             }],
         execute: function() {
             WebsiteEditorComponent = (function () {
-                function WebsiteEditorComponent(websiteEditorService) {
+                function WebsiteEditorComponent(websiteEditorService, referenceService) {
                     this.websiteEditorService = websiteEditorService;
+                    this.referenceService = referenceService;
+                    this.jobNamings = [];
+                    this.trafficDrivenCats = [];
+                    var __this = this;
+                    this.referenceService.getAllJobNamings().subscribe(function (res) {
+                        __this.jobNamings = res.json();
+                    });
+                    var geocoder = new google.maps.Geocoder;
+                    this.websiteEditorService.getTraficDrivenCategories().subscribe(function (res) {
+                        var htaccessList = res.json();
+                        var _loop_1 = function(i) {
+                            var urlParams = htaccessList[i];
+                            if (urlParams) {
+                                var urlTitleAndDesc_1 = urlParams.split('#');
+                                urlParams = urlParams.split(' ');
+                                delete urlParams[0];
+                                var placeId = urlParams[2].split('/')[2];
+                                var jobNamingId_1 = urlParams[2].split('/')[3];
+                                /**
+                                 * Get google maps data from placeId using reverse geocoding API
+                                 */
+                                geocoder.geocode({ 'placeId': placeId }, function (results) {
+                                    var place = results[0];
+                                    urlParams = { title: urlTitleAndDesc_1[1], description: urlTitleAndDesc_1[2], path: urlParams[1], jobNamingId: jobNamingId_1, place: place };
+                                    __this.trafficDrivenCats.push(urlParams);
+                                });
+                            }
+                        };
+                        for (var i = 1; i < Object.keys(htaccessList).length + 1; i++) {
+                            _loop_1(i);
+                        }
+                    });
                 }
                 /**
                  * Triggered after a change in home banner changed
@@ -66,16 +101,23 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
                 WebsiteEditorComponent.prototype.handleBusinessIdListChange = function (businessIdList) {
                     this.homePartnersIdList = businessIdList;
                 };
+                /**
+                 * Remove specific SEO traffic driven category
+                 * @param catId
+                 */
+                WebsiteEditorComponent.prototype.removeTrafficDriventCat = function (catId) {
+                    delete this.trafficDrivenCats[catId];
+                };
                 WebsiteEditorComponent = __decorate([
                     core_1.Component({
                         selector: 'website-editor',
                         directives: [ng2_bootstrap_1.ACCORDION_DIRECTIVES,
                             common_1.CORE_DIRECTIVES,
                             forms_1.FORM_DIRECTIVES],
-                        providers: [website_editor_service_1.WebsiteEditorService],
+                        providers: [website_editor_service_1.WebsiteEditorService, reference_service_1.ReferenceService],
                         templateUrl: '../templates/website-editor.component.html',
                     }), 
-                    __metadata('design:paramtypes', [website_editor_service_1.WebsiteEditorService])
+                    __metadata('design:paramtypes', [website_editor_service_1.WebsiteEditorService, reference_service_1.ReferenceService])
                 ], WebsiteEditorComponent);
                 return WebsiteEditorComponent;
             }());

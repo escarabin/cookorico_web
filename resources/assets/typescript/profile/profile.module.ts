@@ -27,6 +27,7 @@ import { CreateMailTemplateComponent } from './components/create-mail-template.c
 import { WebsiteEditorComponent } from './components/website-editor.component';
 import { ConfirmAccountCreationComponent } from "./components/confirm-account-creation.component";
 import { SignUpStepsComponent } from './../shared/components/sign-up-steps.component';
+import { MatchingProfilesComponent } from './components/matching-profiles.component';
 
 @NgModule({
     declarations: [ ProfileComponent,
@@ -53,6 +54,7 @@ import { SignUpStepsComponent } from './../shared/components/sign-up-steps.compo
                     ImageCropperComponent,
                     CreateBusinessComponent,
                     SignUpStepsComponent,
+                    MatchingProfilesComponent,
                     ConfirmAccountCreationComponent ],
     imports:      [ profileRouting,
                     FormsModule,

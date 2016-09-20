@@ -5,6 +5,9 @@ import { Response } from '@angular/http';
 // Services
 import { UserService } from './../../services/user.service';
 
+// Components
+import { JobSearchResultsComponent } from './../components/job-search-results.component';
+
 @Component({
     templateUrl: '../templates/search.component.html',
     providers: [ UserService ],

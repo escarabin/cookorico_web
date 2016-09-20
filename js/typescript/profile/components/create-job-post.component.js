@@ -55,7 +55,7 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                     this.studyLevels = [];
                     this.jobXpLevels = [];
                     this.user = [];
-                    this.jobPost = new job_post_1.JobPost();
+                    this.jobPost = new job_post_1.JobPost(0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', false, false, false);
                     this.userCanPostJob = false;
                     var __this = this;
                     this.user = JSON.parse(localStorage.getItem('user'));

@@ -15,7 +15,7 @@ const appRoutes: Routes = [
     },
 
     {
-        path: 'job-search',
+        path: 'recherche',
         loadChildren: '/js/typescript/job-search/job-search.module#JobSearchModule'
     },
 

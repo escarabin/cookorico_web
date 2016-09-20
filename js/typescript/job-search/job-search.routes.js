@@ -2,7 +2,7 @@ System.register(['@angular/router', './components/search.component', './componen
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var router_1, search_component_1, job_search_results_component_1, new_application_form_component_1, job_component_1;
-    var jobSearchRoutes, jobSearchRouting;
+    var jobSearchChildrenRouteList, jobSearchRoutes, jobSearchRouting;
     return {
         setters:[
             function (router_1_1) {
@@ -21,20 +21,21 @@ System.register(['@angular/router', './components/search.component', './componen
                 job_component_1 = job_component_1_1;
             }],
         execute: function() {
+            jobSearchChildrenRouteList = [
+                { path: 'all-jobs', component: job_search_results_component_1.JobSearchResultsComponent },
+                { path: ':placeId/:jobNamingId/:contractTypeId/:studyLevelId', component: job_search_results_component_1.JobSearchResultsComponent },
+                { path: 'apply/:jobId', component: new_application_form_component_1.NewApplicationFormComponent },
+                { path: 'job/:jobId', component: job_component_1.JobComponent },
+                {
+                    path: '',
+                    component: job_search_results_component_1.JobSearchResultsComponent
+                }
+            ];
             jobSearchRoutes = [
                 {
                     path: '',
                     component: search_component_1.SearchComponent,
-                    children: [
-                        { path: 'all-jobs', component: job_search_results_component_1.JobSearchResultsComponent },
-                        { path: ':placeId/:jobNamingId/:contractTypeId/:studyLevelId', component: job_search_results_component_1.JobSearchResultsComponent },
-                        { path: 'apply/:jobId', component: new_application_form_component_1.NewApplicationFormComponent },
-                        { path: 'job/:jobId', component: job_component_1.JobComponent },
-                        {
-                            path: '',
-                            component: job_search_results_component_1.JobSearchResultsComponent
-                        }
-                    ]
+                    children: jobSearchChildrenRouteList
                 }
             ];
             // - Updated Export

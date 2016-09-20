@@ -11,13 +11,14 @@
         <span *ngIf="checkedItemsList.length == 0">
             {{ items.length }}
         </span> annonce<span *ngIf="items.length > 1">s</span>
+        en ligne
         <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
     </div>
-    <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
+    <div class="col-md-3 col-sm-3 col-xs-3 actions-container">
         <button routerLink="/profile/job-post/create">
             <span class="fa fa-plus"></span>
         </button>
-        <button (click)="deleteSelectedItems()">
+        <button (click)="deleteSelectedItems()" class="hidden-xs">
             <span class="fa fa-trash-o"></span>
         </button>
     </div>
@@ -26,13 +27,13 @@
 <div class="col-md-12 list-container">
     <ul>
         <li class="row" *ngFor="let item of items">
-            <div class="col-md-1 col-sm-1 col-xs-1 checkbox-container">
+            <div class="col-md-1 col-sm-1 hidden-xs checkbox-container">
                 <input type="checkbox"
                        class="action-checkbox"
                        [checked]="checkedItemsList.indexOf(item.id) != -1"
                        (change)="saveCheckedItem(item.id)"/>
             </div>
-            <div class="col-md-11 col-sm-11 col-xs-10 item"
+            <div class="col-md-11 col-sm-11 col-xs-12 item"
                  [class.logo]="item.business.logo">
                 <a routerLink="/profile/job-post/edit/{{ item.id }}">
                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">

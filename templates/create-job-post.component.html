@@ -36,7 +36,7 @@
                     [(ngModel)]="jobPost.job_type_id"
                     name="job_post_job_type"
                     ngControl="jobPost.job_type_id">
-                <option selected disabled>-- Choisissez un type d'offre --</option>
+                <option selected disabled value="0">-- Choisissez un type d'offre --</option>
                 <option *ngFor="let jobType of jobTypes"
                         value="{{ jobType.id }}">
                     {{ jobType.title }}
@@ -51,7 +51,7 @@
                     [(ngModel)]="jobPost.contract_type_id"
                     name="job_post_contract_type"
                     ngControl="jobPost.contract_type_id">
-                <option selected disabled>-- Choisissez un type de contrat --</option>
+                <option selected disabled value="0">-- Choisissez un type de contrat --</option>
                 <option *ngFor="let contractType of contractTypes"
                         value="{{ contractType.id }}">
                     {{ contractType.title }}
@@ -99,7 +99,7 @@
                     [(ngModel)]="jobPost.job_naming_id"
                     name="job_post_job_naming"
                     ngControl="jobPost.job_naming_id">
-                <option selected disabled>-- Choisissez un type d'emploi --</option>
+                <option selected disabled value="0">-- Choisissez un type d'emploi --</option>
                 <option *ngFor="let jobNaming of jobNamings"
                         value="{{ jobNaming.id }}">
                     {{ jobNaming.title }}
@@ -114,7 +114,7 @@
                     [(ngModel)]="jobPost.diploma_id"
                     name="job_post_diploma"
                     ngControl="jobPost.diploma_id">
-                <option selected disabled>-- Choisissez une formation professionnelle --</option>
+                <option selected disabled value="0">-- Choisissez une formation professionnelle --</option>
                 <option *ngFor="let diploma of diplomas"
                         value="{{ diploma.id }}">
                     {{ diploma.title }}
@@ -129,7 +129,7 @@
                     [disabled]="!userCanPostJob"
                     name="job_post_study_level"
                     ngControl="jobPost.study_level_id">
-                <option selected disabled>-- Choisissez une formation générale --</option>
+                <option selected disabled value="0">-- Choisissez une formation générale --</option>
                 <option *ngFor="let studyLevel of studyLevels"
                         value="{{ studyLevel.id }}">
                     {{ studyLevel.title }}
@@ -144,7 +144,7 @@
                     [(ngModel)]="jobPost.job_xp_level_id"
                     name="job_post_xp_level"
                     ngControl="jobPost.job_xp_level_id">
-                <option selected disabled>-- Choisissez un nomde d'année d'expérience --</option>
+                <option selected disabled value="0">-- Choisissez un nomde d'année d'expérience --</option>
                 <option *ngFor="let jobXpLevel of jobXpLevels"
                         value="{{ jobXpLevel.id }}">
                     {{ jobXpLevel.title }}
@@ -159,7 +159,7 @@
                     [(ngModel)]="jobPost.alert_frequency_id"
                     name="job_post_alert_frequency"
                     ngControl="jobPost.alert_frequency_id">
-                <option selected disabled>-- Choisissez à quelle fréquence vous serez alerté des postulants --</option>
+                <option selected disabled value="0">-- Choisissez à quelle fréquence vous serez alerté des postulants --</option>
                 <option *ngFor="let alertFrequency of alertFrequencies"
                         value="{{ alertFrequency.id }}">
                     {{ alertFrequency.title }}

@@ -41,7 +41,7 @@ export class BusinessSelectComponent {
             })
         }
         else {
-           this. businessService.getAll().subscribe((res: Response) => {
+           this.businessService.getAll().subscribe((res: Response) => {
                 __this.businesses = res.json();
             })
         }
@@ -65,7 +65,7 @@ export class BusinessSelectComponent {
         });
     }
 
-    businessIdChanged(newBusinessId) {
-        this.businessIdChange.emit(newBusinessId);
+    businessIdChanged() {
+        this.businessIdChange.emit(this.businessId);
     }
 }

@@ -18,4 +18,72 @@
             Sauvegarder
         </button>
     </accordion-group>
+    <accordion-group heading="Traffic driven categories">
+        <div class="row" *ngFor="let cat of trafficDrivenCats; let i = index">
+            <div class="col-md-3">
+                <label>Titre du lien</label>
+                <input type="text"
+                       name="cat_title"
+                       ngControl="cat.title"
+                       [(ngModel)]="cat.title"
+                       placeholder="Titre du lien"
+                       class="form-control"/>
+                <label>Adresse (chemin)</label>
+                <input type="text"
+                       name="cat_path"
+                       ngControl="cat.path"
+                       [(ngModel)]="cat.path"
+                       placeholder="Chemin"
+                       class="form-control"/>
+            </div>
+            <div class="col-md-3">
+                <label>Emploi recherché</label>
+                <select class="form-control"
+                        name="job_naming_id"
+                        ngControl="cat.jobNamingId"
+                        [(ngModel)]="cat.jobNamingId">
+                    <option selected disabled value="0">-- Emploi recherché --</option>
+                    <option *ngFor="let jobNaming of jobNamings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Description</label>
+                <textarea class="form-control"
+                          name="description"
+                          placeholder="Description de votre lien"
+                          ngControl="cat.description"
+                          [(ngModel)]="cat.description">
+
+                </textarea>
+            </div>
+            <div class="col-md-2">
+                <label>Localisation</label>
+                <input type="text"
+                       placeholder="Localisation"
+                       class="form-control"
+                       ngControl="cat.place.formatted_address"
+                       [(ngModel)]="cat.place.formatted_address"
+                       googleplace/>
+            </div>
+            <div class="col-md-1 delete-url"
+                 (click)="removeTrafficDriventCat(i)">
+                <i class="icon-close"></i>
+            </div>
+            <div class="col-md-12">
+                <hr />
+            </div>
+        </div>
+
+        <button class="btn btn-primary"
+                (click)="trafficDrivenCats.push({})">
+            + Créer une URL
+        </button>
+        <button class="btn btn-primary"
+                (click)="saveTrafficDrivenCategories()">
+            Sauvegarder
+        </button>
+    </accordion-group>
 </accordion>

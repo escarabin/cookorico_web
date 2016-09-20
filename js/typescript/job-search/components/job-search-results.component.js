@@ -58,6 +58,7 @@ System.register(['@angular/core', '@angular/router', '../../services/job.service
                             _this.parametersList['contractTypeIdList'] = [_this.contractTypeId];
                             _this.parametersList['jobNamingIdList'] = [_this.jobNamingId];
                             _this.parametersList['studyLevelIdList'] = [_this.studyLevelId];
+                            console.log('params are and params stay ', params);
                         }
                     });
                     /**

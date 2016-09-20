@@ -6,6 +6,7 @@ import { Response } from '@angular/http';
 
 // Services
 import { WebsiteEditorService } from './../../services/website-editor.service';
+import { ReferenceService } from './../../services/reference.service';
 
 // Models
 import { Option } from './../../models/option';
@@ -15,16 +16,51 @@ import { Option } from './../../models/option';
     directives: [ACCORDION_DIRECTIVES,
                  CORE_DIRECTIVES,
                  FORM_DIRECTIVES],
-    providers: [ WebsiteEditorService ],
+    providers: [ WebsiteEditorService, ReferenceService ],
     templateUrl: '../templates/website-editor.component.html',
 })
 
 export class WebsiteEditorComponent {
     homePartnersIdList:any;
     homeBannerHtmlContent: string;
+    jobNamings: any = [];
+    trafficDrivenCats: any = [];
 
-    constructor(private websiteEditorService: WebsiteEditorService) {
+    constructor(private websiteEditorService: WebsiteEditorService,
+                private referenceService: ReferenceService) {
+        let __this = this;
 
+        this.referenceService.getAllJobNamings().subscribe((res: Response) => {
+            __this.jobNamings = res.json();
+        });
+
+        let geocoder = new google.maps.Geocoder;
+
+        this.websiteEditorService.getTraficDrivenCategories().subscribe((res: Response) => {
+            let htaccessList = res.json();
+
+            for (let i = 1; i < Object.keys(htaccessList).length + 1; i++) {
+                let urlParams = htaccessList[i];
+                if (urlParams) {
+                    let urlTitleAndDesc = urlParams.split('#');
+                    urlParams = urlParams.split(' ');
+                    delete urlParams[0];
+
+                    let placeId = urlParams[2].split('/')[2];
+                    let jobNamingId = urlParams[2].split('/')[3];
+
+                    /**
+                     * Get google maps data from placeId using reverse geocoding API
+                     */
+                    geocoder.geocode({'placeId': placeId}, function(results) {
+                        let place = results[0];
+
+                        urlParams = { title: urlTitleAndDesc[1], description: urlTitleAndDesc[2], path: urlParams[1], jobNamingId: jobNamingId, place: place };
+                        __this.trafficDrivenCats.push(urlParams);
+                    });
+                }
+            }
+        });
     }
 
     /**
@@ -59,5 +95,13 @@ export class WebsiteEditorComponent {
      */
     handleBusinessIdListChange(businessIdList) {
         this.homePartnersIdList = businessIdList;
+    }
+
+    /**
+     * Remove specific SEO traffic driven category
+     * @param catId
+     */
+    removeTrafficDriventCat(catId: number) {
+        delete this.trafficDrivenCats[catId];
     }
 }

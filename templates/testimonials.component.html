@@ -3,7 +3,7 @@
         {{ testimonials.length }} recommandation<span *ngIf="testimonials.length > 1">s</span>
     </div>
     <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
-        <button routerLink="/job-search/">
+        <button routerLink="/recherche">
             <span class="fa fa-plus"></span>
         </button>
         <button (click)="deleteSelectedItems()">
@@ -18,7 +18,7 @@
             class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 item"
                  [class.logo]="testimonial.business.logo">
-                <a routerLink="/job-search">
+                <a routerLink="/recherche">
                     <div class="item-desc">
                         <h3>{{ testimonial.job_naming.title }}</h3>
                         {{ testimonial.business.title }}
