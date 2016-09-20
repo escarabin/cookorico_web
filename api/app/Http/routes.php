@@ -197,7 +197,8 @@ Route::get('/auth/{provider}/callback', 'Auth\AuthController@handleProviderCallb
 // Editor
 Route::get('/website_editor/traffic_cats', 'WebsiteEditorController@getTrafficDrivenCats')
     ->name('getTrafficDrivenCats');
-
+Route::post('/website_editor/save_traffic_cats', 'WebsiteEditorController@saveTrafficDrivenCats')
+    ->name('saveTrafficDrivenCats');
 
 // Password reset link request routes
 Route::get('/password/email', 'Auth\PasswordController@getEmail');

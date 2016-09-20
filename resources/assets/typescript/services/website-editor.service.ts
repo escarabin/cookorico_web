@@ -9,6 +9,7 @@ import { Option } from '../models/option';
 export class WebsiteEditorService {
     saveOptionUrl = appGlobals.apiUrl + "/option/save";
     getTrafficDrivenCatsUrl = appGlobals.apiUrl + "/website_editor/traffic_cats";
+    saveTrafficDrivenCatsUrl = appGlobals.apiUrl + "/website_editor/save_traffic_cats";
 
     constructor(private http: Http) {
 
@@ -20,13 +21,11 @@ export class WebsiteEditorService {
      * @returns {any}
      */
     saveOption(option: Option) {
-        let __this = this;
-
         let body = JSON.stringify({ option });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(__this.saveOptionUrl, body, options);
+        return this.http.post(this.saveOptionUrl, body, options);
     }
 
     /**
@@ -35,5 +34,18 @@ export class WebsiteEditorService {
      */
     getTraficDrivenCategories() {
         return this.http.get(this.getTrafficDrivenCatsUrl);
+    }
+
+
+    /**
+     * Save traffic driven categories listing (SEO urls)
+     * @returns {any}
+     */
+    saveTraficDrivenCategories(trafficDrivenCats: any) {
+        let body = JSON.stringify({ trafficDrivenCats });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.saveTrafficDrivenCatsUrl, body, options);
     }
 }

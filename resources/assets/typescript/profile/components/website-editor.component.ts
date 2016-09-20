@@ -63,6 +63,12 @@ export class WebsiteEditorComponent {
         });
     }
 
+    saveTrafficDrivenCategories() {
+        this.websiteEditorService.saveTraficDrivenCategories(this.trafficDrivenCats).subscribe((res: Response) => {
+            console.log(res.json());
+        });
+    }
+
     /**
      * Triggered after a change in home banner changed
      * @param newPromoContent

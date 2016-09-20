@@ -72,6 +72,11 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', 'ng2-boot
                         }
                     });
                 }
+                WebsiteEditorComponent.prototype.saveTrafficDrivenCategories = function () {
+                    this.websiteEditorService.saveTraficDrivenCategories(this.trafficDrivenCats).subscribe(function (res) {
+                        console.log(res.json());
+                    });
+                };
                 /**
                  * Triggered after a change in home banner changed
                  * @param newPromoContent

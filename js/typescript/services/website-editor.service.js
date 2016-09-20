@@ -29,6 +29,7 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                     this.http = http;
                     this.saveOptionUrl = appGlobals.apiUrl + "/option/save";
                     this.getTrafficDrivenCatsUrl = appGlobals.apiUrl + "/website_editor/traffic_cats";
+                    this.saveTrafficDrivenCatsUrl = appGlobals.apiUrl + "/website_editor/save_traffic_cats";
                 }
                 /**
                  * Save an option value
@@ -36,11 +37,10 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                  * @returns {any}
                  */
                 WebsiteEditorService.prototype.saveOption = function (option) {
-                    var __this = this;
                     var body = JSON.stringify({ option: option });
                     var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
                     var options = new http_1.RequestOptions({ headers: headers });
-                    return this.http.post(__this.saveOptionUrl, body, options);
+                    return this.http.post(this.saveOptionUrl, body, options);
                 };
                 /**
                  * Get traffic driven categories listing (SEO urls)
@@ -48,6 +48,16 @@ System.register(['@angular/core', '@angular/http', './../globals'], function(exp
                  */
                 WebsiteEditorService.prototype.getTraficDrivenCategories = function () {
                     return this.http.get(this.getTrafficDrivenCatsUrl);
+                };
+                /**
+                 * Save traffic driven categories listing (SEO urls)
+                 * @returns {any}
+                 */
+                WebsiteEditorService.prototype.saveTraficDrivenCategories = function (trafficDrivenCats) {
+                    var body = JSON.stringify({ trafficDrivenCats: trafficDrivenCats });
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    return this.http.post(this.saveTrafficDrivenCatsUrl, body, options);
                 };
                 WebsiteEditorService = __decorate([
                     core_1.Injectable(), 
