@@ -326,7 +326,7 @@ class UserController extends Controller
         }
 
         $applications = User::find($userId)->applications
-                            ->load('job', 'job.business', 'user');
+                            ->load('job', 'job.business', 'job.business.place', 'user');
 
         return $applications;
     }

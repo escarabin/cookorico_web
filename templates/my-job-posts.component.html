@@ -1,10 +1,5 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-1 col-sm-1 col-xs-1 main-checkbox-container">
-        <input type="checkbox"
-               [checked]="allItemsChecked"
-               (change)="toggleAllItems()"/>
-    </div>
-    <div class="col-md-8 col-sm-8 col-xs-7 items-count">
+    <div class="col-md-10 col-sm-10 col-xs-9 items-count">
         <span *ngIf="checkedItemsList.length > 0">
             {{ checkedItemsList.length }}
         </span>
@@ -14,12 +9,9 @@
         en ligne
         <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
     </div>
-    <div class="col-md-3 col-sm-3 col-xs-3 actions-container">
+    <div class="col-md-2 col-sm-2 col-xs-2 actions-container">
         <button routerLink="/profile/job-post/create">
             <span class="fa fa-plus"></span>
-        </button>
-        <button (click)="deleteSelectedItems()" class="hidden-xs">
-            <span class="fa fa-trash-o"></span>
         </button>
     </div>
 </div>
@@ -27,49 +19,59 @@
 <div class="col-md-12 list-container">
     <ul>
         <li class="row" *ngFor="let item of items">
-            <div class="col-md-1 col-sm-1 hidden-xs checkbox-container">
-                <input type="checkbox"
-                       class="action-checkbox"
-                       [checked]="checkedItemsList.indexOf(item.id) != -1"
-                       (change)="saveCheckedItem(item.id)"/>
-            </div>
-            <div class="col-md-11 col-sm-11 col-xs-12 item"
+            <div class="col-md-12 col-sm-12 col-xs-12 item"
                  [class.logo]="item.business.logo">
                 <a routerLink="/profile/job-post/edit/{{ item.id }}">
                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
                         <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.business.id }}.jpg"
                              class="full-width"/>
                     </div>
-                    <div [class.col-md-6]="item.business.logo"
-                         [class.col-md-8]="!item.business.logo"
-                         [class.col-sm-6]="item.business.logo"
-                         [class.col-sm-8]="!item.business.logo"
+                    <div [class.col-md-5]="item.business.logo"
+                         [class.col-md-7]="!item.business.logo"
+                         [class.col-sm-5]="item.business.logo"
+                         [class.col-sm-7]="!item.business.logo"
                          class="col-xs-8">
-                        <h3>{{ item.business.title }}</h3>
-                        {{ item.job_naming.title.substr(0, 30) }}... REF{{ item.id }}<br />
+                        <h3>{{ item.job_naming.title.substr(0, 30) }}...</h3>
                         {{ item.contract_type.title }} - {{ item.week_work_hours }}h<br />
-                        {{ item.business.place.city }}
+                        {{ item.business.title }}<br />
+                        <span *ngIf="item.business.place.city">
+                            {{ item.business.place.city }}<br />
+                        </span>
+                        Publié le {{ item.created_at }}<br />
+                        <a class="job-filled">
+                            <!-- TODO activer -->
+                            Offre pourvue ?
+                        </a>
                         <!-- <span class="date">
                             {{ item.start_date }} &nbsp;
                             <span class="fa fa-arrow-right"></span> &nbsp;
                             {{ item.end_date }}
                         </span> -->
                     </div>
-                    <div class="col-md-2 col-sm-2 col-xs-4 job-applications"
+                    <div class="col-md-3 col-sm-3 col-xs-4 job-applications"
                          [class.disabled]="item.applications.length == 0">
                         <a routerLink="/profile/applicants/{{ item.id }}">
                             <button>
-                                {{ item.applications.length }} candidats
+                                {{ item.applications.length }} postulants
                             </button>
+                            <br />
+                            <div class="matching-profiles">
+                                33 profils correspondants
+                            </div>
                         </a>
                     </div>
                     <div class="col-md-2 col-sm-2 hidden-xs job-stats">
+                        <b>REF{{ item.id }}</b><br />
                         <span *ngIf="item.print_count">
                             <i class="icon-eyeglasses"></i> &nbsp; {{ item.print_count }} vues<br />
                         </span>
                         <span *ngIf="item.click_count">
-                            <i class="icon-cursor"></i> &nbsp; {{ item.click_count }} clics
+                            <i class="icon-cursor"></i> &nbsp; {{ item.click_count }} clics<br />
                         </span>
+                        <a class="show-post"
+                           routerLink="/recherche/job/{{ item.id }}">
+                            Voir l'annonce<br />
+                        </a>
                     </div>
                 </a>
             </div>

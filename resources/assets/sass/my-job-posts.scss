@@ -1,8 +1,30 @@
 my-job-posts {
   .job-stats, .job-applications {
-    text-align: center;
     font-family: $mainMediumFontFamily;
-    margin-top: 3%;
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  .job-stats {
+    margin-top: 1%;
+  }
+
+  .job-filled {
+    color: $dangerColor !important;
+  }
+
+  .job-applications {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .matching-profiles {
+    padding-top: 10px;
+  }
+
+  .show-post {
+    color: $oechrBlueColor !important;
+    text-decoration: underline;
   }
 
   .job-applications {

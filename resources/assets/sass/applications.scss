@@ -14,4 +14,29 @@ applications {
       background-color: lighten($dangerColor, 40%) !important;
     }
   }
+
+  ul {
+    li {
+      border-bottom: 1px solid #d4d4d4 !important;
+
+      .item {
+        button {
+          border: none;
+          margin-top: 15px;
+        }
+
+        .logo {
+          top: 0 !important;
+        }
+      }
+    }
+  }
+
+  .header-container {
+    background: white !important;
+  }
+
+  h3 {
+    margin: 15px 0 5px 0 !important;
+  }
 }

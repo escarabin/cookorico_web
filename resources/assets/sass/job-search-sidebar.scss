@@ -13,6 +13,14 @@ job-search-sidebar {
     }
   }
 
+  .params-container {
+    .badge {
+      position: absolute;
+      right: 15px;
+      top: 5px;
+    }
+  }
+
   .search-summary {
     font-size: 1.2em;
     margin-bottom: 35px;
@@ -48,11 +56,9 @@ job-search-sidebar {
     text-transform: uppercase;
     font-family: $mainBoldFontFamily;
     padding: 10px 7px;
-    background: $oechrBlueColor;
-    color: white;
     display: inline-block;
     width: 100%;
-    margin: 0;
+    margin: 0 0 10px 0;
   }
 
   .collapse {
@@ -65,14 +71,15 @@ job-search-sidebar {
   }
 
   ul  {
-    padding-left: 0;
+    padding: 10px;
+    background: white;
 
     li  {
       padding: 10px 10px 10px 10px;
       font-family: $mainMediumFontFamily;
       color: #6d6d6d;
       cursor: pointer;
-      background: white;
+      border-left: 4px solid transparent;
 
       .group  {
         font-family: $mainBoldFontFamily;
@@ -83,16 +90,13 @@ job-search-sidebar {
         color: #333;
       }
 
-      &.active {
-        background-color: darken($oechrBlueColor, 40%);
-
-        .title-container {
-          color: white;
-        }
+      &:hover, &.active {
+        background-color: #f0f0f0;
+        border-color: $oechrBlueColor;
       }
 
-      &:hover {
-        background-color: lighten($oechrBlueColor, 15%);
+      &.active {
+        font-family: $mainBoldFontFamily;
       }
     }
   }

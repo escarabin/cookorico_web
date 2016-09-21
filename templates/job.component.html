@@ -1,20 +1,36 @@
 <div *ngIf="job">
     <div class="logo col-md-12">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ job.business.id }}.jpg"/>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-7">
             <div class="business">
                 <div class="name"><h3>{{ job.business.title }}</h3></div>
-                <h2>{{ job.title }}</h2>
-                <div class="adress">{{ job.business.place.adress }}</div>
+                <h1>{{ job.title }}</h1>
+                <div class="adress">
+                    <a href="#">{{ job.business.place.adress }}</a>
+                </div>
             </div>
+        </div>
+        <div class="col-md-3 job-stats"
+             *ngIf="user.user_type_id == 2">
+            <button class="btn btn-danger">
+                Offre pourvue ?
+            </button>
+            <br />
+            <br />
+            <span *ngIf="job.print_count">
+                <b><i class="icon-eyeglasses"></i> &nbsp; {{ job.print_count }} vues</b><br />
+            </span>
+            <span *ngIf="job.click_count">
+                <b><i class="icon-cursor"></i> &nbsp; {{ job.click_count }} clics</b><br />
+            </span>
         </div>
     </div>
 
     <div class="col-md-12 job-infos-list">
         <div class="col-md-6 job-info created_at">
-            <i class="ton-li-calendar-1"></i> &nbsp; <label>Publiée le</label> {{ job.created_at }}
+            <i class="ton-li-calendar-1"></i> &nbsp; Publiée le <label>{{ job.created_at }}</label>
         </div>
 
         <div class="col-md-6 job-info contract_type">
@@ -24,21 +40,21 @@
             <i class="ton-li-people-6"></i> &nbsp; <label>{{ job.job_xp_level.title }}</label>
         </div>
         <div class="col-md-6 job-info hosting">
-            <i class="ton-li-home"></i> &nbsp;<label>Logé :</label>
-            <span *ngIf="job.is_hosting_employee">Oui</span>
-            <span *ngIf="!job.is_hosting_employee">Non</span>
+            <i class="ton-li-home"></i> &nbsp;Logé :
+            <span *ngIf="job.is_hosting_employee"><label>Oui</label></span>
+            <span *ngIf="!job.is_hosting_employee"><label>Non</label></span>
         </div>
         <div class="col-md-6 job-info start_date">
-            <i class="ton-li-clock-1"></i> &nbsp;<label>Début :</label>
+            <i class="ton-li-clock-1"></i> &nbsp;Début :
             <span *ngIf="job.is_urgent">
                 Dés que possible
             </span>
             <span *ngIf="job.start_date">
-                {{ job.start_date }}
+                <label>{{ job.start_date }}</label>
             </span>
         </div>
         <div class="col-md-6 job-info end_date" *ngIf="job.end_date">
-            <i class="ton-li-clock-2"></i> &nbsp;<label>Fin :</label> {{ job.end_date }}
+            <i class="ton-li-clock-2"></i> &nbsp;Fin : <label>{{ job.end_date }}</label>
         </div>
         <div class="col-md-6 job-info languages" *ngIf="job.end_date">
             <i class="ton-li-speech-buble-4"></i>
@@ -51,6 +67,7 @@
         </div>
     </div>
 
+    <h2 class="description-heading col-md-12">Description</h2>
     <div class="col-md-12 job-description" [innerHTML]="job.description">
 
     </div>

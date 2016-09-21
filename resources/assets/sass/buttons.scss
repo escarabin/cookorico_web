@@ -1,5 +1,6 @@
 button, input[type=button] {
   height: $mainButtonHeight;
+  font-family: $mainBoldFontFamily;
 
   i {
     font-size: 1.4em;
@@ -12,7 +13,6 @@ button, input[type=button] {
   }
 
   &.btn-primary {
-    font-family: $mainBoldFontFamily;
     border-radius: $mainBorderRadius;
     background-color: $oechrBlueColor;
     color: white;

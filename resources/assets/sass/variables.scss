@@ -30,6 +30,7 @@ $mobileWidth: 700px;
 $tabletWidth: 1024px;
 $desktopWidth: 1280px;
 $largeDesktopWidth: 2500px;
+$mainBlockPadding: 10px;
 
 $infoColor: $oechrBlueColor;
 $successColor: #34ba47;
@@ -37,12 +38,13 @@ $warningColor: #E47F1B;
 $dangerColor: #E13543;
 $errorColor: $dangerColor;
 $recruiterColor: #9375AE;
-$candidateColor: #FF8402;
+$candidateColor: #025589;
+$lightGrey: #b9b9b9;
 
 $mainPageMaxWidth: 1200px;
 $mainBorderRadius: 4px;
 $mainPagePaddingTop: 150px;
-$mainButtonHeight: 60px;
+$mainButtonHeight: 40px;
 $headerHeight: 100px;
 $mainBoxShadow: 0px 0px 40px 0px #c0d0d6;
 $mainPageMarginBottom: 200px;

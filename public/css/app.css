@@ -20,7 +20,7 @@
   -webkit-appearance: none;
   border: none;
   border-bottom: 1px solid #CCC;
-  border-radius: 0; }
+  border-radius: 4px; }
   .form-control:focus {
     box-shadow: none; }
 
@@ -32,14 +32,14 @@
   font-size: 2em; }
 
 .input-group input {
-  border-left: 0;
+  border: 0;
   color: #9c9c9c; }
 
 select[required], input[required] {
-  border-left: 3px solid #1a1f38; }
+  border: 1px solid #b9b9b9; }
 
 select[required].ng-invalid, input[required].ng-invalid {
-  border-left: 3px solid #d40000; }
+  border: 1px solid #d40000; }
 
 label {
   text-transform: uppercase;
@@ -102,7 +102,8 @@ ng-select .ui-select-match-item {
   background-color: #F1F1F1; }
 
 button, input[type=button] {
-  height: 60px; }
+  height: 40px;
+  font-family: "Avenir Heavy", sans-serif; }
   button i, input[type=button] i {
     font-size: 1.4em;
     position: absolute;
@@ -110,7 +111,6 @@ button, input[type=button] {
   button.btn-default, input[type=button].btn-default {
     border-color: #333; }
   button.btn-primary, input[type=button].btn-primary {
-    font-family: "Avenir Heavy", sans-serif;
     border-radius: 4px;
     background-color: #35B6E1;
     color: white;
@@ -197,13 +197,30 @@ home {
         margin-bottom: 15px; } }
 
 my-job-posts .job-stats, my-job-posts .job-applications {
-  text-align: center;
   font-family: "Avenir Medium", sans-serif;
-  margin-top: 3%; }
+  text-align: left;
+  padding-left: 20px; }
+
+my-job-posts .job-stats {
+  margin-top: 1%; }
+
+my-job-posts .job-filled {
+  color: #E13543 !important; }
+
+my-job-posts .job-applications {
+  text-align: center;
+  padding: 15px; }
+
+my-job-posts .matching-profiles {
+  padding-top: 10px; }
+
+my-job-posts .show-post {
+  color: #35B6E1 !important;
+  text-decoration: underline; }
 
 my-job-posts .job-applications button {
   border: none;
-  background-color: #FF8402;
+  background-color: #025589;
   border-radius: 4px;
   color: white;
   height: 50px;
@@ -213,40 +230,48 @@ job {
   display: inline-block;
   background: white;
   padding-bottom: 20px;
-  border-radius: 4px;
-  -o-box-shadow: 0px 0px 40px 0px #c0d0d6;
-  box-shadow: 0px 0px 40px 0px #c0d0d6; }
-  job h2 {
+  padding: 10px; }
+  job h1 {
     text-transform: uppercase;
     font-family: "Avenir Heavy", sans-serif;
-    color: #35B6E1; }
+    color: #35B6E1;
+    margin: 10px 0 5px 0;
+    font-size: 1.8em; }
+  job .job-stats {
+    padding: 0 15px; }
+    job .job-stats .job-filled {
+      color: #E13543; }
+  job .description-heading {
+    margin: 10px 70px;
+    padding: 15px 0;
+    border-bottom: 1px solid #DDD;
+    width: 85%; }
   job .job-description {
-    padding-top: 20px; }
+    padding: 10px 70px; }
   job .job-infos-list {
-    color: white;
-    background: #35B6E1;
-    padding: 15px; }
+    color: #333;
+    background: #f7f7f8;
+    padding: 30px 70px; }
     job .job-infos-list .job-info {
       margin-bottom: 20px;
       height: 30px; }
       job .job-infos-list .job-info i {
         font-size: 2em;
-        color: white;
+        color: #b9b9b9;
         position: relative;
         top: 5px;
         width: 40px;
         display: inline-block; }
   job .logo {
     float: left;
-    margin: 20px 20px 20px 0; }
+    margin: 20px 20px 20px 0;
+    padding: 0 35px; }
     job .logo img {
       width: 100%;
       max-height: 200px; }
-  job .business {
-    margin-top: 25px;
-    margin-bottom: 25px; }
-    job .business .adress {
-      margin-top: 15px; }
+  job .business .name h3 {
+    font-size: 1.5em;
+    margin: 10px 0 0 0; }
 
 create-business .logo {
   height: 90px;
@@ -266,7 +291,7 @@ new-application-form .apply-btn-container {
 new-application-form .back-btn-container button,
 new-application-form .apply-btn-container button {
   width: 100%;
-  height: 60px; }
+  height: 40px; }
 
 business-select {
   display: inline-block;
@@ -337,7 +362,7 @@ post-preview:nth-child(odd) {
 
 matching-profiles .show-profile button {
   border-radius: 4px;
-  background: #FF8402;
+  background: #025589;
   border: none;
   padding: 15px;
   margin-top: 25px;
@@ -462,15 +487,12 @@ profile-sidebar {
       font-size: 1.15em;
       margin: 5px 0;
       border-radius: 4px;
-      color: #333; }
+      border-left: 4px solid transparent; }
       profile-sidebar .profile-sidebar-menu a.active {
-        background: #35B6E1;
-        color: white; }
-        profile-sidebar .profile-sidebar-menu a.active:hover {
-          color: #333; }
+        font-family: "Avenir Heavy", sans-serif;
+        border-color: #35B6E1; }
       profile-sidebar .profile-sidebar-menu a:hover {
-        background: whitesmoke;
-        border-left: 3px solid #35B6E1; }
+        border-color: #35B6E1; }
   profile-sidebar .mobile-menu-toggle {
     display: none;
     text-align: center;
@@ -513,6 +535,17 @@ applications {
     background-color: #e7f6fb !important; }
   applications .application.rejected {
     background-color: #fbe7e8 !important; }
+  applications ul li {
+    border-bottom: 1px solid #d4d4d4 !important; }
+    applications ul li .item button {
+      border: none;
+      margin-top: 15px; }
+    applications ul li .item .logo {
+      top: 0 !important; }
+  applications .header-container {
+    background: white !important; }
+  applications h3 {
+    margin: 15px 0 5px 0 !important; }
 
 sign-up {
   padding-top: 150px;
@@ -530,6 +563,10 @@ job-search-sidebar {
     job-search-sidebar .google-maps-container .sebm-google-map-container {
       height: 200px;
       display: block; }
+  job-search-sidebar .params-container .badge {
+    position: absolute;
+    right: 15px;
+    top: 5px; }
   job-search-sidebar .search-summary {
     font-size: 1.2em;
     margin-bottom: 35px;
@@ -553,34 +590,32 @@ job-search-sidebar {
     text-transform: uppercase;
     font-family: "Avenir Heavy", sans-serif;
     padding: 10px 7px;
-    background: #35B6E1;
-    color: white;
     display: inline-block;
     width: 100%;
-    margin: 0; }
+    margin: 0 0 10px 0; }
   job-search-sidebar .collapse {
     padding: 0; }
   job-search-sidebar label {
     font-weight: inherit; }
   job-search-sidebar ul {
-    padding-left: 0; }
+    padding: 10px;
+    background: white; }
     job-search-sidebar ul li {
       padding: 10px 10px 10px 10px;
       font-family: "Avenir Medium", sans-serif;
       color: #6d6d6d;
       cursor: pointer;
-      background: white; }
+      border-left: 4px solid transparent; }
       job-search-sidebar ul li .group {
         font-family: "Avenir Heavy", sans-serif; }
       job-search-sidebar ul li .title-container {
         padding-left: 0;
         color: #333; }
+      job-search-sidebar ul li:hover, job-search-sidebar ul li.active {
+        background-color: #f0f0f0;
+        border-color: #35B6E1; }
       job-search-sidebar ul li.active {
-        background-color: #0a3340; }
-        job-search-sidebar ul li.active .title-container {
-          color: white; }
-      job-search-sidebar ul li:hover {
-        background-color: #78ceeb; }
+        font-family: "Avenir Heavy", sans-serif; }
 
 @media (max-width: 700px) {
   job-search-sidebar {
@@ -608,7 +643,7 @@ job-search-sidebar {
 job-preview {
   display: inline-block;
   width: 100%;
-  border: 1px solid #ececec;
+  border-left: 4px solid transparent;
   padding: 25px;
   background: whitesmoke;
   transition-property: all;
@@ -624,31 +659,33 @@ job-preview {
     width: 100%; }
   job-preview .basic-infos {
     float: left; }
-    job-preview .basic-infos .business_name {
+    job-preview .basic-infos .title {
       font-size: 1.2em;
       font-family: "Avenir Heavy", sans-serif;
       margin-bottom: 5px; }
-    job-preview .basic-infos .title, job-preview .basic-infos .business_adress {
+    job-preview .basic-infos .business_name, job-preview .basic-infos .business_adress {
       color: #333; }
   job-preview .additional_infos .contract_type {
-    font-weight: bold;
-    text-transform: uppercase; }
+    font-family: "Avenir Heavy", sans-serif;
+    text-transform: uppercase;
+    font-size: 1.2em; }
+  job-preview .additional_infos .post_date {
+    color: #333;
+    padding-top: 10px; }
   job-preview:hover {
-    background-color: #e7f6fb;
+    background-color: #f0f0f0;
     border-color: #35B6E1; }
 
 job-preview:nth-child(odd) {
   background: white; }
   job-preview:nth-child(odd):hover {
-    background-color: #e7f6fb; }
+    background-color: #f0f0f0; }
 
 job-search-results {
   background: white;
   display: block;
   border-radius: 4px;
-  box-shadow: 0px 0px 40px 0px #c0d0d6;
-  -webkit-box-shadow: 0px 0px 40px 0px #c0d0d6;
-  -moz-box-shadow: 0px 0px 40px 0px #c0d0d6; }
+  padding: 10px; }
   job-search-results .no-results {
     text-align: center;
     padding: 150px; }
@@ -658,9 +695,10 @@ job-search-results {
     display: block; }
   job-search-results .jobs-count {
     text-align: center;
-    padding: 25px;
+    padding: 15px;
     margin: 0 15px;
     color: white;
+    font-size: 2em;
     background-color: #35B6E1; }
   job-search-results h2 {
     padding-left: 20px; }
@@ -684,14 +722,15 @@ profile {
     width: 75%;
     float: left;
     margin-left: 3%;
-    padding-top: 100px; }
+    padding: 10px; }
     profile .router-outlet-container.full-width {
       width: 100%;
       margin-left: 0; }
   profile .header-container {
     padding: 0;
-    height: 60px;
-    border-bottom: 1px solid #e6e6e6; }
+    height: 70px;
+    border-bottom: 1px solid #e6e6e6;
+    background: #35B6E1; }
     profile .header-container select {
       height: 59px;
       border: none;
@@ -715,9 +754,10 @@ profile {
           color: white; }
     profile .header-container .items-count {
       text-align: center;
-      text-transform: uppercase;
       font-family: "Avenir Heavy", sans-serif;
-      padding: 20px; }
+      font-size: 2em;
+      color: white;
+      padding: 15px; }
     profile .header-container .main-checkbox-container {
       padding: 22px;
       text-align: center;
@@ -733,10 +773,10 @@ profile {
       text-align: right; }
       profile .header-container .actions-container button {
         width: 60px;
-        background: transparent;
+        height: 69px;
+        background: #025589;
         border: none;
-        border-left: 1px solid #e6e6e6;
-        color: #1a1f38; }
+        color: white; }
         profile .header-container .actions-container button:hover {
           background: #eeeeee; }
   profile h2 {
@@ -748,13 +788,12 @@ profile {
     margin-bottom: 30px;
     height: 60px; }
   profile form label {
-    margin-top: 25px; }
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-bottom: 5px; }
   profile .router-outlet-container {
     background: white;
-    padding: 0;
-    border-radius: 4px;
-    -o-box-shadow: 0px 0px 40px 0px #c0d0d6;
-    box-shadow: 0px 0px 40px 0px #c0d0d6; }
+    border-radius: 4px; }
   profile .page-title-container h3 {
     padding: 25px;
     border-top: 1px solid #DDD;
@@ -781,13 +820,13 @@ profile {
         margin: 0;
         transition-property: all;
         transition-duration: 150ms;
-        border: 1px solid transparent; }
+        border-left: 4px solid transparent; }
         profile .list-container ul li md-checkbox {
           pointer-events: none; }
         profile .list-container ul li:nth-child(odd) {
           background: white; }
         profile .list-container ul li:hover {
-          background-color: #e7f6fb;
+          background-color: #f0f0f0;
           border-color: #35B6E1; }
         profile .list-container ul li.selected {
           background: #35B6E1;
@@ -804,7 +843,8 @@ profile {
           font-family: "Avenir Medium", sans-serif;
           max-height: 20px;
           overflow: hidden;
-          color: #1a1f38; }
+          color: #1a1f38;
+          margin: 5px 0; }
         profile .list-container ul li .date {
           float: right;
           color: #a9a9a9;
@@ -812,7 +852,6 @@ profile {
           text-transform: uppercase;
           font-size: 0.9em; }
         profile .list-container ul li .item {
-          margin-bottom: 15px;
           padding: 10px;
           display: inline-block; }
           profile .list-container ul li .item .item-desc {
@@ -824,7 +863,7 @@ profile {
             position: absolute;
             right: 50px; }
           profile .list-container ul li .item.logo .item-desc {
-            width: 65%;
+            width: 75%;
             margin-right: 15px; }
           profile .list-container ul li .item .logo, profile .list-container ul li .item .photo {
             position: relative;
@@ -1143,7 +1182,7 @@ right-sidebar {
   .job-search select, .job-search input {
     border: none;
     border-radius: 0;
-    height: 60px;
+    height: 40px;
     -webkit-appearance: none; }
   .job-search .input-container {
     padding: 0; }
@@ -1200,7 +1239,7 @@ profile-sub-header {
     profile-sub-header .sub-header-wrapper h2 {
       margin: 0;
       margin-top: 7px;
-      font-size: 2.5em; }
+      font-size: 2.1em; }
     profile-sub-header .sub-header-wrapper h3 {
       font-size: 1em;
       text-transform: uppercase;

@@ -2,9 +2,7 @@ job-search-results {
   background: white;
   display: block;
   border-radius: $mainBorderRadius;
-  box-shadow: $mainBoxShadow;
-  -webkit-box-shadow: $mainBoxShadow;
-  -moz-box-shadow: $mainBoxShadow;
+  padding: $mainBlockPadding;
 
   .no-results {
     text-align: center;
@@ -19,9 +17,10 @@ job-search-results {
 
   .jobs-count {
     text-align: center;
-    padding: 25px;
+    padding: 15px;
     margin: 0 15px;
     color: white;
+    font-size: 2em;
     background-color: $oechrBlueColor;
   }
 

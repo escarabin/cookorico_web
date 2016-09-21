@@ -1,7 +1,7 @@
 job-preview {
   display: inline-block;
   width: 100%;
-  border: 1px solid #ececec;
+  border-left: 4px solid transparent;
   padding: 25px;
   background: whitesmoke;
   transition-property: all;
@@ -23,30 +23,32 @@ job-preview {
   .basic-infos {
     float: left;
 
-    .business_name {
+    .title {
       font-size: 1.2em;
       font-family: $mainBoldFontFamily;
       margin-bottom: 5px;
     }
 
-    .title, .business_adress {
+    .business_name, .business_adress {
       color: $mainDarkTextColor;
     }
   }
 
   .additional_infos {
     .contract_type {
-      font-weight: bold;
+      font-family: $mainBoldFontFamily;
       text-transform: uppercase;
+      font-size: 1.2em;
     }
 
     .post_date {
-
+      color: $mainDarkTextColor;
+      padding-top: 10px;
     }
   }
 
   &:hover {
-    background-color: lighten($oechrBlueColor, 40%);
+    background-color: #f0f0f0;
     border-color: $oechrBlueColor;
   }
 }
@@ -55,7 +57,7 @@ job-preview:nth-child(odd) {
   background: white;
 
   &:hover {
-    background-color: lighten($oechrBlueColor, 40%);
+    background-color: #f0f0f0;
   }
 }
 

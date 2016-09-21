@@ -103,10 +103,10 @@
     <div class="col-md-12 params-container"
          [class.visible]="isMobileSearchVisible">
         <h3 (click)="isJobNamingCollapsed = !isJobNamingCollapsed">
+            Type de poste
             <span class="badge" [class.inactive]="parametersCount(jobNamingList) == 0">
                 {{ parametersCount(jobNamingList) }}
             </span> &nbsp;
-            Type de poste
         </h3>
         <br />
         <div [collapse]="isJobNamingCollapsed"
@@ -129,10 +129,10 @@
             </ul>
         </div>
         <h3 (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
+             Niveau d'étude
             <span class="badge" [class.inactive]="parametersCount(studyLevelList) == 0">
                 {{ parametersCount(studyLevelList) }}
             </span> &nbsp;
-             Niveau d'étude
         </h3>
         <div [collapse]="isStudyLevelCollapsed"
              class="col-md-12">
@@ -156,10 +156,10 @@
         </div>
         <br />
         <h3 (click)="isContractTypeCollapsed = !isContractTypeCollapsed">
+            Type de contrat
             <span class="badge" [class.inactive]="parametersCount(contractTypeList) == 0">
                 {{ parametersCount(contractTypeList) }}
             </span> &nbsp;
-            Type de contrat
         </h3>
         <div [collapse]="isContractTypeCollapsed"
              class="col-md-12">

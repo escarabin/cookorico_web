@@ -24,73 +24,73 @@
            routerLink="/profile/show"
            routerLinkActive="active"
            [class.visible]="isMobileMenuVisible">
-            Aperçu du profil
+            <i class="icon-eye"></i> &nbsp; Aperçu du profil
         </a>
         <a *ngIf="user.user_type_id == 3"
            routerLink="/profile/experiences"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            Experiences
+            <i class="icon-badge"></i> &nbsp; Experiences
         </a>
         <a *ngIf="user.user_type_id == 3"
            routerLink="/profile/education"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            Formations
+            <i class="icon-graduation"></i> &nbsp; Formations
         </a>
         <a *ngIf="user.user_type_id == 3"
            routerLink="/profile/applications"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            Candidatures
+            <i class="icon-user-follow"></i> &nbsp; Candidatures
         </a>
         <a *ngIf="user.user_type_id == 3"
            routerLink="/profile/alerts"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            Alertes
+            <i class="icon-bell"></i> &nbsp; Alertes
         </a>
         <a *ngIf="user.user_type_id == 3"
            routerLink="/profile/testimonials"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            Recommandations
+            <i class="icon-like"></i> &nbsp; Recommandations
         </a>
         <a *ngIf="user.user_type_id == 2"
            routerLink="/profile/businesses"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            Établissements
+            <i class="icon-layers"></i> &nbsp; Établissements
         </a>
         <a *ngIf="user.user_type_id == 2"
            routerLink="/profile/job-posts"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            Annonces
+            <i class="icon-list"></i> &nbsp; Annonces
         </a>
         <a *ngIf="user.user_type_id == 2"
            routerLink="/profile/applicants"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            Postulants
+            <i class="icon-user-following"></i> &nbsp; Postulants
         </a>
         <a *ngIf="user.user_type_id == 2"
            routerLink="/profile/matching-profiles"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            Profils correspondants
+            <i class="icon-user"></i> &nbsp; Profils correspondants
         </a>
         <a *ngIf="user.user_type_id == 1"
            routerLink="/profile/mail-templates"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            Mails
+            <i class="icon-envelope-open"></i> &nbsp; Mails
         </a>
         <a *ngIf="user.user_type_id == 1"
            routerLink="/profile/website-editor"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            Éditeur
+            <i class="icon-grid"></i> &nbsp; Éditeur
         </a>
     </div>
 
