@@ -79,7 +79,6 @@ job-search-sidebar {
       font-family: $mainMediumFontFamily;
       color: #6d6d6d;
       cursor: pointer;
-      border-left: 4px solid transparent;
 
       .group  {
         font-family: $mainBoldFontFamily;
@@ -92,7 +91,6 @@ job-search-sidebar {
 
       &:hover, &.active {
         background-color: #f0f0f0;
-        border-color: $oechrBlueColor;
       }
 
       &.active {

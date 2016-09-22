@@ -18,9 +18,8 @@
   height: 50px;
   box-shadow: none;
   -webkit-appearance: none;
-  border: none;
-  border-bottom: 1px solid #CCC;
-  border-radius: 4px; }
+  border-radius: 4px;
+  border: 1px solid #b9b9b9; }
   .form-control:focus {
     box-shadow: none; }
 
@@ -34,9 +33,6 @@
 .input-group input {
   border: 0;
   color: #9c9c9c; }
-
-select[required], input[required] {
-  border: 1px solid #b9b9b9; }
 
 select[required].ng-invalid, input[required].ng-invalid {
   border: 1px solid #d40000; }
@@ -100,6 +96,11 @@ ng-select .ui-select-match-item {
   border-radius: 20px;
   border: none;
   background-color: #F1F1F1; }
+
+.breadcrumb {
+  background: white; }
+  .breadcrumb a, .breadcrumb span {
+    text-transform: capitalize; }
 
 button, input[type=button] {
   height: 40px;
@@ -604,16 +605,14 @@ job-search-sidebar {
       padding: 10px 10px 10px 10px;
       font-family: "Avenir Medium", sans-serif;
       color: #6d6d6d;
-      cursor: pointer;
-      border-left: 4px solid transparent; }
+      cursor: pointer; }
       job-search-sidebar ul li .group {
         font-family: "Avenir Heavy", sans-serif; }
       job-search-sidebar ul li .title-container {
         padding-left: 0;
         color: #333; }
       job-search-sidebar ul li:hover, job-search-sidebar ul li.active {
-        background-color: #f0f0f0;
-        border-color: #35B6E1; }
+        background-color: #f0f0f0; }
       job-search-sidebar ul li.active {
         font-family: "Avenir Heavy", sans-serif; }
 
@@ -1009,7 +1008,7 @@ profile-preview h2 {
   font-family: "Avenir Heavy", sans-serif;
   color: white;
   font-size: 1em;
-  background: #35B6E1;
+  background: #b7b7b7;
   padding: 15px;
   margin: 0 !important; }
 
@@ -1040,6 +1039,9 @@ profile-preview .profile-picture-container {
       cursor: pointer; }
       profile-preview .profile-picture-container .profile-picture .edit-profile-picture:hover {
         opacity: .8; }
+
+profile-preview .list-container ul {
+  padding: 25px; }
 
 profile-preview .user-basic-infos {
   padding-top: 25px;
@@ -1406,7 +1408,7 @@ business-page {
     margin: 15px 0; }
 
 footer {
-  display: inline-block;
+  display: none;
   width: 100%;
   padding: 40px 0;
   background-image: url("/img/footer_bg.jpg");

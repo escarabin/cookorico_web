@@ -1,6 +1,27 @@
 <div class="col-md-12">
     <form #experienceForm="ngForm" action="#">
-        <div class="col-md-12">
+        <h2 class="centered">
+            Renseignez votre expérience
+        </h2>
+        <div class="col-md-6">
+            <label>Poste</label>
+            <select name="job"
+                    [(ngModel)]="experience.job_naming_id"
+                    ngControl="experience.job_naming_id"
+                    name="exp_job_naming_id"
+                    required
+                    class="form-control">
+                <option disabled selected>-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="col-md-6">
             <business-select [businessId]="experience.business_id"
                              (businessIdChange)="handleBusinessIdChange($event)">
 
@@ -26,25 +47,8 @@
                    class="form-control"
                    placeholder="Date de fin"/>
         </div>
-        <div class="col-md-6">
-            <label>Poste</label>
-            <select name="job"
-                    [(ngModel)]="experience.job_naming_id"
-                    ngControl="experience.job_naming_id"
-                    name="exp_job_naming_id"
-                    required
-                    class="form-control">
-                <option disabled selected>-- Type de poste --</option>
-                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
-                          label="{{ jobNamingGroup.title }}">
-                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
-                            value="{{ jobNaming.id }}">
-                        {{ jobNaming.title }}
-                    </option>
-                </optgroup>
-            </select>
-        </div>
-        <div class="col-md-6">
+
+        <div class="col-md-12">
             <label>Description</label>
             <textarea name="experience.description"
                       [(ngModel)]="experience.description"

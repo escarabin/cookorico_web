@@ -25,11 +25,13 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
             }],
         execute: function() {
             SearchComponent = (function () {
-                function SearchComponent(route, userService) {
+                function SearchComponent(route, router, userService) {
                     var _this = this;
                     this.route = route;
+                    this.router = router;
                     this.userService = userService;
                     this.searchParameters = [];
+                    this.routeSegments = [];
                     this.userService.getUserInfos().subscribe(function (res) {
                         if (res.text().length > 10) {
                             _this.user = res.json();
@@ -41,6 +43,23 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                             _this.jobNamingId = parseInt(params['jobNamingId']);
                             _this.contractTypeId = parseInt(params['contractTypeId']);
                             _this.studyLevelId = parseInt(params['studyLevelId']);
+                        }
+                    });
+                    /**
+                     * Subscribe to route change to display components regarding current route
+                     * (ex: Home page is different and does not show child component 'profile-sub-header')
+                     */
+                    router.events.subscribe(function (event) {
+                        var segments = event.url.split('/');
+                        var link = "/";
+                        for (var i = 1; i < segments.length; i++) {
+                            link += segments[i] + "/";
+                            /**
+                             * Avoid appending ids (numbers) to route segments
+                             */
+                            if (isNaN(segments[i])) {
+                                _this.routeSegments.push({ title: segments[i], link: link });
+                            }
                         }
                     });
                 }
@@ -57,7 +76,7 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                         providers: [user_service_1.UserService],
                         selector: 'search',
                     }), 
-                    __metadata('design:paramtypes', [router_1.ActivatedRoute, user_service_1.UserService])
+                    __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, user_service_1.UserService])
                 ], SearchComponent);
                 return SearchComponent;
             }());

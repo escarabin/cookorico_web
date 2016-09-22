@@ -39,14 +39,14 @@ System.register(['@angular/core', '../../services/reference.service', '../../ser
                     this.searchService = searchService;
                     this.contractTypes = [];
                     this.jobNamings = [];
-                    this.studyLevels = [];
-                    this.isStudyLevelCollapsed = false;
+                    this.xpLevels = [];
+                    this.isxpLevelCollapsed = false;
                     this.isContractTypeCollapsed = false;
                     this.isJobNamingCollapsed = false;
                     this.jobNamingList = [];
                     this.jobNamingTextList = [];
                     this.contractTypeList = [];
-                    this.studyLevelList = [];
+                    this.xpLevelList = [];
                     this.parametersList = {};
                     this.jobs = [];
                     this.isMobileSearchVisible = false;
@@ -71,8 +71,8 @@ System.register(['@angular/core', '../../services/reference.service', '../../ser
                             __this.jobNamingTextList.push(__this.jobNamings[i].title);
                         }
                     });
-                    referenceService.getAllStudyLevels().subscribe(function (res) {
-                        __this.studyLevels = res.json();
+                    referenceService.getAllJobXpLevels().subscribe(function (res) {
+                        __this.xpLevels = res.json();
                     });
                     /**
                      * Subscribe to new search parameters coming from other components
@@ -92,9 +92,9 @@ System.register(['@angular/core', '../../services/reference.service', '../../ser
                             var paramId = res['contractTypeIdList'][i];
                             __this.contractTypeList[paramId] = _this.getParamTitleFromId(paramId, 'contractType');
                         }
-                        for (var i = 0; i < res['studyLevelIdList']; i++) {
-                            var paramId = res['studyLevelIdList'][i];
-                            __this.studyLevelList[paramId] = _this.getParamTitleFromId(paramId, 'studyLevel');
+                        for (var i = 0; i < res['xpLevelIdList']; i++) {
+                            var paramId = res['xpLevelIdList'][i];
+                            __this.xpLevelList[paramId] = _this.getParamTitleFromId(paramId, 'xpLevel');
                         }
                         for (var i = 0; i < res['jobNamingIdList']; i++) {
                             var paramId = res['jobNamingIdList'][i];
@@ -129,10 +129,10 @@ System.register(['@angular/core', '../../services/reference.service', '../../ser
                                 }
                             }
                             break;
-                        case "studyLevel":
-                            for (var i = 0; i < this.studyLevels.length; i++) {
-                                if (this.studyLevels[i].id == parameterId) {
-                                    return this.studyLevels[i]['title'];
+                        case "xpLevel":
+                            for (var i = 0; i < this.xpLevels.length; i++) {
+                                if (this.xpLevels[i].id == parameterId) {
+                                    return this.xpLevels[i]['title'];
                                 }
                             }
                             break;
@@ -196,18 +196,18 @@ System.register(['@angular/core', '../../services/reference.service', '../../ser
                                 delete this.contractTypeList[parameterId];
                             }
                             break;
-                        case "studyLevel":
-                            if (!this.studyLevelList[parameterId]) {
-                                this.studyLevelList[parameterId] = parameterTitle;
+                        case "xpLevel":
+                            if (!this.xpLevelList[parameterId]) {
+                                this.xpLevelList[parameterId] = parameterTitle;
                             }
                             else {
-                                delete this.studyLevelList[parameterId];
+                                delete this.xpLevelList[parameterId];
                             }
                             break;
                     }
                     this.parametersList['contractTypeList'] = this.contractTypeList;
                     this.parametersList['jobNamingList'] = this.jobNamingList;
-                    this.parametersList['studyLevelList'] = this.studyLevelList;
+                    this.parametersList['xpLevelList'] = this.xpLevelList;
                     // TODO : remove that shit
                     this.jobService.getAllJobs().subscribe(function (res) {
                         _this.jobs = res.json();

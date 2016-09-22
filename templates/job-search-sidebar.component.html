@@ -38,19 +38,19 @@
                     </span>
                 </span>
 
-                <span *ngIf="studyLevelList.length > 0">
-                    <span *ngFor="let studyLevel of studyLevelList">
+                <span *ngIf="xpLevelList.length > 0">
+                    <span *ngFor="let xpLevel of xpLevelList">
                         <span class="study-level-badge badge"
-                              *ngIf="studyLevel">
-                            {{ studyLevel }}
+                              *ngIf="xpLevel">
+                            {{ xpLevel }}
                         </span>
-                        <span *ngIf="parametersCount(studyLevelList) > 1
-                                && studyLevel
-                                && studyLevelList.indexOf(studyLevel) != studyLevelList.length - 1">
+                        <span *ngIf="parametersCount(xpLevelList) > 1
+                                && xpLevel
+                                && xpLevelList.indexOf(xpLevel) != xpLevelList.length - 1">
                             ou
                         </span>
                     </span>
-                    <span *ngIf="parametersCount(studyLevelList) > 1">
+                    <span *ngIf="parametersCount(xpLevelList) > 1">
                         ou
                     </span>
                 </span>
@@ -128,26 +128,26 @@
                 </div>
             </ul>
         </div>
-        <h3 (click)="isStudyLevelCollapsed = !isStudyLevelCollapsed">
-             Niveau d'étude
-            <span class="badge" [class.inactive]="parametersCount(studyLevelList) == 0">
-                {{ parametersCount(studyLevelList) }}
+        <h3 (click)="isxpLevelCollapsed = !isxpLevelCollapsed">
+             Niveau d'expérience
+            <span class="badge" [class.inactive]="parametersCount(xpLevelList) == 0">
+                {{ parametersCount(xpLevelList) }}
             </span> &nbsp;
         </h3>
-        <div [collapse]="isStudyLevelCollapsed"
+        <div [collapse]="isxpLevelCollapsed"
              class="col-md-12">
             <ul>
-                <div *ngFor="let studyLevel of studyLevels">
-                    <li (click)="updateSearchParameter('studyLevel', studyLevel.id, studyLevel.title)"
-                        [class.active]="studyLevelList[studyLevel.id]"
-                        *ngIf="jobsCountFromParameterValue('study_level_id', studyLevel.id) > 0">
+                <div *ngFor="let xpLevel of xpLevels">
+                    <li (click)="updateSearchParameter('xpLevel', xpLevel.id, xpLevel.title)"
+                        [class.active]="xpLevelList[xpLevel.id]"
+                        *ngIf="jobsCountFromParameterValue('xp_level_id', xpLevelList.id) > 0">
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
-                                <input type="checkbox" [checked]="studyLevelList[studyLevel.id]"/>
+                                <input type="checkbox" [checked]="xpLevelList[xpLevel.id]"/>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10 title-container">
-                                {{ studyLevel.title }}
-                                ({{ jobsCountFromParameterValue('study_level_id', studyLevel.id) }})
+                                {{ xpLevel.title }}
+                                ({{ jobsCountFromParameterValue('xp_level_id', xpLevel.id) }})
                             </div>
                         </div>
                     </li>

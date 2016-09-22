@@ -19,7 +19,7 @@
         <a routerLink="/profile"
            *ngIf="user.is_active">
             <span class="badge complete-profile">
-                Profil renseigné à {{ profilePercentage }}% <span class="fa fa-angle-right"></span>
+                Visibilité du profil : {{ profilePercentage }}% <span class="fa fa-angle-right"></span>
             </span>
         </a>
     </div>
@@ -55,7 +55,7 @@
              [class.disabled]="!user.is_active">
             <a routerLink="/profile/job-posts">
                 <i class="icon-note"><br /></i>
-                <h3>Mes offres</h3>
+                <h3>Mes annonces</h3>
             </a>
         </div>
         <div class="col-md-2 col-sm-2 sub-header-menu-item"

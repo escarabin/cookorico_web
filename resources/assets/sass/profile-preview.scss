@@ -5,7 +5,7 @@ profile-preview {
     font-family: $mainBoldFontFamily;
     color: white;
     font-size: 1em;
-    background: $oechrBlueColor;
+    background: #b7b7b7;
     padding: 15px;
     margin: 0 !important;
   }
@@ -46,6 +46,12 @@ profile-preview {
           opacity: .8;
         }
       }
+    }
+  }
+
+  .list-container {
+    ul {
+      padding: 25px;
     }
   }
 

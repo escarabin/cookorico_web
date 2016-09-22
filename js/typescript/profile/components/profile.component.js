@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,17 +10,41 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, router_1;
     var ProfileComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             ProfileComponent = (function () {
-                function ProfileComponent() {
+                function ProfileComponent(router) {
+                    var _this = this;
+                    this.router = router;
+                    this.routeSegments = [];
                     this.user = JSON.parse(localStorage.getItem('user'));
+                    /**
+                     * Subscribe to route change to display components regarding current route
+                     * (ex: Home page is different and does not show child component 'profile-sub-header')
+                     */
+                    router.events.subscribe(function (event) {
+                        var segments = event.url.split('/');
+                        var link = "/";
+                        console.log('route changed', segments);
+                        for (var i = 1; i < segments.length; i++) {
+                            link += segments[i] + "/";
+                            /**
+                             * Avoid appending ids (numbers) to route segments
+                             */
+                            if (isNaN(segments[i])) {
+                                _this.routeSegments.push({ title: segments[i], link: link });
+                            }
+                        }
+                    });
                 }
                 /**
                  * Event fired on page scroll to adapt visual elements
@@ -34,7 +58,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                         selector: 'profile',
                         templateUrl: '../templates/profile.component.html',
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [router_1.Router])
                 ], ProfileComponent);
                 return ProfileComponent;
             }());

@@ -4,5 +4,16 @@
 <div class="router-outlet-container"
      [class.scrolled-down]="scrollTop > 100"
      [class.full-width]="!user || !user.is_active">
+    <ol class="breadcrumb">
+        <li *ngFor="let routeSegment of routeSegments; let i = index">
+            <a routerLink="{{ routeSegment.link }}" class="active"
+               *ngIf="i < routeSegments.length - 1">
+                {{ routeSegment.title }}
+            </a>
+                <span *ngIf="i == routeSegments.length - 1">
+                    {{ routeSegment.title }}
+                </span>
+        </li>
+    </ol>
     <router-outlet></router-outlet>
 </div>

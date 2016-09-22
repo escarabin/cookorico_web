@@ -2,9 +2,8 @@
   height: 50px;
   box-shadow: none;
   -webkit-appearance:none;
-  border: none;
-  border-bottom: 1px solid #CCC;
   border-radius: $mainBorderRadius;
+  border: 1px solid $lightGrey;
 
   &:focus {
     box-shadow: none;
@@ -22,10 +21,6 @@
 .input-group input {
   border: 0;
   color: #9c9c9c;
-}
-
-select[required], input[required] {
-  border: 1px solid $lightGrey;
 }
 
 select[required].ng-invalid, input[required].ng-invalid {

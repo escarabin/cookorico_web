@@ -17,14 +17,14 @@ import { SearchService } from '../../services/search.service';
 export class JobSearchSidebarComponent {
     contractTypes: any = [];
     jobNamings: any = [];
-    studyLevels: any = [];
-    public isStudyLevelCollapsed:boolean = false;
+    xpLevels: any = [];
+    public isxpLevelCollapsed:boolean = false;
     public isContractTypeCollapsed:boolean = false;
     public isJobNamingCollapsed:boolean = false;
     jobNamingList: any = [];
     jobNamingTextList: any = [];
     contractTypeList: any = [];
-    studyLevelList: any = [];
+    xpLevelList: any = [];
     parametersList: any = {};
     searchText: string;
     jobs: any = [];
@@ -63,8 +63,8 @@ export class JobSearchSidebarComponent {
             }
         });
 
-        referenceService.getAllStudyLevels().subscribe((res: Response) => {
-            __this.studyLevels = res.json();
+        referenceService.getAllJobXpLevels().subscribe((res: Response) => {
+            __this.xpLevels = res.json();
         });
 
         /**
@@ -88,9 +88,9 @@ export class JobSearchSidebarComponent {
                     __this.contractTypeList[paramId] = this.getParamTitleFromId(paramId, 'contractType');
                 }
 
-                for (let i = 0; i < res['studyLevelIdList']; i++) {
-                    let paramId = res['studyLevelIdList'][i];
-                    __this.studyLevelList[paramId] = this.getParamTitleFromId(paramId, 'studyLevel');
+                for (let i = 0; i < res['xpLevelIdList']; i++) {
+                    let paramId = res['xpLevelIdList'][i];
+                    __this.xpLevelList[paramId] = this.getParamTitleFromId(paramId, 'xpLevel');
                 }
 
                 for (let i = 0; i < res['jobNamingIdList']; i++) {
@@ -130,10 +130,10 @@ export class JobSearchSidebarComponent {
                     }
                 }
                 break;
-            case "studyLevel":
-                for (let i = 0; i < this.studyLevels.length; i++) {
-                    if (this.studyLevels[i].id == parameterId) {
-                        return this.studyLevels[i]['title'];
+            case "xpLevel":
+                for (let i = 0; i < this.xpLevels.length; i++) {
+                    if (this.xpLevels[i].id == parameterId) {
+                        return this.xpLevels[i]['title'];
                     }
                 }
                 break;
@@ -202,19 +202,19 @@ export class JobSearchSidebarComponent {
                     delete this.contractTypeList[parameterId];
                 }
                 break;
-            case "studyLevel":
-                if (!this.studyLevelList[parameterId]) {
-                    this.studyLevelList[parameterId] = parameterTitle;
+            case "xpLevel":
+                if (!this.xpLevelList[parameterId]) {
+                    this.xpLevelList[parameterId] = parameterTitle;
                 }
                 else {
-                    delete this.studyLevelList[parameterId];
+                    delete this.xpLevelList[parameterId];
                 }
                 break;
         }
 
         this.parametersList['contractTypeList'] = this.contractTypeList;
         this.parametersList['jobNamingList'] = this.jobNamingList;
-        this.parametersList['studyLevelList'] = this.studyLevelList;
+        this.parametersList['xpLevelList'] = this.xpLevelList;
 
         // TODO : remove that shit
         this.jobService.getAllJobs().subscribe((res: Response) => {

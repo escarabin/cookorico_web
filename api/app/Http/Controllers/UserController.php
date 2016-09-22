@@ -74,11 +74,7 @@ class UserController extends Controller
         }
 
         if ($user->resumeUrl) {
-            $percentage += 10;
-        }
-
-        if ($user->testimonials) {
-            $percentage += 10;
+            $percentage += 20;
         }
 
         return $percentage;

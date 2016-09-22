@@ -38,10 +38,6 @@
                             {{ item.business.place.city }}<br />
                         </span>
                         Publié le {{ item.created_at }}<br />
-                        <a class="job-filled">
-                            <!-- TODO activer -->
-                            Offre pourvue ?
-                        </a>
                         <!-- <span class="date">
                             {{ item.start_date }} &nbsp;
                             <span class="fa fa-arrow-right"></span> &nbsp;
@@ -52,11 +48,11 @@
                          [class.disabled]="item.applications.length == 0">
                         <a routerLink="/profile/applicants/{{ item.id }}">
                             <button>
-                                {{ item.applications.length }} postulants
+                                33 profils
                             </button>
                             <br />
                             <div class="matching-profiles">
-                                33 profils correspondants
+                                {{ item.applications.length }} postulants
                             </div>
                         </a>
                     </div>

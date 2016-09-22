@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Response } from '@angular/http';
 
 // Services
@@ -22,8 +22,10 @@ export class SearchComponent {
     searchParameters: any = [];
     user: any;
     scrollTop: number;
+    routeSegments: any = [];
 
     constructor(private route: ActivatedRoute,
+                private router: Router,
                 private userService: UserService) {
         this.userService.getUserInfos().subscribe((res: Response) => {
             if (res.text().length > 10) {
@@ -37,6 +39,26 @@ export class SearchComponent {
                 this.jobNamingId = parseInt(params['jobNamingId']);
                 this.contractTypeId = parseInt(params['contractTypeId']);
                 this.studyLevelId = parseInt(params['studyLevelId']);
+            }
+        });
+
+        /**
+         * Subscribe to route change to display components regarding current route
+         * (ex: Home page is different and does not show child component 'profile-sub-header')
+         */
+        router.events.subscribe((event) => {
+            let segments = event.url.split('/');
+            let link = "/";
+
+            for (let i = 1; i < segments.length; i++) {
+                link += segments[i] + "/";
+
+                /**
+                 * Avoid appending ids (numbers) to route segments
+                 */
+                if (isNaN(segments[i])) {
+                    this.routeSegments.push({ title: segments[i], link: link});
+                }
             }
         });
     }

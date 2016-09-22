@@ -1,7 +1,8 @@
 <!-- User is connected -->
-<div class="user-infos row hidden-xs">
+<div class="user-infos row hidden-xs"
+     *ngIf="user.user_type_id == 2">
     <div class="col-md-12 user-title">
-        {{ user.firstName }} {{ user.lastName }}<br/>
+        Mon abonnement<br/>
     </div>
     <div *ngFor="let plan of plans"
          class="col-md-12">
@@ -57,12 +58,6 @@
             <i class="icon-like"></i> &nbsp; Recommandations
         </a>
         <a *ngIf="user.user_type_id == 2"
-           routerLink="/profile/businesses"
-           [class.visible]="isMobileMenuVisible"
-           routerLinkActive="active">
-            <i class="icon-layers"></i> &nbsp; Établissements
-        </a>
-        <a *ngIf="user.user_type_id == 2"
            routerLink="/profile/job-posts"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
@@ -79,6 +74,12 @@
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
             <i class="icon-user"></i> &nbsp; Profils correspondants
+        </a>
+        <a *ngIf="user.user_type_id == 2"
+           routerLink="/profile/businesses"
+           [class.visible]="isMobileMenuVisible"
+           routerLinkActive="active">
+            <i class="icon-layers"></i> &nbsp; Établissements
         </a>
         <a *ngIf="user.user_type_id == 1"
            routerLink="/profile/mail-templates"
