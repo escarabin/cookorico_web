@@ -47,14 +47,14 @@ System.register(['@angular/core', '@angular/router', '../../services/search.serv
                     var __this = this;
                     route.params.subscribe(function (params) {
                         if (params) {
-                            __this.studyLevelId = params['studyLevelId'];
+                            __this.xpLevelId = params['xpLevelId'];
                             __this.contractTypeId = params['contractTypeId'];
                             __this.jobNamingId = params['jobNamingId'];
                             __this.searchText = params['searchText'];
                             __this.placeId = params['placeId'];
                             _this.parametersList['contractTypeIdList'] = [_this.contractTypeId];
                             _this.parametersList['jobNamingIdList'] = [_this.jobNamingId];
-                            _this.parametersList['studyLevelIdList'] = [_this.studyLevelId];
+                            _this.parametersList['xpLevelIdList'] = [_this.xpLevelId];
                             /**
                              * Get google maps data from placeId using reverse geocoding API
                              */

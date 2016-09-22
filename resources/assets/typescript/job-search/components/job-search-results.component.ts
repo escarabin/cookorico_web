@@ -17,7 +17,7 @@ import { PaginatePipe, PaginationService } from 'ng2-pagination';
 
 export class JobSearchResultsComponent {
     jobs: any = [];
-    studyLevelId: string;
+    xpLevelId: string;
     contractTypeId: string;
     jobNamingId: string;
     searchText: string;
@@ -38,7 +38,7 @@ export class JobSearchResultsComponent {
 
         route.params.subscribe(params => {
             if (params) {
-                __this.studyLevelId = params['studyLevelId'];
+                __this.xpLevelId = params['xpLevelId'];
                 __this.contractTypeId = params['contractTypeId'];
                 __this.jobNamingId = params['jobNamingId'];
                 __this.searchText = params['searchText'];
@@ -46,7 +46,7 @@ export class JobSearchResultsComponent {
 
                 this.parametersList['contractTypeIdList'] = [ this.contractTypeId ];
                 this.parametersList['jobNamingIdList'] = [ this.jobNamingId ];
-                this.parametersList['studyLevelIdList'] = [ this.studyLevelId ];
+                this.parametersList['xpLevelIdList'] = [ this.xpLevelId ];
 
                 /**
                  * Get google maps data from placeId using reverse geocoding API

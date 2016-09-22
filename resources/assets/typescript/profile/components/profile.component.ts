@@ -22,8 +22,6 @@ export class ProfileComponent {
             let segments = event.url.split('/');
             let link = "/";
 
-            console.log('route changed', segments);
-
             for (let i = 1; i < segments.length; i++) {
                 link += segments[i] + "/";
 

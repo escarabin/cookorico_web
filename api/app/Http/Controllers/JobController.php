@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Business;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Request;
 use Auth;
@@ -11,6 +12,7 @@ use Log;
 use App\Models\Job;
 use App\Models\StudyLevel;
 use App\Models\Application;
+use DB;
 
 class JobController extends Controller
 {
@@ -82,8 +84,6 @@ class JobController extends Controller
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function search(Request $request) {
-        Log::info($request::all());
-
         $parameters = $request::get('searchParameters');
 
         $contractTypeList = array();
@@ -178,6 +178,32 @@ class JobController extends Controller
                 }
             }
         }
+
+        /**
+         * If no jobs found, try to find close businesses
+         * TODO
+
+        if (count($jobs)) {
+            $locationOrderedBusinesses = Business::select(DB::raw("*, " .
+                "( " .
+                "6371 * " .
+                "acos( " .
+                "cos( radians(?) ) * " .
+                "cos( radians( lat ) ) * " .
+                "cos( " .
+                "radians( lon ) - radians(?)" .
+                ") + " .
+                "sin( radians(?) ) * " .
+                "sin( radians( lat ) ) " .
+                ")" .
+                ") AS distance"))->having("distance", "<", 100)
+                                 ->orderBy("distance")
+                                 ->get();
+
+            Log::info('getting businesses');
+            Log::info(print_r($locationOrderedBusinesses));
+        }
+         */
 
         return $jobs;
     }

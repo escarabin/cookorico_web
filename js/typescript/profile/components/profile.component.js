@@ -34,7 +34,6 @@ System.register(['@angular/core', '@angular/router'], function(exports_1, contex
                     router.events.subscribe(function (event) {
                         var segments = event.url.split('/');
                         var link = "/";
-                        console.log('route changed', segments);
                         for (var i = 1; i < segments.length; i++) {
                             link += segments[i] + "/";
                             /**
