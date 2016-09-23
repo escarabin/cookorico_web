@@ -13,7 +13,7 @@
             <!-- User is connected -->
             <li *ngIf="!user"
                 class="recruiter_btn">
-                <a routerLink="recruiter-promo">
+                <a routerLink="/accueil-recruteur">
                     Espace recruteur
                 </a>
             </li>
@@ -25,7 +25,7 @@
             </sign-in>
 
             <li *ngIf="!user">
-                <a routerLink="/sign-up">
+                <a routerLink="/accueil-recruteur">
                     S'inscrire
                 </a>
             </li>
@@ -33,17 +33,17 @@
             <li *ngIf="user && user.is_active">
                 <!-- If user is an admin, create a link to website editor -->
                 <a *ngIf="user.user_type_id == 1"
-                   routerLink="/profile/website-editor">
+                   routerLink="/profil/website-editor">
                     Administration
                 </a>
                 <!-- If user is a recruiter, create a link to his job posts -->
                 <a *ngIf="user.user_type_id == 2"
-                   routerLink="/profile/job-posts">
+                   routerLink="/profil/annonces">
                     Mon compte
                 </a>
                 <!-- If user is a candidate, create a link to his profile preview -->
                 <a *ngIf="user.user_type_id == 3"
-                   routerLink="/profile/show">
+                   routerLink="/profil/apercu">
                     Mon compte
                 </a>
             </li>

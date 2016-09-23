@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MD_CHECKBOX_DIRECTIVES } from '@angular2-material/checkbox';
-import { MODAL_DIRECTIVES, CollapseDirective } from 'ng2-bootstrap/ng2-bootstrap';
 import { SELECT_DIRECTIVES } from 'ng2-select/ng2-select';
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
 
@@ -12,23 +11,31 @@ import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directiv
 import { UNITYTinyMCE } from './components/tiny-mce.component';
 import { JobPreviewComponent } from './components/job-preview.component';
 
+// Bootstrap modules
+import { ButtonsModule, ModalModule, CollapseModule, AccordionModule } from 'ng2-bootstrap/ng2-bootstrap';
+
 @NgModule({
-    declarations: [ MODAL_DIRECTIVES,
-                    UNITYTinyMCE,
-                    CollapseDirective,
+    declarations: [ UNITYTinyMCE,
                     MD_CHECKBOX_DIRECTIVES,
                     SELECT_DIRECTIVES,
                     JobPreviewComponent,
                     GoogleplaceDirective],
-    exports:      [ MODAL_DIRECTIVES,
-                    UNITYTinyMCE,
-                    CollapseDirective,
+    exports:      [ UNITYTinyMCE,
                     JobPreviewComponent,
                     SELECT_DIRECTIVES,
-                    GoogleplaceDirective],
+                    GoogleplaceDirective,
+                    ButtonsModule,
+                    CollapseModule,
+                    AccordionModule,
+                    ModalModule ],
     imports:      [ BrowserModule,
                     FormsModule,
                     HttpModule,
-                    RouterModule ],
+                    RouterModule,
+                    ButtonsModule,
+                    CollapseModule,
+                    AccordionModule,
+                    ModalModule ],
 })
+
 export class SharedModule {}

@@ -2,8 +2,7 @@
 1 verbose cli [ '/usr/local/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'install',
-1 verbose cli   'angular-google-maps-geocoder',
-1 verbose cli   '--save' ]
+1 verbose cli   'ng2-bootstrap@1.1.0' ]
 2 info using npm@2.15.8
 3 info using node@v4.4.7
 4 verbose install initial load of /Applications/MAMP/htdocs/oechr/package.json
@@ -116,364 +115,482 @@
 111 info package.json @angular/platform-browser@2.0.0-rc.5 No description
 112 info package.json @angular/platform-browser-dynamic@2.0.0-rc.5 No description
 113 info package.json @angular/router@3.0.0-rc.1 No description
-114 info package.json @angular/platform-server@0.0.0-PLACEHOLDER No description
-115 info package.json @angular/platform-server@0.0.0-PLACEHOLDER No README data
-116 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
-117 info package.json @angular/router-deprecated@2.0.0-rc.2 No README data
+114 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
+115 info package.json @angular/router-deprecated@2.0.0-rc.2 No README data
+116 info package.json @angular/platform-server@0.0.0-PLACEHOLDER No description
+117 info package.json @angular/platform-server@0.0.0-PLACEHOLDER No README data
 118 info package.json @angular/upgrade@2.0.0-rc.5 No description
 119 info package.json angular2-google-map-auto-complete@1.0.4 No repository field.
 120 info package.json @angular/compiler-cli@0.0.0-PLACEHOLDER No bin file found at ./src/main.js
 121 info package.json @angular/compiler-cli@0.0.0-PLACEHOLDER No bin file found at ./src/extract_i18n.js
 122 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/package.json
-123 silly cache add args [ 'angular-google-maps-geocoder', null ]
-124 verbose cache add spec angular-google-maps-geocoder
+123 silly cache add args [ 'ng2-bootstrap@1.1.0', null ]
+124 verbose cache add spec ng2-bootstrap@1.1.0
 125 silly cache add parsed spec Result {
-125 silly cache add   raw: 'angular-google-maps-geocoder',
+125 silly cache add   raw: 'ng2-bootstrap@1.1.0',
 125 silly cache add   scope: null,
-125 silly cache add   name: 'angular-google-maps-geocoder',
-125 silly cache add   rawSpec: '',
-125 silly cache add   spec: 'latest',
-125 silly cache add   type: 'tag' }
-126 silly addNamed angular-google-maps-geocoder@latest
-127 verbose addNamed "latest" is being treated as a dist-tag for angular-google-maps-geocoder
-128 info addNameTag [ 'angular-google-maps-geocoder', 'latest' ]
-129 silly mapToRegistry name angular-google-maps-geocoder
-130 silly mapToRegistry using default registry
-131 silly mapToRegistry registry https://registry.npmjs.org/
-132 silly mapToRegistry data Result {
-132 silly mapToRegistry   raw: 'angular-google-maps-geocoder',
-132 silly mapToRegistry   scope: null,
-132 silly mapToRegistry   name: 'angular-google-maps-geocoder',
-132 silly mapToRegistry   rawSpec: '',
-132 silly mapToRegistry   spec: 'latest',
-132 silly mapToRegistry   type: 'tag' }
-133 silly mapToRegistry uri https://registry.npmjs.org/angular-google-maps-geocoder
-134 verbose addNameTag registry:https://registry.npmjs.org/angular-google-maps-geocoder not in flight; fetching
-135 verbose request uri https://registry.npmjs.org/angular-google-maps-geocoder
-136 verbose request no auth needed
-137 info attempt registry request try #1 at 11:38:39 AM
-138 verbose request id a8d433c434a17d6e
-139 http request GET https://registry.npmjs.org/angular-google-maps-geocoder
-140 http 200 https://registry.npmjs.org/angular-google-maps-geocoder
-141 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-141 verbose headers   etag: '"AGO0GYTUN72FBQHYXJSHUZ7RW"',
+125 silly cache add   name: 'ng2-bootstrap',
+125 silly cache add   rawSpec: '1.1.0',
+125 silly cache add   spec: '1.1.0',
+125 silly cache add   type: 'version' }
+126 silly addNamed ng2-bootstrap@1.1.0
+127 verbose addNamed "1.1.0" is a plain semver version for ng2-bootstrap
+128 silly mapToRegistry name ng2-bootstrap
+129 silly mapToRegistry using default registry
+130 silly mapToRegistry registry https://registry.npmjs.org/
+131 silly mapToRegistry data Result {
+131 silly mapToRegistry   raw: 'ng2-bootstrap',
+131 silly mapToRegistry   scope: null,
+131 silly mapToRegistry   name: 'ng2-bootstrap',
+131 silly mapToRegistry   rawSpec: '',
+131 silly mapToRegistry   spec: 'latest',
+131 silly mapToRegistry   type: 'tag' }
+132 silly mapToRegistry uri https://registry.npmjs.org/ng2-bootstrap
+133 verbose addNameVersion registry:https://registry.npmjs.org/ng2-bootstrap not in flight; fetching
+134 verbose request uri https://registry.npmjs.org/ng2-bootstrap
+135 verbose request no auth needed
+136 info attempt registry request try #1 at 6:01:29 PM
+137 verbose request id 444f7682f9f35ccc
+138 verbose etag "13C3L4CZEV3BGP57HOHSPN6OJ"
+139 http request GET https://registry.npmjs.org/ng2-bootstrap
+140 http 200 https://registry.npmjs.org/ng2-bootstrap
+141 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+141 verbose headers   etag: '"411TSL30Z71M4W8TNKEGAUAL2"',
 141 verbose headers   'content-type': 'application/json',
 141 verbose headers   'content-encoding': 'gzip',
 141 verbose headers   'cache-control': 'max-age=300',
-141 verbose headers   'content-length': '1397',
+141 verbose headers   'content-length': '23781',
 141 verbose headers   'accept-ranges': 'bytes',
-141 verbose headers   date: 'Tue, 20 Sep 2016 09:38:39 GMT',
+141 verbose headers   date: 'Thu, 22 Sep 2016 16:01:30 GMT',
 141 verbose headers   via: '1.1 varnish',
 141 verbose headers   age: '0',
 141 verbose headers   connection: 'keep-alive',
-141 verbose headers   'x-served-by': 'cache-lhr6326-LHR',
-141 verbose headers   'x-cache': 'MISS',
-141 verbose headers   'x-cache-hits': '0',
-141 verbose headers   'x-timer': 'S1474364319.617579,VS0,VE96',
+141 verbose headers   'x-served-by': 'cache-lhr6346-LHR',
+141 verbose headers   'x-cache': 'HIT',
+141 verbose headers   'x-cache-hits': '1',
+141 verbose headers   'x-timer': 'S1474560089.936581,VS0,VE168',
 141 verbose headers   vary: 'Accept-Encoding' }
 142 silly get cb [ 200,
-142 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-142 silly get     etag: '"AGO0GYTUN72FBQHYXJSHUZ7RW"',
+142 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+142 silly get     etag: '"411TSL30Z71M4W8TNKEGAUAL2"',
 142 silly get     'content-type': 'application/json',
 142 silly get     'content-encoding': 'gzip',
 142 silly get     'cache-control': 'max-age=300',
-142 silly get     'content-length': '1397',
+142 silly get     'content-length': '23781',
 142 silly get     'accept-ranges': 'bytes',
-142 silly get     date: 'Tue, 20 Sep 2016 09:38:39 GMT',
+142 silly get     date: 'Thu, 22 Sep 2016 16:01:30 GMT',
 142 silly get     via: '1.1 varnish',
 142 silly get     age: '0',
 142 silly get     connection: 'keep-alive',
-142 silly get     'x-served-by': 'cache-lhr6326-LHR',
-142 silly get     'x-cache': 'MISS',
-142 silly get     'x-cache-hits': '0',
-142 silly get     'x-timer': 'S1474364319.617579,VS0,VE96',
+142 silly get     'x-served-by': 'cache-lhr6346-LHR',
+142 silly get     'x-cache': 'HIT',
+142 silly get     'x-cache-hits': '1',
+142 silly get     'x-timer': 'S1474560089.936581,VS0,VE168',
 142 silly get     vary: 'Accept-Encoding' } ]
-143 verbose get saving angular-google-maps-geocoder to /Users/escarabin/.npm/registry.npmjs.org/angular-google-maps-geocoder/.cache.json
+143 verbose get saving ng2-bootstrap to /Users/escarabin/.npm/registry.npmjs.org/ng2-bootstrap/.cache.json
 144 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-145 silly addNameTag next cb for angular-google-maps-geocoder with tag latest
-146 silly addNamed angular-google-maps-geocoder@0.0.2
-147 verbose addNamed "0.0.2" is a plain semver version for angular-google-maps-geocoder
-148 silly mapToRegistry name angular-google-maps-geocoder
-149 silly mapToRegistry using default registry
-150 silly mapToRegistry registry https://registry.npmjs.org/
-151 silly mapToRegistry data Result {
-151 silly mapToRegistry   raw: 'angular-google-maps-geocoder',
-151 silly mapToRegistry   scope: null,
-151 silly mapToRegistry   name: 'angular-google-maps-geocoder',
-151 silly mapToRegistry   rawSpec: '',
-151 silly mapToRegistry   spec: 'latest',
-151 silly mapToRegistry   type: 'tag' }
-152 silly mapToRegistry uri https://registry.npmjs.org/angular-google-maps-geocoder
-153 verbose addRemoteTarball https://registry.npmjs.org/angular-google-maps-geocoder/-/angular-google-maps-geocoder-0.0.2.tgz not in flight; adding
-154 verbose addRemoteTarball [ 'https://registry.npmjs.org/angular-google-maps-geocoder/-/angular-google-maps-geocoder-0.0.2.tgz',
-154 verbose addRemoteTarball   'df2f2c8170fe083e088420523bd2a23258a0f748' ]
-155 info retry fetch attempt 1 at 11:38:39 AM
-156 info attempt registry request try #1 at 11:38:39 AM
-157 http fetch GET https://registry.npmjs.org/angular-google-maps-geocoder/-/angular-google-maps-geocoder-0.0.2.tgz
-158 http fetch 200 https://registry.npmjs.org/angular-google-maps-geocoder/-/angular-google-maps-geocoder-0.0.2.tgz
-159 silly fetchAndShaCheck shasum df2f2c8170fe083e088420523bd2a23258a0f748
-160 verbose addTmpTarball /var/folders/7d/ts0bs_bn1q7_kqtspbtc9gsc0000gn/T/npm-88844-9e255e65/registry.npmjs.org/angular-google-maps-geocoder/-/angular-google-maps-geocoder-0.0.2.tgz not in flight; adding
-161 verbose addTmpTarball already have metadata; skipping unpack for angular-google-maps-geocoder@0.0.2
+145 silly mapToRegistry name ng2-bootstrap
+146 silly mapToRegistry using default registry
+147 silly mapToRegistry registry https://registry.npmjs.org/
+148 silly mapToRegistry data Result {
+148 silly mapToRegistry   raw: 'ng2-bootstrap',
+148 silly mapToRegistry   scope: null,
+148 silly mapToRegistry   name: 'ng2-bootstrap',
+148 silly mapToRegistry   rawSpec: '',
+148 silly mapToRegistry   spec: 'latest',
+148 silly mapToRegistry   type: 'tag' }
+149 silly mapToRegistry uri https://registry.npmjs.org/ng2-bootstrap
+150 verbose addRemoteTarball https://registry.npmjs.org/ng2-bootstrap/-/ng2-bootstrap-1.1.0.tgz not in flight; adding
+151 verbose addRemoteTarball [ 'https://registry.npmjs.org/ng2-bootstrap/-/ng2-bootstrap-1.1.0.tgz',
+151 verbose addRemoteTarball   '078af4ab67aaf5efc732eab4380c0995f6dab02a' ]
+152 info retry fetch attempt 1 at 6:01:30 PM
+153 info attempt registry request try #1 at 6:01:30 PM
+154 http fetch GET https://registry.npmjs.org/ng2-bootstrap/-/ng2-bootstrap-1.1.0.tgz
+155 http fetch 200 https://registry.npmjs.org/ng2-bootstrap/-/ng2-bootstrap-1.1.0.tgz
+156 silly fetchAndShaCheck shasum 078af4ab67aaf5efc732eab4380c0995f6dab02a
+157 verbose addTmpTarball /var/folders/7d/ts0bs_bn1q7_kqtspbtc9gsc0000gn/T/npm-35911-1546ec59/registry.npmjs.org/ng2-bootstrap/-/ng2-bootstrap-1.1.0.tgz not in flight; adding
+158 verbose addTmpTarball already have metadata; skipping unpack for ng2-bootstrap@1.1.0
+159 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
+160 silly cache afterAdd ng2-bootstrap@1.1.0
+161 verbose afterAdd /Users/escarabin/.npm/ng2-bootstrap/1.1.0/package/package.json not in flight; writing
 162 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-163 silly cache afterAdd angular-google-maps-geocoder@0.0.2
-164 verbose afterAdd /Users/escarabin/.npm/angular-google-maps-geocoder/0.0.2/package/package.json not in flight; writing
-165 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-166 verbose afterAdd /Users/escarabin/.npm/angular-google-maps-geocoder/0.0.2/package/package.json written
-167 silly install resolved [ { name: 'angular-google-maps-geocoder',
-167 silly install resolved     version: '0.0.2',
-167 silly install resolved     description: 'Angular typeahead google Maps Geocoder (also reverse geocoder)',
-167 silly install resolved     main: [ 'angular-google-maps-geocoder.js' ],
-167 silly install resolved     repository:
-167 silly install resolved      { type: 'git',
-167 silly install resolved        url: 'git@github.com:alexandernst/angular-google-maps-geocoder.git' },
-167 silly install resolved     dependencies: { angular: '1.3.15' },
-167 silly install resolved     devDependencies:
-167 silly install resolved      { 'grunt-contrib-uglify': '>=0.5.0',
-167 silly install resolved        'grunt-contrib-jshint': '0.11.2',
-167 silly install resolved        'grunt-contrib-watch': '0.6.1',
-167 silly install resolved        'grunt-contrib-connect': '0.10.1',
-167 silly install resolved        'grunt-clear': '0.2.1' },
-167 silly install resolved     keywords: [ 'angular', 'google', 'maps', 'geocoder' ],
-167 silly install resolved     author:
-167 silly install resolved      { name: 'Alexander Nestorov',
-167 silly install resolved        email: 'alexandernst@gmail.com',
-167 silly install resolved        url: 'https://github.com/alexandernst' },
-167 silly install resolved     license: 'MIT',
-167 silly install resolved     bugs: { url: 'https://github.com/alexandernst/angular-google-maps-geocoder/issues' },
-167 silly install resolved     homepage: 'https://github.com/alexandernst/angular-google-maps-geocoder',
-167 silly install resolved     gitHead: '2909e468c42fc20df8dd160498dc391dff28c6f7',
-167 silly install resolved     _id: 'angular-google-maps-geocoder@0.0.2',
-167 silly install resolved     scripts: {},
-167 silly install resolved     _shasum: 'df2f2c8170fe083e088420523bd2a23258a0f748',
-167 silly install resolved     _from: 'angular-google-maps-geocoder@latest',
-167 silly install resolved     _npmVersion: '1.4.21',
-167 silly install resolved     _npmUser: { name: 'alexandernst', email: 'alexandernst@gmail.com' },
-167 silly install resolved     maintainers: [ [Object] ],
-167 silly install resolved     dist:
-167 silly install resolved      { shasum: 'df2f2c8170fe083e088420523bd2a23258a0f748',
-167 silly install resolved        tarball: 'https://registry.npmjs.org/angular-google-maps-geocoder/-/angular-google-maps-geocoder-0.0.2.tgz' },
-167 silly install resolved     directories: {},
-167 silly install resolved     _resolved: 'https://registry.npmjs.org/angular-google-maps-geocoder/-/angular-google-maps-geocoder-0.0.2.tgz' } ]
-168 info install angular-google-maps-geocoder@0.0.2 into /Applications/MAMP/htdocs/oechr
-169 info installOne angular-google-maps-geocoder@0.0.2
-170 verbose installOne of angular-google-maps-geocoder to /Applications/MAMP/htdocs/oechr not in flight; installing
-171 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
-172 verbose lock using /Users/escarabin/.npm/_locks/angular-google-maps-geoc-90fcd535400862be.lock for /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder
-173 silly install write writing angular-google-maps-geocoder 0.0.2 to /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder
-174 verbose unbuild node_modules/angular-google-maps-geocoder
-175 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder is being purged from base /Applications/MAMP/htdocs/oechr
-176 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder
-177 verbose tar unpack /Users/escarabin/.npm/angular-google-maps-geocoder/0.0.2/package.tgz
-178 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder
-179 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder is being purged
-180 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder
-181 silly gunzTarPerm modes [ '755', '644' ]
-182 silly gunzTarPerm extractEntry package.json
-183 silly gunzTarPerm extractEntry .npmignore
-184 silly gunzTarPerm extractEntry README.md
-185 silly gunzTarPerm extractEntry LICENSE
-186 silly gunzTarPerm extractEntry dist/angular-google-maps-geocoder.min.js
-187 silly gunzTarPerm extractEntry src/angular-google-maps-geocoder.js
-188 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/package.json
-189 info preinstall angular-google-maps-geocoder@0.0.2
-190 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/package.json
-191 silly prepareForInstallMany adding angular@1.3.15 from angular-google-maps-geocoder dependencies
-192 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/package.json
-193 silly cache add args [ 'angular@1.3.15', null ]
-194 verbose cache add spec angular@1.3.15
-195 silly cache add parsed spec Result {
-195 silly cache add   raw: 'angular@1.3.15',
-195 silly cache add   scope: null,
-195 silly cache add   name: 'angular',
-195 silly cache add   rawSpec: '1.3.15',
-195 silly cache add   spec: '1.3.15',
-195 silly cache add   type: 'version' }
-196 silly addNamed angular@1.3.15
-197 verbose addNamed "1.3.15" is a plain semver version for angular
-198 silly mapToRegistry name angular
-199 silly mapToRegistry using default registry
-200 silly mapToRegistry registry https://registry.npmjs.org/
-201 silly mapToRegistry data Result {
-201 silly mapToRegistry   raw: 'angular',
-201 silly mapToRegistry   scope: null,
-201 silly mapToRegistry   name: 'angular',
-201 silly mapToRegistry   rawSpec: '',
-201 silly mapToRegistry   spec: 'latest',
-201 silly mapToRegistry   type: 'tag' }
-202 silly mapToRegistry uri https://registry.npmjs.org/angular
-203 verbose addNameVersion registry:https://registry.npmjs.org/angular not in flight; fetching
-204 verbose request uri https://registry.npmjs.org/angular
-205 verbose request no auth needed
-206 info attempt registry request try #1 at 11:38:39 AM
-207 http request GET https://registry.npmjs.org/angular
-208 http 200 https://registry.npmjs.org/angular
-209 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-209 verbose headers   etag: '"AN6E0WMBFZEJDMJXA9V195AMY"',
-209 verbose headers   'content-type': 'application/json',
-209 verbose headers   'content-encoding': 'gzip',
-209 verbose headers   'cache-control': 'max-age=300',
-209 verbose headers   'content-length': '16229',
-209 verbose headers   'accept-ranges': 'bytes',
-209 verbose headers   date: 'Tue, 20 Sep 2016 09:38:39 GMT',
-209 verbose headers   via: '1.1 varnish',
-209 verbose headers   age: '72',
-209 verbose headers   connection: 'keep-alive',
-209 verbose headers   'x-served-by': 'cache-lhr6326-LHR',
-209 verbose headers   'x-cache': 'HIT',
-209 verbose headers   'x-cache-hits': '2',
-209 verbose headers   'x-timer': 'S1474364319.956512,VS0,VE0',
-209 verbose headers   vary: 'Accept-Encoding' }
-210 silly get cb [ 200,
-210 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-210 silly get     etag: '"AN6E0WMBFZEJDMJXA9V195AMY"',
-210 silly get     'content-type': 'application/json',
-210 silly get     'content-encoding': 'gzip',
-210 silly get     'cache-control': 'max-age=300',
-210 silly get     'content-length': '16229',
-210 silly get     'accept-ranges': 'bytes',
-210 silly get     date: 'Tue, 20 Sep 2016 09:38:39 GMT',
-210 silly get     via: '1.1 varnish',
-210 silly get     age: '72',
-210 silly get     connection: 'keep-alive',
-210 silly get     'x-served-by': 'cache-lhr6326-LHR',
-210 silly get     'x-cache': 'HIT',
-210 silly get     'x-cache-hits': '2',
-210 silly get     'x-timer': 'S1474364319.956512,VS0,VE0',
-210 silly get     vary: 'Accept-Encoding' } ]
-211 verbose get saving angular to /Users/escarabin/.npm/registry.npmjs.org/angular/.cache.json
-212 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-213 silly mapToRegistry name angular
-214 silly mapToRegistry using default registry
-215 silly mapToRegistry registry https://registry.npmjs.org/
-216 silly mapToRegistry data Result {
-216 silly mapToRegistry   raw: 'angular',
-216 silly mapToRegistry   scope: null,
-216 silly mapToRegistry   name: 'angular',
-216 silly mapToRegistry   rawSpec: '',
-216 silly mapToRegistry   spec: 'latest',
-216 silly mapToRegistry   type: 'tag' }
-217 silly mapToRegistry uri https://registry.npmjs.org/angular
-218 verbose addRemoteTarball https://registry.npmjs.org/angular/-/angular-1.3.15.tgz not in flight; adding
-219 verbose addRemoteTarball [ 'https://registry.npmjs.org/angular/-/angular-1.3.15.tgz',
-219 verbose addRemoteTarball   '797d0947869073af96d92366fb0daf98a35d1cd1' ]
-220 info retry fetch attempt 1 at 11:38:40 AM
-221 info attempt registry request try #1 at 11:38:40 AM
-222 http fetch GET https://registry.npmjs.org/angular/-/angular-1.3.15.tgz
-223 http fetch 200 https://registry.npmjs.org/angular/-/angular-1.3.15.tgz
-224 silly fetchAndShaCheck shasum 797d0947869073af96d92366fb0daf98a35d1cd1
-225 verbose addTmpTarball /var/folders/7d/ts0bs_bn1q7_kqtspbtc9gsc0000gn/T/npm-88844-9e255e65/registry.npmjs.org/angular/-/angular-1.3.15.tgz not in flight; adding
-226 verbose addTmpTarball already have metadata; skipping unpack for angular@1.3.15
-227 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-228 silly cache afterAdd angular@1.3.15
-229 verbose afterAdd /Users/escarabin/.npm/angular/1.3.15/package/package.json not in flight; writing
-230 verbose correctMkdir /Users/escarabin/.npm correctMkdir not in flight; initializing
-231 verbose afterAdd /Users/escarabin/.npm/angular/1.3.15/package/package.json written
-232 silly install resolved [ { name: 'angular',
-232 silly install resolved     version: '1.3.15',
-232 silly install resolved     description: 'HTML enhanced for web apps',
-232 silly install resolved     main: 'index.js',
-232 silly install resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
-232 silly install resolved     repository:
-232 silly install resolved      { type: 'git',
-232 silly install resolved        url: 'https://github.com/angular/angular.js.git' },
-232 silly install resolved     keywords: [ 'angular', 'framework', 'browser', 'client-side' ],
-232 silly install resolved     author:
-232 silly install resolved      { name: 'Angular Core Team',
-232 silly install resolved        email: 'angular-core+npm@google.com' },
-232 silly install resolved     license: 'MIT',
-232 silly install resolved     bugs: { url: 'https://github.com/angular/angular.js/issues' },
-232 silly install resolved     homepage: 'http://angularjs.org',
-232 silly install resolved     gitHead: 'ba7abcfa409ba852146e6ba206693cf7bac3e359',
-232 silly install resolved     _id: 'angular@1.3.15',
-232 silly install resolved     _shasum: '797d0947869073af96d92366fb0daf98a35d1cd1',
-232 silly install resolved     _from: 'angular@1.3.15',
-232 silly install resolved     _npmVersion: '2.0.2',
-232 silly install resolved     _nodeVersion: '0.10.26',
-232 silly install resolved     _npmUser: { name: 'angularcore', email: 'angular-core+npm@google.com' },
-232 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
-232 silly install resolved     dist:
-232 silly install resolved      { shasum: '797d0947869073af96d92366fb0daf98a35d1cd1',
-232 silly install resolved        tarball: 'https://registry.npmjs.org/angular/-/angular-1.3.15.tgz' },
-232 silly install resolved     directories: {},
-232 silly install resolved     _resolved: 'https://registry.npmjs.org/angular/-/angular-1.3.15.tgz' } ]
-233 info install angular@1.3.15 into /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder
-234 info installOne angular@1.3.15
-235 verbose installOne of angular to /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder not in flight; installing
-236 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
-237 verbose lock using /Users/escarabin/.npm/_locks/angular-2478149a59606b72.lock for /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular
-238 silly install write writing angular 1.3.15 to /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular
-239 verbose unbuild node_modules/angular-google-maps-geocoder/node_modules/angular
-240 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular is being purged from base /Applications/MAMP/htdocs/oechr
-241 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular
-242 verbose tar unpack /Users/escarabin/.npm/angular/1.3.15/package.tgz
-243 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular
-244 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular is being purged
-245 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular
-246 silly gunzTarPerm modes [ '755', '644' ]
-247 silly gunzTarPerm extractEntry package.json
-248 silly gunzTarPerm extractEntry README.md
-249 silly gunzTarPerm extractEntry angular.js
-250 silly gunzTarPerm extractEntry angular.min.js
-251 silly gunzTarPerm extractEntry index.js
-252 silly gunzTarPerm extractEntry angular-csp.css
-253 silly gunzTarPerm extractEntry angular.min.js.gzip
-254 silly gunzTarPerm extractEntry angular.min.js.map
-255 silly gunzTarPerm extractEntry bower.json
-256 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular/package.json
-257 info preinstall angular@1.3.15
-258 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular/package.json
-259 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular/package.json
-260 silly install resolved []
-261 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular
-262 info build /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular
-263 info linkStuff angular@1.3.15
-264 silly linkStuff angular@1.3.15 has /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules as its parent node_modules
-265 verbose linkBins angular@1.3.15
-266 verbose linkMans angular@1.3.15
-267 verbose rebuildBundles angular@1.3.15
-268 info install angular@1.3.15
-269 info postinstall angular@1.3.15
-270 verbose unlock done using /Users/escarabin/.npm/_locks/angular-2478149a59606b72.lock for /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder/node_modules/angular
-271 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder
-272 info build /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder
-273 info linkStuff angular-google-maps-geocoder@0.0.2
-274 silly linkStuff angular-google-maps-geocoder@0.0.2 has /Applications/MAMP/htdocs/oechr/node_modules as its parent node_modules
-275 verbose linkBins angular-google-maps-geocoder@0.0.2
-276 verbose linkMans angular-google-maps-geocoder@0.0.2
-277 verbose rebuildBundles angular-google-maps-geocoder@0.0.2
-278 verbose rebuildBundles [ 'angular' ]
-279 info install angular-google-maps-geocoder@0.0.2
-280 info postinstall angular-google-maps-geocoder@0.0.2
-281 verbose unlock done using /Users/escarabin/.npm/_locks/angular-google-maps-geoc-90fcd535400862be.lock for /Applications/MAMP/htdocs/oechr/node_modules/angular-google-maps-geocoder
-282 verbose validateInstall loading /Applications/MAMP/htdocs/oechr/package.json for validation
-283 verbose stack Error: The package @angular/common@2.0.0-rc.5 does not satisfy its siblings' peerDependencies requirements!
-283 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
-283 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
-283 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
-283 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-283 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-283 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-283 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-283 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-283 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-283 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-284 verbose cwd /Applications/MAMP/htdocs/oechr
-285 error Darwin 16.0.0
-286 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "angular-google-maps-geocoder" "--save"
-287 error node v4.4.7
-288 error npm  v2.15.8
-289 error code EPEERINVALID
-290 error peerinvalid The package @angular/common@2.0.0-rc.5 does not satisfy its siblings' peerDependencies requirements!
-290 error peerinvalid Peer @angular/forms@0.3.0 wants @angular/common@^2.0.0-rc.5
-290 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.5 wants @angular/common@^2.0.0-rc.5
-290 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.5 wants @angular/common@^2.0.0-rc.5
-290 error peerinvalid Peer @angular/router@3.0.0-rc.1 wants @angular/common@^2.0.0-rc.5
-290 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
-290 error peerinvalid Peer ng2-bootstrap@1.0.24 wants @angular/common@2.0.0-rc.4
-290 error peerinvalid Peer ng2-meta@1.0.0 wants @angular/common@^2.0.0-rc.4
-290 error peerinvalid Peer @angular/platform-server@0.0.0-PLACEHOLDER wants @angular/common@0.0.0-PLACEHOLDER
-290 error peerinvalid Peer @angular2-material/core@2.0.0-alpha.7 wants @angular/common@^2.0.0-rc.5
-290 error peerinvalid Peer angular2-google-maps@0.14.0 wants @angular/common@2.0.0-rc.6
-290 error peerinvalid Peer ng2-file-upload@1.0.3 wants @angular/common@^2.0.0-rc.1
-290 error peerinvalid Peer ng2-select@1.0.3 wants @angular/common@^2.0.0-rc.1
-291 verbose exit [ 1, true ]
+163 verbose afterAdd /Users/escarabin/.npm/ng2-bootstrap/1.1.0/package/package.json written
+164 silly install resolved [ { name: 'ng2-bootstrap',
+164 silly install resolved     version: '1.1.0',
+164 silly install resolved     description: 'angular2 bootstrap components',
+164 silly install resolved     scripts:
+164 silly install resolved      { typedoc: 'typedoc',
+164 silly install resolved        'flow.docs': 'npm run typedoc -- --exclude \'**/*.spec.ts\' ./components/',
+164 silly install resolved        'flow.install:typings': 'typings install',
+164 silly install resolved        'flow.compile': 'npm run flow.install:typings && npm run flow.compile:common && npm run flow.compile:system',
+164 silly install resolved        'flow.compile:common': 'tsc -p tsconfig.publish.json',
+164 silly install resolved        'flow.compile:system': './.config/bundle-system.js',
+164 silly install resolved        'flow.copy:src': 'cpy ng2-bootstrap.ts "components/*.ts" ts --parents',
+164 silly install resolved        'flow.clean': 'del bundles coverage demo-build typings "components/**/*.+(js|d.ts|js.map)" dist "ng2-bootstrap.+(js|d.ts|js.map)"',
+164 silly install resolved        'flow.deploy:gh-pages': 'npm run flow.build:prod && ./node_modules/.bin/gh-pages -d demo-build',
+164 silly install resolved        'flow.eslint': 'eslint --ignore-path .gitignore  --ext js --fix . .config',
+164 silly install resolved        'flow.tslint': 'gulp lint',
+164 silly install resolved        'flow.lint': 'npm run flow.eslint && npm run flow.tslint',
+164 silly install resolved        'flow.changelog': 'conventional-changelog -i CHANGELOG.md -s -p angular -v',
+164 silly install resolved        'flow.github-release': 'conventional-github-releaser -p angular',
+164 silly install resolved        'flow.build:prod': 'NODE_ENV=production ./node_modules/.bin/webpack --progress --color --display-error-details --display-cached',
+164 silly install resolved        'flow.build:dev': 'webpack --progress --color',
+164 silly install resolved        'flow.serve:dev': 'webpack-dev-server --hot --inline --colors --display-error-details --display-cached',
+164 silly install resolved        'flow.serve:prod': 'NODE_ENV=production ./node_modules/.bin/webpack-dev-server --hot --inline --colors --display-error-details --display-cached',
+164 silly install resolved        prepublish: 'npm run flow.clean && npm run flow.compile',
+164 silly install resolved        postpublish: 'npm run flow.deploy:gh-pages',
+164 silly install resolved        start: 'npm run flow.serve:dev',
+164 silly install resolved        pretest: 'npm run flow.lint',
+164 silly install resolved        test: 'NODE_ENV=test ./node_modules/.bin/karma start',
+164 silly install resolved        'test:watch': 'NODE_ENV=test ./node_modules/.bin/karma start --auto-watch --no-single-run',
+164 silly install resolved        preversion: 'npm test',
+164 silly install resolved        version: 'npm run flow.changelog && git add -A',
+164 silly install resolved        postversion: 'git push origin development && git push --tags' },
+164 silly install resolved     main: 'ng2-bootstrap.js',
+164 silly install resolved     typings: 'ng2-bootstrap.d.ts',
+164 silly install resolved     keywords: [ 'angular2', 'bootstrap', 'angularjs', 'twitter-bootstrap' ],
+164 silly install resolved     author: { name: 'Dmitriy Shekhovtsov', email: 'valorkin@gmail.com' },
+164 silly install resolved     license: 'MIT',
+164 silly install resolved     repository:
+164 silly install resolved      { type: 'git',
+164 silly install resolved        url: 'git+ssh://git@github.com/valor-software/ng2-bootstrap.git' },
+164 silly install resolved     bugs: { url: 'https://github.com/valor-software/ng2-bootstrap/issues' },
+164 silly install resolved     homepage: 'https://github.com/valor-software/ng2-bootstrap#readme',
+164 silly install resolved     dependencies: { moment: '2.14.1' },
+164 silly install resolved     peerDependencies:
+164 silly install resolved      { '@angular/common': '2.0.0-rc.5',
+164 silly install resolved        '@angular/compiler': '2.0.0-rc.5',
+164 silly install resolved        '@angular/core': '2.0.0-rc.5',
+164 silly install resolved        '@angular/forms': '0.3.0' },
+164 silly install resolved     devDependencies:
+164 silly install resolved      { '@angular/common': '2.0.0-rc.5',
+164 silly install resolved        '@angular/compiler': '2.0.0-rc.5',
+164 silly install resolved        '@angular/core': '2.0.0-rc.5',
+164 silly install resolved        '@angular/forms': '0.3.0',
+164 silly install resolved        '@angular/platform-browser': '2.0.0-rc.5',
+164 silly install resolved        '@angular/platform-browser-dynamic': '2.0.0-rc.5',
+164 silly install resolved        '@angular/router': '3.0.0-rc.1',
+164 silly install resolved        async: '2.0.1',
+164 silly install resolved        bootstrap: '3.3.7',
+164 silly install resolved        codecov: '1.0.1',
+164 silly install resolved        'conventional-changelog-cli': '1.2.0',
+164 silly install resolved        'conventional-github-releaser': '1.1.3',
+164 silly install resolved        'cpy-cli': '1.0.1',
+164 silly install resolved        'del-cli': '0.2.0',
+164 silly install resolved        'es6-promise': '3.2.1',
+164 silly install resolved        'es6-shim': '0.35.1',
+164 silly install resolved        'es7-reflect-metadata': '1.6.0',
+164 silly install resolved        'eslint-config-valorsoft': '0.1.0',
+164 silly install resolved        'file-loader': '0.9.0',
+164 silly install resolved        'gh-pages': '0.11.0',
+164 silly install resolved        'gitignore-to-glob': '0.2.1',
+164 silly install resolved        'google-code-prettify': '1.0.5',
+164 silly install resolved        gulp: '3.9.1',
+164 silly install resolved        'gulp-size': '2.1.0',
+164 silly install resolved        'gulp-tslint': '6.1.1',
+164 silly install resolved        'lite-server': '2.2.2',
+164 silly install resolved        marked: '0.3.6',
+164 silly install resolved        'ng2-webpack-config': '0.0.4',
+164 silly install resolved        'pre-commit': '1.1.3',
+164 silly install resolved        'reflect-metadata': '0.1.8',
+164 silly install resolved        'require-dir': '0.3.0',
+164 silly install resolved        rxjs: '5.0.0-beta.11',
+164 silly install resolved        'systemjs-builder': '0.15.29',
+164 silly install resolved        'tslint-config-valorsoft': '1.1.1',
+164 silly install resolved        typedoc: '0.4.5',
+164 silly install resolved        typescript: '1.8.10',
+164 silly install resolved        typings: '1.3.2',
+164 silly install resolved        'zone.js': '0.6.17' },
+164 silly install resolved     gitHead: '9228bbb99b5931b2b0afc361de009771a25e6e73',
+164 silly install resolved     _id: 'ng2-bootstrap@1.1.0',
+164 silly install resolved     _shasum: '078af4ab67aaf5efc732eab4380c0995f6dab02a',
+164 silly install resolved     _from: 'ng2-bootstrap@1.1.0',
+164 silly install resolved     _npmVersion: '3.10.3',
+164 silly install resolved     _nodeVersion: '6.3.1',
+164 silly install resolved     _npmUser: { name: 'valorkin', email: 'valorkin@gmail.com' },
+164 silly install resolved     dist:
+164 silly install resolved      { shasum: '078af4ab67aaf5efc732eab4380c0995f6dab02a',
+164 silly install resolved        tarball: 'https://registry.npmjs.org/ng2-bootstrap/-/ng2-bootstrap-1.1.0.tgz' },
+164 silly install resolved     maintainers: [ [Object] ],
+164 silly install resolved     _npmOperationalInternal:
+164 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+164 silly install resolved        tmp: 'tmp/ng2-bootstrap-1.1.0.tgz_1472736407675_0.9160852569621056' },
+164 silly install resolved     directories: {},
+164 silly install resolved     _resolved: 'https://registry.npmjs.org/ng2-bootstrap/-/ng2-bootstrap-1.1.0.tgz' } ]
+165 info install ng2-bootstrap@1.1.0 into /Applications/MAMP/htdocs/oechr
+166 info installOne ng2-bootstrap@1.1.0
+167 verbose installOne of ng2-bootstrap to /Applications/MAMP/htdocs/oechr not in flight; installing
+168 verbose correctMkdir /Users/escarabin/.npm/_locks correctMkdir not in flight; initializing
+169 verbose lock using /Users/escarabin/.npm/_locks/ng2-bootstrap-ac34be6290d15e16.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap
+170 silly install write writing ng2-bootstrap 1.1.0 to /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap
+171 verbose unbuild node_modules/ng2-bootstrap
+172 info preuninstall ng2-bootstrap@1.0.24
+173 info uninstall ng2-bootstrap@1.0.24
+174 verbose unbuild rmStuff ng2-bootstrap@1.0.24 from /Applications/MAMP/htdocs/oechr/node_modules
+175 info postuninstall ng2-bootstrap@1.0.24
+176 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap is being purged from base /Applications/MAMP/htdocs/oechr
+177 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap
+178 silly vacuum-fs purging /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap
+179 silly vacuum-fs quitting because other entries in /Applications/MAMP/htdocs/oechr/node_modules
+180 verbose tar unpack /Users/escarabin/.npm/ng2-bootstrap/1.1.0/package.tgz
+181 verbose tar unpacking to /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap
+182 silly gentlyRm /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap is being purged
+183 verbose gentlyRm don't care about contents; nuking /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap
+184 silly gunzTarPerm modes [ '755', '644' ]
+185 silly gunzTarPerm extractEntry package.json
+186 silly gunzTarPerm extractEntry .npmignore
+187 silly gunzTarPerm extractEntry README.md
+188 silly gunzTarPerm extractEntry LICENSE
+189 silly gunzTarPerm extractEntry spec-bundle.js
+190 silly gunzTarPerm extractEntry protractor.conf.js
+191 silly gunzTarPerm extractEntry .ng2-config.js
+192 silly gunzTarPerm extractEntry typedoc.js
+193 silly gunzTarPerm extractEntry ng2-bootstrap.js
+194 silly gunzTarPerm extractEntry gulpfile.js
+195 silly gunzTarPerm extractEntry .travis.yml
+196 silly gunzTarPerm extractEntry components/modal.js
+197 silly gunzTarPerm extractEntry components/common.js
+198 silly gunzTarPerm extractEntry components/datepicker.js
+199 silly gunzTarPerm extractEntry components/dropdown.js
+200 silly gunzTarPerm extractEntry components/collapse.js
+201 silly gunzTarPerm extractEntry components/ng2-bootstrap-config.js
+202 silly gunzTarPerm extractEntry components/pagination.js
+203 silly gunzTarPerm extractEntry components/position.js
+204 silly gunzTarPerm extractEntry components/progressbar.js
+205 silly gunzTarPerm extractEntry components/rating.js
+206 silly gunzTarPerm extractEntry components/carousel.js
+207 silly gunzTarPerm extractEntry components/tabs.js
+208 silly gunzTarPerm extractEntry components/buttons.js
+209 silly gunzTarPerm extractEntry components/timepicker.js
+210 silly gunzTarPerm extractEntry components/alert.js
+211 silly gunzTarPerm extractEntry components/tooltip.js
+212 silly gunzTarPerm extractEntry components/accordion.js
+213 silly gunzTarPerm extractEntry components/typeahead.js
+214 silly gunzTarPerm extractEntry components/index.js
+215 silly gunzTarPerm extractEntry components/common.d.ts
+216 silly gunzTarPerm extractEntry components/accordion/accordion.component.js
+217 silly gunzTarPerm extractEntry components/accordion/accordion-group.component.js
+218 silly gunzTarPerm extractEntry components/accordion/accordion.module.js
+219 silly gunzTarPerm extractEntry components/accordion/accordion-group.component.d.ts
+220 silly gunzTarPerm extractEntry components/accordion/accordion.module.d.ts
+221 silly gunzTarPerm extractEntry components/accordion/accordion.component.d.ts
+222 silly gunzTarPerm extractEntry components/accordion/readme.md
+223 silly gunzTarPerm extractEntry components/accordion/title.md
+224 silly gunzTarPerm extractEntry components/datepicker/datepicker.module.js
+225 silly gunzTarPerm extractEntry components/datepicker/datepicker-inner.component.js
+226 silly gunzTarPerm extractEntry components/datepicker/datepicker-popup.component.js
+227 silly gunzTarPerm extractEntry components/datepicker/datepicker.component.js
+228 silly gunzTarPerm extractEntry components/datepicker/date-formatter.js
+229 silly gunzTarPerm extractEntry components/datepicker/daypicker.component.js
+230 silly gunzTarPerm extractEntry components/datepicker/monthpicker.component.js
+231 silly gunzTarPerm extractEntry components/datepicker/yearpicker.component.js
+232 silly gunzTarPerm extractEntry components/datepicker/datepicker.component.d.ts
+233 silly gunzTarPerm extractEntry components/datepicker/datepicker-inner.component.d.ts
+234 silly gunzTarPerm extractEntry components/datepicker/datepicker.module.d.ts
+235 silly gunzTarPerm extractEntry components/datepicker/date-formatter.d.ts
+236 silly gunzTarPerm extractEntry components/datepicker/daypicker.component.d.ts
+237 silly gunzTarPerm extractEntry components/datepicker/monthpicker.component.d.ts
+238 silly gunzTarPerm extractEntry components/datepicker/datepicker-popup.component.d.ts
+239 silly gunzTarPerm extractEntry components/datepicker/readme.md
+240 silly gunzTarPerm extractEntry components/datepicker/title.md
+241 silly gunzTarPerm extractEntry components/datepicker/yearpicker.component.d.ts
+242 silly gunzTarPerm extractEntry components/datepicker.d.ts
+243 silly gunzTarPerm extractEntry components/dropdown/dropdown-menu.directive.js
+244 silly gunzTarPerm extractEntry components/dropdown/dropdown-toggle.directive.js
+245 silly gunzTarPerm extractEntry components/dropdown/dropdown.directive.js
+246 silly gunzTarPerm extractEntry components/dropdown/dropdown.module.js
+247 silly gunzTarPerm extractEntry components/dropdown/dropdown.service.js
+248 silly gunzTarPerm extractEntry components/dropdown/dropdown.directive.d.ts
+249 silly gunzTarPerm extractEntry components/dropdown/dropdown-menu.directive.d.ts
+250 silly gunzTarPerm extractEntry components/dropdown/dropdown.module.d.ts
+251 silly gunzTarPerm extractEntry components/dropdown/dropdown-toggle.directive.d.ts
+252 silly gunzTarPerm extractEntry components/dropdown/dropdown.service.d.ts
+253 silly gunzTarPerm extractEntry components/dropdown/readme.md
+254 silly gunzTarPerm extractEntry components/dropdown/title.md
+255 silly gunzTarPerm extractEntry components/dropdown.d.ts
+256 silly gunzTarPerm extractEntry components/buttons/button-radio.directive.js
+257 silly gunzTarPerm extractEntry components/buttons/button-checkbox.directive.js
+258 silly gunzTarPerm extractEntry components/buttons/buttons.module.js
+259 silly gunzTarPerm extractEntry components/buttons/button-checkbox.directive.d.ts
+260 silly gunzTarPerm extractEntry components/buttons/buttons.module.d.ts
+261 silly gunzTarPerm extractEntry components/buttons/button-radio.directive.d.ts
+262 silly gunzTarPerm extractEntry components/buttons/readme.md
+263 silly gunzTarPerm extractEntry components/buttons/title.md
+264 silly gunzTarPerm extractEntry components/index.d.ts
+265 silly gunzTarPerm extractEntry components/buttons.d.ts
+266 silly gunzTarPerm extractEntry components/modal/modal.component.js
+267 silly gunzTarPerm extractEntry components/modal/modal-options.class.js
+268 silly gunzTarPerm extractEntry components/modal/modal-backdrop.component.js
+269 silly gunzTarPerm extractEntry components/modal/modal.module.js
+270 silly gunzTarPerm extractEntry components/modal/modal-backdrop.component.d.ts
+271 silly gunzTarPerm extractEntry components/modal/modal.component.d.ts
+272 silly gunzTarPerm extractEntry components/modal/modal.module.d.ts
+273 silly gunzTarPerm extractEntry components/modal/modal-options.class.d.ts
+274 silly gunzTarPerm extractEntry components/modal/readme.md
+275 silly gunzTarPerm extractEntry components/modal/title.md
+276 silly gunzTarPerm extractEntry components/modal.d.ts
+277 silly gunzTarPerm extractEntry components/accordion.d.ts
+278 silly gunzTarPerm extractEntry components/ng2-bootstrap-config.d.ts
+279 silly gunzTarPerm extractEntry components/pagination/pagination.component.js
+280 silly gunzTarPerm extractEntry components/pagination/pager.component.js
+281 silly gunzTarPerm extractEntry components/pagination/pagination.module.js
+282 silly gunzTarPerm extractEntry components/pagination/pager.component.d.ts
+283 silly gunzTarPerm extractEntry components/pagination/pagination.module.d.ts
+284 silly gunzTarPerm extractEntry components/pagination/pagination.component.d.ts
+285 silly gunzTarPerm extractEntry components/pagination/readme.md
+286 silly gunzTarPerm extractEntry components/pagination/title.md
+287 silly gunzTarPerm extractEntry components/pagination.d.ts
+288 silly gunzTarPerm extractEntry components/position.d.ts
+289 silly gunzTarPerm extractEntry components/carousel/carousel.module.js
+290 silly gunzTarPerm extractEntry components/carousel/carousel.component.js
+291 silly gunzTarPerm extractEntry components/carousel/slide.component.js
+292 silly gunzTarPerm extractEntry components/carousel/carousel.module.d.ts
+293 silly gunzTarPerm extractEntry components/carousel/carousel.component.d.ts
+294 silly gunzTarPerm extractEntry components/carousel/readme.md
+295 silly gunzTarPerm extractEntry components/carousel/slide.component.d.ts
+296 silly gunzTarPerm extractEntry components/carousel/title.md
+297 silly gunzTarPerm extractEntry components/progressbar/progressbar.component.js
+298 silly gunzTarPerm extractEntry components/progressbar/progress.directive.js
+299 silly gunzTarPerm extractEntry components/progressbar/bar.component.js
+300 silly gunzTarPerm extractEntry components/progressbar/progressbar.module.js
+301 silly gunzTarPerm extractEntry components/progressbar/bar.component.d.ts
+302 silly gunzTarPerm extractEntry components/progressbar/progressbar.component.d.ts
+303 silly gunzTarPerm extractEntry components/progressbar/progressbar.module.d.ts
+304 silly gunzTarPerm extractEntry components/progressbar/progress.directive.d.ts
+305 silly gunzTarPerm extractEntry components/progressbar/readme.md
+306 silly gunzTarPerm extractEntry components/progressbar/title.md
+307 silly gunzTarPerm extractEntry components/progressbar.d.ts
+308 silly gunzTarPerm extractEntry components/carousel.d.ts
+309 silly gunzTarPerm extractEntry components/rating/rating.component.js
+310 silly gunzTarPerm extractEntry components/rating/rating.module.js
+311 silly gunzTarPerm extractEntry components/rating/rating.component.d.ts
+312 silly gunzTarPerm extractEntry components/rating/rating.module.d.ts
+313 silly gunzTarPerm extractEntry components/rating/readme.md
+314 silly gunzTarPerm extractEntry components/rating/title.md
+315 silly gunzTarPerm extractEntry components/rating.d.ts
+316 silly gunzTarPerm extractEntry components/alert/alert.component.js
+317 silly gunzTarPerm extractEntry components/alert/alert.module.js
+318 silly gunzTarPerm extractEntry components/alert/alert.component.d.ts
+319 silly gunzTarPerm extractEntry components/alert/alert.module.d.ts
+320 silly gunzTarPerm extractEntry components/alert/readme.md
+321 silly gunzTarPerm extractEntry components/alert/title.md
+322 silly gunzTarPerm extractEntry components/tabs/tab-heading.directive.js
+323 silly gunzTarPerm extractEntry components/tabs/tab.directive.js
+324 silly gunzTarPerm extractEntry components/tabs/tabs.module.js
+325 silly gunzTarPerm extractEntry components/tabs/tabset.component.js
+326 silly gunzTarPerm extractEntry components/tabs/tabs.module.d.ts
+327 silly gunzTarPerm extractEntry components/tabs/readme.md
+328 silly gunzTarPerm extractEntry components/tabs/tab-heading.directive.d.ts
+329 silly gunzTarPerm extractEntry components/tabs/tabset.component.d.ts
+330 silly gunzTarPerm extractEntry components/tabs/tab.directive.d.ts
+331 silly gunzTarPerm extractEntry components/tabs/title.md
+332 silly gunzTarPerm extractEntry components/tabs.d.ts
+333 silly gunzTarPerm extractEntry components/timepicker/timepicker.component.js
+334 silly gunzTarPerm extractEntry components/timepicker/timepicker.module.js
+335 silly gunzTarPerm extractEntry components/timepicker/readme.md
+336 silly gunzTarPerm extractEntry components/timepicker/timepicker.component.d.ts
+337 silly gunzTarPerm extractEntry components/timepicker/timepicker.module.d.ts
+338 silly gunzTarPerm extractEntry components/timepicker/title.md
+339 silly gunzTarPerm extractEntry components/timepicker.d.ts
+340 silly gunzTarPerm extractEntry components/collapse/collapse.directive.js
+341 silly gunzTarPerm extractEntry components/collapse/collapse.module.js
+342 silly gunzTarPerm extractEntry components/collapse/collapse.directive.d.ts
+343 silly gunzTarPerm extractEntry components/collapse/collapse.module.d.ts
+344 silly gunzTarPerm extractEntry components/collapse/readme.md
+345 silly gunzTarPerm extractEntry components/collapse/title.md
+346 silly gunzTarPerm extractEntry components/tooltip/tooltip-container.component.js
+347 silly gunzTarPerm extractEntry components/tooltip/tooltip-options.class.js
+348 silly gunzTarPerm extractEntry components/tooltip/tooltip.directive.js
+349 silly gunzTarPerm extractEntry components/tooltip/tooltip.module.js
+350 silly gunzTarPerm extractEntry components/tooltip/tooltip-options.class.d.ts
+351 silly gunzTarPerm extractEntry components/tooltip/tooltip-container.component.d.ts
+352 silly gunzTarPerm extractEntry components/tooltip/title.md
+353 silly gunzTarPerm extractEntry components/tooltip/tooltip.directive.d.ts
+354 silly gunzTarPerm extractEntry components/tooltip/readme.md
+355 silly gunzTarPerm extractEntry components/tooltip/tooltip.module.d.ts
+356 silly gunzTarPerm extractEntry components/tooltip.d.ts
+357 silly gunzTarPerm extractEntry components/collapse.d.ts
+358 silly gunzTarPerm extractEntry components/typeahead/typeahead-container.component.js
+359 silly gunzTarPerm extractEntry components/typeahead/typeahead-options.class.js
+360 silly gunzTarPerm extractEntry components/typeahead/latin-map.js
+361 silly gunzTarPerm extractEntry components/typeahead/typeahead-utils.js
+362 silly gunzTarPerm extractEntry components/typeahead/typeahead.directive.js
+363 silly gunzTarPerm extractEntry components/typeahead/typeahead.module.js
+364 silly gunzTarPerm extractEntry components/typeahead/typeahead-options.class.d.ts
+365 silly gunzTarPerm extractEntry components/typeahead/readme.md
+366 silly gunzTarPerm extractEntry components/typeahead/typeahead-utils.d.ts
+367 silly gunzTarPerm extractEntry components/typeahead/title.md
+368 silly gunzTarPerm extractEntry components/typeahead/typeahead.directive.d.ts
+369 silly gunzTarPerm extractEntry components/typeahead/typeahead-container.component.d.ts
+370 silly gunzTarPerm extractEntry components/typeahead/typeahead.module.d.ts
+371 silly gunzTarPerm extractEntry components/typeahead/latin-map.d.ts
+372 silly gunzTarPerm extractEntry components/typeahead.d.ts
+373 silly gunzTarPerm extractEntry components/alert.d.ts
+374 silly gunzTarPerm extractEntry components/utils/components-helper.service.js
+375 silly gunzTarPerm extractEntry components/utils/utils.class.js
+376 silly gunzTarPerm extractEntry components/utils/components-helper.service.d.ts
+377 silly gunzTarPerm extractEntry components/utils/utils.class.d.ts
+378 silly gunzTarPerm extractEntry .editorconfig
+379 silly gunzTarPerm extractEntry bundles/ng2-bootstrap.js
+380 silly gunzTarPerm extractEntry bundles/ng2-bootstrap.min.js
+381 silly gunzTarPerm extractEntry bundles/ng2-bootstrap.js.gz
+382 silly gunzTarPerm extractEntry bundles/ng2-bootstrap.js.map
+383 silly gunzTarPerm extractEntry bundles/ng2-bootstrap.js.map.gz
+384 silly gunzTarPerm extractEntry bundles/ng2-bootstrap.min.js.gz
+385 silly gunzTarPerm extractEntry bundles/ng2-bootstrap.min.js.map
+386 silly gunzTarPerm extractEntry bundles/ng2-bootstrap.min.js.map.gz
+387 silly gunzTarPerm extractEntry ng2-bootstrap.d.ts
+388 silly gunzTarPerm extractEntry CHANGELOG.md
+389 silly gunzTarPerm extractEntry typings.json
+390 silly gunzTarPerm extractEntry tsconfig.json
+391 silly gunzTarPerm extractEntry tsconfig.publish.json
+392 silly gunzTarPerm extractEntry tslint.json
+393 silly gunzTarPerm extractEntry .eslintrc.json
+394 silly gunzTarPerm extractEntry .config/bundle-system.js
+395 verbose write writing to /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap/package.json
+396 info preinstall ng2-bootstrap@1.1.0
+397 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap/package.json
+398 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap/package.json
+399 silly install resolved []
+400 verbose about to build /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap
+401 info build /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap
+402 info linkStuff ng2-bootstrap@1.1.0
+403 silly linkStuff ng2-bootstrap@1.1.0 has /Applications/MAMP/htdocs/oechr/node_modules as its parent node_modules
+404 verbose linkBins ng2-bootstrap@1.1.0
+405 verbose linkMans ng2-bootstrap@1.1.0
+406 verbose rebuildBundles ng2-bootstrap@1.1.0
+407 info install ng2-bootstrap@1.1.0
+408 info postinstall ng2-bootstrap@1.1.0
+409 verbose unlock done using /Users/escarabin/.npm/_locks/ng2-bootstrap-ac34be6290d15e16.lock for /Applications/MAMP/htdocs/oechr/node_modules/ng2-bootstrap
+410 verbose validateInstall loading /Applications/MAMP/htdocs/oechr/package.json for validation
+411 verbose stack Error: The package @angular/common@2.0.0-rc.5 does not satisfy its siblings' peerDependencies requirements!
+411 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+411 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
+411 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+411 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+411 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+411 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+411 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+411 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+411 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+411 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+412 verbose cwd /Applications/MAMP/htdocs/oechr
+413 error Darwin 16.0.0
+414 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "ng2-bootstrap@1.1.0"
+415 error node v4.4.7
+416 error npm  v2.15.8
+417 error code EPEERINVALID
+418 error peerinvalid The package @angular/common@2.0.0-rc.5 does not satisfy its siblings' peerDependencies requirements!
+418 error peerinvalid Peer @angular/forms@0.3.0 wants @angular/common@^2.0.0-rc.5
+418 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.5 wants @angular/common@^2.0.0-rc.5
+418 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.5 wants @angular/common@^2.0.0-rc.5
+418 error peerinvalid Peer @angular/router@3.0.0-rc.1 wants @angular/common@^2.0.0-rc.5
+418 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
+418 error peerinvalid Peer ng2-bootstrap@1.1.0 wants @angular/common@2.0.0-rc.5
+418 error peerinvalid Peer ng2-meta@1.0.0 wants @angular/common@^2.0.0-rc.4
+418 error peerinvalid Peer @angular/platform-server@0.0.0-PLACEHOLDER wants @angular/common@0.0.0-PLACEHOLDER
+418 error peerinvalid Peer @angular2-material/core@2.0.0-alpha.7 wants @angular/common@^2.0.0-rc.5
+418 error peerinvalid Peer angular2-google-maps@0.14.0 wants @angular/common@2.0.0-rc.6
+418 error peerinvalid Peer ng2-file-upload@1.0.3 wants @angular/common@^2.0.0-rc.1
+418 error peerinvalid Peer ng2-select@1.0.3 wants @angular/common@^2.0.0-rc.1
+419 verbose exit [ 1, true ]

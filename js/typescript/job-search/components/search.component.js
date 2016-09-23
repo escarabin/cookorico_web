@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', './../../services/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', './../../services/user.service', './../../services/notification.service', './../../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, user_service_1;
+    var core_1, router_1, user_service_1, notification_service_1, notification_1;
     var SearchComponent;
     return {
         setters:[
@@ -22,19 +22,32 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
+            },
+            function (notification_service_1_1) {
+                notification_service_1 = notification_service_1_1;
+            },
+            function (notification_1_1) {
+                notification_1 = notification_1_1;
             }],
         execute: function() {
             SearchComponent = (function () {
-                function SearchComponent(route, router, userService) {
+                function SearchComponent(route, router, userService, notificationService) {
                     var _this = this;
                     this.route = route;
                     this.router = router;
                     this.userService = userService;
+                    this.notificationService = notificationService;
                     this.searchParameters = [];
                     this.routeSegments = [];
                     this.userService.getUserInfos().subscribe(function (res) {
                         if (res.text().length > 10) {
                             _this.user = res.json();
+                        }
+                        else {
+                            /**
+                             * If user is not logged in, show sign-up notification
+                             */
+                            _this.notificationService.show(new notification_1.Notification('info', 'Pour postuler à nos offres', '/sign-up', 'Inscrivez-vous', false));
                         }
                     });
                     route.params.subscribe(function (params) {
@@ -76,7 +89,7 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                         providers: [user_service_1.UserService],
                         selector: 'search',
                     }), 
-                    __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, user_service_1.UserService])
+                    __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, user_service_1.UserService, notification_service_1.NotificationsService])
                 ], SearchComponent);
                 return SearchComponent;
             }());

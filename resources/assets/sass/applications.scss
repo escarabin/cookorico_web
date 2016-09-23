@@ -3,15 +3,15 @@ applications {
 
   .application {
     &.accepted {
-      background-color: lighten($successColor, 40%) !important;
+      background-color: #ebfbec !important;
     }
 
     &.sent {
-      background-color: lighten($infoColor, 40%) !important;
+      background-color: #e3f7fd !important;
     }
 
     &.rejected {
-      background-color: lighten($dangerColor, 40%) !important;
+      background-color: #fdf3f4 !important;
     }
   }
 
@@ -37,6 +37,6 @@ applications {
   }
 
   h3 {
-    margin: 15px 0 5px 0 !important;
+    margin: 20px 0 5px 0 !important
   }
 }

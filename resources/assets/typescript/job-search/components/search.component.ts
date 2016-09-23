@@ -4,9 +4,13 @@ import { Response } from '@angular/http';
 
 // Services
 import { UserService } from './../../services/user.service';
+import { NotificationsService } from './../../services/notification.service';
 
 // Components
 import { JobSearchResultsComponent } from './../components/job-search-results.component';
+
+// Models
+import { Notification } from './../../models/notification';
 
 @Component({
     templateUrl: '../templates/search.component.html',
@@ -26,10 +30,19 @@ export class SearchComponent {
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
-                private userService: UserService) {
+                private userService: UserService,
+                private notificationService: NotificationsService) {
         this.userService.getUserInfos().subscribe((res: Response) => {
             if (res.text().length > 10) {
                 this.user = res.json();
+            }
+            else {
+                /**
+                 * If user is not logged in, show sign-up notification
+                 */
+                this.notificationService.show(
+                    new Notification('info', 'Pour postuler à nos offres', '/sign-up', 'Inscrivez-vous', false)
+                );
             }
         });
 

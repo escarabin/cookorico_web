@@ -35,7 +35,7 @@ export class HeaderComponent {
         router.events.subscribe((event) => {
             let url = event['url'];
 
-            if (url == '/' || url == '/home') {
+            if (url == '/' || url == '/accueil') {
                 this.isHomePage = true;
             }
             else {

@@ -44,6 +44,7 @@ System.register(['@angular/core', '@angular/router', '../../services/job.service
                     this.userService = userService;
                     this.notificationService = notificationService;
                     this.router = router;
+                    this.user = {};
                     this.application = new application_1.Application();
                     route.params.subscribe(function (params) {
                         if (params) {
@@ -52,12 +53,14 @@ System.register(['@angular/core', '@angular/router', '../../services/job.service
                     });
                     this.application.job_id = parseInt(this.jobId);
                     var __this = this;
+                    this.userService.getUserInfos().subscribe(function (res) {
+                        __this.user = res.json();
+                    });
                     this.userService.getApplications().subscribe(function (res) {
                         if (res['_body']) {
                             var applications = res.json();
                             for (var i = 0; i < applications.length; i++) {
                                 if (applications[i]['job_id'] == __this.jobId) {
-                                    console.log(applications[i]);
                                     __this.application = applications[i];
                                 }
                             }
@@ -69,7 +72,7 @@ System.register(['@angular/core', '@angular/router', '../../services/job.service
                     var __this = this;
                     this.jobService.apply(__this.application).subscribe(function (res) {
                         _this.notificationService.show(new notification_1.Notification('success', 'Votre candidature a bien été enregistrée'));
-                        _this.router.navigate(['/Profile/Applications']);
+                        _this.router.navigate(['/profil/candidatures']);
                     });
                 };
                 NewApplicationFormComponent.prototype.commentChanged = function (newComment) {

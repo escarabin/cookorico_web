@@ -28,7 +28,10 @@ System.register(['@angular/core', '../../services/notification.service'], functi
                     this._notes = new Array();
                     _notifications.noteAdded.subscribe(function (note) {
                         _this._notes.push(note);
-                        setTimeout(function () { _this.hide.bind(_this)(note); }, 5000);
+                        console.log('pushing note', note);
+                        if (note.autoDismiss) {
+                            setTimeout(function () { _this.hide.bind(_this)(note); }, 5000);
+                        }
                     });
                 }
                 NotificationsComponent.prototype.hide = function (note) {

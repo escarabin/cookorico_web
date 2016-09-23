@@ -30,7 +30,7 @@ System.register(['@angular/router', './components/home.component', './components
             appRoutes = [
                 // Child routing
                 {
-                    path: 'profile',
+                    path: 'profil',
                     loadChildren: '/js/typescript/profile/profile.module#ProfileModule'
                 },
                 {
@@ -38,18 +38,18 @@ System.register(['@angular/router', './components/home.component', './components
                     loadChildren: '/js/typescript/job-search/job-search.module#JobSearchModule'
                 },
                 // Business page
-                { path: 'business/:businessId', component: business_page_component_1.BusinessPageComponent },
+                { path: 'etablissement/:businessId', component: business_page_component_1.BusinessPageComponent },
                 // Posts
-                { path: 'post/:postId', component: post_component_1.PostComponent },
+                { path: 'actualite/:postId', component: post_component_1.PostComponent },
                 // Clubs
                 { path: 'club/:clubId', component: club_component_1.ClubComponent },
-                { path: 'home', component: home_component_1.HomeComponent },
+                { path: 'accueil', component: home_component_1.HomeComponent },
                 // User
-                { path: 'sign-up', component: sign_up_component_1.SignUpComponent },
+                { path: 'inscription', component: sign_up_component_1.SignUpComponent },
                 // Promo
-                { path: 'recruiter-promo', component: recruiter_promo_component_1.RecruiterPromoComponent },
+                { path: 'accueil-recruteur', component: recruiter_promo_component_1.RecruiterPromoComponent },
                 // Root
-                { path: '', redirectTo: '/home', pathMatch: 'full' },
+                { path: '', redirectTo: '/accueil', pathMatch: 'full' },
             ];
             // - Updated Export
             exports_1("routing", routing = router_1.RouterModule.forRoot(appRoutes));

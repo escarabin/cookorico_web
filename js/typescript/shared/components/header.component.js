@@ -42,7 +42,7 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                      */
                     router.events.subscribe(function (event) {
                         var url = event['url'];
-                        if (url == '/' || url == '/home') {
+                        if (url == '/' || url == '/accueil') {
                             _this.isHomePage = true;
                         }
                         else {

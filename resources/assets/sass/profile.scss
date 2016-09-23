@@ -208,6 +208,9 @@ profile {
           font-family: $mainMediumFontFamily;
           text-transform: uppercase;
           font-size: 0.9em;
+          margin-top: -15px;
+          position: relative;
+          left: -25px;
         }
 
         .item {

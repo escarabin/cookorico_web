@@ -10,4 +10,13 @@
     <span *ngIf="note.linkTitle">
         <a routerLink="[note.linkRoute]">{{ note.linkTitle }}</a>
     </span>
+    <button *ngIf="note.buttonTitle"
+            routerLink="{{ note.linkRoute }}">
+        {{ note.buttonTitle }}
+    </button>
+    <span *ngIf="note.autoDismiss == false"
+          (click)="hide(note)"
+          class="fa fa-times close-btn">
+
+    </span>
 </div>

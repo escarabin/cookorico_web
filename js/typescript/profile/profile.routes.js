@@ -75,47 +75,47 @@ System.register(['@angular/router', './components/profile.component', "./compone
                     component: profile_component_1.ProfileComponent,
                     children: [
                         // Root
-                        { path: 'show', component: profile_preview_component_1.ProfilePreviewComponent },
-                        { path: 'show/:userId', component: profile_preview_component_1.ProfilePreviewComponent },
+                        { path: 'apercu', component: profile_preview_component_1.ProfilePreviewComponent },
+                        { path: 'apercu/:userId', component: profile_preview_component_1.ProfilePreviewComponent },
                         // Experiences
                         { path: 'experiences', component: experiences_component_1.ExperiencesComponent },
-                        { path: 'experience/create', component: create_experience_component_1.CreateExperienceComponent },
-                        { path: 'experience/edit/:experienceId', component: create_experience_component_1.CreateExperienceComponent },
+                        { path: 'experience/creer', component: create_experience_component_1.CreateExperienceComponent },
+                        { path: 'experience/editer/:experienceId', component: create_experience_component_1.CreateExperienceComponent },
                         // Applications
-                        { path: 'applications', component: applications_component_1.ApplicationsComponent },
+                        { path: 'candidatures', component: applications_component_1.ApplicationsComponent },
                         // Education
-                        { path: 'education', component: education_component_1.EducationComponent },
-                        { path: 'education/edit/:studyId', component: create_study_component_1.CreateStudyComponent },
-                        { path: 'education/create', component: create_study_component_1.CreateStudyComponent },
+                        { path: 'formations', component: education_component_1.EducationComponent },
+                        { path: 'formation/editer/:studyId', component: create_study_component_1.CreateStudyComponent },
+                        { path: 'formation/creer', component: create_study_component_1.CreateStudyComponent },
                         // Alerts
-                        { path: 'alerts', component: alerts_component_1.AlertsComponent },
-                        { path: 'alert/:alertId', component: alerts_component_1.AlertsComponent },
-                        { path: 'alert/create', component: create_alert_component_1.CreateAlertComponent },
-                        { path: 'alert/edit/:alertId', component: create_alert_component_1.CreateAlertComponent },
+                        { path: 'alertes', component: alerts_component_1.AlertsComponent },
+                        { path: 'alerte/:alertId', component: alerts_component_1.AlertsComponent },
+                        { path: 'alerte/creer', component: create_alert_component_1.CreateAlertComponent },
+                        { path: 'alerte/editer/:alertId', component: create_alert_component_1.CreateAlertComponent },
                         // Testimonials
-                        { path: 'testimonials', component: testimonials_component_1.TestimonialsComponent },
-                        { path: 'testimonial/:testimonialId', component: testimonials_component_1.TestimonialsComponent },
+                        { path: 'recommandations', component: testimonials_component_1.TestimonialsComponent },
+                        { path: 'recommandation/:testimonialId', component: testimonials_component_1.TestimonialsComponent },
                         // Businesses
-                        { path: 'businesses', component: businesses_component_1.BusinessesComponent },
-                        { path: 'business/create', component: create_business_component_1.CreateBusinessComponent },
-                        { path: 'business/edit/:businessId', component: create_business_component_1.CreateBusinessComponent },
+                        { path: 'etablissements', component: businesses_component_1.BusinessesComponent },
+                        { path: 'etablissement/creer', component: create_business_component_1.CreateBusinessComponent },
+                        { path: 'etablissement/editer/:businessId', component: create_business_component_1.CreateBusinessComponent },
                         // Job posts
-                        { path: 'job-posts', component: my_job_posts_component_1.MyJobPostsComponent },
-                        { path: 'job-post/create', component: create_job_post_component_1.CreateJobPostComponent },
-                        { path: 'job-post/edit/:jobPostId', component: create_job_post_component_1.CreateJobPostComponent },
+                        { path: 'annonces', component: my_job_posts_component_1.MyJobPostsComponent },
+                        { path: 'annonce/creer', component: create_job_post_component_1.CreateJobPostComponent },
+                        { path: 'annonce/editer/:jobPostId', component: create_job_post_component_1.CreateJobPostComponent },
                         // Applicants
-                        { path: 'applicants', component: applicants_component_1.ApplicantsComponent },
-                        { path: 'applicants/:jobPostId', component: applicants_component_1.ApplicantsComponent },
-                        { path: 'applicants/show_profile', component: applicants_component_1.ApplicantsComponent },
+                        { path: 'postulants', component: applicants_component_1.ApplicantsComponent },
+                        { path: 'postulants/:jobPostId', component: applicants_component_1.ApplicantsComponent },
+                        { path: 'postulant/apercu-profil', component: applicants_component_1.ApplicantsComponent },
                         // Matching profiles
-                        { path: 'matching-profiles', component: matching_profiles_component_1.MatchingProfilesComponent },
-                        { path: 'matching-profiles/:jobPostId', component: matching_profiles_component_1.MatchingProfilesComponent },
+                        { path: 'profils-correspondants', component: matching_profiles_component_1.MatchingProfilesComponent },
+                        { path: 'profils-correspondants/:jobPostId', component: matching_profiles_component_1.MatchingProfilesComponent },
                         // Mails
                         { path: 'mail-templates', component: mail_templates_component_1.MailTemplatesComponent },
                         { path: 'mail-template/create', component: create_mail_template_component_1.CreateMailTemplateComponent },
                         { path: 'mail-template/edit/:templateId', component: create_mail_template_component_1.CreateMailTemplateComponent },
                         // Confirm account creation
-                        { path: 'confirm-account/:userId', component: confirm_account_creation_component_1.ConfirmAccountCreationComponent },
+                        { path: 'confirmer-le-compte/:userId', component: confirm_account_creation_component_1.ConfirmAccountCreationComponent },
                         // Website editor
                         { path: 'website-editor', component: website_editor_component_1.WebsiteEditorComponent },
                         {

@@ -57,14 +57,12 @@
                         <a routerLink="/recherche/job/{{ application.job.id }}">
                             <h3>{{ application.job.title }}</h3>
                         </a>
-                        {{ application.job.business.title }}<br />
-                        <div *ngIf="application.job.business.place.city">
-                            {{ application.job.business.place.city }}
-                        </div>
-                        <!--span class="date">
+                        {{ application.job.business.title }} -
+                        <span *ngIf="application.job.business.place.city">{{ application.job.business.place.city }}</span>
+                        <span class="date">
                             <span class="fa fa-calendar-o"></span> &nbsp;
                             {{ application.created_at }}
-                        </span>-->
+                        </span>
                     </div>
                     <button class="btn btn-default"
                             (click)="archivateApplication(application.id)">

@@ -109,8 +109,6 @@ button, input[type=button] {
     font-size: 1.4em;
     position: absolute;
     margin-left: -20px; }
-  button.btn-default, input[type=button].btn-default {
-    border-color: #333; }
   button.btn-primary, input[type=button].btn-primary {
     border-radius: 4px;
     background-color: #35B6E1;
@@ -230,7 +228,6 @@ my-job-posts .job-applications button {
 job {
   display: inline-block;
   background: white;
-  padding-bottom: 20px;
   padding: 10px; }
   job h1 {
     text-transform: uppercase;
@@ -242,6 +239,8 @@ job {
     padding: 0 15px; }
     job .job-stats .job-filled {
       color: #E13543; }
+  job .other-job-posts {
+    padding: 20px; }
   job .description-heading {
     margin: 10px 70px;
     padding: 15px 0;
@@ -263,6 +262,8 @@ job {
         top: 5px;
         width: 40px;
         display: inline-block; }
+  job .sign-up-btn {
+    width: 100%; }
   job .logo {
     float: left;
     margin: 20px 20px 20px 0;
@@ -531,11 +532,11 @@ profile-sidebar {
 applications {
   display: block; }
   applications .application.accepted {
-    background-color: #caf0cf !important; }
+    background-color: #ebfbec !important; }
   applications .application.sent {
-    background-color: #e7f6fb !important; }
+    background-color: #e3f7fd !important; }
   applications .application.rejected {
-    background-color: #fbe7e8 !important; }
+    background-color: #fdf3f4 !important; }
   applications ul li {
     border-bottom: 1px solid #d4d4d4 !important; }
     applications ul li .item button {
@@ -546,7 +547,7 @@ applications {
   applications .header-container {
     background: white !important; }
   applications h3 {
-    margin: 15px 0 5px 0 !important; }
+    margin: 20px 0 5px 0 !important; }
 
 sign-up {
   padding-top: 150px;
@@ -849,7 +850,10 @@ profile {
           color: #a9a9a9;
           font-family: "Avenir Medium", sans-serif;
           text-transform: uppercase;
-          font-size: 0.9em; }
+          font-size: 0.9em;
+          margin-top: -15px;
+          position: relative;
+          left: -25px; }
         profile .list-container ul li .item {
           padding: 10px;
           display: inline-block; }
@@ -962,6 +966,20 @@ notifications {
       background-color: #E13543; }
     notifications .notification-container.info {
       background-color: #35B6E1; }
+    notifications .notification-container .close-btn {
+      position: absolute;
+      top: 35px;
+      right: 20px;
+      cursor: pointer; }
+    notifications .notification-container button {
+      position: absolute;
+      right: 50px;
+      top: 22px;
+      border-radius: 4px;
+      border: none;
+      background-color: white;
+      color: #333;
+      padding: 0px 15px; }
 
 .notification-container a {
   position: absolute;

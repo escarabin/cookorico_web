@@ -21,6 +21,7 @@ import { Application } from '../../models/application';
 export class NewApplicationFormComponent {
     @Input jobId:string;
     comment: string;
+    user: any = {};
     application:Application = new Application();
 
     constructor(private route: ActivatedRoute,
@@ -39,13 +40,16 @@ export class NewApplicationFormComponent {
 
         let __this = this;
 
+        this.userService.getUserInfos().subscribe((res: Response) => {
+            __this.user = res.json();
+        });
+
         this.userService.getApplications().subscribe((res: Response) => {
             if (res['_body']) {
                 let applications = res.json();
 
                 for (let i = 0; i < applications.length; i++) {
                     if (applications[i]['job_id'] == __this.jobId) {
-                        console.log(applications[i]);
                         __this.application = applications[i];
                     }
                 }
@@ -61,7 +65,7 @@ export class NewApplicationFormComponent {
                 new Notification('success', 'Votre candidature a bien été enregistrée')
              );
 
-            this.router.navigate(['/Profile/Applications']);
+            this.router.navigate(['/profil/candidatures']);
         });
     }
 

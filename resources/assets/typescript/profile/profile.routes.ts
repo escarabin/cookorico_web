@@ -28,50 +28,50 @@ const profileRoutes: Routes = [
         component: ProfileComponent,
         children: [
             // Root
-            {path: 'show', component: ProfilePreviewComponent},
-            {path: 'show/:userId', component: ProfilePreviewComponent},
+            {path: 'apercu', component: ProfilePreviewComponent},
+            {path: 'apercu/:userId', component: ProfilePreviewComponent},
 
             // Experiences
             {path: 'experiences', component: ExperiencesComponent},
-            {path: 'experience/create', component: CreateExperienceComponent},
-            {path: 'experience/edit/:experienceId', component: CreateExperienceComponent},
+            {path: 'experience/creer', component: CreateExperienceComponent},
+            {path: 'experience/editer/:experienceId', component: CreateExperienceComponent},
 
             // Applications
-            {path: 'applications', component: ApplicationsComponent},
+            {path: 'candidatures', component: ApplicationsComponent},
 
             // Education
-            {path: 'education', component: EducationComponent},
-            {path: 'education/edit/:studyId', component: CreateStudyComponent},
-            {path: 'education/create', component: CreateStudyComponent},
+            {path: 'formations', component: EducationComponent},
+            {path: 'formation/editer/:studyId', component: CreateStudyComponent},
+            {path: 'formation/creer', component: CreateStudyComponent},
 
             // Alerts
-            {path: 'alerts', component: AlertsComponent},
-            {path: 'alert/:alertId', component: AlertsComponent},
-            {path: 'alert/create', component: CreateAlertComponent},
-            {path: 'alert/edit/:alertId', component: CreateAlertComponent},
+            {path: 'alertes', component: AlertsComponent},
+            {path: 'alerte/:alertId', component: AlertsComponent},
+            {path: 'alerte/creer', component: CreateAlertComponent},
+            {path: 'alerte/editer/:alertId', component: CreateAlertComponent},
 
             // Testimonials
-            {path: 'testimonials', component: TestimonialsComponent},
-            {path: 'testimonial/:testimonialId', component: TestimonialsComponent},
+            {path: 'recommandations', component: TestimonialsComponent},
+            {path: 'recommandation/:testimonialId', component: TestimonialsComponent},
 
             // Businesses
-            {path: 'businesses', component: BusinessesComponent},
-            {path: 'business/create', component: CreateBusinessComponent},
-            {path: 'business/edit/:businessId', component: CreateBusinessComponent},
+            {path: 'etablissements', component: BusinessesComponent},
+            {path: 'etablissement/creer', component: CreateBusinessComponent},
+            {path: 'etablissement/editer/:businessId', component: CreateBusinessComponent},
 
             // Job posts
-            {path: 'job-posts', component: MyJobPostsComponent},
-            {path: 'job-post/create', component: CreateJobPostComponent},
-            {path: 'job-post/edit/:jobPostId', component: CreateJobPostComponent},
+            {path: 'annonces', component: MyJobPostsComponent},
+            {path: 'annonce/creer', component: CreateJobPostComponent},
+            {path: 'annonce/editer/:jobPostId', component: CreateJobPostComponent},
 
             // Applicants
-            {path: 'applicants', component: ApplicantsComponent},
-            {path: 'applicants/:jobPostId', component: ApplicantsComponent},
-            {path: 'applicants/show_profile', component: ApplicantsComponent},
+            {path: 'postulants', component: ApplicantsComponent},
+            {path: 'postulants/:jobPostId', component: ApplicantsComponent},
+            {path: 'postulant/apercu-profil', component: ApplicantsComponent},
 
             // Matching profiles
-            {path: 'matching-profiles', component: MatchingProfilesComponent},
-            {path: 'matching-profiles/:jobPostId', component: MatchingProfilesComponent},
+            {path: 'profils-correspondants', component: MatchingProfilesComponent},
+            {path: 'profils-correspondants/:jobPostId', component: MatchingProfilesComponent},
 
             // Mails
             {path: 'mail-templates', component: MailTemplatesComponent},
@@ -79,7 +79,7 @@ const profileRoutes: Routes = [
             {path: 'mail-template/edit/:templateId', component: CreateMailTemplateComponent},
 
             // Confirm account creation
-            {path: 'confirm-account/:userId', component: ConfirmAccountCreationComponent},
+            {path: 'confirmer-le-compte/:userId', component: ConfirmAccountCreationComponent},
 
             // Website editor
             {path: 'website-editor', component: WebsiteEditorComponent},

@@ -26,12 +26,8 @@ import { ClubComponent } from './shared/components/club.component';
 import { SignUpComponent } from './shared/components/sign-up.component';
 import { PaginationControlsCmp } from 'ng2-pagination';
 
-// Directives
-import { BUTTON_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
-
 @NgModule({
-    declarations: [ BUTTON_DIRECTIVES,
-                    AppComponent,
+    declarations: [ AppComponent,
                     HomeComponent,
                     HeaderComponent,
                     FooterComponent,

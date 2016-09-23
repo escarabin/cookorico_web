@@ -71,7 +71,7 @@ export class ProfilePreviewComponent {
             this.editableProfile = true;
         }
 
-        this.userService.get(this.userIdRouteParam).subscribe((res: Response) => {
+        this.userService.getUserInfos().subscribe((res: Response) => {
             __this.user = res.json();
 
             __this.userService.getExperiences(__this.user.id).subscribe((res: Response) => {

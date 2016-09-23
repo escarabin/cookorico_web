@@ -156,7 +156,9 @@ class UserController extends Controller
      */
     public function get($userId) {
         $user = User::find($userId)
-                    ->load('languages');
+                    ->load('languages',
+                            'status',
+                            'lookingForJobNamings');
 
         return $user;
     }
@@ -322,7 +324,10 @@ class UserController extends Controller
         }
 
         $applications = User::find($userId)->applications
-                            ->load('job', 'job.business', 'job.business.place', 'user');
+                            ->load('job',
+                                   'job.business',
+                                   'job.business.place',
+                                   'user');
 
         return $applications;
     }

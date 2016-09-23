@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', '@angular2-material/checkbox', 'ng2-bootstrap/ng2-bootstrap', 'ng2-select/ng2-select', 'angular2-google-map-auto-complete/directives/googleplace.directive', './components/tiny-mce.component', './components/job-preview.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', '@angular2-material/checkbox', 'ng2-select/ng2-select', 'angular2-google-map-auto-complete/directives/googleplace.directive', './components/tiny-mce.component', './components/job-preview.component', 'ng2-bootstrap/ng2-bootstrap'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, http_1, router_1, checkbox_1, ng2_bootstrap_1, ng2_select_1, googleplace_directive_1, tiny_mce_component_1, job_preview_component_1;
+    var core_1, platform_browser_1, forms_1, http_1, router_1, checkbox_1, ng2_select_1, googleplace_directive_1, tiny_mce_component_1, job_preview_component_1, ng2_bootstrap_1;
     var SharedModule;
     return {
         setters:[
@@ -32,9 +32,6 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             function (checkbox_1_1) {
                 checkbox_1 = checkbox_1_1;
             },
-            function (ng2_bootstrap_1_1) {
-                ng2_bootstrap_1 = ng2_bootstrap_1_1;
-            },
             function (ng2_select_1_1) {
                 ng2_select_1 = ng2_select_1_1;
             },
@@ -46,6 +43,9 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             },
             function (job_preview_component_1_1) {
                 job_preview_component_1 = job_preview_component_1_1;
+            },
+            function (ng2_bootstrap_1_1) {
+                ng2_bootstrap_1 = ng2_bootstrap_1_1;
             }],
         execute: function() {
             SharedModule = (function () {
@@ -53,23 +53,27 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                 }
                 SharedModule = __decorate([
                     core_1.NgModule({
-                        declarations: [ng2_bootstrap_1.MODAL_DIRECTIVES,
-                            tiny_mce_component_1.UNITYTinyMCE,
-                            ng2_bootstrap_1.CollapseDirective,
+                        declarations: [tiny_mce_component_1.UNITYTinyMCE,
                             checkbox_1.MD_CHECKBOX_DIRECTIVES,
                             ng2_select_1.SELECT_DIRECTIVES,
                             job_preview_component_1.JobPreviewComponent,
                             googleplace_directive_1.GoogleplaceDirective],
-                        exports: [ng2_bootstrap_1.MODAL_DIRECTIVES,
-                            tiny_mce_component_1.UNITYTinyMCE,
-                            ng2_bootstrap_1.CollapseDirective,
+                        exports: [tiny_mce_component_1.UNITYTinyMCE,
                             job_preview_component_1.JobPreviewComponent,
                             ng2_select_1.SELECT_DIRECTIVES,
-                            googleplace_directive_1.GoogleplaceDirective],
+                            googleplace_directive_1.GoogleplaceDirective,
+                            ng2_bootstrap_1.ButtonsModule,
+                            ng2_bootstrap_1.CollapseModule,
+                            ng2_bootstrap_1.AccordionModule,
+                            ng2_bootstrap_1.ModalModule],
                         imports: [platform_browser_1.BrowserModule,
                             forms_1.FormsModule,
                             http_1.HttpModule,
-                            router_1.RouterModule],
+                            router_1.RouterModule,
+                            ng2_bootstrap_1.ButtonsModule,
+                            ng2_bootstrap_1.CollapseModule,
+                            ng2_bootstrap_1.AccordionModule,
+                            ng2_bootstrap_1.ModalModule],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], SharedModule);

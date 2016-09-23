@@ -2,24 +2,33 @@
     <h3 *ngIf="!application.id">Postuler à cette offre</h3>
     <h3 *ngIf="application.id">Vous avez déjà postulé à cette offre</h3>
 </div>
-<div class="col-md-12">
+
+<div class="col-md-12"
+     *ngIf="!application.id && user.experiences && user.resumeUrl">
+
+</div>
+
+<div class="col-md-12" *ngIf="!application.id">
     <unity-tinymce [mceContent]="application.comment"
                    [readOnly]="application.id"
                    (newContentInput)="commentChanged($event)">
 
     </unity-tinymce>
 </div>
-<div class="col-md-6 back-btn-container">
-    <a routerLink="/recherche">
-        <button class="btn btn-default">
-            <i class="icon-arrow-left"></i> &nbsp; Retour à la recherche
+
+<div *ngIf="!application.id">
+    <div class="col-md-6 back-btn-container">
+        <a routerLink="/recherche">
+            <button class="btn btn-default">
+                <i class="icon-arrow-left"></i> &nbsp; Retour à la recherche
+            </button>
+        </a>
+    </div>
+    <div class="col-md-6 apply-btn-container">
+        <button (click)="submitApplication()"
+                [disabled]="application.id"
+                class="btn btn-primary">
+            Postuler
         </button>
-    </a>
-</div>
-<div class="col-md-6 apply-btn-container">
-    <button (click)="submitApplication()"
-            [disabled]="application.id"
-            class="btn btn-primary">
-        Postuler
-    </button>
+    </div>
 </div>

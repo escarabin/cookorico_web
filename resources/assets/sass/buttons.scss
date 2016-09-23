@@ -8,10 +8,6 @@ button, input[type=button] {
     margin-left: -20px;
   }
 
-  &.btn-default {
-    border-color: #333;
-  }
-
   &.btn-primary {
     border-radius: $mainBorderRadius;
     background-color: $oechrBlueColor;

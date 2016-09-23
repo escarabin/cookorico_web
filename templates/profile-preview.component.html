@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <h2>Votre profil vu par les recruteurs</h2>
+        <h3 class="centered">Votre profil vu par les recruteurs</h3>
         <br />
     </div>
     <div class="col-md-3 col-sm-3 col-xs-3 profile-picture-container">
@@ -81,6 +81,7 @@
         <span *ngIf="user.status">
             {{ user.status.title }}<br />
         </span>
+        <!-- TODO -->
         <span *ngIf="user.looking_for_job_naming">
             Profil recherché : <b>{{ user.looking_for_job_naming.title }}</b><br />
         </span>
@@ -129,7 +130,21 @@
             </div>
         </h2>
         <div class="list-container col-md-12">
-            <ul>
+            <div *ngIf="experiences.length == 0 && editableProfile">
+                <div class="alert alert-danger" role="alert">
+                    <span class="fa fa-warning"></span> Vous n'avez renseigné aucune expérience !
+                    <br />
+                    <br />
+                    <button class="btn btn-default"
+                            routerLink="/profil/experiences">
+                        Ajouter une expérience
+                    </button>
+                    <button class="btn btn-default">
+                        Je n'ai aucune expérience
+                    </button>
+                </div>
+            </div>
+            <ul *ngIf="experiences.length > 0">
                 <li *ngFor="let experience of experiences">
                     <div class="item">
                         <a routerLink="['EditExperience', { experienceId: experience.id }]">
@@ -155,7 +170,18 @@
         </h2>
 
         <div class="list-container col-md-12">
-            <ul>
+            <div *ngIf="education.length == 0 && editableProfile">
+                <div class="alert alert-danger" role="alert">
+                    <span class="fa fa-warning"></span> Vous n'avez renseigné aucune formation !
+                    <br />
+                    <br />
+                    <button class="btn btn-default"
+                            routerLink="/profil/formations">
+                        Ajouter une formation
+                    </button>
+                </div>
+            </div>
+            <ul *ngIf="education.length > 0">
                 <li *ngFor="let study of education">
                     <div class="item">
                         <a routerLink="['EditStudy', { studyId: study.id }]">
@@ -180,7 +206,18 @@
             </div>
         </h2>
         <div class="list-container col-md-12">
-            <ul>
+            <div *ngIf="testimonials.length == 0 && editableProfile">
+                <div class="alert alert-warning" role="alert">
+                    <span class="fa fa-warning"></span> Vous n'avez encore reçu aucune recommandation !
+                    <br />
+                    <br />
+                    <button class="btn btn-default"
+                            routerLink="/profil/recommandations">
+                        Demander une recommandation
+                    </button>
+                </div>
+            </div>
+            <ul *ngIf="testimonials.length > 0">
                 <li *ngFor="let testimonial of testimonials">
                     <div class="item">
                         <a>
@@ -217,6 +254,12 @@
                 </li>
             </ul>
         </div>
+    </div>
+
+    <div class="col-md-12">
+        <button class="btn btn-danger">
+            <span class="fa fa-warning"></span> &nbsp; Désactiver mon compte
+        </button>
     </div>
 </div>
 

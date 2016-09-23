@@ -6,15 +6,17 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Notification = (function () {
-                function Notification(type, message, linkTitle, linkRoute) {
+                function Notification(type, message, linkRoute, buttonTitle, autoDismiss) {
                     if (type === void 0) { type = ''; }
                     if (message === void 0) { message = ''; }
-                    if (linkTitle === void 0) { linkTitle = ''; }
                     if (linkRoute === void 0) { linkRoute = ''; }
+                    if (buttonTitle === void 0) { buttonTitle = ''; }
+                    if (autoDismiss === void 0) { autoDismiss = true; }
                     this.type = type;
                     this.message = message;
-                    this.linkTitle = linkTitle;
                     this.linkRoute = linkRoute;
+                    this.buttonTitle = buttonTitle;
+                    this.autoDismiss = autoDismiss;
                 }
                 return Notification;
             }());

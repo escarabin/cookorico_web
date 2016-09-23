@@ -22,10 +22,10 @@ System.register(['@angular/router', './components/search.component', './componen
             }],
         execute: function() {
             jobSearchChildrenRouteList = [
-                { path: 'all-jobs', component: job_search_results_component_1.JobSearchResultsComponent },
+                { path: 'tous-les-emplois', component: job_search_results_component_1.JobSearchResultsComponent },
                 { path: ':placeId/:jobNamingId/:contractTypeId/:studyLevelId', component: job_search_results_component_1.JobSearchResultsComponent },
-                { path: 'apply/:jobId', component: new_application_form_component_1.NewApplicationFormComponent },
-                { path: 'job/:jobId', component: job_component_1.JobComponent },
+                { path: 'candidater/:jobId', component: new_application_form_component_1.NewApplicationFormComponent },
+                { path: 'annonce/:jobId', component: job_component_1.JobComponent },
                 {
                     path: '',
                     component: job_search_results_component_1.JobSearchResultsComponent

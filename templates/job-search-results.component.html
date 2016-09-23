@@ -14,6 +14,7 @@
                     (click)="resetPlace()">
                 Élargissez votre recherche
             </button>
+            <job-search-bar></job-search-bar>
         </div>
 
         <job-preview *ngFor="let job of jobs | paginate: { itemsPerPage: 10, currentPage: p }"

@@ -34,6 +34,24 @@ notifications {
     &.info {
       background-color: $infoColor;
     }
+
+    .close-btn {
+      position: absolute;
+      top: 35px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    button {
+      position: absolute;
+      right: 50px;
+      top: 22px;
+      border-radius: $mainBorderRadius;
+      border: none;
+      background-color: white;
+      color: #333;
+      padding: 0px 15px;
+    }
   }
 }
 

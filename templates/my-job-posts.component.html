@@ -1,5 +1,5 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-10 col-sm-10 col-xs-9 items-count">
+    <div class="col-md-12 col-sm-12 col-xs-11 items-count">
         <span *ngIf="checkedItemsList.length > 0">
             {{ checkedItemsList.length }}
         </span>
@@ -8,11 +8,6 @@
         </span> annonce<span *ngIf="items.length > 1">s</span>
         en ligne
         <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
-    </div>
-    <div class="col-md-2 col-sm-2 col-xs-2 actions-container">
-        <button routerLink="/profile/job-post/create">
-            <span class="fa fa-plus"></span>
-        </button>
     </div>
 </div>
 

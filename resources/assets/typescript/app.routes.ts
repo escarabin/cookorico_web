@@ -11,7 +11,7 @@ import { BusinessPageComponent } from './shared/components/business-page.compone
 const appRoutes: Routes = [
     // Child routing
     {
-        path: 'profile',
+        path: 'profil',
         loadChildren: '/js/typescript/profile/profile.module#ProfileModule'
     },
 
@@ -21,24 +21,24 @@ const appRoutes: Routes = [
     },
 
     // Business page
-    { path: 'business/:businessId', component: BusinessPageComponent },
+    { path: 'etablissement/:businessId', component: BusinessPageComponent },
 
     // Posts
-    { path: 'post/:postId', component: PostComponent },
+    { path: 'actualite/:postId', component: PostComponent },
 
     // Clubs
     { path: 'club/:clubId', component: ClubComponent },
 
-    { path: 'home', component: HomeComponent},
+    { path: 'accueil', component: HomeComponent},
 
     // User
-    { path: 'sign-up', component: SignUpComponent },
+    { path: 'inscription', component: SignUpComponent },
 
     // Promo
-    { path: 'recruiter-promo', component: RecruiterPromoComponent },
+    { path: 'accueil-recruteur', component: RecruiterPromoComponent },
 
     // Root
-    { path: '', redirectTo: '/home', pathMatch: 'full'},
+    { path: '', redirectTo: '/accueil', pathMatch: 'full'},
 ];
 
 // - Updated Export

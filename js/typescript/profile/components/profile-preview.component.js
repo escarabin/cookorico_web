@@ -72,7 +72,7 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
                         // The profile is logged user's one so he is able to edit it
                         this.editableProfile = true;
                     }
-                    this.userService.get(this.userIdRouteParam).subscribe(function (res) {
+                    this.userService.getUserInfos().subscribe(function (res) {
                         __this.user = res.json();
                         __this.userService.getExperiences(__this.user.id).subscribe(function (res) {
                             __this.experiences = res.json();
