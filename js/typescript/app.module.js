@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', './app.routes', './shared/shared.module', './services/notification.service', './app.component', './shared/components/home.component', './shared/components/header.component', './shared/components/footer.component', './shared/components/job-search-bar.component', './shared/components/sign-in.component', './shared/components/notification.component', './shared/components/post-preview.component', './shared/components/post.component', './shared/components/sign-up.component', './shared/components/profile-sub-header.component', './shared/components/recruiter-promo.component', './shared/components/club.component', 'ng2-pagination'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', './app.routes', './shared/shared.module', './services/notification.service', './app.component', './shared/components/home.component', './shared/components/header.component', './shared/components/footer.component', './shared/components/sign-in.component', './shared/components/notification.component', './shared/components/post-preview.component', './shared/components/post.component', './shared/components/sign-up.component', './shared/components/profile-sub-header.component', './shared/components/recruiter-promo.component', './shared/components/club.component', 'ng2-pagination'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, http_1, router_1, app_routes_1, shared_module_1, notification_service_1, app_component_1, home_component_1, header_component_1, footer_component_1, job_search_bar_component_1, sign_in_component_1, notification_component_1, post_preview_component_1, post_component_1, sign_up_component_1, profile_sub_header_component_1, recruiter_promo_component_1, club_component_1, ng2_pagination_1;
+    var core_1, platform_browser_1, forms_1, http_1, router_1, app_routes_1, shared_module_1, notification_service_1, app_component_1, home_component_1, header_component_1, footer_component_1, sign_in_component_1, notification_component_1, post_preview_component_1, post_component_1, sign_up_component_1, profile_sub_header_component_1, recruiter_promo_component_1, club_component_1, ng2_pagination_1;
     var AppModule;
     return {
         setters:[
@@ -50,9 +50,6 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             function (footer_component_1_1) {
                 footer_component_1 = footer_component_1_1;
             },
-            function (job_search_bar_component_1_1) {
-                job_search_bar_component_1 = job_search_bar_component_1_1;
-            },
             function (sign_in_component_1_1) {
                 sign_in_component_1 = sign_in_component_1_1;
             },
@@ -90,7 +87,6 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                             home_component_1.HomeComponent,
                             header_component_1.HeaderComponent,
                             footer_component_1.FooterComponent,
-                            job_search_bar_component_1.JobSearchBarComponent,
                             post_component_1.PostComponent,
                             club_component_1.ClubComponent,
                             sign_up_component_1.SignUpComponent,

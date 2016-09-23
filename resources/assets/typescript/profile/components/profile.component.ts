@@ -15,6 +15,13 @@ export class ProfileComponent {
         this.user = JSON.parse(localStorage.getItem('user'));
 
         /**
+         * If user not logged in, redirect to home
+         */
+        if (!this.user) {
+            this.router.navigate(['/']);
+        }
+
+        /**
          * Subscribe to route change to display components regarding current route
          * (ex: Home page is different and does not show child component 'profile-sub-header')
          */

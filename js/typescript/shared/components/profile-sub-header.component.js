@@ -40,12 +40,6 @@ System.register(['@angular/core', './../../services/user.service'], function(exp
                         }
                     });
                     /**
-                     * Detect any change in user object
-                     */
-                    UserService.userChangeEmitter.subscribe(function (res) {
-                        console.log('received a new user', res.json());
-                    });
-                    /**
                      * Get profile percentage of fill
                      */
                     UserService.getProfilePercentage().subscribe(function (res) {

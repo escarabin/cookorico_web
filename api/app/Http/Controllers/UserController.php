@@ -38,6 +38,13 @@ class UserController extends Controller
                                'place',
                                'lookingForJobNamings');
 
+            /**
+             * Activate account in case of disabled account
+             */
+            $user->is_active = 1;
+            $user->last_login = time();
+            $user->save();
+
             return $user;
         }
     }
@@ -574,5 +581,16 @@ class UserController extends Controller
         Log::info($request::all());
 
         return 'test';
+    }
+
+    /**
+     * Disable currently logged user account
+     */
+    public function disableAccount() {
+        $user = Auth::user();
+        $user->is_active = 0;
+        $user->save();
+
+        return $user;
     }
 }

@@ -40,9 +40,10 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
             }],
         execute: function() {
             ProfilePreviewComponent = (function () {
-                function ProfilePreviewComponent(userService, route, notificationService) {
+                function ProfilePreviewComponent(userService, route, router, notificationService) {
                     this.userService = userService;
                     this.route = route;
+                    this.router = router;
                     this.notificationService = notificationService;
                     this.profilePictureChanged = new core_1.EventEmitter();
                     this.user = [];
@@ -197,6 +198,18 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
                     });
                 };
                 /**
+                 * Disable currently logged user account
+                 */
+                ProfilePreviewComponent.prototype.disableAccount = function () {
+                    var _this = this;
+                    this.userService.disableAccount().subscribe(function (res) {
+                        _this.userService.signOut().subscribe(function (res) {
+                            _this.router.navigate(['/']);
+                            _this.notificationService.show(new notification_1.Notification('success', 'Votre compte a bien été désactivé, vous allez recevoir un mail de confirmation'));
+                        });
+                    });
+                };
+                /**
                  * Event fired on page scroll to adapt visual elements
                  * @param event
                  */
@@ -218,7 +231,7 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
                         templateUrl: '../templates/profile-preview.component.html',
                         viewProviders: [{ provide: components_helper_service_1.ComponentsHelper, useClass: components_helper_service_1.ComponentsHelper }]
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService, router_1.ActivatedRoute, notification_service_1.NotificationsService])
+                    __metadata('design:paramtypes', [user_service_1.UserService, router_1.ActivatedRoute, router_1.Router, notification_service_1.NotificationsService])
                 ], ProfilePreviewComponent);
                 return ProfilePreviewComponent;
             }());

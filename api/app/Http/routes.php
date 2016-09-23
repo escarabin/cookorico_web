@@ -65,6 +65,8 @@ Route::post('/user/create_candidate', 'UserController@fillCandidateInfos')
     ->name('createCandidate');
 Route::get('/user/get_profile_percentage', 'UserController@getProfilePercentage')
     ->name('getProfilePercentage');
+Route::get('/user/disable_account', 'UserController@disableAccount')
+    ->name('disableAccount');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')

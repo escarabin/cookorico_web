@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', './../globals', '../models/notification'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', '@angular/router', 'rxjs/add/operator/catch', './../globals', '../models/notification'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, appGlobals, notification_1;
+    var core_1, http_1, router_1, appGlobals, notification_1;
     var UserService;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (_1) {},
             function (appGlobals_1) {
@@ -29,8 +32,9 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
             }],
         execute: function() {
             UserService = (function () {
-                function UserService(http) {
+                function UserService(http, router) {
                     this.http = http;
+                    this.router = router;
                     this.signInUrl = appGlobals.apiUrl + '/sign-in/';
                     this.getUserInfosUrl = appGlobals.apiUrl + '/user/get_infos';
                     this.getUserUrl = appGlobals.apiUrl + '/user/get';
@@ -70,6 +74,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     this.confirmEmailAddressUrl = appGlobals.apiUrl + '/user/confirm_address';
                     this.activateUserUrl = appGlobals.apiUrl + '/user/activate';
                     this.loginUsingIdUrl = appGlobals.apiUrl + '/user/login_using_id';
+                    this.disableAccountUrl = appGlobals.apiUrl + '/user/disable_account';
                     this.getFillPercentageUrl = appGlobals.apiUrl + '/user/get_profile_percentage';
                     this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
                     this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
@@ -100,6 +105,13 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                     return this.http.get(this.activateUserUrl + '/' + userId);
                 };
                 /**
+                 * Disable currently logged user account
+                 * @returns {Observable<Response>}
+                 */
+                UserService.prototype.disableAccount = function () {
+                    return this.http.get(this.disableAccountUrl);
+                };
+                /**
                  * Get data from specific user
                  * @param userId
                  */
@@ -110,6 +122,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                  * Sign out current user
                  */
                 UserService.prototype.signOut = function () {
+                    localStorage.removeItem('user');
+                    this.userChangeEmitter.emit('logout');
                     return this.http.get(this.signOutUrl);
                 };
                 /**
@@ -409,7 +423,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/catch', '.
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [http_1.Http])
+                    __metadata('design:paramtypes', [http_1.Http, router_1.Router])
                 ], UserService);
                 return UserService;
             }());

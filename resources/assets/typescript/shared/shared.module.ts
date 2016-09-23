@@ -10,6 +10,7 @@ import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directiv
 // Components
 import { UNITYTinyMCE } from './components/tiny-mce.component';
 import { JobPreviewComponent } from './components/job-preview.component';
+import { JobSearchBarComponent } from './components/job-search-bar.component';
 
 // Bootstrap modules
 import { ButtonsModule, ModalModule, CollapseModule, AccordionModule } from 'ng2-bootstrap/ng2-bootstrap';
@@ -19,9 +20,11 @@ import { ButtonsModule, ModalModule, CollapseModule, AccordionModule } from 'ng2
                     MD_CHECKBOX_DIRECTIVES,
                     SELECT_DIRECTIVES,
                     JobPreviewComponent,
+                    JobSearchBarComponent,
                     GoogleplaceDirective],
     exports:      [ UNITYTinyMCE,
                     JobPreviewComponent,
+                    JobSearchBarComponent,
                     SELECT_DIRECTIVES,
                     GoogleplaceDirective,
                     ButtonsModule,

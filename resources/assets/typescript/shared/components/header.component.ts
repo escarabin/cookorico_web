@@ -35,6 +35,8 @@ export class HeaderComponent {
         router.events.subscribe((event) => {
             let url = event['url'];
 
+            this.user = JSON.parse(localStorage.getItem('user'));
+
             if (url == '/' || url == '/accueil') {
                 this.isHomePage = true;
             }
@@ -60,6 +62,7 @@ export class HeaderComponent {
     handleUserSignedOut() {
         this.userService.signOut().subscribe((res: Response) => {
             this.user = null;
+            this.router.navigate(['/']);
         });
     }
 

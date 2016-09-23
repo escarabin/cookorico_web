@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', '@angular2-material/checkbox', 'ng2-select/ng2-select', 'angular2-google-map-auto-complete/directives/googleplace.directive', './components/tiny-mce.component', './components/job-preview.component', 'ng2-bootstrap/ng2-bootstrap'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/router', '@angular2-material/checkbox', 'ng2-select/ng2-select', 'angular2-google-map-auto-complete/directives/googleplace.directive', './components/tiny-mce.component', './components/job-preview.component', './components/job-search-bar.component', 'ng2-bootstrap/ng2-bootstrap'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, http_1, router_1, checkbox_1, ng2_select_1, googleplace_directive_1, tiny_mce_component_1, job_preview_component_1, ng2_bootstrap_1;
+    var core_1, platform_browser_1, forms_1, http_1, router_1, checkbox_1, ng2_select_1, googleplace_directive_1, tiny_mce_component_1, job_preview_component_1, job_search_bar_component_1, ng2_bootstrap_1;
     var SharedModule;
     return {
         setters:[
@@ -44,6 +44,9 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             function (job_preview_component_1_1) {
                 job_preview_component_1 = job_preview_component_1_1;
             },
+            function (job_search_bar_component_1_1) {
+                job_search_bar_component_1 = job_search_bar_component_1_1;
+            },
             function (ng2_bootstrap_1_1) {
                 ng2_bootstrap_1 = ng2_bootstrap_1_1;
             }],
@@ -57,9 +60,11 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                             checkbox_1.MD_CHECKBOX_DIRECTIVES,
                             ng2_select_1.SELECT_DIRECTIVES,
                             job_preview_component_1.JobPreviewComponent,
+                            job_search_bar_component_1.JobSearchBarComponent,
                             googleplace_directive_1.GoogleplaceDirective],
                         exports: [tiny_mce_component_1.UNITYTinyMCE,
                             job_preview_component_1.JobPreviewComponent,
+                            job_search_bar_component_1.JobSearchBarComponent,
                             ng2_select_1.SELECT_DIRECTIVES,
                             googleplace_directive_1.GoogleplaceDirective,
                             ng2_bootstrap_1.ButtonsModule,

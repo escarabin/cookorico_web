@@ -14,7 +14,6 @@ import { AppComponent }   from './app.component';
 import { HomeComponent } from './shared/components/home.component';
 import { HeaderComponent } from './shared/components/header.component';
 import { FooterComponent } from './shared/components/footer.component';
-import { JobSearchBarComponent } from './shared/components/job-search-bar.component';
 import { SignInComponent } from './shared/components/sign-in.component';
 import { NotificationsComponent } from './shared/components/notification.component';
 import { PostPreviewComponent } from './shared/components/post-preview.component';
@@ -31,7 +30,6 @@ import { PaginationControlsCmp } from 'ng2-pagination';
                     HomeComponent,
                     HeaderComponent,
                     FooterComponent,
-                    JobSearchBarComponent,
                     PostComponent,
                     ClubComponent,
                     SignUpComponent,

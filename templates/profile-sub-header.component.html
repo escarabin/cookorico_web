@@ -1,4 +1,5 @@
-<div class="sub-header-wrapper">
+<div class="sub-header-wrapper"
+     *ngIf="user">
     <div class="profile-picture col-md-2 col-sm-2"
          *ngIf="user.profilePictureUrl">
         <div class="progress-radial progress-{{ profilePercentage }}">

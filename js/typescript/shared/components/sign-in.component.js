@@ -81,7 +81,7 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                 SignInComponent.prototype.logout = function () {
                     localStorage.removeItem('user');
                     this.user = JSON.parse(localStorage.getItem('user'));
-                    this.router.navigate(['home']);
+                    this.router.navigate(['/']);
                     this.userSignedOut.emit('signing out');
                 };
                 SignInComponent.prototype.resetPassword = function () {

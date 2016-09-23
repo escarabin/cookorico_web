@@ -30,13 +30,6 @@ export class ProfileSubHeaderComponent {
         });
 
         /**
-         * Detect any change in user object
-         */
-        UserService.userChangeEmitter.subscribe((res: Response) => {
-            console.log('received a new user', res.json());
-        });
-
-        /**
          * Get profile percentage of fill
          */
         UserService.getProfilePercentage().subscribe((res: Response) => {

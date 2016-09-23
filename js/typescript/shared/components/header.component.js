@@ -42,6 +42,7 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                      */
                     router.events.subscribe(function (event) {
                         var url = event['url'];
+                        _this.user = JSON.parse(localStorage.getItem('user'));
                         if (url == '/' || url == '/accueil') {
                             _this.isHomePage = true;
                         }
@@ -66,6 +67,7 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                     var _this = this;
                     this.userService.signOut().subscribe(function (res) {
                         _this.user = null;
+                        _this.router.navigate(['/']);
                     });
                 };
                 /**

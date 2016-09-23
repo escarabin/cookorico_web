@@ -84,7 +84,7 @@ export class SignInComponent {
     logout() {
         localStorage.removeItem('user');
         this.user = JSON.parse(localStorage.getItem('user'));
-        this.router.navigate(['home']);
+        this.router.navigate(['/']);
 
         this.userSignedOut.emit('signing out');
     }

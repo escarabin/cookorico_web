@@ -450,8 +450,8 @@ profile-sidebar {
   float: left; }
   profile-sidebar .user-infos {
     text-align: left;
-    padding-top: 15px;
     margin: 0 15px;
+    margin-bottom: 20px;
     background-color: #35B6E1;
     border-radius: 4px;
     padding: 15px; }
@@ -468,7 +468,6 @@ profile-sidebar {
     margin-top: 20px; }
   profile-sidebar .profile-sidebar-menu {
     text-align: left;
-    margin-top: 20px;
     display: inline-block;
     width: 100%;
     max-height: 70px;
@@ -1189,24 +1188,27 @@ right-sidebar {
     stroke-dashoffset: 187;
     transform: rotate(450deg); } }
 
-.job-search {
+job-search-bar {
   max-width: 650px;
   margin: auto;
   margin-top: 50px;
   padding: 10px;
   background: white;
+  display: inline-block;
   border-radius: 4px;
   -o-box-shadow: 0px 0px 40px 0px #343434;
   box-shadow: 0px 0px 40px 0px #343434;
   filter: progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=NaN, Strength=40); }
-  .job-search select, .job-search input {
-    border: none;
-    border-radius: 0;
-    height: 40px;
-    -webkit-appearance: none; }
-  .job-search .input-container {
+  job-search-bar .input-container {
     padding: 0; }
-  .job-search .find-btn {
+    job-search-bar .input-container select, job-search-bar .input-container input {
+      border: none;
+      border-radius: 0;
+      height: 60px;
+      -webkit-appearance: none; }
+    job-search-bar .input-container button {
+      height: 60px; }
+  job-search-bar .find-btn {
     width: 100%; }
 
 profile-sub-header {

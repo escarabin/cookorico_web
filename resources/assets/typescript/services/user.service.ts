@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/catch';
 import appGlobals = require('./../globals');
 
@@ -50,13 +51,15 @@ export class UserService {
     confirmEmailAddressUrl = appGlobals.apiUrl + '/user/confirm_address';
     activateUserUrl = appGlobals.apiUrl + '/user/activate';
     loginUsingIdUrl = appGlobals.apiUrl + '/user/login_using_id';
+    disableAccountUrl = appGlobals.apiUrl + '/user/disable_account';
     getFillPercentageUrl = appGlobals.apiUrl + '/user/get_profile_percentage';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
     userChangeEmitter: EventEmitter;
 
-    constructor(private http: Http) {
+    constructor(private http: Http,
+                private router: Router) {
         this.userChangeEmitter = new EventEmitter();
     }
 
@@ -88,6 +91,14 @@ export class UserService {
     }
 
     /**
+     * Disable currently logged user account
+     * @returns {Observable<Response>}
+     */
+    disableAccount() {
+        return this.http.get(this.disableAccountUrl);
+    }
+
+    /**
      * Get data from specific user
      * @param userId
      */
@@ -99,6 +110,10 @@ export class UserService {
      * Sign out current user
      */
     signOut() {
+        localStorage.removeItem('user');
+
+        this.userChangeEmitter.emit('logout');
+
         return this.http.get(this.signOutUrl);
     }
 

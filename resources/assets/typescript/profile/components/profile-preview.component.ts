@@ -1,5 +1,5 @@
 import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { Response } from '@angular/http';
 
 // Services
@@ -50,6 +50,7 @@ export class ProfilePreviewComponent {
 
     constructor(private userService: UserService,
                 private route: ActivatedRoute,
+                private router: Router,
                 private notificationService: NotificationsService) {
         let __this = this;
 
@@ -215,7 +216,7 @@ export class ProfilePreviewComponent {
      * @param value
      */
     saveProfileInfo(key: string, value: string) {
-        this.userService.updateInfo(key, value) .subscribe((res: Response) => {
+        this.userService.updateInfo(key, value).subscribe((res: Response) => {
             this.editingItems[key] = false;
 
             if (key == 'new_email') {
@@ -231,6 +232,20 @@ export class ProfilePreviewComponent {
         });
     }
 
+    /**
+     * Disable currently logged user account
+     */
+    disableAccount() {
+        this.userService.disableAccount().subscribe((res: Response) => {
+            this.userService.signOut().subscribe((res: Response) => {
+                this.router.navigate(['/']);
+
+                this.notificationService.show(
+                    new Notification('success', 'Votre compte a bien été désactivé, vous allez recevoir un mail de confirmation')
+                );
+            });
+        });
+    }
 
     /**
      * Event fired on page scroll to adapt visual elements
