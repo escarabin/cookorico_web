@@ -3,11 +3,28 @@ profile-preview {
     text-transform: uppercase;
     text-align: left;
     font-family: $mainBoldFontFamily;
-    color: white;
-    font-size: 1em;
-    background: #b7b7b7;
-    padding: 15px;
-    margin: 0 !important;
+    color: $oechrBlueColor;
+    font-size: 1.3em;
+    padding: 5px;
+    border-bottom: 1px solid #CCC;
+    margin: 20px 0 0 0 !important
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+
+  .badge {
+    background-color: $mainBgColor;
+  }
+
+  .alert {
+    text-align: center;
+
+    h3 {
+      color: #333;
+      font-size: 1.5em;
+    }
   }
 
   .row {
@@ -88,6 +105,11 @@ profile-preview {
     .icon {
       font-size: 3em;
     }
+  }
+
+  .user-secondary-infos {
+    background: $mainBgColor;
+    padding: 20px;
   }
 
   .description {

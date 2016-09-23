@@ -16,7 +16,7 @@
         <li class="row" *ngFor="let item of items">
             <div class="col-md-12 col-sm-12 col-xs-12 item"
                  [class.logo]="item.business.logo">
-                <a routerLink="/profile/job-post/edit/{{ item.id }}">
+                <a routerLink="/profil/job-post/edit/{{ item.id }}">
                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
                         <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.business.id }}.jpg"
                              class="full-width"/>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-4 job-applications"
                          [class.disabled]="item.applications.length == 0">
-                        <a routerLink="/profile/applicants/{{ item.id }}">
+                        <a routerLink="/profil/applicants/{{ item.id }}">
                             <button>
                                 33 profils
                             </button>

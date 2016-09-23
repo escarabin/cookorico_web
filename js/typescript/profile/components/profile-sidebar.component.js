@@ -28,9 +28,11 @@ System.register(['@angular/core', '../../services/user.service'], function(expor
                     this.isMobileMenuVisible = false;
                     this.user = JSON.parse(localStorage.getItem('user'));
                     var __this = this;
-                    this.userService.getPlans().subscribe(function (res) {
-                        __this.plans = res.json();
-                    });
+                    if (this.user.user_type_id == 2) {
+                        this.userService.getPlans().subscribe(function (res) {
+                            __this.plans = res.json();
+                        });
+                    }
                 }
                 ProfileSidebarComponent = __decorate([
                     core_1.Component({

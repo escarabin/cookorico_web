@@ -1,7 +1,8 @@
 <div class="col-md-12">
     <form #studyForm="ngForm">
         <div class="col-md-12">
-            <business-select [businessId]="study.business_id"
+            <business-select [isRequired]="true"
+                             [businessId]="study.business_id"
                              (businessIdChange)="handleBusinessIdChange($event)">
 
             </business-select>
@@ -46,7 +47,7 @@
                       placeholder="Description"></textarea>
         </div>
         <div class="col-md-6 hidden-xs hidden-sm">
-            <a routerLink="/profile/education">
+            <a routerLink="/profil/education">
                 <button class="btn btn-default back-btn">
                     <span class="fa fa-arrow-left"></span> &nbsp;
                     Retour aux formations

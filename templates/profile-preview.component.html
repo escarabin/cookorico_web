@@ -86,11 +86,12 @@
             Profil recherché : <b>{{ user.looking_for_job_naming.title }}</b><br />
         </span>
     </div>
+
     <div class="col-md-3 col-sm-3 col-xs-12 resume-container">
         <button *ngIf="editableProfile"
            class="edit-button"
            (click)="editResumeModal.show()">
-            Modifier le CV
+            <span class="fa fa-file-pdf-o"></span> &nbsp; Modifier le CV
         </button>
         <a (click)="resumePreviewModal.show()"
            class="hidden-xs">
@@ -99,11 +100,34 @@
             Voir le CV
         </a>
     </div>
+
+    <div class="col-md-12 user-secondary-infos">
+        <div class="row">
+            <div class="col-md-6">
+                Poste actuel : {{ experiences[1].title }}
+            </div>
+            <!-- <div class="col-md-6"
+                 *ngIf="education">
+                Niveau d'étude : {{ education[education.length - 1].description }}
+            </div> -->
+            <div class="col-md-6"
+                 *ngIf="languages">
+                Langues parlées :
+                <span *ngFor="let language of languages">
+                    {{ language.title }},
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="row">
     <div class="col-md-12">
-        <h2>Présentation</h2>
+        <h2 class="row">
+            <div class="col-md-12">
+                Présentation
+            </div>
+        </h2>
         <div class="description"
              [class.editable]="editableProfile"
              (click)="editingItems['description'] = true"
@@ -122,26 +146,26 @@
 
     <div class="col-md-12">
         <h2 class="row">
-            <div class="col-md-11 col-sm-11 col-xs-10">
-                Expériences
-            </div>
-            <div class="col-md-1 col-sm-1 col-xs-2">
-                <span class="badge">{{ experiences.length }}</span>
+            <div class="col-md-12">
+                <span class="badge">{{ experiences.length }}</span> &nbsp; Expériences
             </div>
         </h2>
         <div class="list-container col-md-12">
             <div *ngIf="experiences.length == 0 && editableProfile">
-                <div class="alert alert-danger" role="alert">
-                    <span class="fa fa-warning"></span> Vous n'avez renseigné aucune expérience !
-                    <br />
+                <div class="alert alert-default" role="alert">
+                    <h3>
+                        <span class="fa fa-warning"></span> Vous n'avez renseigné aucune expérience !
+                    </h3>
                     <br />
                     <button class="btn btn-default"
                             routerLink="/profil/experiences">
                         Ajouter une expérience
                     </button>
-                    <button class="btn btn-default">
+                    <br />
+                    <br />
+                    <a routerLink="" class="underlined">
                         Je n'ai aucune expérience
-                    </button>
+                    </a>
                 </div>
             </div>
             <ul *ngIf="experiences.length > 0">
@@ -161,19 +185,17 @@
 
     <div class="col-md-12">
         <h2 class="row">
-            <div class="col-md-11 col-sm-11 col-xs-10">
-                Formations
-            </div>
-            <div class="col-md-1 col-sm-1 col-xs-2">
-                <span class="badge">{{ education.length }}</span>
+            <div class="col-md-12">
+                Formations &nbsp; <span class="badge">{{ education.length }}</span>
             </div>
         </h2>
 
         <div class="list-container col-md-12">
             <div *ngIf="education.length == 0 && editableProfile">
-                <div class="alert alert-danger" role="alert">
-                    <span class="fa fa-warning"></span> Vous n'avez renseigné aucune formation !
-                    <br />
+                <div class="alert alert-default" role="alert">
+                    <h3>
+                        <span class="fa fa-warning"></span> Vous n'avez renseigné aucune formation !
+                    </h3>
                     <br />
                     <button class="btn btn-default"
                             routerLink="/profil/formations">
@@ -198,18 +220,16 @@
 
     <div class="col-md-12">
         <h2 class="row">
-            <div class="col-md-11 col-sm-11 col-xs-10">
-                Recommandations
-            </div>
-            <div class="col-md-1 col-sm-1 col-xs-2">
-                <span class="badge">{{ testimonials.length }}</span>
+            <div class="col-md-12">
+                <span class="badge">{{ testimonials.length }}</span> &nbsp; Recommandations
             </div>
         </h2>
         <div class="list-container col-md-12">
             <div *ngIf="testimonials.length == 0 && editableProfile">
-                <div class="alert alert-warning" role="alert">
-                    <span class="fa fa-warning"></span> Vous n'avez encore reçu aucune recommandation !
-                    <br />
+                <div class="alert alert-default" role="alert">
+                    <h3>
+                        <span class="fa fa-warning"></span> Vous n'avez encore reçu aucune recommandation !
+                    </h3>
                     <br />
                     <button class="btn btn-default"
                             routerLink="/profil/recommandations">
@@ -235,10 +255,7 @@
          *ngIf="user.languages">
         <h2 class="row">
             <div class="col-md-11 col-sm-11 col-xs-10">
-                Langues parlées
-            </div>
-            <div class="col-md-1 col-sm-1 col-xs-2">
-                <span class="badge">{{ user.languages.length }}</span>
+                {{ user.languages.length }} Langues parlées
             </div>
         </h2>
         <div class="list-container col-md-12">
@@ -257,7 +274,7 @@
     </div>
 
     <div class="col-md-12">
-        <button class="btn btn-danger"
+        <button class="btn btn-default"
                 (click)="disableAccount()">
             <span class="fa fa-warning"></span> &nbsp; Désactiver mon compte
         </button>

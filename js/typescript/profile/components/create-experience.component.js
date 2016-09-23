@@ -70,7 +70,7 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                             if (res['_body']) {
                                 __this.notificationService.show(new notification_1.Notification('success', 'Votre expérience a bien été créee'));
                                 // Redirect to experience edition
-                                _this.router.navigate(['/Profile/EditExperience', { experienceId: res.json()['id'] }]);
+                                _this.router.navigate(['/profil/experience/editer/' + res.json()['id']]);
                             }
                             else {
                                 __this.notificationService.show(new notification_1.Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer'));
@@ -91,6 +91,7 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                     }
                 };
                 CreateExperienceComponent.prototype.handleBusinessIdChange = function (businessId) {
+                    console.log('business id has changed');
                     this.experience.business_id = businessId;
                 };
                 CreateExperienceComponent = __decorate([

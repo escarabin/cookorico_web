@@ -35,6 +35,9 @@ export class HeaderComponent {
         router.events.subscribe((event) => {
             let url = event['url'];
 
+            /**
+             * Update user object
+             */
             this.user = JSON.parse(localStorage.getItem('user'));
 
             if (url == '/' || url == '/accueil') {

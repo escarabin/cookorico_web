@@ -50,8 +50,6 @@ export class BusinessSelectComponent {
     parseAdress(place: Object) {
         let __this = this;
 
-        console.log(place);
-
         // Save selected place data for further use
         this.placeService.save(place).subscribe((res: Response) => {
             console.log(res.json());
@@ -65,7 +63,9 @@ export class BusinessSelectComponent {
         });
     }
 
-    businessIdChanged() {
+    businessIdHasChanged() {
+        console.log('business id has changed', this.businessId);
+
         this.businessIdChange.emit(this.businessId);
     }
 }

@@ -7,6 +7,7 @@
                 name="businessId"
                 [required]="isRequired"
                 *ngIf="!isGooglePlaceInput"
+                (change)="businessIdHasChanged()"
                 [multiple]="isMultiple">
             <option selected disabled>-- Établissement --</option>
             <option *ngFor="let business of businesses"

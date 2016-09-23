@@ -60,7 +60,7 @@ export class CreateExperienceComponent {
                     );
 
                     // Redirect to experience edition
-                    this.router.navigate(['/Profile/EditExperience', { experienceId: res.json()['id'] }])
+                    this.router.navigate(['/profil/experience/editer/' + res.json()['id']])
                 }
                 else {
                     __this.notificationService.show(
@@ -88,6 +88,8 @@ export class CreateExperienceComponent {
     }
 
     handleBusinessIdChange(businessId) {
+        console.log('business id has changed');
+
         this.experience.business_id = businessId;
     }
 }

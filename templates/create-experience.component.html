@@ -22,7 +22,8 @@
             </select>
         </div>
         <div class="col-md-6">
-            <business-select [businessId]="experience.business_id"
+            <business-select [isRequired]="true"
+                             [businessId]="experience.business_id"
                              (businessIdChange)="handleBusinessIdChange($event)">
 
             </business-select>
@@ -58,7 +59,7 @@
                       placeholder="Dites nous-en plus sur votre expérience"></textarea>
         </div>
         <div class="col-md-6">
-            <a routerLink="/profile/experiences">
+            <a routerLink="/profil/experiences">
                 <button class="btn btn-default back-btn">
                     <span class="fa fa-arrow-left"></span> &nbsp;
                     Retour aux expériences

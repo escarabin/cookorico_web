@@ -59,7 +59,7 @@ export class CreateStudyComponent {
                     );
 
                     // Redirect to experience edition
-                    this.router.navigate(['/Profile/EditStudy', {studyId: res.json()['id']}])
+                    this.router.navigate(['/profil/formation/editer/' + res.json()['id']]);
                 }
                 else {
                     __this.notificationService.show(

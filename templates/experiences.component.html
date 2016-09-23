@@ -17,7 +17,7 @@
         </span>
     </div>
     <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
-        <button routerLink="/profile/experience/creer">
+        <button routerLink="/profil/experience/creer">
             <span class="fa fa-plus"></span>
         </button>
         <button (click)="deleteSelectedItems()">
@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-10 col-sm-10 col-xs-9 item"
                  [class.logo]="item.business.logo">
-                <a routerLink="/profile/experience/editer/{{ item.id }}">
+                <a routerLink="/profil/experience/editer/{{ item.id }}">
                     <div class="item-desc">
                         <h3>{{ item.job_naming.title }}</h3>
                         {{ item.business.title }}

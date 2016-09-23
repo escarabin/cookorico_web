@@ -21,8 +21,10 @@ export class ProfileSidebarComponent {
 
         let __this = this;
 
-        this.userService.getPlans().subscribe((res: Response) => {
-            __this.plans = res.json();
-        });
+        if (this.user.user_type_id == 2) {
+            this.userService.getPlans().subscribe((res: Response) => {
+                __this.plans = res.json();
+            });
+        }
     }
 }

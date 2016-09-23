@@ -14,7 +14,7 @@
         <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
     </div>
     <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
-        <button routerLink="/profile/business/create">
+        <button routerLink="/profil/business/create">
             <span class="fa fa-plus"></span>
         </button>
         <button (click)="deleteSelectedItems()">
@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-11 col-sm-11 col-xs-11 item"
                  [class.logo]="item.logo">
-                <a routerLink="/profile/business/edit/{{ item.id }}">
+                <a routerLink="/profil/business/edit/{{ item.id }}">
                     <div class="item-desc">
                         <h3>{{ item.title }}</h3>
                         {{ item.city }}

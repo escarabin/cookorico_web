@@ -54,7 +54,6 @@ System.register(['@angular/core', './../../services/business.service', './../../
                 };
                 BusinessSelectComponent.prototype.parseAdress = function (place) {
                     var __this = this;
-                    console.log(place);
                     // Save selected place data for further use
                     this.placeService.save(place).subscribe(function (res) {
                         console.log(res.json());
@@ -66,7 +65,8 @@ System.register(['@angular/core', './../../services/business.service', './../../
                         });
                     });
                 };
-                BusinessSelectComponent.prototype.businessIdChanged = function () {
+                BusinessSelectComponent.prototype.businessIdHasChanged = function () {
+                    console.log('business id has changed', this.businessId);
                     this.businessIdChange.emit(this.businessId);
                 };
                 __decorate([

@@ -30,7 +30,7 @@
             <li class="row" *ngIf="item.lookingForJobNamingIdList.indexOf(jobNamingId) != -1 || !jobNamingId">
                 <div class="col-md-12 col-sm-12 col-xs-12 item"
                      [class.photo]="item.profilePictureUrl">
-                    <a routerLink="/profile/show/{{ item.id }}">
+                    <a routerLink="/profil/show/{{ item.id }}">
                         <div class="col-md-2"
                              *ngIf="item.profilePictureUrl">
                             <img src="{{ item.profilePictureUrl }}" class="full-width"/>

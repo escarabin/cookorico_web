@@ -17,7 +17,7 @@
         </select>
     </div>
     <div class="col-md-1 col-sm-1 col-xs-1 actions-container">
-        <!--<button routerLink="['/Profile/CreateAlert']">
+        <!--<button routerLink="['/profil/CreateAlert']">
             <span class="fa fa-plus"></span>
         </button>-->
         <button (click)="deleteSelectedItems()">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-md-11 col-sm-11 col-xs-10 item"
                      [class.photo]="item.user.profilePictureUrl">
-                    <a routerLink="/profile/show/{{ item.user.id }}">
+                    <a routerLink="/profil/show/{{ item.user.id }}">
                         <div class="logo"
                              *ngIf="item.user.profilePictureUrl">
                             <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.job.business.id }}.jpg"/>

@@ -42,6 +42,9 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                      */
                     router.events.subscribe(function (event) {
                         var url = event['url'];
+                        /**
+                         * Update user object
+                         */
                         _this.user = JSON.parse(localStorage.getItem('user'));
                         if (url == '/' || url == '/accueil') {
                             _this.isHomePage = true;

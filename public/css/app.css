@@ -892,6 +892,9 @@ experiences {
 alerts {
   display: block; }
 
+.alert-default {
+  background: #f7f7f8; }
+
 testimonials {
   display: block; }
 
@@ -1023,11 +1026,23 @@ profile-preview h2 {
   text-transform: uppercase;
   text-align: left;
   font-family: "Avenir Heavy", sans-serif;
-  color: white;
-  font-size: 1em;
-  background: #b7b7b7;
-  padding: 15px;
-  margin: 0 !important; }
+  color: #35B6E1;
+  font-size: 1.3em;
+  padding: 5px;
+  border-bottom: 1px solid #CCC;
+  margin: 20px 0 0 0 !important; }
+
+profile-preview h3 {
+  font-size: 1.3em; }
+
+profile-preview .badge {
+  background-color: #f7f7f8; }
+
+profile-preview .alert {
+  text-align: center; }
+  profile-preview .alert h3 {
+    color: #333;
+    font-size: 1.5em; }
 
 profile-preview .row.scrolled-down {
   margin-top: 200px; }
@@ -1084,6 +1099,10 @@ profile-preview .resume-container {
     color: #333; }
   profile-preview .resume-container .icon {
     font-size: 3em; }
+
+profile-preview .user-secondary-infos {
+  background: #f7f7f8;
+  padding: 20px; }
 
 profile-preview .description {
   margin: 0 25px;
@@ -1495,6 +1514,10 @@ a:hover {
 
 .centered {
   text-align: center; }
+
+.underlined {
+  text-decoration: underline;
+  color: #333; }
 
 .full-width {
   width: 100%; }
