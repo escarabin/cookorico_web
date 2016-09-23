@@ -1,6 +1,6 @@
 <profile-sidebar *ngIf="user && user.is_active"
                  (window:scroll)="onPageScroll($event)"
-                 [class.scrolled-down]="scrollTop > 50"></profile-sidebar>
+                 [class.scrolled-down]="scrollTop > 100"></profile-sidebar>
 <div class="router-outlet-container"
      [class.scrolled-down]="scrollTop > 100"
      [class.full-width]="!user || !user.is_active">

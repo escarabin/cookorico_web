@@ -1426,9 +1426,10 @@ business-page {
     margin: 15px 0; }
 
 footer {
-  display: none;
+  display: inline-block;
   width: 100%;
   padding: 40px 0;
+  margin-top: 200px;
   background-image: url("/img/footer_bg.jpg");
   background-size: cover;
   background-position: center center; }
@@ -1492,9 +1493,6 @@ a:hover {
 
 .centered {
   text-align: center; }
-
-#main {
-  margin-bottom: 200px; }
 
 .full-width {
   width: 100%; }
