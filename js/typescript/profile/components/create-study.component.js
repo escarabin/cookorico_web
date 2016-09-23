@@ -91,6 +91,7 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                     }
                 };
                 CreateStudyComponent.prototype.handleBusinessIdChange = function (businessId) {
+                    console.log('business id received', businessId);
                     this.study.business_id = businessId;
                 };
                 CreateStudyComponent = __decorate([

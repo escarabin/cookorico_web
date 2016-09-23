@@ -55,7 +55,7 @@ class PlaceController extends Controller
 
            // If place is an establishment, create business
            if (in_array('establishment', $types)) {
-               $this->createBusinessFromPlaceData($place, $placeData);
+               $business = $this->createBusinessFromPlaceData($place, $placeData);
            }
 
            foreach($types as $type) {

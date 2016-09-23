@@ -84,6 +84,8 @@ export class BusinessSelectComponent {
 
         // Save selected place data for further use
         this.placeService.save(place).subscribe((res: Response) => {
+            console.log('--> place has been saved', res.json());
+
             __this.businessId = res.json()['id'];
 
             __this.businessIdHasChanged();

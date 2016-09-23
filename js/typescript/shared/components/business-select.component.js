@@ -82,6 +82,7 @@ System.register(['@angular/core', './../../services/business.service', './../../
                     var __this = this;
                     // Save selected place data for further use
                     this.placeService.save(place).subscribe(function (res) {
+                        console.log('--> place has been saved', res.json());
                         __this.businessId = res.json()['id'];
                         __this.businessIdHasChanged();
                     });

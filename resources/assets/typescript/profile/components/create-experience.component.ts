@@ -90,8 +90,6 @@ export class CreateExperienceComponent {
     }
 
     handleBusinessIdChange(businessId: number) {
-        console.log('business id has changed', businessId);
-
         this.experience.business_id = businessId;
     }
 }

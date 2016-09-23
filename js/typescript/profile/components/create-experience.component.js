@@ -94,7 +94,6 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                     }
                 };
                 CreateExperienceComponent.prototype.handleBusinessIdChange = function (businessId) {
-                    console.log('business id has changed', businessId);
                     this.experience.business_id = businessId;
                 };
                 CreateExperienceComponent = __decorate([
