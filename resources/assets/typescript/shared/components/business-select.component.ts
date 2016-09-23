@@ -14,14 +14,16 @@ import { UserService } from './../../services/user.service';
 })
 
 export class BusinessSelectComponent {
-    businesses = [];
-    isGooglePlaceInput: boolean = false;
-    @Input public businessId: number;
+    businesses: any = [];
+    businessInputText: string = "";
+    isGooglePlaceInput: boolean = true;
+    @Input businessId: number;
     @Input public onlyUserBusinesses: boolean;
     @Input public isRequired: boolean;
     @Input public isMultiple: boolean;
     @Output() businessIdChange: EventEmitter = new EventEmitter();
     public adress: Object;
+    isViewInit: boolean = false;
 
     constructor(private businessService: BusinessService,
                 private placeService: PlaceService,
@@ -29,21 +31,51 @@ export class BusinessSelectComponent {
 
     }
 
-    ngOnInit() {
+    ngAfterViewChecked() {
         let __this = this;
 
-        /**
-         * Check if we have to show only user's businesses in select options
-         */
-        if (this.onlyUserBusinesses) {
-            this.userService.getBusinesses().subscribe((res: Response) => {
-                __this.businesses = res.json();
-            })
+        if (this.businessId && !this.isViewInit) {
+            console.log('business id is ' + this.businessId);
+
+            /**
+             * Check if we have to show only user's businesses in select options
+             */
+            if (this.onlyUserBusinesses) {
+                this.userService.getBusinesses().subscribe((res: Response) => {
+                    __this.businesses = res.json();
+
+                    this.createBusinessesOptionsText();
+                })
+            }
+            else {
+                this.businessService.getAll().subscribe((res: Response) => {
+                    __this.businesses = res.json();
+
+                    this.createBusinessesOptionsText();
+                });
+            }
+
+            /**
+             * Retrieve business infos
+             */
+            if (this.businessId) {
+                this.businessService.get(this.businessId).subscribe((res: Response) => {
+                    __this.businessInputText = res.json()['title'];
+
+                    this.createBusinessesOptionsText();
+                });
+            }
+
+            this.isViewInit = true;
         }
-        else {
-           this.businessService.getAll().subscribe((res: Response) => {
-                __this.businesses = res.json();
-            })
+    }
+
+    createBusinessesOptionsText() {
+        /**
+         * Property ['text'] is used by ng2-select to display option titles
+         */
+        for (let i = 0; i < this.businesses.length; i++) {
+            this.businesses[i]['text'] = this.businesses[i]['title'];
         }
     }
 
@@ -52,20 +84,21 @@ export class BusinessSelectComponent {
 
         // Save selected place data for further use
         this.placeService.save(place).subscribe((res: Response) => {
-            console.log(res.json());
-
             __this.businessId = res.json()['id'];
-            __this.businessIdChanged();
-            __this.businessService.getAll().subscribe((res1: Response) => {
-                __this.businesses = res1.json();
-                __this.isGooglePlaceInput = false;
-            })
+
+            __this.businessIdHasChanged();
         });
     }
 
-    businessIdHasChanged() {
-        console.log('business id has changed', this.businessId);
+    /**
+     * Function fired when user types something in business input
+     * @param newText
+     */
+    businessInputTextHasChanged(newText: any) {
+        this.businessInputText = newText;
+    }
 
+    businessIdHasChanged() {
         this.businessIdChange.emit(this.businessId);
     }
 }

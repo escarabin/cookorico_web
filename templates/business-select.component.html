@@ -1,13 +1,11 @@
 <form #businessSelect="ngForm">
     <label>Établissement</label>
-    <div class="col-md-11 col-sm-11 col-xs-10 business-select-container">
-        <select class="form-control"
-                [(ngModel)]="businessId"
-                ngControl="businessId"
-                name="businessId"
+    <div class="col-md-12 business-select-container"
+         id="business-select">
+        <!-- <select class="form-control"
+                (change)="businessIdHasChanged()"
                 [required]="isRequired"
                 *ngIf="!isGooglePlaceInput"
-                (change)="businessIdHasChanged()"
                 [multiple]="isMultiple">
             <option selected disabled>-- Établissement --</option>
             <option *ngFor="let business of businesses"
@@ -15,17 +13,28 @@
                     [selected]="businessId==business.id">
                 {{ business.title }} - {{ business.place.city }}
             </option>
-        </select>
+        </select> -->
+
+        <!--<div class="no-results-label"
+             (click)="isGooglePlaceInput = !isGooglePlaceInput"
+             *ngIf="businessInputText.length > 1 && !isGooglePlaceInput">
+            Cliquez ici si votre établissement n'est pas là
+        </div>
+        <ng-select *ngIf="!isGooglePlaceInput"
+                   [allowClear]="true"
+                   [items]="businesses"
+                   (selected)="businessIdHasChanged($event)"
+                   (typed)="businessInputTextHasChanged($event)"
+                   placeholder="Choisissez un établissement">
+        </ng-select>-->
+
         <input type="text"
                class="form-control"
+               [(ngModel)]="businessInputText"
+               ngControl="businessInputText"
+               name="businessInputText"
                *ngIf="isGooglePlaceInput"
                (setAddress)="parseAdress($event)"
                googleplace/>
-    </div>
-    <div class="col-md-1 col-sm-1 col-xs-1 toggle-business-creation-container"
-         (click)="isGooglePlaceInput=!isGooglePlaceInput">
-        <span class="fa"
-              [class.fa-list]="isGooglePlaceInput"
-              [class.fa-plus]="!isGooglePlaceInput"></span>
     </div>
 </form>

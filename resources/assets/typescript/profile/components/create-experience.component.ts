@@ -28,9 +28,15 @@ export class CreateExperienceComponent {
                 private notificationService: NotificationsService,
                 private route: ActivatedRoute,
                 private router: Router) {
+        this.referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
+            this.jobNamingGroups = res.json();
+        })
+    }
+
+    ngAfterViewInit() {
         let __this = this;
 
-        route.params.subscribe(params => {
+        this.route.params.subscribe(params => {
             if (params) {
                 __this.experience.id = params["experienceId"];
 
@@ -42,10 +48,6 @@ export class CreateExperienceComponent {
                 }
             }
         });
-
-        this.referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
-            __this.jobNamingGroups = res.json();
-        })
     }
 
     submitExperience() {
@@ -87,8 +89,8 @@ export class CreateExperienceComponent {
         }
     }
 
-    handleBusinessIdChange(businessId) {
-        console.log('business id has changed');
+    handleBusinessIdChange(businessId: number) {
+        console.log('business id has changed', businessId);
 
         this.experience.business_id = businessId;
     }

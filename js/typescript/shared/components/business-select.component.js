@@ -33,40 +33,67 @@ System.register(['@angular/core', './../../services/business.service', './../../
                     this.placeService = placeService;
                     this.userService = userService;
                     this.businesses = [];
-                    this.isGooglePlaceInput = false;
+                    this.businessInputText = "";
+                    this.isGooglePlaceInput = true;
                     this.businessIdChange = new core_1.EventEmitter();
+                    this.isViewInit = false;
                 }
-                BusinessSelectComponent.prototype.ngOnInit = function () {
+                BusinessSelectComponent.prototype.ngAfterViewChecked = function () {
+                    var _this = this;
                     var __this = this;
-                    /**
-                     * Check if we have to show only user's businesses in select options
-                     */
-                    if (this.onlyUserBusinesses) {
-                        this.userService.getBusinesses().subscribe(function (res) {
-                            __this.businesses = res.json();
-                        });
+                    if (this.businessId && !this.isViewInit) {
+                        console.log('business id is ' + this.businessId);
+                        /**
+                         * Check if we have to show only user's businesses in select options
+                         */
+                        if (this.onlyUserBusinesses) {
+                            this.userService.getBusinesses().subscribe(function (res) {
+                                __this.businesses = res.json();
+                                _this.createBusinessesOptionsText();
+                            });
+                        }
+                        else {
+                            this.businessService.getAll().subscribe(function (res) {
+                                __this.businesses = res.json();
+                                _this.createBusinessesOptionsText();
+                            });
+                        }
+                        /**
+                         * Retrieve business infos
+                         */
+                        if (this.businessId) {
+                            this.businessService.get(this.businessId).subscribe(function (res) {
+                                __this.businessInputText = res.json()['title'];
+                                _this.createBusinessesOptionsText();
+                            });
+                        }
+                        this.isViewInit = true;
                     }
-                    else {
-                        this.businessService.getAll().subscribe(function (res) {
-                            __this.businesses = res.json();
-                        });
+                };
+                BusinessSelectComponent.prototype.createBusinessesOptionsText = function () {
+                    /**
+                     * Property ['text'] is used by ng2-select to display option titles
+                     */
+                    for (var i = 0; i < this.businesses.length; i++) {
+                        this.businesses[i]['text'] = this.businesses[i]['title'];
                     }
                 };
                 BusinessSelectComponent.prototype.parseAdress = function (place) {
                     var __this = this;
                     // Save selected place data for further use
                     this.placeService.save(place).subscribe(function (res) {
-                        console.log(res.json());
                         __this.businessId = res.json()['id'];
-                        __this.businessIdChanged();
-                        __this.businessService.getAll().subscribe(function (res1) {
-                            __this.businesses = res1.json();
-                            __this.isGooglePlaceInput = false;
-                        });
+                        __this.businessIdHasChanged();
                     });
                 };
+                /**
+                 * Function fired when user types something in business input
+                 * @param newText
+                 */
+                BusinessSelectComponent.prototype.businessInputTextHasChanged = function (newText) {
+                    this.businessInputText = newText;
+                };
                 BusinessSelectComponent.prototype.businessIdHasChanged = function () {
-                    console.log('business id has changed', this.businessId);
                     this.businessIdChange.emit(this.businessId);
                 };
                 __decorate([

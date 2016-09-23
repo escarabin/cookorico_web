@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Request;
 use App\Models\Business;
 use App\Models\PlaceType;
 use DB;
-
 use App\Models\Place;
 use Illuminate\Support\Facades\Log;
 
@@ -49,20 +48,14 @@ class PlaceController extends Controller
 
            $place->save();
 
+           /**
+            * Check if business has been created for this place
+            */
+
+
            // If place is an establishment, create business
            if (in_array('establishment', $types)) {
-               $business = new Business();
-
-               $business->place_id = $place->id;
-               $business->title = $placeData['name'];
-               if ($placeData['formatted_phone_number']) {
-                   $business->phone = $placeData['formatted_phone_number'];
-               }
-               if ($placeData['website']) {
-                   $business->website = $placeData['website'];
-               }
-
-               $business->save();
+               $this->createBusinessFromPlaceData($place, $placeData);
            }
 
            foreach($types as $type) {
@@ -74,9 +67,39 @@ class PlaceController extends Controller
                }
            }
        }
+       else {
+           /**
+            * Find business related to this place
+            */
+           $business = Business::where('place_id', $place->id)->first();
 
-       return json_encode(array_merge(json_decode($place, true),json_decode($business, true)));
+           /**
+            * If business does not exist, create it
+            */
+           if (!$business) {
+               $business = $this->createBusinessFromPlaceData($place, $placeData);
+           }
+       }
+
+       return $business;
    }
+
+    public function createBusinessFromPlaceData($place, $additionnalInfos) {
+        $business = new Business();
+
+        $business->place_id = $place->id;
+        $business->title = $additionnalInfos['name'];
+        if (array_key_exists('formatted_phone_number', $additionnalInfos)) {
+            $business->phone = $additionnalInfos['formatted_phone_number'];
+        }
+        if (array_key_exists('website', $additionnalInfos)) {
+            $business->website = $additionnalInfos['website'];
+        }
+
+        $business->save();
+
+        return $business;
+    }
 
     /**
      * Function used to retrieve the text between two specific characters

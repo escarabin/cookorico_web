@@ -38,6 +38,7 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
         execute: function() {
             CreateExperienceComponent = (function () {
                 function CreateExperienceComponent(referenceService, userService, notificationService, route, router) {
+                    var _this = this;
                     this.referenceService = referenceService;
                     this.userService = userService;
                     this.notificationService = notificationService;
@@ -45,8 +46,13 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                     this.router = router;
                     this.experience = new experience_1.Experience();
                     this.isLoading = false;
+                    this.referenceService.getAllJobNamingGroups().subscribe(function (res) {
+                        _this.jobNamingGroups = res.json();
+                    });
+                }
+                CreateExperienceComponent.prototype.ngAfterViewInit = function () {
                     var __this = this;
-                    route.params.subscribe(function (params) {
+                    this.route.params.subscribe(function (params) {
                         if (params) {
                             __this.experience.id = params["experienceId"];
                             if (__this.experience.id) {
@@ -57,10 +63,7 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                             }
                         }
                     });
-                    this.referenceService.getAllJobNamingGroups().subscribe(function (res) {
-                        __this.jobNamingGroups = res.json();
-                    });
-                }
+                };
                 CreateExperienceComponent.prototype.submitExperience = function () {
                     var _this = this;
                     this.isLoading = true;
@@ -91,7 +94,7 @@ System.register(['@angular/core', '@angular/router', '../../services/reference.s
                     }
                 };
                 CreateExperienceComponent.prototype.handleBusinessIdChange = function (businessId) {
-                    console.log('business id has changed');
+                    console.log('business id has changed', businessId);
                     this.experience.business_id = businessId;
                 };
                 CreateExperienceComponent = __decorate([

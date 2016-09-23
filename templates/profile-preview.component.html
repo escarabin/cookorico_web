@@ -103,8 +103,9 @@
 
     <div class="col-md-12 user-secondary-infos">
         <div class="row">
-            <div class="col-md-6">
-                Poste actuel : {{ experiences[1].title }}
+            <div class="col-md-6"
+                 *ngIf="experiences">
+
             </div>
             <!-- <div class="col-md-6"
                  *ngIf="education">
@@ -125,7 +126,7 @@
     <div class="col-md-12">
         <h2 class="row">
             <div class="col-md-12">
-                Présentation
+                <i class="icon-bubble"></i> &nbsp;Présentation
             </div>
         </h2>
         <div class="description"
@@ -147,7 +148,7 @@
     <div class="col-md-12">
         <h2 class="row">
             <div class="col-md-12">
-                <span class="badge">{{ experiences.length }}</span> &nbsp; Expériences
+                <i class="icon-badge"></i> &nbsp;Expériences &nbsp; <span class="badge">{{ experiences.length }}</span>
             </div>
         </h2>
         <div class="list-container col-md-12">
@@ -186,7 +187,7 @@
     <div class="col-md-12">
         <h2 class="row">
             <div class="col-md-12">
-                Formations &nbsp; <span class="badge">{{ education.length }}</span>
+                <i class="icon-graduation"></i> &nbsp;Formations &nbsp; <span class="badge">{{ education.length }}</span>
             </div>
         </h2>
 
@@ -221,7 +222,7 @@
     <div class="col-md-12">
         <h2 class="row">
             <div class="col-md-12">
-                <span class="badge">{{ testimonials.length }}</span> &nbsp; Recommandations
+                <i class="icon-like"></i> &nbsp;Recommandations &nbsp; <span class="badge">{{ testimonials.length }}</span>
             </div>
         </h2>
         <div class="list-container col-md-12">
