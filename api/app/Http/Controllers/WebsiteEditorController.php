@@ -37,6 +37,9 @@ class WebsiteEditorController extends Controller
                                 'RewriteRule . index.html [L]'.PHP_EOL.
                                 '#SEOREDIRECTIONS';
 
+        /**
+            Create .htaccess redirection line for each traffic driven cats
+        */
         foreach ($trafficDrivenCats as $trafficDrivenCat) {
             $title = $trafficDrivenCat['title'];
             $description = $trafficDrivenCat['description'];

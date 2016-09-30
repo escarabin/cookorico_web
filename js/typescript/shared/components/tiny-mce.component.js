@@ -29,6 +29,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     var uniqid = randLetter + Date.now();
                     this.elementID = 'tinymce' + uniqid;
                     this.htmlContent = this.mceContent;
+                    this.htmlContent = "TESTING";
                     // this.contentChanged = new EventEmitter();
                 }
                 UNITYTinyMCE.prototype.ngAfterViewInit = function () {
@@ -71,6 +72,13 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 UNITYTinyMCE.prototype.tinyMCEOnKeyup = function (e) {
                     this.newContentInput.emit(tinymce.get(this.elementID).getContent());
                 };
+                Object.defineProperty(UNITYTinyMCE.prototype, "mceContent", {
+                    set: function (content) {
+                        this.htmlContent = content;
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
                 __decorate([
                     core_1.Output(), 
                     __metadata('design:type', core_1.EventEmitter)

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Email;
 use App\Models\MailTemplate;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
@@ -64,7 +65,9 @@ class MailController extends Controller
         return $template;
     }
 
-    public function saveTest() {
+    public function sendNewJobAlerts() {
+        $alreadySentEmails = Email::where('created_at', '<', date('YYYY'));
+
         Mail::send('emails.new-email', [], function ($m) {
             $m->from(env('COMPANY_EMAIL'), 'Your Application');
 

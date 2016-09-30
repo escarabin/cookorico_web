@@ -66,11 +66,15 @@
                        class="form-control"
                        ngControl="cat.place.formatted_address"
                        [(ngModel)]="cat.place.formatted_address"
+                       (setAddress)="parseAdress($event, i)"
                        googleplace/>
             </div>
             <div class="col-md-1 delete-url"
                  (click)="removeTrafficDriventCat(i)">
                 <i class="icon-close"></i>
+            </div>
+            <div class="col-md-12 description-preview" [innerHTML]="cat.description">
+                
             </div>
             <div class="col-md-12">
                 <hr />
@@ -78,12 +82,12 @@
         </div>
 
         <button class="btn btn-primary"
-                (click)="trafficDrivenCats.push({})">
+                (click)="trafficDrivenCats.push({place: {}})">
             + Créer une URL
         </button>
         <button class="btn btn-primary"
                 (click)="saveTrafficDrivenCategories()">
-            Sauvegarder
+            Sauvegarder <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
         </button>
     </accordion-group>
 </accordion>

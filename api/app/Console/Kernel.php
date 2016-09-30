@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call('App\Http\Controllers\MailController@saveTest')
-                 ->everyMinute();
+        $schedule->call('App\Http\Controllers\MailController@sendNewJobAlerts')
+                 ->daily();
     }
 }

@@ -23,6 +23,7 @@ export class WebsiteEditorComponent {
     homeBannerHtmlContent: string;
     jobNamings: any = [];
     trafficDrivenCats: any = [];
+    isLoading: boolean = false;
 
     constructor(private websiteEditorService: WebsiteEditorService,
                 private referenceService: ReferenceService) {
@@ -62,8 +63,11 @@ export class WebsiteEditorComponent {
     }
 
     saveTrafficDrivenCategories() {
+        this.isLoading = true;
+        
+        console.log("we are saving", this.trafficDrivenCats);
         this.websiteEditorService.saveTraficDrivenCategories(this.trafficDrivenCats).subscribe((res: Response) => {
-            console.log(res.json());
+            this.isLoading = false;
         });
     }
 
@@ -80,7 +84,7 @@ export class WebsiteEditorComponent {
      */
     saveHomeBannerHtml() {
         let option = new Option('home_banner_content', this.homeBannerHtmlContent);
-
+        
         this.websiteEditorService.saveOption(option).subscribe((res: Response) => {
             console.log(res.json());
         });
@@ -107,5 +111,12 @@ export class WebsiteEditorComponent {
      */
     removeTrafficDriventCat(catId: number) {
         delete this.trafficDrivenCats[catId];
+    }
+
+    /**
+        Function fired after user clicked on a google place
+    */
+    parseAdress(place: Object, catId: number) {
+        this.trafficDrivenCats[catId]['place'] = place;
     }
 }

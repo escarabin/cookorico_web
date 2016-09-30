@@ -1029,7 +1029,7 @@ profile-preview .form-control[input] {
   width: auto; }
 
 profile-preview .profile-picture-container {
-  padding: 0 15px; }
+  padding: 10px 15px; }
   profile-preview .profile-picture-container .profile-picture {
     width: 100%;
     height: 150px;
@@ -1402,6 +1402,14 @@ sign-up-steps {
 
 website-editor .delete-url {
   padding: 15px; }
+
+website-editor .description-preview {
+  margin: 15px;
+  padding: 25px;
+  border-radius: 4px;
+  background: #35B6E1;
+  width: 96%;
+  color: white; }
 
 business-page {
   padding-top: 50px;

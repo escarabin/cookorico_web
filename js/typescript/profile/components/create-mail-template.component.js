@@ -48,13 +48,11 @@ System.register(['@angular/core', '@angular/router', '../../services/mail.servic
                     var __this = this;
                     route.params.subscribe(function (params) {
                         if (params) {
-                            console.log(params);
-                            __this.mailTemplate.id = params["mailTemplateId"];
+                            __this.mailTemplate.id = params["templateId"];
                             if (__this.mailTemplate.id) {
                                 // Editing a specific item, let's retrieve it's data
                                 __this.mailService.getTemplate(__this.mailTemplate.id).subscribe(function (res) {
                                     __this.mailTemplate = res.json();
-                                    console.log('mail template is', __this.mailTemplate);
                                 });
                             }
                         }

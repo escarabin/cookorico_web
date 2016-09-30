@@ -39,6 +39,7 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', './../../
                     this.referenceService = referenceService;
                     this.jobNamings = [];
                     this.trafficDrivenCats = [];
+                    this.isLoading = false;
                     var __this = this;
                     this.referenceService.getAllJobNamings().subscribe(function (res) {
                         __this.jobNamings = res.json();
@@ -70,8 +71,11 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', './../../
                     });
                 }
                 WebsiteEditorComponent.prototype.saveTrafficDrivenCategories = function () {
+                    var _this = this;
+                    this.isLoading = true;
+                    console.log("we are saving", this.trafficDrivenCats);
                     this.websiteEditorService.saveTraficDrivenCategories(this.trafficDrivenCats).subscribe(function (res) {
-                        console.log(res.json());
+                        _this.isLoading = false;
                     });
                 };
                 /**
@@ -109,6 +113,12 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', './../../
                  */
                 WebsiteEditorComponent.prototype.removeTrafficDriventCat = function (catId) {
                     delete this.trafficDrivenCats[catId];
+                };
+                /**
+                    Function fired after user clicked on a google place
+                */
+                WebsiteEditorComponent.prototype.parseAdress = function (place, catId) {
+                    this.trafficDrivenCats[catId]['place'] = place;
                 };
                 WebsiteEditorComponent = __decorate([
                     core_1.Component({
