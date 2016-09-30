@@ -110,7 +110,9 @@ export class WebsiteEditorComponent {
      * @param catId
      */
     removeTrafficDriventCat(catId: number) {
-        delete this.trafficDrivenCats[catId];
+        this.trafficDrivenCats.splice(catId, 1);
+        
+        console.log('removing a cat');
     }
 
     /**

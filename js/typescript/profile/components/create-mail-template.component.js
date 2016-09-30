@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../../services/mail.service', '../../models/mail-template', '../../models/user', '../../models/business', './../../components/tiny-mce.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../services/mail.service', '../../models/user', '../../models/business', './../../components/tiny-mce.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../../services/mail.servic
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, mail_service_1, mail_template_1, user_1, business_1, tiny_mce_component_1;
+    var core_1, router_1, mail_service_1, user_1, business_1, tiny_mce_component_1;
     var CreateMailTemplateComponent;
     return {
         setters:[
@@ -22,9 +22,6 @@ System.register(['@angular/core', '@angular/router', '../../services/mail.servic
             },
             function (mail_service_1_1) {
                 mail_service_1 = mail_service_1_1;
-            },
-            function (mail_template_1_1) {
-                mail_template_1 = mail_template_1_1;
             },
             function (user_1_1) {
                 user_1 = user_1_1;
@@ -40,35 +37,51 @@ System.register(['@angular/core', '@angular/router', '../../services/mail.servic
                 function CreateMailTemplateComponent(mailService, route) {
                     this.mailService = mailService;
                     this.route = route;
-                    this.mailTemplate = new mail_template_1.MailTemplate();
+                    this.mailTemplate = {};
                     this.business = new business_1.Business();
                     this.user = new user_1.User();
+                    this.isLoading = false;
                     this.userKeys = Object.keys(this.user);
                     this.businessKeys = Object.keys(this.business);
+                }
+                CreateMailTemplateComponent.prototype.ngAfterViewInit = function () {
                     var __this = this;
-                    route.params.subscribe(function (params) {
+                    this.route.params.subscribe(function (params) {
                         if (params) {
                             __this.mailTemplate.id = params["templateId"];
                             if (__this.mailTemplate.id) {
                                 // Editing a specific item, let's retrieve it's data
                                 __this.mailService.getTemplate(__this.mailTemplate.id).subscribe(function (res) {
                                     __this.mailTemplate = res.json();
+                                    // __this.mceEditor.mceContent = __this.mailTemplate.message;
                                 });
                             }
                         }
                     });
-                }
+                };
                 CreateMailTemplateComponent.prototype.submitMailTemplate = function () {
+                    var _this = this;
+                    this.isLoading = true;
                     this.mailService.editTemplate(this.mailTemplate).subscribe(function (res) {
-                        console.log(res.json());
+                        _this.isLoading = false;
                     });
                 };
                 CreateMailTemplateComponent.prototype.contentChanged = function (newContent) {
                     this.mailTemplate.message = newContent;
                 };
                 CreateMailTemplateComponent.prototype.addPropertyToContent = function (propertyType, propertyKey) {
-                    this.mailTemplate.message += '{{ ' + propertyType + '.' + propertyKey + ' }}';
-                    this.mceEditor.mceContent = this.mailTemplate.message;
+                    /**
+                        TODO: this is a workaround, we have to find another solution
+                        to update mailTemplate message inside tinyMCE editor
+                    */
+                    var mailSubject = this.mailTemplate.subject;
+                    this.mailTemplate.subject = null;
+                    this.mailTemplate.message += '{{ $' + propertyType + '->' + propertyKey + ' }}';
+                    // this.mceEditor.mceContent = this.mailTemplate.message;
+                    var __this = this;
+                    setTimeout(function () {
+                        __this.mailTemplate.subject = mailSubject;
+                    }, 5);
                 };
                 __decorate([
                     core_1.ViewChild('mce-editor'), 

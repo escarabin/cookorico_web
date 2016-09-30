@@ -112,7 +112,8 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', './../../
                  * @param catId
                  */
                 WebsiteEditorComponent.prototype.removeTrafficDriventCat = function (catId) {
-                    delete this.trafficDrivenCats[catId];
+                    this.trafficDrivenCats.splice(catId, 1);
+                    console.log('removing a cat');
                 };
                 /**
                     Function fired after user clicked on a google place

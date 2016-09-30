@@ -30,10 +30,6 @@ export class UNITYTinyMCE {
 
         this.elementID = 'tinymce' + uniqid;
 
-        this.htmlContent = this.mceContent;
-
-        this.htmlContent = "TESTING";
-
         // this.contentChanged = new EventEmitter();
     }
 
@@ -90,7 +86,9 @@ export class UNITYTinyMCE {
         this.newContentInput.emit(tinymce.get(this.elementID).getContent());
     }
 
-    set mceContent(content) {
+    set mceContent(content) {        
         this.htmlContent = content;
+        
+        console.log('setting content to', this.htmlContent);
     }
 }
