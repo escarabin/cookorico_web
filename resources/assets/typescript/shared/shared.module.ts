@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { MD_CHECKBOX_DIRECTIVES } from '@angular2-material/checkbox';
 import { SELECT_DIRECTIVES } from 'ng2-select/ng2-select';
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
 
@@ -17,7 +16,6 @@ import { ButtonsModule, ModalModule, CollapseModule, AccordionModule } from 'ng2
 
 @NgModule({
     declarations: [ UNITYTinyMCE,
-                    MD_CHECKBOX_DIRECTIVES,
                     SELECT_DIRECTIVES,
                     JobPreviewComponent,
                     JobSearchBarComponent,

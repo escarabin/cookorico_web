@@ -552,7 +552,9 @@ job-search-sidebar {
     job-search-sidebar .search-summary .badge {
       color: white;
       margin: 5px;
-      text-transform: lowercase; }
+      text-transform: lowercase;
+      max-width: 250px;
+      overflow: hidden; }
       job-search-sidebar .search-summary .badge.job-badge {
         background-color: #35B6E1; }
       job-search-sidebar .search-summary .badge.location-badge {

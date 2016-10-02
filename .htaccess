@@ -1,0 +1,10 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.html [L]
+#SEOREDIRECTIONS
+Redirect permanent /test-lien /recherche/ChIJQYrRhNFx5kcRF7JYn01F_zU/10/0/0
+#test lien
+
+
+#fdqsgqsdgqdsgqdsgqg
