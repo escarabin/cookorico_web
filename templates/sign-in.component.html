@@ -64,9 +64,8 @@
                             <input type="checkbox"/> &nbsp; Se souvenir de moi
                         </label>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6 forgot-password"
-                         (click)="forgotPassword=!forgotPassword">
-                        <a href="#">Mot de passe oublié ?</a>
+                    <div class="col-md-6 col-sm-6 col-xs-6 forgot-password">
+                        <a (click)="forgotPassword=!forgotPassword">Mot de passe oublié ?</a>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6">
                         <button (click)="signInModal.hide()"
@@ -94,6 +93,7 @@
                         <input type="text"
                                [(ngModel)]="email"
                                ngControl="email"
+                               name="email"
                                required
                                class="form-control"
                                placeholder="Email"/>
@@ -108,6 +108,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-6"
                          *ngIf="!isPasswordReset && !loading">
                         <input type="button"
+                               class="btn btn-primary"
                                (click)="resetPassword()"
                                value="Envoyer"/>
                     </div>

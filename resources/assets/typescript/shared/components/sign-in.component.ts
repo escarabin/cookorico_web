@@ -90,7 +90,7 @@ export class SignInComponent {
     }
 
     resetPassword() {
-        this.userService.resetPassword().subscribe((res:Response) => {
+        this.userService.resetPassword(this.email).subscribe((res:Response) => {
             console.log(res.json());
         });
     }

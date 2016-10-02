@@ -198,6 +198,13 @@ System.register(['@angular/core', '@angular/router', '../../services/user.servic
                     });
                 };
                 /**
+                
+                   TODO: show up a modal to reset password
+                   
+                   */
+                ProfilePreviewComponent.prototype.resetPassword = function () {
+                };
+                /**
                  * Disable currently logged user account
                  */
                 ProfilePreviewComponent.prototype.disableAccount = function () {

@@ -85,7 +85,7 @@ System.register(['@angular/core', '@angular/router', './../../services/user.serv
                     this.userSignedOut.emit('signing out');
                 };
                 SignInComponent.prototype.resetPassword = function () {
-                    this.userService.resetPassword().subscribe(function (res) {
+                    this.userService.resetPassword(this.email).subscribe(function (res) {
                         console.log(res.json());
                     });
                 };

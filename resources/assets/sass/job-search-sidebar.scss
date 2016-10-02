@@ -30,6 +30,8 @@ job-search-sidebar {
       color: white;
       margin: 5px;
       text-transform: lowercase;
+      max-width: 250px;
+      overflow: hidden;
 
       &.job-badge {
         background-color: $oechrBlueColor;

@@ -231,6 +231,15 @@ export class ProfilePreviewComponent {
             }
         });
     }
+     
+     /**
+     
+        TODO: show up a modal to reset password
+        
+        */
+     resetPassword() {
+         
+     }
 
     /**
      * Disable currently logged user account
