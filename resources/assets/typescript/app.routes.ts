@@ -1,10 +1,10 @@
 import { Routes, RouterModule } from '@angular/router';
 
 // Components
-import { HomeComponent } from './components/home.component';
-import { PostComponent } from './components/post.component';
-import { ClubComponent } from './components/club.component';
-import { SignUpComponent } from './components/sign-up.component';
+import { HomeComponent } from './shared/components/home.component';
+import { PostComponent } from './shared/components/post.component';
+import { ClubComponent } from './shared/components/club.component';
+import { SignUpComponent } from './shared/components/sign-up.component';
 import { RecruiterPromoComponent } from './shared/components/recruiter-promo.component';
 import { BusinessPageComponent } from './shared/components/business-page.component';
 

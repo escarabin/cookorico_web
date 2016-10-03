@@ -6,3 +6,4 @@ gulp
 cd api
 ./composer.phar install
 ./composer.phar dump-autoload
+chmod -R 777 bootstrap/cache

@@ -20,42 +20,39 @@ import { UNITYTinyMCE } from './../../components/tiny-mce.component';
 
 export class CreateMailTemplateComponent {
     @ViewChild('mce-editor') mceEditor: UNITYTinyMCE;
-    mailTemplate: any = {};
+    mailTemplate:MailTemplate = new MailTemplate();
     business:Business = new Business();
     user:User = new User();
     public userKeys;
     public businessKeys;
-    isLoading: boolean = false;
 
     constructor(private mailService: MailService,
                 private route: ActivatedRoute) {
         this.userKeys = Object.keys(this.user);
         this.businessKeys = Object.keys(this.business);
-    }
-     
-     ngAfterViewInit() {
-         let __this = this;
-         
-         this.route.params.subscribe(params => {
+
+        let __this = this;
+
+        route.params.subscribe(params => {
             if (params) {
-                __this.mailTemplate.id = params["templateId"];
+                console.log(params);
+                __this.mailTemplate.id = params["mailTemplateId"];
 
                 if (__this.mailTemplate.id) {
                     // Editing a specific item, let's retrieve it's data
                     __this.mailService.getTemplate(__this.mailTemplate.id).subscribe((res: Response) => {
                         __this.mailTemplate = res.json();
-                        
-                        // __this.mceEditor.mceContent = __this.mailTemplate.message;
+
+                        console.log('mail template is', __this.mailTemplate);
                     });
                 }
             }
         });
-     }
+    }
 
     submitMailTemplate() {
-        this.isLoading = true;
         this.mailService.editTemplate(this.mailTemplate).subscribe((res:Response) => {
-            this.isLoading = false;
+            console.log(res.json());
         });
     }
 
@@ -64,22 +61,7 @@ export class CreateMailTemplateComponent {
     }
 
     addPropertyToContent(propertyType: string, propertyKey: string) {
-        /**
-            TODO: this is a workaround, we have to find another solution
-            to update mailTemplate message inside tinyMCE editor
-        */
-        
-        let mailSubject = this.mailTemplate.subject;
-        
-        this.mailTemplate.subject = null;
-        
-        this.mailTemplate.message += '{{ $' + propertyType + '->' + propertyKey + ' }}';
-        // this.mceEditor.mceContent = this.mailTemplate.message;
-        
-        let __this = this;
-        
-        setTimeout(function() {
-            __this.mailTemplate.subject = mailSubject;
-        }, 5)
+        this.mailTemplate.message += '{{ ' + propertyType + '.' + propertyKey + ' }}';
+        this.mceEditor.mceContent = this.mailTemplate.message;
     }
 }

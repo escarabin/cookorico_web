@@ -8,6 +8,7 @@
   var map = {
     'app':                        'app', // 'dist',
 
+    'angular2':                   'node_modules/angular2',
     '@angular':                   'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
     'rxjs':                       'node_modules/rxjs',
@@ -22,7 +23,6 @@
     'ng2-pagination':             'node_modules/ng2-pagination',
     'ng2-select':                 'node_modules/ng2-select',
     'express':                    'node_modules/express',
-    '@angular2-material':         'node_modules/@angular2-material',
     'ng2-meta':                   'node_modules/ng2-meta'
   };
 
@@ -40,11 +40,6 @@
     'ng2-file-upload':            { main: 'ng2-file-upload.js', defaultExtension: 'js' },
     'ng2-pagination':             { main: 'index.js', defaultExtension: 'js' },
     'ng2-select':                 { main: 'ng2-select.js', defaultExtension: 'js' },
-    '@angular2-material/core':    { main: 'core.js', defaultExtension: 'js' },
-    '@angular2-material/input':   { main: 'input.js', defaultExtension: 'js' },
-    '@angular2-material/checkbox':{ main: 'checkbox.js', defaultExtension: 'js' },
-    '@angular2-material/tooltip': { main: 'tooltip.js', defaultExtension: 'js' },
-    '@angular2-material/button':  { main: 'button.js', defaultExtension: 'js' },
     'ng2-meta':                   { main: 'dist/meta.service.js', defaultExtension: 'js' }
   };
 
