@@ -36,7 +36,7 @@ export class CreateMailTemplateComponent {
         route.params.subscribe(params => {
             if (params) {
                 console.log(params);
-                __this.mailTemplate.id = params["mailTemplateId"];
+                __this.mailTemplate.id = params["templateId"];
 
                 if (__this.mailTemplate.id) {
                     // Editing a specific item, let's retrieve it's data
@@ -61,7 +61,12 @@ export class CreateMailTemplateComponent {
     }
 
     addPropertyToContent(propertyType: string, propertyKey: string) {
-        this.mailTemplate.message += '{{ ' + propertyType + '.' + propertyKey + ' }}';
-        this.mceEditor.mceContent = this.mailTemplate.message;
+        let subject = this.mailTemplate.subject;
+        let __this = this;
+        this.mailTemplate.subject = null;
+        this.mailTemplate.message += '{{ $' + propertyType + '->' + propertyKey + ' }}';
+        setTimeout(function() {
+            __this.mailTemplate.subject = subject;
+        }, 50)
     }
 }

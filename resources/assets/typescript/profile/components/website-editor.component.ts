@@ -6,9 +6,11 @@ import { Response } from '@angular/http';
 // Services
 import { WebsiteEditorService } from './../../services/website-editor.service';
 import { ReferenceService } from './../../services/reference.service';
+import { NotificationsService } from '../../services/notification.service';
 
 // Models
 import { Option } from './../../models/option';
+import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'website-editor',
@@ -25,6 +27,7 @@ export class WebsiteEditorComponent {
     trafficDrivenCats: any = [];
 
     constructor(private websiteEditorService: WebsiteEditorService,
+                private notificationService: NotificationsService,
                 private referenceService: ReferenceService) {
         let __this = this;
 
@@ -63,7 +66,7 @@ export class WebsiteEditorComponent {
 
     saveTrafficDrivenCategories() {
         this.websiteEditorService.saveTraficDrivenCategories(this.trafficDrivenCats).subscribe((res: Response) => {
-            console.log(res.json());
+            console.log(res);
         });
     }
 
@@ -102,10 +105,19 @@ export class WebsiteEditorComponent {
     }
 
     /**
+     * Parse google places address and save it
+     * @param place
+     * @param catId
+     */
+    parseAddress(place: Object, catId: number) {
+        this.trafficDrivenCats[catId]['place'] = place;
+    }
+
+    /**
      * Remove specific SEO traffic driven category
      * @param catId
      */
     removeTrafficDriventCat(catId: number) {
-        delete this.trafficDrivenCats[catId];
+        this.trafficDrivenCats.splice(catId, 1);
     }
 }
