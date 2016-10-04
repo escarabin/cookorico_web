@@ -3,7 +3,7 @@ import { FormsModule }    from '@angular/forms';
 import { CommonModule }   from '@angular/common';
 import { jobSearchRouting } from './job-search.routes';
 import { SharedModule }   from './../shared/shared.module';
-import { AgmCoreModule } from 'angular2-google-maps/core/index';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 // Components
 import { JobComponent } from './components/job.component';
