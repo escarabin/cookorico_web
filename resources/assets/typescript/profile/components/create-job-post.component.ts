@@ -114,9 +114,9 @@ export class CreateJobPostComponent {
                     new Notification('success', 'Votre annonce vient d\'être publiée')
                 );
 
-                if (!__this.user.is_active) {
+                if (!__this.user['is_active']) {
                     __this.userService.activateAccount(__this.user.id).subscribe((res: Response) => {
-                        __this.router.navigate(['/profile/show']);
+                        __this.router.navigate(['/profil/apercu']);
                     });
                 }
 

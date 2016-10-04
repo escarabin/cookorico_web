@@ -92,9 +92,7 @@ header {
     width: 100%;
     z-index: 10;
     height: 100px;
-    background: url("/img/header_bg.jpg");
-    background-position: center bottom;
-    background-size: cover;
+    background-color: #003c50;
     /* Transparent header on home page */ }
     header .header-wrapper.transparent {
       background: none;
@@ -752,7 +750,7 @@ profile {
       profile .header-container .actions-container button {
         width: 60px;
         height: 69px;
-        background: #025589;
+        background: transparent;
         border: none;
         color: white; }
         profile .header-container .actions-container button:hover {
@@ -829,9 +827,8 @@ profile {
           font-family: "Avenir Medium", sans-serif;
           text-transform: uppercase;
           font-size: 0.9em;
-          margin-top: -15px;
-          position: relative;
-          left: -25px; }
+          position: absolute;
+          right: 25px; }
         profile .list-container ul li .item {
           padding: 10px;
           display: inline-block; }
@@ -1388,7 +1385,7 @@ sign-up-steps {
     sign-up-steps .steps .step {
       float: left;
       margin: 0 20px;
-      z-index: 10;
+      z-index: 1;
       position: relative; }
       sign-up-steps .steps .step .step-number {
         padding: 10px;

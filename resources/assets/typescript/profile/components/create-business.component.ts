@@ -161,7 +161,7 @@ export class CreateBusinessComponent {
                      * If user is new, then redirect him to next step (job post creation)
                      */
                     if (!__this.user.is_active) {
-                        __this.router.navigate(['/profile/job-post/create']);
+                        __this.router.navigate(['/profil/annonce/creer']);
                     }
                 }
 

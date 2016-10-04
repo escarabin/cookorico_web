@@ -39,6 +39,8 @@ export class ConfirmAccountCreationComponent {
                     __this.userService.loginUsingId(userId).subscribe((userInfos:Response) => {
                         __this.user = userInfos.json();
 
+                        console.log('--> user logged in');
+
                         localStorage.setItem('user', JSON.stringify(__this.user));
 
                         __this.userService.userChangeEmitter.emit(__this.user);

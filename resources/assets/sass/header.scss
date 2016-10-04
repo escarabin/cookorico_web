@@ -7,9 +7,7 @@ header {
     width: 100%;
     z-index: 10;
     height: $headerHeight;
-    background: url("/img/header_bg.jpg");
-    background-position: center bottom;
-    background-size: cover;
+    background-color: #003c50;
 
     /* Transparent header on home page */
     &.transparent {

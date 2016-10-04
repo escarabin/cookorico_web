@@ -61,32 +61,37 @@ export class ProfilePreviewComponent {
         route.params.subscribe(params => {
             if (params) {
                 __this.userIdRouteParam = params['userId'];
+
+                if (!__this.userIdRouteParam) {
+                    __this.user = JSON.parse(localStorage.getItem('user'));
+                    __this.userIdRouteParam = this.user['id'];
+
+                    // The profile is logged user's one so he is able to edit it
+                    __this.editableProfile = true;
+                }
+                else {
+                    __this.user.id = __this.userIdRouteParam;
+                }
+
+                this.userService.get(__this.user.id).subscribe((res: Response) => {
+                    __this.user = res.json();
+
+                    __this.userService.getExperiences(__this.user.id).subscribe((res: Response) => {
+                        __this.experiences = res.json();
+                    });
+
+                    __this.userService.getEducation(__this.user.id).subscribe((res: Response) => {
+                        __this.education = res.json();
+                    });
+
+                    __this.userService.getTestimonials(__this.user.id).subscribe((res: Response) => {
+                        __this.testimonials = res.json();
+                    });
+                });
             }
         });
 
-        if (!this.userIdRouteParam) {
-            this.user = JSON.parse(localStorage.getItem('user'));
-            this.userIdRouteParam = this.user['id'];
 
-            // The profile is logged user's one so he is able to edit it
-            this.editableProfile = true;
-        }
-
-        this.userService.getUserInfos().subscribe((res: Response) => {
-            __this.user = res.json();
-
-            __this.userService.getExperiences(__this.user.id).subscribe((res: Response) => {
-                __this.experiences = res.json();
-            });
-
-            __this.userService.getEducation(__this.user.id).subscribe((res: Response) => {
-                __this.education = res.json();
-            });
-
-            __this.userService.getTestimonials(__this.user.id).subscribe((res: Response) => {
-                __this.testimonials = res.json();
-            });
-        });
 
         /**
          * Image cropper settings
