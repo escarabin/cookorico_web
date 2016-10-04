@@ -10,7 +10,7 @@ import { MailTemplate } from '../../models/mail-template';
 import { User } from '../../models/user';
 import { Business } from '../../models/business';
 
-import { UNITYTinyMCE } from './../../components/tiny-mce.component';
+import { UNITYTinyMCE } from './../../shared/components/tiny-mce.component';
 
 @Component({
     selector: 'create-mail-template',

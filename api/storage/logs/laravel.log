@@ -156,3 +156,4 @@ Stack trace:
 #5 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(155): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
 #6 /Applications/MAMP/htdocs/oechr/api/public/index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
 #7 {main}  
+[2016-10-04 03:50:31] local.INFO: logging user out  
