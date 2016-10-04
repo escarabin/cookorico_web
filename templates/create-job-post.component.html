@@ -9,7 +9,8 @@
         <h3 class="centered">Complétez votre première offre d'emploi</h3>
     </div>
     <h2 class="centered">
-        Créez votre offre d'emploi
+        <span *ngIf="!jobPost.id">Créez</span>
+        <span *ngIf="jobPost.id">Éditez</span> votre offre d'emploi
     </h2>
     <form #jobPostForm="ngForm" action="#">
         <div class="col-md-12">

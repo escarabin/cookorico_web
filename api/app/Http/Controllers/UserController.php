@@ -184,8 +184,6 @@ class UserController extends Controller
                         ->jobPosts
                         ->load('jobNaming');
 
-        Log::info(count($jobPostList));
-
         $jobNamingIdList = array();
         foreach ($jobPostList as $jobPost) {
             $jobNamingIdList[] = $jobPost->jobNaming->id;
@@ -473,9 +471,6 @@ class UserController extends Controller
         $jobPosts = Auth::user()->jobPosts
                     ->load('jobNaming', 'business', 'contractType', 'applications');
 
-        /**
-         * Necessary workaround to return business place
-         */
         foreach ($jobPosts as $jobPost) {
             $jobPost->business->place = $jobPost->business->place;
         }
