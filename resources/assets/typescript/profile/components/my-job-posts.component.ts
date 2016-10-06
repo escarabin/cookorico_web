@@ -18,6 +18,7 @@ export class MyJobPostsComponent {
     items: any = [];
     allItemsChecked: boolean;
     checkedItemsList: any = [];
+    jobPlacementsLeftNum: any = [];
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService) {
@@ -25,6 +26,13 @@ export class MyJobPostsComponent {
 
         this.userService.getJobPosts().subscribe((res: Response) => {
             __this.items = res.json();
+
+            /**
+             * Defined how many job posts the user is now able to post
+             */
+            for (let i = 0; i < (5 - __this.items.length); i++) {
+                this.jobPlacementsLeftNum.push(1);
+            }
         });
     }
 

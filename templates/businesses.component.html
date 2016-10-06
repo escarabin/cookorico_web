@@ -1,7 +1,7 @@
 <div class="alert alert-warning alert-dismissible fade in" role="alert"
      *ngIf="items.length == 1">
     <strong>Vous avez créée votre premier établissement</strong>
-    Si vous souhaitez en créer un nouveau, merci de <a href="mailto:contact@cookorico.fr">nous contacter</a>
+    Si vous souhaitez en créer de nouveaux, merci de <a href="mailto:contact@cookorico.fr">nous contacter</a>
 </div>
 
 <div class="col-md-12 header-container">
@@ -20,7 +20,8 @@
         <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
     </div>
     <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
-        <button routerLink="/profil/etablissement/creer">
+        <button routerLink="/profil/etablissement/creer"
+                [class.disabled]="items.length == 1">
             <span class="fa fa-plus"></span>
         </button>
         <button (click)="deleteSelectedItems()">

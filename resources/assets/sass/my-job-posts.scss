@@ -9,10 +9,6 @@ my-job-posts {
     margin-top: 1%;
   }
 
-  .job-filled {
-    color: $dangerColor !important;
-  }
-
   .job-applications {
     text-align: center;
     padding: 15px;
@@ -20,11 +16,6 @@ my-job-posts {
 
   .matching-profiles {
     padding-top: 10px;
-  }
-
-  .show-post {
-    color: $oechrBlueColor !important;
-    text-decoration: underline;
   }
 
   .job-applications {
@@ -35,6 +26,38 @@ my-job-posts {
       color: white;
       height: 50px;
       padding: 15px;
+    }
+  }
+
+  .list-container {
+    ul {
+      li {
+        &.free-job-placement {
+          padding: 30px;
+          margin: 15px;
+          background: $mainBgColor;
+          border-radius: $mainBorderRadius;
+          border: 1px dashed #CCC;
+
+          &:nth-child(odd) {
+            background: $mainBgColor;
+          }
+
+          a {
+            color: #35B6E1;
+            text-decoration: underline;
+          }
+
+          .show-post {
+            color: $oechrBlueColor;
+            text-decoration: underline;
+          }
+
+          .job-filled {
+            color: $dangerColor;
+          }
+        }
+      }
     }
   }
 }

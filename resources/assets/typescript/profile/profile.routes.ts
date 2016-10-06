@@ -65,10 +65,10 @@ const profileRoutes: Routes = [
             {path: 'etablissements', component: BusinessesComponent},
 
             // Job posts
-            {path: 'annonces', component: MyJobPostsComponent},
-            {path: 'annonce', redirectTo: '/profil/annonces'},
-            {path: 'annonce/creer', component: CreateJobPostComponent},
             {path: 'annonce/editer/:jobPostId', component: CreateJobPostComponent},
+            {path: 'annonce/creer', component: CreateJobPostComponent},
+            {path: 'annonce', redirectTo: '/profil/annonces'},
+            {path: 'annonces', component: MyJobPostsComponent},
 
             // Applicants
             {path: 'postulants', component: ApplicantsComponent},

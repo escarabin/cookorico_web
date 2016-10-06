@@ -139,7 +139,6 @@ export class CreateJobPostComponent {
                 else {
                     __this.router.navigate(['/profil/annonce/', { jobId: res.json()['id'] }]);
                 }
-
             }
             else {
                 __this.notificationService.show(

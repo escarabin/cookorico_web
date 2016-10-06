@@ -170,19 +170,12 @@ my-job-posts .job-stats, my-job-posts .job-applications {
 my-job-posts .job-stats {
   margin-top: 1%; }
 
-my-job-posts .job-filled {
-  color: #E13543 !important; }
-
 my-job-posts .job-applications {
   text-align: center;
   padding: 15px; }
 
 my-job-posts .matching-profiles {
   padding-top: 10px; }
-
-my-job-posts .show-post {
-  color: #35B6E1 !important;
-  text-decoration: underline; }
 
 my-job-posts .job-applications button {
   border: none;
@@ -191,6 +184,23 @@ my-job-posts .job-applications button {
   color: white;
   height: 50px;
   padding: 15px; }
+
+my-job-posts .list-container ul li.free-job-placement {
+  padding: 30px;
+  margin: 15px;
+  background: #f7f7f8;
+  border-radius: 4px;
+  border: 1px dashed #CCC; }
+  my-job-posts .list-container ul li.free-job-placement:nth-child(odd) {
+    background: #f7f7f8; }
+  my-job-posts .list-container ul li.free-job-placement a {
+    color: #35B6E1;
+    text-decoration: underline; }
+  my-job-posts .list-container ul li.free-job-placement .show-post {
+    color: #35B6E1;
+    text-decoration: underline; }
+  my-job-posts .list-container ul li.free-job-placement .job-filled {
+    color: #E13543; }
 
 job {
   display: inline-block;
