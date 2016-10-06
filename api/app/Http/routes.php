@@ -18,10 +18,10 @@ use SellsyApi\Client;
 App::bind('SellsyClient', function($app)
 {
     $client = new Client([
-        'userToken' => 'e1da420d42571e787690d42187a2821a1eb1e5be',
-        'userSecret' => '182e5160d32e64b1019d09c33bef64f1a0192f7f',
-        'consumerToken'  => '7c7d0dbe1fdab0cf45b663591e2c4f992b6dd700',
-        'consumerSecret' => '739d4bd39d2f6f21760be64f375633ad9625e76a',
+        'userToken' => env('SELLSY_USER_TOKEN'),
+        'userSecret' => env('SELLSY_USER_SECRET'),
+        'consumerToken'  => env('SELLSY_CONSUMER_TOKEN'),
+        'consumerSecret' => env('SELLSY_CONSUMER_SECRET'),
     ]);
 
     return $client;

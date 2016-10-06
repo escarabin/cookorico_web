@@ -39,6 +39,11 @@ export class CreateJobPostComponent {
                 private router: Router) {
         let __this = this;
 
+        /**
+         * Scroll back to the top
+         */
+        window.scrollTo(0,0);
+
         this.user = JSON.parse(localStorage.getItem('user'));
 
         route.params.subscribe(params => {

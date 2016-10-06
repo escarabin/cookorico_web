@@ -5,7 +5,7 @@
         </sign-up-steps>
         <br />
         <br />
-        <h2>Votre établissement</h2>
+        <h3 class="centered">Votre établissement</h3>
     </div>
     <h2 class="centered">Complétez votre établissement</h2>
     <form #createBusinessForm="ngForm">
@@ -152,11 +152,11 @@
         </div>
         <div [class.col-md-6]="user.is_active"
              [class.col-md-12]="!user.is_active">
-            <button class="btn btn-primary submit-btn"
-                    [class.disabled]="!isAddressParsed || !createBusinessForm.valid"
-                    (click)="submitBusiness()">
-                Sauvegarder
-            </button>
+            <input type="submit"
+                   class="btn btn-primary submit-btn"
+                   value="Sauvegarder"
+                   [class.disabled]="!isAddressParsed || !createBusinessForm.valid"
+                   (click)="submitBusiness()"/>
         </div>
     </form>
 </div>

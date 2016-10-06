@@ -108,6 +108,31 @@ class BusinessController extends Controller
             }
         }
 
+
+        /**
+         *  Create Sellsy Prospect related to current user / Contact
+         */
+        $client = App::make('SellsyClient');
+        $service = $client->getService('Prospects');
+        $response = $service->call('create',
+            ['third' =>
+                ['cookorico_id' => $business->id,
+                    'name' => $business->title,
+                    'tel' => $business->phone,
+                    'email' => $business->email],
+                'contact' =>
+                    ['cookorico_id' => Auth::user()->id,
+                        'name' => Auth::user()->lastName,
+                        'tel' => $business->phone,
+                        'forename' => Auth::user()->firstName],
+                'address' =>
+                    ['name' => $place->adress,
+                     'part1' => $place->adress,
+                     'town' => $place->city,
+                     'zip' => $place->postalCode]
+            ]
+        );
+
         return $business;
     }
 
@@ -117,16 +142,8 @@ class BusinessController extends Controller
      */
     public function get($businessId) {
         $business = Business::find($businessId)
-                            ->load('photos')
-                            ->load('place');
-
-        $client = App::make('SellsyClient');
-
-        $service = $client->getService('Accountdatas');
-
-        $response = $service->call('createUnit', ['unit' => ['value' => 'Kg']]);
-
-        Log::info($response);
+            ->load('photos')
+            ->load('place');
 
         return $business;
     }

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
 use App\Models\MailTemplate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
-use App\Models\Job;
 use Auth;
 use Log;
 use Hash;
@@ -15,9 +14,7 @@ use Mail;
 use App\Models\User;
 use App\Models\Application;
 use App\Models\Experience;
-use App\Models\Study;
 use App\Models\Alert;
-use App\Models\Business;
 
 class UserController extends Controller
 {
@@ -274,8 +271,6 @@ class UserController extends Controller
                 }
             );
 
-            Log::info('sending email');
-
             Mail::send('emails.confirm-account', ['title' => 'test', 'content' => 'test'], function ($message)
             {
 
@@ -315,6 +310,22 @@ class UserController extends Controller
         Auth::loginUsingId($userId);
 
         $user->save();
+
+        /**
+         * If user is a recruiter, create a prospect on Sellsy
+         */
+        if ($user->user_type_id == 2) {
+            $client = App::make('SellsyClient');
+            $service = $client->getService('Peoples');
+            $response = $service->call('create',
+                ['people' =>
+                    ['cookorico_id' => $user->id,
+                     'name' => $user->lastName,
+                     'forename' => $user->firstName,
+                     'email' => $user->email]
+                ]
+            );
+        }
 
         return $user;
     }

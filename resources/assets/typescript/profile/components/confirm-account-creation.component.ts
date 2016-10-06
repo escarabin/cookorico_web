@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Response } from '@angular/http';
 
 // Services
 import { UserService } from './../../services/user.service';
@@ -39,11 +40,11 @@ export class ConfirmAccountCreationComponent {
                     __this.userService.loginUsingId(userId).subscribe((userInfos:Response) => {
                         __this.user = userInfos.json();
 
-                        console.log('--> user logged in');
-
                         localStorage.setItem('user', JSON.stringify(__this.user));
 
-                        __this.userService.userChangeEmitter.emit(__this.user);
+                        if (__this.user.user_type_id == 2) {
+                            this.router.navigate(['/profil/etablissement/creer']);
+                        }
                     });
                 });
             }
