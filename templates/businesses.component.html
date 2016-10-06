@@ -35,12 +35,17 @@
             <div class="col-md-11 col-sm-11 col-xs-11 item"
                  [class.logo]="item.logo">
                 <a routerLink="/profil/etablissement/editer/{{ item.id }}">
-                    <div class="item-desc">
-                        <h3>{{ item.title }}</h3>
-                        {{ item.city }}
+                    <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.logo">
+                        <img src="{{ item.logo }}"
+                             class="full-width"/>
                     </div>
-                    <div class="logo">
-                        <img src="{{ item.logo }}"/>
+                    <div [class.col-md-5]="item.logo"
+                         [class.col-md-7]="!item.logo"
+                         [class.col-sm-5]="item.logo"
+                         [class.col-sm-7]="!item.logo"
+                         class="col-xs-8">
+                        <h3>{{ item.title }}</h3>
+                        {{ item.place.city }}
                     </div>
                 </a>
             </div>

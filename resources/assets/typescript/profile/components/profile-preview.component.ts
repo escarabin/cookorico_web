@@ -54,6 +54,18 @@ export class ProfilePreviewComponent {
                 private notificationService: NotificationsService) {
         let __this = this;
 
+        this.user = JSON.parse(localStorage.getItem('user'));
+
+        /**
+         * If user is not a candidate, he is not allowed to be here
+         */
+        if (this.user.user_type_id == 2) {
+            this.router.navigate(['/profil/annonces']);
+        }
+        else if (this.user.user_type_id == 3) {
+            this.router.navigate(['/profil/website-editor']);
+        }
+
         /**
          * If userId is defined, then show the profile of this user
          * else, get data from logged in user
