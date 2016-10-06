@@ -15,12 +15,14 @@ export class JobPostService {
     }
 
     /**
-     * Create a new job post
+     * Create a new job post / Update existing
      * @param jobPost
      * @returns {any}
      */
-    create(jobPost: JobPost) {
+    save(jobPost: JobPost) {
         let __this = this;
+
+        console.log('saving a job post', jobPost);
 
         let body = JSON.stringify({ jobPost });
         let headers = new Headers({ 'Content-Type': 'application/json' });

@@ -18,7 +18,7 @@
         <h2 *ngIf="!user.is_active">Bienvenue</h2>
         <br />
         <a routerLink="/profil"
-           *ngIf="user.is_active">
+           *ngIf="user.is_active && user.user_type_id == 3">
             <span class="badge complete-profile">
                 Visibilité du profil : {{ profilePercentage }}% <span class="fa fa-angle-right"></span>
             </span>

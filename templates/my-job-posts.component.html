@@ -18,7 +18,7 @@
                  [class.logo]="item.business.logo">
                 <a routerLink="/profil/annonce/editer/{{ item.id }}">
                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
-                        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.business.id }}.jpg"
+                        <img src="{{ item.business.logo }}"
                              class="full-width"/>
                     </div>
                     <div [class.col-md-5]="item.business.logo"

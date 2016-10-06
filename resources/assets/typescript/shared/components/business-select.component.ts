@@ -35,8 +35,6 @@ export class BusinessSelectComponent {
         let __this = this;
 
         if (this.businessId && !this.isViewInit) {
-            console.log('business id is ' + this.businessId);
-
             /**
              * Check if we have to show only user's businesses in select options
              */

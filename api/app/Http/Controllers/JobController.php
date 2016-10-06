@@ -13,6 +13,7 @@ use App\Models\Job;
 use App\Models\StudyLevel;
 use App\Models\Application;
 use DB;
+use phpDocumentor\Reflection\Types\Object_;
 
 class JobController extends Controller
 {
@@ -233,9 +234,16 @@ class JobController extends Controller
      * @return Job
      */
     public function create(Request $request) {
+        $jobPostData = $request::input('jobPost');
+
+        /**
+         * If job-post id is already defined, just update job-post, else create it
+         */
         $jobPost = new Job();
-        $jobPost->user_id = Auth::user()->id;
-        
+        if ($jobPostData['id']) {
+            $jobPost = Job::find($jobPostData['id']);
+        }
+
         // Substract one credit from user's subscription
         $userPlans = Auth::user()->plans;
 
@@ -246,12 +254,13 @@ class JobController extends Controller
             }
         }
 
-        $jobPostData = $request::input('jobPost');
         foreach ($jobPostData as $key => $value) {
-            if ($key != 'user_id') {
+            if ($key != 'user_id' && $key != 'type' && !is_array($value)) {
                 $jobPost[$key] = $value;
             }
         }
+
+        Log::info($jobPost);
 
         $jobPost->save();
 

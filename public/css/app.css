@@ -840,19 +840,9 @@ profile {
             background: none;
             position: absolute;
             right: 50px; }
-          profile .list-container ul li .item.logo .item-desc {
-            width: 75%;
-            margin-right: 15px; }
-          profile .list-container ul li .item .logo, profile .list-container ul li .item .photo {
-            position: relative;
-            top: 5px;
-            display: inline-block;
-            text-align: center;
-            width: 12%;
-            float: left; }
-            profile .list-container ul li .item .logo img, profile .list-container ul li .item .photo img {
-              max-width: 80px;
-              max-height: 80px; }
+          profile .list-container ul li .item.logo img, profile .list-container ul li .item.photo img {
+            max-width: 80px;
+            max-height: 80px; }
 
 @media (max-width: 1024px) {
   profile .list-container ul li .date {

@@ -50,6 +50,11 @@ export class CreateJobPostComponent {
                     __this.jobPostService.get(__this.jobPost.id).subscribe((res: Response) => {
                         __this.jobPost = res.json();
                     });
+
+                    /**
+                     * If user is currently editing an existing job offer, let him do it
+                     */
+                    __this.userCanPostJob = true;
                 }
             }
         });
@@ -106,21 +111,30 @@ export class CreateJobPostComponent {
     submitJobPost() {
         let __this = this;
 
-        this.jobPostService.create(__this.jobPost).subscribe((res: Response) => {
+        this.jobPostService.save(__this.jobPost).subscribe((res: Response) => {
             let job = res['_body'];
 
             if (job) {
-                __this.notificationService.show(
-                    new Notification('success', 'Votre annonce vient d\'être publiée')
-                );
+                if (__this.jobPost.id) {
+                    __this.notificationService.show(
+                        new Notification('success', 'Votre annonce a bien été mise à jour')
+                    );
+                }
+                else {
+                    __this.notificationService.show(
+                        new Notification('success', 'Votre annonce vient d\'être publiée')
+                    );
+                }
 
                 if (!__this.user['is_active']) {
                     __this.userService.activateAccount(__this.user.id).subscribe((res: Response) => {
-                        __this.router.navigate(['/profil/apercu']);
+                        __this.router.navigate(['/profil/annonces']);
                     });
                 }
+                else {
+                    __this.router.navigate(['/profil/annonce/', { jobId: res.json()['id'] }]);
+                }
 
-                // __this.router.navigate(['/JobSearch/ShowJob', { jobId: res.json()['id'] }]);
             }
             else {
                 __this.notificationService.show(

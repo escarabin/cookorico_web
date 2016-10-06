@@ -228,19 +228,7 @@ profile {
             right: 50px;
           }
 
-          &.logo .item-desc {
-            width: 75%;
-            margin-right: 15px;
-          }
-
-          .logo, .photo {
-            position: relative;
-            top: 5px;
-            display: inline-block;
-            text-align: center;
-            width: 12%;
-            float: left;
-
+          &.logo, &.photo {
             img {
               max-width: 80px;
               max-height: 80px;
