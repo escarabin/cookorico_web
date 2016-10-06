@@ -25,7 +25,7 @@ import { FileUploader } from 'ng2-file-upload';
 })
 
 export class CreateBusinessComponent {
-    business:Business = new Business();
+    business:any = new Business();
     place:Place = new Place();
     businessTypes: any;
     isLoading: boolean = false;
@@ -48,6 +48,12 @@ export class CreateBusinessComponent {
 
         this.user = JSON.parse(localStorage.getItem('user'));
 
+        /**
+         * By default, get user's email and set it as business's email
+         */
+
+        this.business.email = this.user.email;
+
         route.params.subscribe(params => {
             if (params) {
                 __this.business.id = params["businessId"];
@@ -56,6 +62,8 @@ export class CreateBusinessComponent {
                     // Editing a specific item, let's retrieve it's data
                     __this.userService.getBusiness(__this.business.id).subscribe((res: Response) => {
                         __this.business = res.json();
+
+                        console.log('got it', res.json());
                     });
                 }
             }
@@ -73,15 +81,15 @@ export class CreateBusinessComponent {
          * Parse google maps API data into [business] object
          */
         var location = place['geometry']['location'];
-        this.place.lat =  location.lat();
-        this.place.lon = location.lng();
+        this.business.place.lat =  location.lat();
+        this.business.place.lon = location.lng();
 
         /**
          * Parse google maps API data into [place] object
          */
         this.business.phone = place['formatted_phone_number'];
         this.business.website = place['website'];
-        this.place.adress = place['formatted_address'];
+        this.business.place.adress = place['formatted_address'];
         this.business.title = place['name'];
 
         /**
@@ -127,12 +135,12 @@ export class CreateBusinessComponent {
         /**
          * Verifying if city and postalCode are given via Google API
          */
-        this.place.googlePlaceId = place['place_id'];
+        this.business.place.googlePlaceId = place['place_id'];
         if (place['address_components'][2]) {
-            this.place.city = place['address_components'][2]['long_name'];
+            this.business.place.city = place['address_components'][2]['long_name'];
         }
         if (place['address_components'][6]) {
-            this.place.postalCode = place['address_components'][6]['long_name'];
+            this.business.place.postalCode = place['address_components'][6]['long_name'];
         }
 
         /**
@@ -145,7 +153,7 @@ export class CreateBusinessComponent {
 
     submitBusiness() {
         let __this = this;
-        this.businessService.create(__this.business, __this.place).subscribe((res:Response) => {
+        this.businessService.create(__this.business, __this.business.place).subscribe((res:Response) => {
             if (res['_body']) {
                 if (__this.business.id) {
                     __this.notificationService.show(
@@ -162,6 +170,9 @@ export class CreateBusinessComponent {
                      */
                     if (!__this.user.is_active) {
                         __this.router.navigate(['/profil/annonce/creer']);
+                    }
+                    else {
+                        __this.router.navigate(['/profil/etablissements']);
                     }
                 }
 

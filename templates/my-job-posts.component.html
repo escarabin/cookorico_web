@@ -39,14 +39,14 @@
                             {{ item.end_date }}
                         </span> -->
                     </div>
-                    <div class="col-md-3 col-sm-3 col-xs-4 job-applications"
-                         [class.disabled]="item.applications.length == 0">
+                    <div class="col-md-3 col-sm-3 col-xs-4 job-applications">
                         <a routerLink="/profil/profils-correspondants/{{ item.id }}">
                             <button>
                                 Profils corresp.
                             </button>
                         </a>
-                        <a routerLink="/profil/postulants/{{ item.id }}">
+                        <a routerLink="/profil/postulants/{{ item.id }}"
+                           [class.disabled]="item.applications.length == 0">
                             <br />
                             <div class="matching-profiles">
                                 {{ item.applications.length }} postulants

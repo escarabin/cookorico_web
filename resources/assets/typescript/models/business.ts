@@ -1,3 +1,5 @@
+import { Place } from './place';
+
 export class Business {
     constructor(
         public id: number,
@@ -8,6 +10,7 @@ export class Business {
         public website: string,
         public description: string,
         public logo: string,
-        public photos: any = []
+        public photos: any = [],
+        public place: Place = new Place()
     ) {  }
 }

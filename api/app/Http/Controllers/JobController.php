@@ -235,7 +235,7 @@ class JobController extends Controller
     public function create(Request $request) {
         $jobPost = new Job();
         $jobPost->user_id = Auth::user()->id;
-
+        
         // Substract one credit from user's subscription
         $userPlans = Auth::user()->plans;
 
@@ -248,7 +248,9 @@ class JobController extends Controller
 
         $jobPostData = $request::input('jobPost');
         foreach ($jobPostData as $key => $value) {
-            $jobPost[$key] = $value;
+            if ($key != 'user_id') {
+                $jobPost[$key] = $value;
+            }
         }
 
         $jobPost->save();

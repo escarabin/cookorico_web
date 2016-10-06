@@ -5,8 +5,7 @@
         </sign-up-steps>
         <br />
         <br />
-        <h2>Votre offre d'emploi</h2>
-        <h3 class="centered">Complétez votre première offre d'emploi</h3>
+        <h3 class="centered">Votre offre d'emploi</h3>
     </div>
     <h2 class="centered">
         <span *ngIf="!jobPost.id">Créez</span>
@@ -205,7 +204,7 @@
         </div>
         <div class="col-md-6"
              *ngIf="user.is_active">
-            <a routerLink="/profil/job-posts">
+            <a routerLink="/profil/annonces">
                 <button class="btn btn-default back-btn">
                     <span class="fa fa-arrow-left"></span> &nbsp;
                     Retour aux annonces
