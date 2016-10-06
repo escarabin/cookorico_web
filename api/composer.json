@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "nesbot/carbon": "^1.21",
         "aws/aws-sdk-php-laravel": "~3.0",
-        "laravel/socialite": "^2.0"
+        "laravel/socialite": "^2.0",
+        "ferjul17/sellsy-api": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

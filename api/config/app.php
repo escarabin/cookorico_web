@@ -159,7 +159,7 @@ return [
          * Custom service providers
          */
         Aws\Laravel\AwsServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class
     ],
 
     /*
@@ -211,6 +211,7 @@ return [
          */
         'AWS' => Aws\Laravel\AwsFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'SellsyApi' => SellsyApi\Client::class
     ],
 
 ];

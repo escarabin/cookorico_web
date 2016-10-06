@@ -10,6 +10,8 @@ use App\Models\Place;
 use Log;
 use Auth;
 
+use SellsyApi\Client;
+
 class BusinessController extends Controller
 {
     /**
@@ -118,6 +120,19 @@ class BusinessController extends Controller
         $business = Business::find($businessId)
                             ->load('photos')
                             ->load('place');
+
+        $client = new Client([
+            'userToken' => 'e1da420d42571e787690d42187a2821a1eb1e5be',
+            'userSecret' => '182e5160d32e64b1019d09c33bef64f1a0192f7f',
+            'consumerToken'  => '7c7d0dbe1fdab0cf45b663591e2c4f992b6dd700',
+            'consumerSecret' => '739d4bd39d2f6f21760be64f375633ad9625e76a',
+        ]);
+
+        $service = $client->getService('Accountdatas');
+
+        $response = $service->call('createUnit', ['unit' => ['value' => 'Kg']]);
+
+        Log::info($response);
 
         return $business;
     }
