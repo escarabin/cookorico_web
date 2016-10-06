@@ -5,14 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 // Services
 import { UserService } from '../../services/user.service';
 import { NotificationsService } from '../../services/notification.service';
-import { SellsyService } from '../../services/sellsy.service';
 
 // Models
 import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'applicants',
-    providers: [UserService, SellsyService],
+    providers: [UserService],
     templateUrl: '../templates/applicants.component.html'
 })
 
@@ -25,11 +24,8 @@ export class ApplicantsComponent {
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService,
-                private sellsyService: SellsyService,
                 private route: ActivatedRoute) {
         let __this = this;
-
-        this.sellsyService.testing();
 
         this.userService.getJobPosts().subscribe((res: Response) => {
             __this.jobPosts = res.json();

@@ -1,10 +1,10 @@
 <profile-sidebar *ngIf="user && user.is_active"
-                 (window:scroll)="onPageScroll($event)"
                  [class.scrolled-down]="scrollTop > 100"></profile-sidebar>
 <div class="router-outlet-container"
+     (window:scroll)="onPageScroll($event)"
      [class.scrolled-down]="scrollTop > 100"
      [class.full-width]="!user || !user.is_active">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb" [class.disabled]="user && !user.is_active">
         <li *ngFor="let routeSegment of routeSegments; let i = index">
             <a routerLink="{{ routeSegment.link }}" class="active"
                *ngIf="i < routeSegments.length - 1">

@@ -255,7 +255,7 @@ class UserController extends Controller
 
             /**
              * Send confirmation email
-             */
+
             $mailTemplate = MailTemplate::where('slug', 'confirm-account')->first();
 
             Mail::send('emails.confirm-account',
@@ -279,7 +279,7 @@ class UserController extends Controller
                 $message->to('scarabin.emmanuel@gmail.com');
 
             });
-
+             */
             return $user;
         }
     }

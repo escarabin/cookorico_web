@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,6 @@ import { UserService } from './../../services/user.service';
 @Component({
     templateUrl: '../templates/header.component.html',
     selector: 'header',
-    providers: [ UserService ],
 })
 
 export class HeaderComponent {
@@ -19,13 +18,18 @@ export class HeaderComponent {
     isHomePage: boolean = false;
     scrollTop: number;
 
-    constructor (private userService: UserService,
+    constructor (@Inject(UserService) UserService,
+                 private userService: UserService,
                  private router: Router) {
-        this.userService.getUserInfos().subscribe((res: Response) => {
+        UserService.getUserInfos().subscribe((res: Response) => {
             if (res.text().length > 10) {
                 this.user = res.json();
                 localStorage.setItem('user', JSON.stringify(this.user));
             }
+        });
+
+        UserService.userChangeEmitter.subscribe(res => {
+            console.log('received something user', res);
         });
 
         /**

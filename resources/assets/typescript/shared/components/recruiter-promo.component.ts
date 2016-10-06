@@ -1,17 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { Response } from '@angular/http';
 
 // Services
 import { UserService } from './../../services/user.service';
 import { NotificationsService } from './../../services/notification.service';
 
-// ng2-bootstrap necessary workaround (17/08/16)
-import { ComponentsHelper } from
-    'ng2-bootstrap/components/utils/components-helper.service';
+// Models
+import { Notification } from './../../models/notification';
 
 @Component({
     selector: 'recruiter-promo',
-    providers: [ ComponentsHelper, UserService ],
-    viewProviders: [{provide: ComponentsHelper, useClass: ComponentsHelper}],
+    providers: [ UserService ],
     templateUrl: '../templates/recruiter-promo.component.html'
 })
 

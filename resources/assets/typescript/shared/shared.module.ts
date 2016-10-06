@@ -14,6 +14,9 @@ import { JobSearchBarComponent } from './components/job-search-bar.component';
 // Bootstrap modules
 import { ButtonsModule, ModalModule, CollapseModule, AccordionModule } from 'ng2-bootstrap/ng2-bootstrap';
 
+// Services
+import { UserService } from './../services/user.service';
+
 @NgModule({
     declarations: [ UNITYTinyMCE,
                     SELECT_DIRECTIVES,
@@ -29,6 +32,7 @@ import { ButtonsModule, ModalModule, CollapseModule, AccordionModule } from 'ng2
                     CollapseModule,
                     AccordionModule,
                     ModalModule ],
+    providers:    [ UserService ],
     imports:      [ BrowserModule,
                     FormsModule,
                     HttpModule,

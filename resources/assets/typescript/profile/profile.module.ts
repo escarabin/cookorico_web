@@ -3,6 +3,8 @@ import { FormsModule }    from '@angular/forms';
 import { CommonModule }   from '@angular/common';
 import { SharedModule }   from './../shared/shared.module';
 import { profileRouting } from './profile.routes';
+
+// Components
 import { ProfileComponent } from './components/profile.component';
 import { ImageCropperComponent } from 'ng2-img-cropper';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload/ng2-file-upload';
@@ -28,6 +30,9 @@ import { WebsiteEditorComponent } from './components/website-editor.component';
 import { ConfirmAccountCreationComponent } from "./components/confirm-account-creation.component";
 import { SignUpStepsComponent } from './../shared/components/sign-up-steps.component';
 import { MatchingProfilesComponent } from './components/matching-profiles.component';
+
+// Services
+import { UserService } from './../services/user.service';
 
 @NgModule({
     declarations: [ ProfileComponent,
@@ -60,7 +65,7 @@ import { MatchingProfilesComponent } from './components/matching-profiles.compon
                     FormsModule,
                     CommonModule,
                     SharedModule ],
-    providers:    [],
+    providers:    [ UserService ]
 })
 
 export class ProfileModule {}

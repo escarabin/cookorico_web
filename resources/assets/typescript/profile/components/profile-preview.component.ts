@@ -15,15 +15,10 @@ import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 // Models
 import { Notification } from '../../models/notification';
 
-// ng2-bootstrap necessary workaround (17/08/16)
-import {ComponentsHelper} from
-    'ng2-bootstrap/components/utils/components-helper.service';
-
 @Component({
     providers: [UserService],
     selector: 'profile-preview',
     templateUrl: '../templates/profile-preview.component.html',
-    viewProviders: [{provide: ComponentsHelper, useClass: ComponentsHelper}]
 })
 
 export class ProfilePreviewComponent {
@@ -62,7 +57,7 @@ export class ProfilePreviewComponent {
         if (this.user.user_type_id == 2) {
             this.router.navigate(['/profil/annonces']);
         }
-        else if (this.user.user_type_id == 3) {
+        else if (this.user.user_type_id == 1) {
             this.router.navigate(['/profil/website-editor']);
         }
 

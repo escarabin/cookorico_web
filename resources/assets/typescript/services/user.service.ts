@@ -1,6 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { Router } from '@angular/router';
 import 'rxjs/add/operator/catch';
 import appGlobals = require('./../globals');
 
@@ -58,8 +57,7 @@ export class UserService {
 
     userChangeEmitter: EventEmitter;
 
-    constructor(private http: Http,
-                private router: Router) {
+    constructor(private http: Http) {
         this.userChangeEmitter = new EventEmitter();
     }
 
@@ -87,6 +85,8 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     activateAccount(userId) {
+        this.userChangeEmitter.emit(userId);
+
         return this.http.get(this.activateUserUrl + '/' + userId);
     }
 
@@ -122,6 +122,10 @@ export class UserService {
      * @param userId
      */
     confirmEmailAddress(userId: number) {
+        console.log('emitting userId');
+
+        this.userChangeEmitter.emit(userId);
+
         return this.http.get(this.confirmEmailAddressUrl + '/' + userId)
     }
 

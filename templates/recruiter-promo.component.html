@@ -1,4 +1,7 @@
-<button (click)="signUpModal.show()">
+<br />
+<br />
+<button class="btn btn-primary centered"
+        (click)="signUpModal.show()">
     M'inscrire
 </button>
 
@@ -31,6 +34,7 @@
                                    class="form-control"/>
                         </div>
                         <div class="col-md-12">
+                            <br />
                             <input type="password"
                                    [(ngModel)]="password"
                                    ngControl="password"
@@ -40,8 +44,9 @@
                                    class="form-control"/>
                         </div>
                         <div class="col-md-12">
+                            <br />
                             <button (click)="submitEmailAndPassword()"
-                                   class="btn btn-default">
+                                   class="btn btn-primary full-width">
                                 Valider
                             </button>
                         </div>

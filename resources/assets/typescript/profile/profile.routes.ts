@@ -33,6 +33,7 @@ const profileRoutes: Routes = [
 
             // Experiences
             {path: 'experiences', component: ExperiencesComponent},
+            {path: 'experience', redirectTo: '/profil/experiences'},
             {path: 'experience/creer', component: CreateExperienceComponent},
             {path: 'experience/editer/:experienceId', component: CreateExperienceComponent},
 
@@ -41,31 +42,37 @@ const profileRoutes: Routes = [
 
             // Education
             {path: 'formations', component: EducationComponent},
+            {path: 'formation', redirectTo: '/profil/formations'},
             {path: 'formation/editer/:studyId', component: CreateStudyComponent},
             {path: 'formation/creer', component: CreateStudyComponent},
 
             // Alerts
             {path: 'alertes', component: AlertsComponent},
+            {path: 'alerte', redirectTo: '/profil/alertes'},
             {path: 'alerte/:alertId', component: AlertsComponent},
             {path: 'alerte/creer', component: CreateAlertComponent},
             {path: 'alerte/editer/:alertId', component: CreateAlertComponent},
 
             // Testimonials
             {path: 'recommandations', component: TestimonialsComponent},
+            {path: 'recommandation', redirectTo: '/profil/recommandations'},
             {path: 'recommandation/:testimonialId', component: TestimonialsComponent},
 
             // Businesses
-            {path: 'etablissements', component: BusinessesComponent},
             {path: 'etablissement/creer', component: CreateBusinessComponent},
             {path: 'etablissement/editer/:businessId', component: CreateBusinessComponent},
+            {path: 'etablissement', redirectTo: '/profil/etablissements'},
+            {path: 'etablissements', component: BusinessesComponent},
 
             // Job posts
             {path: 'annonces', component: MyJobPostsComponent},
+            {path: 'annonce', redirectTo: '/profil/annonces'},
             {path: 'annonce/creer', component: CreateJobPostComponent},
             {path: 'annonce/editer/:jobPostId', component: CreateJobPostComponent},
 
             // Applicants
             {path: 'postulants', component: ApplicantsComponent},
+            {path: 'postulant', redirectTo: '/profil/postulants'},
             {path: 'postulants/:jobPostId', component: ApplicantsComponent},
             {path: 'postulant/apercu-profil', component: ApplicantsComponent},
 
@@ -75,6 +82,7 @@ const profileRoutes: Routes = [
 
             // Mails
             {path: 'mail-templates', component: MailTemplatesComponent},
+            {path: 'mail-template', redirectTo: '/profil/mail-templates'},
             {path: 'mail-template/create', component: CreateMailTemplateComponent},
             {path: 'mail-template/edit/:templateId', component: CreateMailTemplateComponent},
 

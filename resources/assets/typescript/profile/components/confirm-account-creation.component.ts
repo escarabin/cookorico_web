@@ -12,7 +12,7 @@ import { User } from './../../models/user';
 
 @Component({
     templateUrl: '../templates/confirm-account-creation.component.html',
-    providers: [ UserService, ReferenceService, PlaceService ],
+    providers: [ ReferenceService, PlaceService ],
     selector: 'confirm-account-creation',
 })
 
@@ -23,6 +23,7 @@ export class ConfirmAccountCreationComponent {
 
     constructor (private route: ActivatedRoute,
                  private router: Router,
+                 @Inject(UserService) UserService,
                  private userService: UserService,
                  private placeService: PlaceService,
                  private referenceService: ReferenceService) {
@@ -36,7 +37,7 @@ export class ConfirmAccountCreationComponent {
             if (params) {
                 let userId = params['userId'];
 
-                __this.userService.confirmEmailAddress(userId).subscribe((res:Response) => {
+                UserService.confirmEmailAddress(userId).subscribe((res:Response) => {
                     __this.userService.loginUsingId(userId).subscribe((userInfos:Response) => {
                         __this.user = userInfos.json();
 
