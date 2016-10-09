@@ -12,7 +12,11 @@ import { JobPreviewComponent } from './components/job-preview.component';
 import { JobSearchBarComponent } from './components/job-search-bar.component';
 
 // Bootstrap modules
-import { ButtonsModule, ModalModule, CollapseModule, AccordionModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { ButtonsModule,
+         ModalModule,
+         CollapseModule,
+         AccordionModule,
+         AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 // Services
 import { UserService } from './../services/user.service';
@@ -31,6 +35,7 @@ import { UserService } from './../services/user.service';
                     ButtonsModule,
                     CollapseModule,
                     AccordionModule,
+                    AlertModule,
                     ModalModule ],
     providers:    [ UserService ],
     imports:      [ BrowserModule,
@@ -40,6 +45,7 @@ import { UserService } from './../services/user.service';
                     ButtonsModule,
                     CollapseModule,
                     AccordionModule,
+                    AlertModule,
                     ModalModule ],
 })
 

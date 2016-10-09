@@ -70,7 +70,7 @@ class BusinessController extends Controller
                     app('App\Http\Controllers\FileController')
                         ->upload('oechr-business-picture', $business->id.'/'.$i.'.jpg', $newFilePath);
 
-                    $businessPhoto->url = 'https://s3-eu-west-1.amazonaws.com/oechr-business-picture/'.$business->id.'/'.$id.'.jpg';
+                    $businessPhoto->url = 'https://s3-eu-west-1.amazonaws.com/oechr-business-picture/'.$business->id.'/'.$i.'.jpg';
                 }
                 else {
                     $businessPhoto->url = $photo['url'];
@@ -112,9 +112,9 @@ class BusinessController extends Controller
         /**
          *  Create Sellsy Prospect related to current user / Contact
          */
-        $client = App::make('SellsyClient');
-        $service = $client->getService('Prospects');
-        $response = $service->call('create',
+         App::make('SellsyClient')
+             ->getService('Prospects')
+             ->call('create',
             ['third' =>
                 ['cookorico_id' => $business->id,
                     'name' => $business->title,
@@ -122,14 +122,14 @@ class BusinessController extends Controller
                     'email' => $business->email],
                 'contact' =>
                     ['cookorico_id' => Auth::user()->id,
-                        'name' => Auth::user()->lastName,
+                        'name' => Auth::user()->email,
                         'tel' => $business->phone,
                         'forename' => Auth::user()->firstName],
                 'address' =>
                     ['name' => $place->adress,
-                     'part1' => $place->adress,
-                     'town' => $place->city,
-                     'zip' => $place->postalCode]
+                        'part1' => $place->adress,
+                        'town' => $place->city,
+                        'zip' => $place->postalCode]
             ]
         );
 

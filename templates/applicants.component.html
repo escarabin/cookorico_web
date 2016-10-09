@@ -9,7 +9,7 @@
                 name="jobPostId"
                 ngControl="jobPostId"
                 [(ngModel)]="jobPostId">
-            <option disabled value="0">-- Sélectionnez une offre d'emploi --</option>
+            <option selected disabled value="null">-- Sélectionnez une offre d'emploi --</option>
             <option *ngFor="let jobPost of jobPosts"
                     value="{{ jobPost.id }}">
                 {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
@@ -27,7 +27,30 @@
 </div>
 
 <div class="col-md-12 list-container">
-    <ul>
+    <div class="col-md-6 col-md-offset-3"
+         *ngIf="!jobPostId">
+        <br /><br />
+        <label>Sélectionnez une offre d'emploi</label>
+        <select class="form-control"
+                name="job_post_id"
+                [(ngModel)]="jobPostId">
+            <option selected disabled value="null">-- Sélectionnez une offre d'emploi --</option>
+            <option *ngFor="let jobPost of jobPosts"
+                    value="{{ jobPost.id }}">
+                {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
+            </option>
+        </select>
+        <br /><br />
+    </div>
+    <div class="col-md-6 col-md-offset-3"
+         *ngIf="items.length == 0 && jobPostId">
+        <br /><br />
+        <div class="alert alert-warning alert-dismissible fade in" role="alert">
+            <strong>Aucun candidat pour le moment sur cette offre</strong>
+        </div>
+        <br /><br />
+    </div>
+    <ul *ngIf="!jobPostId">
         <div *ngFor="let item of items">
             <li class="row" *ngIf="item.job_id == jobPostId || !jobPostId">
                 <div class="col-md-1 col-sm-1 col-xs-1 checkbox-container">

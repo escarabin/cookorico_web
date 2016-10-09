@@ -52,16 +52,6 @@ export class ProfilePreviewComponent {
         this.user = JSON.parse(localStorage.getItem('user'));
 
         /**
-         * If user is not a candidate, he is not allowed to be here
-         */
-        if (this.user.user_type_id == 2) {
-            this.router.navigate(['/profil/annonces']);
-        }
-        else if (this.user.user_type_id == 1) {
-            this.router.navigate(['/profil/website-editor']);
-        }
-
-        /**
          * If userId is defined, then show the profile of this user
          * else, get data from logged in user
          */
@@ -72,6 +62,16 @@ export class ProfilePreviewComponent {
                 if (!__this.userIdRouteParam) {
                     __this.user = JSON.parse(localStorage.getItem('user'));
                     __this.userIdRouteParam = this.user['id'];
+
+                    /**
+                     * If user is not a candidate, get him out of this place
+                     */
+                    if (this.user.user_type_id == 2) {
+                        this.router.navigate(['/profil/annonces']);
+                    }
+                    else if (this.user.user_type_id == 1) {
+                        this.router.navigate(['/profil/website-editor']);
+                    }
 
                     // The profile is logged user's one so he is able to edit it
                     __this.editableProfile = true;

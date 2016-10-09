@@ -240,7 +240,7 @@ class JobController extends Controller
          * If job-post id is already defined, just update job-post, else create it
          */
         $jobPost = new Job();
-        if ($jobPostData['id']) {
+        if (array_key_exists('id', $jobPostData)) {
             $jobPost = Job::find($jobPostData['id']);
         }
 
@@ -260,7 +260,7 @@ class JobController extends Controller
             }
         }
 
-        Log::info($jobPost);
+        $jobPost->user_id = Auth::user()->id;
 
         $jobPost->save();
 

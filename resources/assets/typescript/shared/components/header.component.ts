@@ -47,6 +47,15 @@ export class HeaderComponent {
             if (url == '/' || url == '/accueil') {
                 this.isHomePage = true;
             }
+            /**
+             * Reload user infos after last step of sign up
+             */
+            else if (url == '/profil/annonces' && !this.user.is_active) {
+                this.userService.getUserInfos().subscribe((res: Response) => {
+                    this.user = res.json();
+                    localStorage.setItem('user', JSON.stringify(this.user));
+                });
+            }
             else {
                 this.isHomePage = false;
             }

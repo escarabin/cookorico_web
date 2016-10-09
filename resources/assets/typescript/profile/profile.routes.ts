@@ -66,6 +66,7 @@ const profileRoutes: Routes = [
 
             // Job posts
             {path: 'annonce/editer/:jobPostId', component: CreateJobPostComponent},
+            {path: 'annonce/creer/:businessId', component: CreateJobPostComponent},
             {path: 'annonce/creer', component: CreateJobPostComponent},
             {path: 'annonce', redirectTo: '/profil/annonces'},
             {path: 'annonces', component: MyJobPostsComponent},

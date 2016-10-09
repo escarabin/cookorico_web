@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Response } from '@angular/http';
+
+// Services
+import { UserService } from './../../services/user.service';
 
 @Component({
     selector: 'profile',
@@ -11,7 +15,8 @@ export class ProfileComponent {
     scrollTop: number;
     routeSegments: any = [];
 
-    constructor(private router: Router) {
+    constructor(private router: Router,
+                private userService: UserService) {
         this.user = JSON.parse(localStorage.getItem('user'));
 
         /**
@@ -20,6 +25,20 @@ export class ProfileComponent {
         if (!this.user) {
             this.router.navigate(['/']);
         }
+
+        router.events.subscribe((event) => {
+            let url = event['url'];
+
+            /**
+             * Reload user infos after last step of sign up
+             */
+            if (url == '/profil/annonces' && !this.user.is_active) {
+                this.userService.getUserInfos().subscribe((res: Response) => {
+                    this.user = res.json();
+                    localStorage.setItem('user', JSON.stringify(this.user));
+                });
+            }
+        });
 
         /**
          * Subscribe to route change to display components regarding current route

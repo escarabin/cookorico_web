@@ -28,7 +28,7 @@ export class CreateJobPostComponent {
     jobXpLevels: any = [];
     user: any = [];
 
-    jobPost:JobPost = new JobPost(0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', false, false, false);
+    jobPost:JobPost = new JobPost(null, '', '', null, null, null, null, null, null, null, null, null, null, '', '', false, false, false);
     userCanPostJob: boolean = false;
 
     constructor(private referenceService: ReferenceService,
@@ -49,6 +49,7 @@ export class CreateJobPostComponent {
         route.params.subscribe(params => {
             if (params) {
                 __this.jobPost.id = params["jobPostId"];
+                __this.jobPost.business_id = params["businessId"];
 
                 if (__this.jobPost.id) {
                     // Editing a specific item, let's retrieve it's data
