@@ -74,6 +74,22 @@ export class CreateBusinessComponent {
         })
     }
 
+    /**
+     * This code is here to prevent form from submitting
+     * after user hits [ENTER] key, which can cause errors
+     * if form is not correctly completed
+     * @param event
+     */
+    onKey(event:any) {
+        let key = event.key;
+
+        if (key == "Enter") {
+            event.preventDefault()
+            window.stop(); // Works in all browsers but IE
+            document.execCommand("Stop"); // Works in IE
+        }
+    }
+
     parseAdress(place:Object) {
         this.isAddressParsed = true;
 

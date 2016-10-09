@@ -9,29 +9,18 @@ my-job-posts {
     margin-top: 1%;
   }
 
-  .job-applications {
-    text-align: center;
-    padding: 15px;
-  }
-
   .matching-profiles {
     padding-top: 10px;
-  }
-
-  .job-applications {
-    button {
-      border: none;
-      background-color: $candidateColor;
-      border-radius: 4px;
-      color: white;
-      height: 50px;
-      padding: 15px;
-    }
   }
 
   .list-container {
     ul {
       li {
+        a {
+          color: #35B6E1;
+          text-decoration: underline;
+        }
+
         &.free-job-placement {
           padding: 30px;
           margin: 15px;
@@ -41,11 +30,6 @@ my-job-posts {
 
           &:nth-child(odd) {
             background: $mainBgColor;
-          }
-
-          a {
-            color: #35B6E1;
-            text-decoration: underline;
           }
 
           .show-post {

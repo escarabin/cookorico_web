@@ -160,6 +160,19 @@ profile {
         transition-duration: 150ms;
         border-left: 4px solid transparent;
 
+        a {
+          text-decoration: underline;
+        }
+
+        button {
+          border: none;
+          background-color: $candidateColor;
+          border-radius: 4px;
+          color: white;
+          height: 50px;
+          padding: 15px;
+        }
+
         md-checkbox {
           pointer-events: none;
         }

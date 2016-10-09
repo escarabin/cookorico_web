@@ -52,9 +52,20 @@
                          [class.col-sm-7]="!item.logo"
                          class="col-xs-8">
                         <h3>{{ item.title }}</h3>
+                        {{ item.place.adress }}<br />
                         {{ item.place.city }}
                     </div>
                 </a>
+                <div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-1 col-md-3 col-sm-3 col-xs-4 centered">
+                    <a routerLink="/etablissement/{{ item.id }}">
+                        <button class="btn btn-primary">
+                            Page emploi
+                        </button>
+                    </a>
+                    <br />
+                    <br />
+                    <a target="_blank" href="{{ item.website }}">Site web</a>
+                </div>
             </div>
         </li>
     </ul>

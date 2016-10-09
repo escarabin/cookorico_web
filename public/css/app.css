@@ -170,20 +170,12 @@ my-job-posts .job-stats, my-job-posts .job-applications {
 my-job-posts .job-stats {
   margin-top: 1%; }
 
-my-job-posts .job-applications {
-  text-align: center;
-  padding: 15px; }
-
 my-job-posts .matching-profiles {
   padding-top: 10px; }
 
-my-job-posts .job-applications button {
-  border: none;
-  background-color: #025589;
-  border-radius: 4px;
-  color: white;
-  height: 50px;
-  padding: 15px; }
+my-job-posts .list-container ul li a {
+  color: #35B6E1;
+  text-decoration: underline; }
 
 my-job-posts .list-container ul li.free-job-placement {
   padding: 30px;
@@ -193,9 +185,6 @@ my-job-posts .list-container ul li.free-job-placement {
   border: 1px dashed #CCC; }
   my-job-posts .list-container ul li.free-job-placement:nth-child(odd) {
     background: #f7f7f8; }
-  my-job-posts .list-container ul li.free-job-placement a {
-    color: #35B6E1;
-    text-decoration: underline; }
   my-job-posts .list-container ul li.free-job-placement .show-post {
     color: #35B6E1;
     text-decoration: underline; }
@@ -254,7 +243,9 @@ job {
 
 create-business .logo {
   height: 90px;
-  overflow: hidden; }
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat; }
   create-business .logo img {
     width: 100%;
     padding-top: 20px; }
@@ -807,6 +798,15 @@ profile {
         transition-property: all;
         transition-duration: 150ms;
         border-left: 4px solid transparent; }
+        profile .list-container ul li a {
+          text-decoration: underline; }
+        profile .list-container ul li button {
+          border: none;
+          background-color: #025589;
+          border-radius: 4px;
+          color: white;
+          height: 50px;
+          padding: 15px; }
         profile .list-container ul li md-checkbox {
           pointer-events: none; }
         profile .list-container ul li:nth-child(odd) {

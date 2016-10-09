@@ -18,6 +18,7 @@ export class RecruiterPromoComponent {
     email: string;
     password: string;
     error: string;
+    isAlreadySignedUp: boolean = false;
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService) {
@@ -37,6 +38,12 @@ export class RecruiterPromoComponent {
                 __this.notificationService.show(
                     new Notification('success', "Veuillez vérifier votre boite mail pour confirmer votre inscription !")
                 );
+
+                /**
+                 * Close sign-up modal
+                 */
+                document.getElementById('close-sign-up-modal').click();
+                this.isAlreadySignedUp = true;
             }
             else {
                 /**

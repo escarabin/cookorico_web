@@ -8,10 +8,11 @@
         <h3 class="centered">Votre établissement</h3>
     </div>
     <h2 class="centered">Complétez votre établissement</h2>
-    <form #createBusinessForm="ngForm">
+    <form #createBusinessForm="ngForm"
+          (keyup)="onKey($event)">
         <div class="col-md-2 logo"
+             [ngStyle]="{'background-image': 'url(' + business.logo + ')'}"
              *ngIf="business.logo">
-            <img src="{{ business.logo }}"/>
         </div>
         <div [class.col-md-10]="business.logo"
              [class.col-md-12]="!business.logo">
@@ -152,11 +153,11 @@
         </div>
         <div [class.col-md-6]="user.is_active"
              [class.col-md-12]="!user.is_active">
-            <input type="submit"
-                   class="btn btn-primary submit-btn"
-                   value="Sauvegarder"
-                   [class.disabled]="!isAddressParsed || !createBusinessForm.valid"
-                   (click)="submitBusiness()"/>
+            <button class="btn btn-primary submit-btn"
+                    [class.disabled]="!isAddressParsed || !createBusinessForm.valid"
+                    (click)="submitBusiness()">
+                Sauvegarder
+            </button>
         </div>
     </form>
 </div>
