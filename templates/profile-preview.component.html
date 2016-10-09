@@ -177,7 +177,13 @@
             <ul *ngIf="experiences.length > 0">
                 <li *ngFor="let experience of experiences">
                     <div class="item">
-                        <a routerLink="['EditExperience', { experienceId: experience.id }]">
+                        <a *ngIf="editableProfile" routerLink="/profil/experience/editer/{{ experience.id }}">
+                            <div class="item-desc">
+                                <h3>{{ experience.job_naming.title }}</h3>
+                                {{ experience.business.title }}
+                            </div>
+                        </a>
+                        <a *ngIf="!editableProfile">
                             <div class="item-desc">
                                 <h3>{{ experience.job_naming.title }}</h3>
                                 {{ experience.business.title }}
@@ -212,7 +218,13 @@
             <ul *ngIf="education.length > 0">
                 <li *ngFor="let study of education">
                     <div class="item">
-                        <a routerLink="['EditStudy', { studyId: study.id }]">
+                        <a *ngIf="editableProfile" routerLink="/profil/formation/editer/{{ study.id }}">
+                            <div class="item-desc">
+                                <h3>{{ study.diploma.title }}</h3>
+                                {{ study.business.title }}
+                            </div>
+                        </a>
+                        <a *ngIf="!editableProfile">
                             <div class="item-desc">
                                 <h3>{{ study.diploma.title }}</h3>
                                 {{ study.business.title }}

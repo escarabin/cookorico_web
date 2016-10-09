@@ -43,8 +43,8 @@ const profileRoutes: Routes = [
             // Education
             {path: 'formations', component: EducationComponent},
             {path: 'formation', redirectTo: '/profil/formations'},
-            {path: 'formation/editer/:studyId', component: CreateStudyComponent},
             {path: 'formation/creer', component: CreateStudyComponent},
+            {path: 'formation/editer/:studyId', component: CreateStudyComponent},
 
             // Alerts
             {path: 'alertes', component: AlertsComponent},

@@ -98,8 +98,6 @@ export class ProfilePreviewComponent {
             }
         });
 
-
-
         /**
          * Image cropper settings
          * @type {CropperSettings}
