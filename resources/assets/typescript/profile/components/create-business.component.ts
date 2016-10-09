@@ -90,6 +90,15 @@ export class CreateBusinessComponent {
         }
     }
 
+    /**
+     * Reset form after adress has been parsed
+     */
+    resetForm() {
+        this.isAddressParsed = false;
+        this.business = new Business();
+        this.place = new Place();
+    }
+
     parseAdress(place:Object) {
         this.isAddressParsed = true;
 

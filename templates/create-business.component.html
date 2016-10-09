@@ -18,6 +18,7 @@
              [class.col-md-12]="!business.logo">
             <label>Nom de votre établissement</label>
             <input type="text"
+                   [class.disabled]="isAddressParsed"
                    class="form-control"
                    required
                    [disabled]="business.id"
@@ -151,8 +152,15 @@
                 </button>
             </a>
         </div>
-        <div [class.col-md-6]="user.is_active"
-             [class.col-md-12]="!user.is_active">
+        <div class="col-md-6"
+             *ngIf="!user.is_active">
+            <button class="btn btn-default submit-btn"
+                    [class.disabled]="!isAddressParsed"
+                    (click)="resetForm()">
+                Réinitialiser
+            </button>
+        </div>
+        <div class="col-md-6">
             <button class="btn btn-primary submit-btn"
                     [class.disabled]="!isAddressParsed || !createBusinessForm.valid"
                     (click)="submitBusiness()">
