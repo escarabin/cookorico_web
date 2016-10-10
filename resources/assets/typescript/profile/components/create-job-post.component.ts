@@ -132,12 +132,14 @@ export class CreateJobPostComponent {
                     );
                 }
 
-                /**
-                 * Activate account in case it is first job-post
-                 */
-                __this.userService.activateAccount(__this.user.id).subscribe((res: Response) => {
-                    __this.router.navigate(['/profil/annonces']);
-                });
+                if (!__this.user['is_active']) {
+                    __this.userService.activateAccount(__this.user.id).subscribe((res: Response) => {
+                        __this.router.navigate(['/profil/annonces']);
+                    });
+                }
+                else {
+                    __this.router.navigate(['/profil/annonce/', { jobId: res.json()['id'] }]);
+                }
             }
             else {
                 __this.notificationService.show(

@@ -51,10 +51,12 @@ export class HeaderComponent {
              * Reload user infos after last step of sign up
              */
             else if (url == '/profil/annonces' && !this.user.is_active) {
-                this.userService.getUserInfos().subscribe((res: Response) => {
-                    this.user = res.json();
-                    localStorage.setItem('user', JSON.stringify(this.user));
-                });
+                if (!this.user.is_active || !this.user) {
+                    this.userService.getUserInfos().subscribe((res: Response) => {
+                        this.user = res.json();
+                        localStorage.setItem('user', JSON.stringify(this.user));
+                    });
+                }
             }
             else {
                 this.isHomePage = false;

@@ -38,11 +38,13 @@ export class ProfileSubHeaderComponent {
             /**
              * Reload user infos after last step of sign up
              */
-            if (url == '/profil/annonces' && !this.user.is_active) {
-                this.userService.getUserInfos().subscribe((res: Response) => {
-                    this.user = res.json();
-                    localStorage.setItem('user', JSON.stringify(this.user));
-                });
+            if (url == '/profil/annonces') {
+                if (!this.user.is_active || !this.user) {
+                    this.userService.getUserInfos().subscribe((res: Response) => {
+                        this.user = res.json();
+                        localStorage.setItem('user', JSON.stringify(this.user));
+                    });
+                }
             }
         });
 
