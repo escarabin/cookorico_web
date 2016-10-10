@@ -255,7 +255,7 @@ class UserController extends Controller
 
             /**
              * Send confirmation email
-
+             */
             $mailTemplate = MailTemplate::where('slug', 'confirm-account')->first();
 
             Mail::send('emails.confirm-account',
@@ -279,9 +279,59 @@ class UserController extends Controller
                 $message->to('scarabin.emmanuel@gmail.com');
 
             });
-             */
+
             return $user;
         }
+    }
+
+    /**
+     * Subtract one contact credit from user after he asked
+     * for access to user infos
+     * @param $candidateId
+     * @return string
+     */
+    public function subtractProfileContact($candidateId) {
+        $userPlans = Auth::user()->plans;
+
+        $accountHasEnoughDailyContacts = "false";
+
+        foreach ($userPlans as $plan) {
+            if ($plan->credits > 0 && $plan->daily_contacts > 0) {
+                $plan->daily_contacts = $plan->daily_contacts - 1;
+                $plan->save();
+
+                $accountHasEnoughDailyContacts = "true";
+            }
+        }
+
+        /**
+         * Save the fact that the user has access to
+         * this candidate in DB
+         */
+        DB::table('recruiter_candidate_access')->insert([
+            ['recruiter_id' => Auth::user()->id,
+             'candidate_id' => $candidateId],
+        ]);
+
+        return $accountHasEnoughDailyContacts;
+    }
+
+    /**
+     * Returns wheter or not current recruiter has access to specific candidate
+     * @param $candidateId
+     * @return string
+     */
+    public function doRecruiterHasAccessToCandidate($candidateId) {
+        $isCandidateAccessible = "false";
+
+        if ($access = DB::table('recruiter_candidate_access')
+            ->where('recruiter_id', Auth::user()->id)
+            ->where('candidate_id', $candidateId)
+            ->first()) {
+            $isCandidateAccessible = "true";
+        }
+
+        return $isCandidateAccessible;
     }
 
     /**

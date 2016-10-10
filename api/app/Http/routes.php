@@ -81,6 +81,10 @@ Route::get('/user/get_profile_percentage', 'UserController@getProfilePercentage'
     ->name('getProfilePercentage');
 Route::get('/user/disable_account', 'UserController@disableAccount')
     ->name('disableAccount');
+Route::get('/user/make_candidate_accessible/{candidateId}', 'UserController@subtractProfileContact')
+    ->name('subtractProfileContact');
+Route::get('/user/access_to_candidate/{candidateId}', 'UserController@doRecruiterHasAccessToCandidate')
+    ->name('doRecruiterHasAccessToCandidate');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')

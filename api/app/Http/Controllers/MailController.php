@@ -45,7 +45,6 @@ class MailController extends Controller
      * @return MailTemplate
      */
     public function editTemplate(Request $request) {
-
         $mailTemplateData = $request::input('mailTemplate');
 
         $template = MailTemplate::find($mailTemplateData['id']);
@@ -73,7 +72,5 @@ class MailController extends Controller
 
             $m->to('scarabin-emmanuel@gmail.com', 'Emmanuel SCARABIN')->subject('Your Reminder!');
         });
-
-        Log::info('test saved');
     }
 }
