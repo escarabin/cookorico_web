@@ -184,8 +184,6 @@ export class CreateBusinessComponent {
             if (res['_body']) {
                 // let createdBusiness = res.json();
 
-                console.log('business is ', res['_body']);
-
                 if (__this.business.id) {
                     __this.notificationService.show(
                         new Notification('success', 'Vos modifications ont bien été enregistrées')
@@ -200,7 +198,7 @@ export class CreateBusinessComponent {
                      * If user is new, then redirect him to next step (job post creation)
                      */
                     if (!__this.user.is_active) {
-                        __this.router.navigate(['/profil/annonce/creer/' + __this.business.id]);
+                        __this.router.navigate(['/profil/annonce/creer']);
                     }
                     else {
                         __this.router.navigate(['/profil/etablissements']);
