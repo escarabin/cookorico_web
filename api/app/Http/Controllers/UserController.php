@@ -283,27 +283,29 @@ class UserController extends Controller
      * @return string
      */
     public function subtractProfileContact($candidateId) {
-        $userPlans = Auth::user()->plans;
-
         $accountHasEnoughDailyContacts = "false";
 
-        foreach ($userPlans as $plan) {
-            if ($plan->credits > 0 && $plan->daily_contacts > 0) {
-                $plan->daily_contacts = $plan->daily_contacts - 1;
-                $plan->save();
+        if (Auth::user()->plans) {
+            $userPlans = Auth::user()->plans;
 
-                $accountHasEnoughDailyContacts = "true";
+            foreach ($userPlans as $plan) {
+                if ($plan->credits > 0 && $plan->daily_contacts > 0) {
+                    $plan->daily_contacts = $plan->daily_contacts - 1;
+                    $plan->save();
+
+                    $accountHasEnoughDailyContacts = "true";
+                }
             }
-        }
 
-        /**
-         * Save the fact that the user has access to
-         * this candidate in DB
-         */
-        DB::table('recruiter_candidate_access')->insert([
-            ['recruiter_id' => Auth::user()->id,
-             'candidate_id' => $candidateId],
-        ]);
+            /**
+             * Save the fact that the user has access to
+             * this candidate in DB
+             */
+            DB::table('recruiter_candidate_access')->insert([
+                ['recruiter_id' => Auth::user()->id,
+                    'candidate_id' => $candidateId],
+            ]);
+        }
 
         return $accountHasEnoughDailyContacts;
     }
