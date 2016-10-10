@@ -38,6 +38,7 @@ export class ProfilePreviewComponent {
     editingItems: any = [];
     userIdRouteParam: string;
     scrollTop: number;
+    userInfosAccessible: boolean = false;
     public profilePictureUploader:FileUploader = new FileUploader({url: URL});
     public resumeUploader:FileUploader = new FileUploader({url: URL});
     public hasBaseDropZoneOver:boolean = false;
@@ -78,6 +79,18 @@ export class ProfilePreviewComponent {
                 }
                 else {
                     __this.user.id = __this.userIdRouteParam;
+
+                    /**
+                     * User is a recruiter
+                     * Check out if he has access to current candidate infos
+                     */
+                    this.userService.doRecruiterHasAccessToCandidate(__this.user.id).subscribe((res: Response) => {
+                        let response = res['_body'];
+
+                        if (response == "true") {
+                            __this.userInfosAccessible = true;
+                        }
+                    });
                 }
 
                 this.userService.get(__this.user.id).subscribe((res: Response) => {
@@ -254,6 +267,23 @@ export class ProfilePreviewComponent {
                     new Notification('success', 'Votre compte a bien été désactivé, vous allez recevoir un mail de confirmation')
                 );
             });
+        });
+    }
+
+    /**
+     * Shows user data to a recruiter and subtracts
+     * a daily contact from his plan
+     */
+    showUserInfos() {
+        this.userService.makeCandidateAccessible(this.user.id).subscribe((res: Response) => {
+            let response = res['_body'];
+
+            /**
+             * Check if user has some daily contacts credits left
+             */
+            if (response == "true") {
+                this.userInfosAccessible = true;
+            }
         });
     }
 

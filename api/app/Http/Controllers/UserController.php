@@ -261,7 +261,8 @@ class UserController extends Controller
             Mail::send('emails.confirm-account',
                 [
                     'content' => $mailTemplate->message,
-                    'user' => $user
+                    'user' => $user,
+                    'confirm_link' => env('APP_ROOT_URL').'/profil/confirmer-le-compte/'.$user->id
                 ],
                 function ($message) use ($user, $mailTemplate) {
                     $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
@@ -270,15 +271,6 @@ class UserController extends Controller
                             ->subject($mailTemplate->subject);
                 }
             );
-
-            Mail::send('emails.confirm-account', ['title' => 'test', 'content' => 'test'], function ($message)
-            {
-
-                $message->from('me@gmail.com', 'Christian Nwamba');
-
-                $message->to('scarabin.emmanuel@gmail.com');
-
-            });
 
             return $user;
         }

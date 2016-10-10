@@ -52,6 +52,8 @@ export class UserService {
     loginUsingIdUrl = appGlobals.apiUrl + '/user/login_using_id';
     disableAccountUrl = appGlobals.apiUrl + '/user/disable_account';
     getFillPercentageUrl = appGlobals.apiUrl + '/user/get_profile_percentage';
+    makeCandidateAccessibleUrl = appGlobals.apiUrl + '/user/make_candidate_accessible';
+    doRecruiterHasAccessToCandidateUrl = appGlobals.apiUrl + '/user/access_to_candidate';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
@@ -453,6 +455,21 @@ export class UserService {
      */
     getProfilePercentage() {
         return this.http.get(this.getFillPercentageUrl);
+    }
+
+    /**
+     * Subtract one contact credit from user after he asked
+     * for access to user infos
+     */
+    makeCandidateAccessible(amount: number) {
+        return this.http.get(this.makeCandidateAccessibleUrl + '/' + amount);
+    }
+
+    /**
+     * Check out if recruiter has access to specific candidate infos
+     */
+    doRecruiterHasAccessToCandidate(candidateId: number) {
+        return this.http.get(this.doRecruiterHasAccessToCandidateUrl + '/' + candidateId);
     }
 
     /**

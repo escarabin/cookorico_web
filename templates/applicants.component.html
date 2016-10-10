@@ -28,7 +28,7 @@
 
 <div class="col-md-12 list-container">
     <div class="col-md-6 col-md-offset-3"
-         *ngIf="!jobPostId">
+         *ngIf="!jobPostId && items.length == 0">
         <br /><br />
         <label>Sélectionnez une offre d'emploi</label>
         <select class="form-control"
@@ -62,17 +62,22 @@
                 <div class="col-md-11 col-sm-11 col-xs-10 item"
                      [class.photo]="item.user.profilePictureUrl">
                     <a routerLink="/profil/apercu/{{ item.user.id }}">
-                        <div class="logo"
-                             *ngIf="item.user.profilePictureUrl">
-                            <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.job.business.id }}.jpg"/>
+                        <div class="col-md-2">
+                            <img src="{{ item.user.profilePictureUrl }}"/>
                         </div>
-                        <div class="item-desc">
+                        <div class="col-md-7">
                             <h3>{{ item.user.firstName }}</h3>
-                            {{ item.user.firstName }} -- {{ item.user.firstName }}
+                            {{ item.user.firstName }} -- {{ item.user.firstName }}<br />
+                            {{ item.job.title }}
                             <span class="date">
                                 {{ item.user.firstName }} &nbsp;
                                 <span class="fa fa-clock-o"></span>
                             </span>
+                        </div>
+                        <div class="col-md-3">
+                            <button>
+                                Voir le profil
+                            </button>
                         </div>
                     </a>
                 </div>
