@@ -39,7 +39,7 @@ export class ProfileSubHeaderComponent {
              * Reload user infos after last step of sign up
              */
             if (url == '/profil/annonces') {
-                if (!this.user || !this.user.is_active) {
+                if (!this.user) {
                     this.userService.getUserInfos().subscribe((res: Response) => {
                         this.user = res.json();
                         localStorage.setItem('user', JSON.stringify(this.user));
