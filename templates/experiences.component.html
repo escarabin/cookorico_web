@@ -43,7 +43,7 @@
                         {{ item.business.title }}
                     </div>
                     <div class="logo">
-                        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.business.id }}.jpg"
+                        <img src="{{ item.business.logo }}"
                              *ngIf="item.business.logo"/>
                     </div>
                 </a>
