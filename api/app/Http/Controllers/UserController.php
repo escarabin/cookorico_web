@@ -449,6 +449,10 @@ class UserController extends Controller
         $education = User::find($userId)->education
                          ->load('diploma', 'business');
 
+        foreach ($education as $study) {
+            $study->business->place = $study->business->place;
+        }
+
         return $education;
     }
 

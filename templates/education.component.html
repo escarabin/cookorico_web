@@ -35,18 +35,18 @@
             <div class="col-md-10 col-sm-10 col-xs-9 item"
                  [class.logo]="item.business.logo">
                 <a routerLink="/profil/formation/editer/{{ item.id }}">
-                    <div class="item-desc">
-                        <h3>{{ item.diploma.title }}</h3>
-                        {{ item.business.title }}
-                        <!-- <span class="date">
-                            {{ item.start_date }} &nbsp;
-                            <span class="fa fa-arrow-right"></span> &nbsp;
-                            {{ item.end_date }}
-                        </span> -->
+                    <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
+                        <img src="{{ item.business.logo }}"
+                             class="full-width"/>
                     </div>
-                    <div class="logo">
-                        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ item.business.id }}.jpg"
-                             *ngIf="item.business.logo"/>
+                    <div [class.col-md-5]="item.business.logo"
+                         [class.col-md-7]="!item.business.logo"
+                         [class.col-sm-5]="item.business.logo"
+                         [class.col-sm-7]="!item.business.logo"
+                         class="col-xs-8">
+                        <h3>{{ item.diploma.title }}</h3>
+                        {{ item.business.title }}<br />
+                        {{ item.business.place.city }}
                     </div>
                 </a>
             </div>
