@@ -2,8 +2,9 @@
     <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container"
          [class.selected]="allItemsChecked"
          (click)="toggleAllItems()">
-        <md-checkbox class="md-warn md-align-top-left dark-bg">
-        </md-checkbox>
+        <input type="checkbox"
+               [checked]="allItemsChecked"
+               (change)="toggleAllItems()"/>
     </div>
     <div class="col-md-7 col-sm-7 col-xs-6 items-count">
         <span *ngIf="checkedItemsList.length > 0">
@@ -32,19 +33,26 @@
             [class.selected]="checkedItemsList.indexOf(item.id) != -1">
             <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container"
                  (click)="saveCheckedItem(item.id)">
-                <md-checkbox class="md-warn md-align-top-left">
-                </md-checkbox>
+                <input type="checkbox"
+                       class="action-checkbox"
+                       [checked]="checkedItemsList.indexOf(item.id) != -1"
+                       (change)="saveCheckedItem(item.id)"/>
             </div>
             <div class="col-md-10 col-sm-10 col-xs-9 item"
                  [class.logo]="item.business.logo">
                 <a routerLink="/profil/experience/editer/{{ item.id }}">
-                    <div class="item-desc">
-                        <h3>{{ item.job_naming.title }}</h3>
-                        {{ item.business.title }}
-                    </div>
-                    <div class="logo">
+                    <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
                         <img src="{{ item.business.logo }}"
-                             *ngIf="item.business.logo"/>
+                             class="full-width"/>
+                    </div>
+                    <div [class.col-md-5]="item.business.logo"
+                         [class.col-md-7]="!item.business.logo"
+                         [class.col-sm-5]="item.business.logo"
+                         [class.col-sm-7]="!item.business.logo"
+                         class="col-xs-8">
+                        <h3>{{ item.job_naming.title }}</h3>
+                        {{ item.business.title }}<br />
+                        {{ item.business.place.city }}
                     </div>
                 </a>
             </div>
