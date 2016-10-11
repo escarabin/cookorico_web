@@ -49,25 +49,31 @@
                         || ( application.archived && statusId == 4 )">
                  <div class="col-md-12 col-sm-12 col-xs-12 item"
                       [class.logo]="application.job.business.logo">
-                    <div class="logo"
-                         *ngIf="application.job.business.logo">
-                        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ application.job.business.id }}.jpg"/>
-                    </div>
-                    <div class="item-desc">
-                        <a routerLink="/recherche/job/{{ application.job.id }}">
-                            <h3>{{ application.job.title }}</h3>
-                        </a>
-                        {{ application.job.business.title }} -
-                        <span *ngIf="application.job.business.place.city">{{ application.job.business.place.city }}</span>
-                        <span class="date">
+                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="application.job.business.logo">
+                         <img src="{{ application.job.business.logo }}"
+                              class="full-width"/>
+                     </div>
+                     <div [class.col-md-5]="application.job.business.logo"
+                          [class.col-md-7]="!application.job.business.logo"
+                          [class.col-sm-5]="application.job.business.logo"
+                          [class.col-sm-7]="!application.job.business.logo"
+                          class="col-xs-8">
+                         <h3>{{ application.job.title }}</h3>
+                         {{ application.job.business.title }}<br />
+                         <span *ngIf="application.job.business.place.city">
+                             {{ application.job.business.place.city }}
+                         </span>
+                         <span class="date">
                             <span class="fa fa-calendar-o"></span> &nbsp;
                             {{ application.created_at }}
                         </span>
-                    </div>
-                    <button class="btn btn-default"
-                            (click)="archivateApplication(application.id)">
-                        Archiver
-                    </button>
+                     </div>
+                     <div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-1 col-md-3 col-sm-3 col-xs-4 centered">
+                         <button class="btn btn-primary"
+                                 (click)="archivateApplication(application.id)">
+                             Archiver
+                         </button>
+                     </div>
                  </div>
             </div>
         </li>

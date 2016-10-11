@@ -46,7 +46,9 @@
                          class="col-xs-8">
                         <h3>{{ item.diploma.title }}</h3>
                         {{ item.business.title }}<br />
-                        {{ item.business.place.city }}
+                        <span *ngIf="item.business.place.city">
+                            {{ item.business.place.city }}
+                        </span>
                     </div>
                 </a>
             </div>
