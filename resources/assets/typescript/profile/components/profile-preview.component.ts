@@ -15,6 +15,8 @@ import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 // Models
 import { Notification } from '../../models/notification';
 
+import { ModalDirective } from 'ng2-bootstrap/components/modal/modal.component';
+
 @Component({
     providers: [UserService],
     selector: 'profile-preview',
@@ -23,6 +25,7 @@ import { Notification } from '../../models/notification';
 
 export class ProfilePreviewComponent {
     @ViewChild('cropper', undefined)
+    @ViewChild('profilePictureModal') public profilePictureModal: ModalDirective;
     cropper:ImageCropperComponent;
     @Output profilePictureChanged: EventEmitter = new EventEmitter();
     user: any = [];
@@ -150,6 +153,14 @@ export class ProfilePreviewComponent {
                 new Notification('error', 'Seuls les fichiers de type PDF sont acceptés')
             );
         }
+    }
+
+    /**
+     * ng2-bootstrap issue workaround (11/10/16) v1.1.6
+     * See https://github.com/valor-software/ng2-bootstrap/issues/986
+     */
+    public openProfilePictureModal() {
+        this.profilePictureModal.show();
     }
 
     public fileChangeListener($event) {

@@ -75,7 +75,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Redirect the user to the Linkedin authentication page.
+     * Redirect the user to the Linkedin / Facebook authentication page.
      *
      * @return Response
      */
@@ -85,13 +85,15 @@ class AuthController extends Controller
     }
 
     /**
-     * Obtain the user information from Linkedin.
+     * Obtain the user information from Linkedin / Facebook.
      *
      * @return Response
      */
     public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->user();
+
+        Log::info('getting callback');
 
         if ($provider == 'linkedin') {
             // Check if user has already been created
@@ -103,12 +105,15 @@ class AuthController extends Controller
                 $newUser->email = $user->email;
                 $newUser->socialite_id = $user->id;
                 $newUser->profilePictureUrl = $user->avatar;
+                $newUser->is_verified = true;
+                $newUser->is_active = true;
+                $newUser->user_type_id = 3;
                 $newUser->save();
 
                 Auth::loginUsingId($newUser->id);
             }
         }
-        else if ($provider == 'google') {
+        else if ($provider == 'facebook') {
 
         }
 

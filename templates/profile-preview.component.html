@@ -8,7 +8,7 @@
              [ngStyle]="{'background-image': 'url(' + user.profilePictureUrl + ')'}">
             <div class="edit-profile-picture"
                  *ngIf="editableProfile"
-                 (click)="profilePictureModal.show()">
+                 (click)="openProfilePictureModal()">
                 <span class="fa fa-camera"></span> &nbsp;Modifier
             </div>
         </div>

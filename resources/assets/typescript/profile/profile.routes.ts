@@ -32,35 +32,35 @@ const profileRoutes: Routes = [
             {path: 'apercu/:userId', component: ProfilePreviewComponent},
 
             // Experiences
+            {path: 'experience/editer/:experienceId', component: CreateExperienceComponent},
+            {path: 'experience/creer', component: CreateExperienceComponent},
             {path: 'experiences', component: ExperiencesComponent},
             {path: 'experience', redirectTo: '/profil/experiences'},
-            {path: 'experience/creer', component: CreateExperienceComponent},
-            {path: 'experience/editer/:experienceId', component: CreateExperienceComponent},
 
             // Applications
             {path: 'candidatures', component: ApplicationsComponent},
 
             // Education
+            {path: 'formation/editer/:studyId', component: CreateStudyComponent},
+            {path: 'formation/creer', component: CreateStudyComponent},
             {path: 'formations', component: EducationComponent},
             {path: 'formation', redirectTo: '/profil/formations'},
-            {path: 'formation/creer', component: CreateStudyComponent},
-            {path: 'formation/editer/:studyId', component: CreateStudyComponent},
 
             // Alerts
-            {path: 'alertes', component: AlertsComponent},
-            {path: 'alerte', redirectTo: '/profil/alertes'},
+            {path: 'alerte/editer/:alertId', component: CreateAlertComponent},
             {path: 'alerte/:alertId', component: AlertsComponent},
             {path: 'alerte/creer', component: CreateAlertComponent},
-            {path: 'alerte/editer/:alertId', component: CreateAlertComponent},
+            {path: 'alertes', component: AlertsComponent},
+            {path: 'alerte', redirectTo: '/profil/alertes'},
 
             // Testimonials
-            {path: 'recommandations', component: TestimonialsComponent},
-            {path: 'recommandation', redirectTo: '/profil/recommandations'},
             {path: 'recommandation/:testimonialId', component: TestimonialsComponent},
+            {path: 'recommandation', redirectTo: '/profil/recommandations'},
+            {path: 'recommandations', component: TestimonialsComponent},
 
             // Businesses
-            {path: 'etablissement/creer', component: CreateBusinessComponent},
             {path: 'etablissement/editer/:businessId', component: CreateBusinessComponent},
+            {path: 'etablissement/creer', component: CreateBusinessComponent},
             {path: 'etablissement', redirectTo: '/profil/etablissements'},
             {path: 'etablissements', component: BusinessesComponent},
 
