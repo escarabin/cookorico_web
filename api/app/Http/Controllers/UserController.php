@@ -359,9 +359,9 @@ class UserController extends Controller
          * If user is a recruiter, create a prospect on Sellsy
          */
         if ($user->user_type_id == 2) {
-            $client = App::make('SellsyClient');
-            $service = $client->getService('Peoples');
-            $response = $service->call('create',
+            App::make('SellsyClient')
+                ->getService('Peoples')
+                ->call('create',
                 ['people' =>
                     ['cookorico_id' => $user->id,
                      'name' => $user->lastName,

@@ -224,6 +224,10 @@ Route::get('/website_editor/traffic_cats', 'WebsiteEditorController@getTrafficDr
 Route::post('/website_editor/save_traffic_cats', 'WebsiteEditorController@saveTrafficDrivenCats')
     ->name('saveTrafficDrivenCats');
 
+// Sellsy
+Route::get('/sellsy/services/all', 'SellsyController@getServices')
+    ->name('getAllSellsyServices');
+
 // Password reset link request routes
 Route::get('/password/email', 'Auth\PasswordController@getEmail');
 Route::post('/password/email', 'Auth\PasswordController@postEmail');

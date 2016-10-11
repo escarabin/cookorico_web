@@ -4,13 +4,14 @@ import { Response } from '@angular/http';
 // Services
 import { UserService } from './../../services/user.service';
 import { NotificationsService } from './../../services/notification.service';
+import { SellsyService } from './../../services/sellsy.service';
 
 // Models
 import { Notification } from './../../models/notification';
 
 @Component({
     selector: 'recruiter-promo',
-    providers: [ UserService ],
+    providers: [ UserService, SellsyService ],
     templateUrl: '../templates/recruiter-promo.component.html'
 })
 
@@ -19,10 +20,25 @@ export class RecruiterPromoComponent {
     password: string;
     error: string;
     isAlreadySignedUp: boolean = false;
+    services: any = [];
 
     constructor(private userService: UserService,
+                private sellsyService: SellsyService,
                 private notificationService: NotificationsService) {
+        let __this = this;
 
+        /**
+         * Pupulate sellsy services array
+         */
+        sellsyService.getServices().subscribe((res:Response) => {
+            let response = res['_body'];
+
+            /**
+             * Remove Sellsy request infos
+             */
+            response = response.split('<-- ')[1];
+            __this.services = JSON.parse(response);
+        });
     }
 
     submitEmailAndPassword() {

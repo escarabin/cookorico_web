@@ -2,7 +2,9 @@
 <div class="user-infos row hidden-xs"
      *ngIf="user.user_type_id == 2">
     <div class="col-md-12 user-title">
-        Mon abonnement<br/>
+        <a routerLink="/accueil-recruteur">
+            Mon abonnement
+         </a><br/>
     </div>
     <div *ngFor="let plan of plans"
          class="col-md-12">

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HTTP_PROVIDERS, Http } from '@angular/http';
+import { Http } from '@angular/http';
 import appGlobals = require('./../globals');
 
 @Injectable()
@@ -25,9 +25,7 @@ export class ReferenceService {
      * @returns {Observable<Response>}
      */
     getAllStates() {
-        let __this = this;
-
-        return this.http.request(__this.allStatesListingUrl);
+        return this.http.request(this.allStatesListingUrl);
     }
 
     /**
@@ -35,9 +33,7 @@ export class ReferenceService {
      * @returns {Observable<Response>}
      */
     getAllContractTypes() {
-        let __this = this;
-
-        return this.http.request(__this.allContractTypesListingUrl);
+        return this.http.request(this.allContractTypesListingUrl);
     }
 
     /**
@@ -45,9 +41,7 @@ export class ReferenceService {
      * @returns {Observable<Response>}
      */
     getAllJobTypes() {
-        let __this = this;
-
-        return this.http.request(__this.allJobTypesListingUrl);
+        return this.http.request(this.allJobTypesListingUrl);
     }
 
     /**
@@ -55,9 +49,7 @@ export class ReferenceService {
      * @returns {Observable<Response>}
      */
     getAllJobNamings() {
-        let __this = this;
-
-        return this.http.request(__this.allJobNamingsListingUrl);
+        return this.http.request(this.allJobNamingsListingUrl);
     }
 
 
@@ -66,9 +58,7 @@ export class ReferenceService {
      * @returns {Observable<Response>}
      */
     getAllJobNamingGroups() {
-        let __this = this;
-
-        return this.http.request(__this.allJobNamingGroupsUrl);
+        return this.http.request(this.allJobNamingGroupsUrl);
     }
 
     /**
@@ -76,9 +66,7 @@ export class ReferenceService {
      * @returns {Observable<Response>}
      */
     getAllStudyLevels() {
-        let __this = this;
-
-        return this.http.request(__this.allStudyLevelsListingUrl);
+        return this.http.request(this.allStudyLevelsListingUrl);
     }
 
     /**
@@ -86,9 +74,7 @@ export class ReferenceService {
      * @returns {Observable<Response>}
      */
     getAllDiplomas() {
-        let __this = this;
-
-        return this.http.request(__this.allDiplomasListingUrl);
+        return this.http.request(this.allDiplomasListingUrl);
     }
 
     /**
@@ -96,9 +82,7 @@ export class ReferenceService {
      * @returns {Observable<Response>}
      */
     getAllAlertFrequencies() {
-        let __this = this;
-
-        return this.http.request(__this.getAlertFrequenciesListingUrl);
+        return this.http.request(this.getAlertFrequenciesListingUrl);
     }
 
     /**
@@ -106,9 +90,7 @@ export class ReferenceService {
      * @returns {Observable<Response>}
      */
     getAllBusinessTypes() {
-        let __this = this;
-
-        return this.http.request(__this.getAllBusinessTypesListingUrl);
+        return this.http.request(this.getAllBusinessTypesListingUrl);
     }
 
     /**
@@ -116,9 +98,7 @@ export class ReferenceService {
      * @returns {Observable<Response>}
      */
     getAllJobXpLevels() {
-        let __this = this;
-
-        return this.http.request(__this.getAllJobXpLevelsUrl);
+        return this.http.request(this.getAllJobXpLevelsUrl);
     }
 
     /**
@@ -126,8 +106,6 @@ export class ReferenceService {
      * @returns {Observable<Response>}
      */
     getAllCivilities() {
-        let __this = this;
-
-        return this.http.request(__this.getAllCivilitiesUrl);
+        return this.http.request(this.getAllCivilitiesUrl);
     }
 }
