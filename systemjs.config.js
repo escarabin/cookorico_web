@@ -23,7 +23,9 @@
     'ng2-pagination':             'node_modules/ng2-pagination',
     'ng2-select':                 'node_modules/ng2-select',
     'express':                    'node_modules/express',
-    'ng2-meta':                   'node_modules/ng2-meta'
+    'ng2-meta':                   'node_modules/ng2-meta',
+    'braintree-web':              'node_modules/braintree-web',
+    'braintree-web/paypal':       'node_modules/braintree-web'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -40,7 +42,9 @@
     'ng2-file-upload':            { main: 'ng2-file-upload.js', defaultExtension: 'js' },
     'ng2-pagination':             { main: 'index.js', defaultExtension: 'js' },
     'ng2-select':                 { main: 'ng2-select.js', defaultExtension: 'js' },
-    'ng2-meta':                   { main: 'dist/meta.service.js', defaultExtension: 'js' }
+    'ng2-meta':                   { main: 'dist/meta.service.js', defaultExtension: 'js' },
+    'braintree-web':              { main: 'index.js', defaultExtension: 'js' },
+    'braintree-web/paypal':       { main: 'paypal.js', defaultExtension: 'js' },
   };
 
   var ngPackageNames = [

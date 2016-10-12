@@ -56,4 +56,9 @@ return [
         'client_secret' => env('FACEBOOK_SECRET'),
         'redirect' => 'http://localhost:8888/api/public/auth/facebook/callback',
     ],
+
+    'paypal' => [
+        'client_id' => 'ATyvQa44HQEqtVSi1KPaX5FcyDxy9vVAVjxZkRmjwdRuWGdXvG1rkFo1jzWQvF0K4XhIO05L8f846gnb',
+        'secret' => 'EJVyXbdDD17OnmMIRu3PVT4MIct-mz9zecTH9t3ampcLMn260RWdLFOzSadKvHTKCbLLujoRuhRMtR-o'
+    ],
 ];

@@ -315,7 +315,7 @@
 
 <div bsModal
      #profilePictureModal="bs-modal"
-     class="modal fade"
+     class="modal fade in"
      tabindex="-1"
      role="dialog"
      id="profile-picture-modal"
@@ -350,7 +350,7 @@
                 <button type="button"
                         class="btn btn-default"
                         id="close-profile-picture-modal"
-                        (click)="profilePictureModal.hide()"
+                        (click)="hideProfilePictureModal()"
                         data-dismiss="modal">
                     Annuler
                 </button>
@@ -370,7 +370,7 @@
 
 <div bsModal
      #resumePreviewModal="bs-modal"
-     class="modal fade"
+     class="modal fade in"
      tabindex="-1"
      role="dialog"
      id="resume-preview-modal"
@@ -395,7 +395,7 @@
 
 <div bsModal
      #editResumeModal="bs-modal"
-     class="modal fade"
+     class="modal fade in"
      tabindex="-1"
      role="dialog"
      id="edit-resume-modal"

@@ -24,7 +24,7 @@ import { ModalDirective } from 'ng2-bootstrap/components/modal/modal.component';
 })
 
 export class ProfilePreviewComponent {
-    @ViewChild('cropper', undefined)
+    @ViewChild('cropper', undefined) cropper: ImageCropperComponent;
     @ViewChild('profilePictureModal') public profilePictureModal: ModalDirective;
     cropper:ImageCropperComponent;
     @Output profilePictureChanged: EventEmitter = new EventEmitter();
@@ -160,7 +160,12 @@ export class ProfilePreviewComponent {
      * See https://github.com/valor-software/ng2-bootstrap/issues/986
      */
     public openProfilePictureModal() {
-        this.profilePictureModal.show();
+        // this.profilePictureModal.show();
+        document.getElementById("profile-picture-modal").style.display = "block";
+    }
+
+    public hideProfilePictureModal() {
+        document.getElementById("profile-picture-modal").style.display = "none";
     }
 
     public fileChangeListener($event) {

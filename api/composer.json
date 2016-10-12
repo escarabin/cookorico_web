@@ -10,7 +10,8 @@
         "nesbot/carbon": "^1.21",
         "aws/aws-sdk-php-laravel": "~3.0",
         "laravel/socialite": "^2.0",
-        "ferjul17/sellsy-api": "^1.0"
+        "ferjul17/sellsy-api": "^1.0",
+        "netshell/paypal": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

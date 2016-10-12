@@ -159,7 +159,8 @@ return [
          * Custom service providers
          */
         Aws\Laravel\AwsServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        Netshell\Paypal\PaypalServiceProvider::class
     ],
 
     /*
@@ -211,7 +212,8 @@ return [
          */
         'AWS' => Aws\Laravel\AwsFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'SellsyApi' => SellsyApi\Client::class
+        'SellsyApi' => SellsyApi\Client::class,
+        'Paypal' => Netshell\Paypal\Facades\Paypal::class
     ],
 
 ];
