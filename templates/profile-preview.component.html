@@ -99,7 +99,7 @@
     <div class="col-md-3 col-sm-3 col-xs-12 resume-container">
         <button *ngIf="editableProfile"
            class="edit-button"
-           (click)="editResumeModal.show()">
+           (click)="openEditResumeModal()">
             <span class="fa fa-file-pdf-o"></span> &nbsp; Modifier le CV
         </button>
         <button *ngIf="user.user_type_id == 2 && !userInfosAccessible"
@@ -109,7 +109,7 @@
         </button>
         <br />
         <br />
-        <button (click)="resumePreviewModal.show()"
+        <button (click)="openResumePreviewModal()"
                 class="hidden-xs btn btn-default">
             Voir le CV
         </button>
@@ -384,7 +384,7 @@
                 <button type="button"
                         class="btn btn-default"
                         id="close-resume-preview-modal"
-                        (click)="resumePreviewModal.hide()"
+                        (click)="hideResumePreviewModal()"
                         data-dismiss="modal">
                     Fermer
                 </button>
@@ -428,11 +428,24 @@
                 </button>
                 <button class="btn btn-default"
                         id="close-edit-resume-modal"
-                        (click)="editResumeModal.hide()"
+                        (click)="hideEditResumeModal()"
                         data-dismiss="modal">
                     Fermer
                 </button>
             </div>
         </div>
     </div>
+</div>
+
+<!-- TODO : this is a workaround, we have to change it in near future -->
+<div id="modal-backdrop-replacement"
+     style="background: rgba(0,0,0,0.7);
+             position: fixed;
+             display: none;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             z-index: 10;">
+
 </div>

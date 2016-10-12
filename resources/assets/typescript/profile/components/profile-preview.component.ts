@@ -160,12 +160,34 @@ export class ProfilePreviewComponent {
      * See https://github.com/valor-software/ng2-bootstrap/issues/986
      */
     public openProfilePictureModal() {
-        // this.profilePictureModal.show();
+        this.showModalBackdrop();
         document.getElementById("profile-picture-modal").style.display = "block";
     }
-
     public hideProfilePictureModal() {
+        this.hideModalBackdrop();
         document.getElementById("profile-picture-modal").style.display = "none";
+    }
+    public openResumePreviewModal() {
+        this.showModalBackdrop();
+        document.getElementById("resume-preview-modal").style.display = "block";
+    }
+    public hideResumePreviewModal() {
+        this.hideModalBackdrop();
+        document.getElementById("resume-preview-modal").style.display = "none";
+    }
+    public openEditResumeModal() {
+        this.showModalBackdrop();
+        document.getElementById("edit-resume-modal").style.display = "block";
+    }
+    public hideEditResumeModal() {
+        this.hideModalBackdrop();
+        document.getElementById("edit-resume-modal").style.display = "none";
+    }
+    public showModalBackdrop() {
+        document.getElementById("modal-backdrop-replacement").style.display = "block";
+    }
+    public hideModalBackdrop() {
+        document.getElementById("modal-backdrop-replacement").style.display = "none";
     }
 
     public fileChangeListener($event) {
