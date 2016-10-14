@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Services
 import { UserService } from '../../services/user.service';
@@ -13,9 +13,11 @@ import { UserService } from '../../services/user.service';
 
 export class CreteTestimonialComponent {
     testimonial: any = {employee: {}};
+    isLoading: boolean = false;
 
     constructor(private userService: UserService,
-                private route: ActivatedRoute) {
+                private route: ActivatedRoute,
+                private router: Router) {
         let __this = this;
 
         route.params.subscribe(params => {
@@ -30,11 +32,12 @@ export class CreteTestimonialComponent {
     }
 
     submitTestimonial() {
-        let __this = this;
+        this.isLoading = true;
 
         this.userService.saveTestimonialReply(this.testimonial.id, this.testimonial.answer_content)
             .subscribe((res: Response) => {
-            console.log('this is', res);
+                this.isLoading = false;
+                this.router.navigate(['/profil/demandes_de_recommandation']);
         });
     }
 }

@@ -117,7 +117,7 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     saveTestimonialReply(tesimonialId: number, testimonialReplyContent: string) {
-        let requestBody = JSON.stringify({ answer_content: testimonialReplyContent });
+        let requestBody = JSON.stringify({ answer_content: testimonialReplyContent, is_accepted: true });
 
         return this.http.post(this.saveTestimonialUrl + '/' + tesimonialId, requestBody, this.postRequestOptions);
     }

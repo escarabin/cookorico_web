@@ -64,8 +64,8 @@ const profileRoutes: Routes = [
 
             // Testimonials asked
             {path: 'demande_de_recommandation/:testimonialId', component: TestimonialRequestsComponent},
-            {path: 'demande_de_recommandation', redirectTo: '/profil/demande_de_recommandations'},
-            {path: 'demande_de_recommandations', component: TestimonialRequestsComponent},
+            {path: 'demande_de_recommandation', redirectTo: '/profil/demandes_de_recommandation'},
+            {path: 'demandes_de_recommandation', component: TestimonialRequestsComponent},
 
             // Businesses
             {path: 'etablissement/editer/:businessId', component: CreateBusinessComponent},

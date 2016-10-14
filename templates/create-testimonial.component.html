@@ -13,14 +13,16 @@
 </div>
 <div class="col-md-6">
     <br />
-    <button class="btn btn-default full-width">
+    <button class="btn btn-default full-width"
+            routerLink="/profil/demandes_de_recommandation">
         Retour
     </button>
 </div>
 <div class="col-md-6">
     <br />
     <button class="btn btn-primary full-width"
+            [disabled]="isLoading || !testimonial.answer_content"
             (click)="submitTestimonial()">
-        Sauvegarder
+        Sauvegarder <span *ngIf="isLoading" class="fa fa-spinner fa-spin"></span>
     </button>
 </div>
