@@ -163,8 +163,12 @@ Route::post('/alert/create', 'AlertController@createAlert')
 // Testimonials
 Route::get('/user/testimonials/{userId?}', 'UserController@getTestimonials')
     ->name('getTestimonials');
+Route::get('/testimonial/{testimonialId?}', 'TestimonialController@get')
+    ->name('getTestimonial');
 Route::get('/created_testimonials/all', 'UserController@getCreatedTestimonials')
     ->name('getCreatedTestimonials');
+Route::post('/testimonial/save/{testimonialId}', 'TestimonialController@update')
+    ->name('updateTestimonial');
 
 // Diplomas
 Route::get('/diplomas/all', 'ReferenceController@getAllDiplomas')

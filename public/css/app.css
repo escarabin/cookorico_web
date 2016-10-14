@@ -800,11 +800,11 @@ profile {
           text-decoration: underline; }
         profile .list-container ul li button {
           border: none;
-          background-color: #025589;
           border-radius: 4px;
           color: white;
           height: 50px;
-          padding: 15px; }
+          padding: 15px;
+          margin-top: 10px; }
         profile .list-container ul li md-checkbox {
           pointer-events: none; }
         profile .list-container ul li:nth-child(odd) {
@@ -830,13 +830,9 @@ profile {
           color: #1a1f38;
           margin: 5px 0; }
         profile .list-container ul li .date {
-          float: right;
           color: #a9a9a9;
           font-family: "Avenir Medium", sans-serif;
-          text-transform: uppercase;
-          font-size: 0.9em;
-          position: absolute;
-          right: 25px; }
+          font-size: 0.9em; }
         profile .list-container ul li .item {
           padding: 10px;
           display: inline-block; }

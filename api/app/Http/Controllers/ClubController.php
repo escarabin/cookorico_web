@@ -9,7 +9,7 @@ use App\Models\Club;
 class ClubController extends Controller
 {
     /**
-     * Show specific club
+     * GET specific club
      *
      * @param $id
      * @return mixed

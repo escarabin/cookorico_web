@@ -1,0 +1,58 @@
+<div class="col-md-12 header-container">
+    <div class="col-md-9 col-sm-9 col-xs-8 items-count">
+        {{ testimonials.length }} demande<span *ngIf="testimonials.length > 1">s</span> de recommandation
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
+        <button routerLink="/recherche">
+            <span class="fa fa-plus"></span>
+        </button>
+        <button (click)="deleteSelectedItems()">
+            <span class="fa fa-trash-o"></span>
+        </button>
+    </div>
+</div>
+
+<div class="col-md-12 list-container">
+    <ul>
+        <li *ngFor="let testimonial of testimonials"
+            class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 item"
+                 [class.logo]="testimonial.employee.profilePictureUrl">
+                <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="testimonial.employee.profilePictureUrl">
+                    <img src="{{ testimonial.employee.profilePictureUrl }}"
+                         class="full-width"/>
+                </div>
+                <div [class.col-md-6]="testimonial.employee.profilePictureUrl"
+                     [class.col-md-8]="!testimonial.employee.profilePictureUrl"
+                     [class.col-sm-6]="testimonial.employee.profilePictureUrl"
+                     [class.col-sm-8]="!testimonial.employee.profilePictureUrl"
+                     class="col-xs-9">
+                    <h3>{{ testimonial.employee.firstName }} {{ testimonial.employee.lastName }}</h3>
+                    <a routerLink="/profil/apercu/{{ testimonial.employee.id }}">
+                        Voir le profil
+                    </a> <br />
+                    {{ testimonial.request_content.substr(0, 240) }}<br />
+                </div>
+                <div class="col-md-4 centered">
+                    <span class="date">
+                        Reçu le {{ testimonial.created_at }}
+                    </span>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-3 centered"
+                     *ngIf="!testimonial.is_accepted">
+                    <button class="btn btn-primary full-width"
+                            routerLink="/profil/recommandation/creer/{{ testimonial.id }}">
+                        Accepter
+                    </button>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-3 centered"
+                     *ngIf="!testimonial.is_accepted">
+                    <button class="btn btn-danger full-width"
+                            (click)="acceptTestimonialRequest(application.id)">
+                        Refuser
+                    </button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

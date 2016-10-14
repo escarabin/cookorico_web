@@ -166,11 +166,11 @@ profile {
 
         button {
           border: none;
-          background-color: $candidateColor;
           border-radius: 4px;
           color: white;
           height: 50px;
           padding: 15px;
+          margin-top: 10px;
         }
 
         md-checkbox {
@@ -216,13 +216,9 @@ profile {
         }
 
         .date {
-          float: right;
           color: #a9a9a9;
           font-family: $mainMediumFontFamily;
-          text-transform: uppercase;
           font-size: 0.9em;
-          position: absolute;
-          right: 25px;
         }
 
         .item {

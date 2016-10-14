@@ -7,6 +7,8 @@ import { ExperiencesComponent } from "./components/experiences.component";
 import { EducationComponent } from "./components/education.component";
 import { AlertsComponent } from "./components/alerts.component";
 import { TestimonialsComponent } from "./components/testimonials.component";
+import { TestimonialRequestsComponent } from "./components/testimonial-requests.component";
+import { CreteTestimonialComponent } from "./components/create-testimonial.component";
 import { CreateExperienceComponent } from "./components/create-experience.component";
 import { CreateStudyComponent } from "./components/create-study.component";
 import { CreateAlertComponent } from "./components/create-alert.component";
@@ -21,6 +23,7 @@ import { CreateMailTemplateComponent } from './components/create-mail-template.c
 import { WebsiteEditorComponent } from "./components/website-editor.component";
 import { ConfirmAccountCreationComponent } from "./components/confirm-account-creation.component";
 import { MatchingProfilesComponent } from './components/matching-profiles.component';
+import {TestimonialRequestsComponent} from "./components/testimonial-requests.component";
 
 const profileRoutes: Routes = [
     {
@@ -54,9 +57,15 @@ const profileRoutes: Routes = [
             {path: 'alerte', redirectTo: '/profil/alertes'},
 
             // Testimonials
+            {path: 'recommandation/creer/:testimonialId', component: CreteTestimonialComponent},
             {path: 'recommandation/:testimonialId', component: TestimonialsComponent},
             {path: 'recommandation', redirectTo: '/profil/recommandations'},
             {path: 'recommandations', component: TestimonialsComponent},
+
+            // Testimonials asked
+            {path: 'demande_de_recommandation/:testimonialId', component: TestimonialRequestsComponent},
+            {path: 'demande_de_recommandation', redirectTo: '/profil/demande_de_recommandations'},
+            {path: 'demande_de_recommandations', component: TestimonialRequestsComponent},
 
             // Businesses
             {path: 'etablissement/editer/:businessId', component: CreateBusinessComponent},

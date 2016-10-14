@@ -19,6 +19,7 @@ import { ProfileSidebarComponent } from './components/profile-sidebar.component'
 import { AlertsComponent } from './components/alerts.component';
 import { CreateAlertComponent } from './components/create-alert.component';
 import { TestimonialsComponent } from './components/testimonials.component';
+import { TestimonialRequestsComponent } from './components/testimonial-requests.component';
 import { BusinessesComponent } from './components/businesses.component';
 import { CreateBusinessComponent } from './components/create-business.component';
 import { MyJobPostsComponent } from './components/my-job-posts.component';
@@ -60,6 +61,7 @@ import { UserService } from './../services/user.service';
                     CreateBusinessComponent,
                     SignUpStepsComponent,
                     MatchingProfilesComponent,
+        TestimonialRequestsComponent,
                     ConfirmAccountCreationComponent ],
     imports:      [ profileRouting,
                     FormsModule,

@@ -1,0 +1,26 @@
+<div class="col-md-12">
+    <h2>
+        Qu'est ce qui vous a plu chez {{ testimonial.employee.firstName }} {{ testimonial.employee.lastName }} ?
+    </h2>
+    <br />
+</div>
+<div class="col-md-12">
+    <textarea [(ngModel)]="testimonial.answer_content"
+              rows="10"
+              class="form-control full-width">
+
+    </textarea>
+</div>
+<div class="col-md-6">
+    <br />
+    <button class="btn btn-default full-width">
+        Retour
+    </button>
+</div>
+<div class="col-md-6">
+    <br />
+    <button class="btn btn-primary full-width"
+            (click)="submitTestimonial()">
+        Sauvegarder
+    </button>
+</div>

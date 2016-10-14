@@ -32,6 +32,8 @@ export class UserService {
     deleteJobPostsUrl = appGlobals.apiUrl + '/job-posts/delete';
     getBusinessUrl = appGlobals.apiUrl + '/business';
     getTestimonialsUrl = appGlobals.apiUrl + '/user/testimonials';
+    getTestimonialUrl = appGlobals.apiUrl + '/testimonial';
+    saveTestimonialUrl = appGlobals.apiUrl + '/testimonial/save';
     getCreatedTestimonialsUrl = appGlobals.apiUrl + '/created_testimonials/all';
     createExperienceUrl = appGlobals.apiUrl + '/experience/create';
     updateExperienceUrl = appGlobals.apiUrl + '/experience/update';
@@ -106,6 +108,18 @@ export class UserService {
      */
     get(userId) {
         return this.http.get(this.getUserUrl + '/' + userId);
+    }
+
+    /**
+     * Save testimonial recruiter reply
+     * @param tesimonialId
+     * @param testimonialReplyContent
+     * @returns {Observable<Response>}
+     */
+    saveTestimonialReply(tesimonialId: number, testimonialReplyContent: string) {
+        let requestBody = JSON.stringify({ answer_content: testimonialReplyContent });
+
+        return this.http.post(this.saveTestimonialUrl + '/' + tesimonialId, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -294,9 +308,18 @@ export class UserService {
     }
 
     /**
+     * Get user's specific testimonial
+     * @param testimonialId
+     * @returns {Observable<Response>}
+     */
+    getTestimonial(testimonialId?: number) {
+        return this.http.get(this.getTestimonialUrl + '/' + testimonialId);
+    }
+
+    /**
      * Get user's created testimonials
      */
-    getCreatedTestimonials() {
+    getAskedTestimonials() {
         return this.http.get(this.getCreatedTestimonialsUrl);
     }
 
