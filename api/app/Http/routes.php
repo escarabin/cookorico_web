@@ -163,6 +163,8 @@ Route::post('/alert/create', 'AlertController@createAlert')
 // Testimonials
 Route::get('/user/testimonials/{userId?}', 'UserController@getTestimonials')
     ->name('getTestimonials');
+Route::get('/testimonial/reject/{testimonialId}', 'TestimonialController@reject')
+    ->name('rejectTestimonial');
 Route::get('/testimonial/{testimonialId?}', 'TestimonialController@get')
     ->name('getTestimonial');
 Route::get('/created_testimonials/all', 'UserController@getCreatedTestimonials')

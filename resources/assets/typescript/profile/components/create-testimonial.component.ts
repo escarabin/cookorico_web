@@ -11,7 +11,7 @@ import { UserService } from '../../services/user.service';
     templateUrl: '../templates/create-testimonial.component.html'
 })
 
-export class CreteTestimonialComponent {
+export class CreateTestimonialComponent {
     testimonial: any = {employee: {}};
     isLoading: boolean = false;
 

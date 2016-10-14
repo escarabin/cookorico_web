@@ -8,7 +8,7 @@ import { EducationComponent } from "./components/education.component";
 import { AlertsComponent } from "./components/alerts.component";
 import { TestimonialsComponent } from "./components/testimonials.component";
 import { TestimonialRequestsComponent } from "./components/testimonial-requests.component";
-import { CreteTestimonialComponent } from "./components/create-testimonial.component";
+import { CreateTestimonialComponent } from "./components/create-testimonial.component";
 import { CreateExperienceComponent } from "./components/create-experience.component";
 import { CreateStudyComponent } from "./components/create-study.component";
 import { CreateAlertComponent } from "./components/create-alert.component";
@@ -57,7 +57,7 @@ const profileRoutes: Routes = [
             {path: 'alerte', redirectTo: '/profil/alertes'},
 
             // Testimonials
-            {path: 'recommandation/creer/:testimonialId', component: CreteTestimonialComponent},
+            {path: 'recommandation/creer/:testimonialId', component: CreateTestimonialComponent},
             {path: 'recommandation/:testimonialId', component: TestimonialsComponent},
             {path: 'recommandation', redirectTo: '/profil/recommandations'},
             {path: 'recommandations', component: TestimonialsComponent},

@@ -33,6 +33,7 @@ export class UserService {
     getBusinessUrl = appGlobals.apiUrl + '/business';
     getTestimonialsUrl = appGlobals.apiUrl + '/user/testimonials';
     getTestimonialUrl = appGlobals.apiUrl + '/testimonial';
+    rejectTestimonialRequestUrl= appGlobals.apiUrl + '/testimonial/reject';
     saveTestimonialUrl = appGlobals.apiUrl + '/testimonial/save';
     getCreatedTestimonialsUrl = appGlobals.apiUrl + '/created_testimonials/all';
     createExperienceUrl = appGlobals.apiUrl + '/experience/create';
@@ -120,6 +121,14 @@ export class UserService {
         let requestBody = JSON.stringify({ answer_content: testimonialReplyContent, is_accepted: true });
 
         return this.http.post(this.saveTestimonialUrl + '/' + tesimonialId, requestBody, this.postRequestOptions);
+    }
+
+    /**
+     * Reject specific testimonial request
+     * @param testimonialId
+     */
+    rejectTestimonialRequest(testimonialId: number) {
+        return this.http.get(this.rejectTestimonialRequestUrl + '/' + testimonialId);
     }
 
     /**

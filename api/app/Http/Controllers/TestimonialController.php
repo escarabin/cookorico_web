@@ -39,4 +39,17 @@ class TestimonialController extends Controller
 
         return $testimonial;
     }
+
+    /**
+     * Reject specific testimonial request
+     * @param $testimonialId
+     * @return mixed
+     */
+    public function reject($testimonialId) {
+        $testimonial = Testimonial::find($testimonialId);
+        $testimonial->is_rejected = true;
+        $testimonial->save();
+
+        return $testimonial;
+    }
 }
