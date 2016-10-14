@@ -85,3 +85,42 @@
         </li>
     </ul>
 </div>
+
+<div class="col-md-12 header-container">
+    <div class="col-md-12 col-sm-12 col-xs-11 items-count">
+        {{ rejected_testimonial_requests.length }} demande
+        <span *ngIf="rejected_testimonial_requests.length > 1">s</span>
+        refusée<span *ngIf="rejected_testimonial_requests.length > 1">s</span>
+    </div>
+</div>
+
+<div class="col-md-12 list-container">
+    <ul>
+        <li *ngFor="let testimonial of rejected_testimonial_requests"
+            class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 item"
+                 [class.logo]="testimonial.employee.profilePictureUrl">
+                <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="testimonial.employee.profilePictureUrl">
+                    <img src="{{ testimonial.employee.profilePictureUrl }}"
+                         class="full-width"/>
+                </div>
+                <div [class.col-md-6]="testimonial.employee.profilePictureUrl"
+                     [class.col-md-8]="!testimonial.employee.profilePictureUrl"
+                     [class.col-sm-6]="testimonial.employee.profilePictureUrl"
+                     [class.col-sm-8]="!testimonial.employee.profilePictureUrl"
+                     class="col-xs-9">
+                    <h3>{{ testimonial.employee.firstName }} {{ testimonial.employee.lastName }}</h3>
+                    <a routerLink="/profil/apercu/{{ testimonial.employee.id }}">
+                        Voir le profil
+                    </a> <br />
+                    {{ testimonial.request_content.substr(0, 240) }}<br />
+                </div>
+                <div class="col-md-4 centered">
+                    <span class="date">
+                        Demande refusée le {{ testimonial.updated_at }}
+                    </span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
