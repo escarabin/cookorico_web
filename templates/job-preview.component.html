@@ -28,7 +28,7 @@
             {{ job.contract_type.title }} - {{ job.week_work_hours }}h
         </div>
         <div class="post_date">
-            Publiée le <b>{{ job.created_at }}</b>
+            Publiée le <b>{{ job.created_at | date:"dd/MM/yy" }}</b>
         </div>
     </div>
 </a>

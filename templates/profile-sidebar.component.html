@@ -11,7 +11,7 @@
             </div>
             <div class="col-md-12 plan-infos">
                 {{ plan.pricing_plan.daily_contacts }} contacts disponibles<br /><br />
-                Payé le {{ plan.created_at }}
+                Payé le {{ plan.created_at | date:"dd/MM/yyyy" }}
             </div>
             <div class="col-md-12 bill-paid">
 
