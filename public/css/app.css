@@ -421,20 +421,24 @@ matching-profiles .show-profile button {
 profile-sidebar {
   display: block;
   border-radius: 4px;
-  color: white;
   width: 20%;
   float: left; }
   profile-sidebar .user-infos {
     text-align: left;
     margin: 0 15px;
     margin-bottom: 20px;
-    background-color: #35B6E1;
+    background-color: white;
     border-radius: 4px;
-    padding: 15px; }
-    profile-sidebar .user-infos .user-title {
-      font-family: "Avenir Heavy", sans-serif;
-      text-align: center;
-      color: white; }
+    padding: 15px 0; }
+    profile-sidebar .user-infos .plan .plan-infos {
+      padding: 15px 10px; }
+    profile-sidebar .user-infos .plan .plan-credits {
+      font-size: 1.5em;
+      padding: 0 10px;
+      font-family: "Avenir Medium", sans-serif;
+      color: #35B6E1; }
+      profile-sidebar .user-infos .plan .plan-credits hr {
+        margin: 5px; }
   profile-sidebar .new-job-post-btn {
     background-color: white;
     color: #333;
@@ -449,12 +453,6 @@ profile-sidebar {
     max-height: 70px;
     transition-property: all;
     transition-duration: 350ms; }
-    profile-sidebar .profile-sidebar-menu .plan {
-      padding-top: 15px;
-      text-align: center; }
-      profile-sidebar .profile-sidebar-menu .plan .plan-credits, profile-sidebar .profile-sidebar-menu .plan .plan-contacts {
-        text-align: center;
-        font-family: "Avenir Heavy", sans-serif; }
     profile-sidebar .profile-sidebar-menu a {
       color: #333;
       display: inline-block;

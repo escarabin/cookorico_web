@@ -1,20 +1,25 @@
 <!-- User is connected -->
 <div class="user-infos row hidden-xs"
      *ngIf="user.user_type_id == 2">
-    <div class="col-md-12 user-title">
-        <a routerLink="/accueil-recruteur">
-            Mon abonnement
-         </a><br/>
-    </div>
     <div *ngFor="let plan of plans"
          class="col-md-12">
         <div class="plan"
              *ngIf="plan.credits > 0 && user.user_type_id == 2">
-            <div class="col-md-6 plan-credits">
+            <div class="col-md-12 plan-credits">
                 {{ plan.credits }} crédits
+                <hr />
             </div>
-            <div class="col-md-6 plan-contacts">
-                {{ plan.pricing_plan.daily_contacts }} contacts
+            <div class="col-md-12 plan-infos">
+                {{ plan.pricing_plan.daily_contacts }} contacts disponibles<br /><br />
+                Payé le {{ plan.created_at }}
+            </div>
+            <div class="col-md-12 bill-paid">
+
+            </div>
+            <div class="col-md-12 no-padding">
+                <button class="btn btn-primary full-width">
+                    Mon abonnement
+                </button>
             </div>
         </div>
     </div >

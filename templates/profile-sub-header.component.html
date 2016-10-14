@@ -35,21 +35,21 @@
     <div *ngIf="user.user_type_id == 3">
         <div class="col-md-2 col-sm-2 sub-header-menu-item"
              [class.disabled]="!user.is_active">
-            <a routerLink="/profil/alertes">
+            <a routerLink="/profil/alertes" routerLinkActive="active">
                 <i class="icon-bell"><br /></i>
                 <h3>Mes alertes emploi</h3>
             </a>
         </div>
         <div class="col-md-2 col-sm-2 sub-header-menu-item"
              [class.disabled]="!user.is_active">
-            <a routerLink="/profil/candidatures">
+            <a routerLink="/profil/candidatures" routerLinkActive="active">
                 <i class="icon-user-following"><br /></i>
                 <h3>Mes candidatures</h3>
             </a>
         </div>
         <div class="col-md-2 col-sm-2 sub-header-menu-item"
              [class.disabled]="!user.is_active">
-            <a routerLink="/recherche">
+            <a routerLink="/recherche" routerLinkActive="active">
                 <i class="icon-magnifier"><br /></i>
                 <h3>Toutes les offres</h3>
             </a>
@@ -60,21 +60,21 @@
     <div *ngIf="user.user_type_id == 2">
         <div class="col-md-2 col-sm-2 sub-header-menu-item"
              [class.disabled]="!user.is_active">
-            <a routerLink="/profil/annonces">
+            <a routerLink="/profil/annonces" routerLinkActive="active">
                 <i class="icon-note"><br /></i>
                 <h3>Mes annonces</h3>
             </a>
         </div>
         <div class="col-md-2 col-sm-2 sub-header-menu-item"
              [class.disabled]="!user.is_active">
-            <a routerLink="/profil/candidats">
+            <a routerLink="/profil/candidats" routerLinkActive="active">
                 <i class="icon-user-following"><br /></i>
                 <h3>Mes postulants</h3>
             </a>
         </div>
         <div class="col-md-2 col-sm-2 sub-header-menu-item"
              [class.disabled]="!user.is_active">
-            <a routerLink="/profil/etablissements">
+            <a routerLink="/profil/etablissements" routerLinkActive="active">
                 <i class="icon-layers"><br /></i>
                 <h3>Mes établissements</h3>
             </a>

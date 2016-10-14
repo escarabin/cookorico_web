@@ -1,7 +1,6 @@
 profile-sidebar {
   display: block;
   border-radius: $mainBorderRadius;
-  color: white;
   width: 20%;
   float: left;
 
@@ -9,14 +8,25 @@ profile-sidebar {
     text-align: left;
     margin: 0 15px;
     margin-bottom: 20px;
-    background-color: $oechrBlueColor;
+    background-color: white;
     border-radius: $mainBorderRadius;
-    padding: 15px;
+    padding: 15px 0;
 
-    .user-title {
-      font-family: $mainBoldFontFamily;
-      text-align: center;
-      color: white;
+    .plan {
+      .plan-infos {
+        padding: 15px 10px;
+      }
+
+      .plan-credits {
+        font-size: 1.5em;
+        padding: 0 10px;
+        font-family: $mainMediumFontFamily;;
+        color: $oechrBlueColor;
+
+        hr {
+          margin: 5px;
+        }
+      }
     }
   }
 
@@ -36,16 +46,6 @@ profile-sidebar {
     max-height: 70px;
     transition-property: all;
     transition-duration: 350ms;
-
-    .plan {
-      padding-top: 15px;
-      text-align: center;
-
-      .plan-credits, .plan-contacts {
-        text-align: center;
-        font-family: $mainBoldFontFamily;
-      }
-    }
 
     a {
       color: $mainDarkTextColor;
