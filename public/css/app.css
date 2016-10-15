@@ -162,6 +162,12 @@ home {
       home .heading .job-search select {
         margin-bottom: 15px; } }
 
+pricing-plans .plan {
+  box-shadow: 0px 0px 40px 0px #c0d0d6;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 35px; }
+
 my-job-posts .job-stats, my-job-posts .job-applications {
   font-family: "Avenir Medium", sans-serif;
   text-align: left;

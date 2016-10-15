@@ -23,7 +23,8 @@ import { CreateMailTemplateComponent } from './components/create-mail-template.c
 import { WebsiteEditorComponent } from "./components/website-editor.component";
 import { ConfirmAccountCreationComponent } from "./components/confirm-account-creation.component";
 import { MatchingProfilesComponent } from './components/matching-profiles.component';
-import {TestimonialRequestsComponent} from "./components/testimonial-requests.component";
+import { TestimonialRequestsComponent } from "./components/testimonial-requests.component";
+import { PricingPlansComponent } from '../shared/components/pricing-plans.component';
 
 const profileRoutes: Routes = [
     {
@@ -98,6 +99,9 @@ const profileRoutes: Routes = [
 
             // Confirm account creation
             {path: 'confirmer-le-compte/:userId', component: ConfirmAccountCreationComponent},
+
+            // Pricing plans
+            {path: 'mon_abonnement', component: PricingPlansComponent},
 
             // Website editor
             {path: 'website-editor', component: WebsiteEditorComponent},

@@ -3,6 +3,10 @@ import { Response } from '@angular/http';
 
 // Services
 import { UserService } from '../../services/user.service';
+import { NotificationsService } from '../../services/notification.service';
+
+// Models
+import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'applications',
@@ -14,7 +18,8 @@ export class ApplicationsComponent {
     applications: any = [];
     statusId: number = 0;
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService,
+                private notificationService: NotificationsService) {
         let __this = this;
 
         __this.refreshApplications()
@@ -34,7 +39,7 @@ export class ApplicationsComponent {
             if (this.applications[i].archived && statusId == 4) {
                 count += 1;
             }
-            if (statusId == 0) {
+            if (statusId == 0 && !this.applications[i].archived) {
                 count += 1;
             }
         }
@@ -61,6 +66,10 @@ export class ApplicationsComponent {
 
         this.userService.archivateApplication(applicationId).subscribe((res: Response) => {
             __this.refreshApplications()
+
+            __this.notificationService.show(
+                new Notification('success', 'Cette candidature a bien été archivée')
+            );
         });
     }
 }

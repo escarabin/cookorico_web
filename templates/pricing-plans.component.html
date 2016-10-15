@@ -1,0 +1,40 @@
+<h2>Votre abonnement recruteur</h2>
+
+<div *ngFor="let plan of plans"
+     class="col-md-12">
+    <div class="plan"
+         *ngIf="plan.credits > 0">
+        <div class="col-md-12 plan-credits">
+            Il vous reste actuellement {{ plan.credits }} crédits
+            <hr />
+        </div>
+        <div class="col-md-12 plan-infos">
+            {{ plan.pricing_plan.daily_contacts }} accès CVthèque disponibles<br /><br />
+        </div>
+        <div class="col-md-12 bill-paid">
+            Facture payée le {{ plan.created_at | date:"dd/MM/yyyy" }}
+        </div>
+    </div>
+</div>
+
+<h2>Trouvez le pack adapté à vos besoins</h2>
+
+<div *ngFor="let service of services; let i = index"
+     class="col-md-3 centered plan">
+    <h3>
+        {{ service.name }}
+    </h3>
+    <p>
+        {{ service.stickyNote }}
+    </p>
+    <hr/>
+    <h2>
+        {{ service.formatted_unitAmount }}
+    </h2>
+    <br />
+    <button class="btn btn-primary full-width"
+            id="pay-with-paypal-btn-{{ i }}"
+            (click)="payWithPaypal(i)">
+        <span class="fa fa-paypal"></span> &nbsp; Souscrire
+    </button>
+</div>
