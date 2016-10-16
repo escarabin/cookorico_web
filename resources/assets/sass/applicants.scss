@@ -226,6 +226,22 @@ applicants {
       }
     }
   }
+
+  .btn-default, .btn-danger, .btn-primary {
+    padding: 10px !important;
+    height: 60px !important;
+    span {
+      font-size: 1.5em;
+    }
+  }
+
+  .btn-danger {
+    background-color: $dangerColor !important;
+  }
+
+  .btn-primary {
+    background-color: $successColor !important;
+  }
 }
 
 

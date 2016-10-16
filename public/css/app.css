@@ -1142,6 +1142,18 @@ applicants .list-container {
           max-width: 80px;
           max-height: 80px; }
 
+applicants .btn-default, applicants .btn-danger, applicants .btn-primary {
+  padding: 10px !important;
+  height: 60px !important; }
+  applicants .btn-default span, applicants .btn-danger span, applicants .btn-primary span {
+    font-size: 1.5em; }
+
+applicants .btn-danger {
+  background-color: #E13543 !important; }
+
+applicants .btn-primary {
+  background-color: #34ba47 !important; }
+
 @media (max-width: 1024px) {
   applicants .list-container ul li .date {
     display: none; }
