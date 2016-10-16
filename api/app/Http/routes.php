@@ -48,7 +48,10 @@ Route::get('/user/job-posts/all', 'UserController@getJobPosts')
     ->name('getMyJobPosts');
 Route::post('/job-post/create', 'JobController@create')
     ->name('createJobPost');
-
+Route::get('/job-post/accept/{jobPostId}', 'JobController@accept')
+    ->name('acceptJobPost');
+Route::get('/job-post/reject/{jobPostId}', 'JobController@reject')
+    ->name('rejectJobPost');
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
     ->name('signIn');

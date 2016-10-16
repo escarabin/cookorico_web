@@ -57,6 +57,8 @@ export class UserService {
     getFillPercentageUrl = appGlobals.apiUrl + '/user/get_profile_percentage';
     makeCandidateAccessibleUrl = appGlobals.apiUrl + '/user/make_candidate_accessible';
     doRecruiterHasAccessToCandidateUrl = appGlobals.apiUrl + '/user/access_to_candidate';
+    acceptJobPostUrl = appGlobals.apiUrl + '/job-post/accept';
+    rejectJobPostUrl = appGlobals.apiUrl + '/job-post/reject';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
@@ -502,6 +504,22 @@ export class UserService {
      */
     doRecruiterHasAccessToCandidate(candidateId: number) {
         return this.http.get(this.doRecruiterHasAccessToCandidateUrl + '/' + candidateId);
+    }
+
+    /**
+     * Accept specifc job post as admin user
+     * @param jobPostId
+     */
+    acceptJobPost(jobPostId: number) {
+        return this.http.get(this.acceptJobPostUrl + '/' + jobPostId);
+    }
+
+    /**
+     * Reject specifc job post as admin user
+     * @param jobPostId
+     */
+    rejectJobPost(jobPostId: number) {
+        return this.http.get(this.rejectJobPostUrl + '/' + jobPostId);
     }
 
     /**

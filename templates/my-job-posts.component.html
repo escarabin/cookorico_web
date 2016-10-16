@@ -27,11 +27,12 @@
                          [class.col-sm-7]="!item.business.logo"
                          class="col-xs-8">
                         <h3>{{ item.job_naming.title.substr(0, 30) }}...</h3>
+                        <span *ngIf="item.is_reviewed" class="alert-info">En ligne</span>
+                        <span *ngIf="!item.is_reviewed" class="alert-warning">En validation</span>
+                        <span *ngIf="item.is_rejected" class="alert-danger">Rejetée</span>
+                        <br />
                         {{ item.contract_type.title }} - {{ item.week_work_hours }}h<br />
                         {{ item.business.title }}<br />
-                        <span *ngIf="item.business.place.city">
-                            {{ item.business.place.city }}<br />
-                        </span>
                         Publié le {{ item.created_at | date:"dd/MM/yyyy" }}<br />
                         <!-- <span class="date">
                             {{ item.start_date }} &nbsp;

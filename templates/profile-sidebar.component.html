@@ -71,6 +71,12 @@
            routerLinkActive="active">
             <i class="icon-list"></i> &nbsp; Annonces
         </a>
+        <a *ngIf="user.user_type_id == 1"
+           routerLink="/profil/annonces_admin"
+           [class.visible]="isMobileMenuVisible"
+           routerLinkActive="active">
+            <i class="icon-list"></i> &nbsp; Annonces
+        </a>
         <a *ngIf="user.user_type_id == 2"
            routerLink="/profil/postulants"
            [class.visible]="isMobileMenuVisible"

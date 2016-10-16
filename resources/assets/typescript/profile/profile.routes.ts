@@ -15,6 +15,7 @@ import { CreateAlertComponent } from "./components/create-alert.component";
 import { CreateBusinessComponent } from "./components/create-business.component";
 import { BusinessesComponent } from "./components/businesses.component";
 import { MyJobPostsComponent } from './components/my-job-posts.component';
+import { AdminJobPostsComponent } from './components/admin-job-posts.component';
 import { CreateJobPostComponent } from './components/create-job-post.component';
 import { ApplicantsComponent } from './components/applicants.component';
 import { ProfilePreviewComponent } from './components/profile-preview.component';
@@ -78,6 +79,7 @@ const profileRoutes: Routes = [
             {path: 'annonce/editer/:jobPostId', component: CreateJobPostComponent},
             {path: 'annonce/creer/:businessId', component: CreateJobPostComponent},
             {path: 'annonce/creer', component: CreateJobPostComponent},
+            {path: 'annonces_admin', component: AdminJobPostsComponent},
             {path: 'annonce', redirectTo: '/profil/annonces'},
             {path: 'annonces', component: MyJobPostsComponent},
 

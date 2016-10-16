@@ -266,4 +266,32 @@ class JobController extends Controller
 
         return $jobPost;
     }
+
+    /**
+     * Accept specific jobPost as an admin user
+     * @param $jobPostId
+     */
+    public function accept($jobPostId) {
+        $jobPost = Job::find($jobPostId);
+
+        $jobPost->is_accepted = true;
+
+        $jobPost->save();
+
+        return $jobPost;
+    }
+
+    /**
+     * Reject specific jobPost as an admin user
+     * @param $jobPostId
+     */
+    public function reject($jobPostId) {
+        $jobPost = Job::find($jobPostId);
+
+        $jobPost->is_rejected = true;
+
+        $jobPost->save();
+
+        return $jobPost;
+    }
 }
