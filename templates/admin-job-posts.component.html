@@ -15,6 +15,7 @@
     <ul>
         <li class="row" *ngFor="let item of items">
             <div class="col-md-12 col-sm-12 col-xs-12 item"
+                 *ngIf="!item.is_accepted && !item.is_rejected"
                  [class.logo]="item.business.logo">
                 <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
                     <img src="{{ item.business.logo }}"
@@ -26,8 +27,8 @@
                      [class.col-sm-7]="!item.business.logo"
                      class="col-xs-8">
                     <h3>{{ item.job_naming.title.substr(0, 30) }}...</h3>
-                    <span *ngIf="item.is_reviewed" class="alert-info">En ligne</span>
-                    <span *ngIf="!item.is_reviewed" class="alert-warning">En validation</span>
+                    <span *ngIf="item.is_accepted" class="alert-info">En ligne</span>
+                    <span *ngIf="!item.is_accepted" class="alert-warning">En validation</span>
                     <span *ngIf="item.is_rejected" class="alert-danger">Rejetée</span>
                     <br />
                     {{ item.contract_type.title }} - {{ item.week_work_hours }}h<br />

@@ -984,6 +984,168 @@ notifications {
   100% {
     bottom: 0; } }
 
+applicants .header-container {
+  padding: 0;
+  height: 70px;
+  border-bottom: 1px solid #e6e6e6;
+  background: #35B6E1; }
+  applicants .header-container select {
+    height: 59px;
+    border: none;
+    border-right: 1px solid white;
+    background: #35B6E1;
+    color: white; }
+  applicants .header-container .filter {
+    border-right: 1px solid #e6e6e6;
+    padding: 20px;
+    float: left;
+    text-transform: uppercase;
+    font-family: "Avenir Heavy", sans-serif;
+    cursor: pointer; }
+    applicants .header-container .filter label {
+      cursor: pointer; }
+    applicants .header-container .filter:hover {
+      background-color: whitesmoke; }
+    applicants .header-container .filter.active {
+      background-color: #35B6E1; }
+      applicants .header-container .filter.active label {
+        color: white; }
+  applicants .header-container .items-count {
+    text-align: center;
+    font-family: "Avenir Heavy", sans-serif;
+    font-size: 2em;
+    color: white;
+    padding: 15px; }
+  applicants .header-container .main-checkbox-container {
+    padding: 22px;
+    text-align: center;
+    border-right: 1px solid #e6e6e6;
+    background: #35B6E1;
+    border-top-left-radius: 4px; }
+    applicants .header-container .main-checkbox-container md-checkbox {
+      pointer-events: none; }
+    applicants .header-container .main-checkbox-container.selected {
+      background-color: #35B6E1; }
+  applicants .header-container .actions-container {
+    padding: 0;
+    text-align: right; }
+    applicants .header-container .actions-container button {
+      width: 60px;
+      height: 69px;
+      background: transparent;
+      border: none;
+      color: white; }
+      applicants .header-container .actions-container button:hover {
+        background: transparent; }
+
+applicants h2 {
+  text-align: center;
+  font-size: 2.3em; }
+
+applicants form .submit-btn, applicants form .back-btn {
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  height: 60px; }
+
+applicants form label {
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-bottom: 5px; }
+
+applicants .router-outlet-container {
+  background: white;
+  border-radius: 4px; }
+
+applicants .page-title-container h3 {
+  padding: 25px;
+  border-top: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
+  color: #a4acb3;
+  text-align: center; }
+
+applicants .dynamic_data {
+  font-family: "Avenir Medium", sans-serif;
+  color: #1a1f38; }
+
+applicants .list-container {
+  padding: 0; }
+  applicants .list-container .checkbox-container {
+    float: left;
+    padding: 40px 0;
+    text-align: center;
+    border-right: 1px solid #e6e6e6;
+    cursor: pointer; }
+  applicants .list-container ul {
+    padding: 0;
+    margin-bottom: 0; }
+    applicants .list-container ul li {
+      background: whitesmoke;
+      padding: 0;
+      margin: 0;
+      transition-property: all;
+      transition-duration: 150ms;
+      border-left: 4px solid transparent; }
+      applicants .list-container ul li a {
+        text-decoration: underline; }
+      applicants .list-container ul li button {
+        border: none;
+        border-radius: 4px;
+        color: white;
+        height: 50px;
+        padding: 15px;
+        margin-top: 10px; }
+      applicants .list-container ul li md-checkbox {
+        pointer-events: none; }
+      applicants .list-container ul li:nth-child(odd) {
+        background: white; }
+      applicants .list-container ul li:hover {
+        background-color: #f0f0f0;
+        border-color: #35B6E1; }
+      applicants .list-container ul li.selected {
+        background: #35B6E1;
+        color: white; }
+        applicants .list-container ul li.selected .checkbox-container {
+          background: #35B6E1; }
+        applicants .list-container ul li.selected .item-desc, applicants .list-container ul li.selected h3 {
+          color: white; }
+        applicants .list-container ul li.selected md-checkbox .md-checkbox-frame {
+          border: none; }
+      applicants .list-container ul li a {
+        color: #333; }
+      applicants .list-container ul li h3 {
+        font-family: "Avenir Medium", sans-serif;
+        max-height: 20px;
+        overflow: hidden;
+        color: #1a1f38;
+        margin: 5px 0; }
+      applicants .list-container ul li .date {
+        color: #a9a9a9;
+        font-family: "Avenir Medium", sans-serif;
+        font-size: 0.9em; }
+      applicants .list-container ul li .item {
+        padding: 10px;
+        display: inline-block; }
+        applicants .list-container ul li .item .item-desc {
+          float: left;
+          padding-left: 10px; }
+        applicants .list-container ul li .item .item-action-btn {
+          border: none;
+          background: none;
+          position: absolute;
+          right: 50px; }
+        applicants .list-container ul li .item.logo img, applicants .list-container ul li .item.photo img {
+          max-width: 80px;
+          max-height: 80px; }
+
+@media (max-width: 1024px) {
+  applicants .list-container ul li .date {
+    display: none; }
+  applicants .router-outlet-container {
+    width: 100%;
+    margin-left: 0;
+    padding-top: 140px; } }
+
 .cropping-result {
   position: absolute;
   margin-left: 20px; }

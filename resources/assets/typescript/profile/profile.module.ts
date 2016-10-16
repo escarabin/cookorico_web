@@ -24,7 +24,6 @@ import { BusinessesComponent } from './components/businesses.component';
 import { CreateBusinessComponent } from './components/create-business.component';
 import { MyJobPostsComponent } from './components/my-job-posts.component';
 import { CreateJobPostComponent } from './components/create-job-post.component';
-import { ApplicantsComponent } from './components/applicants.component';
 import { MailTemplatesComponent } from './components/mail-templates.component';
 import { CreateMailTemplateComponent } from './components/create-mail-template.component';
 import { WebsiteEditorComponent } from './components/website-editor.component';
@@ -52,7 +51,6 @@ import { UserService } from './../services/user.service';
                     BusinessesComponent,
                     MyJobPostsComponent,
                     CreateJobPostComponent,
-                    ApplicantsComponent,
                     ProfileSidebarComponent,
                     MailTemplatesComponent,
                     CreateMailTemplateComponent,
@@ -61,7 +59,7 @@ import { UserService } from './../services/user.service';
                     CreateBusinessComponent,
                     SignUpStepsComponent,
                     MatchingProfilesComponent,
-        TestimonialRequestsComponent,
+                    TestimonialRequestsComponent,
                     ConfirmAccountCreationComponent ],
     imports:      [ profileRouting,
                     FormsModule,

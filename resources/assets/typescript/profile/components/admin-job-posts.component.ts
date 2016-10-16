@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { Response } from '@angular/http';
 
 // Services
@@ -21,7 +21,6 @@ export class AdminJobPostsComponent {
     jobPlacementsLeftNum: any = [];
 
     constructor(private userService: UserService,
-                private ref: ChangeDetectorRef,
                 private notificationService: NotificationsService) {
         let __this = this;
 
@@ -57,8 +56,6 @@ export class AdminJobPostsComponent {
                     __this.items[i]['is_accepted'] = true;
                 }
             }
-
-            __this.ref.detectChanges();
         });
     }
 
@@ -76,8 +73,6 @@ export class AdminJobPostsComponent {
                     __this.items[i]['is_rejected'] = true;
                 }
             }
-
-            __this.ref.detectChanges();
         });
     }
 }
