@@ -128,7 +128,7 @@ export class CreateJobPostComponent {
                 }
                 else {
                     __this.notificationService.show(
-                        new Notification('success', 'Votre annonce vient d\'être publiée')
+                        new Notification('success', 'Votre annonce est en cours de validation')
                     );
                 }
 

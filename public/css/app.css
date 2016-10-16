@@ -168,6 +168,9 @@ pricing-plans .plan {
   padding: 10px;
   margin: 35px; }
 
+testimonial-requests .btn-danger {
+  background-color: #E13543 !important; }
+
 my-job-posts .job-stats, my-job-posts .job-applications {
   font-family: "Avenir Medium", sans-serif;
   text-align: left;
@@ -810,7 +813,8 @@ profile {
           color: white;
           height: 50px;
           padding: 15px;
-          margin-top: 10px; }
+          margin-top: 10px;
+          background-color: #3a63a0; }
         profile .list-container ul li md-checkbox {
           pointer-events: none; }
         profile .list-container ul li:nth-child(odd) {
