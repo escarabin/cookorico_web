@@ -126,6 +126,10 @@ Route::get('/user/applications/{userId?}', 'UserController@getApplications')
     ->name('getApplications');
 Route::post('/application/archivate/{applicationId}', 'UserController@archivateApplication')
     ->name('archivateApplication');
+Route::get('/application/reject/{applicationId?}', 'ApplicationController@reject')
+    ->name('rejectApplication');
+Route::get('/application/accept/{applicationId?}', 'ApplicationController@accept')
+    ->name('acceptApplication');
 
 // Experiences
 Route::get('/user/experiences/{userId?}', 'UserController@getExperiences')

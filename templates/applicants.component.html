@@ -75,13 +75,19 @@
                         </span>
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-primary full-width">
+                        <button class="btn btn-primary full-width"
+                                [disabled]="item.is_interested || item.is_rejected"
+                                (click)="acceptApplication(item.id)"
+                                tooltipPlacement="bottom" tooltipHtml="{{ item.acceptedTemplate }}">
                             <span class="icon-envelope-letter"></span><br />
-                            Accepter
+                            Intéressé
                         </button>
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-danger full-width">
+                        <button class="btn btn-danger full-width"
+                                [disabled]="item.is_interested || item.is_rejected"
+                                (click)="rejectApplication(item.id)"
+                                tooltipPlacement="bottom" tooltipHtml="{{ item.rejectedTemplate }}">
                             <span class="icon-envelope-letter"></span><br />
                             Refuser
                         </button>

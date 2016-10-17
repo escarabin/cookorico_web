@@ -5,13 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 // Services
 import { UserService } from '../../services/user.service';
 import { NotificationsService } from '../../services/notification.service';
-
+import { ApplicationService } from '../../services/application.service';
 // Models
 import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'applicants',
-    providers: [UserService],
+    providers: [UserService, ApplicationService],
     templateUrl: '../templates/applicants.component.html'
 })
 
@@ -21,9 +21,12 @@ export class ApplicantsComponent {
     jobPostId: number = null;
     allItemsChecked: boolean;
     checkedItemsList: any = [];
+    applicationAcceptedTemplate: string;
+    applicationRejectedTemplate: string;
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService,
+                private applicationService: ApplicationService,
                 private route: ActivatedRoute) {
         let __this = this;
 
@@ -31,9 +34,7 @@ export class ApplicantsComponent {
             __this.jobPosts = res.json();
         });
 
-        this.userService.getApplicants().subscribe((res: Response) => {
-            __this.items = res.json();
-        });
+        this.retrieveApplicants();
 
         /**
          * Get current jobPostId
@@ -45,56 +46,66 @@ export class ApplicantsComponent {
         });
     }
 
-    toggleAllItems() {
-        this.allItemsChecked =! this.allItemsChecked;
-
-        if (this.allItemsChecked) {
-            let checkedItemsListId = [];
-            for (let i = 0; i < this.items.length; i++) {
-                checkedItemsListId.push(this.items[i].id);
-            }
-            this.checkedItemsList = checkedItemsListId;
-        }
-        else {
-            this.checkedItemsList = [];
-        }
-    }
-
-    saveCheckedItem(itemId) {
-        let indexOfItemId = this.checkedItemsList.indexOf(itemId);
-        if (indexOfItemId == -1) {
-            this.checkedItemsList.push(itemId);
-        }
-        else {
-            this.checkedItemsList.splice(indexOfItemId, 1);
-        }
-
-        if (this.checkedItemsList.length != this.items.length) {
-            this.allItemsChecked = false;
-        }
-        else {
-            this.allItemsChecked = true;
-        }
-    }
-
-    deleteSelectedItems() {
+    retrieveApplicants() {
         let __this = this;
 
-        let parsedListItemId = this.checkedItemsList.join(',');
+        this.userService.getApplicants().subscribe((res: Response) => {
+            __this.items = res.json();
 
-        this.userService.deleteAlerts(parsedListItemId).subscribe((res: Response) => {
+            for (let i = 0; i < __this.items.length; i++) {
+                let application = __this.items[i];
 
-            __this.userService.getAlerts().subscribe((res: Response) => {
-                __this.items = res.json();
+                application['acceptedTemplate'] = "Un mail sera envoyé à <u><br/>" + application['user']['email'] + "</u>" +
+                    "<br/><br/>Votre candidature intéresse l'établissement " +
+                    "<strong>" + application['job']['business']['title'] + "</strong> " +
+                    "(" + application['job']['business']['place']['postalCode'] + " " +
+                    "" + application['job']['business']['place']['city'] + ") pour le poste de : " +
+                    "<strong>" + application['job']['jobNaming']['title'] + "</strong>.<br/><br/>" +
+                    "Merci de bien vouloir prendre contact directement avec eux.";
 
-                __this.notificationService.show(
-                    new Notification('success',
-                        'Ces candidats ont bien été prévenu de votre refus')
-                );
+                application['rejectedTemplate'] = "Un mail sera envoyé à <u><br/>" + application['user']['email'] + "</u>" +
+                    "<br/><br/>Bonjour,<br/><br/>" +
+                    "Votre candidature n'a pas été retenue pour le poste de : " +
+                    "<strong>" + application['job']['jobNaming']['title'] + "</strong> dans l'établissement " +
+                    "<strong>" + application['job']['business']['title'] + "</strong> (" + application['job']['business']['place']['postalCode'] + "" +
+                    " " + application['job']['business']['place']['city'] + ").<br/><br/>" +
+                    "Postulez à une nouvelle offre d'emploi sur " +
+                    "<a href=http://cookorico.fr/>http://cookorico.fr/</a>.";
 
-                this.checkedItemsList = [];
-                this.allItemsChecked = false;
-            });
+                __this.items[i] = application;
+            }
+        });
+    }
+
+    /**
+     * Accept specific application
+     * @param applicationId
+     */
+    acceptApplication(applicationId: number) {
+        let __this = this;
+
+        this.applicationService.accept(applicationId).subscribe(res => {
+            __this.notificationService.show(
+                new Notification('success', 'Le candidat a été alerté de votre intérêt')
+            );
+
+            this.retrieveApplicants();
+        });
+    }
+
+    /**
+     * Reject specific application
+     * @param applicationId
+     */
+    rejectApplication(applicationId: number) {
+        let __this = this;
+
+        this.applicationService.reject(applicationId).subscribe(res => {
+            __this.notificationService.show(
+                new Notification('success', 'Le candidat a été alerté que sa candidature n\'a pas été retenue')
+            );
+
+            this.retrieveApplicants();
         });
     }
 }

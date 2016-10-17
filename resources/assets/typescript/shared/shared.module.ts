@@ -16,6 +16,7 @@ import { ApplicantsComponent } from './../profile/components/applicants.componen
 import { ButtonsModule,
          ModalModule,
          CollapseModule,
+         TooltipModule,
          AccordionModule,
          AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 
@@ -39,6 +40,7 @@ import { UserService } from './../services/user.service';
                     CollapseModule,
                     AccordionModule,
                     AlertModule,
+                    TooltipModule,
                     ModalModule ],
     providers:    [ UserService ],
     imports:      [ BrowserModule,
@@ -49,6 +51,7 @@ import { UserService } from './../services/user.service';
                     CollapseModule,
                     AccordionModule,
                     AlertModule,
+                    TooltipModule,
                     ModalModule ],
 })
 

@@ -562,6 +562,8 @@ class UserController extends Controller
          */
         foreach ($applications as $application) {
             $application->job->business = $application->job->business;
+            $application->job->jobNaming = $application->job->jobNaming;
+            $application->job->business->place = $application->job->business->place;
         }
 
         return $applications;
