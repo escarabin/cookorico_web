@@ -4,5 +4,52 @@ pricing-plans {
     border-radius: $mainBorderRadius;
     padding: 10px;
     margin: 35px;
+
+    h3 {
+      color: #333;
+    }
+
+    &.plan-0 {
+      h2 {
+        color: #F18B06;
+      }
+      button {
+        background-color: #F18B06;
+      }
+    }
+
+    &.plan-1 {
+      h2 {
+        color: #48CFAD;
+      }
+      button {
+        background-color: #48CFAD;
+      }
+    }
+
+    &.plan-2 {
+      h2 {
+        color: #9375AE;
+      }
+      button {
+        background-color: #9375AE;
+      }
+    }
+  }
+
+  .about-us {
+    padding: 25px;
+    background: $oechrBlueColor;
+    color: white;
+    border-radius: $mainBorderRadius;
+
+    h3, h2 {
+      color: white;
+    }
+  }
+
+  h3 {
+    font-family: $mainBoldFontFamily;
+    color: #234484;
   }
 }

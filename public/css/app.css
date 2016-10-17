@@ -167,6 +167,32 @@ pricing-plans .plan {
   border-radius: 4px;
   padding: 10px;
   margin: 35px; }
+  pricing-plans .plan h3 {
+    color: #333; }
+  pricing-plans .plan.plan-0 h2 {
+    color: #F18B06; }
+  pricing-plans .plan.plan-0 button {
+    background-color: #F18B06; }
+  pricing-plans .plan.plan-1 h2 {
+    color: #48CFAD; }
+  pricing-plans .plan.plan-1 button {
+    background-color: #48CFAD; }
+  pricing-plans .plan.plan-2 h2 {
+    color: #9375AE; }
+  pricing-plans .plan.plan-2 button {
+    background-color: #9375AE; }
+
+pricing-plans .about-us {
+  padding: 25px;
+  background: #35B6E1;
+  color: white;
+  border-radius: 4px; }
+  pricing-plans .about-us h3, pricing-plans .about-us h2 {
+    color: white; }
+
+pricing-plans h3 {
+  font-family: "Avenir Heavy", sans-serif;
+  color: #234484; }
 
 testimonial-requests .btn-danger {
   background-color: #E13543 !important; }

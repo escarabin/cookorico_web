@@ -1,25 +1,26 @@
 <h2>Votre abonnement recruteur</h2>
-
+<hr />
 <div *ngFor="let plan of plans"
      class="col-md-12 centered">
     <div *ngIf="plan.credits > 0">
         <div class="col-md-12">
-            Il vous reste actuellement {{ plan.credits }} crédits
-            <hr />
+            <h3>Il vous reste actuellement {{ plan.credits }} crédits</h3>
         </div>
         <div class="col-md-12">
-            {{ plan.pricing_plan.daily_contacts }} accès CVthèque disponibles<br /><br />
+            <h3>{{ plan.pricing_plan.daily_contacts }} accès CVthèque disponibles</h3><br />
         </div>
         <div class="col-md-12">
             Facture payée le {{ plan.created_at | date:"dd/MM/yyyy" }}
+            <br /><br />
         </div>
     </div>
 </div>
 
 <h2>Trouvez le pack adapté à vos besoins</h2>
-
+<hr />
+<h3 class="centered">Vous êtes restaurateur ?</h3>
 <div *ngFor="let service of services; let i = index"
-     class="col-md-3 centered plan">
+     class="col-md-3 centered plan plan-{{ i }}">
     <h3>
         {{ service.name }}
     </h3>
@@ -39,12 +40,15 @@
 </div>
 
 <div class="col-md-12 centered">
-    <h2>Vous une agence d'intérim, un groupement d'hôtels ?</h2>
-    <h3>Découvrez nos solutions, contactez-nous</h3>
-    <button class="btn btn-default">
-        <span class="fa fa-envelope"></span> &nbsp; Par mail
-    </button>
-    <button class="btn btn-primary">
-        <span class="fa fa-phone"></span> &nbsp; 06 00 00 00 00
-    </button>
+    <div class="about-us">
+        <h2>Vous êtes une agence d'intérim, un groupement d'hôtels ?</h2>
+        <h3>Découvrez nos solutions, contactez-nous</h3>
+        <br />
+        <button class="btn btn-default">
+            <span class="fa fa-envelope"></span> &nbsp; Par mail
+        </button>
+        <button class="btn btn-default">
+            <span class="fa fa-phone"></span> &nbsp; 06 00 00 00 00
+        </button>
+    </div>
 </div>
