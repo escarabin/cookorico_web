@@ -38,7 +38,7 @@ export class UNITYTinyMCE {
     {
         let __this = this;
 
-        //Clone base textarea
+        // Clone base textarea
         var baseTextArea = this.elementRef.nativeElement.querySelector("#baseTextArea");
         var clonedTextArea = baseTextArea.cloneNode(true);
         clonedTextArea.id = this.elementID;

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Response } from '@angular/http';
 
 // Services
@@ -17,20 +18,25 @@ declare var braintree:any;
 })
 
 export class RecruiterPromoComponent {
+    userLastName: string;
+    userFirstName: string;
     email: string;
     password: string;
     error: string;
     isAlreadySignedUp: boolean = false;
 
     constructor(private userService: UserService,
+                private router: Router,
                 private notificationService: NotificationsService) {
 
     }
 
-    submitEmailAndPassword() {
+    signUp() {
         let __this = this;
 
-        this.userService.createUser(this.email, this.password, 2).subscribe((res:Response) => {
+        this.userService.createUser(this.email, this.password, 2, this.userLastName, this.userFirstName).subscribe((res:Response) => {
+            console.log(res);
+
             if (res['_body'].length > 100) {
                 /**
                  * User account successfully created
@@ -38,14 +44,17 @@ export class RecruiterPromoComponent {
                 __this.error = null;
 
                 __this.notificationService.show(
-                    new Notification('success', "Veuillez vérifier votre boite mail pour confirmer votre inscription !")
+                    new Notification('success', "Votre compte a bien été crée, plus qu'une étape avant de pouvoir l'utiliser !")
                 );
 
+                console.log(res['_body']);
+
+                let newUser = res.json();
+
                 /**
-                 * Close sign-up modal
+                 * Navigate to business creation
                  */
-                document.getElementById('close-sign-up-modal').click();
-                this.isAlreadySignedUp = true;
+                __this.router.navigate(['/profil/confirmer-le-compte/' + newUser['id']]);
             }
             else {
                 /**

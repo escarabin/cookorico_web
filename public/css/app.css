@@ -1572,8 +1572,24 @@ profile-sub-header {
 
 recruiter-promo {
   padding-top: 150px;
-  display: block;
-  text-align: center; }
+  display: block; }
+  recruiter-promo .recruiter-promo-heading h2 {
+    margin-top: 0;
+    margin-bottom: 25px; }
+  recruiter-promo .recruiter-promo-heading .promo-container {
+    max-width: 990px;
+    width: auto;
+    margin: auto; }
+    recruiter-promo .recruiter-promo-heading .promo-container .promo-label {
+      padding-top: 100px; }
+    recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box, recruiter-promo .recruiter-promo-heading .promo-container .login-box {
+      border-radius: 4px;
+      box-shadow: 0px 0px 40px 0px #c0d0d6;
+      padding: 25px 10px; }
+      recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box input, recruiter-promo .recruiter-promo-heading .promo-container .login-box input {
+        margin-bottom: 15px; }
+    recruiter-promo .recruiter-promo-heading .promo-container .login-box {
+      margin-top: 25px; }
 
 sign-up-steps {
   display: block; }

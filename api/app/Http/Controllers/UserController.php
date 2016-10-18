@@ -241,6 +241,8 @@ class UserController extends Controller
     public function createUser(Request $request) {
         $user = new User();
 
+        Log::info($request::all());
+
         /**
          * Check if a user exists with same email address
          */
@@ -250,6 +252,8 @@ class UserController extends Controller
         else {
             $user->email = $request::get('email');
             $user->user_type_id = $request::get('user_type_id');
+            $user->firstName = $request::get('firstName');
+            $user->lastName = $request::get('lastName');
             $user->password = Hash::make($request::get('password'));
             $user->save();
 

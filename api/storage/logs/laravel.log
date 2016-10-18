@@ -1,0 +1,17 @@
+[2016-10-18 21:17:15] local.INFO: array (
+  'email' => 'emmanuel@frii.iofsdgq',
+  'password' => '0216tablaux',
+  'user_type_id' => 2,
+  'firstName' => 'Emmanuel',
+  'lastName' => 'Scarab',
+)  
+[2016-10-18 21:18:07] local.INFO: logging user out  
+[2016-10-18 21:18:21] local.INFO: logging user out  
+[2016-10-18 21:18:30] local.INFO: array (
+  'email' => 'emmanuel@frii.iofqsdfsq',
+  'password' => '0216tablaux',
+  'user_type_id' => 2,
+  'firstName' => 'Emmanuel',
+  'lastName' => 'Scarabin',
+)  
+[2016-10-18 21:19:06] local.INFO: logging user out  

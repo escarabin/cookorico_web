@@ -1,5 +1,35 @@
 recruiter-promo {
   padding-top: $mainPagePaddingTop;
   display: block;
-  text-align: center;
+
+  .recruiter-promo-heading {
+    h2 {
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    .promo-container {
+      max-width: 990px;
+      width: auto;
+      margin: auto;
+
+      .promo-label {
+        padding-top: 100px;
+      }
+
+      .sign-up-box, .login-box {
+        border-radius: $mainBorderRadius;
+        box-shadow: $mainBoxShadow;
+        padding: 25px 10px;
+
+        input {
+          margin-bottom: 15px;
+        }
+      }
+
+      .login-box {
+        margin-top: 25px;
+      }
+    }
+  }
 }
