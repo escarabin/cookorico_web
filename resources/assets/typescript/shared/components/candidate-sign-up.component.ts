@@ -1,5 +1,6 @@
 import { Component, ChangeDetectorRef, ViewChild } from '@angular/core';
-import { Response } from '@angular/http'
+import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 import appGlobals = require('../../globals');
 
 // Services
@@ -30,10 +31,12 @@ export class CandidateSignUpComponent {
     @ViewChild('cropper', undefined) cropper: ImageCropperComponent;
     cropper:ImageCropperComponent;
     profilePictureData: any;
-    isLoading: boolean = false;
+    isResumeLoading: boolean = false;
+    isPictureLoading: boolean = false;
     photoUploaded: boolean = false;
     cropperSettings: CropperSettings;
     public profilePictureUploader:FileUploader = new FileUploader({url: URL});
+    public resumeUploader:FileUploader = new FileUploader({url: URL});
     public hasBaseDropZoneOver:boolean = false;
     lookingForJobNamingList: any = [{'id': 0, 'place': null},
                                     {'id': 0, 'place': null},
@@ -48,6 +51,7 @@ export class CandidateSignUpComponent {
 
     constructor(private referenceService: ReferenceService,
                 private ref: ChangeDetectorRef,
+                private router: Router,
                 private notificationService: NotificationsService,
                 private userService: UserService) {
         let __this = this;
@@ -78,9 +82,13 @@ export class CandidateSignUpComponent {
     }
 
     signUp() {
-        console.log(this.user);
-        this.userService.createCandidateUser(this.user).subscribe((res: Response) => {
-            console.log(res.json());
+        console.log(this.user, this.lookingForJobNamingList);
+        this.userService.createCandidateUser(this.user, this.lookingForJobNamingList).subscribe((res: Response) => {
+            this.notificationService.show(
+                new Notification('success', 'Un mail vient de vous être envoyé pour confirmer votre inscription')
+            );
+
+            this.router.navigate(['/']);
         });
     }
 
@@ -98,10 +106,20 @@ export class CandidateSignUpComponent {
     }
 
     public profilePictureFileDropped(e:any):void {
-        this.fileChangeListener(e);
+        this.isPictureLoading = true;
+        this.pictureChangeListener(e);
     }
 
-    public fileChangeListener($event) {
+    public resumeFileDropped(e:any):void {
+        this.isResumeLoading = true;
+        this.resumefileChangeListener(e);
+    }
+
+    public resumefileChangeListener($event) {
+
+    }
+
+    public pictureChangeListener($event) {
         var image:any = new Image();
 
         /**
@@ -123,6 +141,7 @@ export class CandidateSignUpComponent {
             image.src = loadEvent.target.result;
             __this.cropper.setImage(image);
             __this.user.profilePictureUrl = image.src;
+            __this.isPictureLoading = false;
         };
 
         myReader.readAsDataURL(file);

@@ -13,16 +13,45 @@ use Illuminate\Support\Facades\Log;
 class PlaceController extends Controller
 {
     /**
-     * Save a new place
+     * Save a new place or business
      * @param Request $request
-     * @return Place
+     * @return Place / Business
      */
    public function save(Request $request) {
        $placeData = $request::input('place');
 
+       $place = $this->savePlaceData($placeData);
+
+       if (in_array('establishment', $placeData['types'])) {
+           $place = Place::where('googlePlaceId', $placeData['place_id'])->first();
+
+           /**
+            * Find business related to this place
+            */
+           $business = Business::where('place_id', $place->id)->first();
+
+           /**
+            * If business does not exist, create it
+            */
+           if (!$business) {
+               $business = $this->createBusinessFromPlaceData($place, $placeData);
+           }
+
+           return $business;
+       }
+       else {
+           return $place;
+       }
+   }
+
+    /**
+     * Save a new place
+     * @param $placeData
+     * @return Place
+     */
+   public function savePlaceData($placeData) {
        // Check if place already exists in db
        $place = Place::where('googlePlaceId', $placeData['place_id'])->first();
-       $business = new Business();
 
        if (!$place) {
            // Parse place types into array (initially separated by commas)
@@ -39,6 +68,7 @@ class PlaceController extends Controller
            $place->postalCode = $this->getStringBetween($adr_adress, '<span class="postal-code">', '</span>');
            $place->lat = $placeData['geometry']['location']['lat'];
            $place->lon = $placeData['geometry']['location']['lng'];
+
            if (array_key_exists('viewport', $placeData['geometry'])) {
                $place->viewport_south = $placeData['geometry']['viewport']['south'];
                $place->viewport_west = $placeData['geometry']['viewport']['west'];
@@ -47,16 +77,6 @@ class PlaceController extends Controller
            }
 
            $place->save();
-
-           /**
-            * Check if business has been created for this place
-            */
-
-
-           // If place is an establishment, create business
-           if (in_array('establishment', $types)) {
-               $business = $this->createBusinessFromPlaceData($place, $placeData);
-           }
 
            foreach($types as $type) {
                if ($type != "") {
@@ -67,23 +87,16 @@ class PlaceController extends Controller
                }
            }
        }
-       else {
-           /**
-            * Find business related to this place
-            */
-           $business = Business::where('place_id', $place->id)->first();
 
-           /**
-            * If business does not exist, create it
-            */
-           if (!$business) {
-               $business = $this->createBusinessFromPlaceData($place, $placeData);
-           }
-       }
-
-       return $business;
+       return $place;
    }
 
+    /**
+     * Create business from place data
+     * @param $place
+     * @param $additionnalInfos
+     * @return Business
+     */
     public function createBusinessFromPlaceData($place, $additionnalInfos) {
         $business = new Business();
 

@@ -579,6 +579,8 @@ candidate-sign-up {
     font-family: "Avenir Heavy", sans-serif; }
   candidate-sign-up input, candidate-sign-up select {
     margin-bottom: 15px; }
+  candidate-sign-up canvas {
+    fill: white; }
 
 job-search-sidebar {
   width: 25%;
@@ -1746,5 +1748,8 @@ a:hover {
 
 .no-padding {
   padding: 0; }
+
+re-captcha > div > div {
+  margin: auto; }
 
 /*# sourceMappingURL=app.css.map */

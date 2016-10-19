@@ -58,12 +58,4 @@ export class ConfirmAccountCreationComponent {
             this.user.place_id = placeObject.id;
         });
     }
-
-    submitCandidateInfos() {
-        this.userService.createCandidate(this.user, this.lookingForJobNamingIdList).subscribe((res:Response) => {
-            localStorage.setItem('user', JSON.stringify(res.json()));
-            this.userService.loginUsingId(res.json()['id']);
-            this.router.navigate(['/profile/show'])
-        });
-    }
 }

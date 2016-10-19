@@ -259,21 +259,7 @@ class UserController extends Controller
             /**
              * Send confirmation email
              */
-            $mailTemplate = MailTemplate::where('slug', 'confirm-account')->first();
-
-            Mail::send('emails.confirm-account',
-                [
-                    'content' => $mailTemplate->message,
-                    'user' => $user,
-                    'confirm_link' => env('APP_ROOT_URL').'/profil/confirmer-le-compte/'.$user->id
-                ],
-                function ($message) use ($user, $mailTemplate) {
-                    $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
-
-                    $message->to($user->email, 'Test')
-                            ->subject($mailTemplate->subject);
-                }
-            );
+            $this->sendAccountConfirmationEmail($user);
 
             return $user;
         }
@@ -301,12 +287,52 @@ class UserController extends Controller
 
         $user->save();
 
-        $this->uploadProfilePictureBase64($userData['profilePictureUrl'], $user->id);
+        /**
+         * Populate the table containing the jobs the new candidate is looking for
+         */
+        $lookingForJobDataList = $request::get('lookingForJobNamingList');
+
+        // TODO : do it before launch!!!
+        /*foreach ($lookingForJobDataList as $data) {
+            $place = app('App\Http\Controllers\PlaceController')
+                     ->savePlaceData($data['place']);
+
+            DB::table('job_naming_user')->insert(
+                ['job_naming_id' => $data['id'],
+                 'place_id' => $place['id'],
+                 'user_id' => $user->id]
+            );
+        }*/
+
+        if (array_key_exists('profilePictureUrl', $userData)) {
+            $this->uploadProfilePictureBase64($userData['profilePictureUrl'], $user->id);
+        }
+
+        $this->sendAccountConfirmationEmail($user);
 
         return $user;
     }
 
-        /**
+    public function sendAccountConfirmationEmail($user) {
+        $mailTemplate = MailTemplate::where('slug', 'confirm-account')->first();
+
+
+        Mail::send('emails.confirm-account',
+            [
+                'content' => $mailTemplate->message,
+                'user' => $user,
+                'confirm_link' => env('APP_ROOT_URL').'/profil/confirmer-le-compte/'.$user->id
+            ],
+            function ($message) use ($user, $mailTemplate) {
+                $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                $message->to($user->email, 'Test')
+                    ->subject($mailTemplate->subject);
+            }
+        );
+    }
+
+    /**
      * Subtract one contact credit from user after he asked
      * for access to user infos
      * @param $candidateId

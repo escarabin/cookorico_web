@@ -196,10 +196,11 @@ export class UserService {
     /**
      * Create a candidate new user
      * @param user
+     * @param lookingForJobNamingList
      * @returns {Observable<Response>}
      */
-    createCandidateUser(user: User) {
-        let requestBody = JSON.stringify({ user });
+    createCandidateUser(user: User, lookingForJobNamingList: any) {
+        let requestBody = JSON.stringify({ user: user, lookingForJobNamingList: lookingForJobNamingList });
 
         return this.http.post(this.createCandidateUserUrl, requestBody, this.postRequestOptions);
     }
