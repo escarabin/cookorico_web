@@ -1,0 +1,206 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="centered">INSCRIPTION CANDIDAT</h1>
+        <h2 class="centered">Remplissez le formulaire pour vous inscrire</h2>
+        <br />
+    </div>
+    <form #signUpForm="ngForm">
+        <div class="col-md-6">
+            <label>Votre photo</label>
+            <input type="file"
+                   class="form-control"
+                   [(ngModel)]="user.profilePictureUrl"
+                   ngControl="user.profilePictureUrl"
+                   name="profile_picture"
+                   placeholder="Votre photo"/>
+        </div>
+        <div class="col-md-6">
+            <label>Votre CV</label>
+            <input type="file"
+                   class="form-control"
+                   name="resume"
+                   [(ngModel)]="user.resumeUrl"
+                   ngControl="user.resumeUrl"
+                   placeholder="Votre CV"/>
+        </div>
+        <div class="col-md-6">
+            <label>Civilité</label>
+            <select class="form-control"
+                    required
+                    name="civility"
+                    [(ngModel)]="user.civility"
+                    ngControl="user.civility">
+                <option disabled selected value="0">-- Civilité --</option>
+                <option *ngFor="let civility of civilities"
+                        value="{{ civility.id }}">
+                    {{ civility.title }}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label>Nom</label>
+            <input type="text"
+                   class="form-control"
+                   required
+                   name="lastName"
+                   [(ngModel)]="user.lastName"
+                   ngControl="user.lastName"
+                   placeholder="Nom"/>
+        </div>
+        <div class="col-md-6">
+            <label>Prénom</label>
+            <input type="text"
+                   class="form-control"
+                   required
+                   name="firstName"
+                   [(ngModel)]="user.firstName"
+                   ngControl="user.firstName"
+                   placeholder="Prénom"/>
+        </div>
+        <div class="col-md-6">
+            <label>Téléphone</label>
+            <input type="phone"
+                   class="form-control"
+                   required
+                   name="firstName"
+                   [(ngModel)]="user.phone"
+                   ngControl="user.phone"
+                   placeholder="Téléphone"/>
+        </div>
+        <div class="col-md-6">
+            <label>Date de naissance</label>
+            <input type="date"
+                   class="form-control"
+                   required
+                   name="date_of_birth"
+                   [(ngModel)]="user.birthDate"
+                   ngControl="user.birthDate"
+                   placeholder="Date de naissance"/>
+        </div>
+        <div class="col-md-12">
+            <hr />
+        </div>
+        <div class="col-md-6">
+            <label>Poste(s) recherchés</label>
+            <select class="form-control"
+                    name="loooking_for_job_naming_1"
+                    required
+                    [(ngModel)]="firstLookingjobNamingId">
+                <option disabled selected value="0">-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
+            </select>
+            <select class="form-control"
+                    name="loooking_for_job_naming_2"
+                    [(ngModel)]="secondLookingjobNamingId">
+                <option disabled selected value="0">-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
+            </select>
+            <select class="form-control"
+                    name="loooking_for_job_naming_3"
+                    [(ngModel)]="thirdLookingjobNamingId">
+                <option disabled selected value="0">-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label>Zone de recherche</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Localisation"
+                   required
+                   (setAddress)="parseAdress($event, 1)"
+                   googleplace/>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Localisation"
+                   (setAddress)="parseAdress($event, 2)"
+                   googleplace/>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Localisation"
+                   (setAddress)="parseAdress($event, 3)"
+                   googleplace/>
+        </div>
+        <div class="col-md-12">
+            <hr />
+        </div>
+        <div class="col-md-6">
+            <label>E-mail</label>
+            <input type="email"
+                   class="form-control"
+                   required
+                   name="email"
+                   [(ngModel)]="user.email"
+                   ngControl="user.email"
+                   placeholder="Adresse email"/>
+        </div>
+        <div class="col-md-6">
+            <label>Mot de passe</label>
+            <input type="password"
+                   class="form-control"
+                   required
+                   name="password"
+                   [(ngModel)]="user.password"
+                   ngControl="user.password"
+                   placeholder="Mot de passe souhaité"/>
+        </div>
+        <div class="col-md-6">
+            <label>Confirmer le mot de passe</label>
+            <input type="password"
+                   class="form-control"
+                   required
+                   name="password"
+                   [(ngModel)]="confirm_password"
+                   ngControl="confirm_password"
+                   placeholder="Mot de passe souhaité"/>
+        </div>
+        <div class="col-md-12 centered">
+            <br />
+            <label>
+                <input type="checkbox"
+                       name="is_cgu_accepted"
+                       [(ngModel)]="is_cgu_accepted"
+                        ngControl="is_cgu_accepted"/> &nbsp;
+                J'accepte les conditions générales d'utilisation
+            </label>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-6">
+            <re-captcha site_key="6LfwtgkUAAAAADet6cPSkFOr8wbBucAdVE62-7CQ"></re-captcha>
+            <br />
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <button class="btn btn-default full-width"
+                        (click)="document.location.reload()">
+                    Réinitialiser
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-primary full-width"
+                        (click)="signUp()">
+                    M'inscrire
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

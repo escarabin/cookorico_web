@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './shared/components/home.component';
 import { PostComponent } from './shared/components/post.component';
 import { ClubComponent } from './shared/components/club.component';
-import { SignUpComponent } from './shared/components/sign-up.component';
+import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.component';
 import { RecruiterPromoComponent } from './shared/components/recruiter-promo.component';
 import { BusinessPageComponent } from './shared/components/business-page.component';
 
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     { path: 'accueil', component: HomeComponent},
 
     // User
-    { path: 'inscription', component: SignUpComponent },
+    { path: 'inscription-candidat', component: CandidateSignUpComponent },
 
     // Promo
     { path: 'accueil-recruteur', component: RecruiterPromoComponent },

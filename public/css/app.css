@@ -557,11 +557,19 @@ applications {
   applications h3 {
     margin: 20px 0 5px 0 !important; }
 
-sign-up {
-  padding-top: 150px;
+candidate-sign-up {
   display: block;
   background: white;
-  border-radius: 4px; }
+  border-radius: 4px;
+  max-width: 990px;
+  margin: auto;
+  padding: 25px;
+  padding-top: 150px; }
+  candidate-sign-up h1 {
+    color: #35B6E1;
+    font-family: "Avenir Heavy", sans-serif; }
+  candidate-sign-up input, candidate-sign-up select {
+    margin-bottom: 15px; }
 
 job-search-sidebar {
   width: 25%;

@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { SELECT_DIRECTIVES } from 'ng2-select/ng2-select';
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
+import { ReCaptchaModule } from 'angular2-recaptcha';
 
 // Components
 import { UNITYTinyMCE } from './components/tiny-mce.component';
@@ -38,6 +39,7 @@ import { UserService } from './../services/user.service';
                     GoogleplaceDirective,
                     ButtonsModule,
                     CollapseModule,
+                    ReCaptchaModule,
                     AccordionModule,
                     AlertModule,
                     TooltipModule,
@@ -49,6 +51,7 @@ import { UserService } from './../services/user.service';
                     RouterModule,
                     ButtonsModule,
                     CollapseModule,
+                    ReCaptchaModule,
                     AccordionModule,
                     AlertModule,
                     TooltipModule,

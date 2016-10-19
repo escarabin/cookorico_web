@@ -18,11 +18,10 @@ import { SignInComponent } from './shared/components/sign-in.component';
 import { NotificationsComponent } from './shared/components/notification.component';
 import { PostPreviewComponent } from './shared/components/post-preview.component';
 import { PostComponent } from './shared/components/post.component';
-import { SignUpComponent } from './shared/components/sign-up.component';
 import { ProfileSubHeaderComponent } from './shared/components/profile-sub-header.component';
 import { RecruiterPromoComponent } from './shared/components/recruiter-promo.component';
 import { ClubComponent } from './shared/components/club.component';
-import { SignUpComponent } from './shared/components/sign-up.component';
+import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.component';
 import { PaginationControlsCmp } from 'ng2-pagination';
 
 @NgModule({
@@ -32,7 +31,7 @@ import { PaginationControlsCmp } from 'ng2-pagination';
                     FooterComponent,
                     PostComponent,
                     ClubComponent,
-                    SignUpComponent,
+                    CandidateSignUpComponent,
                     PaginationControlsCmp,
                     PostPreviewComponent,
                     SignInComponent,
