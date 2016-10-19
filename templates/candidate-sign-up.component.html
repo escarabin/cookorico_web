@@ -2,19 +2,39 @@
     <div class="col-md-12">
         <h1 class="centered">INSCRIPTION CANDIDAT</h1>
         <h2 class="centered">Remplissez le formulaire pour vous inscrire</h2>
-        <br />
+        <br /><br /><br /><br />
     </div>
     <form #signUpForm="ngForm">
         <div class="col-md-6">
             <label>Votre photo</label>
+            <div ng2FileDrop
+                 [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                 (fileOver)="fileOverBase($event)"
+                 (onFileDrop)="profilePictureFileDropped($event)"
+                 [uploader]="profilePictureUploader"
+                 class="well file-drop-zone">
+                Déposez votre fichier ici
+            </div>
             <input type="file"
-                   class="form-control"
-                   [(ngModel)]="user.profilePictureUrl"
-                   ngControl="user.profilePictureUrl"
-                   name="profile_picture"
-                   placeholder="Votre photo"/>
-        </div>
-        <div class="col-md-6">
+                   style="float: left;"
+                   ng2FileSelect
+                   [uploader]="profilePictureUploader"
+                   (change)="fileChangeListener($event)"/>
+            <button class="btn btn-default"
+                    [disabled]="!profilePictureData.image"
+                    *ngIf="!photoUploaded">
+                 <span class="fa"
+                       [class.fa-upload]="!isLoading"
+                       [class.fa-spinner]="isLoading"
+                       [class.fa-spin]="isLoading"></span> &nbsp; Enregistrer la photo
+            </button>
+            <button class="btn btn-success"
+                    *ngIf="photoUploaded">
+                <span class="fa fa-check"></span> &nbsp; Photo enregistrée
+            </button>
+            <br />
+            <br />
+            <br />
             <label>Votre CV</label>
             <input type="file"
                    class="form-control"
@@ -24,13 +44,24 @@
                    placeholder="Votre CV"/>
         </div>
         <div class="col-md-6">
+            <img-cropper #cropper [image]="profilePictureData" [settings]="cropperSettings">
+
+            </img-cropper>
+            <span class="cropping-result" *ngIf="profilePictureData.image" >
+                <img [src]="profilePictureData.image"
+                     [width]="cropperSettings.croppedWidth"
+                     [height]="cropperSettings.croppedHeight">
+            </span>
+            <br />
+        </div>
+        <div class="col-md-6">
             <label>Civilité</label>
             <select class="form-control"
                     required
                     name="civility"
-                    [(ngModel)]="user.civility"
-                    ngControl="user.civility">
-                <option disabled selected value="0">-- Civilité --</option>
+                    [(ngModel)]="user.civility_id"
+                    ngControl="user.civility_id">
+                <option disabled selected value="null">-- Civilité --</option>
                 <option *ngFor="let civility of civilities"
                         value="{{ civility.id }}">
                     {{ civility.title }}
@@ -83,9 +114,22 @@
         <div class="col-md-6">
             <label>Poste(s) recherchés</label>
             <select class="form-control"
-                    name="loooking_for_job_naming_1"
+                    name="loooking_for_job_naming_0"
                     required
-                    [(ngModel)]="firstLookingjobNamingId">
+                    [class.error]="lookingForJobNamingList[0]['id'] == 0"
+                    [(ngModel)]="lookingForJobNamingList[0]['id']">
+                <option disabled selected value="0">-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
+            </select>
+            <select class="form-control"
+                    name="loooking_for_job_naming_1"
+                    [(ngModel)]="lookingForJobNamingList[1]['id']">
                 <option disabled selected value="0">-- Type de poste --</option>
                 <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
                           label="{{ jobNamingGroup.title }}">
@@ -97,7 +141,7 @@
             </select>
             <select class="form-control"
                     name="loooking_for_job_naming_2"
-                    [(ngModel)]="secondLookingjobNamingId">
+                    [(ngModel)]="lookingForJobNamingList[2]['id']">
                 <option disabled selected value="0">-- Type de poste --</option>
                 <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
                           label="{{ jobNamingGroup.title }}">
@@ -107,18 +151,10 @@
                     </option>
                 </optgroup>
             </select>
-            <select class="form-control"
-                    name="loooking_for_job_naming_3"
-                    [(ngModel)]="thirdLookingjobNamingId">
-                <option disabled selected value="0">-- Type de poste --</option>
-                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
-                          label="{{ jobNamingGroup.title }}">
-                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
-                            value="{{ jobNaming.id }}">
-                        {{ jobNaming.title }}
-                    </option>
-                </optgroup>
-            </select>
+            <div class="alert alert-warning alert-dismissible fade in" role="alert"
+                 *ngIf="lookingForJobNamingList[0]['id'] == 0">
+                Vous devez choisir un premier poste
+            </div>
         </div>
         <div class="col-md-6">
             <label>Zone de recherche</label>
@@ -126,6 +162,12 @@
                    class="form-control"
                    placeholder="Localisation"
                    required
+                   [class.error]="lookingForJobNamingList[0]['place'] == null"
+                   (setAddress)="parseAdress($event, 0)"
+                   googleplace/>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Localisation"
                    (setAddress)="parseAdress($event, 1)"
                    googleplace/>
             <input type="text"
@@ -133,11 +175,10 @@
                    placeholder="Localisation"
                    (setAddress)="parseAdress($event, 2)"
                    googleplace/>
-            <input type="text"
-                   class="form-control"
-                   placeholder="Localisation"
-                   (setAddress)="parseAdress($event, 3)"
-                   googleplace/>
+            <div class="alert alert-warning alert-dismissible fade in" role="alert"
+                 *ngIf="lookingForJobNamingList[0]['place'] == null">
+                Vous devez choisir une première zone de recherche
+            </div>
         </div>
         <div class="col-md-12">
             <hr />
@@ -160,16 +201,23 @@
                    name="password"
                    [(ngModel)]="user.password"
                    ngControl="user.password"
+                   [class.error]="user.password != confirm_password"
                    placeholder="Mot de passe souhaité"/>
         </div>
         <div class="col-md-6">
             <label>Confirmer le mot de passe</label>
+            <div class="alert alert-warning alert-dismissible fade in" role="alert"
+                 *ngIf="user.password != confirm_password">
+                Les deux mots de passe ne coinicident pas
+            </div>
+
             <input type="password"
                    class="form-control"
                    required
                    name="password"
                    [(ngModel)]="confirm_password"
                    ngControl="confirm_password"
+                   [class.error]="user.password != confirm_password"
                    placeholder="Mot de passe souhaité"/>
         </div>
         <div class="col-md-12">
@@ -200,6 +248,11 @@
             </div>
             <div class="col-md-6">
                 <button class="btn btn-primary full-width"
+                        [disabled]="!signUpForm.valid
+                                    || !isCaptchaCorrect
+                                    || !is_cgu_accepted
+                                    || !lookingForJobNamingList[0]['place']
+                                    || user.password != confirm_password"
                         (click)="signUp()">
                     M'inscrire
                 </button>

@@ -6,8 +6,6 @@ import { profileRouting } from './profile.routes';
 
 // Components
 import { ProfileComponent } from './components/profile.component';
-import { ImageCropperComponent } from 'ng2-img-cropper';
-import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload/ng2-file-upload';
 import { BusinessSelectComponent } from './../shared/components/business-select.component';
 import { ProfilePreviewComponent } from './components/profile-preview.component';
 import { ExperiencesComponent } from './components/experiences.component';
@@ -36,8 +34,6 @@ import { UserService } from './../services/user.service';
 
 @NgModule({
     declarations: [ ProfileComponent,
-                    FileSelectDirective,
-                    FileDropDirective,
                     BusinessSelectComponent,
                     ProfilePreviewComponent,
                     ExperiencesComponent,
@@ -55,7 +51,6 @@ import { UserService } from './../services/user.service';
                     MailTemplatesComponent,
                     CreateMailTemplateComponent,
                     WebsiteEditorComponent,
-                    ImageCropperComponent,
                     CreateBusinessComponent,
                     SignUpStepsComponent,
                     MatchingProfilesComponent,

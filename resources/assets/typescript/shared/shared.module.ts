@@ -12,6 +12,8 @@ import { UNITYTinyMCE } from './components/tiny-mce.component';
 import { JobPreviewComponent } from './components/job-preview.component';
 import { JobSearchBarComponent } from './components/job-search-bar.component';
 import { ApplicantsComponent } from './../profile/components/applicants.component';
+import { ImageCropperComponent } from 'ng2-img-cropper';
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload/ng2-file-upload';
 
 // Bootstrap modules
 import { ButtonsModule,
@@ -29,6 +31,9 @@ import { UserService } from './../services/user.service';
                     SELECT_DIRECTIVES,
                     JobPreviewComponent,
                     JobSearchBarComponent,
+                    FileSelectDirective,
+                    FileDropDirective,
+                    ImageCropperComponent,
                     ApplicantsComponent,
                     GoogleplaceDirective],
     exports:      [ UNITYTinyMCE,
@@ -37,6 +42,9 @@ import { UserService } from './../services/user.service';
                     ApplicantsComponent,
                     SELECT_DIRECTIVES,
                     GoogleplaceDirective,
+                    FileSelectDirective,
+                    FileDropDirective,
+                    ImageCropperComponent,
                     ButtonsModule,
                     CollapseModule,
                     ReCaptchaModule,

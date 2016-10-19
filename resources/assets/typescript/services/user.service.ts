@@ -44,12 +44,13 @@ export class UserService {
     getApplicantsUrl = appGlobals.apiUrl + '/applicants/all';
     updateAlertUrl = appGlobals.apiUrl + '/alert/update';
     createUserUrl = appGlobals.apiUrl + '/user/create';
+    createCandidateUserUrl = appGlobals.apiUrl + '/user/candidate/create';
     resetPasswordUrl = appGlobals.apiUrl + '/password/email';
     saveUserInfoUrl = appGlobals.apiUrl + '/user/save_info';
     signOutUrl = appGlobals.apiUrl + '/user/sign_out';
     uploadProfilePictureUrl = appGlobals.apiUrl + '/user/upload_profile_picture';
     uploadResumeUrl = appGlobals.apiUrl + '/user/upload_resume';
-    createCandidateUrl = appGlobals.apiUrl + '/user/create_candidate';
+    // createCandidateUrl = appGlobals.apiUrl + '/user/create_candidate';
     confirmEmailAddressUrl = appGlobals.apiUrl + '/user/confirm_address';
     activateUserUrl = appGlobals.apiUrl + '/user/activate';
     loginUsingIdUrl = appGlobals.apiUrl + '/user/login_using_id';
@@ -190,6 +191,17 @@ export class UserService {
         let requestBody = JSON.stringify({ email, password, user_type_id, firstName, lastName });
 
         return this.http.post(this.createUserUrl, requestBody, this.postRequestOptions);
+    }
+
+    /**
+     * Create a candidate new user
+     * @param user
+     * @returns {Observable<Response>}
+     */
+    createCandidateUser(user: User) {
+        let requestBody = JSON.stringify({ user });
+
+        return this.http.post(this.createCandidateUserUrl, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -479,12 +491,13 @@ export class UserService {
     /**
      * Create candidate user
      * @param user
-     */
+
     createCandidate(user: User, lookingForJobsNamingIdList: any) {
         let requestBody = JSON.stringify({ user, lookingForJobsNamingIdList });
 
         return this.http.post(this.createCandidateUrl, requestBody, this.postRequestOptions);
     }
+     */
 
     /**
      * Get the percentage which the profile is filled in

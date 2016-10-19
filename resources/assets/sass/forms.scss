@@ -4,9 +4,16 @@
   -webkit-appearance:none;
   border-radius: $mainBorderRadius;
   border: 1px solid $lightGrey;
+  transition-duration: 250ms;
+  transition-property: all;
 
   &:focus {
     box-shadow: none;
+  }
+
+  &.error, &.wrong {
+    border-color: $dangerColor;
+    background: #fbf1f2;
   }
 }
 
@@ -18,13 +25,18 @@
   font-size: 2em;
 }
 
+input[type="file"] {
+  border: none;
+}
+
 .input-group input {
   border: 0;
   color: #9c9c9c;
 }
 
 select[required].ng-invalid, input[required].ng-invalid {
-  border: 1px solid $mainInvalidColor;
+  border-color: $dangerColor;
+  background: #fbf1f2;
 }
 
 label {

@@ -69,6 +69,8 @@ Route::get('/user/login_using_id/{userId}', 'UserController@loginUsingId')
     ->name('loginUsingId');
 Route::post('/user/create', 'UserController@createUser')
     ->name('createUser');
+Route::post('/user/candidate/create', 'UserController@createCandidateUser')
+    ->name('createCandidateUser');
 Route::get('/user/matching_profiles/', 'UserController@getMatchingProfiles')
     ->name('getMatchingProfiles');
 Route::get('/user/businesses/', 'UserController@getBusinesses')
@@ -78,8 +80,8 @@ Route::post('/user/upload_profile_picture', 'UserController@uploadProfilePicture
 Route::post('/user/upload_resume', 'UserController@uploadResume')
     ->name('uploadResume');
 Route::post('/user/save_info', 'UserController@saveInfo');
-Route::post('/user/create_candidate', 'UserController@fillCandidateInfos')
-    ->name('createCandidate');
+/*Route::post('/user/create_candidate', 'UserController@fillCandidateInfos')
+    ->name('createCandidate');*/
 Route::get('/user/get_profile_percentage', 'UserController@getProfilePercentage')
     ->name('getProfilePercentage');
 Route::get('/user/disable_account', 'UserController@disableAccount')

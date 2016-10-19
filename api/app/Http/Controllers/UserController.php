@@ -87,7 +87,7 @@ class UserController extends Controller
     /**
      * Create candidate user
      * @param Request $request
-     */
+
     public function fillCandidateInfos(Request $request) {
         $userInfos = $request::get('user');
         $user = User::find($userInfos['id']);
@@ -102,7 +102,6 @@ class UserController extends Controller
 
         /**
          * Populate job_naming_user table with jobs that the user is currently looking for
-         */
         foreach ($lookingForJobsNamingIdList as $jobNamingId) {
             $user->lookingForJobNamings()->attach($jobNamingId);
         }
@@ -113,7 +112,7 @@ class UserController extends Controller
 
         return $user;
     }
-
+*/
     /**
      * Login using specific id
      * @param $userId
@@ -281,6 +280,33 @@ class UserController extends Controller
     }
 
     /**
+     * Create new candidate user
+     * @param Request $request
+     * @return User
+     */
+    public function createCandidateUser(Request $request)
+    {
+        $userData = $request::get('user');
+        $user = new User();
+        $user->user_type_id = 3;
+
+        foreach ($userData as $key => $value) {
+            if ($key != "profilePictureUrl" && $key != "password") {
+                $user[$key] = $value;
+            }
+            else if ($key == "password") {
+                $user['password'] = Hash::make($value);
+            }
+        }
+
+        $user->save();
+
+        $this->uploadProfilePictureBase64($userData['profilePictureUrl'], $user->id);
+
+        return $user;
+    }
+
+        /**
      * Subtract one contact credit from user after he asked
      * for access to user infos
      * @param $candidateId
@@ -609,10 +635,22 @@ class UserController extends Controller
      * @return string
      */
     public function uploadProfilePicture(Request $request) {
-        $user_id = Auth::user()->id;
+        $userId = Auth::user()->id;
 
         $base64String = $request::input('base64');
 
+        $newFilePath = $this->uploadProfilePictureBase64($base64String, $userId);
+
+        return $newFilePath;
+    }
+
+    /**
+     * Upload profile picture
+     * @param $base64
+     * @param $userId
+     * @return string
+     */
+    public function uploadProfilePictureBase64($base64, $userId) {
         $newFilePath = 'uploads/user/pp/'.time().'.jpg';
         $dirName = dirname($newFilePath);
 
@@ -624,15 +662,19 @@ class UserController extends Controller
         }
 
         $ifp = fopen($newFilePath, "wb");
-        $data = explode(',', $base64String);
+        $data = explode(',', $base64);
 
         fwrite($ifp, base64_decode($data[1]));
         fclose($ifp);
 
         app('App\Http\Controllers\FileController')
-            ->upload('oechr-profile-picture', $user_id.'.jpg', $newFilePath);
+            ->upload('oechr-profile-picture', $userId.'.jpg', $newFilePath);
 
-        return $newFilePath;
+        $user = User::find($userId);
+        $user->profilePictureUrl = "https://s3-eu-west-1.amazonaws.com/oechr-profile-picture/".$userId.".jpg";
+        $user->save();
+
+        return $user->profilePictureUrl;
     }
 
 
