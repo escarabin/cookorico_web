@@ -172,23 +172,26 @@
                    ngControl="confirm_password"
                    placeholder="Mot de passe souhaité"/>
         </div>
-        <div class="col-md-12 centered">
-            <br />
-            <label>
-                <input type="checkbox"
-                       name="is_cgu_accepted"
-                       [(ngModel)]="is_cgu_accepted"
-                        ngControl="is_cgu_accepted"/> &nbsp;
-                J'accepte les conditions générales d'utilisation
-            </label>
-            <br />
-            <br />
-        </div>
-        <div class="col-md-6">
-            <re-captcha site_key="6LfwtgkUAAAAADet6cPSkFOr8wbBucAdVE62-7CQ"></re-captcha>
-            <br />
-        </div>
         <div class="col-md-12">
+            <div class="col-md-6 centered">
+                <br />
+                <label>
+                    <input type="checkbox"
+                           name="is_cgu_accepted"
+                           [(ngModel)]="is_cgu_accepted"
+                            ngControl="is_cgu_accepted"/> &nbsp;
+                    J'accepte les conditions générales d'utilisation
+                </label>
+                <br />
+                <br />
+            </div>
+            <div class="col-md-6 centered">
+                <re-captcha site_key="{{ googleRecaptchaSiteKey }}"
+                            (captchaResponse)="handleCorrectCaptcha($event)">
+
+                </re-captcha>
+                <br />
+            </div>
             <div class="col-md-6">
                 <button class="btn btn-default full-width"
                         (click)="document.location.reload()">

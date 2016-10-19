@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http'
+import appGlobals = require('../../globals');
 
 // Services
 import { UserService } from './../../services/user.service';
@@ -23,9 +24,9 @@ export class CandidateSignUpComponent {
     thirdLookingjobNamingId: number = 0;
     is_cgu_accepted: boolean = false;
     /**
-     * Google captcha vars
+     * Google recaptcha vars
      */
-
+    googleRecaptchaSiteKey = appGlobals.googleRecaptchaSiteKey;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService) {
@@ -48,5 +49,9 @@ export class CandidateSignUpComponent {
 
     parseAdress(place: Object, jobNamingIndex: number) {
 
+    }
+
+    handleCorrectCaptcha(event: any) {
+        console.log(event);
     }
 }
