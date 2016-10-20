@@ -570,7 +570,7 @@ candidate-dashboard .profile-stats {
   background-color: #f7f7f8;
   border-radius: 4px;
   padding: 25px;
-  margin-top: 40px; }
+  margin-top: 20px; }
 
 candidate-dashboard input, candidate-dashboard select {
   margin-bottom: 15px; }
@@ -1284,13 +1284,19 @@ profile-preview .list-container ul, candidate-dashboard .list-container ul {
   padding: 25px; }
 
 profile-preview .user-basic-infos, candidate-dashboard .user-basic-infos {
-  padding-top: 25px;
+  padding-top: 10px;
   line-height: 23px; }
   profile-preview .user-basic-infos .user-identity, candidate-dashboard .user-basic-infos .user-identity {
     font-size: 1.5em;
     font-family: "Avenir Heavy", sans-serif;
     color: #1a1f38;
     text-transform: uppercase; }
+    profile-preview .user-basic-infos .user-identity h2, candidate-dashboard .user-basic-infos .user-identity h2 {
+      padding: 0 !important;
+      margin: 0 !important;
+      border: none !important; }
+  profile-preview .user-basic-infos h3, candidate-dashboard .user-basic-infos h3 {
+    margin-top: 5px; }
 
 profile-preview .resume-container, candidate-dashboard .resume-container {
   text-align: center;

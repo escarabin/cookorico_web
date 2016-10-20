@@ -73,7 +73,7 @@ profile-preview, candidate-dashboard {
   }
 
   .user-basic-infos {
-    padding-top: 25px;
+    padding-top: 10px;
     line-height: 23px;
 
     .user-identity {
@@ -81,6 +81,16 @@ profile-preview, candidate-dashboard {
       font-family: $mainBoldFontFamily;
       color: $mainBlueColor;
       text-transform: uppercase;
+
+      h2 {
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+      }
+    }
+
+    h3 {
+      margin-top: 5px;
     }
   }
 

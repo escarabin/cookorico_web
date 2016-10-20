@@ -4,78 +4,45 @@
 
     </div>
 </div>
-<div class="col-md-6 col-sm-6 col-xs-9 user-basic-infos">
-        <span class="user-identity">
+<div class="col-md-9 col-sm-9 col-xs-12 user-basic-infos">
+    <span class="user-identity">
+        <h2>
             <span *ngIf="user.civility">
                 {{ user.civility.title }}
             </span>
-            {{ user.firstName }}
-            <span *ngIf="userInfosAccessible || editableProfile">
-                {{ user.lastName }}
+            {{ user.firstName }} {{ user.lastName }}
+        </h2>
+    </span>
+    <h3>
+        À la recherche d'un poste
+        <span *ngFor="let jobNaming of user['looking_for_job_namings']; let i = index;">
+                de {{ jobNaming['title'] }}
+                <span *ngIf="i + 1 != user['looking_for_job_namings'].length">,</span>
             </span>
-            <span *ngIf="!userInfosAccessible && !editableProfile">
-                {{ user.lastName.substr(0, 1) }}.
-            </span>
-            <br />
-        </span>
-
-    <div *ngIf="editableProfile || userInfosAccessible">
-        <b class="editable"
-           *ngIf="!editingItems['birthDate']"
-           (click)="editingItems['birthDate'] = true">
-            {{ user.birthDate }}
+    </h3>
+    <b>
+        {{ user.birthDate | date:"dd/MM/yyyy" }}
+    </b>
+    -
+    <span *ngIf="user.place">
+        <b class="editable">
+            {{ user.place.city }}
         </b>
-        <input type="date"
-               *ngIf="editingItems['birthDate']"
-               [(ngModel)]="user.birthDate"
-               (change)="saveProfileInfo('birthDate', user.birthDate)"
-               class="form-control"/>
-        -
-        <span *ngIf="user.place">
-                <b class="editable"
-                   *ngIf="!editingAdress"
-                   (click)="editingAdress = true">
-                    {{ user.place.adress }}
-                </b>
-                <input type="text"
-                       *ngIf="editingAdress"
-                       [(ngModel)]="user.place.adress"
-                       (change)="editingAdress = false"
-                       class="form-control"/>
-            </span>
-    </div>
+    </span>
     <br />
 
-    <div *ngIf="editableProfile || userInfosAccessible">
-            <span *ngIf="user.phone">
-                <span *ngIf="!editingItems['phone']">Tél : </span>
-                <b class="editable"
-                   *ngIf="!editingItems['phone']"
-                   (click)="editingItems['phone'] = true">
-                    {{ user.phone }}
-                </b>
-                <input type="text"
-                       *ngIf="editingItems['phone']"
-                       [(ngModel)]="user.phone"
-                       (change)="saveProfileInfo('phone', user.phone)"
-                       class="form-control"/>
-            </span>
-        <br />
-
-        <span *ngIf="!editingItems['new_email']">E-mail : </span>
-        <b class="editable"
-           *ngIf="!editingItems['new_email']"
-           (click)="editingItems['new_email'] = true">
-            {{ user.email }}
+    <span *ngIf="user.phone">
+        Tél :
+        <b>
+            {{ user.phone }}
         </b>
-        <input type="text"
-               *ngIf="editingItems['new_email']"
-               [(ngModel)]="user.new_email"
-               placeholder="Saisissez votre nouvel email"
-               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-               (change)="saveProfileInfo('new_email', user.new_email)"
-               class="form-control"/>
-    </div>
+    </span>
+    <br />
+
+    E-mail :
+    <b>
+        {{ user.email }}
+    </b>
     <br />
 
     <span *ngIf="user.status">

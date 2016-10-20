@@ -1,5 +1,4 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'
 import { Response } from '@angular/http';
 
 // Services

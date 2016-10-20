@@ -15,24 +15,31 @@
     </div>
     <div class="col-md-6 col-sm-6 col-xs-9 user-basic-infos">
         <span class="user-identity">
-            <span *ngIf="user.civility">
-                {{ user.civility.title }}
-            </span>
-            {{ user.firstName }}
-            <span *ngIf="userInfosAccessible || editableProfile">
-                {{ user.lastName }}
-            </span>
-            <span *ngIf="!userInfosAccessible && !editableProfile">
-                {{ user.lastName.substr(0, 1) }}.
-            </span>
-            <br />
+            <h2>
+                <span *ngIf="user.civility">
+                    {{ user.civility.title }}
+                </span>
+                {{ user.firstName }}
+                <span *ngIf="userInfosAccessible || editableProfile">
+                    {{ user.lastName }}
+                </span>
+                <span *ngIf="!userInfosAccessible && !editableProfile">
+                    {{ user.lastName.substr(0, 1) }}.
+                </span>
+            </h2>
         </span>
-
+        <h3>
+            À la recherche d'un poste
+            <span *ngFor="let jobNaming of user['looking_for_job_namings']; let i = index;">
+                de {{ jobNaming['title'] }}
+                <span *ngIf="i + 1 != user['looking_for_job_namings'].length">,</span>
+            </span>
+        </h3>
         <div *ngIf="editableProfile || userInfosAccessible">
             <b class="editable"
                *ngIf="!editingItems['birthDate']"
                (click)="editingItems['birthDate'] = true">
-                {{ user.birthDate }}
+                {{ user.birthDate | date:"dd/MM/yyyy" }}
             </b>
             <input type="date"
                    *ngIf="editingItems['birthDate']"
