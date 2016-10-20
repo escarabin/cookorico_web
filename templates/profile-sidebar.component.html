@@ -30,6 +30,12 @@
      [class.full-height]="isMobileMenuVisible">
     <div class="col-md-12 col-sm-10 col-xs-10">
         <a *ngIf="user.user_type_id == 3"
+           routerLink="/profil/espace-candidat"
+           routerLinkActive="active"
+           [class.visible]="isMobileMenuVisible">
+            <i class="icon-home"></i> &nbsp; Espace emploi
+        </a>
+        <a *ngIf="user.user_type_id == 3"
            routerLink="/profil/apercu"
            routerLinkActive="active"
            [class.visible]="isMobileMenuVisible">

@@ -15,6 +15,7 @@ use App\Models\JobType;
 use App\Models\JobXpLevel;
 use App\Models\StudyLevel;
 use App\Models\Place;
+use App\Models\UserStatus;
 
 class ReferenceController extends Controller
 {
@@ -77,6 +78,12 @@ class ReferenceController extends Controller
         $civilities = Civility::all();
 
         return $civilities;
+    }
+
+    public function getAllCandidateStatuses() {
+        $statuses = UserStatus::all();
+
+        return $statuses;
     }
 
     public function getAllStates() {

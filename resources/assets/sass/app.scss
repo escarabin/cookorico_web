@@ -17,6 +17,7 @@
 @import "sign-in-modal";
 @import "profile-sidebar";
 @import "applications";
+@import "candidate-dashboard";
 @import "candidate-sign-up";
 @import "job-search-sidebar";
 @import "job-preview";
@@ -110,4 +111,9 @@ a:hover {
 
 re-captcha>div>div {
   margin: auto;
+}
+
+.progress-bar {
+  background-color: $oechrBlueColor;
+  box-shadow: none;
 }

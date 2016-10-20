@@ -105,7 +105,7 @@ Route::get('/clubs/all', 'ClubController@getAll')
 
 // References
 Route::get('/states/all', 'ReferenceController@getAllStates')
-    ->name('getAllClubs');
+    ->name('getAllStates');
 Route::get('/job_types/all', 'ReferenceController@getAllJobTypes')
     ->name('getAllJobTypes');
 Route::get('/job_namings/all', 'ReferenceController@getAllJobNamings')
@@ -122,6 +122,8 @@ Route::get('/business_types/all', 'ReferenceController@getAllBusinessTypes')
     ->name('getAllBusinessTypes');
 Route::get('/civilities/all', 'ReferenceController@getAllCivilities')
     ->name('getAllCivilities');
+Route::get('/candidate-statuses/all', 'ReferenceController@getAllCandidateStatuses')
+    ->name('getAllCandidateStatuses');
 
 // Applications
 Route::get('/user/applications/{userId?}', 'UserController@getApplications')

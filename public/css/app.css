@@ -566,6 +566,15 @@ applications {
   applications h3 {
     margin: 20px 0 5px 0 !important; }
 
+candidate-dashboard .profile-stats {
+  background-color: #f7f7f8;
+  border-radius: 4px;
+  padding: 25px;
+  margin-top: 40px; }
+
+candidate-dashboard input, candidate-dashboard select {
+  margin-bottom: 15px; }
+
 candidate-sign-up {
   display: block;
   background: white;
@@ -1221,7 +1230,7 @@ applicants .btn-primary {
     color: #35B6E1;
     border: 2px solid #35B6E1; }
 
-profile-preview h2 {
+profile-preview h2, candidate-dashboard h2 {
   text-transform: uppercase;
   text-align: left;
   font-family: "Avenir Heavy", sans-serif;
@@ -1231,34 +1240,34 @@ profile-preview h2 {
   border-bottom: 1px solid #CCC;
   margin: 20px 0 0 0 !important; }
 
-profile-preview h3 {
+profile-preview h3, candidate-dashboard h3 {
   font-size: 1.3em; }
 
-profile-preview .badge {
+profile-preview .badge, candidate-dashboard .badge {
   background-color: #f7f7f8; }
 
-profile-preview .alert {
+profile-preview .alert, candidate-dashboard .alert {
   text-align: center; }
-  profile-preview .alert h3 {
+  profile-preview .alert h3, candidate-dashboard .alert h3 {
     color: #333;
     font-size: 1.5em; }
 
-profile-preview .row.scrolled-down {
+profile-preview .row.scrolled-down, candidate-dashboard .row.scrolled-down {
   margin-top: 200px; }
 
-profile-preview .form-control[input] {
+profile-preview .form-control[input], candidate-dashboard .form-control[input] {
   height: 35px;
   width: auto; }
 
-profile-preview .profile-picture-container {
+profile-preview .profile-picture-container, candidate-dashboard .profile-picture-container {
   padding: 10px 15px; }
-  profile-preview .profile-picture-container .profile-picture {
+  profile-preview .profile-picture-container .profile-picture, candidate-dashboard .profile-picture-container .profile-picture {
     width: 100%;
     height: 150px;
     position: relative;
     background-size: cover;
     background-position: center center; }
-    profile-preview .profile-picture-container .profile-picture .edit-profile-picture {
+    profile-preview .profile-picture-container .profile-picture .edit-profile-picture, candidate-dashboard .profile-picture-container .profile-picture .edit-profile-picture {
       width: 100%;
       position: absolute;
       bottom: 0;
@@ -1268,56 +1277,56 @@ profile-preview .profile-picture-container {
       background: #35B6E1;
       opacity: .5;
       cursor: pointer; }
-      profile-preview .profile-picture-container .profile-picture .edit-profile-picture:hover {
+      profile-preview .profile-picture-container .profile-picture .edit-profile-picture:hover, candidate-dashboard .profile-picture-container .profile-picture .edit-profile-picture:hover {
         opacity: .8; }
 
-profile-preview .list-container ul {
+profile-preview .list-container ul, candidate-dashboard .list-container ul {
   padding: 25px; }
 
-profile-preview .user-basic-infos {
+profile-preview .user-basic-infos, candidate-dashboard .user-basic-infos {
   padding-top: 25px;
   line-height: 23px; }
-  profile-preview .user-basic-infos .user-identity {
+  profile-preview .user-basic-infos .user-identity, candidate-dashboard .user-basic-infos .user-identity {
     font-size: 1.5em;
     font-family: "Avenir Heavy", sans-serif;
     color: #1a1f38;
     text-transform: uppercase; }
 
-profile-preview .resume-container {
+profile-preview .resume-container, candidate-dashboard .resume-container {
   text-align: center;
   padding: 25px;
   margin: 0 -15px; }
-  profile-preview .resume-container .edit-button {
+  profile-preview .resume-container .edit-button, candidate-dashboard .resume-container .edit-button {
     background: #35B6E1;
     border-radius: 4px;
     padding: 10px 15px;
     color: white;
     height: 45px;
     border: none; }
-  profile-preview .resume-container a {
+  profile-preview .resume-container a, candidate-dashboard .resume-container a {
     color: #333; }
-  profile-preview .resume-container .icon {
+  profile-preview .resume-container .icon, candidate-dashboard .resume-container .icon {
     font-size: 3em; }
 
-profile-preview .user-secondary-infos {
+profile-preview .user-secondary-infos, candidate-dashboard .user-secondary-infos {
   background: #f7f7f8;
   padding: 20px; }
 
-profile-preview .description {
+profile-preview .description, candidate-dashboard .description {
   margin: 0 25px;
   padding: 15px;
   pointer-events: none; }
 
-profile-preview .editable {
+profile-preview .editable, candidate-dashboard .editable {
   pointer-events: all;
   cursor: pointer;
   border-radius: 4px; }
 
-profile-preview .editable:hover {
+profile-preview .editable:hover, candidate-dashboard .editable:hover {
   background: rgba(53, 182, 225, 0.3);
   color: #10566d; }
 
-profile-preview #resume-preview-modal iframe {
+profile-preview #resume-preview-modal iframe, candidate-dashboard #resume-preview-modal iframe {
   height: 500px;
   width: 100%; }
 
@@ -1751,5 +1760,9 @@ a:hover {
 
 re-captcha > div > div {
   margin: auto; }
+
+.progress-bar {
+  background-color: #35B6E1;
+  box-shadow: none; }
 
 /*# sourceMappingURL=app.css.map */

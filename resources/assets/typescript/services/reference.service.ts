@@ -15,9 +15,18 @@ export class ReferenceService {
     getAllBusinessTypesListingUrl = appGlobals.apiUrl + '/business_types/all';
     getAllJobXpLevelsUrl = appGlobals.apiUrl + '/job_xp_levels/all';
     getAllCivilitiesUrl = appGlobals.apiUrl + '/civilities/all';
+    getAllCandidateStatusesURL = appGlobals.apiUrl + '/candidate-statuses/all';
 
     constructor(private http: Http) {
 
+    }
+
+    /**
+     * Listing all different candidate possible statuses
+     * @returns {Observable<Response>}
+     */
+    getAllCandidateStatuses() {
+        return this.http.request(this.getAllCandidateStatusesURL);
     }
 
     /**

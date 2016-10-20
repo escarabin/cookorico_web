@@ -1,0 +1,232 @@
+<div class="col-md-3 col-sm-3 col-xs-3 profile-picture-container">
+    <div class="profile-picture"
+         [ngStyle]="{'background-image': 'url(' + user.profilePictureUrl + ')'}">
+
+    </div>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-9 user-basic-infos">
+        <span class="user-identity">
+            <span *ngIf="user.civility">
+                {{ user.civility.title }}
+            </span>
+            {{ user.firstName }}
+            <span *ngIf="userInfosAccessible || editableProfile">
+                {{ user.lastName }}
+            </span>
+            <span *ngIf="!userInfosAccessible && !editableProfile">
+                {{ user.lastName.substr(0, 1) }}.
+            </span>
+            <br />
+        </span>
+
+    <div *ngIf="editableProfile || userInfosAccessible">
+        <b class="editable"
+           *ngIf="!editingItems['birthDate']"
+           (click)="editingItems['birthDate'] = true">
+            {{ user.birthDate }}
+        </b>
+        <input type="date"
+               *ngIf="editingItems['birthDate']"
+               [(ngModel)]="user.birthDate"
+               (change)="saveProfileInfo('birthDate', user.birthDate)"
+               class="form-control"/>
+        -
+        <span *ngIf="user.place">
+                <b class="editable"
+                   *ngIf="!editingAdress"
+                   (click)="editingAdress = true">
+                    {{ user.place.adress }}
+                </b>
+                <input type="text"
+                       *ngIf="editingAdress"
+                       [(ngModel)]="user.place.adress"
+                       (change)="editingAdress = false"
+                       class="form-control"/>
+            </span>
+    </div>
+    <br />
+
+    <div *ngIf="editableProfile || userInfosAccessible">
+            <span *ngIf="user.phone">
+                <span *ngIf="!editingItems['phone']">Tél : </span>
+                <b class="editable"
+                   *ngIf="!editingItems['phone']"
+                   (click)="editingItems['phone'] = true">
+                    {{ user.phone }}
+                </b>
+                <input type="text"
+                       *ngIf="editingItems['phone']"
+                       [(ngModel)]="user.phone"
+                       (change)="saveProfileInfo('phone', user.phone)"
+                       class="form-control"/>
+            </span>
+        <br />
+
+        <span *ngIf="!editingItems['new_email']">E-mail : </span>
+        <b class="editable"
+           *ngIf="!editingItems['new_email']"
+           (click)="editingItems['new_email'] = true">
+            {{ user.email }}
+        </b>
+        <input type="text"
+               *ngIf="editingItems['new_email']"
+               [(ngModel)]="user.new_email"
+               placeholder="Saisissez votre nouvel email"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+               (change)="saveProfileInfo('new_email', user.new_email)"
+               class="form-control"/>
+    </div>
+    <br />
+
+    <span *ngIf="user.status">
+        {{ user.status.title }}<br />
+    </span>
+    <!-- TODO -->
+    <span *ngIf="user.looking_for_job_naming">
+        Profil recherché : <b>{{ user.looking_for_job_naming.title }}</b><br />
+    </span>
+    <br />
+    <br />
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1 profile-stats centered">
+        <h2 class="centered">Vous avez complété {{ profilePercentage }}% de votre profil</h2><br />
+        <h3>Plus vous compléterez votre profil et plus vos chances d'être vu par les recruteurs seront grandes.</h3>
+        <br />
+        <div class="progress">
+            <div class="progress-bar"
+                 role="progressbar"
+                 [ngStyle]="{'width': profilePercentage + '%'}">
+                {{ profilePercentage }}%
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 centered">
+        <br />
+        Dernière mise à jour de votre profil : {{ user.updated_at | date:"dd/MM/yyyy" }}
+        <br /><br />
+        <button class="btn btn-primary"
+                routerLink="/profil/apercu">
+            Renseigner mon profil
+        </button>
+        <br /><br />
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-12">
+            <h2 class="centered">Votre recherche d'emploi</h2>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-6">
+            <label>Poste(s) recherchés</label>
+            <select class="form-control"
+                    name="loooking_for_job_naming_0"
+                    required
+                    [class.error]="lookingForJobNamingList[0]['id'] == 0"
+                    [(ngModel)]="lookingForJobNamingList[0]['id']">
+                <option disabled selected value="0">-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
+            </select>
+            <select class="form-control"
+                    name="loooking_for_job_naming_1"
+                    [(ngModel)]="lookingForJobNamingList[1]['id']">
+                <option disabled selected value="0">-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
+            </select>
+            <select class="form-control"
+                    name="loooking_for_job_naming_2"
+                    [(ngModel)]="lookingForJobNamingList[2]['id']">
+                <option disabled selected value="0">-- Type de poste --</option>
+                <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
+                          label="{{ jobNamingGroup.title }}">
+                    <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
+                            value="{{ jobNaming.id }}">
+                        {{ jobNaming.title }}
+                    </option>
+                </optgroup>
+            </select>
+            <div class="alert alert-warning alert-dismissible fade in" role="alert"
+                 *ngIf="lookingForJobNamingList[0]['id'] == 0">
+                Vous devez choisir un premier poste
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label>Zone de recherche</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Localisation"
+                   required
+                   [(ngModel)]="lookingForJobNamingList[0]['place']['formatted_address']"
+                   ngControl="lookingForJobNamingList[0]['place']['formatted_address']"
+                   name="lookingForPlace1"
+                   [class.error]="lookingForJobNamingList[0]['place'] == null"
+                   (setAddress)="parseAdress($event, 0)"
+                   googleplace/>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Localisation"
+                   [(ngModel)]="lookingForJobNamingList[1]['place']['formatted_address']"
+                   ngControl="lookingForJobNamingList[1]['place']['formatted_address']"
+                   name="lookingForPlace2"
+                   (setAddress)="parseAdress($event, 1)"
+                   googleplace/>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Localisation"
+                   (setAddress)="parseAdress($event, 2)"
+                   [(ngModel)]="lookingForJobNamingList[2]['place']['formatted_address']"
+                   ngControl="lookingForJobNamingList[2]['place']['formatted_address']"
+                   name="lookingForPlace3"
+                   googleplace/>
+            <div class="alert alert-warning alert-dismissible fade in" role="alert"
+                 *ngIf="lookingForJobNamingList[0]['place'] == null">
+                Vous devez choisir une première zone de recherche
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-12">
+            <h2 class="centered">Votre status actuel</h2>
+        </div>
+        <div class="col-md-6">
+            <br />
+            <label>Status actuel</label>
+            <select class="form-control"
+                    name="user_status"
+                    [(ngModel)]="user.user_status_id"
+                    ngControl="user.user_status_id">
+                <option value="null">-- Votre status --</option>
+                <option *ngFor="let status of candidateStatuses"
+                        value="{{ status.id }}">
+                    {{ status.title }}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3 centered">
+        <br />
+        <button class="btn btn-primary full-width"
+                [disabled]="!lookingForJobNamingList[0]['place'] || lookingForJobNamingList[0]['id'] == 0">
+            Enregistrer les modifications
+        </button>
+        <br />
+        <br />
+    </div>
+</div>

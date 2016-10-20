@@ -26,6 +26,7 @@ import { ConfirmAccountCreationComponent } from "./components/confirm-account-cr
 import { MatchingProfilesComponent } from './components/matching-profiles.component';
 import { TestimonialRequestsComponent } from "./components/testimonial-requests.component";
 import { PricingPlansComponent } from '../shared/components/pricing-plans.component';
+import { CandidateDashboardComponent } from './components/candidate-dashboard.component';
 
 const profileRoutes: Routes = [
     {
@@ -98,6 +99,9 @@ const profileRoutes: Routes = [
             {path: 'mail-template', redirectTo: '/profil/mail-templates'},
             {path: 'mail-template/create', component: CreateMailTemplateComponent},
             {path: 'mail-template/edit/:templateId', component: CreateMailTemplateComponent},
+
+            // Candidate dashboard
+            {path: 'espace-candidat', component: CandidateDashboardComponent},
 
             // Confirm account creation
             {path: 'confirmer-le-compte/:userId', component: ConfirmAccountCreationComponent},

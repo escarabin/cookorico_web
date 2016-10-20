@@ -1,0 +1,13 @@
+candidate-dashboard {
+
+  .profile-stats {
+    background-color: $mainBgColor;
+    border-radius: $mainBorderRadius;
+    padding: 25px;
+    margin-top: 40px;
+  }
+
+  input, select {
+    margin-bottom: 15px;
+  }
+}

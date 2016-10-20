@@ -146,7 +146,8 @@ class UserController extends Controller
                     'type',
                     'civility',
                     'place',
-                    'lookingForJobNamings');
+                    'lookingForJobNamings',
+                    'lookingForJobNamingPlaces');
         }
 
         return $user;
