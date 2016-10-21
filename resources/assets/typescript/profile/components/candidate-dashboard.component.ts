@@ -19,6 +19,8 @@ export class CandidateDashboardComponent {
         {'id': 0, 'place': {}}];
     jobNamingGroups: any = [];
     candidateStatuses: any = [];
+    isSavingStatus: boolean = false;
+    isSavingJobSeekingData: boolean = false;
 
     constructor(private userService: UserService,
                 private ref: ChangeDetectorRef,
@@ -66,14 +68,17 @@ export class CandidateDashboardComponent {
     }
 
     saveUserStatus() {
+        this.isSavingStatus = true;
         this.userService.updateInfo('user_status_id', this.user.user_status_id).subscribe((res: Response) => {
             console.log('saved user status', res);
+            this.isSavingStatus = false;
         });
     }
 
     saveJobSeekingInfos() {
-        this.userService.updateInfo('user_status_id', this.user.user_status_id).subscribe((res: Response) => {
-            console.log('saved user status', res);
+        this.isSavingJobSeekingData = true;
+        this.userService.saveJobSeekingData(this.lookingForJobNamingList).subscribe((res: Response) => {
+            this.isSavingJobSeekingData = false;
         });
     }
 }

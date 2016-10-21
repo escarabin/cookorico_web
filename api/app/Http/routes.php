@@ -90,6 +90,8 @@ Route::get('/user/make_candidate_accessible/{candidateId}', 'UserController@subt
     ->name('subtractProfileContact');
 Route::get('/user/access_to_candidate/{candidateId}', 'UserController@doRecruiterHasAccessToCandidate')
     ->name('doRecruiterHasAccessToCandidate');
+Route::post('/user/save-job-seeking-data', 'UserController@saveJobSeekingData')
+    ->name('saveJobSeekingData');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')

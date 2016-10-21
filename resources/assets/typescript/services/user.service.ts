@@ -60,6 +60,7 @@ export class UserService {
     doRecruiterHasAccessToCandidateUrl = appGlobals.apiUrl + '/user/access_to_candidate';
     acceptJobPostUrl = appGlobals.apiUrl + '/job-post/accept';
     rejectJobPostUrl = appGlobals.apiUrl + '/job-post/reject';
+    saveJobSeekingDataUrl = appGlobals.apiUrl + '/user/save-job-seeking-data';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
@@ -536,6 +537,17 @@ export class UserService {
      */
     rejectJobPost(jobPostId: number) {
         return this.http.get(this.rejectJobPostUrl + '/' + jobPostId);
+    }
+
+    /**
+     * Save logged user job seeking data
+     * @param lookingForJobNamingList
+     * @returns {Observable<Response>}
+     */
+    saveJobSeekingData(lookingForJobNamingList: any) {
+        let requestBody = JSON.stringify({ lookingForJobNamingList });
+
+        return this.http.post(this.saveJobSeekingDataUrl, requestBody, this.postRequestOptions);
     }
 
     /**

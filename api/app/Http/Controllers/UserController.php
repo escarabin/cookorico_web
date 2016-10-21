@@ -154,6 +154,50 @@ class UserController extends Controller
     }
 
     /**
+     * Save user's job seeking data
+     * @param Request $request
+     * @return User
+     */
+    public function saveJobSeekingData(Request $request) {
+        $user = Auth::user();
+
+        $jobSeekingData = $request::get('lookingForJobNamingList');
+
+        /**
+         * Remove previous data...
+         */
+        DB::table('job_naming_user')
+            ->where('user_id', $user->id)
+            ->delete();
+
+        foreach ($jobSeekingData as $data) {
+            $placeGoogleData = $data['place'];
+            $jobNamingId = $data['id'];
+
+            if ($placeGoogleData) {
+                /**
+                 * Get the Place object in DB via googlePlaceId or
+                 * create it if it doesn't exist yet
+                 */
+                $place = app('App\Http\Controllers\PlaceController')
+                                    ->savePlaceData($placeGoogleData);
+
+
+                /**
+                 * ...& then save new
+                 */
+                DB::table('job_naming_user')->insert(
+                    ['job_naming_id' => $jobNamingId,
+                     'user_id' => $user->id,
+                     'place_id' => $place->id]
+                );
+            }
+        }
+
+        return $user;
+    }
+
+    /**
      * Get specific user data
      * @param $userId
      * @return mixed

@@ -169,9 +169,15 @@
         <div class="col-md-12 centered">
             <button class="btn btn-primary"
                     (click)="saveJobSeekingInfos()"
-                    [disabled]="!lookingForJobNamingList[0]['place'] || lookingForJobNamingList[0]['id'] == 0">
+                    [disabled]="!lookingForJobNamingList[0]['place']
+                                || lookingForJobNamingList[0]['id'] == 0
+                                || isSavingJobSeekingData">
+                <span *ngIf="isSavingJobSeekingData"
+                      class="fa fa-spinner fa-spin"></span> &nbsp;
                 Enregistrer les modifications
             </button>
+            <br />
+            <br />
         </div>
     </div>
 
@@ -197,7 +203,10 @@
             <br />
             <br />
             <button class="btn btn-primary full-width"
+                    [disabled]="isSavingStatus"
                     (click)="saveUserStatus()">
+                <span *ngIf="isSavingStatus"
+                      class="fa fa-spinner fa-spin"></span> &nbsp;
                 Enregistrer le status
             </button>
         </div>
