@@ -20,7 +20,7 @@ export class PlaceService {
      * @param place
      * @returns {Observable<Response>}
      */
-    save(place: Place) {
+    save(place: Object) {
         let __this = this;
 
         let requestBody = JSON.stringify({ place });

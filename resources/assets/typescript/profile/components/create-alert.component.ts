@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ReferenceService } from '../../services/reference.service';
 import { UserService } from '../../services/user.service';
 import { NotificationsService } from '../../services/notification.service';
+import { PlaceService } from '../../services/place.service';
 
 // Models
 import { Alert } from '../../models/alert';
@@ -26,6 +27,7 @@ export class CreateAlertComponent {
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
                 private notificationService: NotificationsService,
+                private placeService: PlaceService,
                 private router: Router,
                 private route: ActivatedRoute) {
         let __this = this;
@@ -91,5 +93,11 @@ export class CreateAlertComponent {
                 this.isLoading = false;
             });
         }
+    }
+
+    parseAddress(place: Object) {
+        this.placeService.save(place).subscribe((res: Response) => {
+            console.log('got response', res);
+        });
     }
 }

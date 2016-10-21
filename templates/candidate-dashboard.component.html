@@ -165,6 +165,14 @@
                 Vous devez choisir une première zone de recherche
             </div>
         </div>
+
+        <div class="col-md-12 centered">
+            <button class="btn btn-primary"
+                    (click)="saveJobSeekingInfos()"
+                    [disabled]="!lookingForJobNamingList[0]['place'] || lookingForJobNamingList[0]['id'] == 0">
+                Enregistrer les modifications
+            </button>
+        </div>
     </div>
 
     <div class="col-md-12">
@@ -185,14 +193,19 @@
                 </option>
             </select>
         </div>
+        <div class="col-md-6">
+            <br />
+            <br />
+            <button class="btn btn-primary full-width"
+                    (click)="saveUserStatus()">
+                Enregistrer le status
+            </button>
+        </div>
     </div>
 
     <div class="col-md-6 col-md-offset-3 centered">
         <br />
-        <button class="btn btn-primary full-width"
-                [disabled]="!lookingForJobNamingList[0]['place'] || lookingForJobNamingList[0]['id'] == 0">
-            Enregistrer les modifications
-        </button>
+
         <br />
         <br />
     </div>

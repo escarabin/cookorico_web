@@ -65,7 +65,15 @@ export class CandidateDashboardComponent {
         this.ref.detectChanges();
     }
 
-    submitUserInfos() {
+    saveUserStatus() {
+        this.userService.updateInfo('user_status_id', this.user.user_status_id).subscribe((res: Response) => {
+            console.log('saved user status', res);
+        });
+    }
 
+    saveJobSeekingInfos() {
+        this.userService.updateInfo('user_status_id', this.user.user_status_id).subscribe((res: Response) => {
+            console.log('saved user status', res);
+        });
     }
 }

@@ -49,7 +49,8 @@
             <label>Zone de recherche</label>
             <input type="text"
                    required
-                   name="place"
+                   googleplace
+                   (setAddress)="parseAddress($event)"
                    [(ngModel)]="alert.place"
                    ngControl="alert.place"
                    name="alert_place"

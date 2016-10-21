@@ -54,7 +54,6 @@ const profileRoutes: Routes = [
 
             // Alerts
             {path: 'alerte/editer/:alertId', component: CreateAlertComponent},
-            {path: 'alerte/:alertId', component: AlertsComponent},
             {path: 'alerte/creer', component: CreateAlertComponent},
             {path: 'alertes', component: AlertsComponent},
             {path: 'alerte', redirectTo: '/profil/alertes'},
