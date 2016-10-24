@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ReferenceService } from '../../services/reference.service';
 import { UserService } from '../../services/user.service';
 import { NotificationsService } from '../../services/notification.service';
+import { TestimonialService } from '../../services/testimonial.service';
 
 // Models
 import { Experience } from '../../models/experience';
@@ -13,7 +14,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'create-experience',
-    providers: [ReferenceService, UserService],
+    providers: [ ReferenceService, UserService, TestimonialService ],
     templateUrl: '../templates/create-experience.component.html'
 })
 
@@ -22,10 +23,12 @@ export class CreateExperienceComponent {
     public adress: Object;
     experience:Experience = new Experience();
     isLoading: boolean = false;
+    sendTestimonialRequest: boolean = false;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
                 private notificationService: NotificationsService,
+                private testimonialService: TestimonialService,
                 private route: ActivatedRoute,
                 private router: Router) {
         this.referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
@@ -60,6 +63,15 @@ export class CreateExperienceComponent {
                     __this.notificationService.show(
                         new Notification('success', 'Votre expérience a bien été créee')
                     );
+
+                    /**
+                     * Send testimonial request to recruiter
+                     */
+                    if (this.sendTestimonialRequest) {
+                        this.testimonialService.requestTestimonial(this.experience.business_id).subscribe((res: Response) => {
+                            console.log('testimonial requested');
+                        });
+                    }
 
                     // Redirect to experience edition
                     this.router.navigate(['/profil/experience/editer/' + res.json()['id']])

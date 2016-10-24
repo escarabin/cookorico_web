@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SELECT_DIRECTIVES } from 'ng2-select/ng2-select';
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
 import { ReCaptchaModule } from 'angular2-recaptcha';
+import { AgmCoreModule } from 'angular2-google-maps/core/index';
 
 // Components
 import { UNITYTinyMCE } from './components/tiny-mce.component';
@@ -25,6 +26,9 @@ import { ButtonsModule,
 
 // Services
 import { UserService } from './../services/user.service';
+
+// Global vars
+import appGlobals = require('./../globals');
 
 @NgModule({
     declarations: [ UNITYTinyMCE,
@@ -51,6 +55,7 @@ import { UserService } from './../services/user.service';
                     AccordionModule,
                     AlertModule,
                     TooltipModule,
+                    AgmCoreModule,
                     ModalModule ],
     providers:    [ UserService ],
     imports:      [ BrowserModule,
@@ -59,6 +64,9 @@ import { UserService } from './../services/user.service';
                     RouterModule,
                     ButtonsModule,
                     CollapseModule,
+                    AgmCoreModule.forRoot({
+                        apiKey: appGlobals.googleMapsApiKey
+                    }),
                     ReCaptchaModule,
                     AccordionModule,
                     AlertModule,

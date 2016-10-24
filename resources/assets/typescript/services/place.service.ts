@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HTTP_PROVIDERS, Http, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import appGlobals = require('./../globals');
-
-// Models
-import { Place } from '../models/place';
 
 @Injectable()
 export class PlaceService {
@@ -21,10 +18,8 @@ export class PlaceService {
      * @returns {Observable<Response>}
      */
     save(place: Object) {
-        let __this = this;
-
         let requestBody = JSON.stringify({ place });
 
-        return this.http.post(__this.savePlaceUrl, requestBody, this.defaultPostRequestOptions);
+        return this.http.post(this.savePlaceUrl, requestBody, this.defaultPostRequestOptions);
     }
 }

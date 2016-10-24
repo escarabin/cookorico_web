@@ -52,7 +52,9 @@
                          class="col-xs-8">
                         <h3>{{ item.job_naming.title }}</h3>
                         {{ item.business.title }}<br />
-                        {{ item.business.place.city }}
+                        <span *ngIf="item.business.place">
+                            {{ item.business.place.city }}
+                        </span>
                     </div>
                 </a>
             </div>

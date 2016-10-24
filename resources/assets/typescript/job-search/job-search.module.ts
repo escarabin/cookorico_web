@@ -3,7 +3,6 @@ import { FormsModule }    from '@angular/forms';
 import { CommonModule }   from '@angular/common';
 import { jobSearchRouting } from './job-search.routes';
 import { SharedModule }   from './../shared/shared.module';
-import { AgmCoreModule } from 'angular2-google-maps/core/index';
 
 // Components
 import { JobComponent } from './components/job.component';
@@ -15,10 +14,6 @@ import { JobSearchSidebarComponent } from './../job-search/components/job-search
 import { SearchService } from './../services/search.service';
 import { JobService } from './../services/job.service';
 
-
-// Global vars
-import appGlobals = require('./../globals');
-
 @NgModule({
     declarations: [ JobComponent,
                     NewApplicationFormComponent,
@@ -27,9 +22,6 @@ import appGlobals = require('./../globals');
     imports:      [ jobSearchRouting,
                     CommonModule,
                     FormsModule,
-                    AgmCoreModule.forRoot({
-                        apiKey: appGlobals.googleMapsApiKey
-                    }),
                     SharedModule ],
     providers:    [ SearchService, JobService ],
 })
