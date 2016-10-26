@@ -228,7 +228,7 @@ class JobController extends Controller
          */
         $templateName = 'job-applied';
 
-        $mailTemplate = MailTemplate::where($templateName)->first();
+        $mailTemplate = MailTemplate::where('slug', $templateName)->first();
 
         Mail::send('emails.'.$templateName,
             [
