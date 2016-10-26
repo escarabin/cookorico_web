@@ -186,10 +186,16 @@ export class UserService {
      * @param user_type_id
      * @param firstName
      * @param lastName
+     * @param civilityId
      * @returns {Observable<Response>}
      */
-    createUser(email: string, password: string, user_type_id: number, lastName: string, firstName: string) {
-        let requestBody = JSON.stringify({ email, password, user_type_id, firstName, lastName });
+    createUser(email: string,
+               password: string,
+               user_type_id: number,
+               lastName: string,
+               firstName: string,
+               civilityId: number) {
+        let requestBody = JSON.stringify({ email, password, user_type_id, firstName, lastName, civilityId });
 
         return this.http.post(this.createUserUrl, requestBody, this.postRequestOptions);
     }

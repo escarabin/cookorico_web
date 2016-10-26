@@ -306,7 +306,10 @@ class UserController extends Controller
             $user->firstName = $request::get('firstName');
             $user->lastName = $request::get('lastName');
             $user->password = Hash::make($request::get('password'));
+            $user->civility_id = $request::get('civilityId');
             $user->save();
+
+            $user->civility = $user->civility;
 
             /**
              * Send confirmation email

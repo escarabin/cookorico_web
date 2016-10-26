@@ -5,6 +5,7 @@ import { Response } from '@angular/http';
 // Services
 import { UserService } from './../../services/user.service';
 import { NotificationsService } from './../../services/notification.service';
+import { ReferenceService } from './../../services/reference.service';
 
 // Models
 import { Notification } from './../../models/notification';
@@ -13,13 +14,15 @@ declare var braintree:any;
 
 @Component({
     selector: 'recruiter-promo',
-    providers: [ UserService ],
+    providers: [ UserService, ReferenceService ],
     templateUrl: '../templates/recruiter-promo.component.html'
 })
 
 export class RecruiterPromoComponent {
     userLastName: string;
     userFirstName: string;
+    userCivilityId: number = 1;
+    civilities: any = [];
     email: string;
     password: string;
     error: string;
@@ -27,14 +30,24 @@ export class RecruiterPromoComponent {
 
     constructor(private userService: UserService,
                 private router: Router,
-                private notificationService: NotificationsService) {
-
+                private notificationService: NotificationsService,
+                private referenceService: ReferenceService) {
+        this.referenceService.getAllCivilities().subscribe((res:Response) => {
+            this.civilities = res.json();
+        });
     }
 
     signUp() {
         let __this = this;
 
-        this.userService.createUser(this.email, this.password, 2, this.userLastName, this.userFirstName).subscribe((res:Response) => {
+        let userTypeId = 2;
+
+        this.userService.createUser(this.email,
+                                    this.password,
+                                    userTypeId,
+                                    this.userLastName,
+                                    this.userFirstName,
+                                    this.userCivilityId).subscribe((res:Response) => {
             console.log(res);
 
             if (res['_body'].length > 100) {
