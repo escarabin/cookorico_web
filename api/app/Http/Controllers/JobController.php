@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Business;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Request;
 use Auth;
 use Log;
+use DB;
 
 use App\Models\Job;
-use App\Models\StudyLevel;
+use App\Models\MailTemplate;
 use App\Models\Application;
-use DB;
-use phpDocumentor\Reflection\Types\Object_;
+
 
 class JobController extends Controller
 {

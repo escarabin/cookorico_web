@@ -8,10 +8,10 @@
         <li *ngFor="let routeSegment of routeSegments; let i = index">
             <a routerLink="{{ routeSegment.link }}" class="active"
                *ngIf="i < routeSegments.length - 1">
-                {{ routeSegment.title }}
+                {{ routeSegment.title.replace('_', '') }}
             </a>
                 <span *ngIf="i == routeSegments.length - 1">
-                    {{ routeSegment.title }}
+                    {{ routeSegment.title.replace('_', '') }}
                 </span>
         </li>
     </ol>
