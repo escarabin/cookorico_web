@@ -26,5 +26,11 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call('App\Http\Controllers\MailController@sendNewJobAlerts')
                  ->daily();
+
+        $schedule->call('App\Http\Controllers\MailController@sendCandidateProfileNotCompleteMail')
+                 ->monthly();
+
+        $schedule->call('App\Http\Controllers\MailController@lookForInactiveUsers')
+                 ->daily();
     }
 }

@@ -48,9 +48,15 @@ class UserController extends Controller
 
     /**
      * Get the percentage which the profile is filled in
+     * @param $user
+     * @return int
      */
-    public function getProfilePercentage() {
+    public function getProfilePercentage($userId = null) {
         $user = Auth::user();
+
+        if ($userId) {
+            $user = User::find($userId);
+        }
 
         /**
          * Initial percentage
@@ -116,6 +122,7 @@ class UserController extends Controller
     /**
      * Login using specific id
      * @param $userId
+     * @return User
      */
     public function loginUsingId($userId) {
         Auth::loginUsingId($userId);
@@ -359,10 +366,18 @@ class UserController extends Controller
     }
 
     public function sendAccountConfirmationEmail($user) {
-        $mailTemplate = MailTemplate::where('slug', 'confirm-account')->first();
+        $templateName = "";
 
+        if ($user->user_type_id == 3) {
+            $templateName = "confirm-account-candidate";
+        }
+        else {
+            $templateName = "confirm-account-recruiter";
+        }
 
-        Mail::send('emails.confirm-account',
+        $mailTemplate = MailTemplate::where('slug', $templateName)->first();
+
+        Mail::send('emails.'.$templateName,
             [
                 'content' => $mailTemplate->message,
                 'user' => $user,

@@ -64,6 +64,47 @@ class MailController extends Controller
         return $template;
     }
 
+    /**
+     * Send monthly a reminder to fill candidate profile 100%
+     */
+    public function sendCandidateProfileNotCompleteMail() {
+        // List all candidates users
+        $users = User::where('user_type_id', 3)->get();
+
+        foreach ($users as $user) {
+            /**
+             * Check profile percentage
+             */
+            $profilePercentage = app('App\Http\Controllers\UserController')
+                ->getProfilePercentage($user->id);
+
+            $templateName = 'candidate-fill-profile';
+
+            $mailTemplate = MailTemplate::where($templateName)->first();
+
+            if ($profilePercentage < 100) {
+                Mail::send('emails.'.$templateName,
+                    [
+                        'user' => $user
+                    ],
+                    function ($message) use ($user, $mailTemplate) {
+                        $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                        $message->to($user->email, 'Test')
+                            ->subject($mailTemplate->subject);
+                    }
+                );
+            }
+        }
+    }
+
+    /**
+     * Change status and send email to inactive users
+     */
+    public function lookForInactiveUsers() {
+        // TODO
+    }
+
     public function sendNewJobAlerts() {
         $alreadySentEmails = Email::where('created_at', '<', date('YYYY'));
 

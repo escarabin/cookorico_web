@@ -18,11 +18,33 @@ class ApplicationController extends Controller
 
         $application->save();
 
+        /**
+         * Send an email to the candidate
+         */
+        $templateName = 'application-accepted';
+
+        $mailTemplate = MailTemplate::where($templateName)->first();
+
+        $user = $application->user;
+
+        Mail::send('emails.'.$templateName,
+            [
+                'user' => $application->user,
+                'job' => $application->job,
+            ],
+            function ($message) use ($user, $mailTemplate) {
+                $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                $message->to($user->email, 'Test')
+                    ->subject($mailTemplate->subject);
+            }
+        );
+
         return $application;
     }
 
     /**
-     * Rejectes specific application
+     * Rejects specific application
      * @param $applicationId
      * @return Application
      */
@@ -32,6 +54,28 @@ class ApplicationController extends Controller
         $application->is_rejected = true;
 
         $application->save();
+
+        /**
+         * Send an email to the candidate
+         */
+        $templateName = 'application-rejected';
+
+        $mailTemplate = MailTemplate::where($templateName)->first();
+
+        $user = $application->user;
+
+        Mail::send('emails.'.$templateName,
+            [
+                'user' => $application->user,
+                'job' => $application->job,
+            ],
+            function ($message) use ($user, $mailTemplate) {
+                $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                $message->to($user->email, 'Test')
+                    ->subject($mailTemplate->subject);
+            }
+        );
 
         return $application;
     }

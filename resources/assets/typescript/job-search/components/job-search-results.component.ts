@@ -1,5 +1,4 @@
-import { Component, Inject } from '@angular/core';
-import { Response } from '@angular/http';
+import { Component, Inject, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 // Services
@@ -33,6 +32,7 @@ export class JobSearchResultsComponent {
     mapLng: number = 2.213749;
 
     constructor(@Inject(SearchService) private searchService: SearchService,
+                private ref: ChangeDetectorRef,
                 private route: ActivatedRoute) {
         let __this = this;
 
@@ -75,6 +75,7 @@ export class JobSearchResultsComponent {
          */
         searchService.resultsEmitter.subscribe((results) => {
             __this.jobs = results.json();
+            __this.ref.detectChanges();
         });
 
         /**

@@ -215,13 +215,34 @@ class JobController extends Controller
      * @return Application
      */
     public function apply(Request $request) {
-        $newApplication = new Application;
+        $user = Auth::user();
 
+        $newApplication = new Application;
         $applicationData = $request::input('application');
 
-        $newApplication->user_id = Auth::user()->id;
+        $newApplication->user_id = $user->id;
         $newApplication->job_id = $applicationData['job_id'];
         $newApplication->comment = $applicationData['comment'];
+
+        /**
+         * Send confirmation email to candidate
+         */
+        $templateName = 'job-applied';
+
+        $mailTemplate = MailTemplate::where($templateName)->first();
+
+        Mail::send('emails.'.$templateName,
+            [
+                'user' => $user,
+                'job' => Job::find($newApplication->job_id)->load('business')
+            ],
+            function ($message) use ($user, $mailTemplate) {
+                $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                $message->to($user->email, 'Test')
+                    ->subject($mailTemplate->subject);
+            }
+        );
 
         $newApplication->save();
 

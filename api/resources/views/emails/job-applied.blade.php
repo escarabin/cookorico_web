@@ -1,5 +1,3 @@
-<p>Confirmez votre adresse :&nbsp;</p>
-<p>&nbsp;</p>
-<p>{{ $user->firstName }} {{ $user->lastName }}</p>
-<p>{{ $business->website }}&nbsp;</p>
-<p>&nbsp;</p>{{ $user->user_status_id }}
+Hello {{ $user->firstName }},<br />
+Votre candidature pour l’annonce -  « {{ $job->title }} » a bien été envoyée à l’établissement ({{ $job->business->title }}).<br />
+Pour visualiser et gérer l’ensemble de vos candidatures, rendez-vous sur votre espace candidat(lien)<br />

@@ -30,7 +30,7 @@ class TestimonialController extends Controller
      * @param Request $request
      */
     public function update($id, Request $request) {
-        $testimonial = Testimonial::find($id);
+        $testimonial = Testimonial::find($id)->load('business', 'employee');
         $testimonialData = $request::all();
 
         foreach ($testimonialData as $key => $data) {
@@ -38,6 +38,29 @@ class TestimonialController extends Controller
         }
 
         $testimonial->save();
+
+        /**
+         * Send email to candidate
+         */
+        $templateName = 'new-testimonial';
+
+        $mailTemplate = MailTemplate::where($templateName)->first();
+
+        $user = $testimonial->employee;
+
+        Mail::send('emails.'.$templateName,
+            [
+                'user' => $testimonial->employee,
+                'testimonial' => $testimonial,
+            ],
+            function ($message) use ($user, $mailTemplate) {
+                $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                $message->to($user->email, 'Test')
+                    ->subject($mailTemplate->subject);
+            }
+        );
+
 
         return $testimonial;
     }
