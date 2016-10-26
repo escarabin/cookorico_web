@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Business;
 use Illuminate\Support\Facades\Request;
-use App\Models\Testimonial;
 use Log;
 use Auth;
+use Mail;
+
+// Models
+use App\Models\Business;
+use App\Models\MailTemplate;
+use App\Models\Testimonial;
 
 class TestimonialController extends Controller
 {
@@ -44,7 +48,7 @@ class TestimonialController extends Controller
          */
         $templateName = 'new-testimonial';
 
-        $mailTemplate = MailTemplate::where($templateName)->first();
+        $mailTemplate = MailTemplate::where('slug', $templateName)->first();
 
         $user = $testimonial->employee;
 

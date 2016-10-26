@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Application;
+use Mail;
 
 class ApplicationController extends Controller
 {
@@ -23,7 +24,7 @@ class ApplicationController extends Controller
          */
         $templateName = 'application-accepted';
 
-        $mailTemplate = MailTemplate::where($templateName)->first();
+        $mailTemplate = MailTemplate::where('slug', $templateName)->first();
 
         $user = $application->user;
 
@@ -60,7 +61,7 @@ class ApplicationController extends Controller
          */
         $templateName = 'application-rejected';
 
-        $mailTemplate = MailTemplate::where($templateName)->first();
+        $mailTemplate = MailTemplate::where('slug', $templateName)->first();
 
         $user = $application->user;
 
