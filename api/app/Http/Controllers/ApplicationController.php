@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Application;
 use Mail;
+
+use App\Models\Application;
+use App\Models\MailTemplate;
 
 class ApplicationController extends Controller
 {

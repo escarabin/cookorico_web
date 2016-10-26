@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Request;
 use Auth;
 use Log;
 use DB;
+use Mail;
 
 use App\Models\Job;
 use App\Models\MailTemplate;
