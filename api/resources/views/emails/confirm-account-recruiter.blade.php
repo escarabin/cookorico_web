@@ -1,4 +1,4 @@
-Bonjour {{ $user->civility->title }} {{ $user->lastName }},
+Bonjour {{ $user->civility->title }} {{ $user->lastName }},<br />
 Bienvenue sur cookorico.com !<br /><br />
 Vous avez rejoint le site spécialiste de l’emploi en Hôtellerie Restauration et nous vous en remercions.<br />
 Veuillez trouver ci-dessous un rappel de vos identifiants de connexion :<br />

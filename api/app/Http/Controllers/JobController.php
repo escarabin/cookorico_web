@@ -281,6 +281,32 @@ class JobController extends Controller
             }
         }
 
+        /**
+         * Send confirmation email to recruiter
+         */
+        $templateName = 'reviewing-job-post';
+
+        $mailTemplate = MailTemplate::where('slug', $templateName)->first();
+
+        $user = Auth::user();
+
+        /**
+         * Necessary workaround to append civility data to user object
+         */
+        $user->civility = $user->civility;
+
+        Mail::send('emails.'.$templateName,
+            [
+                'user' => $user,
+            ],
+            function ($message) use ($user, $mailTemplate) {
+                $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                $message->to($user->email, 'Test')
+                    ->subject($mailTemplate->subject);
+            }
+        );
+
         $jobPost->user_id = Auth::user()->id;
 
         $jobPost->save();
