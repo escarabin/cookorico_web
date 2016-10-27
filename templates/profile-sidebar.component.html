@@ -119,6 +119,12 @@
            routerLinkActive="active">
             <i class="icon-grid"></i> &nbsp; Éditeur
         </a>
+        <a *ngIf="user.user_type_id == 1"
+           routerLink="/profil/clubs"
+           [class.visible]="isMobileMenuVisible"
+           routerLinkActive="active">
+            <i class="icon-users"></i> &nbsp; Clubs
+        </a>
     </div>
 
     <div class="col-md-2 col-sm-2 col-xs-2 mobile-menu-toggle"

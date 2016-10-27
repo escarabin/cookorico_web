@@ -27,6 +27,7 @@ import { MatchingProfilesComponent } from './components/matching-profiles.compon
 import { TestimonialRequestsComponent } from "./components/testimonial-requests.component";
 import { PricingPlansComponent } from '../shared/components/pricing-plans.component';
 import { CandidateDashboardComponent } from './components/candidate-dashboard.component';
+import { ClubsManagementComponent } from './components/clubs-management.component';
 
 const profileRoutes: Routes = [
     {
@@ -101,6 +102,9 @@ const profileRoutes: Routes = [
 
             // Candidate dashboard
             {path: 'espace-candidat', component: CandidateDashboardComponent},
+
+            // Clubs management
+            {path: 'clubs', component: ClubsManagementComponent},
 
             // Confirm account creation
             {path: 'confirmer-le-compte/:userId', component: ConfirmAccountCreationComponent},

@@ -1150,6 +1150,7 @@ applicants .list-container {
         border: none;
         border-radius: 4px;
         color: white;
+        background-color: #35B6E1;
         height: 50px;
         padding: 15px;
         margin-top: 10px; }
@@ -1710,6 +1711,24 @@ footer {
     footer .row i {
       font-size: 2em;
       margin: 0 10px 0 0; }
+
+clubs-management .create-club {
+  background: #35B6E1;
+  color: white;
+  margin: 0;
+  padding: 25px; }
+
+clubs-management input, clubs-management select {
+  margin-bottom: 15px; }
+
+clubs-management ul li .logo-container {
+  height: 120px;
+  overflow: hidden; }
+
+clubs-management ul li.business {
+  background-color: #f7f7f8; }
+  clubs-management ul li.business:nth-child(odd) {
+    background: white; }
 
 confirm-account-creation {
   display: block;

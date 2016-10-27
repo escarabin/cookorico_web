@@ -16,11 +16,14 @@ export class BusinessPageComponent {
     businessId: number;
     jobs: any = [];
     business: any = [];
+    user: any = {};
 
     constructor(private jobService: JobService,
                 private businessService: BusinessService,
                 private route: ActivatedRoute) {
         let __this = this;
+
+        this.user = JSON.parse(localStorage.getItem('user'));
 
         /**
          * Get all jobs related to current business

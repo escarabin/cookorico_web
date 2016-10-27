@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HTTP_PROVIDERS, Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import appGlobals = require('./../globals');
 
 @Injectable()
 export class ClubService {
     allClubsListingUrl = appGlobals.apiUrl + '/clubs/all';
-    showClubListingUrl = appGlobals.apiUrl + '/club/';
-    clubId: number;
+    showClubListingUrl = appGlobals.apiUrl + '/club';
+    createClubUrl = appGlobals.apiUrl + '/club/create';
+    detachBusinessFromClubUrl = appGlobals.apiUrl + '/club/detach-business';
+    attachBusinessToClubUrl = appGlobals.apiUrl + '/club/attach-business';
+    postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
+    postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
     constructor(private http: Http) {
 
@@ -17,18 +21,47 @@ export class ClubService {
      * @returns {Observable<Response>}
      */
     getAllClubs() {
-        let __this = this;
-
-        return this.http.request(__this.allClubsListingUrl);
+        return this.http.request(this.allClubsListingUrl);
     }
 
     /**
      * Returns specific club
      * @param id
+     * @returns {Observable<Response>}
      */
     getClub(clubId) {
-        let __this = this;
+        return this.http.request(this.showClubListingUrl + '/' + clubId);
+    }
 
-        return this.http.request(__this.showClubListingUrl + clubId);
+    /**
+     * Create a new club
+     * @param club
+     * @returns {Observable<Response>}
+     */
+    create(club) {
+        let requestBody = JSON.stringify({ club });
+
+        return this.http.post(this.createClubUrl, requestBody, this.postRequestOptions);
+    }
+
+    /**
+     * Detach business from specific club
+     * @param clubId
+     * @param businessId
+     * @returns {Observable<Response>}
+     */
+    detachBusiness(clubId: number, businessId: number) {
+        return this.http.request(this.detachBusinessFromClubUrl + '/' + clubId + '/' + businessId);
+    }
+
+
+    /**
+     * Attach business from specific club
+     * @param clubId
+     * @param businessId
+     * @returns {Observable<Response>}
+     */
+    attachBusiness(clubId: number, businessId: number) {
+        return this.http.request(this.attachBusinessToClubUrl + '/' + clubId + '/' + businessId);
     }
 }
