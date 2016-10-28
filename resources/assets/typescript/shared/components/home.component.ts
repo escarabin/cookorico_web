@@ -15,9 +15,9 @@ import { ClubService } from './../../services/club.service';
 })
 
 export class HomeComponent {
-    jobs: any;
-    posts: any;
-    clubs: any;
+    jobs: any = [];
+    posts: any = [];
+    clubs: any = [];
     innerHeight: number;
 
     constructor(private jobService: JobService,

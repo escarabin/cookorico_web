@@ -54,6 +54,7 @@ class JobController extends Controller
      */
     public function getAll() {
         $jobs = Job::where('created_at', '>', date("Y-m-d", strtotime("-2 months")))
+            ->get()
             ->load('business',
                     'user',
                     'jobNaming',
