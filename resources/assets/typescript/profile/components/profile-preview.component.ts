@@ -30,6 +30,7 @@ export class ProfilePreviewComponent {
     @Output profilePictureChanged: EventEmitter = new EventEmitter();
     user: any = [];
     experiences: any = [];
+    userLanguages: any = [];
     education: any = [];
     testimonials: any = [];
     profilePictureData: any;
@@ -109,6 +110,10 @@ export class ProfilePreviewComponent {
 
                     __this.userService.getTestimonials(__this.user.id).subscribe((res: Response) => {
                         __this.testimonials = res.json();
+                    });
+
+                    __this.userService.getSpokenLanguages().subscribe((res: Response) => {
+                        this.userLanguages = res.json();
                     });
                 });
             }

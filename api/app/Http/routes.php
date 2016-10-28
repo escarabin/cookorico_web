@@ -52,6 +52,7 @@ Route::get('/job-post/accept/{jobPostId}', 'JobController@accept')
     ->name('acceptJobPost');
 Route::get('/job-post/reject/{jobPostId}', 'JobController@reject')
     ->name('rejectJobPost');
+
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
     ->name('signIn');
@@ -92,6 +93,10 @@ Route::get('/user/access_to_candidate/{candidateId}', 'UserController@doRecruite
     ->name('doRecruiterHasAccessToCandidate');
 Route::post('/user/save-job-seeking-data', 'UserController@saveJobSeekingData')
     ->name('saveJobSeekingData');
+Route::post('/user/languages/save', 'UserController@saveSpokenLanguages')
+    ->name('saveSpokenLanguages');
+Route::get('/user/languages', 'UserController@getSpokenLanguages')
+    ->name('getSpokenLanguages');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')
@@ -136,6 +141,10 @@ Route::get('/civilities/all', 'ReferenceController@getAllCivilities')
     ->name('getAllCivilities');
 Route::get('/candidate-statuses/all', 'ReferenceController@getAllCandidateStatuses')
     ->name('getAllCandidateStatuses');
+Route::get('/languages/all', 'ReferenceController@getAllLanguages')
+    ->name('getAllLanguages');
+Route::get('/language-levels/all', 'ReferenceController@getAllLanguageLevels')
+    ->name('getAllLanguageLevels');
 
 // Applications
 Route::get('/user/applications/{userId?}', 'UserController@getApplications')

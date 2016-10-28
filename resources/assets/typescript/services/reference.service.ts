@@ -16,6 +16,8 @@ export class ReferenceService {
     getAllJobXpLevelsUrl = appGlobals.apiUrl + '/job_xp_levels/all';
     getAllCivilitiesUrl = appGlobals.apiUrl + '/civilities/all';
     getAllCandidateStatusesURL = appGlobals.apiUrl + '/candidate-statuses/all';
+    getAllLanguagesUrl = appGlobals.apiUrl + '/languages/all';
+    getAllLanguageLevelsUrl = appGlobals.apiUrl + '/language-levels/all';
 
     constructor(private http: Http) {
 
@@ -116,5 +118,21 @@ export class ReferenceService {
      */
     getAllCivilities() {
         return this.http.request(this.getAllCivilitiesUrl);
+    }
+
+    /**
+     * Listing all possible languages
+     * @returns {Observable<Response>}
+     */
+    getAllLanguages() {
+        return this.http.request(this.getAllLanguagesUrl);
+    }
+
+    /**
+     * Listing all possible languages
+     * @returns {Observable<Response>}
+     */
+    getAllLanguageLevels() {
+        return this.http.request(this.getAllLanguageLevelsUrl);
     }
 }

@@ -60,6 +60,8 @@ export class UserService {
     doRecruiterHasAccessToCandidateUrl = appGlobals.apiUrl + '/user/access_to_candidate';
     acceptJobPostUrl = appGlobals.apiUrl + '/job-post/accept';
     rejectJobPostUrl = appGlobals.apiUrl + '/job-post/reject';
+    saveLanguagesUrl = appGlobals.apiUrl + '/user/languages/save';
+    getSpokenLanguagesUrl = appGlobals.apiUrl + '/user/languages';
     saveJobSeekingDataUrl = appGlobals.apiUrl + '/user/save-job-seeking-data';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
@@ -554,6 +556,25 @@ export class UserService {
         let requestBody = JSON.stringify({ lookingForJobNamingList });
 
         return this.http.post(this.saveJobSeekingDataUrl, requestBody, this.postRequestOptions);
+    }
+
+    /**
+     * Save user's spoken languages
+     * @param languages
+     * @returns {Observable<Response>}
+     */
+    saveSpokenLanguages(languages: any) {
+        let requestBody = JSON.stringify({ languages });
+
+        return this.http.post(this.saveLanguagesUrl, requestBody, this.postRequestOptions);
+    }
+
+    /**
+     * Get user's spoken languages
+     * @returns {Observable<Response>}
+     */
+    getSpokenLanguages() {
+        return this.http.get(this.getSpokenLanguagesUrl);
     }
 
     /**

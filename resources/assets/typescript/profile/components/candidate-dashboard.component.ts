@@ -21,6 +21,10 @@ export class CandidateDashboardComponent {
     candidateStatuses: any = [];
     isSavingStatus: boolean = false;
     isSavingJobSeekingData: boolean = false;
+    isSavingLanguages: boolean = false;
+    languages: any = [];
+    languageLevels: any = [];
+    userLanguages: any = [{'language_id': 0, 'language_level_id': 0}];
 
     constructor(private userService: UserService,
                 private ref: ChangeDetectorRef,
@@ -39,6 +43,18 @@ export class CandidateDashboardComponent {
 
         this.referenceService.getAllCandidateStatuses().subscribe((res: Response) => {
             this.candidateStatuses = res.json();
+        });
+
+        this.referenceService.getAllLanguages().subscribe((res: Response) => {
+            this.languages = res.json();
+        });
+
+        this.referenceService.getAllLanguageLevels().subscribe((res: Response) => {
+            this.languageLevels = res.json();
+        });
+
+        this.userService.getSpokenLanguages().subscribe((res: Response) => {
+            this.userLanguages = res.json();
         });
 
         /**
@@ -75,10 +91,30 @@ export class CandidateDashboardComponent {
         });
     }
 
+    addNewSpokenLanguage() {
+        this.userLanguages.push({'id': 0, 'language_level_id': 0});
+    }
+
+    saveSpokenLanguages() {
+        this.isSavingLanguages = true;
+
+        this.userService.saveSpokenLanguages(this.userLanguages).subscribe((res: Response) => {
+            this.isSavingLanguages = false;
+        });
+    }
+
+    removeSpokenLanguage(spokenLanguageId: number) {
+        this.userLanguages.splice(spokenLanguageId, 1);
+    }
+
     saveJobSeekingInfos() {
         this.isSavingJobSeekingData = true;
         this.userService.saveJobSeekingData(this.lookingForJobNamingList).subscribe((res: Response) => {
             this.isSavingJobSeekingData = false;
+
+            this.userService.getUserInfos().subscribe((res: Response) => {
+                this.user = res.json();
+            });
         });
     }
 }

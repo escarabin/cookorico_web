@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Language;
+use App\Models\LanguageLevel;
 use Illuminate\Support\Facades\App;
 use App\Models\MailTemplate;
 use Illuminate\Support\Facades\DB;
@@ -778,6 +780,23 @@ class UserController extends Controller
         return 'test';
     }
 
+    public function saveSpokenLanguages(Request $request) {
+        $spokenLanguagesData = $request::get('languages');
+
+        /**
+         * Remove existing data
+         */
+        DB::table('language_user')->where('user_id', Auth::user()->id)->delete();
+
+        foreach ($spokenLanguagesData as $language) {
+            DB::table('language_user')->insert(
+                ['language_id' => $language['language_id'],
+                 'user_id' => Auth::user()->id,
+                 'language_level_id' => $language['language_level_id']]
+            );
+        }
+    }
+
     /**
      * Disable currently logged user account
      */
@@ -787,5 +806,18 @@ class UserController extends Controller
         $user->save();
 
         return $user;
+    }
+
+    public function getSpokenLanguages() {
+        $languages = DB::table('language_user')
+                        ->where('user_id', Auth::user()->id)
+                        ->get();
+
+        foreach ($languages as $lang) {
+            $lang->language = Language::find($lang->language_id);
+            $lang->languageLevel = LanguageLevel::find($lang->language_level_id);
+        }
+
+        return $languages;
     }
 }

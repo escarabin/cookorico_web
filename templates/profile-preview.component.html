@@ -307,11 +307,12 @@
         </h2>
         <div class="list-container col-md-12">
             <ul>
-                <li *ngFor="let language of user.languages">
+                <li *ngFor="let lang of userLanguages">
                     <div class="item">
                         <a>
                             <div class="item-desc">
-                                <h3>{{ language.title }}</h3>
+                                <h3>{{ lang.language.title }}</h3>
+                                {{ lang.languageLevel.title }}
                             </div>
                         </a>
                     </div>

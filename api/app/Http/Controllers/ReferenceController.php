@@ -13,9 +13,11 @@ use App\Models\JobNaming;
 use App\Models\JobNamingGroup;
 use App\Models\JobType;
 use App\Models\JobXpLevel;
+use App\Models\Language;
 use App\Models\StudyLevel;
 use App\Models\Place;
 use App\Models\UserStatus;
+use App\Models\LanguageLevel;
 
 class ReferenceController extends Controller
 {
@@ -84,6 +86,18 @@ class ReferenceController extends Controller
         $statuses = UserStatus::all();
 
         return $statuses;
+    }
+
+    public function getAllLanguages() {
+        $languages = Language::all();
+
+        return $languages;
+    }
+
+    public function getAllLanguageLevels() {
+        $languageLevels = LanguageLevel::all();
+
+        return $languageLevels;
     }
 
     public function getAllStates() {
