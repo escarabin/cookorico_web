@@ -108,6 +108,10 @@ Route::get('/club/detach-business/{clubId}/{businessId}', 'ClubController@detach
     ->name('detachBusinessFromClub');
 Route::get('/club/attach-business/{clubId}/{businessId}', 'ClubController@attachBusiness')
     ->name('attachBusinessToClub');
+Route::post('/club/create', 'ClubController@create')
+    ->name('createClub');
+Route::get('/club/delete/{clubId}', 'ClubController@delete')
+    ->name('createClub');
 
 // References
 Route::get('/states/all', 'ReferenceController@getAllStates')

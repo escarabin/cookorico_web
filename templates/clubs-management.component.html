@@ -1,11 +1,12 @@
 <ul>
     <li class="row"
         *ngFor="let club of clubs">
-        <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="club.profilePictureUrl">
+        <div class="col-md-2 col-sm-2 hidden-xs">
             <img src="{{ club.profilePictureUrl }}"
+                 *ngIf="club.profilePictureUrl"
                  class="full-width"/>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-7">
             <h3>{{ club.username }}</h3>
             <span class="fa fa-user"></span> &nbsp; {{ club.firstName }} {{ club.lastName }}<br />
             <span *ngIf="club.phone">
@@ -13,134 +14,158 @@
             </span>
             <span class="fa fa-envelope"></span> &nbsp; {{ club.email }}
         </div>
+        <div class="col-md-3">
+            <br />
+            <br />
+            <button class="btn btn-warning"
+                    (click)="deleteClub(club.id)">
+                Supprimer ce club
+            </button>
+        </div>
         <div class="col-md-12">
-            <business-select [isRequired]="true"
-                             (businessIdChange)="handleBusinessIdChange($event, club.id)">
+            <div class="col-md-10 col-md-offset-2">
+                <business-select [isRequired]="true"
+                                 (businessIdChange)="handleBusinessIdChange($event, club.id)">
 
-            </business-select>
-            <ul>
-                <li *ngFor="let business of club.businesses"
-                    class="row business">
-                    <div class="col-md-2 col-sm-2 hidden-xs logo-container" *ngIf="business.logo">
-                        <img src="{{ business.logo }}"
-                             class="full-width"/>
-                    </div>
-                    <div [class.col-md-8]="business.logo"
-                         [class.col-md-10]="!business.logo"
-                         [class.col-sm-8]="business.logo"
-                         [class.col-sm-10]="!business.logo"
-                         class="col-xs-10">
-                        <h3>{{ business.title }}</h3>
-                        <span *ngIf="business.place && business.place.city">
-                            {{ business.place.city }}
-                        </span>
-                    </div>
-                    <div class="col-md-2">
-                        <br />
-                        <button class="btn btn-default"
-                                (click)="detachBusinessFromClub(club.id, business.id)">
-                            <span class="icon-trash"></span>
-                        </button>
-                    </div>
-                </li>
-            </ul>
+                </business-select>
+            </div>
+            <div class="col-md-12">
+                <ul>
+                    <li *ngFor="let business of club.businesses"
+                        class="row business">
+                        <div class="col-md-2 col-sm-2 hidden-xs logo-container" *ngIf="business.logo">
+                            <img src="{{ business.logo }}"
+                                 class="full-width"/>
+                        </div>
+                        <div [class.col-md-8]="business.logo"
+                             [class.col-md-10]="!business.logo"
+                             [class.col-sm-8]="business.logo"
+                             [class.col-sm-10]="!business.logo"
+                             class="col-xs-10">
+                            <h3>{{ business.title }}</h3>
+                            <span *ngIf="business.place && business.place.adress">
+                                <b>{{ business.place.adress }}</b>
+                            </span><br />
+                            <span *ngIf="business.place && business.place.city">
+                                {{ business.place.city }}
+                            </span>
+                        </div>
+                        <div class="col-md-2">
+                            <br />
+                            <button class="btn btn-default"
+                                    (click)="detachBusinessFromClub(club.id, business.id)">
+                                <span class="icon-trash"></span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </li>
 </ul>
 
 <div class="row create-club">
-    <div class="col-md-12 centered">
-        <h2>Créer un club</h2>
-        <br />
-    </div>
-    <div class="col-md-6">
-        <input type="text"
-               required
-               [(ngModel)]="club.username"
-               ngControl="club.username"
-               placeholder="Nom du club"
-               class="form-control"/>
-    </div>
-    <div class="col-md-6">
-        <input type="text"
-               class="form-control"
-               required
-               placeholder="Lieu du club"
-               (setAddress)="parseAdress($event)"
-               googleplace/>
-    </div>
-    <div class="col-md-6">
-        <div ng2FileDrop
-             [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
-             (fileOver)="fileOverBase($event)"
-             (onFileDrop)="resumeFileDropped($event)"
-             [uploader]="resumeUploader"
-             class="well file-drop-zone">
-            Déposez votre fichier ici
+    <form #createClubForm="ngForm">
+        <div class="col-md-12 centered">
+            <h2>Créer un club</h2>
+            <br />
         </div>
+        <div class="col-md-6">
+            <input type="text"
+                   required
+                   [(ngModel)]="club.username"
+                   ngControl="club.username"
+                   name="username"
+                   placeholder="Nom du club"
+                   class="form-control"/>
+        </div>
+        <div class="col-md-6">
+            <input type="text"
+                   class="form-control"
+                   required
+                   name="place"
+                   placeholder="Lieu du club"
+                   (setAddress)="parseAdress($event)"
+                   googleplace/>
+        </div>
+        <div class="col-md-6 centered">
+            <div ng2FileDrop
+                 [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                 (fileOver)="fileOverBase($event)"
+                 (onFileDrop)="resumeFileDropped($event)"
+                 [uploader]="resumeUploader"
+                 class="well file-drop-zone">
+                Déposez votre fichier ici
+            </div>
 
-        <input type="file"
-               ng2FileSelect
-               [uploader]="resumeUploader"
-               (change)="fileChangeListener($event)"/>
-    </div>
-    <div class="col-md-6">
-        <img-cropper #cropper [image]="profilePictureData" [settings]="cropperSettings">
+            <input type="file"
+                   ng2FileSelect
+                   [uploader]="resumeUploader"
+                   (change)="fileChangeListener($event)"/>
+            <span class="cropping-result" *ngIf="profilePictureData.image" >
+                <h3>Ceci sera le logo</h3><br />
+                <img [src]="profilePictureData.image"
+                     [width]="cropperSettings.croppedWidth"
+                     [height]="cropperSettings.croppedHeight">
+            </span>
+        </div>
+        <div class="col-md-6">
+            <img-cropper #cropper [image]="profilePictureData" [settings]="cropperSettings">
 
-        </img-cropper>
-        <span class="cropping-result" *ngIf="profilePictureData.image" >
-            <h3>Ceci sera votre photo de profil</h3><br />
-            <img [src]="profilePictureData.image"
-                 [width]="cropperSettings.croppedWidth"
-                 [height]="cropperSettings.croppedHeight">
-        </span>
-    </div>
-    <div class="col-md-12 centered">
-        <h3>Contact du club</h3>
-    </div>
-    <div class="col-md-6">
-        <input type="text"
-               [(ngModel)]="club.email"
-               ngControl="club.email"
-               required
-               placeholder="Email du contact"
-               class="form-control"/>
-    </div>
-    <div class="col-md-6">
-        <input type="text"
-               [(ngModel)]="club.password"
-               ngControl="club.password"
-               required
-               placeholder="Mot de passe du compte"
-               class="form-control"/>
-    </div>
-    <div class="col-md-6">
-        <input type="text"
-               [(ngModel)]="club.lastName"
-               ngControl="club.lastName"
-               placeholder="Nom du contact"
-               class="form-control"/>
-    </div>
-    <div class="col-md-6">
-        <input type="text"
-               [(ngModel)]="club.firstName"
-               ngControl="club.firstName"
-               placeholder="Nom du contact"
-               class="form-control"/>
-    </div>
-    <div class="col-md-6">
-        <input type="text"
-               [(ngModel)]="club.phone"
-               ngControl="club.phone"
-               placeholder="Téléphone du contact"
-               class="form-control"/>
-    </div>
-    <div class="col-md-12 centered">
-        <br />
-        <button class="btn btn-default"
-                (click)="saveClub()"
-                [disabled]="isSavingClub">
-            Enregistrer
-        </button>
-    </div>
+            </img-cropper>
+        </div>
+        <div class="col-md-12 centered">
+            <h3>Contact du club</h3>
+        </div>
+        <div class="col-md-6">
+            <input type="text"
+                   [(ngModel)]="club.email"
+                   ngControl="club.email"
+                   name="email"
+                   required
+                   placeholder="Email du contact"
+                   class="form-control"/>
+        </div>
+        <div class="col-md-6">
+            <input type="password"
+                   [(ngModel)]="club.password"
+                   ngControl="club.password"
+                   name="password"
+                   required
+                   placeholder="Mot de passe du compte"
+                   class="form-control"/>
+        </div>
+        <div class="col-md-6">
+            <input type="text"
+                   [(ngModel)]="club.lastName"
+                   ngControl="club.lastName"
+                   name="lastName"
+                   placeholder="Nom du contact"
+                   class="form-control"/>
+        </div>
+        <div class="col-md-6">
+            <input type="text"
+                   [(ngModel)]="club.firstName"
+                   ngControl="club.firstName"
+                   name="firstName"
+                   placeholder="Prénom du contact"
+                   class="form-control"/>
+        </div>
+        <div class="col-md-6">
+            <input type="text"
+                   [(ngModel)]="club.phone"
+                   ngControl="club.phone"
+                   name="phone"
+                   placeholder="Téléphone du contact"
+                   class="form-control"/>
+        </div>
+        <div class="col-md-12 centered">
+            <br />
+            <button class="btn btn-default"
+                    (click)="saveClub()"
+                    [disabled]="isSavingClub || !createClubForm.valid">
+                Enregistrer <span class="fa fa-spinner fa-spin" *ngIf="isSavingClub"></span>
+            </button>
+        </div>
+    </form>
 </div>

@@ -82,6 +82,7 @@ export class ClubsManagementComponent {
         myReader.onloadend = function (loadEvent:any) {
             image.src = loadEvent.target.result;
             __this.cropper.setImage(image);
+            __this.club.profilePictureUrl = image.src;
         };
 
         myReader.readAsDataURL(file);
@@ -112,7 +113,6 @@ export class ClubsManagementComponent {
             /**
              * Reload clubs
              */
-
             this.clubService.getAllClubs().subscribe((clubs:Response) => {
                 this.clubs = clubs.json();
             });
@@ -124,8 +124,25 @@ export class ClubsManagementComponent {
 
         this.clubService.create(this.club).subscribe((club:Response) => {
             this.isSavingClub = false;
+            this.club = {};
+            this.profilePictureData = {};
+            /**
+             * Reload clubs
+             */
+            this.clubService.getAllClubs().subscribe((clubs:Response) => {
+                this.clubs = clubs.json();
+            });
+        });
+    }
 
-            this.clubs.push(club);
+    deleteClub(clubId: number) {
+        this.clubService.deleteClub(clubId).subscribe((club:Response) => {
+            /**
+             * Reload clubs
+             */
+            this.clubService.getAllClubs().subscribe((clubs:Response) => {
+                this.clubs = clubs.json();
+            });
         });
     }
 }
