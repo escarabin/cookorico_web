@@ -85,11 +85,13 @@ class TestimonialController extends Controller
     /**
      * Request a testimonial as a candidate
      * @param $businessId
+     * @param $experienceId
      * @return Testimonial
      */
-    public function request($businessId) {
+    public function request($businessId, $experienceId) {
         $testimonial = new Testimonial();
         $testimonial->employee_user_id = Auth::user()->id;
+        $testimonial->experience_id = $experienceId;
 
         /**
          * Send testimonial to first admin of business

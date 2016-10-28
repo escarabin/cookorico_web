@@ -25,13 +25,20 @@ class Experience extends Model
         return $this->belongsTo(Business::class);
     }
 
-
     /**
      * Get the experience's job naming
      */
     public function jobNaming()
     {
         return $this->belongsTo(JobNaming::class);
+    }
+
+    /**
+     * Get the experience's possible testimonial
+     */
+    public function testimonial()
+    {
+        return $this->hasOne(Testimonial::class);
     }
 
     /**

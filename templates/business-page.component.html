@@ -13,7 +13,7 @@
     </div>
 </div>
 
-<div class="business-infos row" *ngIf="club">
+<div class="business-infos row" *ngIf="club.username">
     <div class="logo col-md-2 col-sm-2 col-xs-2"
          *ngIf="club.profilePictureUrl">
         <img src="{{ club.profilePictureUrl }}"

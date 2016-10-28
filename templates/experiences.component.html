@@ -38,7 +38,7 @@
                        [checked]="checkedItemsList.indexOf(item.id) != -1"
                        (change)="saveCheckedItem(item.id)"/>
             </div>
-            <div class="col-md-10 col-sm-10 col-xs-9 item"
+            <div class="col-md-9 col-sm-9 col-xs-8 item"
                  [class.logo]="item.business.logo">
                 <a routerLink="/profil/experience/editer/{{ item.id }}">
                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
@@ -57,6 +57,12 @@
                         </span>
                     </div>
                 </a>
+            </div>
+            <div class="col-md-1 like-container"
+                 tooltipPlacement="top" tooltip="Vous avez été recommandé sur cette expérience">
+                <h1 *ngIf="item.testimonial && item.testimonial.is_accepted">
+                    <i class="fa fa-thumbs-o-up"></i>
+                </h1>
             </div>
         </li>
     </ul>

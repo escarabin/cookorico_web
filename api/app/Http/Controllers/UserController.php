@@ -537,7 +537,7 @@ class UserController extends Controller
         }
 
         $experiences = User::find($userId)->experiences
-                           ->load('jobNaming', 'user', 'business');
+                           ->load('jobNaming', 'user', 'business', 'testimonial');
 
         foreach ($experiences as $experience) {
             $experience->business->place = $experience->business->place;

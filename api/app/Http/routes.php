@@ -192,7 +192,7 @@ Route::get('/testimonial/{testimonialId?}', 'TestimonialController@get')
     ->name('getTestimonial');
 Route::get('/created_testimonials/all', 'UserController@getCreatedTestimonials')
     ->name('getCreatedTestimonials');
-Route::get('/testimonial/request/{businessId}', 'TestimonialController@request')
+Route::get('/testimonial/request/{businessId}/{experienceId}', 'TestimonialController@request')
     ->name('requestTestimonials');
 Route::post('/testimonial/save/{testimonialId}', 'TestimonialController@update')
     ->name('updateTestimonial');

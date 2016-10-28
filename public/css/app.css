@@ -922,6 +922,9 @@ profile {
 
 experiences {
   display: block; }
+  experiences .like-container {
+    padding-top: 10px;
+    color: #35B6E1; }
 
 alerts {
   display: block; }

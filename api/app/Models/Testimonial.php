@@ -47,4 +47,12 @@ class Testimonial extends Model
     {
         return $this->belongsTo(Business::class);
     }
+
+    /**
+     * Get the testimonial's experience
+     */
+    public function experience()
+    {
+        return $this->belongsTo(Experience::class);
+    }
 }

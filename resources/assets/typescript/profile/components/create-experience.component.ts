@@ -59,6 +59,7 @@ export class CreateExperienceComponent {
 
         if (!this.experience.id) {
             this.userService.createExperience(__this.experience).subscribe((res: Response) => {
+                this.experience = res.json();
                 if (res['_body']) {
                     __this.notificationService.show(
                         new Notification('success', 'Votre expérience a bien été créee')
@@ -68,7 +69,7 @@ export class CreateExperienceComponent {
                      * Send testimonial request to recruiter
                      */
                     if (this.sendTestimonialRequest) {
-                        this.testimonialService.requestTestimonial(this.experience.business_id).subscribe((res: Response) => {
+                        this.testimonialService.requestTestimonial(this.experience.business_id, this.experience.id).subscribe((res: Response) => {
                             console.log('testimonial requested');
                         });
                     }

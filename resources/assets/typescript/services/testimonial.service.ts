@@ -13,9 +13,10 @@ export class TestimonialService {
     /**
      * Request a testimonial as a candidate
      * @param businessId
+     * @param experienceId
      * @returns {Observable<Response>}
      */
-    requestTestimonial(businessId: number) {
-        return this.http.get(this.requestTestimonialUrl + '/' + businessId);
+    requestTestimonial(businessId: number, experienceId: number) {
+        return this.http.get(this.requestTestimonialUrl + '/' + businessId + '/' + experienceId);
     }
 }
