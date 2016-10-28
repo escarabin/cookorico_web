@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Log;
 
 class Business extends Model
 {
@@ -54,9 +55,10 @@ class Business extends Model
     }
 
     /**
-     * Get the business's photos
+     * Get the business's jobs
      */
     public function jobs() {
-        return $this->hasMany(Job::class);
+        return $this->hasMany(Job::class)
+                    ->where('created_at', '>', date("Y-m-d", strtotime("-2 months")));
     }
 }

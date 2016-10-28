@@ -53,7 +53,7 @@ class JobController extends Controller
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getAll() {
-        $jobs = Job::all()
+        $jobs = Job::where('created_at', '>', date("Y-m-d", strtotime("-2 months")))
             ->load('business',
                     'user',
                     'jobNaming',
@@ -128,6 +128,7 @@ class JobController extends Controller
          * Create a query to filter job results by params
          */
         $jobsQuery = Job::query();
+        $jobsQuery = Job::where('created_at', '>', date("Y-m-d", strtotime("-2 months")));
 
         if (count($jobNamingIdList)) {
             $jobsQuery->whereIn('job_naming_id', $jobNamingIdList);
