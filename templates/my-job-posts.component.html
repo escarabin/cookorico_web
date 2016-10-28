@@ -28,8 +28,9 @@
                          class="col-xs-8">
                         <h3>{{ item.job_naming.title.substr(0, 30) }}...</h3>
                         <span *ngIf="item.is_reviewed" class="alert-info">En ligne</span>
-                        <span *ngIf="!item.is_reviewed" class="alert-warning">En validation</span>
+                        <span *ngIf="!item.is_reviewed && !item.is_rejected" class="alert-warning">En validation</span>
                         <span *ngIf="item.is_rejected" class="alert-danger">Rejetée</span>
+                        <span *ngIf="!item.is_active" class="alert-danger">Désactivée</span>
                         <br />
                         {{ item.contract_type.title }} - {{ item.week_work_hours }}h<br />
                         {{ item.business.title }}<br />

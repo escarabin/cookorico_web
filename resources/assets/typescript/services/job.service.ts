@@ -13,6 +13,7 @@ export class JobService {
     jobFromClubUrl = appGlobals.apiUrl + '/club/jobs';
     applyJobUrl = appGlobals.apiUrl + '/apply_job';
     searchJobsUrl = appGlobals.apiUrl + '/jobs/search';
+    deactivateJobPostUrl = appGlobals.apiUrl + '/job-post/deactivate';
     jobId: number;
     user: any;
 
@@ -80,5 +81,14 @@ export class JobService {
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.applyJobUrl, body, options);
+    }
+
+    /**
+     * Flag job post as inactive
+     * @param jobId
+     * @returns {Observable<Response>}
+     */
+    deactivateJobPost(jobId: number) {
+        return this.http.get(this.deactivateJobPostUrl + '/' + jobId);
     }
 }

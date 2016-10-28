@@ -4,6 +4,10 @@ import { Response } from '@angular/http';
 // Services
 import { UserService } from './../../services/user.service';
 import { ReferenceService } from './../../services/reference.service';
+import { NotificationsService } from '../../services/notification.service';
+
+// Models
+import { Notification } from '../../models/notification';
 
 @Component({
     providers: [ UserService, ReferenceService ],
@@ -28,6 +32,7 @@ export class CandidateDashboardComponent {
 
     constructor(private userService: UserService,
                 private ref: ChangeDetectorRef,
+                private notificationService: NotificationsService,
                 private referenceService: ReferenceService) {
         let __this = this;
 
@@ -86,8 +91,11 @@ export class CandidateDashboardComponent {
     saveUserStatus() {
         this.isSavingStatus = true;
         this.userService.updateInfo('user_status_id', this.user.user_status_id).subscribe((res: Response) => {
-            console.log('saved user status', res);
             this.isSavingStatus = false;
+
+            this.notificationService.show(
+                new Notification('success', 'Votre status a bien été modifié')
+            );
         });
     }
 
@@ -100,6 +108,10 @@ export class CandidateDashboardComponent {
 
         this.userService.saveSpokenLanguages(this.userLanguages).subscribe((res: Response) => {
             this.isSavingLanguages = false;
+
+            this.notificationService.show(
+                new Notification('success', 'Vos informations ont bien été enregistrées')
+            );
         });
     }
 
@@ -115,6 +127,10 @@ export class CandidateDashboardComponent {
             this.userService.getUserInfos().subscribe((res: Response) => {
                 this.user = res.json();
             });
+
+            this.notificationService.show(
+                new Notification('success', 'Vos informations ont bien été enregistrées')
+            );
         });
     }
 }

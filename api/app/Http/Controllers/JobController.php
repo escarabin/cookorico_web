@@ -343,4 +343,17 @@ class JobController extends Controller
 
         return $jobPost;
     }
+
+    /**
+     * Deactivate specific job post
+     * @param $jobPostId
+     * @return Job
+     */
+    public function deactivate($jobPostId) {
+        $jobPost = Job::find($jobPostId);
+        $jobPost->is_active = false;
+        $jobPost->save();
+
+        return $jobPost;
+    }
 }

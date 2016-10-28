@@ -1,7 +1,7 @@
 <div *ngIf="job">
     <div class="logo col-md-12">
         <div class="col-md-2">
-            <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ job.business.id }}.jpg"/>
+            <img src="{{ job.business.logo }}"/>
         </div>
         <div class="col-md-7">
             <div class="business">
@@ -19,8 +19,8 @@
             </div>
         </div>
         <div class="col-md-3 job-stats"
-             *ngIf="user && user.user_type_id == 2">
-            <button class="btn btn-danger">
+             *ngIf="user && user.user_type_id == 2 && job.user_id == user.id">
+            <button class="btn btn-danger" (click)="deactivateJobPost()">
                 Offre pourvue ?
             </button>
             <br />

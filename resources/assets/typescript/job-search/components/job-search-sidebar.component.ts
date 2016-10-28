@@ -72,6 +72,8 @@ export class JobSearchSidebarComponent {
          */
         SearchService.parametersEmitter.subscribe(
             res => {
+                console.log('got a response', res);
+
                 /**
                  * Parse place infos
                  */
@@ -114,6 +116,8 @@ export class JobSearchSidebarComponent {
      * @param parameterType
      */
     getParamTitleFromId(parameterId: number, parameterType: string) {
+        console.log('getting it', parameterId, parameterType, this.jobNamings);
+
         switch(parameterType) {
             case "jobNaming":
                 for (let i = 0; i < this.jobNamings.length; i++) {

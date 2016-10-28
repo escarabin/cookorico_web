@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { ActivatedRoute } from '@angular/router';
+import { Response } from '@angular/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Services
 import { JobService } from '../../services/job.service';
+import { NotificationsService } from '../../services/notification.service';
+
+// Models
+import { Notification } from '../../models/notification';
 
 @Component({
     providers: [JobService],
@@ -13,13 +17,14 @@ import { JobService } from '../../services/job.service';
 })
 
 export class JobComponent {
-    jobId:string;
     job: any;
-    user: any;
+    user: any = {};
+    jobId: number;
 
     constructor(private route: ActivatedRoute,
+                private notificationService: NotificationsService,
+                private router: Router,
                 private jobService: JobService) {
-        let __this = this;
         this.user = JSON.parse(localStorage.getItem('user'));
 
         route.params.subscribe(params => {
@@ -28,8 +33,18 @@ export class JobComponent {
             }
         });
 
-        jobService.getJob(__this.jobId).subscribe((res: Response) => {
-            __this.job = res.json();
+        jobService.getJob(this.jobId).subscribe((res: Response) => {
+            this.job = res.json();
+        });
+    }
+
+    deactivateJobPost() {
+        this.jobService.deactivateJobPost(this.jobId).subscribe((res: Response) => {
+            this.notificationService.show(
+                new Notification('success', 'Votre offre a bien été désactivée')
+            );
+
+            this.router.navigate(['/profil/annonces']);
         });
     }
 }

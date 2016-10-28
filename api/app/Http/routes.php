@@ -52,6 +52,8 @@ Route::get('/job-post/accept/{jobPostId}', 'JobController@accept')
     ->name('acceptJobPost');
 Route::get('/job-post/reject/{jobPostId}', 'JobController@reject')
     ->name('rejectJobPost');
+Route::get('/job-post/deactivate/{jobId}', 'JobController@deactivate')
+    ->name('deactivateJobPost');
 
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
