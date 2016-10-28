@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Request;
 
 use App\Models\User;
+use App\Models\Club;
 use DB;
 use Log;
 use Hash;
@@ -94,8 +95,6 @@ class ClubController extends Controller
         /**
          * Upload profile picture data
          */
-        Log::info($clubData['profilePictureUrl']);
-
         if (array_key_exists('profilePictureUrl', $clubData)) {
             app('App\Http\Controllers\UserController')
                 ->uploadProfilePictureBase64($clubData['profilePictureUrl'], $club->id);
@@ -111,6 +110,32 @@ class ClubController extends Controller
         }
 
         return $club;
+    }
+
+    /**
+     * Get jobs listing from clubId
+     * @param $clubId
+     * @return array()
+     */
+    public function getJobs($clubId) {
+        $jobs = array();
+
+        $club = User::find($clubId);
+
+        $businesses = $club->businesses;
+
+        $i = 0;
+        foreach ($businesses as $business) {
+            foreach ($business->jobs as $job) {
+                $jobs[$i] = $job;
+                $jobs[$i]['business'] = $job->business;
+                $jobs[$i]['contract_type'] = $job->contractType;
+                $jobs[$i]['business']['place'] = $job->business->place;
+            }
+            $i += 1;
+        }
+
+        return $jobs;
     }
 
     /**

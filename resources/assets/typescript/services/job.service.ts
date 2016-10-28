@@ -10,6 +10,7 @@ export class JobService {
     allJobsListingUrl = appGlobals.apiUrl + '/jobs/all';
     showJobListingUrl = appGlobals.apiUrl + '/job/';
     jobsFromBusinessUrl = appGlobals.apiUrl + '/business/jobs/';
+    jobFromClubUrl = appGlobals.apiUrl + '/club/jobs';
     applyJobUrl = appGlobals.apiUrl + '/apply_job';
     searchJobsUrl = appGlobals.apiUrl + '/jobs/search';
     jobId: number;
@@ -57,6 +58,15 @@ export class JobService {
      */
     getJobsFromBusiness(businessId: number) {
         return this.http.get(this.jobsFromBusinessUrl + businessId);
+    }
+
+    /**
+     * List jobs from clubId
+     * @param clubId
+     * @returns {Observable<Response>}
+     */
+    getJobsFromClub(clubId: number) {
+        return this.http.get(this.jobFromClubUrl + '/' + clubId);
     }
 
     /**

@@ -14,12 +14,16 @@
             </span>
             <span class="fa fa-envelope"></span> &nbsp; {{ club.email }}
         </div>
-        <div class="col-md-3">
-            <br />
-            <br />
+        <div class="col-md-3 centered">
             <button class="btn btn-warning"
                     (click)="deleteClub(club.id)">
                 Supprimer ce club
+            </button>
+            <br />
+            <br />
+            <button class="btn btn-primary"
+                    routerLink="/club/{{ club.id }}">
+                Page emploi
             </button>
         </div>
         <div class="col-md-12">

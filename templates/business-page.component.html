@@ -1,7 +1,7 @@
-<div class="business-infos row">
+<div class="business-infos row" *ngIf="business.title">
     <div class="logo col-md-2 col-sm-2 col-xs-2"
          *ngIf="business.logo">
-        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ business.id }}.jpg"
+        <img src="{{ business.logo }}"
              class="full-width"/>
     </div>
 
@@ -13,11 +13,29 @@
     </div>
 </div>
 
-<div class="business-desc row">
+<div class="business-infos row" *ngIf="club">
+    <div class="logo col-md-2 col-sm-2 col-xs-2"
+         *ngIf="club.profilePictureUrl">
+        <img src="{{ club.profilePictureUrl }}"
+             class="full-width"/>
+    </div>
+
+    <div class="col-md-10 infos">
+        <h2>{{ club.username }}</h2>
+        <p *ngIf="club.place">
+            {{ club.place.city }}
+        </p>
+    </div>
+</div>
+
+<div class="business-desc row" *ngIf="business.description || club.description">
     <h2>Présentation</h2>
     <br />
-    <p>
+    <p *ngIf="business">
         {{ business.description }}
+    </p>
+    <p *ngIf="club">
+        {{ club.description }}
     </p>
     <br />
     <br />
@@ -30,7 +48,7 @@
     </div>
 </div>
 
-<div class="business-photos row">
+<div class="business-photos row" *ngIf="business.photos">
     <div class="col-md-3 photo-container"
          *ngFor="let photo of business.photos">
         <img src="{{ photo.url }}"

@@ -112,6 +112,8 @@ Route::post('/club/create', 'ClubController@create')
     ->name('createClub');
 Route::get('/club/delete/{clubId}', 'ClubController@delete')
     ->name('createClub');
+Route::get('/club/jobs/{clubId}', 'ClubController@getJobs')
+    ->name('getClubJobs');
 
 // References
 Route::get('/states/all', 'ReferenceController@getAllStates')

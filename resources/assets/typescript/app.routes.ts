@@ -22,6 +22,7 @@ const appRoutes: Routes = [
 
     // Business page
     { path: 'etablissement/:businessId', component: BusinessPageComponent },
+    { path: 'club/:clubId', component: BusinessPageComponent },
 
     // Posts
     { path: 'actualite/:postId', component: PostComponent },

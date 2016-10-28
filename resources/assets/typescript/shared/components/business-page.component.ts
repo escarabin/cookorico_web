@@ -5,21 +5,25 @@ import { ActivatedRoute } from '@angular/router';
 // Services
 import { JobService } from './../../services/job.service';
 import { BusinessService } from './../../services/business.service';
+import { ClubService } from './../../services/club.service';
 
 @Component({
     selector: 'business-page',
-    providers: [ JobService, BusinessService ],
+    providers: [ JobService, BusinessService, ClubService ],
     templateUrl: '../templates/business-page.component.html',
 })
 
 export class BusinessPageComponent {
     businessId: number;
+    clubId: number;
     jobs: any = [];
-    business: any = [];
+    business: any = {};
+    club: any = {};
     user: any = {};
 
     constructor(private jobService: JobService,
                 private businessService: BusinessService,
+                private clubService: ClubService,
                 private route: ActivatedRoute) {
         let __this = this;
 
@@ -30,23 +34,40 @@ export class BusinessPageComponent {
          */
         route.params.subscribe(params => {
             if (params) {
-                __this.businessId = params['businessId'];
+                if (params['businessId']) {
+                    __this.businessId = params['businessId'];
 
-                /**
-                 * Get jobs listing
-                 */
-                __this.jobService.getJobsFromBusiness(__this.businessId).subscribe((results:Response) => {
-                    __this.jobs = results.json();
-                });
+                    /**
+                     * Get jobs listing from specific business
+                     */
+                    __this.jobService.getJobsFromBusiness(__this.businessId).subscribe((results:Response) => {
+                        __this.jobs = results.json();
+                    });
 
-                /**
-                 * Get specific business data
-                 */
-                __this.businessService.get(__this.businessId).subscribe((res:Response) => {
-                    __this.business = res.json();
+                    /**
+                     * Get specific business data
+                     */
+                    __this.businessService.get(__this.businessId).subscribe((res:Response) => {
+                        __this.business = res.json();
+                    });
+                }
+                else if (params['clubId']) {
+                    __this.clubId = params['clubId'];
 
-                    console.log('business is ', __this.business);
-                });
+                    /**
+                     * Get jobs listing from specific club
+                     */
+                    __this.jobService.getJobsFromClub(__this.clubId).subscribe((results:Response) => {
+                        __this.jobs = results.json();
+                    });
+
+                    /**
+                     * Get specific club data
+                     */
+                    __this.clubService.getClub(__this.clubId).subscribe((res:Response) => {
+                        __this.club = res.json();
+                    });
+                }
             }
         });
     }

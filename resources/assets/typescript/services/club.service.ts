@@ -30,8 +30,8 @@ export class ClubService {
      * @param id
      * @returns {Observable<Response>}
      */
-    getClub(clubId) {
-        return this.http.request(this.showClubListingUrl + '/' + clubId);
+    getClub(id) {
+        return this.http.request(this.showClubListingUrl + '/' + id);
     }
 
     /**
