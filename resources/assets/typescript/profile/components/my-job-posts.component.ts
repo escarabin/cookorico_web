@@ -16,6 +16,7 @@ import { Notification } from '../../models/notification';
 
 export class MyJobPostsComponent {
     items: any = [];
+    postStatus: string = null;
     allItemsChecked: boolean;
     checkedItemsList: any = [];
     jobPlacementsLeftNum: any = [];

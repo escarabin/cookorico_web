@@ -19,6 +19,7 @@ export class AdminJobPostsComponent {
     allItemsChecked: boolean;
     checkedItemsList: any = [];
     jobPlacementsLeftNum: any = [];
+    postStatusFilter: string = "0";
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService) {

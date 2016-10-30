@@ -1,3 +1,19 @@
+<div class="col-md-12">
+    <h2>Annonces</h2>
+</div>
+<div class="col-md-4 col-md-offset-4">
+    <select class="form-control"
+            name="postStatus"
+            [(ngModel)]="postStatus"
+            ngControl="postStatus">
+        <option value="null" selected disabled>-- Status --</option>
+        <option value="is_accepted">En ligne</option>
+        <option value="is_rejected">Rejeté</option>
+        <option value="is_reviewing">En validation</option>
+    </select>
+    <br /><br />
+</div>
+
 <div class="col-md-12 header-container">
     <div class="col-md-12 col-sm-12 col-xs-11 items-count">
         <span *ngIf="checkedItemsList.length > 0">
@@ -15,6 +31,9 @@
     <ul>
         <li class="row" *ngFor="let item of items">
             <div class="col-md-12 col-sm-12 col-xs-12 item"
+                 *ngIf="item[postStatus] == true
+                        || (postStatus == 'is_reviewing' && !item.is_accepted && !item.is_rejected)
+                        || postStatus == null"
                  [class.logo]="item.business.logo">
                 <a routerLink="/profil/annonce/editer/{{ item.id }}">
                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
@@ -27,8 +46,8 @@
                          [class.col-sm-7]="!item.business.logo"
                          class="col-xs-8">
                         <h3>{{ item.job_naming.title.substr(0, 30) }}...</h3>
-                        <span *ngIf="item.is_reviewed" class="alert-info">En ligne</span>
-                        <span *ngIf="!item.is_reviewed && !item.is_rejected" class="alert-warning">En validation</span>
+                        <span *ngIf="item.is_accepted" class="alert-success">En ligne</span>
+                        <span *ngIf="!item.is_accepted && !item.is_rejected" class="alert-warning">En validation</span>
                         <span *ngIf="item.is_rejected" class="alert-danger">Rejetée</span>
                         <span *ngIf="!item.is_active" class="alert-danger">Désactivée</span>
                         <br />
