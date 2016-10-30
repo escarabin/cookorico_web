@@ -27,6 +27,7 @@ export class CandidateDashboardComponent {
     isSavingJobSeekingData: boolean = false;
     isSavingLanguages: boolean = false;
     languages: any = [];
+    alertFrequencies: any = [];
     languageLevels: any = [];
     userLanguages: any = [{'language_id': 0, 'language_level_id': 0}];
 
@@ -52,6 +53,10 @@ export class CandidateDashboardComponent {
 
         this.referenceService.getAllLanguages().subscribe((res: Response) => {
             this.languages = res.json();
+        });
+
+        this.referenceService.getAllAlertFrequencies().subscribe((res: Response) => {
+            this.alertFrequencies = res.json();
         });
 
         this.referenceService.getAllLanguageLevels().subscribe((res: Response) => {
@@ -121,7 +126,7 @@ export class CandidateDashboardComponent {
 
     saveJobSeekingInfos() {
         this.isSavingJobSeekingData = true;
-        this.userService.saveJobSeekingData(this.lookingForJobNamingList).subscribe((res: Response) => {
+        this.userService.saveJobSeekingData(this.lookingForJobNamingList, this.user.alert_frequency_id).subscribe((res: Response) => {
             this.isSavingJobSeekingData = false;
 
             this.userService.getUserInfos().subscribe((res: Response) => {

@@ -550,10 +550,11 @@ export class UserService {
     /**
      * Save logged user job seeking data
      * @param lookingForJobNamingList
+     * @param alertFrequencyId
      * @returns {Observable<Response>}
      */
-    saveJobSeekingData(lookingForJobNamingList: any) {
-        let requestBody = JSON.stringify({ lookingForJobNamingList });
+    saveJobSeekingData(lookingForJobNamingList: any, alertFrequencyId: number) {
+        let requestBody = JSON.stringify({ lookingForJobNamingList, alertFrequencyId });
 
         return this.http.post(this.saveJobSeekingDataUrl, requestBody, this.postRequestOptions);
     }

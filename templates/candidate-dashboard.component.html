@@ -165,7 +165,18 @@
                 Vous devez choisir une première zone de recherche
             </div>
         </div>
-
+        <div class="col-md-4 col-md-offset-4">
+            <select class="form-control"
+                    name="alertFrequency"
+                    [(ngModel)]="user.alert_frequency_id"
+                    ngControl="user.alert_frequency_id">
+                <option value="null">-- Fréquence des alertes --</option>
+                <option *ngFor="let alertFrequency of alertFrequencies"
+                        value="{{ alertFrequency.id }}">
+                    {{ alertFrequency.title }}
+                </option>
+            </select>
+        </div>
         <div class="col-md-12 centered">
             <button class="btn btn-primary"
                     (click)="saveJobSeekingInfos()"

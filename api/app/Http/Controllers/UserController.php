@@ -203,6 +203,9 @@ class UserController extends Controller
             }
         }
 
+        $user->alert_frequency_id = $request::get('alertFrequencyId');
+        $user->save();
+
         return $user;
     }
 
