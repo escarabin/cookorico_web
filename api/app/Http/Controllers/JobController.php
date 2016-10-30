@@ -45,6 +45,8 @@ class JobController extends Controller
         $job->click_count = $job->click_count + 1;
         $job->save();
 
+        $this->generateXmlFile();
+
         return $job;
     }
 
@@ -342,6 +344,45 @@ class JobController extends Controller
         $jobPost->save();
 
         return $jobPost;
+    }
+
+
+    /**
+     * Dail generate an XML file with all offers for indeed, lbc etc...
+     */
+    public function generateXmlFile() {
+        $allJobs = $this->getAll();
+
+        $xmlFileContent = '<?xml version="1.0" encoding="UTF-8"?>
+                                <source>
+                                    <publisher>cookorico.com</publisher>
+                                    <publisherurl>http://cookorico.com/</publisherurl>
+                                    <lastBuildDate>'.date("D M j G:i:s T Y").'</lastBuildDate>';
+
+        foreach ($allJobs as $job) {
+            $xmlFileContent .= '<job>
+                                    <title><![CDATA['.$job->title.']]></title>
+                                    <date><![CDATA['.$job->created_at.']]></date>
+                                    <referencenumber><![CDATA['.$job->id.']]></referencenumber>
+                                    <url><![CDATA[http://cookorico.com/#/recherche/annonce/'.$job->id.']]></url>
+                                    <company><![CDATA['.$job->business->title.']]></company>
+                                    <city><![CDATA['.$job->business->place->city.']]></city>
+                                    <postalcode><![CDATA['.$job->business->place->postalCode.']]></postalcode>
+                                    <country><![CDATA[FRANCE]]></country>
+                                    <description><![CDATA['.$job->description.']]></description>
+                                    <category><![CDATA['.$job->jobNaming->title.']]></category>
+                                    <education><![CDATA['.$job->studyLevel->title.']]></education>
+                                    <jobtype><![CDATA['.$job->contractType->title.']]></jobtype>
+                                    <experience><![CDATA['.$job->jobXpLevel->title.']]></experience>
+                                </job>';
+        }
+
+        $xmlFileContent .= '    </source>
+                            </xml>';
+
+        Log::info($xmlFileContent);
+
+        return $xmlFileContent;
     }
 
     /**

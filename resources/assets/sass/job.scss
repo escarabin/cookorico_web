@@ -80,3 +80,35 @@ job {
     }
   }
 }
+
+@media (max-width: $mobileWidth) {
+  job {
+    padding: 0;
+
+    .description-heading {
+      margin: 10px;
+    }
+
+    .job-description {
+      padding: 10px;
+    }
+
+    .logo {
+      float: none;
+      text-align: center;
+      padding: 10px 65px;
+
+      img {
+        width: 60%;
+      }
+    }
+
+    .job-infos-list {
+      padding: 10px;
+
+      .job-info {
+        height: auto;
+      }
+    }
+  }
+}

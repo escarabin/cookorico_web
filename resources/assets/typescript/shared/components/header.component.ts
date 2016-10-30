@@ -17,6 +17,7 @@ export class HeaderComponent {
     user: any;
     isHomePage: boolean = false;
     scrollTop: number;
+    isMobileMenuShown: boolean = false;
 
     constructor (@Inject(UserService) UserService,
                  private userService: UserService,

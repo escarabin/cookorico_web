@@ -80,6 +80,10 @@ ng-select .ui-select-choices-row {
   .breadcrumb a, .breadcrumb span {
     text-transform: capitalize; }
 
+@media (max-width: 700px) {
+  .breadcrumb {
+    display: none; } }
+
 button, input[type=button] {
   height: 40px;
   font-family: "Avenir Heavy", sans-serif; }
@@ -96,6 +100,14 @@ button, input[type=button] {
 header {
   width: 100%;
   background-color: white; }
+  header .mobile-menu {
+    position: fixed;
+    background: #35B6E1;
+    z-index: 100;
+    top: 70px;
+    width: 100%; }
+    header .mobile-menu li {
+      width: 100%; }
   header .header-wrapper {
     position: absolute;
     width: 100%;
@@ -284,6 +296,24 @@ job {
   job .business .name h3 {
     font-size: 1.5em;
     margin: 10px 0 0 0; }
+
+@media (max-width: 700px) {
+  job {
+    padding: 0; }
+    job .description-heading {
+      margin: 10px; }
+    job .job-description {
+      padding: 10px; }
+    job .logo {
+      float: none;
+      text-align: center;
+      padding: 10px 65px; }
+      job .logo img {
+        width: 60%; }
+    job .job-infos-list {
+      padding: 10px; }
+      job .job-infos-list .job-info {
+        height: auto; } }
 
 create-business .logo {
   height: 90px;
@@ -719,6 +749,10 @@ job-preview:nth-child(odd) {
   job-preview:nth-child(odd):hover {
     background-color: #f0f0f0; }
 
+@media (max-width: 700px) {
+  job-preview {
+    padding: 20px 10px; } }
+
 job-search-results {
   background: white;
   display: block;
@@ -743,7 +777,10 @@ job-search-results {
 
 @media (max-width: 700px) {
   job-search-results {
-    box-shadow: none; }
+    box-shadow: none;
+    padding: 0; }
+    job-search-results .row {
+      margin: 0; }
     job-search-results .search-results-container {
       padding: 0; }
     job-search-results .jobs-count {
@@ -1699,7 +1736,8 @@ footer {
   background-position: center center; }
   footer .row {
     color: white;
-    width: 990px;
+    max-width: 990px;
+    width: 100%;
     margin: auto; }
     footer .row .logo {
       background-image: url("/img/oechr_logo.png");
@@ -1714,6 +1752,10 @@ footer {
     footer .row i {
       font-size: 2em;
       margin: 0 10px 0 0; }
+
+@media (max-width: 700px) {
+  footer .row {
+    margin: 0; } }
 
 clubs-management .create-club {
   background: #35B6E1;

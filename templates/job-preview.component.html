@@ -1,12 +1,12 @@
 <a routerLink="/recherche/annonce/{{ job.id }}">
-    <div class="logo col-md-2 col-sm-2 col-xs-2"
+    <div class="logo col-md-2 col-sm-2 col-xs-3"
           *ngIf="job.business.logo">
         <img src="{{ job.business.logo }}"/>
     </div>
 
     <div class="basic-infos"
-         [class.col-xs-9]="!job.business.logo"
-         [class.col-xs-7]="job.business.logo"
+         [class.col-xs-8]="!job.business.logo"
+         [class.col-xs-6]="job.business.logo"
          [class.col-sm-9]="!job.business.logo"
          [class.col-sm-7]="job.business.logo"
          [class.col-md-9]="!job.business.logo"
@@ -27,7 +27,7 @@
         <div class="contract_type">
             {{ job.contract_type.title }} - {{ job.week_work_hours }}h
         </div>
-        <div class="post_date">
+        <div class="post_date hidden-xs">
             Publiée le <b>{{ job.created_at | date:"dd/MM/yy" }}</b>
         </div>
     </div>

@@ -32,5 +32,8 @@ class Kernel extends ConsoleKernel
 
         $schedule->call('App\Http\Controllers\MailController@lookForInactiveUsers')
                  ->daily();
+
+        $schedule->call('App\Http\Controllers\JobController@generateXmlFile')
+                 ->daily();
     }
 }

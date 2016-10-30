@@ -63,5 +63,7 @@ job-preview:nth-child(odd) {
 
 
 @media (max-width: $mobileWidth) {
-
+  job-preview {
+    padding: 20px 10px;
+  }
 }

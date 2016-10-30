@@ -5,7 +5,8 @@
             <div class="logo"></div>
         </a>
     </div>
-    <div class="col-md-9 col-sm-2 col-xs-2 hidden-md hidden-lg mobile-menu-toggle">
+    <div class="col-md-9 col-sm-2 col-xs-2 hidden-md hidden-lg mobile-menu-toggle"
+         (click)="isMobileMenuShown=!isMobileMenuShown">
         <i class="icon-user"></i>
     </div>
     <div class="col-md-9 hidden-sm hidden-xs">
@@ -49,6 +50,34 @@
             </li>
         </ul>
     </div>
+</div>
+
+<div class="mobile-menu"
+     [class.hidden]="!isMobileMenuShown">
+    <ul (click)="isMobileMenuShown = false">
+        <sign-in (userSignedIn)="handleUserSignedIn($event)"
+                 (userSignedOut)="handleUserSignedOut($event)"
+                 [user]="user">
+
+        </sign-in>
+        <li *ngIf="user && user.is_active">
+            <!-- If user is an admin, create a link to website editor -->
+            <a *ngIf="user.user_type_id == 1"
+               routerLink="/profil/website-editor">
+                Administration
+            </a>
+            <!-- If user is a recruiter, create a link to his job posts -->
+            <a *ngIf="user.user_type_id == 2"
+               routerLink="/profil/annonces">
+                Espace recruteur
+            </a>
+            <!-- If user is a candidate, create a link to his profile preview -->
+            <a *ngIf="user.user_type_id == 3"
+               routerLink="/profil/apercu">
+                Mon compte
+            </a>
+        </li>
+    </ul>
 </div>
 
 <profile-sub-header (window:scroll)="onPageScroll($event)"

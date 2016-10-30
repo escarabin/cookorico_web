@@ -5,3 +5,9 @@
     text-transform: capitalize;
   }
 }
+
+@media(max-width: $mobileWidth) {
+  .breadcrumb {
+    display: none;
+  }
+}
