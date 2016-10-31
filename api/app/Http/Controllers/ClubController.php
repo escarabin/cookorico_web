@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Plan;
 use Illuminate\Support\Facades\Request;
 
 use App\Models\User;
@@ -114,6 +115,16 @@ class ClubController extends Controller
         }
 
         $club->save();
+
+        if ($request::get('isGroup') == 'true') {
+            /**
+             * Create a group plan with required spaces
+             */
+            $plan = new Plan();
+            $plan->spaces = $request::get('groupSpacesAmount');
+            $plan->user_id = $request::get('groupSpacesAmount');
+            $plan->save();
+        }
 
         /**
          * Upload profile picture data

@@ -47,10 +47,11 @@ export class ClubService {
      * Create a new club
      * @param club
      * @param isGroup
+     * @param groupSpacesAmount
      * @returns {Observable<Response>}
      */
-    create(club, isGroup: boolean = false) {
-        let requestBody = JSON.stringify({ club, isGroup });
+    create(club, isGroup: boolean = false, groupSpacesAmount: number = 0) {
+        let requestBody = JSON.stringify({ club, isGroup, groupSpacesAmount });
 
         return this.http.post(this.createClubUrl, requestBody, this.postRequestOptions);
     }

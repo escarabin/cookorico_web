@@ -29,6 +29,7 @@ export class ClubsManagementComponent {
     profilePictureData: any;
     isSavingClub: boolean = false;
     isGroupEdtingMode: boolean = false;
+    groupSpacesAmount: number;
 
     constructor(private clubService: ClubService,
                 private route: ActivatedRoute) {
@@ -125,7 +126,7 @@ export class ClubsManagementComponent {
     saveClub() {
         this.isSavingClub = true;
 
-        this.clubService.create(this.club, this.isGroupEdtingMode).subscribe((club:Response) => {
+        this.clubService.create(this.club, this.isGroupEdtingMode, this.groupSpacesAmount).subscribe((club:Response) => {
             this.isSavingClub = false;
             this.club = {};
             this.profilePictureData = {};
