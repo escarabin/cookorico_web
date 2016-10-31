@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 // Services
 import { UserService } from './../../services/user.service';
 import { NotificationsService } from './../../services/notification.service';
 import { SellsyService } from './../../services/sellsy.service';
+import { PlanService } from './../../services/plan.service';
 
 // Models
 import { Notification } from './../../models/notification';
@@ -13,7 +15,7 @@ declare var braintree:any;
 
 @Component({
     selector: 'pricing-plans',
-    providers: [ UserService, SellsyService ],
+    providers: [ UserService, SellsyService, PlanService ],
     templateUrl: '../templates/pricing-plans.component.html'
 })
 
@@ -23,6 +25,8 @@ export class PricingPlansComponent {
 
     constructor(private userService: UserService,
                 private sellsyService: SellsyService,
+                private planService: PlanService,
+                private router: Router,
                 private notificationService: NotificationsService) {
         let __this = this;
 
@@ -31,7 +35,7 @@ export class PricingPlansComponent {
          */
         sellsyService.getServices().subscribe((res:Response) => {
             let response = res['_body'];
-
+            
             /**
              * Remove Sellsy request infos
              */
@@ -57,13 +61,12 @@ export class PricingPlansComponent {
     /**
      * Triggers Paypal express checkout payment
      */
-    payWithPaypal(buttonId: number) {
-        // Fetch the button you are using to initiate the PayPal flow
-        var paypalButton = document.getElementById('pay-with-paypal-btn-' + buttonId);
+    payWithPaypal(service: Object) {
+        let __this = this;
 
         // Create a Client component
         braintree.client.create({
-            authorization: 'A101.RDBAAZ9ZiZ6ahVPs9_4aXFdqSSe0nuT32nDbP86CP1KeO0NRKCFhddzkhLmuOmJz.EYSeJMAMpTDYPzs3HRPRbCeEYRq'
+            authorization: 'sandbox_vms67b7s_8779ykzdzphh77fk'
         }, function (clientErr, clientInstance) {
             // Create PayPal component
             braintree.paypal.create({
@@ -71,31 +74,54 @@ export class PricingPlansComponent {
             }, function (err, paypalInstance) {
                 console.log(clientErr, clientInstance);
                 console.log(err, paypalInstance);
+                // Because tokenization opens a popup, this has to be called as a result of
+                // customer action, like clicking a button—you cannot call this at any time.
+                paypalInstance.tokenize({
+                    flow: 'checkout', // Required
+                    amount: service['formatted_unitAmount'], // Required
+                    currency: 'EUR', // Required
+                    locale: 'fr_FR',
+                    enableShippingAddress: false
+                }, function (tokenizeErr, payload) {
 
-                paypalButton.addEventListener('click', function () {
-                    // Tokenize here!
-                    paypalInstance.tokenize({
-                        flow: 'checkout', // Required
-                        amount: 10.00, // Required
-                        currency: 'USD', // Required
-                        locale: 'en_US',
-                        enableShippingAddress: true,
-                        shippingAddressEditable: false,
-                        shippingAddressOverride: {
-                            recipientName: 'Scruff McGruff',
-                            line1: '1234 Main St.',
-                            line2: 'Unit 1',
-                            city: 'Chicago',
-                            countryCode: 'US',
-                            postalCode: '60652',
-                            state: 'IL',
-                            phone: '123.456.7890'
+                    // Stop if there was an error.
+                    if (tokenizeErr) {
+                        if (tokenizeErr.type !== 'CUSTOMER') {
+                            console.error('Error tokenizing:', tokenizeErr);
                         }
-                    }, function (err, tokenizationPayload) {
-                        // Tokenization complete
-                        // Send tokenizationPayload.nonce to server
+                        __this.notificationService.show(
+                            new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
+                        );
+                        return;
+                    }
+
+                    // Tokenization succeeded!
+                    console.log('Got a nonce! You should submit this to your server.');
+                    console.log(payload.nonce);
+
+                    /**
+                     * TODO: verify payment is really successful before going live
+                     */
+                    __this.planService.savePayment(service).subscribe((res: Response) => {
+                        __this.notificationService.show(
+                            new Notification('success', 'Nous avons bien reçu votre paiement ! Votre pack est actif')
+                        );
+
+                        __this.router.navigate(['/profil/annonces']);
                     });
                 });
+
+                /*paypalInstance.tokenize({
+                    flow: 'checkout', // Required
+                    amount: service['formatted_unitAmount'], // Required
+                    currency: 'EUR', // Required
+                    locale: 'fr_FR',
+                    enableShippingAddress: true,
+                    shippingAddressEditable: true
+                }, function (err, tokenizationPayload) {
+                    // Tokenization complete
+                    // Send tokenizationPayload.nonce to server
+                });*/
             });
         });
     }

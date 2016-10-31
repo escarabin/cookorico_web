@@ -241,6 +241,8 @@ Route::get('/job_xp_levels/all', 'ReferenceController@getAllJobXpLevels')
 // Plans
 Route::get('/user/plans/all', 'UserController@getPlans')
     ->name('getAllPlans');
+Route::post('/plan/payment/save', 'UserController@savePayment')
+    ->name('savePayment');
 
 // Applicants
 Route::get('/applicants/all', 'UserController@getApplicants')

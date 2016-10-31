@@ -122,7 +122,7 @@ class ClubController extends Controller
              */
             $plan = new Plan();
             $plan->spaces = $request::get('groupSpacesAmount');
-            $plan->user_id = $request::get('groupSpacesAmount');
+            $plan->user_id = $club->id;
             $plan->save();
         }
 

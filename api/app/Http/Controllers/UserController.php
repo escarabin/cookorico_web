@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Language;
 use App\Models\LanguageLevel;
+use App\Models\Plan;
+use App\Models\PricingPlan;
 use Illuminate\Support\Facades\App;
 use App\Models\MailTemplate;
 use Illuminate\Support\Facades\DB;
@@ -783,6 +785,10 @@ class UserController extends Controller
         return 'test';
     }
 
+    /**
+     * Save user spoken languages and levels
+     * @param Request $request
+     */
     public function saveSpokenLanguages(Request $request) {
         $spokenLanguagesData = $request::get('languages');
 
@@ -811,6 +817,10 @@ class UserController extends Controller
         return $user;
     }
 
+    /**
+     * Get user spoken languages
+     * @return mixed
+     */
     public function getSpokenLanguages() {
         $languages = DB::table('language_user')
                         ->where('user_id', Auth::user()->id)
@@ -822,5 +832,25 @@ class UserController extends Controller
         }
 
         return $languages;
+    }
+
+    /**
+     * Save user's payment after validation
+     */
+    public function savePayment(Request $request) {
+        $serviceData = $request::get('service');
+
+        $pricingPlanId = $serviceData['customfields'][0]['formatted_value'];
+
+        $pricingPlan = PricingPlan::find($pricingPlanId);
+
+        $plan = new Plan();
+        $plan->user_id = Auth::user()->id;
+        $plan->pricing_plan_id = $pricingPlan->id;
+        $plan->credits = $pricingPlan->credits;
+        $plan->daily_contacts = $pricingPlan->daily_contacts;
+        $plan->save();
+
+        return $plan;
     }
 }
