@@ -17,7 +17,9 @@
         <div class="col-md-3 centered">
             <button class="btn btn-warning"
                     (click)="deleteClub(club.id)">
-                Supprimer ce club
+                Supprimer ce
+                <span *ngIf="!isGroupEdtingMode">club</span>
+                <span *ngIf="isGroupEdtingMode">groupe</span>
             </button>
             <br />
             <br />
@@ -71,7 +73,10 @@
 <div class="row create-club">
     <form #createClubForm="ngForm">
         <div class="col-md-12 centered">
-            <h2>Créer un club</h2>
+            <h2>
+                Créer un <span *ngIf="!isGroupEdtingMode">club</span>
+                <span *ngIf="isGroupEdtingMode">groupe</span>
+            </h2>
             <br />
         </div>
         <div class="col-md-6">
@@ -80,7 +85,7 @@
                    [(ngModel)]="club.username"
                    ngControl="club.username"
                    name="username"
-                   placeholder="Nom du club"
+                   placeholder="Nom"
                    class="form-control"/>
         </div>
         <div class="col-md-6">
@@ -88,7 +93,7 @@
                    class="form-control"
                    required
                    name="place"
-                   placeholder="Lieu du club"
+                   placeholder="Lieu"
                    (setAddress)="parseAdress($event)"
                    googleplace/>
         </div>
@@ -119,7 +124,10 @@
             </img-cropper>
         </div>
         <div class="col-md-12 centered">
-            <h3>Contact du club</h3>
+            <h3>
+                Contact du <span *ngIf="!isGroupEdtingMode">club</span>
+                <span *ngIf="isGroupEdtingMode">groupe</span>
+            </h3>
         </div>
         <div class="col-md-6">
             <input type="text"

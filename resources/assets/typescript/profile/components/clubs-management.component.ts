@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Response } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 
 // Services
 import { ClubService } from '../../services/club.service';
@@ -27,10 +28,22 @@ export class ClubsManagementComponent {
     public hasAnotherDropZoneOver:boolean = false;
     profilePictureData: any;
     isSavingClub: boolean = false;
+    isGroupEdtingMode: boolean = false;
 
-    constructor(private clubService: ClubService) {
-        this.clubService.getAllClubs().subscribe((clubs:Response) => {
-            this.clubs = clubs.json();
+    constructor(private clubService: ClubService,
+                private route: ActivatedRoute) {
+        this.route.params.subscribe(params => {
+            if (params['type'] == 'groupes') {
+                this.isGroupEdtingMode = true;
+                this.clubService.getAllGroups().subscribe((clubs:Response) => {
+                    this.clubs = clubs.json();
+                });
+            }
+            else {
+                this.clubService.getAllClubs().subscribe((clubs:Response) => {
+                    this.clubs = clubs.json();
+                });
+            }
         });
 
         /**
@@ -95,12 +108,7 @@ export class ClubsManagementComponent {
      */
     handleBusinessIdChange(businessId: number, clubId: number) {
         this.clubService.attachBusiness(clubId, businessId).subscribe((res:Response) => {
-            /**
-             * Reload clubs
-             */
-            this.clubService.getAllClubs().subscribe((clubs:Response) => {
-                this.clubs = clubs.json();
-            });
+            this.refreshData();
         });
     }
 
@@ -110,39 +118,41 @@ export class ClubsManagementComponent {
 
     detachBusinessFromClub(clubId: number, businessId: number) {
         this.clubService.detachBusiness(clubId, businessId).subscribe((res:Response) => {
-            /**
-             * Reload clubs
-             */
-            this.clubService.getAllClubs().subscribe((clubs:Response) => {
-                this.clubs = clubs.json();
-            });
+            this.refreshData();
         });
     }
 
     saveClub() {
         this.isSavingClub = true;
 
-        this.clubService.create(this.club).subscribe((club:Response) => {
+        this.clubService.create(this.club, this.isGroupEdtingMode).subscribe((club:Response) => {
             this.isSavingClub = false;
             this.club = {};
             this.profilePictureData = {};
-            /**
-             * Reload clubs
-             */
-            this.clubService.getAllClubs().subscribe((clubs:Response) => {
-                this.clubs = clubs.json();
-            });
+            this.refreshData();
         });
     }
 
     deleteClub(clubId: number) {
         this.clubService.deleteClub(clubId).subscribe((club:Response) => {
-            /**
-             * Reload clubs
-             */
+            this.refreshData();
+        });
+    }
+
+
+    refreshData() {
+        /**
+         * Reload clubs
+         */
+        if (this.isGroupEdtingMode) {
+            this.clubService.getAllGroups().subscribe((clubs:Response) => {
+                this.clubs = clubs.json();
+            });
+        }
+        else {
             this.clubService.getAllClubs().subscribe((clubs:Response) => {
                 this.clubs = clubs.json();
             });
-        });
+        }
     }
 }

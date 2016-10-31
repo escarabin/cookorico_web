@@ -5,6 +5,7 @@ import appGlobals = require('./../globals');
 @Injectable()
 export class ClubService {
     allClubsListingUrl = appGlobals.apiUrl + '/clubs/all';
+    allGroupsListingUrl = appGlobals.apiUrl + '/groups/all';
     showClubListingUrl = appGlobals.apiUrl + '/club';
     createClubUrl = appGlobals.apiUrl + '/club/create';
     detachBusinessFromClubUrl = appGlobals.apiUrl + '/club/detach-business';
@@ -26,6 +27,14 @@ export class ClubService {
     }
 
     /**
+     * Listing all groups
+     * @returns {Observable<Response>}
+     */
+    getAllGroups() {
+        return this.http.request(this.allGroupsListingUrl);
+    }
+
+    /**
      * Returns specific club
      * @param id
      * @returns {Observable<Response>}
@@ -37,10 +46,11 @@ export class ClubService {
     /**
      * Create a new club
      * @param club
+     * @param isGroup
      * @returns {Observable<Response>}
      */
-    create(club) {
-        let requestBody = JSON.stringify({ club });
+    create(club, isGroup: boolean = false) {
+        let requestBody = JSON.stringify({ club, isGroup });
 
         return this.http.post(this.createClubUrl, requestBody, this.postRequestOptions);
     }

@@ -122,6 +122,10 @@ Route::get('/club/delete/{clubId}', 'ClubController@delete')
 Route::get('/club/jobs/{clubId}', 'ClubController@getJobs')
     ->name('getClubJobs');
 
+// Groups
+Route::get('/groups/all', 'ClubController@getAllGroups')
+    ->name('getAllGroups');
+
 // References
 Route::get('/states/all', 'ReferenceController@getAllStates')
     ->name('getAllStates');

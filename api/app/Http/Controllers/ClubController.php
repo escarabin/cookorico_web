@@ -46,6 +46,25 @@ class ClubController extends Controller
     }
 
     /**
+     * Get all groups
+     *
+     * @return mixed
+     */
+    public function getAllGroups() {
+        $groups = User::where('user_type_id', 5)->get()->load('businesses');
+
+        foreach ($groups as $group) {
+            $i = 0;
+            foreach ($group->businesses as $business) {
+                $group->businesses[$i]['place'] = $group->businesses[$i]['place'];
+                $i += 1;
+            }
+        }
+
+        return $groups;
+    }
+
+    /**
      * Detach business from specific club
      * @param $businessId
      * @param $clubId
@@ -80,6 +99,10 @@ class ClubController extends Controller
 
         $club = new User();
         $club->user_type_id = 4;
+
+        if ($request::get('isGroup') == 'true') {
+            $club->user_type_id = 5;
+        }
 
         foreach ($clubData as $key => $value) {
             if ($key != 'profilePictureUrl' && $key != "place" && $key != "password") {

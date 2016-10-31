@@ -105,6 +105,7 @@ const profileRoutes: Routes = [
 
             // Clubs management
             {path: 'clubs', component: ClubsManagementComponent},
+            {path: 'clubs/:type', component: ClubsManagementComponent},
 
             // Confirm account creation
             {path: 'confirmer-le-compte/:userId', component: ConfirmAccountCreationComponent},

@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { routing } from './app.routes';
 import { SharedModule } from './shared/shared.module';
+// import { MetaModule, MetaService } from 'ng2-meta';
 
 // Services
 import { NotificationsService } from './services/notification.service'
@@ -43,6 +44,7 @@ import { PaginationControlsCmp } from 'ng2-pagination';
                     FormsModule,
                     HttpModule,
                     SharedModule,
+                    // MetaModule.forRoot(),
                     routing ],
     providers:    [ NotificationsService ],
     bootstrap:    [ AppComponent ],

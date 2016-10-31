@@ -14,7 +14,8 @@
          [class.col-md-6]="!user.profilePictureUrl"
          [class.col-sm-4]="user.profilePictureUrl"
          [class.col-sm-6]="!user.profilePictureUrl">
-        <h2 *ngIf="user.is_active">Bonjour {{ user.firstName }}</h2>
+        <h2 *ngIf="user.is_active && user.user_type_id != 1">Bonjour {{ user.firstName }}</h2>
+        <h2 *ngIf="user.user_type_id == 1">Administration</h2>
         <h2 *ngIf="!user.is_active">Bienvenue</h2>
         <br />
         <a routerLink="/profil"
@@ -77,6 +78,31 @@
             <a routerLink="/profil/etablissements" routerLinkActive="active">
                 <i class="icon-layers"><br /></i>
                 <h3>Mes établissements</h3>
+            </a>
+        </div>
+    </div>
+
+    <!-- Admin -->
+    <div *ngIf="user.user_type_id == 1">
+        <div class="col-md-2 col-sm-2 sub-header-menu-item"
+             [class.disabled]="!user.is_active">
+            <a routerLink="/profil/annonces_admin" routerLinkActive="active">
+                <i class="icon-note"><br /></i>
+                <h3>Annonces à valider</h3>
+            </a>
+        </div>
+        <div class="col-md-2 col-sm-2 sub-header-menu-item"
+             [class.disabled]="!user.is_active">
+            <a routerLink="/profil/mail-templates" routerLinkActive="active">
+                <i class="icon-envelope"><br /></i>
+                <h3>Mails</h3>
+            </a>
+        </div>
+        <div class="col-md-2 col-sm-2 sub-header-menu-item"
+             [class.disabled]="!user.is_active">
+            <a routerLink="/profil/clubs" routerLinkActive="active">
+                <i class="icon-layers"><br /></i>
+                <h3>Clubs</h3>
             </a>
         </div>
     </div>

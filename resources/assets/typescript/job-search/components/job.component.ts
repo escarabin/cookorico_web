@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MetaService } from 'ng2-meta';
 
 // Services
 import { JobService } from '../../services/job.service';

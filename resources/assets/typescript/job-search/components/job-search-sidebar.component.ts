@@ -125,7 +125,6 @@ export class JobSearchSidebarComponent {
                         return this.jobNamings[i]['title'];
                     }
                 }
-
                 break;
             case "contractType":
                 for (let i = 0; i < this.contractTypes.length; i++) {
