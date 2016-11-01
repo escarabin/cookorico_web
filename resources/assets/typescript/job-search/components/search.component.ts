@@ -5,9 +5,7 @@ import { Response } from '@angular/http';
 // Services
 import { UserService } from './../../services/user.service';
 import { NotificationsService } from './../../services/notification.service';
-
-// Components
-import { JobSearchResultsComponent } from './../components/job-search-results.component';
+import { SearchService } from './../../services/search.service';
 
 // Models
 import { Notification } from './../../models/notification';
@@ -27,10 +25,12 @@ export class SearchComponent {
     user: any;
     scrollTop: number;
     routeSegments: any = [];
+    seoRouteData: string;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
                 private userService: UserService,
+                private searchService: SearchService,
                 private notificationService: NotificationsService) {
         this.userService.getUserInfos().subscribe((res: Response) => {
             if (res.text().length > 10) {
@@ -64,6 +64,12 @@ export class SearchComponent {
 
             let segments = event.url.split('/');
             let link = "/";
+
+            this.searchService.getSeoDataFromPath(event.url).subscribe((res: Response) => {
+                if (res['_body'].length > 10) {
+                    this.seoRouteData = res.json();
+                }
+            });
 
             for (let i = 1; i < segments.length; i++) {
                 link += segments[i] + "/";

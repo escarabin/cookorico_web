@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\SeoRoute;
 use Illuminate\Support\Facades\Request;
 use Log;
 
@@ -47,7 +48,17 @@ class WebsiteEditorController extends Controller
             $jobNamingId = $trafficDrivenCat['jobNamingId'];
             $placeId = $trafficDrivenCat['place']['place_id'];
 
-            $htaccessLine = PHP_EOL.'Redirect permanent '.$path.' /recherche/'.$placeId.'/'.$jobNamingId.'/0/0'.PHP_EOL;
+            $newUrl = '/#/recherche/'.$placeId.'/'.$jobNamingId.'/0/0';
+
+            $seoRoute = new SeoRoute();
+            $seoRoute->title = $title;
+            $seoRoute->job_naming_id = $jobNamingId;
+            $seoRoute->description = $description;
+            $seoRoute->path = $path;
+            $seoRoute->redirection_url = $newUrl;
+            $seoRoute->save();
+
+            $htaccessLine = PHP_EOL.'Redirect permanent '.$path.' '.$newUrl.''.PHP_EOL;
             $htaccessLine .= '#'.$title.PHP_EOL;
             $htaccessLine .= '#'.$description;
 
@@ -56,5 +67,17 @@ class WebsiteEditorController extends Controller
 
         $file = '../../.htaccess';
         file_put_contents($file, $htaccessCompleteText);
+    }
+
+    /**
+     * GET seo route infos from redirection url
+     */
+    public function getSeoRoute(Request $request) {
+        Log::info($request::all());
+
+        $seoRoute = SeoRoute::where('redirection_url', '/#'.$request::get('redirectionUrl'))
+                            ->first();
+
+        return $seoRoute;
     }
 }
