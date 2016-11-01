@@ -95,7 +95,7 @@ profile-sub-header {
   }
 }
 
-@media(max-width: $tabletWidth) {
+@media(max-width: $mobileWidth) {
   profile-sub-header {
     display: none;
   }

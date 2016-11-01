@@ -71,7 +71,7 @@ header {
   }
 }
 
-@media (max-width: $tabletWidth) {
+@media (max-width: $mobileWidth) {
   header {
     .header-wrapper {
       height: $headerHeight - 30;

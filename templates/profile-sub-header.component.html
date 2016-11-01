@@ -14,22 +14,24 @@
          [class.col-md-6]="!user.profilePictureUrl"
          [class.col-sm-4]="user.profilePictureUrl"
          [class.col-sm-6]="!user.profilePictureUrl">
-        <h2 *ngIf="user.is_active && user.user_type_id != 1">Bonjour {{ user.firstName }}</h2>
-        <h2 *ngIf="user.user_type_id == 1">Administration</h2>
-        <h2 *ngIf="!user.is_active">Bienvenue</h2>
-        <br />
-        <a routerLink="/profil"
-           *ngIf="user.is_active && user.user_type_id == 3">
-            <span class="badge complete-profile">
-                Visibilité du profil : {{ profilePercentage }}% <span class="fa fa-angle-right"></span>
-            </span>
-        </a>
-        <a routerLink="/profil/annonces"
-           *ngIf="user.is_active && user.user_type_id == 2">
-            <span class="badge complete-profile">
-                Vos annonces >
-            </span>
-        </a>
+        <div class="hidden-sm">
+            <h2 *ngIf="user.is_active && user.user_type_id != 1">Bonjour {{ user.firstName }}</h2>
+            <h2 *ngIf="user.user_type_id == 1">Administration</h2>
+            <h2 *ngIf="!user.is_active">Bienvenue</h2>
+            <br />
+            <a routerLink="/profil"
+               *ngIf="user.is_active && user.user_type_id == 3">
+                <span class="badge complete-profile">
+                    Visibilité du profil : {{ profilePercentage }}% <span class="fa fa-angle-right"></span>
+                </span>
+            </a>
+            <a routerLink="/profil/annonces"
+               *ngIf="user.is_active && user.user_type_id == 2">
+                <span class="badge complete-profile">
+                    Vos annonces >
+                </span>
+            </a>
+        </div>
     </div>
 
     <!-- Candidate menu -->

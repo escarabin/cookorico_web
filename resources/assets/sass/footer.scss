@@ -36,6 +36,8 @@ footer {
 
 @media (max-width: $mobileWidth) {
   footer {
+    margin: 0;
+
     .row {
       margin: 0;
     }
