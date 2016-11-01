@@ -21,9 +21,20 @@ const appRoutes: Routes = [
     },
 
     // Business page
-    { path: 'etablissement/:businessId', component: BusinessPageComponent },
-    { path: 'club/:clubId', component: BusinessPageComponent },
-
+    { path: 'etablissement/:businessId', component: BusinessPageComponent,
+        data: {
+            meta: {
+                title: 'Établissement'
+            }
+        }
+    },
+    { path: 'club/:clubId', component: BusinessPageComponent,
+        data: {
+            meta: {
+                title: 'Club'
+            }
+        }
+    },
     // Posts
     { path: 'actualite/:postId', component: PostComponent },
 
@@ -33,13 +44,23 @@ const appRoutes: Routes = [
     { path: 'accueil', component: HomeComponent},
 
     // User
-    { path: 'inscription-candidat', component: CandidateSignUpComponent },
+    { path: 'inscription-candidat', component: CandidateSignUpComponent,
+        data: {
+            meta: {
+                title: 'Inscription candidat'
+            }
+        }},
 
     // Promo
-    { path: 'accueil-recruteur', component: RecruiterPromoComponent },
+    { path: 'accueil-recruteur', component: RecruiterPromoComponent,
+        data: {
+            meta: {
+                title: 'Inscription recruteur'
+            }
+        } },
 
     // Root
-    { path: '', redirectTo: '/accueil', pathMatch: 'full'},
+    { path: '', redirectTo: '/accueil', pathMatch: 'full' },
 ];
 
 // - Updated Export

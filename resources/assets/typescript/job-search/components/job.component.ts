@@ -25,6 +25,7 @@ export class JobComponent {
     constructor(private route: ActivatedRoute,
                 private notificationService: NotificationsService,
                 private router: Router,
+                private metaService: MetaService,
                 private jobService: JobService) {
         this.user = JSON.parse(localStorage.getItem('user'));
 
@@ -36,6 +37,11 @@ export class JobComponent {
 
         jobService.getJob(this.jobId).subscribe((res: Response) => {
             this.job = res.json();
+
+            let descriptionContainer = document.getElementById('job-desc-container');
+
+            this.metaService.setTitle(this.job.title + ' - ' + this.job.business.title);
+            this.metaService.setTag('description', this.job.description.replace(/<\/?[^>]+(>|$)/g, ""));
         });
     }
 
