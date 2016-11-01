@@ -31,7 +31,7 @@
       'angular2-google-maps':       'node_modules/angular2-google-maps',
       'ng2-pagination':             'node_modules/ng2-pagination',
       'express':                    'node_modules/express',
-      'ng2-meta':                   'node_modules/ng2-meta',
+      'ng2-meta':                   'npm:ng2-meta',
       'braintree-web':              'node_modules/braintree-web',
       'braintree-web/paypal':       'node_modules/braintree-web',
       'angular2-recaptcha':         'node_modules/angular2-recaptcha',
@@ -55,7 +55,7 @@
       'file-droppa' :               { main: 'index.js', defaultExtension: 'js' },
       'ng2-file-upload':            { main: 'ng2-file-upload.js', defaultExtension: 'js' },
       'ng2-pagination':             { main: 'index.js', defaultExtension: 'js' },
-      'ng2-meta':                   { main: 'dist/meta.service.js', defaultExtension: 'js' },
+      'ng2-meta':                   { main: 'dist/index.js', defaultExtension: 'js' },
       'braintree-web':              { main: 'index.js', defaultExtension: 'js' },
       'braintree-web/paypal':       { main: 'paypal.js', defaultExtension: 'js' },
       'angular2-recaptcha':         { defaultExtension: 'js', main:'index' }
