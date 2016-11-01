@@ -12,12 +12,22 @@ const appRoutes: Routes = [
     // Child routing
     {
         path: 'profil',
-        loadChildren: '/js/typescript/profile/profile.module#ProfileModule'
+        loadChildren: '/js/typescript/profile/profile.module#ProfileModule',
+        data: {
+            meta: {
+                title: 'Profil'
+            }
+        }
     },
 
     {
         path: 'recherche',
-        loadChildren: '/js/typescript/job-search/job-search.module#JobSearchModule'
+        loadChildren: '/js/typescript/job-search/job-search.module#JobSearchModule',
+        data: {
+            meta: {
+                title: 'Recherche d\'emploi'
+            }
+        }
     },
 
     // Business page
@@ -49,7 +59,8 @@ const appRoutes: Routes = [
             meta: {
                 title: 'Inscription candidat'
             }
-        }},
+        }
+    },
 
     // Promo
     { path: 'accueil-recruteur', component: RecruiterPromoComponent,
@@ -57,7 +68,8 @@ const appRoutes: Routes = [
             meta: {
                 title: 'Inscription recruteur'
             }
-        } },
+        }
+    },
 
     // Root
     { path: '', redirectTo: '/accueil', pathMatch: 'full' },

@@ -38,10 +38,10 @@ export class JobComponent {
         jobService.getJob(this.jobId).subscribe((res: Response) => {
             this.job = res.json();
 
-            let descriptionContainer = document.getElementById('job-desc-container');
-
             this.metaService.setTitle(this.job.title + ' - ' + this.job.business.title);
-            this.metaService.setTag('description', this.job.description.replace(/<\/?[^>]+(>|$)/g, ""));
+            if (this.job.description) {
+                this.metaService.setTag('description', this.job.description.replace(/<\/?[^>]+(>|$)/g, ""));
+            }
         });
     }
 

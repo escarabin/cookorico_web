@@ -8,8 +8,20 @@ import { NewApplicationFormComponent } from './components/new-application-form.c
 import { JobComponent } from './components/job.component';
 
 const jobSearchChildrenRouteList = [
-    { path: 'tous-les-emplois', component: JobSearchResultsComponent },
-    { path: ':placeId/:jobNamingId/:contractTypeId/:studyLevelId', component: JobSearchResultsComponent },
+    { path: 'tous-les-emplois', component: JobSearchResultsComponent,
+        data: {
+            meta: {
+                title: 'Tous les emplois'
+            }
+        }
+    },
+    { path: ':placeId/:jobNamingId/:contractTypeId/:studyLevelId', component: JobSearchResultsComponent,
+        data: {
+            meta: {
+                title: 'Recherche d\'emploi'
+            }
+        }
+    },
     { path: 'candidater/:jobId', component: NewApplicationFormComponent },
     { path: 'annonce/:jobId', component: JobComponent },
     {
