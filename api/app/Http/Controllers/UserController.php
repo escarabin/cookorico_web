@@ -415,8 +415,8 @@ class UserController extends Controller
             $userPlans = Auth::user()->plans;
 
             foreach ($userPlans as $plan) {
-                if ($plan->credits > 0 && $plan->daily_contacts > 0) {
-                    $plan->daily_contacts = $plan->daily_contacts - 1;
+                if ($plan->credits > 0 && $plan->daily_remaining_contacts > 0) {
+                    $plan->daily_remaining_contacts = $plan->daily_remaining_contacts - 1;
                     $plan->save();
 
                     $accountHasEnoughDailyContacts = "true";
@@ -840,17 +840,72 @@ class UserController extends Controller
     public function savePayment(Request $request) {
         $serviceData = $request::get('service');
 
-        $pricingPlanId = $serviceData['customfields'][0]['formatted_value'];
+        Log::info($serviceData);
 
-        $pricingPlan = PricingPlan::find($pricingPlanId);
+        $pricingPlanTitle = $serviceData['name'];
 
-        $plan = new Plan();
-        $plan->user_id = Auth::user()->id;
-        $plan->pricing_plan_id = $pricingPlan->id;
-        $plan->credits = $pricingPlan->credits;
-        $plan->daily_contacts = $pricingPlan->daily_contacts;
-        $plan->save();
+        $pricingPlan = PricingPlan::where('title', $pricingPlanTitle)->first();
+
+        /**
+         * Check if user already has a plan
+         * If so, add more credits to it
+         * If not, create a new one
+         */
+        $userPlan = Plan::where('user_id', Auth::user()->id)->first();
+
+        /* $funnels = App::make('SellsyClient')
+            ->getService('Opportunities')
+            ->call('getStepsForFunnel', array('funnelid' => 30165));
+
+        Log::info($funnels);
+ */
+        if ($userPlan) {
+            $userPlan->user_id = Auth::user()->id;
+            $userPlan->pricing_plan_id = $pricingPlan->id;
+            $userPlan->credits += $pricingPlan->credits;
+            $userPlan->daily_contacts = $pricingPlan->daily_contacts;
+            $userPlan->daily_remaining_contacts = $pricingPlan->daily_contacts;
+            $userPlan->spaces = $pricingPlan->spaces;
+
+            /**
+             * Set plan ends date if it has a duration
+             */
+            if ($pricingPlan->duration) {
+                $userPlan->ends_at = date("Y-m-d H:i:s", strtotime(time().''.$pricingPlan->duration.' + months'));
+            }
+            else {
+                $userPlan->ends_at = null;
+            }
+
+            // Update "payment date" to today
+            $userPlan->created_at = date("Y-m-d H:i:s");
+            $userPlan->save();
+
+            return $userPlan;
+        }
+        else {
+            $plan = new Plan();
+            $plan->user_id = Auth::user()->id;
+            $plan->pricing_plan_id = $pricingPlan->id;
+            $plan->credits = $pricingPlan->credits;
+            $plan->daily_contacts = $pricingPlan->daily_contacts;
+            $plan->daily_remaining_contacts = $pricingPlan->daily_contacts;
+            $plan->spaces = $pricingPlan->spaces;
+            $plan->save();
+        }
 
         return $plan;
+    }
+
+    /**
+     * Daily reset recruiter access count (CVTHEQUE)
+     */
+    public function resetRecruiterAccessCount() {
+        $plans = Plan::all();
+
+        foreach ($plans as $plan) {
+            $plan->daily_remaining_contacts = $plan->daily_contacts;
+            $plan->save();
+        }
     }
 }

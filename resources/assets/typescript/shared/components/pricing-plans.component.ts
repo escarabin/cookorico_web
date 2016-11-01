@@ -22,6 +22,7 @@ declare var braintree:any;
 export class PricingPlansComponent {
     services: any = [];
     plans: any = [];
+    isSimpleBusiness: boolean = true;
 
     constructor(private userService: UserService,
                 private sellsyService: SellsyService,
@@ -35,7 +36,7 @@ export class PricingPlansComponent {
          */
         sellsyService.getServices().subscribe((res:Response) => {
             let response = res['_body'];
-            
+
             /**
              * Remove Sellsy request infos
              */
@@ -46,7 +47,12 @@ export class PricingPlansComponent {
              * Transform services Object to an associative array
              */
             for (let i=0; i < Object.keys(servicesObject).length; i++) {
-                __this.services.push(servicesObject[Object.keys(servicesObject)[i]]);
+                let service = servicesObject[Object.keys(servicesObject)[i]];
+
+                let isSimpleBusinessService = service['customfields'][0]['boolval'];
+                if (this.isSimpleBusiness && isSimpleBusinessService == 'Y') {
+                    __this.services.push(servicesObject[Object.keys(servicesObject)[i]]);
+                }
             }
         });
 

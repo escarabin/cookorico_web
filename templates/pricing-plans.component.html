@@ -22,10 +22,11 @@
 <div *ngFor="let service of services; let i = index"
      class="col-md-3 centered plan plan-{{ i }}">
     <h3>
-        {{ service.name }}
+        {{ service.tradename }}
     </h3>
-    <p>
-        {{ service.stickyNote }}
+    <hr/>
+    <p [innerHTML]="service.notes">
+
     </p>
     <hr/>
     <h2>

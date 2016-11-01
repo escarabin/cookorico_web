@@ -35,5 +35,8 @@ class Kernel extends ConsoleKernel
 
         $schedule->call('App\Http\Controllers\JobController@generateXmlFile')
                  ->daily();
+
+        $schedule->call('App\Http\Controllers\UserController@resetRecruiterAccessCount')
+                ->daily();
     }
 }
