@@ -68,23 +68,4 @@ export class MyJobPostsComponent {
             this.allItemsChecked = true;
         }
     }
-
-    deleteSelectedItems() {
-        let __this = this;
-
-        let parsedListItemId = this.checkedItemsList.join(',');
-
-        this.userService.deleteMyJobPosts(parsedListItemId).subscribe((res: Response) => {
-            __this.userService.getJobPosts().subscribe((res: Response) => {
-                __this.items = res.json();
-
-                __this.notificationService.show(
-                    new Notification('success', 'Ces expériences ont bien été supprimées')
-                );
-
-                this.checkedItemsList = [];
-                this.allItemsChecked = false;
-            });
-        });
-    }
 }

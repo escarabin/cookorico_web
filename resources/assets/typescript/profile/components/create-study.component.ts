@@ -87,8 +87,6 @@ export class CreateStudyComponent {
     }
 
     handleBusinessIdChange(businessId: number) {
-        console.log('business id received', businessId);
-
         this.study.business_id = businessId;
     }
 }

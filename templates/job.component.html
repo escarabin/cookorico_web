@@ -18,6 +18,17 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3 job-stats">
+            <button class="btn btn-default">
+                <span class="fa fa-facebook"></span>
+            </button>
+            <button class="btn btn-default">
+                <span class="fa fa-twitter"></span>
+            </button>
+            <button class="btn btn-default">
+                <span class="fa fa-envelope"></span>
+            </button>
+        </div>
         <div class="col-md-3 job-stats"
              *ngIf="user && user.user_type_id == 2 && job.user_id == user.id">
             <button class="btn btn-danger" (click)="deactivateJobPost()">

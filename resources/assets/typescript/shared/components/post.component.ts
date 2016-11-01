@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { RouteParams }
-    from '@angular/router-deprecated';
+// import { RouteParams } from '@angular/router-deprecated';
 
 // Services
 import { PostService } from './../../services/post.service';
@@ -17,13 +16,12 @@ export class PostComponent {
     postId:string;
     post: any;
 
-    constructor(private routeParams: RouteParams,
-                private postService: PostService) {
+    constructor(private postService: PostService) {
         let __this = this;
-        this.postId = routeParams.get("postId");
+        /* this.postId = routeParams.get("postId");
 
         postService.getPost(__this.postId).subscribe((res: Response) => {
             __this.post = res.json();
-        });
+        }); */
     }
 }

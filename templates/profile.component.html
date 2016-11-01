@@ -1,4 +1,5 @@
 <profile-sidebar *ngIf="user && user.is_active"
+                 (isUserPartOfAGroup)="isUserPartOfAGroup"
                  [class.scrolled-down]="scrollTop > 100"></profile-sidebar>
 <div class="router-outlet-container"
      (window:scroll)="onPageScroll($event)"

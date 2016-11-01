@@ -63,6 +63,7 @@ export class UserService {
     saveLanguagesUrl = appGlobals.apiUrl + '/user/languages/save';
     getSpokenLanguagesUrl = appGlobals.apiUrl + '/user/languages';
     saveJobSeekingDataUrl = appGlobals.apiUrl + '/user/save-job-seeking-data';
+    isUserPartOfAGroupUrl = appGlobals.apiUrl + '/user/is-part-of-a-group';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
@@ -576,6 +577,14 @@ export class UserService {
      */
     getSpokenLanguages() {
         return this.http.get(this.getSpokenLanguagesUrl);
+    }
+
+    /**
+     * Know if user businesses are part of a group
+     * @returns {Observable<Response>}
+     */
+    isUserPartOfAGroup() {
+        return this.http.get(this.isUserPartOfAGroupUrl);
     }
 
     /**

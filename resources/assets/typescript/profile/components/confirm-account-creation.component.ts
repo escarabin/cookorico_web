@@ -37,7 +37,7 @@ export class ConfirmAccountCreationComponent {
             if (params) {
                 let userId = params['userId'];
 
-                UserService.confirmEmailAddress(userId).subscribe((res:Response) => {
+                /* UserService.confirmEmailAddress(userId).subscribe((res:Response) => {
                     __this.userService.loginUsingId(userId).subscribe((userInfos:Response) => {
                         __this.user = userInfos.json();
 
@@ -47,7 +47,7 @@ export class ConfirmAccountCreationComponent {
                             this.router.navigate(['/profil/etablissement/creer']);
                         }
                     });
-                });
+                }); */
             }
         });
     }

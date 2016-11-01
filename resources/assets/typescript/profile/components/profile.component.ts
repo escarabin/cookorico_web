@@ -14,9 +14,16 @@ export class ProfileComponent {
     user: any;
     scrollTop: number;
     routeSegments: any = [];
+    /**
+     * Defines if the current user has a business that is part of a group
+     * @type {boolean}
+     */
+    isInAGroup: boolean = true;
 
     constructor(private router: Router,
                 private userService: UserService) {
+        let __this = this;
+
         this.user = JSON.parse(localStorage.getItem('user'));
 
         /**
@@ -26,27 +33,33 @@ export class ProfileComponent {
             this.router.navigate(['/']);
         }
 
-        router.events.subscribe((event) => {
-            let url = event['url'];
-
-            /**
-             * Reload user infos after last step of sign up
-             */
-            if (url == '/profil/annonces' && !this.user.is_active) {
-                this.userService.getUserInfos().subscribe((res: Response) => {
-                    this.user = res.json();
-                    localStorage.setItem('user', JSON.stringify(this.user));
-                });
-            }
-        });
+        if (this.user.user_type_id == 2) {
+            this.userService.isUserPartOfAGroup().subscribe((res: Response) => {
+                if (res['_body'] == 'true') {
+                    this.isInAGroup = true;
+                }
+            });
+        }
 
         /**
          * Subscribe to route change to display components regarding current route
          * (ex: Home page is different and does not show child component 'profile-sub-header')
          */
         router.events.subscribe((event) => {
-            let segments = event.url.split('/');
+            let url = event['url'];
+
+            let segments = url.split('/');
             let link = "/";
+
+            /**
+             * Reload user infos after last step of sign up
+             */
+            if (url == '/profil/annonces' && !this.user.is_active) {
+                __this.userService.getUserInfos().subscribe((res: Response) => {
+                    this.user = res.json();
+                    localStorage.setItem('user', JSON.stringify(this.user));
+                });
+            }
 
             for (let i = 1; i < segments.length; i++) {
                 link += segments[i] + "/";
@@ -55,7 +68,7 @@ export class ProfileComponent {
                  * Avoid appending ids (numbers) to route segments
                  */
                 if (isNaN(segments[i])) {
-                    this.routeSegments.push({ title: segments[i], link: link});
+                    __this.routeSegments.push({ title: segments[i], link: link});
                 }
             }
         });

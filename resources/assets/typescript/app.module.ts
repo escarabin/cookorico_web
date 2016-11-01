@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
 import { routing } from './app.routes';
 import { SharedModule } from './shared/shared.module';
-// import { MetaModule, MetaService } from 'ng2-meta';
+import { MetaModule } from 'ng2-meta';
+import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 // Services
 import { NotificationsService } from './services/notification.service'
@@ -39,14 +38,14 @@ import { PaginationControlsCmp } from 'ng2-pagination';
                     ProfileSubHeaderComponent,
                     RecruiterPromoComponent,
                     NotificationsComponent ],
-    imports:      [ BrowserModule,
-                    RouterModule,
-                    FormsModule,
+    imports:      [ RouterModule,
                     HttpModule,
                     SharedModule,
-                    // MetaModule.forRoot(),
+                    BrowserModule,
+                    MetaModule.forRoot(),
                     routing ],
     providers:    [ NotificationsService ],
     bootstrap:    [ AppComponent ],
 })
+
 export class AppModule {}

@@ -99,6 +99,8 @@ Route::post('/user/languages/save', 'UserController@saveSpokenLanguages')
     ->name('saveSpokenLanguages');
 Route::get('/user/languages', 'UserController@getSpokenLanguages')
     ->name('getSpokenLanguages');
+Route::get('/user/is-part-of-a-group', 'UserController@isPartOfAGroup')
+    ->name('isUserPartOfAGroup');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')

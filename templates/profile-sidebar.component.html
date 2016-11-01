@@ -1,5 +1,6 @@
 <!-- User is connected -->
 <div class="user-infos row hidden-xs"
+     [class.hidden]="isUserPartOfAGroup"
      *ngIf="user.user_type_id == 2">
     <div *ngFor="let plan of plans"
          class="col-md-12">

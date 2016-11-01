@@ -29,6 +29,9 @@ import { WebsiteEditorComponent } from './components/website-editor.component';
 import { ConfirmAccountCreationComponent } from "./components/confirm-account-creation.component";
 import { SignUpStepsComponent } from './../shared/components/sign-up-steps.component';
 import { MatchingProfilesComponent } from './components/matching-profiles.component';
+import { CreateTestimonialComponent } from './components/create-testimonial.component';
+import { AdminJobPostsComponent } from './components/admin-job-posts.component';
+import { ClubsManagementComponent } from './components/clubs-management.component';
 
 // Services
 import { UserService } from './../services/user.service';
@@ -57,6 +60,9 @@ import { UserService } from './../services/user.service';
                     SignUpStepsComponent,
                     MatchingProfilesComponent,
                     TestimonialRequestsComponent,
+                    CreateTestimonialComponent,
+                    AdminJobPostsComponent,
+                    ClubsManagementComponent,
                     ConfirmAccountCreationComponent ],
     imports:      [ profileRouting,
                     FormsModule,

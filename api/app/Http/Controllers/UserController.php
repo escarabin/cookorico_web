@@ -908,4 +908,24 @@ class UserController extends Controller
             $plan->save();
         }
     }
+
+    /**
+     * Know if currently logged user is part of a group
+     */
+    public function isPartOfAGroup() {
+        $businesses = Auth::user()->businesses;
+        $isUserPartOfAGroup = 'false';
+
+        foreach ($businesses as $business) {
+            $users = $business->users;
+
+            foreach ($users as $user) {
+                if ($user->user_type_id == 5) {
+                    $isUserPartOfAGroup = 'true';
+                }
+            }
+        }
+
+        return $isUserPartOfAGroup;
+    }
 }
