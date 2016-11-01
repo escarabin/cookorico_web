@@ -89,6 +89,8 @@ export class SearchComponent {
      * @param event
      */
     onPageScroll(event: any) {
-        this.scrollTop = event.target['scrollingElement']['scrollTop'];
+        if (this.user) {
+            this.scrollTop = event.target['scrollingElement']['scrollTop'];
+        }
     }
 }

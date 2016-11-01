@@ -115,7 +115,8 @@
                 <div *ngFor="let jobNaming of jobNamings">
                     <li (click)="updateSearchParameter('jobNaming', jobNaming.id, jobNaming.title)"
                         [class.active]="jobNamingList[jobNaming.id]"
-                        *ngIf="jobsCountFromParameterValue('job_naming_id', jobNaming.id) > 0">
+                        *ngIf="jobsCountFromParameterValue('job_naming_id', jobNaming.id) > 0
+                                || jobNamingList[jobNaming.id]">
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
                                 <input type="checkbox" [checked]="jobNamingList[jobNaming.id]"/>

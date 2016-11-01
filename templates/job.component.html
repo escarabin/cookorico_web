@@ -96,7 +96,7 @@
     </div>
 
     <div class="col-md-10 col-md-offset-1" *ngIf="!user">
-        <a routerLink="/sign-up">
+        <a routerLink="/inscription-candidat">
             <button class="btn btn-primary sign-up-btn">
                 Postuler
             </button>
@@ -105,5 +105,5 @@
 
     <new-application-form [jobId]="job.id" *ngIf="user && user.user_type_id == 3"></new-application-form>
 
-    <applicants *ngIf="user.user_type_id == 2 && job.user_id == user.id"></applicants>
+    <applicants *ngIf="user && user.user_type_id == 2 && job.user_id == user.id"></applicants>
 </div>

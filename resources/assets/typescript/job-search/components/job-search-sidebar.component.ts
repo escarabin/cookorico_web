@@ -28,6 +28,7 @@ export class JobSearchSidebarComponent {
     parametersList: any = {};
     searchText: string;
     jobs: any = [];
+    place: any = [];
     locationName: string;
     isMobileSearchVisible: boolean = false;
 
@@ -49,56 +50,57 @@ export class JobSearchSidebarComponent {
         let __this = this;
 
         /**
-         * Retrieve references
-         */
-        referenceService.getAllContractTypes().subscribe((res: Response) => {
-            __this.contractTypes = res.json();
-        });
-
-        referenceService.getAllJobNamings().subscribe((res: Response) => {
-            __this.jobNamings = res.json();
-
-            for (let i = 0; i < __this.jobNamings.length; i++) {
-                __this.jobNamingTextList.push(__this.jobNamings[i].title);
-            }
-        });
-
-        referenceService.getAllJobXpLevels().subscribe((res: Response) => {
-            __this.xpLevels = res.json();
-        });
-
-        /**
          * Subscribe to new search parameters coming from other components
          */
         SearchService.parametersEmitter.subscribe(
-            res => {
-                console.log('got a response', res);
+            params => {
+                console.log('got a response', params);
 
-                /**
-                 * Parse place infos
-                 */
-                __this.place = res['place'];
-                if (res['place']) {
-                    __this.locationName = __this.place['formatted_address'];
-                    __this.mapLat = __this.place['geometry']['location'].lat();
-                    __this.mapLng = __this.place['geometry']['location'].lng();
-                    __this.zoom = 8;
-                }
+                referenceService.getAllJobNamings().subscribe((jobNamingList: Response) => {
+                    __this.jobNamings = jobNamingList.json();
 
-                for (let i = 0; i < res['contractTypeIdList']; i++) {
-                    let paramId = res['contractTypeIdList'][i];
-                    __this.contractTypeList[paramId] = this.getParamTitleFromId(paramId, 'contractType');
-                }
+                    for (let i = 0; i < __this.jobNamings.length; i++) {
+                        __this.jobNamingTextList.push(__this.jobNamings[i].title);
+                    }
 
-                for (let i = 0; i < res['xpLevelIdList']; i++) {
-                    let paramId = res['xpLevelIdList'][i];
-                    __this.xpLevelList[paramId] = this.getParamTitleFromId(paramId, 'xpLevel');
-                }
+                    referenceService.getAllJobXpLevels().subscribe((xpLevelList: Response) => {
+                        __this.xpLevels = xpLevelList.json();
 
-                for (let i = 0; i < res['jobNamingIdList']; i++) {
-                    let paramId = res['jobNamingIdList'][i];
-                    __this.jobNamingList[paramId] = this.getParamTitleFromId(paramId, 'jobNaming');
-                }
+                        referenceService.getAllContractTypes().subscribe((contractTypesList: Response) => {
+                            __this.contractTypes = contractTypesList.json();
+
+                            /**
+                             * Parse place infos
+                             */
+                            __this.place = params['place'];
+                            if (params['place']) {
+                                __this.locationName = __this.place['formatted_address'];
+                                __this.mapLat = __this.place['geometry']['location'].lat();
+                                __this.mapLng = __this.place['geometry']['location'].lng();
+                                __this.zoom = 8;
+                            }
+
+                            for (let i = 0; i < params['contractTypeIdList']; i++) {
+                                let paramId = params['contractTypeIdList'][i];
+                                __this.contractTypeList[paramId] = this.getParamTitleFromId(paramId, 'contractType');
+                            }
+
+                            for (let i = 0; i < params['xpLevelIdList']; i++) {
+                                let paramId = params['xpLevelIdList'][i];
+                                __this.xpLevelList[paramId] = this.getParamTitleFromId(paramId, 'xpLevel');
+                            }
+
+                            for (let i = 0; i < params['jobNamingIdList']; i++) {
+                                let paramId = params['jobNamingIdList'][i];
+                                let test = this.getParamTitleFromId(paramId, 'jobNaming');
+                                __this.jobNamingList[paramId] = test;
+                            }
+
+                            console.log(Object.keys(__this.jobNamingList)[0], __this.jobNamingList[Object.keys(__this.jobNamingList)[0]], __this.jobNamingList);
+                            __this.updateSearchParameter('jobNaming', Object.keys(__this.jobNamingList)[0], __this.jobNamingList[Object.keys(__this.jobNamingList)[0]]);
+                        });
+                    });
+                });
             }
         );
 
@@ -116,8 +118,6 @@ export class JobSearchSidebarComponent {
      * @param parameterType
      */
     getParamTitleFromId(parameterId: number, parameterType: string) {
-        console.log('getting it', parameterId, parameterType, this.jobNamings);
-
         switch(parameterType) {
             case "jobNaming":
                 for (let i = 0; i < this.jobNamings.length; i++) {
@@ -219,12 +219,7 @@ export class JobSearchSidebarComponent {
         this.parametersList['jobNamingList'] = this.jobNamingList;
         this.parametersList['xpLevelList'] = this.xpLevelList;
 
-        // TODO : remove that shit
-        this.jobService.getAllJobs().subscribe((res: Response) => {
-            this.jobs = res.json();
-        });
-
-        this.searchService.search(this.parametersList);
+        // this.searchService.search(this.parametersList);
         this.ref.detectChanges();
     }
 

@@ -285,7 +285,8 @@ job {
         width: 40px;
         display: inline-block; }
   job .sign-up-btn {
-    width: 100%; }
+    width: 100%;
+    margin: 35px 0; }
   job .logo {
     float: left;
     margin: 20px 20px 20px 0;
@@ -638,9 +639,7 @@ job-search-sidebar {
       height: 200px;
       display: block; }
   job-search-sidebar .params-container .badge {
-    position: absolute;
-    right: 15px;
-    top: 5px; }
+    margin-left: 15px; }
   job-search-sidebar .search-summary {
     font-size: 1.2em;
     margin-bottom: 35px;
