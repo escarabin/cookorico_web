@@ -60,6 +60,8 @@ export class SearchComponent {
          * (ex: Home page is different and does not show child component 'profile-sub-header')
          */
         router.events.subscribe((event) => {
+            this.routeSegments = [];
+
             let segments = event.url.split('/');
             let link = "/";
 
