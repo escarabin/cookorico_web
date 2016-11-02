@@ -13,10 +13,14 @@ header {
     height: auto;
     transition-duration: 500ms;
     transition-property: all;
+    display: none;
 
     ul {
       padding: 0;
 
+      a {
+        color: white;
+      }
       li {
         width: 100%;
       }
@@ -106,6 +110,10 @@ header {
       background-color: darken($oechrBlueColor, 50%);
       opacity: 0.8;
       z-index: 1;
+    }
+
+    .mobile-menu {
+      display: block;
     }
   }
 }

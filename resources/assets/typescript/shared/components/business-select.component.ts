@@ -36,24 +36,6 @@ export class BusinessSelectComponent {
 
         if (this.businessId && !this.isViewInit) {
             /**
-             * Check if we have to show only user's businesses in select options
-             */
-            if (this.onlyUserBusinesses) {
-                this.userService.getBusinesses().subscribe((res: Response) => {
-                    __this.businesses = res.json();
-
-                    this.createBusinessesOptionsText();
-                })
-            }
-            else {
-                this.businessService.getAll().subscribe((res: Response) => {
-                    __this.businesses = res.json();
-
-                    this.createBusinessesOptionsText();
-                });
-            }
-
-            /**
              * Retrieve business infos
              */
             if (this.businessId) {

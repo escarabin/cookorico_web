@@ -110,9 +110,12 @@ header {
     max-height: 0;
     height: auto;
     transition-duration: 500ms;
-    transition-property: all; }
+    transition-property: all;
+    display: none; }
     header .mobile-menu ul {
       padding: 0; }
+      header .mobile-menu ul a {
+        color: white; }
       header .mobile-menu ul li {
         width: 100%; }
     header .mobile-menu.shown {
@@ -173,7 +176,9 @@ header {
     height: 100%;
     background-color: #031014;
     opacity: 0.8;
-    z-index: 1; } }
+    z-index: 1; }
+  header .mobile-menu {
+    display: block; } }
 
 home {
   width: 100%;
@@ -1115,6 +1120,10 @@ notifications {
     bottom: -85px; }
   100% {
     bottom: 0; } }
+
+@media (max-width: 765px) {
+  notifications .notification-container {
+    text-align: left; } }
 
 applicants .header-container {
   padding: 0;

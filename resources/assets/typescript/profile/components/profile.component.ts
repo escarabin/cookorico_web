@@ -47,6 +47,7 @@ export class ProfileComponent {
          */
         router.events.subscribe((event) => {
             let url = event['url'];
+            __this.routeSegments = [];
 
             let segments = url.split('/');
             let link = "/";
