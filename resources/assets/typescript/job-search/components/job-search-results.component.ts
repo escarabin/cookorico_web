@@ -121,4 +121,11 @@ export class JobSearchResultsComponent {
             __this.jobs = res.json();
         });*/
     }
+
+    /**
+     * Pagination triggers
+     */
+    pageChanged() {
+        window.scrollTo(0, 100);
+    }
 }

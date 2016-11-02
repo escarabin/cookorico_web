@@ -12,15 +12,13 @@
             <job-search-bar></job-search-bar>
         </div>
 
-        <!--<job-preview *ngFor="let job of jobs | paginate: { itemsPerPage: 10, currentPage: p }"-->
-        <job-preview *ngFor="let job of jobs"
+        <job-preview *ngFor="let job of jobs | paginate: { itemsPerPage: 10, currentPage: p }"
                      [job]="job">
         </job-preview>
 
-        <!-- TODO : MAKE PAGINATION WORKING -->
-        <!--<pagination-controls #pagination (pageChange)="p = $event">
+        <pagination-controls #pagination (pageChange)="p = $event" (click)="pageChanged()">
             <custom-pagination [pagination]="pagination"></custom-pagination>
-        </pagination-controls>-->
+        </pagination-controls>
     </div>
 </div>
 

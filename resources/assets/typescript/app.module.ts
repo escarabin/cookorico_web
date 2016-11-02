@@ -22,7 +22,6 @@ import { ProfileSubHeaderComponent } from './shared/components/profile-sub-heade
 import { RecruiterPromoComponent } from './shared/components/recruiter-promo.component';
 import { ClubComponent } from './shared/components/club.component';
 import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.component';
-import { PaginationControlsCmp } from 'ng2-pagination';
 
 const metaConfig: MetaConfig = {
     //Append a title suffix such as a site name to all titles
@@ -44,7 +43,6 @@ const metaConfig: MetaConfig = {
                     PostComponent,
                     ClubComponent,
                     CandidateSignUpComponent,
-                    PaginationControlsCmp,
                     PostPreviewComponent,
                     SignInComponent,
                     ProfileSubHeaderComponent,

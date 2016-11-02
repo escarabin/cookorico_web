@@ -25,9 +25,11 @@ search {
   .seo-data-container {
     padding: 25px;
     color: white;
-    margin: 10px;
-    width: 92%;
+    margin: 2%;
+    width: 96%;
     text-align: center;
+    background-color: darken($oechrBlueColor, 15%);
+    border-radius: $mainBorderRadius;
   }
 }
 
@@ -54,6 +56,13 @@ search {
     .router-outlet-container {
       width: 100%;
       margin: 0;
+    }
+
+    .seo-data-container {
+      margin: 0;
+      width: 100%;
+      background-color: #3a3a3a;
+      border-radius: 0;
     }
   }
 }

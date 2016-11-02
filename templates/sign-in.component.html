@@ -1,16 +1,16 @@
 <!-- User is not connected -->
-<li *ngIf="!user">
-    <a (click)="signInModal.show()">
+<a (click)="signInModal.show()">
+    <li *ngIf="!user">
         Se connecter
-    </a>
-</li>
+    </li>
+</a>
 
 <!-- User is connected -->
-<li *ngIf="user">
-    <a (click)="logout()">
+<a (click)="logout()">
+    <li *ngIf="user">
         Déconnexion
-    </a>
-</li>
+    </li>
+</a>
 
 <div bsModal
      #signInModal="bs-modal"
@@ -40,7 +40,7 @@
                         </div>
                     </a>
                     <div class="col-md-12">
-                        <input type="text"
+                        <input type="email"
                                placeholder="Email"
                                class="form-control"
                                ngControl="email"

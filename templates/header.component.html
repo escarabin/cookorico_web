@@ -52,15 +52,13 @@
     </div>
 </div>
 
-<div class="mobile-menu"
-     [class.hidden]="!isMobileMenuShown">
-    <ul (click)="isMobileMenuShown = false">
-        <sign-in (userSignedIn)="handleUserSignedIn($event)"
-                 (userSignedOut)="handleUserSignedOut($event)"
-                 [user]="user">
+<div class="mobile-menu-overlay"
+     [class.hidden]="!isMobileMenuShown"></div>
 
-        </sign-in>
-        <li *ngIf="user && user.is_active">
+<div class="mobile-menu"
+     [class.shown]="isMobileMenuShown">
+    <ul>
+        <li *ngIf="user && user.is_active" (click)="isMobileMenuShown = false">
             <!-- If user is an admin, create a link to website editor -->
             <a *ngIf="user.user_type_id == 1"
                routerLink="/profil/website-editor">
@@ -77,6 +75,11 @@
                 Mon compte
             </a>
         </li>
+        <sign-in (userSignedIn)="handleUserSignedIn($event)"
+                 (userSignedOut)="handleUserSignedOut($event)"
+                 [user]="user">
+
+        </sign-in>
     </ul>
 </div>
 

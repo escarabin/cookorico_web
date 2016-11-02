@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
 import { ReCaptchaModule } from 'angular2-recaptcha';
 import { AgmCoreModule } from 'angular2-google-maps/core/index';
+import { Ng2PaginationModule } from 'ng2-pagination';
 
 // Components
 import { UNITYTinyMCE } from './components/tiny-mce.component';
@@ -59,6 +60,7 @@ import appGlobals = require('./../globals');
                     AlertModule,
                     TooltipModule,
                     AgmCoreModule,
+                    Ng2PaginationModule,
                     ModalModule ],
     providers:    [ UserService ],
     imports:      [ FormsModule,
@@ -74,6 +76,7 @@ import appGlobals = require('./../globals');
                     AccordionModule,
                     AlertModule,
                     TooltipModule,
+                    Ng2PaginationModule,
                     ModalModule ],
 })
 

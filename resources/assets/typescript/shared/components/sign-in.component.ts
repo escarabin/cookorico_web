@@ -58,7 +58,11 @@ export class SignInComponent {
                 /**
                  * Close the sign-in modal
                  */
-                document.getElementById('close-sign-in-modal').click();
+                let closeModalBtns = document.getElementsByClassName('close-sign-in-modal');
+
+                for (let i = 0; i < closeModalBtns.length; i++) {
+                    closeModalBtns[i].click();
+                }
             }
             else {
                 /**
