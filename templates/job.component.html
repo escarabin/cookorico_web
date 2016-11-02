@@ -43,8 +43,7 @@
                 <b><i class="icon-cursor"></i> &nbsp; {{ job.click_count }} clics</b><br />
             </span>
         </div>
-        <div class="col-md-3 other-job-posts"
-             *ngIf="user && user.user_type_id == 3">
+        <div class="col-md-3 other-job-posts">
             <button class="btn btn-primary"
                     routerLink="/etablissement/{{ job.business.id }}">
                 Autres offres ici

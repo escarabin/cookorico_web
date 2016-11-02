@@ -23,8 +23,6 @@ export class ConfirmAccountCreationComponent {
 
     constructor (private route: ActivatedRoute,
                  private router: Router,
-                 @Inject(UserService) UserService,
-                 private userService: UserService,
                  private placeService: PlaceService,
                  private referenceService: ReferenceService) {
         let __this = this;
