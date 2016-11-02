@@ -28,13 +28,6 @@
                        [(ngModel)]="cat.title"
                        placeholder="Titre du lien"
                        class="form-control"/>
-                <label>Adresse (chemin)</label>
-                <input type="text"
-                       name="cat_path"
-                       ngControl="cat.path"
-                       [(ngModel)]="cat.path"
-                       placeholder="Chemin"
-                       class="form-control"/>
             </div>
             <div class="col-md-3">
                 <label>Emploi recherché</label>
@@ -50,14 +43,13 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <label>Description</label>
-                <textarea class="form-control"
-                          name="description"
-                          placeholder="Description de votre lien"
-                          ngControl="cat.description"
-                          [(ngModel)]="cat.description">
-
-                </textarea>
+                <label>Adresse (chemin)</label>
+                <input type="text"
+                       name="cat_path"
+                       ngControl="cat.path"
+                       [(ngModel)]="cat.path"
+                       placeholder="Chemin"
+                       class="form-control"/>
             </div>
             <div class="col-md-2">
                 <label>Localisation</label>
@@ -73,8 +65,12 @@
                  (click)="removeTrafficDriventCat(i)">
                 <i class="icon-close"></i>
             </div>
-            <div class="col-md-12 description-preview" [innerHTML]="cat.description">
-                
+            <div class="col-md-12">
+                <label>Description</label>
+                <unity-tinymce [mceContent]="cat.description"
+                               (newContentInput)="catDescriptionChanged($event, i)">
+
+                </unity-tinymce>
             </div>
             <div class="col-md-12">
                 <hr />

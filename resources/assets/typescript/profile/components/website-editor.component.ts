@@ -118,4 +118,8 @@ export class WebsiteEditorComponent {
     removeTrafficDriventCat(catId: number) {
         this.trafficDrivenCats.splice(catId, 1);
     }
+
+    catDescriptionChanged(newDesc: any, catId: number) {
+        this.trafficDrivenCats[catId]['description'] = newDesc;
+    }
 }
