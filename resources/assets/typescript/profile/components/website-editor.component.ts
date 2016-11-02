@@ -43,14 +43,16 @@ export class WebsiteEditorComponent {
                     urlParams = urlParams.split(' ');
                     delete urlParams[0];
 
-                    let placeId = urlParams[2].split('/')[2];
-                    let jobNamingId = urlParams[2].split('/')[3];
+                    let placeId = urlParams[2].split('/')[3];
+                    let jobNamingId = urlParams[2].split('/')[4];
 
                     /**
                      * Get google maps data from placeId using reverse geocoding API
                      */
                     geocoder.geocode({'placeId': placeId}, function(results) {
                         let place = results[0];
+
+                        console.log('retrieved a place', placeId);
 
                         urlParams = { title: urlTitleAndDesc[1], description: urlTitleAndDesc[2], path: urlParams[1], jobNamingId: jobNamingId, place: place };
                         __this.trafficDrivenCats.push(urlParams);

@@ -98,7 +98,7 @@ export class JobSearchSidebarComponent {
 
                             console.log(Object.keys(__this.jobNamingList)[0], __this.jobNamingList[Object.keys(__this.jobNamingList)[0]], __this.jobNamingList);
                             // __this.updateSearchParameter('jobNaming', Object.keys(__this.jobNamingList)[0], __this.jobNamingList[Object.keys(__this.jobNamingList)[0]]);
-                            window.scrollTo(0, 1);
+                            window.scrollTo(0, 10);
                         });
                     });
                 });
@@ -157,6 +157,10 @@ export class JobSearchSidebarComponent {
             if (this.jobs[i][parameterKey] == parameterValue) {
                 jobsCount += 1;
             }
+        }
+
+        if (parameterKey == "xp_level_id") {
+            console.log('jobs are ', jobsCount);
         }
 
         return jobsCount;
@@ -220,8 +224,7 @@ export class JobSearchSidebarComponent {
         this.parametersList['jobNamingList'] = this.jobNamingList;
         this.parametersList['xpLevelList'] = this.xpLevelList;
 
-        // this.searchService.search(this.parametersList);
-        this.ref.detectChanges();
+        this.searchService.search(this.parametersList);
     }
 
     mapClicked(event) {
@@ -238,7 +241,5 @@ export class JobSearchSidebarComponent {
         this.mapLat = place['geometry']['location'].lat();
         this.mapLng = place['geometry']['location'].lng();
         this.zoom = 8;
-
-        this.ref.detectChanges();
     }
 }
