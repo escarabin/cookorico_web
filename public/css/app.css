@@ -112,10 +112,10 @@ header {
     transition-duration: 500ms;
     transition-property: all;
     display: none; }
+    header .mobile-menu a {
+      color: white; }
     header .mobile-menu ul {
       padding: 0; }
-      header .mobile-menu ul a {
-        color: white; }
       header .mobile-menu ul li {
         width: 100%; }
     header .mobile-menu.shown {
@@ -197,13 +197,14 @@ home {
   home .heading {
     padding-top: 50px; }
     home .heading h1 {
-      margin-bottom: 35px; }
+      margin: 0;
+      font-size: 2em;
+      letter-spacing: 1.3px;
+      padding: 0 20px; }
     home .heading h2 {
       display: none; }
     home .heading .job-search {
-      margin: 15px; }
-      home .heading .job-search select {
-        margin-bottom: 15px; } }
+      margin: 15px; } }
 
 pricing-plans .plan {
   box-shadow: 0px 0px 40px 0px #c0d0d6;
@@ -457,6 +458,9 @@ matching-profiles .show-profile button {
   color: white;
   font-family: "Avenir Medium", sans-serif; }
 
+sign-in a {
+  color: white !important; }
+
 #sign-in-modal .modal-dialog {
   max-width: 400px;
   width: 100%; }
@@ -630,7 +634,9 @@ applications {
   applications .header-container {
     background: white !important; }
   applications h3 {
-    margin: 20px 0 5px 0 !important; }
+    margin: 10px 0 5px 0 !important; }
+  applications .date {
+    margin-left: 20px; }
 
 candidate-dashboard .profile-stats {
   background-color: #f7f7f8;
@@ -1510,7 +1516,7 @@ job-search-bar {
   max-width: 650px;
   margin: auto;
   margin-top: 50px;
-  padding: 10px;
+  padding: 0 10px;
   background: white;
   display: inline-block;
   border-radius: 4px;
@@ -1518,16 +1524,21 @@ job-search-bar {
   box-shadow: 0px 0px 40px 0px #343434;
   filter: progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=NaN, Strength=40); }
   job-search-bar .input-container {
-    padding: 0; }
+    float: left; }
     job-search-bar .input-container select, job-search-bar .input-container input {
       border: none;
       border-radius: 0;
-      height: 60px;
+      height: 70px;
       -webkit-appearance: none; }
     job-search-bar .input-container button {
-      height: 60px; }
+      height: 60px;
+      width: 100%; }
   job-search-bar .find-btn {
     width: 100%; }
+
+@media (max-width: 765px) {
+  job-search-bar .input-container.btn {
+    width: 100%; } }
 
 profile-sub-header {
   background: #35B6E1;

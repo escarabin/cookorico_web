@@ -15,12 +15,13 @@ header {
     transition-property: all;
     display: none;
 
+    a {
+      color: white;
+    }
+
     ul {
       padding: 0;
 
-      a {
-        color: white;
-      }
       li {
         width: 100%;
       }
@@ -70,7 +71,6 @@ header {
       cursor: pointer;
       font-weight: 400;
     }
-
 
     .recruiter_btn a {
       border: 2px solid white;
