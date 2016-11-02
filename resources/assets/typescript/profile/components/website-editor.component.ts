@@ -54,7 +54,7 @@ export class WebsiteEditorComponent {
 
                         console.log('retrieved a place', placeId);
 
-                        urlParams = { title: urlTitleAndDesc[1], description: urlTitleAndDesc[2], path: urlParams[1], jobNamingId: jobNamingId, place: place };
+                        urlParams = { title: urlTitleAndDesc[2], description: urlTitleAndDesc[3], path: urlParams[1], jobNamingId: jobNamingId, place: place };
                         __this.trafficDrivenCats.push(urlParams);
                     });
                 }

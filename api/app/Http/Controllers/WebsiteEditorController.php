@@ -60,7 +60,7 @@ class WebsiteEditorController extends Controller
 
             $htaccessLine = PHP_EOL.'Redirect permanent '.$path.' '.$newUrl.''.PHP_EOL;
             $htaccessLine .= '#'.$title.PHP_EOL;
-            $htaccessLine .= '#'.$description;
+            $htaccessLine .= '#'.preg_replace( "/\r|\n/", "", $description );
 
             $htaccessCompleteText .= $htaccessLine;
         }
