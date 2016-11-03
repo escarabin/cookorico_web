@@ -10,10 +10,12 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Request;
 use Auth;
 use Log;
+use DateTime;
 
 use App\Models\Job;
 use App\Models\StudyLevel;
 use App\Models\Application;
+use App\Models\User;
 
 class MailController extends Controller
 {
@@ -105,13 +107,135 @@ class MailController extends Controller
         // TODO
     }
 
+    /**
+     * Send new job alerts every day to candidates
+     */
     public function sendNewJobAlerts() {
-        $alreadySentEmails = Email::where('created_at', '<', date('YYYY'));
+        $candidateUsers = User::where('user_type_id', 3)
+                                ->where('alert_frequency_id', '>', 0)
+                                ->get();
 
-        Mail::send('emails.new-email', [], function ($m) {
-            $m->from(env('COMPANY_EMAIL'), 'Your Application');
+        $templateName = "jobs-alert";
+        $mailTemplate = MailTemplate::where('slug', $templateName)->first();
 
-            $m->to('scarabin-emmanuel@gmail.com', 'Emmanuel SCARABIN')->subject('Your Reminder!');
-        });
+        foreach ($candidateUsers as $user) {
+            $lastSentAlert = Email::where('user_id', $user->id)
+                                    ->where('is_job_alert', true)
+                                    ->orderBy('created_at', 'desc')
+                                    ->first();
+
+            $sendAlert = false;
+            $lastSentAlertDate = "1970-01-01 00:00:00";
+
+            /**
+             * User has already received mail alerts
+             */
+            if ($lastSentAlert) {
+                $today = new DateTime(); // This object represents current date/time
+                $today->setTime( 0, 0, 0 ); // reset time part, to prevent partial comparison
+
+                $lastSentAlertDate = $lastSentAlert->created_at;
+                $diff = $today->diff( $lastSentAlertDate );
+                $diffDays = (integer)$diff->format( "%R%a" );
+
+                switch( $diffDays ) {
+                    case 0:
+                        $sendAlert = false; // mail already sent today
+                        break;
+                    case -1:
+                        // immediately
+                        if ($user->alert_frequency_id == 1) {
+                            $sendAlert = true;
+                        }
+                        break;
+                    case -2:
+                        // every 48 hours
+                        if ($user->alert_frequency_id == 2) {
+                            $sendAlert = true;
+                        }
+                        break;
+                    case -7:
+                        // every week
+                        if ($user->alert_frequency_id == 3) {
+                            $sendAlert = true;
+                        }
+                        break;
+                    case -14:
+                        // every 14 days
+                        if ($user->alert_frequency_id == 4) {
+                            $sendAlert = true;
+                        }
+                        break;
+                    default:
+                        // never
+                        $sendAlert = false;
+                }
+            }
+            /**
+             * User is receiving his first mail alert
+             */
+            else {
+                $sendAlert = true;
+            }
+
+
+            if ($sendAlert) {
+                /**
+                 * Get which jobs & places user is looking for
+                 */
+                $userLookingForJobNamingList = $user->lookingForJobNamings;
+                $userLookingForPlaceList = $user->lookingForJobNamingPlaces;
+                $interestingJobList = array();
+
+                $i = 0;
+                foreach ($userLookingForJobNamingList as $lookingForJobNaming) {
+                    $jobList = Job::where('created_at', '>', $lastSentAlertDate)
+                                    ->where('job_naming_id', $lookingForJobNaming['id'])
+                                    ->get();
+
+
+                    foreach ($jobList as $job) {
+                        $jobPlace = $job->business->place;
+                        $userPlace = $userLookingForPlaceList[$i];
+
+                        /**
+                         * Let's see if $jobPlace coordinates are inside
+                         * $userPlace's viewport
+                         */
+                        if ($jobPlace->lat < $userPlace->viewport_north &&
+                            $jobPlace->lat > $userPlace->viewport_south &&
+                            $jobPlace->lon > $userPlace->viewport_west &&
+                            $jobPlace->lon < $userPlace->viewport_east) {
+                            $interestingJobList[] = $job;
+                        }
+                    }
+
+                    if (count($interestingJobList) > 0) {
+                        Mail::send('emails.'.$templateName,
+                            [
+                                'user' => $user,
+                                'jobs' => $interestingJobList
+                            ],
+                            function ($message) use ($user, $mailTemplate) {
+                                $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                                $message->to($user->email, 'Test')
+                                    ->subject($mailTemplate->subject);
+                            }
+                        );
+
+                        /**
+                         * Save mail in DB
+                         */
+                        $mail = new Email();
+                        $mail->subject = $mailTemplate->subject;
+                        $mail->user_id = $user->id;
+                        $mail->is_job_alert = true;
+                        $mail->save();
+                    }
+                    $i += 1;
+                }
+            }
+        }
     }
 }

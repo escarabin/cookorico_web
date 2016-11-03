@@ -58,7 +58,7 @@ Route::get('/job-post/deactivate/{jobId}', 'JobController@deactivate')
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
     ->name('signIn');
-Route::get('/user/get_infos', 'UserController@getInfos')
+Route::get('/user/get_infos', 'MailController@sendNewJobAlerts')
     ->name('getInfos');
 Route::get('/user/confirm_address/{userId}', 'UserController@confirmEmailAddress')
     ->name('confirmEmailAddress');
