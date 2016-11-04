@@ -928,4 +928,26 @@ class UserController extends Controller
 
         return $isUserPartOfAGroup;
     }
+
+    /**
+     * Skip job creation after sign up as a recruiter
+     */
+    public function skipJobCreationOnSignUp() {
+        $user = Auth::user();
+        $user->is_active = true;
+        $user->save();
+
+        $pricingPlan = PricingPlan::find(11);
+
+        $plan = new Plan();
+        $plan->user_id = $user->id;
+        $plan->credits = $pricingPlan->credits;
+        $plan->pricing_plan_id = $pricingPlan->id;
+        $plan->daily_contacts = $pricingPlan->daily_contacts;
+        $plan->daily_remaining_contacts = $pricingPlan->daily_contacts;
+        $plan->spaces = $pricingPlan->spaces;
+        $plan->save();
+
+        return $user;
+    }
 }

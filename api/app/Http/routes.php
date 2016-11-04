@@ -58,7 +58,7 @@ Route::get('/job-post/deactivate/{jobId}', 'JobController@deactivate')
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
     ->name('signIn');
-Route::get('/user/get_infos', 'MailController@sendNewJobAlerts')
+Route::get('/user/get_infos', 'UserController@getInfos')
     ->name('getInfos');
 Route::get('/user/confirm_address/{userId}', 'UserController@confirmEmailAddress')
     ->name('confirmEmailAddress');
@@ -101,6 +101,8 @@ Route::get('/user/languages', 'UserController@getSpokenLanguages')
     ->name('getSpokenLanguages');
 Route::get('/user/is-part-of-a-group', 'UserController@isPartOfAGroup')
     ->name('isUserPartOfAGroup');
+Route::get('/user/skip-job-creation', 'UserController@skipJobCreationOnSignUp')
+    ->name('skipJobCreationOnSignUp');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')
