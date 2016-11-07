@@ -8,6 +8,15 @@ profile {
     margin-top: 230px;
   }
 
+  .add-item-container {
+    padding: 15px 0;
+
+    button {
+      font-size: 1.4em;
+      height: 66px;
+    }
+  }
+
   .router-outlet-container {
     width: 75%;
     float: left;
@@ -21,10 +30,11 @@ profile {
   }
 
   .header-container {
-    padding: 0;
-    height: 70px;
+    height: 80px;
     border-bottom: 1px solid #e6e6e6;
-    background: $oechrBlueColor;
+    text-align: center;
+    background: white;
+    padding: 0;
 
     select {
       height: 59px;
@@ -36,7 +46,7 @@ profile {
 
     .filter {
       border-right: 1px solid #e6e6e6;
-      padding: 20px;
+      padding: 15px;
       float: left;
       text-transform: uppercase;
       font-family: $mainBoldFontFamily;
@@ -159,6 +169,8 @@ profile {
         transition-property: all;
         transition-duration: 150ms;
         border-left: 4px solid transparent;
+        display: inline-block;
+        width: 100%;
 
         a {
           text-decoration: underline;

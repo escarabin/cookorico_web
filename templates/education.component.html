@@ -1,38 +1,13 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container">
-        <input type="checkbox"
-               [checked]="allItemsChecked"
-               (change)="toggleAllItems()"/>
-    </div>
-    <div class="col-md-7 col-sm-7 col-xs-6 items-count">
-        <span *ngIf="checkedItemsList.length > 0">
-            {{ checkedItemsList.length }}
-        </span>
-        <span *ngIf="checkedItemsList.length == 0">
-            {{ items.length }}
-        </span> formation<span *ngIf="items.length > 1">s</span>
-        <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
-    </div>
-    <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
-        <button routerLink="/profil/formation/creer">
-            <span class="fa fa-plus"></span>
-        </button>
-        <button (click)="deleteSelectedItems()">
-            <span class="fa fa-trash-o"></span>
-        </button>
-    </div>
+    <h1>
+        Vous avez {{ items.length }} formation<span *ngIf="items.length > 1">s</span>
+    </h1>
 </div>
 
 <div class="col-md-12 list-container">
     <ul>
         <li class="row" *ngFor="let item of items">
-            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container">
-                <input type="checkbox"
-                       class="action-checkbox"
-                       [checked]="checkedItemsList.indexOf(item.id) != -1"
-                       (change)="saveCheckedItem(item.id)"/>
-            </div>
-            <div class="col-md-10 col-sm-10 col-xs-9 item"
+            <div class="col-md-12 col-sm-12 col-xs-9 item"
                  [class.logo]="item.business.logo">
                 <a routerLink="/profil/formation/editer/{{ item.id }}">
                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
@@ -54,4 +29,11 @@
             </div>
         </li>
     </ul>
+</div>
+
+<div class="col-md-12 add-item-container centered"
+     routerLink="/profil/formation/creer">
+    <button class="btn btn-primary full-width">
+        <span class="fa fa-plus"></span> &nbsp; Ajouter une nouvelle formation
+    </button>
 </div>

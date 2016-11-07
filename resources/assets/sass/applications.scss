@@ -21,8 +21,8 @@ applications {
 
       .item {
         button {
-          border: none;
-          margin-top: 15px;
+          background: white !important;
+          color: #333 !important;
         }
 
         .logo {
@@ -34,6 +34,7 @@ applications {
 
   .header-container {
     background: white !important;
+    height: auto !important;
   }
 
   h3 {

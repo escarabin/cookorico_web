@@ -10,6 +10,10 @@ profile-preview, candidate-dashboard {
     margin: 20px 0 0 0 !important
   }
 
+  .looking_for_job_naming_list {
+    list-style-type: circle;
+  }
+
   h3 {
     font-size: 1.3em;
   }
@@ -75,6 +79,15 @@ profile-preview, candidate-dashboard {
   .user-basic-infos {
     padding-top: 10px;
     line-height: 23px;
+
+    li {
+      font-family: $mainBoldFontFamily;
+      padding-top: 5px;
+    }
+
+    h3 {
+      font-size: 1.1em;
+    }
 
     .user-identity {
       font-size: 1.5em;

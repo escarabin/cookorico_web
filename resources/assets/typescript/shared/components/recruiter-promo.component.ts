@@ -65,9 +65,17 @@ export class RecruiterPromoComponent {
                 let newUser = res.json();
 
                 /**
-                 * Navigate to business creation
+                 * Navigate to business creation after confirming account
                  */
-                __this.router.navigate(['/profil/confirmer-le-compte/' + newUser['id']]);
+                this.userService.confirmEmailAddress(newUser.id).subscribe((res:Response) => {
+                    __this.userService.loginUsingId(newUser.id).subscribe((userInfos:Response) => {
+                        localStorage.setItem('user', JSON.stringify(newUser);
+
+                        if (newUser.user_type_id == 2) {
+                            this.router.navigate(['/profil/etablissement/creer']);
+                        }
+                    });
+                });
             }
             else {
                 /**

@@ -1,5 +1,5 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container"
+    <!--<div class="col-md-2 col-sm-2 col-xs-2 main-checkbox-container"
          [class.selected]="allItemsChecked"
          (click)="toggleAllItems()">
         <input type="checkbox"
@@ -12,7 +12,7 @@
         </span>
         <span *ngIf="checkedItemsList.length == 0">
             {{ items.length }}
-        </span> expérience<span *ngIf="checkedItemsList.length > 1">s</span>
+        </span> expérience<span *ngIf="items.length > 1">s</span>
         <span *ngIf="checkedItemsList.length > 0">
             sélectionnée<span *ngIf="checkedItemsList.length > 1">s</span>
         </span>
@@ -24,21 +24,24 @@
         <button (click)="deleteSelectedItems()">
             <span class="fa fa-trash-o"></span>
         </button>
-    </div>
+    </div>-->
+    <h1>
+        Vous avez {{ items.length }} expérience<span *ngIf="items.length > 1">s</span>
+    </h1>
 </div>
 
 <div class="col-md-12 list-container">
     <ul>
         <li class="row" *ngFor="let item of items"
             [class.selected]="checkedItemsList.indexOf(item.id) != -1">
-            <div class="col-md-2 col-sm-2 col-xs-2 checkbox-container"
+            <!--<div class="col-md-2 col-sm-2 col-xs-2 checkbox-container"
                  (click)="saveCheckedItem(item.id)">
                 <input type="checkbox"
                        class="action-checkbox"
                        [checked]="checkedItemsList.indexOf(item.id) != -1"
                        (change)="saveCheckedItem(item.id)"/>
-            </div>
-            <div class="col-md-9 col-sm-9 col-xs-8 item"
+            </div>-->
+            <div class="col-md-11 col-sm-11 col-xs-10 item"
                  [class.logo]="item.business.logo">
                 <a routerLink="/profil/experience/editer/{{ item.id }}">
                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
@@ -51,7 +54,10 @@
                          [class.col-sm-7]="!item.business.logo"
                          class="col-xs-8">
                         <h3>{{ item.job_naming.title }}</h3>
-                        {{ item.business.title }}<br />
+                        <span *ngIf="item.testimonial && item.testimonial.is_accepted">
+                            <span class="fa fa-thumbs-up success"></span> &nbsp;Candidat recommandé<br />
+                        </span>
+                        <strong>{{ item.business.title }}</strong><br />
                         <span *ngIf="item.business.place">
                             {{ item.business.place.city }}
                         </span>
@@ -60,10 +66,17 @@
             </div>
             <div class="col-md-1 like-container"
                  tooltipPlacement="top" tooltip="Vous avez été recommandé sur cette expérience">
-                <h1 *ngIf="item.testimonial && item.testimonial.is_accepted">
-                    <i class="fa fa-thumbs-o-up"></i>
+                <h1 *>
+                    <i class="fa fa-trash"></i>
                 </h1>
             </div>
         </li>
     </ul>
+</div>
+
+<div class="col-md-12 add-item-container centered"
+     routerLink="/profil/experience/creer">
+    <button class="btn btn-primary full-width">
+        <span class="fa fa-plus"></span> &nbsp; Ajouter une nouvelle expérience
+    </button>
 </div>

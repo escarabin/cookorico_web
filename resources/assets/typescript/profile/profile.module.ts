@@ -26,7 +26,6 @@ import { CreateJobPostComponent } from './components/create-job-post.component';
 import { MailTemplatesComponent } from './components/mail-templates.component';
 import { CreateMailTemplateComponent } from './components/create-mail-template.component';
 import { WebsiteEditorComponent } from './components/website-editor.component';
-import { ConfirmAccountCreationComponent } from "./components/confirm-account-creation.component";
 import { SignUpStepsComponent } from './../shared/components/sign-up-steps.component';
 import { MatchingProfilesComponent } from './components/matching-profiles.component';
 import { CreateTestimonialComponent } from './components/create-testimonial.component';
@@ -62,8 +61,7 @@ import { UserService } from './../services/user.service';
                     TestimonialRequestsComponent,
                     CreateTestimonialComponent,
                     AdminJobPostsComponent,
-                    ClubsManagementComponent,
-                    ConfirmAccountCreationComponent ],
+                    ClubsManagementComponent ],
     imports:      [ profileRouting,
                     FormsModule,
                     CommonModule,

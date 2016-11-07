@@ -9,7 +9,12 @@
     </div>
     <h2 class="centered">
         <span *ngIf="!jobPost.id">Créez</span>
-        <span *ngIf="jobPost.id">Éditez</span> votre offre d'emploi
+        <span *ngIf="jobPost.id">Éditez</span> votre offre d'emploi<br /><br />
+        <button class="btn btn-primary"
+                (click)="skipJobCreation()"
+                *ngIf="!user.is_active">
+            Passer cette étape &nbsp; <span class="fa fa-arrow-right"></span>
+        </button>
     </h2>
     <form #jobPostForm="ngForm" action="#">
         <div class="col-md-12">

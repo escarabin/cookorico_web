@@ -1,5 +1,6 @@
 .breadcrumb {
-  background: white;
+  background: $mainBgColor;
+  margin-bottom: 0;
 
   a, span {
     text-transform: capitalize;

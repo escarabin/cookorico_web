@@ -22,7 +22,6 @@ import { ProfilePreviewComponent } from './components/profile-preview.component'
 import { MailTemplatesComponent } from './components/mail-templates.component';
 import { CreateMailTemplateComponent } from './components/create-mail-template.component';
 import { WebsiteEditorComponent } from "./components/website-editor.component";
-import { ConfirmAccountCreationComponent } from "./components/confirm-account-creation.component";
 import { MatchingProfilesComponent } from './components/matching-profiles.component';
 import { TestimonialRequestsComponent } from "./components/testimonial-requests.component";
 import { PricingPlansComponent } from '../shared/components/pricing-plans.component';
@@ -106,9 +105,6 @@ const profileRoutes: Routes = [
             // Clubs management
             {path: 'clubs', component: ClubsManagementComponent},
             {path: 'clubs/:type', component: ClubsManagementComponent},
-
-            // Confirm account creation
-            {path: 'confirmer-le-compte/:userId', component: ConfirmAccountCreationComponent},
 
             // Pricing plans
             {path: 'mon_abonnement', component: PricingPlansComponent},

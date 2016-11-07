@@ -1,33 +1,50 @@
+<div class="col-md-12 profile-stats centered">
+    <h1 class="centered">Vous avez complété {{ profilePercentage }}% de votre profil</h1>
+    <div class="col-md-8 col-md-offset-2">
+        <h3>Plus vous compléterez votre profil et plus vos chances d'être vu par les recruteurs seront grandes.</h3>
+        <div class="progress">
+            <div class="progress-bar"
+                 role="progressbar"
+                 [ngStyle]="{'width': profilePercentage + '%'}">
+                {{ profilePercentage }}%
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="col-md-3 col-sm-3 col-xs-3 profile-picture-container">
+    <br />
+    <br />
     <div class="profile-picture"
          [ngStyle]="{'background-image': 'url(' + user.profilePictureUrl + ')'}">
 
     </div>
 </div>
-<div class="col-md-9 col-sm-9 col-xs-12 user-basic-infos">
+<div class="col-md-5 col-sm-5 col-xs-12 user-basic-infos">
+    <br />
+    <br />
     <span class="user-identity">
         <h2>
-            <span *ngIf="user.civility">
-                {{ user.civility.title }}
-            </span>
             {{ user.firstName }} {{ user.lastName }}
         </h2>
     </span>
-    <h3>
-        À la recherche d'un poste
-        <span *ngFor="let jobNaming of user['looking_for_job_namings']; let i = index;">
-                de {{ jobNaming['title'] }}
-                <span *ngIf="i + 1 != user['looking_for_job_namings'].length">,</span>
-            </span>
-    </h3>
+    Né(e) le
     <b>
         {{ user.birthDate | date:"dd/MM/yyyy" }}
     </b>
-    -
+    <br />
     <span *ngIf="user.place">
-        <b class="editable">
-            {{ user.place.city }}
+        Habite
+        <b class="editable"
+           *ngIf="!editingAdress"
+           (click)="editingAdress = true">
+             {{ user.place.adress }}
         </b>
+        <input type="text"
+               *ngIf="editingAdress"
+               [(ngModel)]="user.place.adress"
+               (change)="editingAdress = false"
+               class="form-control"/>
     </span>
     <br />
 
@@ -43,6 +60,15 @@
     <b>
         {{ user.email }}
     </b>
+    <h3>
+        À la recherche d'un poste de :
+        <ul class="looking_for_job_naming_list">
+            <li *ngFor="let jobNaming of user['looking_for_job_namings']; let i = index;">
+                {{ jobNaming['title'] }}
+                <span *ngIf="i + 1 != user['looking_for_job_namings'].length">,</span>
+            </li>
+        </ul>
+    </h3>
     <br />
 
     <span *ngIf="user.status">
@@ -52,38 +78,54 @@
     <span *ngIf="user.looking_for_job_naming">
         Profil recherché : <b>{{ user.looking_for_job_naming.title }}</b><br />
     </span>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12 centered">
     <br />
     <br />
+    <br />
+    <br />
+    Dernière mise à jour de votre profil : {{ user.updated_at | date:"dd/MM/yyyy" }}
+    <br /><br />
+    <button class="btn btn-primary"
+            routerLink="/profil/apercu">
+        Renseigner mon profil
+    </button>
+    <br /><br />
 </div>
 
-<div class="row">
-    <div class="col-md-10 col-md-offset-1 profile-stats centered">
-        <h2 class="centered">Vous avez complété {{ profilePercentage }}% de votre profil</h2><br />
-        <h3>Plus vous compléterez votre profil et plus vos chances d'être vu par les recruteurs seront grandes.</h3>
-        <br />
-        <div class="progress">
-            <div class="progress-bar"
-                 role="progressbar"
-                 [ngStyle]="{'width': profilePercentage + '%'}">
-                {{ profilePercentage }}%
-            </div>
+<div class="row infos-container">
+    <div class="col-md-12 current-status">
+        <div class="col-md-12">
+            <h1 class="centered">Votre statut actuel</h1>
         </div>
-    </div>
-
-    <div class="col-md-12 centered">
-        <br />
-        Dernière mise à jour de votre profil : {{ user.updated_at | date:"dd/MM/yyyy" }}
-        <br /><br />
-        <button class="btn btn-primary"
-                routerLink="/profil/apercu">
-            Renseigner mon profil
-        </button>
-        <br /><br />
+        <div class="col-md-12">
+            <br />
+            <label>Statut actuel</label>
+            <select class="form-control"
+                    name="user_status"
+                    [(ngModel)]="user.user_status_id"
+                    ngControl="user.user_status_id">
+                <option value="null">-- Votre statut --</option>
+                <option *ngFor="let status of candidateStatuses"
+                        value="{{ status.id }}">
+                    {{ status.title }}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-12 centered">
+            <button class="btn btn-primary"
+                    [disabled]="isSavingStatus"
+                    (click)="saveUserStatus()">
+                <span *ngIf="isSavingStatus"
+                      class="fa fa-spinner fa-spin"> &nbsp;</span>
+                Enregistrer le statut
+            </button>
+        </div>
     </div>
 
     <div class="col-md-12">
         <div class="col-md-12">
-            <h2 class="centered">Votre recherche d'emploi</h2>
+            <h1 class="centered">Votre recherche d'emploi</h1>
             <br />
             <br />
         </div>
@@ -165,7 +207,8 @@
                 Vous devez choisir une première zone de recherche
             </div>
         </div>
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-12">
+            <label>Je souhaite être alerté(e)</label>
             <select class="form-control"
                     name="alertFrequency"
                     [(ngModel)]="user.alert_frequency_id"
@@ -184,42 +227,11 @@
                                 || lookingForJobNamingList[0]['id'] == 0
                                 || isSavingJobSeekingData">
                 <span *ngIf="isSavingJobSeekingData"
-                      class="fa fa-spinner fa-spin"></span> &nbsp;
+                      class="fa fa-spinner fa-spin"> &nbsp;</span>
                 Enregistrer les modifications
             </button>
             <br />
             <br />
-        </div>
-    </div>
-
-    <div class="col-md-12">
-        <div class="col-md-12">
-            <h2 class="centered">Votre status actuel</h2>
-        </div>
-        <div class="col-md-6">
-            <br />
-            <label>Status actuel</label>
-            <select class="form-control"
-                    name="user_status"
-                    [(ngModel)]="user.user_status_id"
-                    ngControl="user.user_status_id">
-                <option value="null">-- Votre status --</option>
-                <option *ngFor="let status of candidateStatuses"
-                        value="{{ status.id }}">
-                    {{ status.title }}
-                </option>
-            </select>
-        </div>
-        <div class="col-md-6">
-            <br />
-            <br />
-            <button class="btn btn-primary full-width"
-                    [disabled]="isSavingStatus"
-                    (click)="saveUserStatus()">
-                <span *ngIf="isSavingStatus"
-                      class="fa fa-spinner fa-spin"></span> &nbsp;
-                Enregistrer le status
-            </button>
         </div>
     </div>
 
@@ -267,14 +279,15 @@
                     </button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <button class="btn btn-default full-width"
                         [disabled]="isSavingLanguages"
                         (click)="addNewSpokenLanguage()">
-                    Ajouter une nouvelle langue
+                    <span class="fa fa-plus"></span> &nbsp; Ajouter une nouvelle langue
                 </button>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8 col-md-offset-2">
+                <br />
                 <button class="btn btn-primary full-width"
                         [disabled]="isSavingLanguages || !languageForm.valid"
                         (click)="saveSpokenLanguages()">

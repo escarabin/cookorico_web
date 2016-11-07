@@ -64,6 +64,7 @@ export class UserService {
     getSpokenLanguagesUrl = appGlobals.apiUrl + '/user/languages';
     saveJobSeekingDataUrl = appGlobals.apiUrl + '/user/save-job-seeking-data';
     isUserPartOfAGroupUrl = appGlobals.apiUrl + '/user/is-part-of-a-group';
+    skipJobCreationUrl = appGlobals.apiUrl + '/user/skip-job-creation';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
@@ -585,6 +586,14 @@ export class UserService {
      */
     isUserPartOfAGroup() {
         return this.http.get(this.isUserPartOfAGroupUrl);
+    }
+
+    /**
+     * Skip recruiter job creation on sign-up
+     * @returns {Observable<Response>}
+     */
+    skipJobCreation() {
+        return this.http.get(this.skipJobCreationUrl);
     }
 
     /**

@@ -55,7 +55,7 @@ body {
 }
 
 h1 {
-  font-family: $mainMediumFontFamily;
+  font-family: $mainFontFamily;
 }
 
 h2 {
@@ -117,4 +117,8 @@ re-captcha>div>div {
 .progress-bar {
   background-color: $oechrBlueColor;
   box-shadow: none;
+}
+
+.success {
+  color: $successColor;
 }

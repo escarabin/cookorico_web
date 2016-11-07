@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { jobSearchRouting } from './job-search.routes';
 import { SharedModule }   from './../shared/shared.module';
+import { AgmCoreModule } from 'angular2-google-maps/core/index';
 
 // Components
 import { JobComponent } from './components/job.component';
@@ -22,6 +23,7 @@ import { JobService } from './../services/job.service';
                     JobSearchResultsComponent,
                     CustomPaginationComponent ],
     imports:      [ jobSearchRouting,
+                    AgmCoreModule,
                     SharedModule ],
     providers:    [ SearchService, JobService ],
 })

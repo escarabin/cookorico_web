@@ -618,6 +618,11 @@ class UserController extends Controller
                                 'business',
                                 'recruiter');
 
+        foreach ($testimonials as $testimonial) {
+            $testimonial->recruiter->civility = $testimonial->recruiter->civility;
+            $testimonial->business->place = $testimonial->business->place;
+        }
+
         return $testimonials;
     }
 

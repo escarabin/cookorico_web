@@ -159,10 +159,6 @@ export class JobSearchSidebarComponent {
             }
         }
 
-        if (parameterKey == "xp_level_id") {
-            console.log('jobs are ', jobsCount);
-        }
-
         return jobsCount;
     }
 

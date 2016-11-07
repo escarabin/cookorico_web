@@ -75,7 +75,7 @@ export class JobSearchResultsComponent {
          */
         searchService.resultsEmitter.subscribe((results) => {
             __this.jobs = results.json();
-            __this.ref.detectChanges();
+            // __this.ref.detectChanges();
         });
 
         /**

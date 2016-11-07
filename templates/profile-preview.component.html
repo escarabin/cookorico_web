@@ -1,9 +1,13 @@
 <div class="row">
     <div class="col-md-12" *ngIf="editableProfile">
-        <h3 class="centered">Votre profil vu par les recruteurs</h3>
+        <h1 class="centered">Votre profil vu par les recruteurs</h1>
         <br />
     </div>
+    <div class="col-md-12 user-secondary-infos">
+
+    </div>
     <div class="col-md-3 col-sm-3 col-xs-3 profile-picture-container">
+        <br />
         <div class="profile-picture"
              [ngStyle]="{'background-image': 'url(' + user.profilePictureUrl + ')'}">
             <div class="edit-profile-picture"
@@ -14,11 +18,9 @@
         </div>
     </div>
     <div class="col-md-6 col-sm-6 col-xs-9 user-basic-infos">
+        <br />
         <span class="user-identity">
             <h2>
-                <span *ngIf="user.civility">
-                    {{ user.civility.title }}
-                </span>
                 {{ user.firstName }}
                 <span *ngIf="userInfosAccessible || editableProfile">
                     {{ user.lastName }}
@@ -28,14 +30,8 @@
                 </span>
             </h2>
         </span>
-        <h3>
-            À la recherche d'un poste
-            <span *ngFor="let jobNaming of user['looking_for_job_namings']; let i = index;">
-                de {{ jobNaming['title'] }}
-                <span *ngIf="i + 1 != user['looking_for_job_namings'].length">,</span>
-            </span>
-        </h3>
         <div *ngIf="editableProfile || userInfosAccessible">
+            Né(e) le
             <b class="editable"
                *ngIf="!editingItems['birthDate']"
                (click)="editingItems['birthDate'] = true">
@@ -46,8 +42,9 @@
                    [(ngModel)]="user.birthDate"
                    (change)="saveProfileInfo('birthDate', user.birthDate)"
                    class="form-control"/>
-        -
+            <br />
             <span *ngIf="user.place">
+                Habite
                 <b class="editable"
                    *ngIf="!editingAdress"
                    (click)="editingAdress = true">
@@ -60,7 +57,6 @@
                        class="form-control"/>
             </span>
         </div>
-        <br />
 
         <div *ngIf="editableProfile || userInfosAccessible">
             <span *ngIf="user.phone">
@@ -92,7 +88,16 @@
                    (change)="saveProfileInfo('new_email', user.new_email)"
                    class="form-control"/>
         </div>
-        <br />
+        <h3>
+            À la recherche d'un poste de :
+            <ul class="looking_for_job_naming_list">
+                <li *ngFor="let jobNaming of user['looking_for_job_namings']; let i = index;">
+                    {{ jobNaming['title'] }}
+                    <span *ngIf="i + 1 != user['looking_for_job_namings'].length">,</span>
+                </li>
+            </ul>
+
+        </h3>
 
         <span *ngIf="user.status">
             {{ user.status.title }}<br />
@@ -104,6 +109,7 @@
     </div>
 
     <div class="col-md-3 col-sm-3 col-xs-12 resume-container">
+        <br />
         <button *ngIf="editableProfile"
            class="edit-button"
            (click)="openEditResumeModal()">
@@ -127,51 +133,38 @@
         </a>
     </div>
 
-    <div class="col-md-12 user-secondary-infos">
-        <div class="row">
-            <div class="col-md-6"
-                 *ngIf="experiences">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h2 class="row">
+                <div class="col-md-12">
+                    <i class="icon-bubble"></i> &nbsp;Présentation
+                </div>
+            </h2>
+            <div class="description"
+                 [class.editable]="editableProfile"
+                 (click)="editingItems['description'] = true"
+                 *ngIf="!editingItems['description']"
+                 [innerHTML]="user.description">
 
             </div>
-            <!-- <div class="col-md-6"
-                 *ngIf="education">
-                Niveau d'étude : {{ education[education.length - 1].description }}
-            </div> -->
-            <div class="col-md-6"
-                 *ngIf="languages">
-                Langues parlées :
-                <span *ngFor="let language of languages">
-                    {{ language.title }},
-                </span>
-            </div>
+            <textarea class="form-control"
+                      rows="10"
+                      *ngIf="editingItems['description']"
+                      (change)="saveProfileInfo('description', user.description)"
+                      [(ngModel)]="user.description">
+
+            </textarea>
+            <br />
         </div>
+    </div>
+
+    <div class="col-md-12 user-secondary-infos">
+
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-12">
-        <h2 class="row">
-            <div class="col-md-12">
-                <i class="icon-bubble"></i> &nbsp;Présentation
-            </div>
-        </h2>
-        <div class="description"
-             [class.editable]="editableProfile"
-             (click)="editingItems['description'] = true"
-             *ngIf="!editingItems['description']"
-             [innerHTML]="user.description">
-
-        </div>
-        <textarea class="form-control"
-                  rows="10"
-                  *ngIf="editingItems['description']"
-                  (change)="saveProfileInfo('description', user.description)"
-                  [(ngModel)]="user.description">
-
-        </textarea>
-    </div>
-
-    <div class="col-md-12">
+    <div class="col-md-10 col-md-offset-1">
         <h2 class="row">
             <div class="col-md-12">
                 <i class="icon-badge"></i> &nbsp;Expériences &nbsp; <span class="badge">{{ experiences.length }}</span>
@@ -197,11 +190,14 @@
             </div>
             <ul *ngIf="experiences.length > 0">
                 <li *ngFor="let experience of experiences">
-                    <div class="item col-md-11 col-sm-11 col-xs-11">
+                    <div class="item col-md-12">
                         <a *ngIf="editableProfile" routerLink="/profil/experience/editer/{{ experience.id }}">
                             <div class="item-desc">
                                 <h3>{{ experience.job_naming.title }}</h3>
-                                {{ experience.business.title }}
+                                {{ experience.business.title }}<br />
+                                <span *ngIf="experience.testimonial && experience.testimonial.is_accepted">
+                                    <span class="fa fa-thumbs-up success"></span> &nbsp;Candidat recommandé<br />
+                                </span>
                             </div>
                         </a>
                         <a *ngIf="!editableProfile">
@@ -211,20 +207,12 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-1 col-sm-1 col-xs-1"
-                         tooltipPlacement="top" tooltip="Ce candidat a été recommandé sur cette expérience">
-                        <div class="col-md-1 like-container">
-                            <h1 *ngIf="experience.testimonial && experience.testimonial.is_accepted">
-                                <i class="fa fa-thumbs-o-up"></i>
-                            </h1>
-                        </div>
-                    </div>
                 </li>
             </ul>
         </div>
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-10 col-md-offset-1">
         <h2 class="row">
             <div class="col-md-12">
                 <i class="icon-graduation"></i> &nbsp;Formations &nbsp; <span class="badge">{{ education.length }}</span>
@@ -265,40 +253,7 @@
         </div>
     </div>
 
-    <div class="col-md-12">
-        <h2 class="row">
-            <div class="col-md-12">
-                <i class="icon-like"></i> &nbsp;Recommandations &nbsp; <span class="badge">{{ testimonials.length }}</span>
-            </div>
-        </h2>
-        <div class="list-container col-md-12">
-            <div *ngIf="testimonials.length == 0 && editableProfile">
-                <div class="alert alert-default" role="alert">
-                    <h3>
-                        <span class="fa fa-warning"></span> Vous n'avez encore reçu aucune recommandation !
-                    </h3>
-                    <br />
-                    <button class="btn btn-default"
-                            routerLink="/profil/recommandations">
-                        Demander une recommandation
-                    </button>
-                </div>
-            </div>
-            <ul *ngIf="testimonials.length > 0">
-                <li *ngFor="let testimonial of testimonials">
-                    <div class="item">
-                        <a>
-                            <div class="item-desc">
-                                <h3>{{ testimonial.business.title }}</h3>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="col-md-12"
+    <div class="col-md-10 col-md-offset-1"
          *ngIf="user.languages">
         <h2 class="row">
             <div class="col-md-11 col-sm-11 col-xs-10">
@@ -321,11 +276,41 @@
         </div>
     </div>
 
-    <div class="col-md-12">
-        <button class="btn btn-default"
+    <div class="col-md-10 col-md-offset-1">
+        <h2 class="row">
+            <div class="col-md-12">
+                <i class="icon-like"></i> &nbsp;Recommandations &nbsp; <span class="badge">{{ testimonials.length }}</span>
+            </div>
+        </h2>
+        <div class="list-container col-md-12">
+            <div *ngIf="testimonials.length == 0 && editableProfile">
+                <div class="alert alert-default" role="alert">
+                    <h3>
+                        <span class="fa fa-warning"></span> Vous n'avez encore reçu aucune recommandation !
+                    </h3>
+                </div>
+            </div>
+            <ul *ngIf="testimonials.length > 0">
+                <li *ngFor="let testimonial of testimonials">
+                    <div class="item">
+                        <a>
+                            <div class="item-desc">
+                                <h3>{{ testimonial.business.title }}</h3>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-10 col-md-offset-1 centered">
+        <button class="btn btn-danger"
                 (click)="disableAccount()">
             <span class="fa fa-warning"></span> &nbsp; Désactiver mon compte
         </button>
+        <br />
+        <br />
     </div>
 </div>
 

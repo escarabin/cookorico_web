@@ -57,9 +57,9 @@ import appGlobals = require('./../globals');
                     ReCaptchaModule,
                     AccordionModule,
                     CommonModule,
+                    AgmCoreModule,
                     AlertModule,
                     TooltipModule,
-                    AgmCoreModule,
                     Ng2PaginationModule,
                     ModalModule ],
     providers:    [ UserService ],
@@ -69,11 +69,9 @@ import appGlobals = require('./../globals');
                     ButtonsModule,
                     CollapseModule,
                     CommonModule,
-                    AgmCoreModule.forRoot({
-                        apiKey: appGlobals.googleMapsApiKey
-                    }),
                     ReCaptchaModule,
                     AccordionModule,
+                    AgmCoreModule,
                     AlertModule,
                     TooltipModule,
                     Ng2PaginationModule,

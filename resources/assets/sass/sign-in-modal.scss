@@ -30,7 +30,9 @@ sign-in {
   color: white;
 }
 
-#sign-in-modal input[type=text], #sign-in-modal input[type=password] {
+#sign-in-modal input[type=text],
+#sign-in-modal input[type=email],
+#sign-in-modal input[type=password] {
   margin-top: 5px;
   margin-bottom: 5px;
   height: 60px;
@@ -39,7 +41,7 @@ sign-in {
   border: 1px solid #CCC;
 }
 
-#sign-in-modal button.close-modal, #sign-in-modal input.back-to-login {
+#sign-in-modal button.close-sign-in-modal, #sign-in-modal input.back-to-login {
   background: transparent;
   border: 1px solid #CCC;
   color: #CCC;

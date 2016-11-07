@@ -102,6 +102,15 @@
         </a>
     </div>
 
+    <div class="col-md-12 back-btn-container full-width" *ngIf="!user || user.user_type_id == 2">
+        <br />
+        <a routerLink="/recherche">
+            <button class="btn btn-default">
+                <i class="icon-arrow-left"></i> &nbsp; Retour à la recherche
+            </button>
+        </a>
+    </div>
+
     <new-application-form [jobId]="job.id" *ngIf="user && user.user_type_id == 3"></new-application-form>
 
     <applicants *ngIf="user && user.user_type_id == 2 && job.user_id == user.id"></applicants>

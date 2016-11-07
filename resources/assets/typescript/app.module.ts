@@ -5,6 +5,7 @@ import { SharedModule } from './shared/shared.module';
 import { MetaModule, MetaService, MetaConfig } from 'ng2-meta';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { AgmCoreModule } from 'angular2-google-maps/core/index';
 
 // Services
 import { NotificationsService } from './services/notification.service'
@@ -22,6 +23,9 @@ import { ProfileSubHeaderComponent } from './shared/components/profile-sub-heade
 import { RecruiterPromoComponent } from './shared/components/recruiter-promo.component';
 import { ClubComponent } from './shared/components/club.component';
 import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.component';
+
+// Global vars
+import appGlobals = require('./globals');
 
 const metaConfig: MetaConfig = {
     //Append a title suffix such as a site name to all titles
@@ -52,6 +56,9 @@ const metaConfig: MetaConfig = {
                     HttpModule,
                     SharedModule,
                     BrowserModule,
+                    AgmCoreModule.forRoot({
+                        apiKey: appGlobals.googleMapsApiKey
+                    }),
                     MetaModule.forRoot(metaConfig),
                     routing ],
     providers:    [ NotificationsService,

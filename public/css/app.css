@@ -76,7 +76,8 @@ ng-select .ui-select-choices-row {
   padding: 5px 10px; }
 
 .breadcrumb {
-  background: white; }
+  background: #f7f7f8;
+  margin-bottom: 0; }
   .breadcrumb a, .breadcrumb span {
     text-transform: capitalize; }
 
@@ -141,14 +142,14 @@ header {
     width: 190px;
     height: 67px;
     margin: 15px 25px; }
+  header ul a {
+    color: white;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: 400; }
   header ul li {
     float: right;
     padding: 40px; }
-    header ul li a {
-      color: white;
-      letter-spacing: 1px;
-      cursor: pointer;
-      font-weight: 400; }
     header ul li .recruiter_btn a {
       border: 2px solid white;
       border-radius: 4px;
@@ -482,7 +483,9 @@ sign-in a {
   background: #333;
   color: white; }
 
-#sign-in-modal input[type=text], #sign-in-modal input[type=password] {
+#sign-in-modal input[type=text],
+#sign-in-modal input[type=email],
+#sign-in-modal input[type=password] {
   margin-top: 5px;
   margin-bottom: 5px;
   height: 60px;
@@ -490,7 +493,7 @@ sign-in a {
   color: #333;
   border: 1px solid #CCC; }
 
-#sign-in-modal button.close-modal, #sign-in-modal input.back-to-login {
+#sign-in-modal button.close-sign-in-modal, #sign-in-modal input.back-to-login {
   background: transparent;
   border: 1px solid #CCC;
   color: #CCC; }
@@ -627,12 +630,13 @@ applications {
   applications ul li {
     border-bottom: 1px solid #d4d4d4 !important; }
     applications ul li .item button {
-      border: none;
-      margin-top: 15px; }
+      background: white !important;
+      color: #333 !important; }
     applications ul li .item .logo {
       top: 0 !important; }
   applications .header-container {
-    background: white !important; }
+    background: white !important;
+    height: auto !important; }
   applications h3 {
     margin: 10px 0 5px 0 !important; }
   applications .date {
@@ -646,6 +650,13 @@ candidate-dashboard .profile-stats {
 
 candidate-dashboard input, candidate-dashboard select {
   margin-bottom: 15px; }
+
+candidate-dashboard .current-status {
+  background-color: #f7f7f8;
+  padding: 20px; }
+
+candidate-dashboard .infos-container {
+  margin: 0; }
 
 candidate-sign-up {
   display: block;
@@ -838,6 +849,11 @@ profile {
   margin: auto; }
   profile .scrolled-down {
     margin-top: 230px; }
+  profile .add-item-container {
+    padding: 15px 0; }
+    profile .add-item-container button {
+      font-size: 1.4em;
+      height: 66px; }
   profile .router-outlet-container {
     width: 75%;
     float: left;
@@ -847,10 +863,11 @@ profile {
       width: 100%;
       margin-left: 0; }
   profile .header-container {
-    padding: 0;
-    height: 70px;
+    height: 80px;
     border-bottom: 1px solid #e6e6e6;
-    background: #35B6E1; }
+    text-align: center;
+    background: white;
+    padding: 0; }
     profile .header-container select {
       height: 59px;
       border: none;
@@ -859,7 +876,7 @@ profile {
       color: white; }
     profile .header-container .filter {
       border-right: 1px solid #e6e6e6;
-      padding: 20px;
+      padding: 15px;
       float: left;
       text-transform: uppercase;
       font-family: "Avenir Heavy", sans-serif;
@@ -940,7 +957,9 @@ profile {
         margin: 0;
         transition-property: all;
         transition-duration: 150ms;
-        border-left: 4px solid transparent; }
+        border-left: 4px solid transparent;
+        display: inline-block;
+        width: 100%; }
         profile .list-container ul li a {
           text-decoration: underline; }
         profile .list-container ul li button {
@@ -1330,6 +1349,9 @@ profile-preview h2, candidate-dashboard h2 {
   border-bottom: 1px solid #CCC;
   margin: 20px 0 0 0 !important; }
 
+profile-preview .looking_for_job_naming_list, candidate-dashboard .looking_for_job_naming_list {
+  list-style-type: circle; }
+
 profile-preview h3, candidate-dashboard h3 {
   font-size: 1.3em; }
 
@@ -1376,6 +1398,11 @@ profile-preview .list-container ul, candidate-dashboard .list-container ul {
 profile-preview .user-basic-infos, candidate-dashboard .user-basic-infos {
   padding-top: 10px;
   line-height: 23px; }
+  profile-preview .user-basic-infos li, candidate-dashboard .user-basic-infos li {
+    font-family: "Avenir Heavy", sans-serif;
+    padding-top: 5px; }
+  profile-preview .user-basic-infos h3, candidate-dashboard .user-basic-infos h3 {
+    font-size: 1.1em; }
   profile-preview .user-basic-infos .user-identity, candidate-dashboard .user-basic-infos .user-identity {
     font-size: 1.5em;
     font-family: "Avenir Heavy", sans-serif;
@@ -1843,7 +1870,7 @@ body {
   -webkit-font-smoothing: antialiased; }
 
 h1 {
-  font-family: "Avenir Medium", sans-serif; }
+  font-family: "Avenir Book", sans-serif; }
 
 h2 {
   font-size: 1.7em; }
@@ -1891,5 +1918,8 @@ re-captcha > div > div {
 .progress-bar {
   background-color: #35B6E1;
   box-shadow: none; }
+
+.success {
+  color: #34ba47; }
 
 /*# sourceMappingURL=app.css.map */

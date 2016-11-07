@@ -1,15 +1,7 @@
 <div class="col-md-12 header-container">
-    <div class="col-md-9 col-sm-9 col-xs-8 items-count">
-        {{ testimonials.length }} demande<span *ngIf="testimonials.length > 1">s</span> de recommandation
-    </div>
-    <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
-        <button routerLink="/recherche">
-            <span class="fa fa-plus"></span>
-        </button>
-        <button (click)="deleteSelectedItems()">
-            <span class="fa fa-trash-o"></span>
-        </button>
-    </div>
+    <h1>
+        Vous avez {{ testimonials.length }} recommandation<span *ngIf="testimonials.length > 1">s</span>
+    </h1>
 </div>
 
 <div class="col-md-12 list-container">
@@ -19,12 +11,19 @@
             <div class="col-md-12 col-sm-12 col-xs-12 item"
                  [class.logo]="testimonial.business.logo">
                 <a routerLink="/recherche">
-                    <div class="item-desc">
-                        <h3>{{ testimonial.job_naming.title }}</h3>
-                        {{ testimonial.business.title }}
+                    <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="testimonial.business.logo">
+                        <img src="{{ testimonial.business.logo }}"
+                             class="full-width"/>
                     </div>
-                    <div class="logo">
-                        <img src="https://s3-eu-west-1.amazonaws.com/oechr-business-logo/{{ testimonial.business.id }}.jpg"/>
+                    <div [class.col-md-5]="testimonial.business.logo"
+                         [class.col-md-7]="!testimonial.business.logo"
+                         [class.col-sm-5]="testimonial.business.logo"
+                         [class.col-sm-7]="!testimonial.business.logo"
+                         class="col-xs-8">
+                        <h3>{{ testimonial.job_naming.title }}</h3>
+                        {{ testimonial.business.title }} - {{ testimonial.business.place.city }}
+                        <br />
+                        Recommandé par {{ testimonial.recruiter.firstName }} {{ testimonial.recruiter.lastName }}
                     </div>
                 </a>
             </div>

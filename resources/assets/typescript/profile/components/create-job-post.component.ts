@@ -149,6 +149,12 @@ export class CreateJobPostComponent {
         });
     }
 
+    skipJobCreation() {
+        this.userService.skipJobCreation().subscribe((res: Response) => {
+            this.router.navigate(['/profil/annonces']);
+        });
+    }
+
     handleBusinessIdChange(businessId) {
         this.jobPost.business_id = businessId;
     }
