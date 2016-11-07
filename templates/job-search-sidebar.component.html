@@ -86,19 +86,9 @@
     </div>
 
     <div class="col-md-12 google-maps-container">
-        <sebm-google-map #sebmGoogleMap
-                         [latitude]="mapLat"
-                         [longitude]="mapLng"
-                         [mapDraggable]="false"
-                         [zoom]="zoom"
-                         [zoomControl]="false"
-                         [streetViewControl]="false"
-                         (mapClick)="mapClicked($event)">
-            <sebm-google-map-marker [latitude]="mapLat"
-                                    [longitude]="mapLng">
+        <div id="google-map" (click)="mapClicked()">
 
-            </sebm-google-map-marker>
-        </sebm-google-map>
+        </div>
     </div>
 
     <div class="col-md-12 params-container"

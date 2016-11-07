@@ -42,7 +42,8 @@ import appGlobals = require('./../globals');
                     ApplicantsComponent,
                     PricingPlansComponent,
                     BusinessPageComponent,
-                    GoogleplaceDirective],
+                    GoogleplaceDirective
+    ],
     exports:      [ UNITYTinyMCE,
                     JobPreviewComponent,
                     JobSearchBarComponent,

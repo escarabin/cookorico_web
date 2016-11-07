@@ -36,6 +36,10 @@ export class JobSearchResultsComponent {
                 private route: ActivatedRoute) {
         let __this = this;
 
+        let headContent = document.getElementsByTagName('head')[0].innerHTML;
+        headContent = headContent.replace('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHar3rTVpUcvpFDj88PttAPy85Bk17R18&amp;libraries=places"></script>', '');
+        document.getElementsByTagName('head')[0].innerHTML = headContent;
+
         route.params.subscribe(params => {
             if (params) {
                 __this.xpLevelId = params['xpLevelId'];

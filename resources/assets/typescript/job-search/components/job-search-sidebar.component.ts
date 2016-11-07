@@ -31,6 +31,7 @@ export class JobSearchSidebarComponent {
     place: any = [];
     locationName: string;
     isMobileSearchVisible: boolean = false;
+    map: any;
 
     /**
      * By default, populate place object with France coords
@@ -54,8 +55,6 @@ export class JobSearchSidebarComponent {
          */
         SearchService.parametersEmitter.subscribe(
             params => {
-                console.log('got a response', params);
-
                 referenceService.getAllJobNamings().subscribe((jobNamingList: Response) => {
                     __this.jobNamings = jobNamingList.json();
 
@@ -111,6 +110,24 @@ export class JobSearchSidebarComponent {
         SearchService.resultsEmitter.subscribe((results) => {
             __this.jobs = results.json();
         });
+    }
+
+    ngAfterViewInit() {
+        /**
+         * Init Google Map
+         */
+        let latLng = new google.maps.LatLng(this.mapLat, this.mapLng);
+        let myOptions = {
+            zoom      : this.zoom,
+            center    : latLng,
+            mapTypeId : google.maps.MapTypeId.ROADMAP,
+            maxZoom   : 20
+        };
+        this.map  = new google.maps.Map(document.getElementById('google-map'), myOptions);
+        /* let marker = new google.maps.Marker({
+            position : latLng,
+            map      : this.map
+        }); */
     }
 
     /**
@@ -223,7 +240,7 @@ export class JobSearchSidebarComponent {
         this.searchService.search(this.parametersList);
     }
 
-    mapClicked(event) {
+    mapClicked() {
         this.searchService.toggleMapSearch(this.parametersList['place']);
     }
 
@@ -237,5 +254,9 @@ export class JobSearchSidebarComponent {
         this.mapLat = place['geometry']['location'].lat();
         this.mapLng = place['geometry']['location'].lng();
         this.zoom = 8;
+
+        var panPoint = new google.maps.LatLng(this.mapLat, this.mapLng);
+        this.map.panTo(panPoint);
+        this.map.setZoom(this.zoom);
     }
 }

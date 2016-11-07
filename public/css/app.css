@@ -681,7 +681,7 @@ job-search-sidebar {
     padding: 0 15px 15px 15px;
     margin-top: 0;
     margin-bottom: 30px; }
-    job-search-sidebar .google-maps-container .sebm-google-map-container {
+    job-search-sidebar .google-maps-container .sebm-google-map-container, job-search-sidebar .google-maps-container #google-map {
       height: 200px;
       display: block; }
   job-search-sidebar .params-container .badge {
