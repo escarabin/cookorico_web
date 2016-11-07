@@ -25,10 +25,10 @@
                     Visibilité du profil : {{ profilePercentage }}% <span class="fa fa-angle-right"></span>
                 </span>
             </a>
-            <a routerLink="/profil/annonces"
+            <a routerLink="/profil/mon_abonnement"
                *ngIf="user.is_active && user.user_type_id == 2">
                 <span class="badge complete-profile">
-                    Vos annonces >
+                    Votre abonnement >
                 </span>
             </a>
         </div>

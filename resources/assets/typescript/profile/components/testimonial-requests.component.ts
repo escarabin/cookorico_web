@@ -36,6 +36,23 @@ export class TestimonialRequestsComponent {
     }
 
     /**
+     * Accept specific testimonial request
+     * @param testimonialId
+     */
+    acceptRequest(testimonialId: number) {
+        let __this = this;
+
+        this.userService.saveTestimonialReply(testimonialId, '').subscribe((res: Response) => {
+            for (let i = 0; i < __this.testimonials.length; i++) {
+                if (__this.testimonials[i]['id'] == testimonialId) {
+                    __this.accepted_testimonial_requests.push(__this.testimonials[i]);
+                    __this.testimonials.splice(i, 1);
+                }
+            }
+        });
+    }
+
+    /**
      * Reject specific testimonial request
      * @param testimonialId
      */

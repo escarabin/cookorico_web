@@ -3,6 +3,12 @@ job {
   background: white;
   padding: $mainBlockPadding;
 
+  .social-btn {
+    width: 40px;
+    margin-right: 7px;
+    float: left;
+  }
+
   h1 {
     text-transform: uppercase;
     font-family: $mainBoldFontFamily;
@@ -40,15 +46,15 @@ job {
     padding: 30px 70px;
 
     .job-info {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       height: 30px;
 
       i {
-        font-size: 2em;
+        font-size: 1.7em;
         color: $lightGrey;
         position: relative;
         top: 5px;
-        width: 40px;
+        width: 30px;
         display: inline-block;
       }
     }
@@ -61,7 +67,7 @@ job {
 
   .logo {
     float: left;
-    margin: 20px 20px 20px 0;
+    margin: 20px 20px 0 0;
     padding: 0 35px;
 
     img {
@@ -71,8 +77,10 @@ job {
   }
 
   .business {
-
-    .name {
+    .name, .adress {
+      a {
+        color: $mainDarkTextColor;
+      }
 
       h3 {
         font-size: 1.5em;

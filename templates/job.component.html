@@ -13,21 +13,10 @@
                 <h1>{{ job.title }}</h1>
                 <div class="adress">
                     <a href="/recherche/{{ job.business.place.googlePlaceId }}/0/0/0">
-                        {{ job.business.place.adress }}
+                        <i class="fa fa-map-marker"></i> &nbsp; {{ job.business.place.adress }}
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3 job-stats">
-            <button class="btn btn-default">
-                <span class="fa fa-facebook"></span>
-            </button>
-            <button class="btn btn-default">
-                <span class="fa fa-twitter"></span>
-            </button>
-            <button class="btn btn-default">
-                <span class="fa fa-envelope"></span>
-            </button>
         </div>
         <div class="col-md-3 job-stats"
              *ngIf="user && user.user_type_id == 2 && job.user_id == user.id">
@@ -42,11 +31,22 @@
             <span *ngIf="job.click_count">
                 <b><i class="icon-cursor"></i> &nbsp; {{ job.click_count }} clics</b><br />
             </span>
+            <br />
+            <button class="btn btn-default social-btn">
+                <span class="fa fa-facebook"></span>
+            </button>
+            <button class="btn btn-default social-btn">
+                <span class="fa fa-twitter"></span>
+            </button>
+            <button class="btn btn-default social-btn">
+                <span class="fa fa-envelope"></span>
+            </button>
         </div>
         <div class="col-md-3 other-job-posts">
-            <button class="btn btn-primary"
+            <button class="btn btn-primary full-width"
+                    *ngIf="!user || user.user_type_id == 3"
                     routerLink="/etablissement/{{ job.business.id }}">
-                Autres offres ici
+                Nos autres offres
             </button>
         </div>
     </div>
@@ -98,15 +98,6 @@
         <a routerLink="/inscription-candidat">
             <button class="btn btn-primary sign-up-btn">
                 Postuler
-            </button>
-        </a>
-    </div>
-
-    <div class="col-md-12 back-btn-container full-width" *ngIf="!user || user.user_type_id == 2">
-        <br />
-        <a routerLink="/recherche">
-            <button class="btn btn-default">
-                <i class="icon-arrow-left"></i> &nbsp; Retour à la recherche
             </button>
         </a>
     </div>

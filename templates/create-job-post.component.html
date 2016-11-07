@@ -9,18 +9,19 @@
     </div>
     <h2 class="centered">
         <span *ngIf="!jobPost.id">Créez</span>
-        <span *ngIf="jobPost.id">Éditez</span> votre offre d'emploi<br /><br />
+        <span *ngIf="jobPost.id">Éditez</span> votre offre d'emploi
         <button class="btn btn-primary"
                 (click)="skipJobCreation()"
                 *ngIf="!user.is_active">
             Passer cette étape &nbsp; <span class="fa fa-arrow-right"></span>
         </button>
+        <hr />
     </h2>
     <form #jobPostForm="ngForm" action="#">
         <div class="col-md-12">
             <label>Titre</label>
             <input type="text"
-                   class="form-control"
+                   class="form-control bold"
                    required
                    [disabled]=!userCanPostJob
                    placeholder="Donnez un titre à votre annonce"

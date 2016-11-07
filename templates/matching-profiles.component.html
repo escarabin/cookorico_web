@@ -1,5 +1,7 @@
+<h2 class="centered">Les profils correspondants à vos annonces</h2>
+<hr />
 <div class="col-md-12 header-container">
-    <div class="col-md-6 col-sm-6 col-xs-6 no-padding">
+    <div class="col-md-6 col-sm-6 col-xs-6">
         <select class="form-control"
                 name="jobNamingId"
                 ngControl="jobNamingId"
@@ -11,7 +13,7 @@
             </option>
         </select>
     </div>
-    <div class="col-md-6 col-sm-6 col-xs-6 no-padding">
+    <div class="col-md-6 col-sm-6 col-xs-6">
         <select class="form-control"
                 ngControl="xpLevelId"
                 [(ngModel)]="xpLevelId">
@@ -37,14 +39,17 @@
                         </div>
                         <div class="col-md-8">
                             <h3>{{ item.firstName }} {{ item.lastName.substr(0, 1) }}.</h3>
-                            <span *ngIf="item.xp_level">
-                                Expérience : {{ item.xp_level.title }}
+                            <span *ngIf="item.job_xp_level">
+                                Expérience : {{ item.job_xp_level.title }}
                             </span>
                             <p>
                                 {{ item.description.substr(0, 200) }}...
                             </p>
                         </div>
                         <div class="col-md-2 show-profile">
+                            <div class="centered">
+                                Profil mis à jour le {{ item.updated_at | date:"dd/MM/yyyy" }}
+                            </div>
                             <button>
                                 Voir le profil
                             </button>

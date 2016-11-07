@@ -1,45 +1,18 @@
-<div class="alert alert-warning alert-dismissible fade in" role="alert"
+<h2 class="centered">
+    Vous avez {{ items.length }} établissement(s)
+    <hr />
+</h2>
+
+<!-- <div class="alert alert-warning alert-dismissible fade in" role="alert"
      *ngIf="items.length == 1">
     <strong>Vous avez créée votre premier établissement</strong>
     Si vous souhaitez en créer de nouveaux, merci de <a href="mailto:contact@cookorico.fr">nous contacter</a>
-</div>
-
-<div class="col-md-12 header-container">
-    <div class="col-md-1 col-sm-1 col-xs-1 main-checkbox-container">
-        <input type="checkbox"
-               [checked]="allItemsChecked"
-               (change)="toggleAllItems()"/>
-    </div>
-    <div class="col-md-8 col-sm-8 col-xs-7 items-count">
-        <span *ngIf="checkedItemsList.length > 0">
-            {{ checkedItemsList.length }}
-        </span>
-        <span *ngIf="checkedItemsList.length == 0">
-            {{ items.length }}
-        </span> établissement<span *ngIf="items.length > 1">s</span>
-        <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
-    </div>
-    <div class="col-md-3 col-sm-3 col-xs-4 actions-container">
-        <button routerLink="/profil/etablissement/creer"
-                [class.disabled]="items.length == 1">
-            <span class="fa fa-plus"></span>
-        </button>
-        <button (click)="deleteSelectedItems()">
-            <span class="fa fa-trash-o"></span>
-        </button>
-    </div>
-</div>
+</div> -->
 
 <div class="col-md-12 list-container">
     <ul>
         <li class="row" *ngFor="let item of items">
-            <div class="col-md-1 col-sm-1 col-xs-1 checkbox-container">
-                <input type="checkbox"
-                       class="action-checkbox"
-                       [checked]="checkedItemsList.indexOf(item.id) != -1"
-                       (change)="saveCheckedItem(item.id)"/>
-            </div>
-            <div class="col-md-11 col-sm-11 col-xs-11 item"
+            <div class="col-md-12 col-sm-12 col-xs-12 item"
                  [class.logo]="item.logo">
                 <a routerLink="/profil/etablissement/editer/{{ item.id }}">
                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.logo">
@@ -52,23 +25,42 @@
                          [class.col-sm-7]="!item.logo"
                          class="col-xs-8">
                         <h3>{{ item.title }}</h3>
-                        {{ item.place.adress }}<br />
+                        <i class="fa fa-map-marker"></i> &nbsp; {{ item.place.adress }}<br />
                         <span *ngIf="item.place.city">
                             {{ item.place.city }}
                         </span>
                     </div>
                 </a>
                 <div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-1 col-md-3 col-sm-3 col-xs-4 centered">
-                    <a routerLink="/etablissement/{{ item.id }}">
-                        <button class="btn btn-primary">
-                            Page emploi
-                        </button>
-                    </a>
-                    <br />
-                    <br />
-                    <a target="_blank" href="{{ item.website }}">Site web</a>
+                    <button class="btn btn-primary full-width"
+                            routerLink="/profil/etablissement/editer/{{ item.id }}">
+                        Voir la fiche
+                    </button><br />
+                    <button class="btn btn-primary full-width"
+                            routerLink="/etablissement/{{ item.id }}">
+                        Voir la page emploi
+                    </button><br />
+                    <button class="btn btn-primary full-width"
+                            routerLink="/etablissement/{{ item.id }}">
+                        Gérer les utilisateurs
+                    </button>
                 </div>
             </div>
         </li>
     </ul>
+</div>
+
+<div class="col-md-12 centered">
+    <br />
+    <br />
+    <div class="about-us">
+        <h3>Si vous souhaitez ajouter un ou plusieurs établissements</h3>
+        <h2>Merci de nous contacter</h2>
+        <button class="btn btn-default">
+            <span class="fa fa-envelope"></span> &nbsp; Par mail
+        </button>
+        <button class="btn btn-default">
+            <span class="fa fa-phone"></span> &nbsp; 06 00 00 00 00
+        </button>
+    </div>
 </div>

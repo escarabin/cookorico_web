@@ -80,6 +80,16 @@ profile-sub-header {
       font-family: $mainMediumFontFamily;
     }
 
+    a {
+      &.active {
+        color: #003c50 !important;
+      }
+
+      &:focus {
+        text-decoration: none;
+      }
+    }
+
     .sub-header-menu-item {
       text-align: center;
       margin-top: 15px;

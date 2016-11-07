@@ -19,6 +19,7 @@ job-search-bar {
       border: none;
       border-radius: 0;
       height: 70px;
+      color: $mainDarkTextColor;
       -webkit-appearance: none;
     }
 
@@ -30,6 +31,11 @@ job-search-bar {
 
   .find-btn {
     width: 100%;
+    font-size: 18px;
+  }
+
+  .input-group-addon {
+    border-bottom: none !important;
   }
 }
 

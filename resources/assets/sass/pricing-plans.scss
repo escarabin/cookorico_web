@@ -1,4 +1,4 @@
-pricing-plans {
+pricing-plans, businesses, my-job-posts {
   .plan {
     box-shadow: $mainBoxShadow;
     border-radius: $mainBorderRadius;
@@ -37,6 +37,14 @@ pricing-plans {
     }
   }
 
+  .group-info {
+    h2 {
+      color: $oechrBlueColor;
+      font-size: 2em;
+
+    }
+  }
+
   .about-us {
     padding: 25px;
     background: $oechrBlueColor;
@@ -45,6 +53,21 @@ pricing-plans {
 
     h3, h2 {
       color: white;
+      font-size: 2em;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    button {
+      margin-left: 15px;
+      font-size: 1.2em;
     }
   }
 

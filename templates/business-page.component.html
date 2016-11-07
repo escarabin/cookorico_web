@@ -48,19 +48,19 @@
     </div>
 </div>
 
+<div class="jobs-listing row">
+    <h2>
+        Nos offres d'emploi
+    </h2>
+    <job-preview *ngFor="let job of jobs"
+                 [job]="job">
+    </job-preview>
+</div>
+
 <div class="business-photos row" *ngIf="business.photos">
     <div class="col-md-3 photo-container"
          *ngFor="let photo of business.photos">
         <img src="{{ photo.url }}"
              class="full-width"/>
     </div>
-</div>
-
-<div class="jobs-listing row">
-    <h3 class="centered">
-        Nos offres d'emploi
-    </h3>
-    <job-preview *ngFor="let job of jobs"
-                 [job]="job">
-    </job-preview>
 </div>

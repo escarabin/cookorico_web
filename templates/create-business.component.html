@@ -19,7 +19,7 @@
             <label>Nom de votre établissement</label>
             <input type="text"
                    [class.disabled]="isAddressParsed"
-                   class="form-control"
+                   class="form-control bold"
                    required
                    [disabled]="business.id"
                    [(ngModel)]="business.title"
@@ -89,6 +89,9 @@
             </div>
             <div class="col-md-6">
                 <label>Email</label>
+                <div class="alert alert-danger">
+                    Merci d'indiquer l'email de la personne qui recevra les CV des candidats
+                </div>
                 <input type="text"
                        required
                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -97,7 +100,15 @@
                        [(ngModel)]="business.email"
                        name="business_email"/>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
+                <label>Description</label>
+                <textarea class="form-control"
+                          rows="7"
+                          [(ngModel)]="business.description"
+                          name="business_description"
+                          placeholder="Votre établissement en quelques lignes"></textarea>
+            </div>
+            <div class="col-md-12">
                 <br /><br />
                 <div ng2FileDrop
                      [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
@@ -113,6 +124,7 @@
             <div class="col-md-12" id="business-photos">
                 <span *ngIf="business.photos.length > 0">
                     <h3 class="centered">Cliquez sur l'image que vous souhaitez utiliser comme logo</h3>
+                    <h3 class="centered">Vous pouvez supprimer des images en cliquant sur la croix</h3>
                     <br />
                 </span>
                 <div class="col-md-3"
@@ -132,13 +144,6 @@
                         <span class="fa fa-times"></span>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <label>Description</label>
-                <textarea class="form-control"
-                          [(ngModel)]="business.description"
-                          name="business_description"
-                          placeholder="Votre établissement en quelques lignes"></textarea>
             </div>
         </div>
 

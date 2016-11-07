@@ -272,7 +272,7 @@ class UserController extends Controller
         $userList = User::whereIn('id', $userIdList)
                         ->where('user_status_id', 1)
                         ->get()
-                        ->load('lookingForJobNamings', 'xpLevel');
+                        ->load('lookingForJobNamings', 'xpLevel', 'place');
 
         /**
          * Transform relationship lists to id lists
@@ -286,6 +286,10 @@ class UserController extends Controller
             }
 
             $user->lookingForJobNamingIdList = $lookingForJobNamingIdList;
+
+            if ($user->status_id == 2) {
+                unset($user, $userList);
+            }
         }
 
         return $userList;
@@ -684,6 +688,8 @@ class UserController extends Controller
         }
 
         $applications = Application::whereIn('job_id', $userJobsIdList)
+                                    ->orderBy('is_interested', 'asc')
+                                    ->orderBy('created_at', 'desc')
                                     ->get()
                                     ->load('user')
                                     ->load('job');
@@ -695,6 +701,8 @@ class UserController extends Controller
             $application->job->business = $application->job->business;
             $application->job->jobNaming = $application->job->jobNaming;
             $application->job->business->place = $application->job->business->place;
+            $application->user->languages = $application->user->languages;
+            $application->user->xpLevel = $application->user->xpLevel;
         }
 
         return $applications;

@@ -1,3 +1,7 @@
+<h2 class="centered">
+    Vos demandes de recommandation
+    <hr />
+</h2>
 <div class="col-md-12 header-container">
     <div class="col-md-12 col-sm-12 col-xs-11 items-count">
         {{ testimonials.length }} demande<span *ngIf="testimonials.length > 1">s</span> de recommandation
@@ -27,12 +31,12 @@
                 </div>
                 <div class="col-md-4 centered">
                     <span class="date">
-                        Reçu le {{ testimonial.created_at }}
+                        Reçu le {{ testimonial.created_at | date:"dd/MM/yy" }}
                     </span>
                 </div>
                 <div class="col-md-2 col-sm-2 col-xs-3 centered">
                     <button class="btn btn-primary full-width"
-                            routerLink="/profil/recommandation/creer/{{ testimonial.id }}">
+                            (click)="acceptRequest(testimonial.id)">
                         Accepter
                     </button>
                 </div>
@@ -47,7 +51,7 @@
     </ul>
 </div>
 
-<div class="col-md-12 header-container">
+<div class="col-md-12 header-container greyed">
     <div class="col-md-12 col-sm-12 col-xs-11 items-count">
         {{ accepted_testimonial_requests.length }} candidat
         <span *ngIf="accepted_testimonial_requests.length > 1">s</span>
@@ -78,7 +82,7 @@
                 </div>
                 <div class="col-md-4 centered">
                     <span class="date">
-                        Répondu le {{ testimonial.updated_at }}
+                        Recommandé le {{ testimonial.updated_at | date:"dd/MM/yy" }}
                     </span>
                 </div>
             </div>
@@ -86,7 +90,7 @@
     </ul>
 </div>
 
-<div class="col-md-12 header-container">
+<div class="col-md-12 header-container greyed">
     <div class="col-md-12 col-sm-12 col-xs-11 items-count">
         {{ rejected_testimonial_requests.length }} demande
         <span *ngIf="rejected_testimonial_requests.length > 1">s</span>

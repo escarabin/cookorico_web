@@ -88,15 +88,19 @@
                    (change)="saveProfileInfo('new_email', user.new_email)"
                    class="form-control"/>
         </div>
-        <h3>
-            À la recherche d'un poste de :
+        <h3 *ngIf="user.user_status_id == 1">
+            <span class="fa fa-circle success"></span> &nbsp; À la recherche d'un poste de :
             <ul class="looking_for_job_naming_list">
                 <li *ngFor="let jobNaming of user['looking_for_job_namings']; let i = index;">
-                    {{ jobNaming['title'] }}
-                    <span *ngIf="i + 1 != user['looking_for_job_namings'].length">,</span>
+                    {{ jobNaming['title'] }}<span *ngIf="i + 1 != user['looking_for_job_namings'].length">,</span>
                 </li>
             </ul>
-
+        </h3>
+        <h3 *ngIf="user.user_status_id == 2">
+            <span class="fa fa-circle danger"></span> &nbsp; <strong>En poste</strong>
+        </h3>
+        <h3 *ngIf="user.user_status_id == 3">
+            <span class="fa fa-circle warning"></span> &nbsp; <strong>À l'écoute d'opportunités</strong>
         </h3>
 
         <span *ngIf="user.status">
@@ -123,6 +127,7 @@
         <br />
         <br />
         <button (click)="openResumePreviewModal()"
+                *ngIf="userInfosAccessible"
                 class="hidden-xs btn btn-default">
             Voir le CV
         </button>
@@ -304,7 +309,7 @@
         </div>
     </div>
 
-    <div class="col-md-10 col-md-offset-1 centered">
+    <div class="col-md-10 col-md-offset-1 centered" *ngIf="editableProfile">
         <button class="btn btn-danger"
                 (click)="disableAccount()">
             <span class="fa fa-warning"></span> &nbsp; Désactiver mon compte

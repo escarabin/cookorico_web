@@ -38,10 +38,6 @@ profile {
 
     select {
       height: 59px;
-      border: none;
-      border-right: 1px solid white;
-      background: $oechrBlueColor;
-      color: white;
     }
 
     .filter {
@@ -113,7 +109,8 @@ profile {
 
   h2 {
     text-align: center;
-    font-size: 2.3em;
+    font-size: 2em;
+    font-family: $mainBoldFontFamily;
   }
 
   form .submit-btn, form .back-btn {
@@ -173,6 +170,10 @@ profile {
         width: 100%;
 
         a {
+          text-decoration: none;
+        }
+
+        .matching-profiles {
           text-decoration: underline;
         }
 
@@ -184,6 +185,7 @@ profile {
           padding: 15px;
           margin-top: 10px;
           background-color: #3a63a0;
+          text-decoration: none;
         }
 
         md-checkbox {

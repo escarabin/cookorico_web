@@ -1,31 +1,16 @@
-<div class="col-md-12 header-container">
-    <div class="col-md-1 col-sm-1 col-xs-1 main-checkbox-container">
-        <input type="checkbox"
-               [checked]="allItemsChecked"
-               (change)="toggleAllItems()"/>
-    </div>
-    <div class="col-md-10 col-sm-10 col-xs-9 no-padding">
-        <select class="form-control"
-                name="jobPostId"
-                ngControl="jobPostId"
-                [(ngModel)]="jobPostId">
-            <option selected disabled value="null">-- Sélectionnez une offre d'emploi --</option>
-            <option *ngFor="let jobPost of jobPosts"
-                    value="{{ jobPost.id }}">
-                {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
-            </option>
-        </select>
-    </div>
-    <div class="col-md-1 col-sm-1 col-xs-1 actions-container">
-        <!--<button routerLink="['/profil/CreateAlert']">
-            <span class="fa fa-plus"></span>
-        </button>-->
-        <button (click)="deleteSelectedItems()">
-            <span class="fa fa-trash-o"></span>
-        </button>
-    </div>
-</div>
-
+<h2 class="centered">{{ items.length }} postulants</h2>
+<hr />
+<select class="form-control"
+        name="jobPostId"
+        ngControl="jobPostId"
+        [(ngModel)]="jobPostId">
+    <option selected disabled value="null">-- Sélectionnez une offre d'emploi --</option>
+    <option *ngFor="let jobPost of jobPosts"
+            value="{{ jobPost.id }}">
+        {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
+    </option>
+</select>
+<hr />
 <div class="col-md-12 list-container">
     <div class="col-md-6 col-md-offset-3"
          *ngIf="!jobPostId && items.length == 0">
@@ -53,28 +38,30 @@
     <ul *ngIf="!jobPostId">
         <div *ngFor="let item of items">
             <li class="row" *ngIf="item.job_id == jobPostId || !jobPostId">
-                <div class="col-md-1 col-sm-1 col-xs-1 checkbox-container">
-                    <input type="checkbox"
-                           class="action-checkbox"
-                           [checked]="checkedItemsList.indexOf(item.id) != -1"
-                           (change)="saveCheckedItem(item.id)"/>
-                </div>
-                <div class="col-md-11 col-sm-11 col-xs-10 item"
+                <div class="col-md-12 col-sm-12 col-xs-11 item"
                      [class.photo]="item.user.profilePictureUrl">
                     <div class="col-md-2">
                         <img src="{{ item.user.profilePictureUrl }}"/>
                     </div>
                     <div class="col-md-4">
                         <h3>{{ item.user.firstName }}</h3>
-                        {{ item.user.firstName }} -- {{ item.user.firstName }}<br />
-                        {{ item.job.title }}
+                        <span *ngIf="item.user.xpLevel">
+                             {{ item.user.xpLevel.title }}<br />
+                        </span>
+                        <span *ngIf="item.user.languages.length > 0">
+                            Langues parlées :
+                            <span *ngFor="let language of item.user.languages">
+                                {{ language.title }},
+                            </span>
+                            <br />
+                        </span>
+                        <strong>{{ item.job.title }}</strong><br />
                         <span class="date">
-                            &nbsp;&nbsp;
                             <span class="fa fa-clock-o"></span>
-                            {{ item.created_at | date:"dd/MM/yyyy" }}
+                            A postulé le {{ item.created_at | date:"dd/MM/yyyy" }}
                         </span>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2" *ngIf="!item.is_interested">
                         <button class="btn btn-primary full-width"
                                 [disabled]="item.is_interested || item.is_rejected"
                                 (click)="acceptApplication(item.id)"
@@ -83,7 +70,7 @@
                             Intéressé
                         </button>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2" *ngIf="!item.is_interested">
                         <button class="btn btn-danger full-width"
                                 [disabled]="item.is_interested || item.is_rejected"
                                 (click)="rejectApplication(item.id)"
@@ -91,6 +78,10 @@
                             <span class="icon-envelope-letter"></span><br />
                             Refuser
                         </button>
+                    </div>
+                    <div class="col-md-4 centered" *ngIf="item.is_interested">
+                        <br />
+                        <strong>Ce profil vous intéresse</strong>
                     </div>
                     <div class="col-md-2">
                         <a routerLink="/profil/apercu/{{ item.user.id }}">

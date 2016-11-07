@@ -21,8 +21,6 @@ export class ApplicantsComponent {
     jobPostId: number = null;
     allItemsChecked: boolean;
     checkedItemsList: any = [];
-    applicationAcceptedTemplate: string;
-    applicationRejectedTemplate: string;
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService,
@@ -48,12 +46,15 @@ export class ApplicantsComponent {
 
     retrieveApplicants() {
         let __this = this;
+        this.items = [];
 
         this.userService.getApplicants().subscribe((res: Response) => {
-            __this.items = res.json();
+            console.log('res is', res.json());
 
-            for (let i = 0; i < __this.items.length; i++) {
-                let application = __this.items[i];
+            let allApplicants = res.json();
+
+            for (let i = 0; i < allApplicants.length; i++) {
+                let application = allApplicants[i];
 
                 application['acceptedTemplate'] = "Un mail sera envoyé à <u><br/>" + application['user']['email'] + "</u>" +
                     "<br/><br/>Votre candidature intéresse l'établissement " +
@@ -72,7 +73,9 @@ export class ApplicantsComponent {
                     "Postulez à une nouvelle offre d'emploi sur " +
                     "<a href=http://cookorico.fr/>http://cookorico.fr/</a>.";
 
-                __this.items[i] = application;
+                if (!application.is_rejected) {
+                    __this.items.push(application);
+                }
             }
         });
     }

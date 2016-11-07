@@ -20,6 +20,7 @@
 @import "candidate-dashboard";
 @import "candidate-sign-up";
 @import "job-search-sidebar";
+@import "businesses";
 @import "job-preview";
 @import "job-search-results";
 @import "profile";
@@ -121,4 +122,16 @@ re-captcha>div>div {
 
 .success {
   color: $successColor;
+}
+
+.warning {
+  color: $warningColor;
+}
+
+.danger {
+  color: $dangerColor;
+}
+
+.bold {
+  font-family: $mainBoldFontFamily;
 }

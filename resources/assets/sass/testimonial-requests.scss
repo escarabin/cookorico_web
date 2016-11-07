@@ -1,4 +1,14 @@
 testimonial-requests {
+  .header-container {
+    background-color: $oechrBlueColor !important;
+    height: 60px !important;
+    font-size: 0.9em !important;
+
+    &.greyed {
+      background-color: $lightGrey !important;
+    }
+  }
+
   .btn-danger {
     background-color: $dangerColor !important;
   }
