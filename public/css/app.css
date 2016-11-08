@@ -274,6 +274,9 @@ my-job-posts .job-stats {
 my-job-posts .matching-profiles {
   padding-top: 10px; }
 
+my-job-posts .header-container {
+  height: auto !important; }
+
 my-job-posts .list-container ul li a {
   color: #35B6E1;
   text-decoration: underline !important; }

@@ -20,6 +20,7 @@ export class MyJobPostsComponent {
     allItemsChecked: boolean;
     checkedItemsList: any = [];
     jobPlacementsLeftNum: any = [];
+    postStatus: number = 'is_accepted';
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService) {
