@@ -10,6 +10,7 @@ use App\Models\Business;
 use App\Models\Place;
 use Log;
 use Auth;
+use DB;
 
 class BusinessController extends Controller
 {
@@ -143,6 +144,7 @@ class BusinessController extends Controller
     public function get($businessId) {
         $business = Business::find($businessId)
             ->load('photos')
+            ->load('users')
             ->load('place');
 
         return $business;
@@ -175,5 +177,28 @@ class BusinessController extends Controller
                         ->load('place');
 
         return $businesses;
+    }
+
+    /**
+     * Attach user to specific business
+     * @param $userId
+     * @param $businessId
+     */
+    public function attachUser($userId, $businessId) {
+        DB::table('business_user')->insert([
+            ['user_id' => $userId, 'business_id' => $businessId],
+        ]);
+    }
+
+    /**
+     * Detach user to specific business
+     * @param $userId
+     * @param $businessId
+     */
+    public function detachUser($userId, $businessId) {
+        DB::table('business_user')
+            ->where('user_id', $userId)
+            ->where('business_id', $businessId)
+            ->delete();
     }
 }

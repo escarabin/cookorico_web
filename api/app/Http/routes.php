@@ -229,6 +229,10 @@ Route::get('/business/jobs/{businessId}', 'BusinessController@getJobs')
     ->name('getJobsFromBusiness');
 Route::get('/businesses/all/', 'BusinessController@getAll')
     ->name('getAllBusinesses');
+Route::get('/business/attach-user/{userId}/{businessId}', 'BusinessController@attachUser')
+    ->name('attachUserToBusiness');
+Route::get('/business/detach-user/{userId}/{businessId}', 'BusinessController@detachUser')
+    ->name('detachUserFromBusiness');
 
 // Places
 Route::post('/place/save/', 'PlaceController@save')

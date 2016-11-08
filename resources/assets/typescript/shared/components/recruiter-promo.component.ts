@@ -48,8 +48,6 @@ export class RecruiterPromoComponent {
                                     this.userLastName,
                                     this.userFirstName,
                                     this.userCivilityId).subscribe((res:Response) => {
-            console.log(res);
-
             if (res['_body'].length > 100) {
                 /**
                  * User account successfully created

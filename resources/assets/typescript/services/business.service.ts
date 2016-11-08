@@ -11,6 +11,8 @@ export class BusinessService {
     createBusinessUrl = appGlobals.apiUrl + "/business/create";
     getBusinessUrl = appGlobals.apiUrl + "/business";
     getAllBusinessesUrl = appGlobals.apiUrl + "/businesses/all";
+    detachUserUrl = appGlobals.apiUrl + "/business/detach-user";
+    attachUserUrl = appGlobals.apiUrl + "/business/attach-user";
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
@@ -45,5 +47,23 @@ export class BusinessService {
      */
     get(businessId: number) {
         return this.http.get(this.getBusinessUrl + '/' + businessId);
+    }
+
+    /**
+     * Attach user to specific business
+     * @param userId
+     * @param businessId
+     */
+    attachUser(userId: number, businessId: number) {
+        return this.http.get(this.attachUserUrl + '/' + userId + '/' + businessId);
+    }
+
+    /**
+     * Detach user to specific business
+     * @param userId
+     * @param businessId
+     */
+    detachUser(userId: number, businessId: number) {
+        return this.http.get(this.detachUserUrl + '/' + userId + '/' + businessId);
     }
 }

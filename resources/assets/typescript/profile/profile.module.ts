@@ -31,6 +31,7 @@ import { MatchingProfilesComponent } from './components/matching-profiles.compon
 import { CreateTestimonialComponent } from './components/create-testimonial.component';
 import { AdminJobPostsComponent } from './components/admin-job-posts.component';
 import { ClubsManagementComponent } from './components/clubs-management.component';
+import { BusinessContactsListComponent } from './components/business-contacts-list.component';
 
 // Services
 import { UserService } from './../services/user.service';
@@ -60,6 +61,7 @@ import { UserService } from './../services/user.service';
                     MatchingProfilesComponent,
                     TestimonialRequestsComponent,
                     CreateTestimonialComponent,
+                    BusinessContactsListComponent,
                     AdminJobPostsComponent,
                     ClubsManagementComponent ],
     imports:      [ profileRouting,
