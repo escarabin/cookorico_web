@@ -23,6 +23,8 @@ export class MatchingProfilesComponent {
         let __this = this;
 
         this.userService.getMatchingProfiles().subscribe((res: Response) => {
+            console.log('matching ', res.json());
+
             __this.items = res.json();
         });
 

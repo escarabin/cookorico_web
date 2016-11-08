@@ -270,8 +270,8 @@ class UserController extends Controller
          * Get only users that are currently looking for a job
          */
         $userList = User::whereIn('id', $userIdList)
-                        ->get()
-                        ->load('lookingForJobNamings', 'xpLevel', 'place');
+                            ->get()
+                            ->load('lookingForJobNamings', 'jobXpLevel', 'place');
 
         /**
          * Transform relationship lists to id lists
@@ -701,7 +701,7 @@ class UserController extends Controller
             $application->job->jobNaming = $application->job->jobNaming;
             $application->job->business->place = $application->job->business->place;
             $application->user->languages = $application->user->languages;
-            $application->user->xpLevel = $application->user->xpLevel;
+            $application->user->jobXpLevel = $application->user->jobXpLevel;
         }
 
         return $applications;

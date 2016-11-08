@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { NotificationsService } from '../../services/notification.service';
 import { ApplicationService } from '../../services/application.service';
+
 // Models
 import { Notification } from '../../models/notification';
 

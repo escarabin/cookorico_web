@@ -93,7 +93,7 @@ class User extends Authenticatable
      * Get user's experience level (1 year, 2 years, etc...)
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function xpLevel()
+    public function jobXpLevel()
     {
         return $this->belongsTo(JobXpLevel::class);
     }

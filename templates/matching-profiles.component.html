@@ -6,7 +6,7 @@
                 name="jobNamingId"
                 ngControl="jobNamingId"
                 [(ngModel)]="jobNamingId">
-            <option disabled value="0">-- Offre d'emploi --</option>
+            <option value="0">-- Offre d'emploi --</option>
             <option *ngFor="let jobPost of jobPosts"
                     value="{{ jobPost.job_naming.id }}">
                 {{ jobPost.job_naming.title }} - {{ jobPost.business.title }}
@@ -17,7 +17,7 @@
         <select class="form-control"
                 ngControl="xpLevelId"
                 [(ngModel)]="xpLevelId">
-            <option disabled value="0">-- Expérience minimale --</option>
+            <option value="0">-- Expérience minimale --</option>
             <option *ngFor="let xpLevel of xpLevels"
                     value="{{ xpLevel.id }}">
                 {{ xpLevel.title }}
@@ -30,7 +30,8 @@
     <ul>
         <div *ngFor="let item of items">
             <li class="row" *ngIf="(item.lookingForJobNamingIdList.indexOf(jobNamingId) != -1 || !jobNamingId)
-                                    && item.user_status_id != 2">
+                                    && item.user_status_id != 2
+                                    && (!item.job_xp_level || item.job_xp_level.id == xpLevelId || xpLevelId == 0)">
                 <div class="col-md-12 col-sm-12 col-xs-12 item"
                      [class.photo]="item.profilePictureUrl">
                     <a routerLink="/profil/apercu/{{ item.id }}">
@@ -45,7 +46,7 @@
                             <span *ngIf="item.job_xp_level">
                                 Expérience : {{ item.job_xp_level.title }}
                             </span>
-                            <p>
+                            <p *ngIf="item.description">
                                 {{ item.description.substr(0, 200) }}...
                             </p>
                         </div>
