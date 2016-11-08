@@ -35,6 +35,7 @@
                 <label>Adresse</label>
                 <input type="text"
                        required
+                       [disabled]="lockLocationData"
                        class="form-control"
                        placeholder="Adresse"
                        [(ngModel)]="business.place['adress']"
@@ -44,6 +45,7 @@
                 <label>Code postal</label>
                 <input type="text"
                        required
+                       [disabled]="lockLocationData"
                        class="form-control"
                        placeholder="Code postal"
                        [(ngModel)]="business.place['postalCode']"
@@ -53,6 +55,7 @@
                 <label>Ville</label>
                 <input type="text"
                        required
+                       [disabled]="lockLocationData"
                        class="form-control"
                        placeholder="Ville"
                        [(ngModel)]="business.place['city']"
@@ -178,4 +181,4 @@
     </form>
 </div>
 
-<business-contacts-list [business]="business"></business-contacts-list>
+<business-contacts-list [business]="business" *ngIf="business.id"></business-contacts-list>

@@ -30,6 +30,7 @@ export class CreateBusinessComponent {
     businessTypes: any;
     isLoading: boolean = false;
     isIntepretingFile: boolean = false;
+    lockLocationData: boolean = false;
     isAddressParsed: boolean = false;
     public adress: Object;
     public photoUploader:FileUploader = new FileUploader({url: URL});
@@ -101,6 +102,7 @@ export class CreateBusinessComponent {
 
     parseAdress(place:Object) {
         this.isAddressParsed = true;
+        this.lockLocationData = true;
 
         /**
          * Parse google maps API data into [business] object

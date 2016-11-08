@@ -36,6 +36,7 @@ const profileRoutes: Routes = [
             // Root
             {path: 'apercu', component: ProfilePreviewComponent},
             {path: 'apercu/:userId', component: ProfilePreviewComponent},
+            {path: 'apercu/:userId/complet', component: ProfilePreviewComponent},
 
             // Experiences
             {path: 'experience/editer/:experienceId', component: CreateExperienceComponent},

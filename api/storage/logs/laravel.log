@@ -252,3 +252,27 @@
                                     <experience><![CDATA[10 ans et +]]></experience>
                                 </job>    </source>
                             </xml>  
+[2016-11-08 17:25:10] local.INFO: array (
+  'email' => 'emmanuel@frii.io',
+  'password' => '0216tablaux',
+  'user_type_id' => 2,
+  'firstName' => 'Emmanuel',
+  'lastName' => 'gsfdgqdsgqds',
+  'civilityId' => '1',
+)  
+[2016-11-08 17:25:13] local.INFO: array (
+  'email' => 'emmanuel@frii.iovqdsqdsfdsq',
+  'password' => '0216tablaux',
+  'user_type_id' => 2,
+  'firstName' => 'Emmanuel',
+  'lastName' => 'gsfdgqdsgqds',
+  'civilityId' => '1',
+)  
+[2016-11-08 17:26:15] local.INFO: array (
+  'email' => 'emmanuel@frii.iofdsqfsqd',
+  'password' => '0216tablaux',
+  'user_type_id' => 2,
+  'firstName' => 'fqsdfdsq',
+  'lastName' => 'fqdsfqds',
+  'civilityId' => '2',
+)  

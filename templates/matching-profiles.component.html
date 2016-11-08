@@ -39,7 +39,9 @@
                             <img src="{{ item.profilePictureUrl }}" class="full-width"/>
                         </div>
                         <div class="col-md-8">
-                            <h3>{{ item.firstName }} {{ item.lastName.substr(0, 1) }}.</h3>
+                            <h3>
+                                {{ item.firstName }} <span *ngIf="item.lastName">{{ item.lastName.substr(0, 1) }}.</span>
+                            </h3>
                             <span *ngIf="item.job_xp_level">
                                 Expérience : {{ item.job_xp_level.title }}
                             </span>

@@ -56,6 +56,15 @@ export class ProfilePreviewComponent {
 
         this.user = JSON.parse(localStorage.getItem('user'));
 
+        router.events.subscribe((event) => {
+            /**
+             * Show complete profile
+             */
+            if (event.url.indexOf('complet') != -1) {
+                this.userInfosAccessible = true;
+            }
+        });
+
         /**
          * If userId is defined, then show the profile of this user
          * else, get data from logged in user

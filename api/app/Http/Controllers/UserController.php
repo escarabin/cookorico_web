@@ -270,7 +270,6 @@ class UserController extends Controller
          * Get only users that are currently looking for a job
          */
         $userList = User::whereIn('id', $userIdList)
-                        ->where('user_status_id', 1)
                         ->get()
                         ->load('lookingForJobNamings', 'xpLevel', 'place');
 
