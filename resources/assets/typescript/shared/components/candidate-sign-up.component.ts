@@ -28,6 +28,7 @@ export class CandidateSignUpComponent {
     user:User = new User();
     jobNamingGroups: any = [];
     civilities: any = [];
+    xpLevels: any = [];
     @ViewChild('cropper', undefined) cropper: ImageCropperComponent;
     cropper:ImageCropperComponent;
     profilePictureData: any;
@@ -58,6 +59,10 @@ export class CandidateSignUpComponent {
 
         this.referenceService.getAllCivilities().subscribe((res: Response) => {
             __this.civilities = res.json();
+        });
+
+        this.referenceService.getAllJobXpLevels().subscribe((res: Response) => {
+            __this.xpLevels = res.json();
         });
 
         referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
