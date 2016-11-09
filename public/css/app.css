@@ -867,9 +867,10 @@ job-search-results {
   job-search-results .no-results {
     text-align: center;
     padding: 150px; }
-  job-search-results .sebm-google-map-container {
+  job-search-results .sebm-google-map-container, job-search-results #google-map-results {
     height: 900px;
     padding: 0 15px;
+    width: 98%;
     display: block; }
   job-search-results .jobs-count {
     text-align: center;
@@ -1990,5 +1991,9 @@ re-captcha > div > div {
 
 .bold {
   font-family: "Avenir Heavy", sans-serif; }
+
+.not-visible {
+  visibility: hidden;
+  height: 0; }
 
 /*# sourceMappingURL=app.css.map */

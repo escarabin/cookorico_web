@@ -23,25 +23,12 @@
 </div>
 
 <div class="row"
-     *ngIf="isMapModeEnabled">
-        <div class="jobs-count">
-            <b>{{ jobs.length }} offres</b> correspondent à vos critères
-        </div>
-        <sebm-google-map [latitude]="mapLat"
-                         [longitude]="mapLng"
-                         [zoom]="zoom">
-            <sebm-google-map-marker *ngFor="let job of jobs"
-                                    [latitude]="job.business.place.lat"
-                                    [longitude]="job.business.place.lon">
-                <sebm-google-map-info-window>
-                    <strong>{{ job.title }}</strong><br />
-                    <p>{{ job.business.title }}</p>
-                    <p>{{ job.business.place.city }}</p>
-                    <button class="btn btn-primary full-width"
-                            routerLink="/recherche/annonce/{{ job.id }}">
-                        Voir l'offre
-                    </button>
-                </sebm-google-map-info-window>
-            </sebm-google-map-marker>
-        </sebm-google-map>
+     [class.not-visible]="!isMapModeEnabled">
+    <div class="jobs-count">
+        <b>{{ jobs.length }} offres</b> correspondent à vos critères
+    </div>
+
+    <div id="google-map-results">
+
+    </div>
 </div>

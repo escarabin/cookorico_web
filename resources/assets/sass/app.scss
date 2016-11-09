@@ -135,3 +135,8 @@ re-captcha>div>div {
 .bold {
   font-family: $mainBoldFontFamily;
 }
+
+.not-visible {
+  visibility: hidden;
+  height: 0;
+}

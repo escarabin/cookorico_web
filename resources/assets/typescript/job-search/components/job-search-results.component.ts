@@ -1,4 +1,4 @@
-import { Component, Inject, ChangeDetectorRef } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 // Services
@@ -23,6 +23,7 @@ export class JobSearchResultsComponent {
     isMapModeEnabled: boolean = false;
     parametersList: any = [];
     placeId: string;
+    mapMarkers: any = [];
 
     /**
      * By default, populate place object with France coords
@@ -32,7 +33,6 @@ export class JobSearchResultsComponent {
     mapLng: number = 2.213749;
 
     constructor(@Inject(SearchService) private searchService: SearchService,
-                private ref: ChangeDetectorRef,
                 private route: ActivatedRoute) {
         let __this = this;
 
@@ -79,7 +79,30 @@ export class JobSearchResultsComponent {
          */
         searchService.resultsEmitter.subscribe((results) => {
             __this.jobs = results.json();
-            // __this.ref.detectChanges();
+
+            /**
+             * Clear map markers
+             */
+            for (let i = 0; i < __this.mapMarkers.length; i++) {
+                __this.mapMarkers[i].setMap(null);
+            }
+
+            /**
+             * Create new markers, append them to the map
+             */
+            for (let i = 0; i < __this.jobs.length; i++) {
+                let jobLatLng = new google.maps.LatLng(
+                    __this.jobs[i]['business']['place']['lat'],
+                    __this.jobs[i]['business']['place']['lon']
+                );
+
+                let marker = new google.maps.Marker({
+                    position : jobLatLng,
+                    map      : this.map
+                });
+
+                this.mapMarkers.push(marker);
+            }
         });
 
         /**
@@ -87,6 +110,8 @@ export class JobSearchResultsComponent {
          */
         searchService.mapModeEmitter.subscribe((place) => {
             this.isMapModeEnabled = !this.isMapModeEnabled;
+
+            google.maps.event.trigger(this.map, 'resize');
 
             if (place) {
                 this.parametersList['place'] = place;
@@ -101,6 +126,19 @@ export class JobSearchResultsComponent {
          * TODO: remove it
          */
         // searchService.search();
+    }
+
+    ngAfterViewInit() {
+        let latLng = new google.maps.LatLng(this.mapLat, this.mapLng);
+
+        let myOptions = {
+            zoom      : this.zoom,
+            center    : latLng,
+            mapTypeId : google.maps.MapTypeId.ROADMAP,
+            maxZoom   : 20
+        };
+
+        this.map  = new google.maps.Map(document.getElementById('google-map-results'), myOptions);
     }
 
     /**
