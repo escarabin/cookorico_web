@@ -128,9 +128,11 @@ export class JobSearchResultsComponent {
         searchService.mapModeEmitter.subscribe((place) => {
             this.isMapModeEnabled = !this.isMapModeEnabled;
 
-            google.maps.event.trigger(this.map, 'resize');
-
             if (place) {
+                let latLng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+                this.map.panTo(latLng);
+                this.map.setZoom(8);
+
                 this.parametersList['place'] = place;
                 this.mapLat = place['geometry']['location'].lat();
                 this.mapLng = place['geometry']['location'].lng();
