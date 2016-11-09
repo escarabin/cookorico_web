@@ -1,15 +1,14 @@
-import { Component, Output, EventEmitter, Inject, ChangeDetectorRef } from '@angular/core';
+import { Component, Output, EventEmitter, Inject } from '@angular/core';
 import { Response } from '@angular/http';
 
 // Components
 import { ReferenceService } from '../../services/reference.service';
-
-// TODO : remove this service
-import { JobService } from '../../services/job.service';
 import { SearchService } from '../../services/search.service';
 
+import appGlobals = require('./../../globals');
+
 @Component({
-    providers: [ ReferenceService, JobService ],
+    providers: [ ReferenceService ],
     selector: 'job-search-sidebar',
     templateUrl: '../templates/job-search-sidebar.component.html'
 })
@@ -44,8 +43,6 @@ export class JobSearchSidebarComponent {
     @Output() searchParametersChanged: EventEmitter = new EventEmitter();
 
     constructor(private referenceService: ReferenceService,
-                private jobService: JobService,
-                private ref: ChangeDetectorRef,
                 @Inject(SearchService) SearchService,
                 private searchService: SearchService) {
         let __this = this;
@@ -124,10 +121,8 @@ export class JobSearchSidebarComponent {
             maxZoom   : 20
         };
         this.map  = new google.maps.Map(document.getElementById('google-map'), myOptions);
-        /* let marker = new google.maps.Marker({
-            position : latLng,
-            map      : this.map
-        }); */
+
+        this.map.setOptions({styles: appGlobals.googleMapStyles});
     }
 
     /**

@@ -7,6 +7,8 @@ import { SearchService } from '../../services/search.service';
 // Pagination
 import { PaginatePipe, PaginationService } from 'ng2-pagination';
 
+import appGlobals = require('./../../globals');
+
 @Component({
     selector: 'job-search-results',
     providers: [PaginationService],
@@ -101,6 +103,21 @@ export class JobSearchResultsComponent {
                     map      : this.map
                 });
 
+                let infoContentString = '<strong>' + __this.jobs[i]["title"] + '</strong><br /> ' +
+                    '<p>' + __this.jobs[i]["business"]["title"] + '</p> ' +
+                    '<p>' + __this.jobs[i]["business"]["place"]["city"] + '</p> ' +
+                    '<a href="/#/recherche/annonce/' + __this.jobs[i]['id'] + '"><button class="btn btn-primary full-width">' +
+                    'Voir l\'offre ' +
+                    '</button></a>';
+
+                let infowindow = new google.maps.InfoWindow({
+                    content: infoContentString
+                });
+
+                marker.addListener('click', function() {
+                    infowindow.open(__this.map, marker);
+                });
+
                 this.mapMarkers.push(marker);
             }
         });
@@ -139,6 +156,8 @@ export class JobSearchResultsComponent {
         };
 
         this.map  = new google.maps.Map(document.getElementById('google-map-results'), myOptions);
+
+        this.map.setOptions({styles: appGlobals.googleMapStyles});
     }
 
     /**
