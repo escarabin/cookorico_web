@@ -26,7 +26,7 @@
     <div class="additional_infos col-md-3 col-sm-3 col-xs-3">
         <div class="contract_type">
             {{ job.contract_type.title }} <br />
-            {{ job.week_work_hours }}h
+            <span *ngIf="job.week_work_hours">{{ job.week_work_hours }}h</span>
         </div>
         <div class="post_date hidden-xs">
             Publiée le <b>{{ job.created_at | date:"dd/MM/yy" }}</b>

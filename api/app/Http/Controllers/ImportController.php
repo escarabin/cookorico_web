@@ -24,10 +24,11 @@ use App\Models\User;
 class ImportController extends Controller
 {
     public function importDB() {
-
-        ini_set('max_execution_time', 30000); //300 seconds = 5 minutes
-//OR
-        set_time_limit(0); //If set to zero, no time limit is imposed.
+        /**
+         * Set no timeout for execution of this script
+         */
+        ini_set('max_execution_time', 30000);
+        set_time_limit(0);
 
         /*  $this->importRecruiters();
         $this->importBusinesses();

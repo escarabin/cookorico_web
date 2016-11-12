@@ -90,7 +90,7 @@ class JobController extends Controller
 
         $contractTypeList = array();
         $jobNamingList = array();
-        $studyLevelList = array();
+        $xpLevelList = array();
 
         if (array_key_exists('contractTypeList', $parameters)) {
             $contractTypeList = $parameters['contractTypeList'];
@@ -98,13 +98,13 @@ class JobController extends Controller
         if (array_key_exists('jobNamingList', $parameters)) {
             $jobNamingList = $parameters['jobNamingList'];
         }
-        if (array_key_exists('studyLevelList', $parameters)) {
-            $studyLevelList = $parameters['studyLevelList'];
+        if (array_key_exists('xpLevelList', $parameters)) {
+            $xpLevelList = $parameters['xpLevelList'];
         }
 
         $jobNamingIdList = array();
         $contractTypeIdList = array();
-        $studyLevelIdList = array();
+        $xpLevelIdList = array();
 
         /**
          * Populate params id arrays to perform "WhereIn" search
@@ -119,9 +119,9 @@ class JobController extends Controller
                 $contractTypeIdList[] = $contractTypeId;
             }
         }
-        foreach ($studyLevelList as $studyLevelId => $studyLevelTitle) {
-            if ($studyLevelTitle) {
-                $studyLevelIdList[] = $studyLevelId;
+        foreach ($xpLevelList as $xpLevelId => $xpLevelTitle) {
+            if ($xpLevelTitle) {
+                $xpLevelIdList[] = $xpLevelId;
             }
         }
 
@@ -137,8 +137,8 @@ class JobController extends Controller
         if (count($contractTypeIdList)) {
             $jobsQuery->whereIn('contract_type_id', $contractTypeIdList);
         }
-        if (count($studyLevelIdList)) {
-            $jobsQuery->whereIn('study_level_id', $studyLevelIdList);
+        if (count($xpLevelIdList)) {
+            $jobsQuery->whereIn('job_xp_level_id', $xpLevelIdList);
         }
 
         $jobs = $jobsQuery->get()->load('business',

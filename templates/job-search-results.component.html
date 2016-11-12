@@ -12,7 +12,7 @@
             <job-search-bar></job-search-bar>
         </div>
 
-        <job-preview *ngFor="let job of jobs | paginate: { itemsPerPage: 10, currentPage: p }"
+        <job-preview *ngFor="let job of jobs | paginate: { itemsPerPage: 20, currentPage: p }"
                      [job]="job">
         </job-preview>
 
