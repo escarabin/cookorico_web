@@ -138,7 +138,9 @@ export class CreateJobPostComponent {
                     });
                 }
                 else {
-                    __this.router.navigate(['/profil/annonce/', { jobId: res.json()['id'] }]);
+                    if (this.user.user_type_id != 1) {
+                        __this.router.navigate(['/profil/annonce/', { jobId: res.json()['id'] }]);
+                    }
                 }
             }
             else {
@@ -150,8 +152,11 @@ export class CreateJobPostComponent {
     }
 
     skipJobCreation() {
+        let __this = this;
         this.userService.skipJobCreation().subscribe((res: Response) => {
-            this.router.navigate(['/profil/annonces']);
+            this.userService.activateAccount(this.user.id).subscribe((res: Response) => {
+                this.router.navigate(['/profil/annonces']);
+            });
         });
     }
 

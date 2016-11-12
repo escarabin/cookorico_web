@@ -39,6 +39,8 @@ class UserController extends Controller
                                'place',
                                'lookingForJobNamings');
 
+            Auth::loginUsingId($user->id);
+
             /**
              * Activate account in case of disabled account
              */

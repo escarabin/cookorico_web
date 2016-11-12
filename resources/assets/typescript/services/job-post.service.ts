@@ -9,6 +9,7 @@ import { JobPost } from '../models/job-post';
 export class JobPostService {
     createJobPostUrl = appGlobals.apiUrl + "/job-post/create";
     getJobPostUrl = appGlobals.apiUrl + "/job";
+    pullUpJobPostUrl = appGlobals.apiUrl + "/job-post/pull-up";
 
     constructor(private http: Http) {
 
@@ -20,13 +21,11 @@ export class JobPostService {
      * @returns {any}
      */
     save(jobPost: JobPost) {
-        let __this = this;
-
         let body = JSON.stringify({ jobPost });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(__this.createJobPostUrl, body, options);
+        return this.http.post(this.createJobPostUrl, body, options);
     }
 
     /**
@@ -34,9 +33,15 @@ export class JobPostService {
      * @param jobPostId
      * @returns {any}
      */
-    get(jobPostId) {
-        let __this = this;
+    get(jobPostId: number) {
+        return this.http.request(this.getJobPostUrl + '/' + jobPostId);
+    }
 
-        return this.http.request(__this.getJobPostUrl + '/' + jobPostId);
+    /**
+     * Pull up JobPost on top of list
+     * @param jobPostId
+     */
+    pullUpJobPost(jobPostId: number) {
+        return this.http.request(this.pullUpJobPostUrl + '/' + jobPostId);
     }
 }

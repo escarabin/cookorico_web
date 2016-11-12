@@ -86,6 +86,8 @@ export class CandidateDashboardComponent {
                 }
             );
         }
+
+        console.log('looking for jobs', this.lookingForJobNamingList);
     }
 
     parseAdress(place: Object, jobNamingIndex: number) {

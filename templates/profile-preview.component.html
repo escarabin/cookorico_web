@@ -89,12 +89,12 @@
                    class="form-control"/>
         </div>
         <h3 *ngIf="user.user_status_id == 1">
-            <span class="fa fa-circle success"></span> &nbsp; À la recherche d'un poste de :
-            <ul class="looking_for_job_naming_list">
+            <span class="fa fa-circle success"></span> &nbsp; À la recherche d'un poste
+            <!-- <ul class="looking_for_job_naming_list">
                 <li *ngFor="let jobNaming of user['looking_for_job_namings']; let i = index;">
                     {{ jobNaming['title'] }}<span *ngIf="i + 1 != user['looking_for_job_namings'].length">,</span>
                 </li>
-            </ul>
+            </ul> -->
         </h3>
         <h3 *ngIf="user.user_status_id == 2">
             <span class="fa fa-circle danger"></span> &nbsp; <strong>En poste</strong>
@@ -128,7 +128,7 @@
         <br />
         <button (click)="openResumePreviewModal()"
                 *ngIf="userInfosAccessible"
-                class="hidden-xs btn btn-default">
+                class="hidden-xs btn btn-primary">
             Voir le CV
         </button>
         <br />
@@ -272,7 +272,7 @@
                         <a>
                             <div class="item-desc">
                                 <h3>{{ lang.language.title }}</h3>
-                                {{ lang.languageLevel.title }}
+                                <span *ngIf="lang.languageLevel">{{ lang.languageLevel.title }}</span>
                             </div>
                         </a>
                     </div>

@@ -54,6 +54,8 @@ Route::get('/job-post/reject/{jobPostId}', 'JobController@reject')
     ->name('rejectJobPost');
 Route::get('/job-post/deactivate/{jobId}', 'JobController@deactivate')
     ->name('deactivateJobPost');
+Route::get('/job-post/pull-up/{jobId}', 'JobController@pulluP')
+    ->name('pulluP');
 
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
@@ -293,3 +295,8 @@ Route::post('/password/email', 'Auth\PasswordController@postEmail');
 // Password reset routes
 Route::get('/password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('/password/reset', 'Auth\PasswordController@postReset');
+
+
+
+Route::get('/import-db', 'ImportController@importDB')
+    ->name('importDB');

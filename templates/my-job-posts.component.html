@@ -23,14 +23,14 @@
              [class.active]="postStatus == 'is_expired'"
              (click)="postStatus = 'is_expired'">
             <label class="info">
-                Expirée &nbsp;
+                Expirées &nbsp;
             </label>
         </div>
         <div class="filter"
              [class.active]="postStatus == 'is_rejected'"
              (click)="postStatus = 'is_rejected'">
             <label class="danger">
-                Rejetée &nbsp;
+                Rejetées &nbsp;
             </label>
         </div>
     </div>
@@ -69,11 +69,20 @@
                     </h3>
                     {{ item.contract_type.title }} - {{ item.week_work_hours }}h<br />
                     <strong>{{ item.business.title }}</strong><br />
-                    Publié le {{ item.created_at | date:"dd/MM/yyyy" }}<br />
-                    <span *ngIf="item.is_accepted" class="alert-success">En ligne</span>
+                    <span *ngIf="!item.on_top_of_listing">Publiée</span>
+                    <span *ngIf="item.on_top_of_listing">Remontée</span>
+                    le {{ item.created_at | date:"dd/MM/yyyy" }}<br />
+
+                    <button class="btn btn-primary"
+                            (click)="pullUpJobPost()"
+                            [disabled]="!userCanPullUpJobPost"
+                            *ngIf="item.is_active && item.is_accepted">
+                        Remonter l'offre
+                    </button>
+                    <!--<span *ngIf="item.is_accepted" class="alert-success">En ligne</span>
                     <span *ngIf="!item.is_accepted && !item.is_rejected" class="alert-warning">En validation</span>
                     <span *ngIf="item.is_rejected" class="alert-danger">Rejetée</span>
-                    <span *ngIf="!item.is_active" class="alert-danger">Désactivée</span>
+                    <span *ngIf="!item.is_active" class="alert-danger">Désactivée</span>-->
                     <!-- <span class="date">
                         {{ item.start_date }} &nbsp;
                         <span class="fa fa-arrow-right"></span> &nbsp;
@@ -82,21 +91,28 @@
                 </div>
                 <div class="col-md-3 col-sm-3 hidden-xs job-stats">
                     <b class="ref">REF{{ item.id }}</b><br />
-                    <a routerLink="/profil/profils-correspondants/{{ item.id }}">Profils corresp.</a><br />
-                    <a routerLink="/profil/postulants/{{ item.id }}">{{ item.applications.length }} postulants</a><br />
-                    {{ item.print_count }} vues - {{ item.click_count }} clics<br />
+                    <span  *ngIf="item.is_active && item.is_accepted">
+                        <a routerLink="/profil/profils-correspondants/{{ item.id }}">Profils correspondants</a><br />
+                        <a routerLink="/profil/postulants/{{ item.id }}" *ngIf="item.applications.length > 0" class="bold">{{ item.applications.length }} postulants</a><br />
+                        {{ item.print_count }} vues - {{ item.click_count }} clics<br />
+                    </span>
                 </div>
-                <div class="col-md-2 col-sm-2 centered hidden-xs">
-                    <a routerLink="/profil/annonce/editer/{{ item.id }}">
-                        <button class="full-width">
-                            Editer l'offre
-                        </button>
-                    </a><br />
+                <div class="col-md-2 col-sm-2 centered hidden-xs"  *ngIf="item.is_rejected">
+                    <div class="alert alert-danger">
+                        Rejetée par l'équipe Cookorico
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 centered hidden-xs"  *ngIf="!item.is_rejected">
                     <a routerLink="/recherche/annonce/{{ item.id }}">
                         <button class="full-width">
                             Voir l'offre
                         </button>
                     </a>
+                    <a routerLink="/profil/annonce/editer/{{ item.id }}">
+                        <button class="full-width">
+                            Modifier l'offre
+                        </button>
+                    </a><br />
                     <a routerLink="/recherche/annonce/{{ item.id }}"
                        *ngIf="item.is_accepted && item.is_active">
                         <button class="btn btn-danger full-width">
@@ -112,7 +128,8 @@
                 <a routerLink="/profil/annonce/creer">Publier ici</a>
             </div>
             <div class="col-md-3">
-                <button class="btn btn-primary create-job-post full-width">
+                <button class="btn btn-primary create-job-post full-width"
+                        routerLink="/profil/annonce/creer">
                     Créer une offre
                 </button>
             </div>

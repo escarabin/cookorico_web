@@ -78,13 +78,13 @@
         <div class="col-md-6 job-info end_date" *ngIf="job.end_date">
             <i class="ton-li-clock-2"></i> &nbsp;Fin : <label>{{ job.end_date }}</label>
         </div>
-        <div class="col-md-6 job-info languages" *ngIf="job.end_date">
+        <div class="col-md-6 job-info languages" *ngIf="job.languages">
             <i class="ton-li-speech-buble-4"></i>
-            <span *ngFor="let language of job.languages">
-                <label>{{ language.title }},</label>
+            <span *ngFor="let language of job.languages; let i = index">
+                <label>{{ language.title }}<span *ngIf="i < job.languages.length">,</span></label>
             </span>
         </div>
-        <div class="col-md-6 job-info education">
+        <div class="col-md-6 job-info education" *ngIf="job.study_level">
             <i class="ton-li-id"></i> &nbsp;<label>{{ job.study_level.title }}</label>
         </div>
     </div>

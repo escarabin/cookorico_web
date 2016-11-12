@@ -23,6 +23,9 @@ import { ProfileSubHeaderComponent } from './shared/components/profile-sub-heade
 import { RecruiterPromoComponent } from './shared/components/recruiter-promo.component';
 import { ClubComponent } from './shared/components/club.component';
 import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.component';
+import { CguComponent } from './shared/components/cgu.component';
+import { CgvComponent } from './shared/components/cgv.component';
+import { AboutComponent } from './shared/components/about.component';
 
 // Global vars
 import appGlobals = require('./globals');
@@ -50,6 +53,9 @@ const metaConfig: MetaConfig = {
                     PostPreviewComponent,
                     SignInComponent,
                     ProfileSubHeaderComponent,
+                    CguComponent,
+                    AboutComponent,
+                    CgvComponent,
                     RecruiterPromoComponent,
                     NotificationsComponent ],
     imports:      [ RouterModule,

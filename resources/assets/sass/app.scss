@@ -44,6 +44,7 @@
 @import "sign-up-steps";
 @import "website-editor";
 @import "business-page";
+@import "admin-job-posts";
 @import "footer";
 @import "clubs-management";
 @import "confirm-account-creation";
@@ -56,7 +57,7 @@ body {
 }
 
 h1 {
-  font-family: $mainFontFamily;
+  font-family: $mainBoldFontFamily;
 }
 
 h2 {

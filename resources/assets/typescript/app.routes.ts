@@ -7,6 +7,9 @@ import { ClubComponent } from './shared/components/club.component';
 import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.component';
 import { RecruiterPromoComponent } from './shared/components/recruiter-promo.component';
 import { BusinessPageComponent } from './shared/components/business-page.component';
+import { CguComponent } from './shared/components/cgu.component';
+import { CgvComponent } from './shared/components/cgv.component';
+import { AboutComponent } from './shared/components/about.component';
 
 const appRoutes: Routes = [
     // Child routing
@@ -26,6 +29,33 @@ const appRoutes: Routes = [
         data: {
             meta: {
                 title: 'Recherche d\'emploi'
+            }
+        }
+    },
+
+    // CGU
+    { path: 'conditions-utilisations', component: CguComponent,
+        data: {
+            meta: {
+                title: 'Conditions d\'utilisation'
+            }
+        }
+    },
+
+    // CGV
+    { path: 'conditions-vente', component: CgvComponent,
+        data: {
+            meta: {
+                title: 'Conditions de vente'
+            }
+        }
+    },
+
+    // Qui sommes-nous
+    { path: 'qui-sommes-nous', component: AboutComponent,
+        data: {
+            meta: {
+                title: 'Conditions de vente'
             }
         }
     },

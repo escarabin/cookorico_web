@@ -1,8 +1,20 @@
 recruiter-promo {
-  padding-top: $mainPagePaddingTop;
+  padding-top: 100px;
   display: block;
 
   .recruiter-promo-heading {
+    display: inline-block;
+    width: 100%;
+    padding: 50px 0;
+    background-image: url('/img/header-home-recruteur.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    h1, h2 {
+      color: white;
+      margin-top: 200px;
+    }
+
     h2 {
       margin-top: 0;
       margin-bottom: 25px;
@@ -19,8 +31,12 @@ recruiter-promo {
 
       .sign-up-box, .login-box {
         border-radius: $mainBorderRadius;
-        box-shadow: $mainBoxShadow;
+        background: white;
         padding: 25px 10px;
+
+        h2 {
+          color: $mainDarkTextColor;
+        }
 
         input {
           margin-bottom: 15px;

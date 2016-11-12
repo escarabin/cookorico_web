@@ -4,13 +4,14 @@ import { Response } from '@angular/http';
 // Services
 import { UserService } from '../../services/user.service';
 import { NotificationsService } from '../../services/notification.service';
+import { JobPostService } from '../../services/job-post.service';
 
 // Models
 import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'my-job-posts',
-    providers: [UserService],
+    providers: [UserService, JobPostService],
     templateUrl: '../templates/my-job-posts.component.html'
 })
 
@@ -21,8 +22,10 @@ export class MyJobPostsComponent {
     checkedItemsList: any = [];
     jobPlacementsLeftNum: any = [];
     postStatus: number = 'is_accepted';
+    userCanPullUpJobPost: boolean = false;
 
     constructor(private userService: UserService,
+                private jobPostService: JobPostService,
                 private notificationService: NotificationsService) {
         let __this = this;
 
@@ -34,6 +37,19 @@ export class MyJobPostsComponent {
              */
             for (let i = 0; i < (5 - __this.items.length); i++) {
                 this.jobPlacementsLeftNum.push(1);
+            }
+        });
+
+        this.userService.getPlans().subscribe((res: Response) => {
+            let plans = res.json();
+
+            /**
+             * Loop through plans to see if user is able to pull up job post
+             */
+            for (let i = 0; i < plans.length; i++) {
+                if (plan.pull_up_job_credits < 0 || plan.pull_up_job_credits > 0) {
+                    __this.userCanPullUpJobPost = true;
+                }
             }
         });
     }
@@ -68,5 +84,17 @@ export class MyJobPostsComponent {
         else {
             this.allItemsChecked = true;
         }
+    }
+
+    pullUpJobPost() {
+        this.jobPostService.pullUpJobPost().subscribe((post: Response) => {
+            this.userService.getJobPosts().subscribe((res: Response) => {
+                __this.notificationService.show(
+                    new Notification('success', 'Votre annonce a bien été remontée en haut de liste')
+                );
+
+                __this.items = res.json();
+            });
+        });
     }
 }

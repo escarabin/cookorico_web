@@ -67,7 +67,7 @@ export class RecruiterPromoComponent {
                  */
                 this.userService.confirmEmailAddress(newUser.id).subscribe((res:Response) => {
                     __this.userService.loginUsingId(newUser.id).subscribe((userInfos:Response) => {
-                        localStorage.setItem('user', JSON.stringify(newUser);
+                        localStorage.setItem('user', JSON.stringify(newUser));
 
                         if (newUser.user_type_id == 2) {
                             this.router.navigate(['/profil/etablissement/creer']);

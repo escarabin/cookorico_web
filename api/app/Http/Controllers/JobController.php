@@ -45,8 +45,6 @@ class JobController extends Controller
         $job->click_count = $job->click_count + 1;
         $job->save();
 
-        $this->generateXmlFile();
-
         return $job;
     }
 
@@ -55,7 +53,7 @@ class JobController extends Controller
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getAll() {
-        $jobs = Job::where('created_at', '>', date("Y-m-d", strtotime("-2 months")))
+        $jobs = Job::where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
             ->get()
             ->load('business',
                     'user',
@@ -131,7 +129,7 @@ class JobController extends Controller
          * Create a query to filter job results by params
          */
         $jobsQuery = Job::query();
-        $jobsQuery = Job::where('created_at', '>', date("Y-m-d", strtotime("-2 months")));
+        $jobsQuery = Job::where('created_at', '>', date("Y-m-d", strtotime("-1 month")));
 
         if (count($jobNamingIdList)) {
             $jobsQuery->whereIn('job_naming_id', $jobNamingIdList);
@@ -348,7 +346,7 @@ class JobController extends Controller
 
 
     /**
-     * Dail generate an XML file with all offers for indeed, lbc etc...
+     * Daily generate an XML file with all offers for indeed, lbc etc...
      */
     public function generateXmlFile() {
         $allJobs = $this->getAll();
@@ -383,6 +381,20 @@ class JobController extends Controller
         Log::info($xmlFileContent);
 
         return $xmlFileContent;
+    }
+
+    /**
+     * Pull up JobPost on top of list
+     * @param $jobPostId
+     */
+    public function pullUp($jobPostId) {
+        $job = Job::find($jobPostId);
+        $job->updated_at = date("Y-m-d H:i:s");
+        $job->created_at = date("Y-m-d H:i:s");
+        $job->on_top_of_listing = true;
+        $job->save();
+
+        return $job;
     }
 
     /**

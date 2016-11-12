@@ -60,14 +60,20 @@
     <b>
         {{ user.email }}
     </b>
-    <h3>
-        À la recherche d'un poste de :
+    <h3 *ngIf="user.user_status_id == 1">
+        <span class="fa fa-circle success"></span> &nbsp; À la recherche d'un poste de :
         <ul class="looking_for_job_naming_list">
             <li *ngFor="let jobNaming of user['looking_for_job_namings']; let i = index;">
                 {{ jobNaming['title'] }}
                 <span *ngIf="i + 1 != user['looking_for_job_namings'].length">,</span>
             </li>
         </ul>
+    </h3>
+    <h3 *ngIf="user.user_status_id == 2">
+        <span class="fa fa-circle danger"></span> &nbsp; <strong>En poste</strong>
+    </h3>
+    <h3 *ngIf="user.user_status_id == 3">
+        <span class="fa fa-circle warning"></span> &nbsp; <strong>À l'écoute d'opportunités</strong>
     </h3>
     <br />
 
@@ -123,7 +129,7 @@
         </div>
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-12" *ngIf="lookingForJobNamingList">
         <div class="col-md-12">
             <h1 class="centered">Votre recherche d'emploi</h1>
             <br />

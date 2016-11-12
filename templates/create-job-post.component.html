@@ -9,7 +9,7 @@
     </div>
     <h2 class="centered">
         <span *ngIf="!jobPost.id">Créez</span>
-        <span *ngIf="jobPost.id">Éditez</span> votre offre d'emploi
+        <span *ngIf="jobPost.id">Modifiez</span> votre offre d'emploi
         <button class="btn btn-primary"
                 (click)="skipJobCreation()"
                 *ngIf="!user.is_active">
@@ -208,7 +208,7 @@
             </div>
         </div>
         <div class="col-md-6"
-             *ngIf="user.is_active">
+             *ngIf="user.is_active && user.user_type_id != 1">
             <a routerLink="/profil/annonces">
                 <button class="btn btn-default back-btn">
                     <span class="fa fa-arrow-left"></span> &nbsp;

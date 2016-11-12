@@ -59,21 +59,41 @@ class PlaceController extends Controller
 
            $place = new Place();
 
-           $adr_adress = $placeData['adr_address'];
-
            $place->googlePlaceId = $placeData['place_id'];
 
            $place->adress = $placeData['formatted_address'];
-           $place->city = $this->getStringBetween($adr_adress, '<span class="locality">', '</span>');
-           $place->postalCode = $this->getStringBetween($adr_adress, '<span class="postal-code">', '</span>');
+           if (array_key_exists('adr_address', $placeData)) {
+               $place->city = $this->getStringBetween($placeData['adr_address'], '<span class="locality">', '</span>');
+               $place->postalCode = $this->getStringBetween($placeData['adr_address'], '<span class="postal-code">', '</span>');
+           }
+           else {
+               if (array_key_exists(2, $placeData['address_components'])) {
+                   $place->city = $placeData['address_components'][2]['long_name'];
+               }
+               else if (array_key_exists(1, $placeData['address_components'])) {
+                   $place->city = $placeData['address_components'][1]['long_name'];
+               }
+               else if (array_key_exists(0, $placeData['address_components'])) {
+                   $place->city = $placeData['address_components'][0]['long_name'];
+               }
+           }
+
            $place->lat = $placeData['geometry']['location']['lat'];
            $place->lon = $placeData['geometry']['location']['lng'];
 
            if (array_key_exists('viewport', $placeData['geometry'])) {
-               $place->viewport_south = $placeData['geometry']['viewport']['south'];
-               $place->viewport_west = $placeData['geometry']['viewport']['west'];
-               $place->viewport_north = $placeData['geometry']['viewport']['north'];
-               $place->viewport_east = $placeData['geometry']['viewport']['east'];
+               if (array_key_exists('south', $placeData['geometry']['viewport'])) {
+                   $place->viewport_south = $placeData['geometry']['viewport']['south'];
+                   $place->viewport_west = $placeData['geometry']['viewport']['west'];
+                   $place->viewport_north = $placeData['geometry']['viewport']['north'];
+                   $place->viewport_east = $placeData['geometry']['viewport']['east'];
+               }
+               else {
+                   $place->viewport_south = $placeData['geometry']['viewport']['southwest']['lat'];
+                   $place->viewport_west = $placeData['geometry']['viewport']['southwest']['lng'];
+                   $place->viewport_north = $placeData['geometry']['viewport']['northeast']['lat'];
+                   $place->viewport_east = $placeData['geometry']['viewport']['northeast']['lng'];
+               }
            }
 
            $place->save();
