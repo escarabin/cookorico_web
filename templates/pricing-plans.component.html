@@ -1,28 +1,32 @@
-<h2>Votre abonnement recruteur</h2>
-<hr />
+<!-- CURRENT PLAN DATA -->
+<span *ngIf="plans.length > 0">
+    <h2>Votre abonnement recruteur</h2>
+    <hr />
+</span>
 <div *ngFor="let plan of plans"
      class="col-md-12 centered">
-    <div *ngIf="plan.credits > 0">
-        <div class="col-md-12">
-            <h3>Il vous reste actuellement {{ plan.credits }} crédits</h3>
-        </div>
-        <div class="col-md-12">
-            <h3>{{ plan.pricing_plan.daily_contacts }} accès CVthèque disponibles</h3><br />
-        </div>
-        <div class="col-md-12">
-            Facture payée le {{ plan.created_at | date:"dd/MM/yyyy" }}
-            <br /><br />
-        </div>
+    <div class="col-md-12">
+        <h3>Il vous reste actuellement {{ plan.credits }} crédits</h3>
+    </div>
+    <div class="col-md-12">
+        <h3>{{ plan.pricing_plan.daily_contacts }} accès CVthèque disponibles</h3><br />
+    </div>
+    <div class="col-md-12">
+        Facture payée le {{ plan.created_at | date:"dd/MM/yyyy" }}
+        <br /><br />
     </div>
 </div>
 
 <h2>Trouvez le pack adapté à vos besoins</h2>
 <hr />
+
+<!-- SELLSY SERVICES -->
 <h3 class="centered">Vous êtes restaurateur ?</h3>
 <div *ngFor="let service of services; let i = index"
+     [class.disabled]="service.customfields[4].formatted_value < plans[0]['pricing_plan_id']"
      class="col-md-3 centered plan plan-{{ i }}">
     <h3>
-        {{ service.tradename }}
+        {{ service.tradename }}<br />
     </h3>
     <hr/>
     <p [innerHTML]="service.notes">
@@ -40,6 +44,7 @@
     </button>
 </div>
 
+<!-- PRICING PLANS TABLE -->
 <div class="pricing-table pricing-table-table col-md-12">
     <div class="visible-xs-block">
         <div class="pricing-table-tabs btn-group" data-toggle="buttons">

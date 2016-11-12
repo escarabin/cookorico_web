@@ -49,7 +49,9 @@ export class PricingPlansComponent {
             for (let i=0; i < Object.keys(servicesObject).length; i++) {
                 let service = servicesObject[Object.keys(servicesObject)[i]];
 
-                let isSimpleBusinessService = service['customfields'][0]['boolval'];
+                console.log('service is', service);
+
+                let isSimpleBusinessService = service['customfields'][1]['boolval'];
                 if (this.isSimpleBusiness && isSimpleBusinessService == 'Y') {
                     __this.services.push(servicesObject[Object.keys(servicesObject)[i]]);
                 }
@@ -60,7 +62,13 @@ export class PricingPlansComponent {
          * Get the active plans subscribed to
          */
         this.userService.getPlans().subscribe((res: Response) => {
-            __this.plans = res.json();
+            let newPlans = res.json();
+
+            for (let i=0; i < newPlans.length; i++) {
+                if (newPlans[i]['credits'] > 0) {
+                    __this.plans.push(newPlans[i]);
+                }
+            }
         });
     }
 

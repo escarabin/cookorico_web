@@ -224,7 +224,7 @@ pricing-plans, businesses, my-job-posts {
     padding: 10px;
     margin: 35px; }
     pricing-plans .plan p, businesses .plan p, my-job-posts .plan p {
-      height: 50px; }
+      height: 80px; }
     pricing-plans .plan h3, businesses .plan h3, my-job-posts .plan h3 {
       color: #333; }
     pricing-plans .plan.plan-0 h2, businesses .plan.plan-0 h2, my-job-posts .plan.plan-0 h2 {

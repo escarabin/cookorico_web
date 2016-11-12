@@ -126,6 +126,11 @@
                     <span *ngIf="!isIntepretingFile">Déposez vos images ici</span>
                     <span *ngIf="isIntepretingFile">Chargement de vos fichiers...</span>
                 </div>
+                <br />
+                <input type="file"
+                       ng2FileSelect
+                       [uploader]="photoUploader"
+                       (change)="fileChangeListener($event)"/>
             </div>
             <div class="col-md-12" id="business-photos">
                 <span *ngIf="business.photos.length > 0">
