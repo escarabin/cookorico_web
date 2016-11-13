@@ -1375,3 +1375,21 @@ Stack trace:
 [2016-11-13 14:06:59] local.INFO: array (
   'redirectionUrl' => '/recherche/annonce/1679',
 )  
+[2016-11-13 14:07:52] local.INFO: array (
+  'redirectionUrl' => '/profil/annonces',
+)  
+[2016-11-13 14:07:52] local.INFO: array (
+  'redirectionUrl' => '/profil/annonces',
+)  
+[2016-11-13 14:07:52] local.INFO: array (
+  'redirectionUrl' => '/profil/annonces',
+)  
+[2016-11-13 14:07:53] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-13 14:07:53] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-13 14:07:53] local.INFO: array (
+  'redirectionUrl' => '/',
+)  

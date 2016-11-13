@@ -29,7 +29,7 @@ export class CreateJobPostComponent {
     user: any = [];
 
     jobPost:JobPost = new JobPost(null, '', '', null, null, null, null, null, null, null, null, null, null, '', '', false, false, false);
-    userCanPostJob: boolean = true;
+    userCanPostJob: boolean = false;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
