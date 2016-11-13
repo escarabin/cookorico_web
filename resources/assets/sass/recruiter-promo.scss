@@ -116,4 +116,18 @@ recruiter-promo {
   .screen-container {
     padding-top: 100px;
   }
+
+  .partners-container {
+    background-color: white;
+
+    .partners {
+      max-width: 990px;
+      width: 100%;
+      margin: auto;
+
+      .full-width {
+        width: 80%;
+      }
+    }
+  }
 }

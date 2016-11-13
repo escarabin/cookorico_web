@@ -1991,6 +1991,14 @@ recruiter-promo {
     letter-spacing: 2px; }
   recruiter-promo .screen-container {
     padding-top: 100px; }
+  recruiter-promo .partners-container {
+    background-color: white; }
+    recruiter-promo .partners-container .partners {
+      max-width: 990px;
+      width: 100%;
+      margin: auto; }
+      recruiter-promo .partners-container .partners .full-width {
+        width: 80%; }
 
 sign-up-steps {
   display: block; }
