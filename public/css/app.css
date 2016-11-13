@@ -219,6 +219,9 @@ pricing-plans, businesses, my-job-posts {
   /* 10.3 Features  ================================== */
   /* 10.4 Colorful ================================== */
   /* 10.5 Table ================================== */ }
+  pricing-plans .plans-container, businesses .plans-container, my-job-posts .plans-container {
+    width: 990px;
+    margin: auto; }
   pricing-plans .plan, businesses .plan, my-job-posts .plan {
     box-shadow: 0px 0px 40px 0px #c0d0d6;
     border-radius: 4px;
@@ -1979,8 +1982,6 @@ recruiter-promo {
     recruiter-promo .recruiter-promo-container .step-number {
       font-size: 45px;
       color: #35B6E1; }
-  recruiter-promo pricing-plans .plan, recruiter-promo businesses .plan, recruiter-promo my-job-posts .plan {
-    margin: 55px !important; }
   recruiter-promo .free-job-post {
     width: 100%;
     padding: 20px;

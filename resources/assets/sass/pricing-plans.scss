@@ -1,4 +1,9 @@
 pricing-plans, businesses, my-job-posts {
+  .plans-container {
+    width: 990px;
+    margin: auto;
+  }
+
   .plan {
     box-shadow: $mainBoxShadow;
     border-radius: $mainBorderRadius;

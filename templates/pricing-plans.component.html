@@ -24,25 +24,28 @@
 
 <!-- SELLSY SERVICES -->
 <h3 class="centered">Vous êtes restaurateur ?</h3>
-<div *ngFor="let service of services; let i = index"
-     class="col-md-3 centered plan plan-{{ i }}">
-    <h3>
-        {{ service.tradename }}<br />
-    </h3>
-    <hr/>
-    <p [innerHTML]="service.notes">
 
-    </p>
-    <hr/>
-    <h2>
-        {{ service.formatted_unitAmount }}
-    </h2>
-    <br />
-    <button class="btn btn-primary full-width"
-            (click)="payWithPaypal(service)"
-            id="pay-with-paypal-btn-{{ i }}">
-        <span class="fa fa-paypal"></span> &nbsp; Souscrire
-    </button>
+<div class="plans-container">
+    <div *ngFor="let service of services; let i = index"
+         class="col-md-3 centered plan plan-{{ i }}">
+        <h3>
+            {{ service.tradename }}<br />
+        </h3>
+        <hr/>
+        <p [innerHTML]="service.notes">
+
+        </p>
+        <hr/>
+        <h2>
+            {{ service.formatted_unitAmount }}
+        </h2>
+        <br />
+        <button class="btn btn-primary full-width"
+                (click)="payWithPaypal(service)"
+                id="pay-with-paypal-btn-{{ i }}">
+            <span class="fa fa-paypal"></span> &nbsp; Souscrire
+        </button>
+    </div>
 </div>
 
 <div *ngIf="!onlyServices">
