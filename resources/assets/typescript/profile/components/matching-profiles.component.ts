@@ -17,15 +17,15 @@ export class MatchingProfilesComponent {
     jobNamingId: number = 0;
     xpLevelId: number = 0;
     xpLevels: any = [];
+    isLoadingProfiles: boolean = true;
 
     constructor(private userService: UserService,
                 private referenceService: ReferenceService) {
         let __this = this;
 
         this.userService.getMatchingProfiles().subscribe((res: Response) => {
-            console.log('matching ', res.json());
-
             __this.items = res.json();
+            __this.isLoadingProfiles = false;
         });
 
         this.userService.getJobPosts().subscribe((res: Response) => {
