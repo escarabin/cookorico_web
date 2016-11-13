@@ -170,9 +170,10 @@ header {
     height: 70px;
     background: #35B6E1; }
   header .logo {
-    width: 115px;
-    height: 40px;
-    margin: 15px 5px; }
+    background-image: url("/img/cookorico_picto.png");
+    width: 25px;
+    height: 45px;
+    margin: 10px 5px; }
   header .mobile-menu-overlay {
     position: absolute;
     width: 100%;

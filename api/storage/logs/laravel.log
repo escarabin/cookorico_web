@@ -1584,3 +1584,4 @@ Stack trace:
 [2016-11-13 14:28:17] local.INFO: array (
   'redirectionUrl' => '/',
 )  
+[2016-11-13 14:31:08] local.INFO: logging user out  
