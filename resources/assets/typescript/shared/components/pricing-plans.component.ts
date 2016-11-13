@@ -121,7 +121,9 @@ export class PricingPlansComponent {
                             new Notification('success', 'Nous avons bien reçu votre paiement ! Votre pack est actif')
                         );
 
-                        __this.router.navigate(['/profil/annonces']);
+                        setTimeout(function() {
+                            document.location.reload();
+                        }, 1000);
                     });
                 });
 
