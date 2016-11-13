@@ -291,6 +291,10 @@ class UserController extends Controller
             if ($user->status_id == 2) {
                 unset($user, $userList);
             }
+
+            if (!$user->experiences) {
+                unset($user, $userList);
+            }
         }
 
         return $userList;

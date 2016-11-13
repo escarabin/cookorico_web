@@ -1946,6 +1946,50 @@ recruiter-promo {
           margin-bottom: 15px; }
       recruiter-promo .recruiter-promo-heading .promo-container .login-box {
         margin-top: 25px; }
+  recruiter-promo .recruiter-promo-container {
+    max-width: 990px;
+    width: 100%;
+    margin: auto; }
+    recruiter-promo .recruiter-promo-container h2 {
+      color: #35B6E1; }
+    recruiter-promo .recruiter-promo-container .screen-description {
+      padding-top: 100px; }
+    recruiter-promo .recruiter-promo-container .step-by-step {
+      margin-top: 50px; }
+      recruiter-promo .recruiter-promo-container .step-by-step .step .icon {
+        padding: 15px;
+        text-align: center;
+        border-radius: 50%;
+        color: white; }
+        recruiter-promo .recruiter-promo-container .step-by-step .step .icon strong {
+          font-family: "Avenir Heavy", sans-serif;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          margin-top: 15px; }
+      recruiter-promo .recruiter-promo-container .step-by-step .line {
+        height: 5px;
+        background: white;
+        border: 1px solid #CCC;
+        position: relative;
+        top: 10px;
+        z-index: -1;
+        width: 78%;
+        margin: auto; }
+    recruiter-promo .recruiter-promo-container .step-number {
+      font-size: 45px;
+      color: #35B6E1; }
+  recruiter-promo pricing-plans .plan, recruiter-promo businesses .plan, recruiter-promo my-job-posts .plan {
+    margin: 55px !important; }
+  recruiter-promo .free-job-post {
+    width: 100%;
+    padding: 20px;
+    background-color: #35B6E1;
+    text-align: center;
+    color: white;
+    font-size: 1.7em;
+    letter-spacing: 2px; }
+  recruiter-promo .screen-container {
+    padding-top: 100px; }
 
 sign-up-steps {
   display: block; }
@@ -2137,5 +2181,10 @@ re-captcha > div > div {
 .not-visible {
   visibility: hidden;
   height: 0; }
+
+#main {
+  display: inline-block;
+  width: 100%;
+  min-height: 300px; }
 
 /*# sourceMappingURL=app.css.map */

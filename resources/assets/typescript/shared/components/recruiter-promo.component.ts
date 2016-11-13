@@ -6,6 +6,7 @@ import { Response } from '@angular/http';
 import { UserService } from './../../services/user.service';
 import { NotificationsService } from './../../services/notification.service';
 import { ReferenceService } from './../../services/reference.service';
+import { BusinessService } from "../../services/business.service";
 
 // Models
 import { Notification } from './../../models/notification';
@@ -14,7 +15,7 @@ declare var braintree:any;
 
 @Component({
     selector: 'recruiter-promo',
-    providers: [ UserService, ReferenceService ],
+    providers: [ UserService, ReferenceService, BusinessService ],
     templateUrl: '../templates/recruiter-promo.component.html'
 })
 
@@ -26,14 +27,22 @@ export class RecruiterPromoComponent {
     email: string;
     password: string;
     error: string;
+    businesses: any = [];
     isAlreadySignedUp: boolean = false;
 
     constructor(private userService: UserService,
                 private router: Router,
                 private notificationService: NotificationsService,
+                private businessService: BusinessService,
                 private referenceService: ReferenceService) {
         this.referenceService.getAllCivilities().subscribe((res:Response) => {
             this.civilities = res.json();
+        });
+
+        this.businessService.getAll().subscribe((res:Response) => {
+            this.businesses = res.json();
+
+            console.log('businesses are ', this.businesses);
         });
     }
 

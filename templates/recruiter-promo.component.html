@@ -86,3 +86,135 @@
         </div>
     </div>
 </div>
+
+<div class="testimonials-clubs centered">
+    <div class="col-md-2"
+         *ngFor="let business of businesses">
+        <img src="{{ business.logo }}"/>
+    </div>
+</div>
+
+<div class="free-job-post">
+    PUBLIEZ VOTRE 1ERE OFFRE D'EMPLOI GRATUITE
+</div>
+
+<pricing-plans [onlyServices]="true" class="centered"></pricing-plans>
+
+<div class="recruiter-promo-container">
+    <div class="col-md-12 centered">
+        <br />
+        <h1>Comment ça marche ?</h1>
+        <div class="col-md-6 col-md-offset-3">
+            <hr />
+        </div>
+    </div>
+    <div class="col-md-12 step-by-step">
+        <div class="col-md-3 step centered">
+            <span class="icon" style="background-color: #35B6E1">
+                <span class="fa fa-envelope"></span>
+            </span>
+            <br />
+            <br />
+            <strong>ÉTAPE 1</strong>
+            <br />
+            Inscription
+        </div>
+        <div class="col-md-3 step centered">
+            <span class="icon" style="background-color: #E47F1B">
+                <span class="fa fa-wechat"></span>
+            </span>
+            <br />
+            <br />
+            <strong>ÉTAPE 2</strong>
+            <br />
+            Multidiffusion de vos offres
+        </div>
+        <div class="col-md-3 step centered">
+            <span class="icon" style="background-color: #9375AE">
+                <span class="fa fa-bell"></span>
+            </span>
+            <br />
+            <br />
+            <strong>ÉTAPE 3</strong>
+            <br />
+            Alerte candidats
+        </div>
+        <div class="col-md-3 step centered">
+            <span class="icon" style="background-color: #025589">
+                <span class="fa fa-users"></span>
+            </span>
+            <br />
+            <br />
+            <strong>ÉTAPE 4</strong>
+            <br />
+            Gérez vos recrutements
+        </div>
+        <div class="line hidden-xs">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 screen-description">
+            <div class="col-md-1">
+                <span class="step-number">1</span>
+            </div>
+            <div class="col-md-11">
+                <h2>Inscrivez-vous</h2>
+            </div>
+            <br />
+            Inscription simple et rapide<br />
+            Créez votre première annonce gratuitement en 2 minutes.
+        </div>
+        <div class="col-md-7 screen-container">
+            <img src="/img/recruteur-img-1.png" class="full-width"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7 screen-container">
+            <img src="/img/recruteur-img-1.png" class="full-width"/>
+        </div>
+        <div class="col-md-5 screen-description">
+            <div class="col-md-1">
+                <span class="step-number">2</span>
+            </div>
+            <div class="col-md-11">
+                <h2>Une Multidiffusion de vos offres</h2>
+            </div>
+            <br />
+            Multidiffusion automatique de vos annonces chez nos partenaires.<br />
+            Gagnez du temps et de la visibilité !
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 screen-description">
+            <div class="col-md-1">
+                <span class="step-number">3</span>
+            </div>
+            <div class="col-md-11">
+                <h2>Alerte des candidats</h2>
+            </div>
+            <br />
+            Les candidats correspondants sont alertés en temps réel directement par mail.
+        </div>
+        <div class="col-md-7 screen-container">
+            <img src="/img/recruteur-img-1.png" class="full-width"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7 screen-container">
+            <img src="/img/recruteur-img-1.png" class="full-width"/>
+        </div>
+        <div class="col-md-5 screen-description">
+            <div class="col-md-1">
+                <span class="step-number">4</span>
+            </div>
+            <div class="col-md-11">
+                <h2>Gérez vos recrutements</h2>
+            </div>
+            <br />
+            Un espace recruteur vous permettant de gérer vos offres, les candidatures en un clic.<br />
+            Un accès aux statistiques de vos annonces en temps réel.<br />
+            La gestion de l’image de votre établissement en toute simplicité: logo, photos, description.
+        </div>
+    </div>
+</div>

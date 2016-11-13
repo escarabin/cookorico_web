@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
@@ -16,13 +16,15 @@ declare var braintree:any;
 @Component({
     selector: 'pricing-plans',
     providers: [ UserService, SellsyService, PlanService ],
-    templateUrl: '../templates/pricing-plans.component.html'
+    templateUrl: '../templates/pricing-plans.component.html',
+    inputs: [ 'onlyServices' ]
 })
 
 export class PricingPlansComponent {
     services: any = [];
     plans: any = [];
     isSimpleBusiness: boolean = true;
+    @Input public onlyServices: boolean = false;
 
     constructor(private userService: UserService,
                 private sellsyService: SellsyService,
@@ -48,8 +50,6 @@ export class PricingPlansComponent {
              */
             for (let i=0; i < Object.keys(servicesObject).length; i++) {
                 let service = servicesObject[Object.keys(servicesObject)[i]];
-
-                console.log('service is', service);
 
                 let isSimpleBusinessService = service['customfields'][1]['boolval'];
                 if (this.isSimpleBusiness && isSimpleBusinessService == 'Y') {

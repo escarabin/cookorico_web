@@ -48,4 +48,72 @@ recruiter-promo {
       }
     }
   }
+
+  .recruiter-promo-container {
+    max-width: 990px;
+    width: 100%;
+    margin: auto;
+
+    h2 {
+      color: $oechrBlueColor;
+    }
+
+    .screen-description {
+      padding-top: 100px;
+    }
+
+    .step-by-step {
+      margin-top: 50px;
+
+      .step {
+        .icon {
+          padding: 15px;
+          text-align: center;
+          border-radius: 50%;
+          color: white;
+
+          strong {
+            font-family: $mainBoldFontFamily;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 15px;
+          }
+        }
+      }
+
+      .line {
+        height: 5px;
+        background: white;
+        border: 1px solid #CCC;
+        position: relative;
+        top: 10px;
+        z-index: -1;
+        width: 78%;
+        margin: auto;
+      }
+    }
+
+    .step-number {
+      font-size: 45px;
+      color: $oechrBlueColor;
+    }
+  }
+
+  pricing-plans .plan, businesses .plan, my-job-posts .plan {
+    margin: 55px !important;
+  }
+
+  .free-job-post {
+    width: 100%;
+    padding: 20px;
+    background-color: $oechrBlueColor;
+    text-align: center;
+    color: white;
+    font-size: 1.7em;
+    letter-spacing: 2px;
+  }
+
+  .screen-container {
+    padding-top: 100px;
+  }
 }

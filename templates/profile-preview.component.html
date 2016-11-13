@@ -133,7 +133,8 @@
         </button>
         <br />
         <br />
-        <a *ngIf="editableProfile">
+        <a *ngIf="editableProfile"
+           (click)="openChangePasswordModal()">
             Modifier mon mot de passe
         </a>
     </div>
@@ -384,7 +385,7 @@
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-body">
-                <iframe src="http://www.pdf995.com/samples/pdf.pdf" align="middle"></iframe>
+                <iframe [src]="user.resumeUrl" align="middle"></iframe>
             </div>
             <div class="modal-footer">
                 <button type="button"
@@ -394,6 +395,57 @@
                         data-dismiss="modal">
                     Fermer
                 </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bsModal
+     #changePasswordModal="bs-modal"
+     class="modal fade in"
+     tabindex="-1"
+     role="dialog"
+     id="change-password-modal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body row">
+                <div class="col-md-12">
+                    <input type="password"
+                           [(ngModel)]="oldPassword"
+                           ngControl="oldPassword"
+                           class="form-control"
+                           placeholder="Ancien mot de passe">
+                </div>
+                <div class="col-md-12">
+                    <br />
+                    <input type="password"
+                           [(ngModel)]="newPassword"
+                           ngControl="newPassword"
+                           class="form-control"
+                           placeholder="Nouveau mot de passe">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-6">
+                    <button type="button"
+                            class="btn btn-default full-width"
+                            id="close-change-password-modal"
+                            (click)="hideChangePasswordModal()"
+                            data-dismiss="modal">
+                        Fermer
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <button type="button"
+                            class="btn btn-primary full-width"
+                            [disabled]="!oldPassword || !newPassword"
+                            id="close-change-password-modal"
+                            (click)="saveNewPassword()"
+                            data-dismiss="modal">
+                        Sauvegarder
+                    </button>
+                </div>
             </div>
         </div>
     </div>

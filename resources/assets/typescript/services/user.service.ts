@@ -46,6 +46,7 @@ export class UserService {
     createUserUrl = appGlobals.apiUrl + '/user/create';
     createCandidateUserUrl = appGlobals.apiUrl + '/user/candidate/create';
     resetPasswordUrl = appGlobals.apiUrl + '/password/email';
+    changePasswordUrl = appGlobals.apiUrl + '/password/update';
     saveUserInfoUrl = appGlobals.apiUrl + '/user/save_info';
     signOutUrl = appGlobals.apiUrl + '/user/sign_out';
     uploadProfilePictureUrl = appGlobals.apiUrl + '/user/upload_profile_picture';
@@ -163,7 +164,7 @@ export class UserService {
     }
 
     /**
-     *
+     * Send user a mail to reset his password
      * @param email
      * @returns {any}
      */
@@ -594,6 +595,15 @@ export class UserService {
      */
     skipJobCreation() {
         return this.http.get(this.skipJobCreationUrl);
+    }
+
+    /**
+     * Update current user password
+     * @param oldPassword
+     * @param newPassword
+     */
+    changePassword(oldPassword: string, newPassword: string) {
+        return this.http.get(this.changePasswordUrl + '/' + oldPassword + '/' + newPassword);
     }
 
     /**

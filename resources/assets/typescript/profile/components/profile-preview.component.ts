@@ -17,10 +17,14 @@ import { Notification } from '../../models/notification';
 
 import { ModalDirective } from 'ng2-bootstrap/components/modal/modal.component';
 
+// Pipes
+// import { SafePipe } from './../../pipes/safe.pipe';
+
 @Component({
-    providers: [UserService],
+    providers: [ UserService ],
     selector: 'profile-preview',
     templateUrl: '../templates/profile-preview.component.html',
+    // pipes: [ SafePipe ]
 })
 
 export class ProfilePreviewComponent {
@@ -42,11 +46,18 @@ export class ProfilePreviewComponent {
     editingItems: any = [];
     userIdRouteParam: string;
     scrollTop: number;
-    userInfosAccessible: boolean = false;
+    userInfosAccessible: boolean = true;
     public profilePictureUploader:FileUploader = new FileUploader({url: URL});
     public resumeUploader:FileUploader = new FileUploader({url: URL});
     public hasBaseDropZoneOver:boolean = false;
     public hasAnotherDropZoneOver:boolean = false;
+
+    /**
+     * Change password modal inputs
+     */
+    oldPassword: string;
+    newPassword: string;
+    isSavingModal: boolean = false;
 
     constructor(private userService: UserService,
                 private route: ActivatedRoute,
@@ -126,6 +137,9 @@ export class ProfilePreviewComponent {
                     });
                 });
             }
+            else {
+                this.userInfosAccessible = true;
+            }
         });
 
         /**
@@ -196,6 +210,14 @@ export class ProfilePreviewComponent {
     public hideEditResumeModal() {
         this.hideModalBackdrop();
         document.getElementById("edit-resume-modal").style.display = "none";
+    }
+    public openChangePasswordModal() {
+        this.showModalBackdrop();
+        document.getElementById("change-password-modal").style.display = "block";
+    }
+    public hideChangePasswordModal() {
+        this.hideModalBackdrop();
+        document.getElementById("change-password-modal").style.display = "none";
     }
     public showModalBackdrop() {
         document.getElementById("modal-backdrop-replacement").style.display = "block";
@@ -336,6 +358,21 @@ export class ProfilePreviewComponent {
             if (response == "true") {
                 this.userInfosAccessible = true;
             }
+        });
+    }
+
+    /**
+     * Save new password
+     */
+    saveNewPassword() {
+        this.isSavingModal = true;
+
+        this.userService.changePassword(this.oldPassword, this.newPassword).subscribe((res: Response) => {
+            this.isSavingModal = false;
+
+            this.notificationService.show(
+                new Notification('success', 'Votre mot de passe a bien été modifié')
+            );
         });
     }
 

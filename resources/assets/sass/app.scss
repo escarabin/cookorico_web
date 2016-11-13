@@ -141,3 +141,9 @@ re-captcha>div>div {
   visibility: hidden;
   height: 0;
 }
+
+#main {
+  display: inline-block;
+  width: 100%;
+  min-height: 300px;
+}
