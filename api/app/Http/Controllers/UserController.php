@@ -964,4 +964,16 @@ class UserController extends Controller
 
         return $user;
     }
+
+    /**
+     * Update current user password
+     */
+    public function updatePassword($oldPassword, $newPassword) {
+        $user = Auth::user();
+
+        $user->password = Hash::make($newPassword);
+        $user->save();
+
+        return $user;
+    }
 }

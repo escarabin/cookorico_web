@@ -173,7 +173,6 @@ class BusinessController extends Controller
     public function getAll() {
         $businesses = Business::all()
                         ->load('type')
-                        ->load('clubs')
                         ->load('place');
 
         return $businesses;
