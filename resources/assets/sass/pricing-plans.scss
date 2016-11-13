@@ -1,6 +1,7 @@
 pricing-plans, businesses, my-job-posts {
   .plans-container {
-    width: 990px;
+    max-width: 990px;
+    width: 100%;
     margin: auto;
   }
 

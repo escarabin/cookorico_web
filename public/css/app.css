@@ -220,7 +220,8 @@ pricing-plans, businesses, my-job-posts {
   /* 10.4 Colorful ================================== */
   /* 10.5 Table ================================== */ }
   pricing-plans .plans-container, businesses .plans-container, my-job-posts .plans-container {
-    width: 990px;
+    max-width: 990px;
+    width: 100%;
     margin: auto; }
   pricing-plans .plan, businesses .plan, my-job-posts .plan {
     box-shadow: 0px 0px 40px 0px #c0d0d6;
@@ -1957,7 +1958,8 @@ recruiter-promo {
     recruiter-promo .recruiter-promo-container h2 {
       color: #35B6E1; }
     recruiter-promo .recruiter-promo-container .screen-description {
-      padding-top: 100px; }
+      padding-top: 100px;
+      font-size: 1.4em; }
     recruiter-promo .recruiter-promo-container .step-by-step {
       margin-top: 50px; }
       recruiter-promo .recruiter-promo-container .step-by-step .step .icon {
@@ -2000,6 +2002,15 @@ recruiter-promo {
       margin: auto; }
       recruiter-promo .partners-container .partners .full-width {
         width: 80%; }
+  recruiter-promo .founder-picture {
+    border-radius: 50%; }
+  recruiter-promo .about-container {
+    background: white;
+    margin-top: 150px; }
+    recruiter-promo .about-container .about {
+      max-width: 990px;
+      margin: auto;
+      padding: 50px 0; }
 
 sign-up-steps {
   display: block; }
@@ -2079,13 +2090,12 @@ footer {
     width: 100%;
     margin: auto; }
     footer .row .logo {
-      background-image: url("/img/oechr_logo.png");
+      background-image: url("/img/cookorico_logo.png");
       background-size: cover;
       background-position: center top;
       background-repeat: no-repeat;
       width: 190px;
-      height: 67px;
-      margin: 15px 25px; }
+      height: 67px; }
     footer .row a {
       color: white; }
     footer .row i {

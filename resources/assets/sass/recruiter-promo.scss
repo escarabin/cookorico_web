@@ -60,6 +60,7 @@ recruiter-promo {
 
     .screen-description {
       padding-top: 100px;
+      font-size: 1.4em;
     }
 
     .step-by-step {
@@ -124,6 +125,21 @@ recruiter-promo {
       .full-width {
         width: 80%;
       }
+    }
+  }
+
+  .founder-picture {
+    border-radius: 50%;
+  }
+
+  .about-container {
+    background: white;
+    margin-top: 150px;
+    
+    .about {
+      max-width: 990px;
+      margin: auto;
+      padding: 50px 0;
     }
   }
 }
