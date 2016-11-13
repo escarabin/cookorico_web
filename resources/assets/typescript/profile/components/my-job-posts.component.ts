@@ -97,4 +97,14 @@ export class MyJobPostsComponent {
             });
         });
     }
+
+    deactivateJobPost(jobPostId: number) {
+        this.jobPostService.deactivate(jobPostId).subscribe((post: Response) => {
+            this.userService.getJobPosts().subscribe((res: Response) => {
+                __this.notificationService.show(
+                    new Notification('success', 'Votre annonce a bien été désactivée')
+                );
+            });
+        });
+    }
 }

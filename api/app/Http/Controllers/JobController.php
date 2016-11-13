@@ -54,6 +54,7 @@ class JobController extends Controller
      */
     public function getAll() {
         $jobs = Job::where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
+            ->where('is_active', 1)
             ->get()
             ->load('business',
                     'user',
@@ -130,6 +131,7 @@ class JobController extends Controller
          */
         $jobsQuery = Job::query();
         $jobsQuery = Job::where('created_at', '>', date("Y-m-d", strtotime("-1 month")));
+        $jobsQuery->where('is_active', 1);
 
         if (count($jobNamingIdList)) {
             $jobsQuery->whereIn('job_naming_id', $jobNamingIdList);

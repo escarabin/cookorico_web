@@ -113,7 +113,7 @@
                             Modifier l'offre
                         </button>
                     </a><br />
-                    <a routerLink="/recherche/annonce/{{ item.id }}"
+                    <a (click)="deactivateJobPost(item.id)"
                        *ngIf="item.is_accepted && item.is_active">
                         <button class="btn btn-danger full-width">
                             Offre pourvue

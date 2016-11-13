@@ -10,6 +10,7 @@ export class JobPostService {
     createJobPostUrl = appGlobals.apiUrl + "/job-post/create";
     getJobPostUrl = appGlobals.apiUrl + "/job";
     pullUpJobPostUrl = appGlobals.apiUrl + "/job-post/pull-up";
+    deactivateJobPostUrl = appGlobals.apiUrl + "/job-post/deactivate";
 
     constructor(private http: Http) {
 
@@ -43,5 +44,13 @@ export class JobPostService {
      */
     pullUpJobPost(jobPostId: number) {
         return this.http.request(this.pullUpJobPostUrl + '/' + jobPostId);
+    }
+
+    /**
+     * Deactivate specific job post
+     * @param jobPostId
+     */
+    deactivate(jobPostId: number) {
+        return this.http.request(this.deactivateJobPostUrl + '/' + jobPostId);
     }
 }
