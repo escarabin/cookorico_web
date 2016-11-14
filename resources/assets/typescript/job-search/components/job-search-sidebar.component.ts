@@ -92,8 +92,6 @@ export class JobSearchSidebarComponent {
                                 __this.jobNamingList[paramId] = test;
                             }
 
-                            console.log(Object.keys(__this.jobNamingList)[0], __this.jobNamingList[Object.keys(__this.jobNamingList)[0]], __this.jobNamingList);
-                            // __this.updateSearchParameter('jobNaming', Object.keys(__this.jobNamingList)[0], __this.jobNamingList[Object.keys(__this.jobNamingList)[0]]);
                             window.scrollTo(0, 99);
                         });
                     });

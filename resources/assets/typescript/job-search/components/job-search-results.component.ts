@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 // Services
@@ -36,12 +36,13 @@ export class JobSearchResultsComponent {
     mapLng: number = 2.213749;
 
     constructor(@Inject(SearchService) private searchService: SearchService,
+                private ref: ChangeDetectorRef,
                 private route: ActivatedRoute) {
         let __this = this;
 
-        let headContent = document.getElementsByTagName('head')[0].innerHTML;
+        /*let headContent = document.getElementsByTagName('head')[0].innerHTML;
         headContent = headContent.replace('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHar3rTVpUcvpFDj88PttAPy85Bk17R18&amp;libraries=places"></script>', '');
-        document.getElementsByTagName('head')[0].innerHTML = headContent;
+        document.getElementsByTagName('head')[0].innerHTML = headContent*/
 
         route.params.subscribe(params => {
             if (params) {
@@ -83,11 +84,13 @@ export class JobSearchResultsComponent {
         searchService.resultsEmitter.subscribe((results) => {
             __this.jobs = results.json();
 
-            window.scrollTo(0, 100);
+            console.log('new results', __this.jobs);
+
+            // window.scrollTo(0, 100);
 
             /**
              * Clear map markers
-             */
+            */
             for (let i = 0; i < __this.mapMarkers.length; i++) {
                 __this.mapMarkers[i].setMap(null);
             }
@@ -142,12 +145,6 @@ export class JobSearchResultsComponent {
                 this.zoom = 8;
             }
         });
-
-        /**
-         * Do initial search without params (getting all jobs)
-         * TODO: remove it
-         */
-        // searchService.search();
     }
 
     ngAfterViewInit() {
@@ -180,16 +177,12 @@ export class JobSearchResultsComponent {
      * Function called from search.component
      * after user changed the search parameters
      * @param searchParameters
-     */
+
     updateSearchResults(searchParameters: any) {
         let __this = this;
 
         __this.jobs = [];
-
-        /*this.jobService.searchJobs(searchParameters).subscribe((res: Response) => {
-            __this.jobs = res.json();
-        });*/
-    }
+    }*/
 
     /**
      * Pagination triggers

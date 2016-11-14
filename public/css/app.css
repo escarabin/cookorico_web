@@ -556,7 +556,6 @@ search {
   margin: auto;
   display: block; }
   search .scrolled-down {
-    margin-top: 230px;
     display: inline-block; }
   search .user-not-logged-in {
     padding-top: 150px; }
@@ -2092,6 +2091,8 @@ business-page {
     padding: 20px; }
   business-page .business-infos {
     margin-top: 0; }
+  business-page .user-not-logged-in {
+    margin-top: 150px; }
   business-page .jobs-listing {
     padding: 0; }
     business-page .jobs-listing h2 {

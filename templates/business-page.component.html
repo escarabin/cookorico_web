@@ -1,4 +1,6 @@
-<div class="business-infos row" *ngIf="business.title">
+<div class="business-infos row"
+     [class.user-not-logged-in]="!user"
+     *ngIf="business.title">
     <div class="logo col-md-2 col-sm-2 col-xs-2"
          *ngIf="business.logo">
         <img src="{{ business.logo }}"

@@ -20,6 +20,7 @@ export class BusinessPageComponent {
     business: any = {};
     club: any = {};
     user: any = {};
+    scrollTop: number = 0;
 
     constructor(private jobService: JobService,
                 private businessService: BusinessService,
