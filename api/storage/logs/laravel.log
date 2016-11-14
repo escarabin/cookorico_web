@@ -15050,3 +15050,78 @@ Stack trace:
   'lastName' => 'Scarabin',
   'civilityId' => '1',
 )  
+[2016-11-14 16:16:07] local.INFO: logging user out  
+[2016-11-14 16:16:08] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-14 16:16:12] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-14 16:16:12] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-14 16:16:12] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-14 16:16:15] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/0/0/0',
+)  
+[2016-11-14 16:16:15] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/0/0/0',
+)  
+[2016-11-14 16:16:16] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/0/0/0',
+)  
+[2016-11-14 16:16:16] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/0/0/0',
+)  
+[2016-11-14 16:20:34] local.INFO: logging user out  
+[2016-11-14 16:21:41] local.INFO: logging user out  
+[2016-11-14 16:24:22] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-14 16:24:27] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-14 16:24:27] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-14 16:24:27] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-14 16:24:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/0/0/0',
+)  
+[2016-11-14 16:24:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/0/0/0',
+)  
+[2016-11-14 16:24:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/0/0/0',
+)  
+[2016-11-14 16:24:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/0/0/0',
+)  
+[2016-11-14 16:25:18] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/0/0/0',
+)  
+[2016-11-14 16:25:27] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-14 16:25:27] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-14 16:25:27] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-14 16:25:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJD7fiBh9u5kcRYJSMaMOCCwQ/0/0/0',
+)  
+[2016-11-14 16:25:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJD7fiBh9u5kcRYJSMaMOCCwQ/0/0/0',
+)  
+[2016-11-14 16:25:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJD7fiBh9u5kcRYJSMaMOCCwQ/0/0/0',
+)  
+[2016-11-14 16:25:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJD7fiBh9u5kcRYJSMaMOCCwQ/0/0/0',
+)  

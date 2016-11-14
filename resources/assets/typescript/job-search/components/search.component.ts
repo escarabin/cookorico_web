@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Response } from '@angular/http';
 
@@ -26,12 +26,16 @@ export class SearchComponent {
     scrollTop: number;
     routeSegments: any = [];
     seoRouteData: string;
+    locationName: string;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
                 private userService: UserService,
+                @Inject(SearchService) SearchService,
                 private searchService: SearchService,
                 private notificationService: NotificationsService) {
+        let __this = this;
+
         this.userService.getUserInfos().subscribe((res: Response) => {
             if (res.text().length > 10) {
                 this.user = res.json();
@@ -54,6 +58,17 @@ export class SearchComponent {
                 this.studyLevelId = parseInt(params['studyLevelId']);
             }
         });
+
+        SearchService.parametersEmitter.subscribe(
+            params => {
+                if (params['place']) {
+                    __this.locationName = params['place']['formatted_address'];
+                    __this.routeSegments = [];
+                    __this.routeSegments.push({ title: 'Recherche', link: '/recherche'});
+                    __this.routeSegments.push({ title: this.locationName, link: ''});
+                }
+            }
+        );
 
         /**
          * Subscribe to route change to display components regarding current route
