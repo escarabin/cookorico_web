@@ -67,8 +67,8 @@
                 </option>
             </select>
         </div>
-        <div class="col-md-4">
-            <label>Temps de travail</label>
+        <div class="col-md-3">
+            <label>Temps / sem</label>
             <input type="number"
                    class="form-control"
                    [disabled]="!userCanPostJob"
@@ -77,18 +77,28 @@
                    name="job_post_week_work_hours"
                    ngControl="jobPost.week_work_hours"/>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
+            <br />
+            <label>Débuter dés que possible
+                <input type="checkbox"
+                       [disabled]="!userCanPostJob"
+                       [(ngModel)]="jobPost.is_asap"
+                       name="job_post_is_asap"
+                       ngControl="jobPost.is_asap"/>
+            </label>
+        </div>
+        <div class="col-md-3">
             <label>Date de début</label>
             <input type="date"
                    class="form-control"
-                   required
-                   [disabled]="!userCanPostJob"
+                   [required]="!jobPost.is_asap"
+                   [disabled]="!userCanPostJob || jobPost.is_asap"
                    placeholder="Date de début"
                    [(ngModel)]="jobPost.start_date"
                    name="job_post_start_date"
                    ngControl="jobPost.start_date"/>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label>Date de fin</label>
             <input type="date"
                    class="form-control"
@@ -180,14 +190,6 @@
             </unity-tinymce>
         </div>
         <div class="col-md-12">
-            <div class="col-md-4">
-                <label>Dés que possible</label>
-                <input type="checkbox"
-                       [disabled]="!userCanPostJob"
-                       [(ngModel)]="jobPost.is_asap"
-                       name="job_post_is_asap"
-                       ngControl="jobPost.is_asap"/>
-            </div>
             <div class="col-md-4">
                 <label>Urgent</label>
                 <input type="checkbox"

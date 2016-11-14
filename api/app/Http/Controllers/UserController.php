@@ -867,7 +867,7 @@ class UserController extends Controller
 
         $pricingPlanTitle = $serviceData['name'];
 
-        $pricingPlan = PricingPlan::where('title', $pricingPlanTitle)->first();
+        $pricingPlan = PricingPlan::find($serviceData['customfields'][4]['formatted_value']);
 
         /**
          * Check if user already has a plan

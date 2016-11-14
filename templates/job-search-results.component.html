@@ -1,7 +1,10 @@
+<job-search-bar></job-search-bar>
+
 <div class="row"
      *ngIf="!isMapModeEnabled">
     <div class="jobs-count">
-        <b>{{ jobs.length }} offres</b> correspondent à vos critères
+        <span *ngIf="jobs.length > 0"><b>{{ jobs.length }} offres</b> correspondent à vos critères</span>
+        <span *ngIf="jobs.length == 0">Aucune offre ne correspond à vos critères</span>
     </div>
     <div class="col-md-12 search-results-container">
         <div *ngIf="jobs.length == 0 && parametersList['place']"
@@ -9,7 +12,6 @@
             <h2>Aucune offre d'emploi n'a été trouvée à <br />
                 <span class="badge info">{{ parametersList['place']['formatted_address'] }}</span>
             </h2>
-            <job-search-bar></job-search-bar>
         </div>
 
         <job-preview *ngFor="let job of jobs | paginate: { itemsPerPage: 20, currentPage: p }"

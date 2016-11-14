@@ -1000,7 +1000,12 @@ job-search-results {
   background: white;
   display: block;
   border-radius: 4px;
-  padding: 10px; }
+  padding: 5px 10px; }
+  job-search-results job-search-bar {
+    margin-top: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: 100% !important; }
   job-search-results .no-results {
     text-align: center;
     padding: 150px; }

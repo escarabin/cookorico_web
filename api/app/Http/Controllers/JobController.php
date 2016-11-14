@@ -32,6 +32,7 @@ class JobController extends Controller
                         'studyLevel',
                         'contractType',
                         'jobXpLevel',
+                        'applications',
                         'languages');
 
         /**
@@ -55,7 +56,7 @@ class JobController extends Controller
     public function getAll() {
         $jobs = Job::where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
             ->where('is_active', 1)
-            ->orderBy('created_at', 'DESC')
+            ->orderBy('created_at', 'ASC')
             ->get()
             ->load('business',
                     'user',
@@ -143,6 +144,8 @@ class JobController extends Controller
         if (count($xpLevelIdList)) {
             $jobsQuery->whereIn('job_xp_level_id', $xpLevelIdList);
         }
+
+        $jobsQuery->orderBy('created_at', 'ASC');
 
         $jobs = $jobsQuery->get()->load('business',
                                         'user',

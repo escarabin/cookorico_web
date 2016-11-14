@@ -2,7 +2,14 @@ job-search-results {
   background: white;
   display: block;
   border-radius: $mainBorderRadius;
-  padding: $mainBlockPadding;
+  padding: 5px 10px;
+
+  job-search-bar {
+    margin-top: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: 100% !important;
+  }
 
   .no-results {
     text-align: center;

@@ -50,6 +50,8 @@ export class MyJobPostsComponent {
              * Loop through plans to see if user is able to pull up job post
              */
             for (let i = 0; i < plans.length; i++) {
+                let plan = plans[i];
+
                 if (plan.pull_up_job_credits < 0 || plan.pull_up_job_credits > 0) {
                     __this.userCanPullUpJobPost = true;
                 }
