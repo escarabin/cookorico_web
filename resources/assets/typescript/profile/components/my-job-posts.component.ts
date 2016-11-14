@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 // Services
 import { UserService } from '../../services/user.service';
@@ -23,9 +24,11 @@ export class MyJobPostsComponent {
     jobPlacementsLeftNum: any = [];
     postStatus: number = 'is_accepted';
     userCanPullUpJobPost: boolean = false;
+    userCanPostJob: boolean = false;
 
     constructor(private userService: UserService,
                 private jobPostService: JobPostService,
+                private router: Router,
                 private notificationService: NotificationsService) {
         let __this = this;
 
@@ -49,6 +52,9 @@ export class MyJobPostsComponent {
             for (let i = 0; i < plans.length; i++) {
                 if (plan.pull_up_job_credits < 0 || plan.pull_up_job_credits > 0) {
                     __this.userCanPullUpJobPost = true;
+                }
+                if (plan.credits > 0) {
+                    __this.userCanPostJob = true;
                 }
             }
         });
@@ -106,5 +112,17 @@ export class MyJobPostsComponent {
                 );
             });
         });
+    }
+
+    createJobPost() {
+        if (this.userCanPostJob) {
+            this.router.navigate(['/profil/annonce/creer']);
+        }
+        else {
+            this.router.navigate(['/profil/mon_abonnement']);
+            this.notificationService.show(
+                new Notification('error', 'Veuillez souscrire à un pack pour poster une annonce')
+            );
+        }
     }
 }
