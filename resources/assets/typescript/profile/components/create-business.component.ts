@@ -184,7 +184,17 @@ export class CreateBusinessComponent {
 
         this.businessService.create(__this.business, __this.business.place).subscribe((res:Response) => {
             if (res['_body']) {
-                // let createdBusiness = res.json();
+                /**
+                 * Parsing business id from response
+                 */
+                let createdBusiness = res['_body'];
+
+                let indexOfBusinessId = createdBusiness.indexOf('"id":');
+                var createdBusinessId = createdBusiness.slice(indexOfBusinessId);
+
+                createdBusinessId = createdBusinessId.replace('"id":', '');
+                let indexOfComma = createdBusinessId.indexOf(',');
+                createdBusinessId = createdBusinessId.slice(0, indexOfComma);
 
                 if (__this.business.id) {
                     __this.notificationService.show(
@@ -196,17 +206,14 @@ export class CreateBusinessComponent {
                         new Notification('success', 'Votre établissement a bien été créee')
                     );
 
-                    /**
-                     * If user is new, then redirect him to next step (job post creation)
-                     */
+
                     if (!__this.user.is_active) {
-                        __this.router.navigate(['/profil/annonce/creer']);
+                        __this.router.navigate(['/profil/annonce/creer/' + createdBusinessId]);
                     }
                     else {
                         __this.router.navigate(['/profil/etablissements']);
                     }
                 }
-
                 // Redirect to item edition
                 // __this.router.navigate(['/profile/business/edit/' + res.json()['id']]);
             }
