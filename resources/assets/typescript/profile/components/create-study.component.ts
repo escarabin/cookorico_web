@@ -55,11 +55,11 @@ export class CreateStudyComponent {
             this.userService.createStudy(__this.study).subscribe((res:Response) => {
                 if (res['_body']) {
                     __this.notificationService.show(
-                        new Notification('success', 'Votre expérience a bien été créee')
+                        new Notification('success', 'Votre formation a bien été créee')
                     );
 
-                    // Redirect to experience edition
-                    this.router.navigate(['/profil/formation/editer/' + res.json()['id']]);
+                    // Redirect to profile-preview
+                    this.router.navigate(['/profil/apercu'])
                 }
                 else {
                     __this.notificationService.show(

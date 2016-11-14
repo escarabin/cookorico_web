@@ -74,8 +74,8 @@ export class CreateExperienceComponent {
                         });
                     }
 
-                    // Redirect to experience edition
-                    this.router.navigate(['/profil/experience/editer/' + res.json()['id']])
+                    // Redirect to profile-preview
+                    this.router.navigate(['/profil/apercu'])
                 }
                 else {
                     __this.notificationService.show(
