@@ -83,6 +83,8 @@ export class JobSearchResultsComponent {
         searchService.resultsEmitter.subscribe((results) => {
             __this.jobs = results.json();
 
+            window.scrollTo(0, 100);
+
             /**
              * Clear map markers
              */

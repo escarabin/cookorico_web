@@ -89,13 +89,17 @@ export class CandidateSignUpComponent {
     signUp() {
         console.log(this.user, this.lookingForJobNamingList);
         this.userService.createCandidateUser(this.user, this.lookingForJobNamingList).subscribe((res: Response) => {
-            this.notificationService.show(
-                new Notification('success', 'Un mail vient de vous être envoyé pour confirmer votre inscription')
-            );
+            let createdUser = res.json();
 
-            console.log('user created is', res.json());
+            this.userService.loginUsingId(createdUser.id).subscribe((res: Response) => {
+                localStorage.setItem('user', JSON.stringify(createdUser));
 
-            this.router.navigate(['/']);
+                this.notificationService.show(
+                    new Notification('success', 'Un mail vient de vous être envoyé pour confirmer votre inscription')
+                );
+
+                this.router.navigate(['/profil']);
+            });
         });
     }
 

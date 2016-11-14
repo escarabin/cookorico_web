@@ -160,8 +160,7 @@ return [
          */
         Aws\Laravel\AwsServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Netshell\Paypal\PaypalServiceProvider::class,
-       // Rochdi\Payline\PaylineServiceProvider::class
+        Rochdi\Payline\PaylineServiceProvider::class
     ],
 
     /*
@@ -214,7 +213,7 @@ return [
         'AWS' => Aws\Laravel\AwsFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'SellsyApi' => SellsyApi\Client::class,
-        'Paypal' => Netshell\Paypal\Facades\Paypal::class
+        'Payline' => Rochdi\Payline\PaylineServiceProvider::class
     ],
 
 ];

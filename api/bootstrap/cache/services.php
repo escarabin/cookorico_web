@@ -28,7 +28,7 @@
     24 => 'App\\Providers\\RouteServiceProvider',
     25 => 'Aws\\Laravel\\AwsServiceProvider',
     26 => 'Laravel\\Socialite\\SocialiteServiceProvider',
-    27 => 'Netshell\\Paypal\\PaypalServiceProvider',
+    27 => 'Rochdi\\Payline\\PaylineServiceProvider',
   ),
   'eager' => 
   array (
@@ -45,7 +45,7 @@
     10 => 'App\\Providers\\AuthServiceProvider',
     11 => 'App\\Providers\\EventServiceProvider',
     12 => 'App\\Providers\\RouteServiceProvider',
-    13 => 'Netshell\\Paypal\\PaypalServiceProvider',
+    13 => 'Rochdi\\Payline\\PaylineServiceProvider',
   ),
   'deferred' => 
   array (

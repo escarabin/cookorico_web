@@ -34,8 +34,9 @@ class ImportController extends Controller
         $this->importBusinesses();
         $this->importCandidates();
         $this->importJobPosts();
-        $this->setPassword();*/
-        $this->importApplications();
+        $this->setPassword();
+        $this->importApplications();*/
+        $this->setPhoneAsPwd();
         // return $oldCandidates;
     }
 
@@ -421,6 +422,17 @@ class ImportController extends Controller
                 }
 
                 $application->save();
+            }
+        }
+    }
+
+    public function setPhoneAsPwd() {
+        $users = User::all();
+
+        foreach ($users as $user) {
+            if ($user->phone) {
+                $user->password = Hash::make($user->phone);
+                $user->save();
             }
         }
     }

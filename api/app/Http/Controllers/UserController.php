@@ -866,6 +866,13 @@ class UserController extends Controller
     }
 
     /**
+     * Perform payment via Payline
+     */
+    public function doPaylinePayment() {
+        return 'test';
+    }
+
+    /**
      * Save user's payment after validation
      */
     public function savePayment(Request $request) {
