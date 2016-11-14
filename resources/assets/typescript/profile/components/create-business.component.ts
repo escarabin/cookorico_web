@@ -61,6 +61,8 @@ export class CreateBusinessComponent {
 
                 if (__this.business.id) {
                     // Editing a specific item, let's retrieve it's data
+                    __this.isAddressParsed = true;
+
                     __this.userService.getBusiness(__this.business.id).subscribe((res: Response) => {
                         __this.business = res.json();
 
