@@ -9,28 +9,28 @@
              [class.active]="postStatus == 'is_accepted'"
              (click)="postStatus = 'is_accepted'">
             <label>
-                En ligne &nbsp;
+                En ligne ({{ getJobPostsCount('is_accepted') }})
             </label>
         </div>
         <div class="filter"
              [class.active]="postStatus == 'is_reviewing'"
              (click)="postStatus = 'is_reviewing'">
             <label class="success">
-                En validation &nbsp;
+                En validation ({{ getJobPostsCount('is_reviewing') }})
             </label>
         </div>
         <div class="filter"
              [class.active]="postStatus == 'is_expired'"
              (click)="postStatus = 'is_expired'">
             <label class="info">
-                Expirées &nbsp;
+                Expirées ({{ getJobPostsCount('is_expired') }})
             </label>
         </div>
         <div class="filter"
              [class.active]="postStatus == 'is_rejected'"
              (click)="postStatus = 'is_rejected'">
             <label class="danger">
-                Rejetées &nbsp;
+                Rejetées ({{ getJobPostsCount('is_rejected') }})
             </label>
         </div>
     </div>

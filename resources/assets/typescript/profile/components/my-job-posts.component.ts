@@ -127,4 +127,21 @@ export class MyJobPostsComponent {
             );
         }
     }
+
+    getJobPostsCount(statusTitle: string) {
+        let count = 0;
+
+        for (let i = 0; i < this.items.length; i++) {
+            if (statusTitle == "is_reviewing") {
+                if (!this.items[i]['is_accepted'] && !this.items[i]['is_rejected']) {
+                    count += 1;
+                }
+            }
+            else if (this.items[i][statusTitle]) {
+                count += 1;
+            }
+        }
+
+        return count;
+    }
 }
