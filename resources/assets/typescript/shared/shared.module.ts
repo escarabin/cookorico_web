@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { GoogleplaceDirective } from 'angular2-google-map-auto-complete/directives/googleplace.directive';
-import { ReCaptchaModule } from 'angular2-recaptcha';
 import { AgmCoreModule } from 'angular2-google-maps/core/index';
 import { Ng2PaginationModule } from 'ng2-pagination';
 
@@ -13,7 +12,6 @@ import { UNITYTinyMCE } from './components/tiny-mce.component';
 import { JobPreviewComponent } from './components/job-preview.component';
 import { JobSearchBarComponent } from './components/job-search-bar.component';
 import { ApplicantsComponent } from './../profile/components/applicants.component';
-import { BusinessPageComponent } from './components/business-page.component';
 import { PricingPlansComponent } from './components/pricing-plans.component';
 import { ImageCropperComponent } from 'ng2-img-cropper';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload/ng2-file-upload';
@@ -41,7 +39,6 @@ import appGlobals = require('./../globals');
                     ImageCropperComponent,
                     ApplicantsComponent,
                     PricingPlansComponent,
-                    BusinessPageComponent,
                     GoogleplaceDirective ],
     exports:      [ UNITYTinyMCE,
                     JobPreviewComponent,
@@ -54,7 +51,6 @@ import appGlobals = require('./../globals');
                     PricingPlansComponent,
                     ButtonsModule,
                     CollapseModule,
-                    ReCaptchaModule,
                     AccordionModule,
                     CommonModule,
                     AgmCoreModule,
@@ -69,7 +65,6 @@ import appGlobals = require('./../globals');
                     ButtonsModule,
                     CollapseModule,
                     CommonModule,
-                    ReCaptchaModule,
                     AccordionModule,
                     AgmCoreModule,
                     AlertModule,

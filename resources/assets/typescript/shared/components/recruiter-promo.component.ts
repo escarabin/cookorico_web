@@ -97,4 +97,8 @@ export class RecruiterPromoComponent {
         document.getElementById("userLastName").focus();
         window.scrollTo(0, 0);
     }
+
+    signIn() {
+        document.getElementById('main-login-btn').click();
+    }
 }

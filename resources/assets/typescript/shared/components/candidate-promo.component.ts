@@ -91,4 +91,8 @@ export class CandidatePromoComponent {
             }
         });
     }
+
+    signIn() {
+        document.getElementById('main-login-btn').click();
+    }
 }

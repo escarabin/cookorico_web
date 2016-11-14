@@ -2,15 +2,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { HomeComponent } from './shared/components/home.component';
-import { PostComponent } from './shared/components/post.component';
-import { ClubComponent } from './shared/components/club.component';
-import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.component';
 import { RecruiterPromoComponent } from './shared/components/recruiter-promo.component';
 import { CandidatePromoComponent } from './shared/components/candidate-promo.component';
-import { BusinessPageComponent } from './shared/components/business-page.component';
+import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.component';
 import { CguComponent } from './shared/components/cgu.component';
 import { CgvComponent } from './shared/components/cgv.component';
 import { AboutComponent } from './shared/components/about.component';
+
+import { BusinessPageComponent } from './shared/components/business-page.component';
 
 const appRoutes: Routes = [
     // Child routing
@@ -30,6 +29,22 @@ const appRoutes: Routes = [
         data: {
             meta: {
                 title: 'Recherche d\'emploi'
+            }
+        }
+    },
+
+    // Business page
+    { path: 'etablissement/:businessId', component: BusinessPageComponent,
+        data: {
+            meta: {
+                title: 'Établissement'
+            }
+        }
+    },
+    { path: 'club/:clubId', component: BusinessPageComponent,
+        data: {
+            meta: {
+                title: 'Club'
             }
         }
     },
@@ -61,29 +76,6 @@ const appRoutes: Routes = [
         }
     },
 
-    // Business page
-    { path: 'etablissement/:businessId', component: BusinessPageComponent,
-        data: {
-            meta: {
-                title: 'Établissement'
-            }
-        }
-    },
-    { path: 'club/:clubId', component: BusinessPageComponent,
-        data: {
-            meta: {
-                title: 'Club'
-            }
-        }
-    },
-    // Posts
-    { path: 'actualite/:postId', component: PostComponent },
-
-    // Clubs
-    { path: 'club/:clubId', component: ClubComponent },
-
-    { path: 'accueil', component: HomeComponent},
-
     // User
     { path: 'inscription-candidat', component: CandidateSignUpComponent,
         data: {
@@ -108,6 +100,8 @@ const appRoutes: Routes = [
             }
         }
     },
+
+    { path: 'accueil', component: HomeComponent},
 
     // Root
     { path: '', redirectTo: '/accueil', pathMatch: 'full' },

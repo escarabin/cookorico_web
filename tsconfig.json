@@ -9,6 +9,7 @@
     "removeComments": false,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
+    "outFile": "app.js",
     "exclude": [
       "/Applications/MAMP/htdocs/oechr/node_modules/"
     ]
