@@ -11,6 +11,7 @@ export class User {
         public resumeUrl: string,
         public user_type_id: number,
         public last_job_naming_id: number,
+        public job_xp_level_id: number = null,
         public user_status_id: number,
         public civility_id: number = null,
         public place_id: number,

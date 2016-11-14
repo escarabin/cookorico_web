@@ -169,8 +169,7 @@ header {
 
 @media (max-width: 765px) {
   header .header-wrapper {
-    height: 70px;
-    background: #35B6E1; }
+    height: 70px; }
   header .logo {
     background-image: url("/img/cookorico_picto.png");
     width: 25px;
@@ -1622,7 +1621,8 @@ profile-preview .resume-container, candidate-dashboard .resume-container {
     height: 45px;
     border: none; }
   profile-preview .resume-container a, candidate-dashboard .resume-container a {
-    color: #333; }
+    color: #333;
+    cursor: pointer; }
   profile-preview .resume-container .icon, candidate-dashboard .resume-container .icon {
     font-size: 3em; }
 

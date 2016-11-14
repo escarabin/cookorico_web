@@ -93,6 +93,8 @@ export class CandidateSignUpComponent {
                 new Notification('success', 'Un mail vient de vous être envoyé pour confirmer votre inscription')
             );
 
+            console.log('user created is', res.json());
+
             this.router.navigate(['/']);
         });
     }

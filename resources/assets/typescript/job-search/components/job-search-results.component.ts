@@ -26,6 +26,7 @@ export class JobSearchResultsComponent {
     parametersList: any = [];
     placeId: string;
     mapMarkers: any = [];
+    map: any;
 
     /**
      * By default, populate place object with France coords
@@ -157,9 +158,12 @@ export class JobSearchResultsComponent {
             maxZoom   : 20
         };
 
-        this.map  = new google.maps.Map(document.getElementById('google-map-results'), myOptions);
+        console.log('setting up map');
 
-        this.map.setOptions({styles: appGlobals.googleMapStyles});
+        if (!this.map) {
+            this.map  = new google.maps.Map(document.getElementById('google-map-results'), myOptions);
+            this.map.setOptions({styles: appGlobals.googleMapStyles});
+        }
     }
 
     /**

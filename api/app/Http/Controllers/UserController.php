@@ -346,6 +346,8 @@ class UserController extends Controller
         $userData = $request::get('user');
         $user = new User();
         $user->user_type_id = 3;
+        $user->is_verified = 1;
+        $user->is_active = 1;
 
         foreach ($userData as $key => $value) {
             if ($key != "profilePictureUrl" && $key != "password") {
@@ -355,8 +357,6 @@ class UserController extends Controller
                 $user['password'] = Hash::make($value);
             }
         }
-
-        $user->save();
 
         /**
          * Populate the table containing the jobs the new candidate is looking for
@@ -378,8 +378,13 @@ class UserController extends Controller
         if (array_key_exists('profilePictureUrl', $userData)) {
             $this->uploadProfilePictureBase64($userData['profilePictureUrl'], $user->id);
         }
+        else {
+            $user->profilePictureUrl = 'https://s3-eu-west-1.amazonaws.com/oechr-profile-picture/_ph_default_detail.png';
+        }
 
         $this->sendAccountConfirmationEmail($user);
+
+        $user->save();
 
         return $user;
     }

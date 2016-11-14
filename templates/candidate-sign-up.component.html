@@ -192,10 +192,10 @@
             <div class="col-md-6 col-md-offset-3">
                 <select class="form-control"
                         name="xpLevelId"
-                        [(ngModel)]="user.xpLevelId"
-                        ngControl="user.xpLevelId">
-                    <option disabled selected
-                            *ngFor="let xpLevel of xpLevels"
+                        [(ngModel)]="user.job_xp_level_id"
+                        ngControl="user.job_xp_level_id">
+                    <option disabled selected value="null">-- Niveau d'experience --</option>
+                    <option *ngFor="let xpLevel of xpLevels"
                             value="{{ xpLevel.id }}">
                         {{ xpLevel.title }}
                     </option>
