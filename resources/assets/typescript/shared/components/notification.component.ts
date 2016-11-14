@@ -17,8 +17,6 @@ export class NotificationsComponent {
         _notifications.noteAdded.subscribe(note => {
             this._notes.push(note);
 
-            console.log('pushing note', note);
-
             if (note.autoDismiss) {
                 setTimeout(() => { this.hide.bind(this)(note) }, 5000);
             }

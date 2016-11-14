@@ -10,8 +10,8 @@ notifications {
     background: $oechrBlueColor;
     color: white;
     text-align: center;
-    padding: 30px;
-    height: 85px;
+    padding: 17px;
+    height: 60px;
     font-size: 1.3em;
     font-family: $mainMediumFontFamily;
     z-index: 100;
@@ -37,7 +37,7 @@ notifications {
 
     .close-btn {
       position: absolute;
-      top: 35px;
+      top: 20px;
       right: 20px;
       cursor: pointer;
     }
@@ -45,7 +45,7 @@ notifications {
     button {
       position: absolute;
       right: 50px;
-      top: 22px;
+      top: 10px;
       border-radius: $mainBorderRadius;
       border: none;
       background-color: white;

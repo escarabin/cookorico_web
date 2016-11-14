@@ -72,6 +72,8 @@ header {
     li {
       float: right;
       padding: 40px;
+      text-transform: uppercase;
+      font-family: $mainMediumFontFamily;
 
       .recruiter_btn a {
         border: 2px solid white;

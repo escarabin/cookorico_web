@@ -71,20 +71,23 @@ export class CandidateDashboardComponent {
          * Parse lookingForJobNamingList
          */
         for (let i = 0; i < this.user['looking_for_job_namings'].length; i++) {
-            this.lookingForJobNamingList[i]['id'] = this.user['looking_for_job_namings'][i]['id'];
+            if (this.lookingForJobNamingList[i]) {
+                this.lookingForJobNamingList[i]['id'] = this.user['looking_for_job_namings'][i]['id'];
 
-            /**
-             * Get google maps data from placeId using reverse geocoding API
-             */
-            let geocoder = new google.maps.Geocoder;
-            geocoder.geocode({'placeId': this.user['looking_for_job_naming_places'][i]['googlePlaceId']},
-                function(results) {
-                    let place = results[0];
-                    __this.lookingForJobNamingList[i]['place'] = place;
+                /**
+                 * PARSE GOOGLE MAPS DATA
+                 * @type {google.maps.Geocoder}
+                 */
+                let geocoder = new google.maps.Geocoder;
+                geocoder.geocode({'placeId': this.user['looking_for_job_naming_places'][i]['googlePlaceId']},
+                    function(results) {
+                        let place = results[0];
+                        __this.lookingForJobNamingList[i]['place'] = place;
 
-                    __this.ref.detectChanges();
-                }
-            );
+                        __this.ref.detectChanges();
+                    }
+                );
+            }
         }
 
         console.log('looking for jobs', this.lookingForJobNamingList);

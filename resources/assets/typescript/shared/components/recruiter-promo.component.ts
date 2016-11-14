@@ -6,7 +6,6 @@ import { Response } from '@angular/http';
 import { UserService } from './../../services/user.service';
 import { NotificationsService } from './../../services/notification.service';
 import { ReferenceService } from './../../services/reference.service';
-import { BusinessService } from "../../services/business.service";
 
 // Models
 import { Notification } from './../../models/notification';
@@ -15,7 +14,7 @@ declare var braintree:any;
 
 @Component({
     selector: 'recruiter-promo',
-    providers: [ UserService, ReferenceService, BusinessService ],
+    providers: [ UserService, ReferenceService ],
     templateUrl: '../templates/recruiter-promo.component.html'
 })
 
@@ -33,16 +32,9 @@ export class RecruiterPromoComponent {
     constructor(private userService: UserService,
                 private router: Router,
                 private notificationService: NotificationsService,
-                private businessService: BusinessService,
                 private referenceService: ReferenceService) {
         this.referenceService.getAllCivilities().subscribe((res:Response) => {
             this.civilities = res.json();
-        });
-
-        this.businessService.getAll().subscribe((res:Response) => {
-            this.businesses = res.json();
-
-            console.log('businesses are ', this.businesses);
         });
     }
 
@@ -96,5 +88,13 @@ export class RecruiterPromoComponent {
                 );
             }
         });
+    }
+
+    /**
+     * Scroll to top of + focus to sign-up form
+     */
+    initSignUp() {
+        document.getElementById("userLastName").focus();
+        window.scrollTo(0, 0);
     }
 }

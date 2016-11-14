@@ -1,4 +1,10 @@
 profile-preview, candidate-dashboard {
+  .no-description {
+    border: 1px dashed #CCC;
+    padding: 25px;
+    cursor: pointer;
+  }
+
   h2 {
     text-transform: uppercase;
     text-align: left;

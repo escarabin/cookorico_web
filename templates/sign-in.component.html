@@ -27,18 +27,6 @@
                       action="#"
                       *ngIf="!forgotPassword"
                       #loginForm="ngForm">
-                    <a href="/api/public/auth/facebook">
-                        <div class="col-md-12 facebook-login"
-                             *ngIf="!forgotPassword">
-                            <span class="fa fa-facebook"></span>  &nbsp; Facebook
-                        </div>
-                    </a>
-                    <a href="/api/public/auth/linkedin">
-                        <div class="col-md-12 linkedin-login"
-                             *ngIf="!forgotPassword">
-                            <span class="fa fa-linkedin"></span> &nbsp; Linkedin
-                        </div>
-                    </a>
                     <div class="col-md-12">
                         <input type="email"
                                placeholder="Email"
@@ -82,6 +70,18 @@
                                (click)="login()"
                                value="Se connecter" *ngIf="!loading"/>
                     </div>
+                    <a href="/api/public/auth/facebook">
+                        <div class="col-md-12 facebook-login"
+                             *ngIf="!forgotPassword">
+                            <span class="fa fa-facebook"></span>  &nbsp; Facebook
+                        </div>
+                    </a>
+                    <a href="/api/public/auth/linkedin">
+                        <div class="col-md-12 linkedin-login"
+                             *ngIf="!forgotPassword">
+                            <span class="fa fa-linkedin"></span> &nbsp; Linkedin
+                        </div>
+                    </a>
                 </form>
                 <form action="#"
                       method="post"

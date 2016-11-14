@@ -11,23 +11,24 @@
     </div>
     <div class="col-md-9 col-sm-9 hidden-xs">
         <ul>
+            <sign-in (userSignedIn)="handleUserSignedIn($event)"
+                     (userSignedOut)="handleUserSignedOut($event)"
+                     [user]="user">
+
+            </sign-in>
+
             <!-- User is connected -->
             <li *ngIf="!user"
                 class="recruiter_btn">
                 <a routerLink="/accueil-recruteur">
-                    Espace recruteur
+                    Recruteur
                 </a>
             </li>
 
-            <sign-in (userSignedIn)="handleUserSignedIn($event)"
-                     (userSignedOut)="handleUserSignedOut($event)"
-                     [user]="user">
-                
-            </sign-in>
 
             <li *ngIf="!user">
-                <a routerLink="/inscription-candidat">
-                    S'inscrire
+                <a routerLink="/accueil-candidat">
+                    Candidat
                 </a>
             </li>
 

@@ -41,7 +41,7 @@ export class SearchComponent {
                  * If user is not logged in, show sign-up notification
                  */
                 this.notificationService.show(
-                    new Notification('info', 'Pour postuler', '/inscription-candidat', 'Inscrivez-vous', false)
+                    new Notification('info', 'Pour postuler', '/inscription-candidat', 'Inscrivez-vous', true)
                 );
             }
         });

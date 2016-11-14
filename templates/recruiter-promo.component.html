@@ -1,8 +1,10 @@
 <div class="recruiter-promo-heading">
     <div class="promo-container">
         <div class="col-md-8 promo-label">
-            <h1>Rejoignez le réseau<br /> et simplifiez vos recrutements</h1>
-            <h2>Des centaines de candidats vous attendent</h2>
+            <h1>Diffusez vos offres d’emploi, partout, en un clic !</h1>
+            <button class="btn btn-primary" (click)="initSignUp()">
+                Publiez votre 1ere offre gratuite
+            </button>
         </div>
         <div class="col-md-4">
             <div class="sign-up-box row">
@@ -34,6 +36,7 @@
                                name="lastName"
                                [(ngModel)]="userLastName"
                                ngControl="userLastName"
+                               id="userLastName"
                                required
                                placeholder="Votre nom"
                                class="form-control"/>
@@ -87,20 +90,9 @@
     </div>
 </div>
 
-<div class="testimonials-clubs centered">
-    <div class="col-md-2"
-         *ngFor="let business of businesses">
-        <img src="{{ business.logo }}"/>
-    </div>
-</div>
-
-<div class="free-job-post">
-    PUBLIEZ VOTRE 1ERE OFFRE D'EMPLOI GRATUITE
-</div>
-
 <div class="partners-container centered">
     <br />
-    <h3>Ils nous font confiance</h3>
+    <h2>Ils nous font confiance</h2>
     <div class="partners row">
         <div class="col-md-2">
             <img src="/img/partners/barriere.png" class="full-width"/>
@@ -120,6 +112,7 @@
         <div class="col-md-2">
             <img src="/img/partners/westotel.png" class="full-width"/>
         </div>
+        <br />
     </div>
 </div>
 
@@ -284,4 +277,12 @@
             </p>
         </div>
     </div>
+</div>
+
+<div class="col-md-12 centered">
+    <br /><br />
+    <br /><br />
+    <button class="btn btn-primary" href="#" (click)="initSignUp()">
+        Publiez votre 1ere offre gratuite
+    </button>
 </div>

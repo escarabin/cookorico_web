@@ -26,10 +26,10 @@
 
                 <span *ngIf="jobNamingList.length > 0">
                     de
-                    <span *ngFor="let jobNaming of jobNamingList">
+                    <span *ngFor="let jobNaming of jobNamingList; let i = index">
                         <span class="job-badge badge"
                               *ngIf="jobNaming">
-                            {{ jobNaming }}
+                            {{ jobNaming }} <span class="fa fa-times remove" (click)="updateSearchParameter('jobNaming', i, jobNaming)"></span>
                         </span>
                         <span *ngIf="parametersCount(jobNamingList) > 1
                                 && jobNaming
@@ -40,10 +40,10 @@
                 </span>
 
                 <span *ngIf="xpLevelList.length > 0">
-                    <span *ngFor="let xpLevel of xpLevelList">
+                    <span *ngFor="let xpLevel of xpLevelList; let i = index">
                         <span class="study-level-badge badge"
                               *ngIf="xpLevel">
-                            {{ xpLevel }}
+                            {{ xpLevel }} <span class="fa fa-times remove" (click)="updateSearchParameter('xpLevel', i, xpLevel)"></span>
                         </span>
                         <span *ngIf="parametersCount(xpLevelList) > 1
                                 && xpLevel
@@ -58,10 +58,10 @@
 
                 <span *ngIf="contractTypeList.length > 0">
                     en
-                    <span *ngFor="let contractType of contractTypeList">
+                    <span *ngFor="let contractType of contractTypeList; let i = index">
                         <span class="contract-type-badge badge"
                               *ngIf="contractType">
-                            {{ contractType }}
+                            {{ contractType }} <span class="fa fa-times remove" (click)="updateSearchParameter('contractType', i, contractType)"></span>
                         </span>
                         <span *ngIf="parametersCount(contractTypeList) > 1
                                 && contractType

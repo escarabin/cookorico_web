@@ -151,7 +151,9 @@ header {
     font-weight: 400; }
   header ul li {
     float: right;
-    padding: 40px; }
+    padding: 40px;
+    text-transform: uppercase;
+    font-family: "Avenir Medium", sans-serif; }
     header ul li .recruiter_btn a {
       border: 2px solid white;
       border-radius: 4px;
@@ -678,7 +680,8 @@ sign-in a {
   padding: 20px;
   margin-bottom: 15px;
   height: 50px;
-  color: #333; }
+  color: #333;
+  cursor: pointer; }
 
 #sign-in-modal .forgot-password {
   text-align: right; }
@@ -687,6 +690,7 @@ sign-in a {
   text-align: center;
   padding: 25px;
   margin-left: 4%;
+  margin-top: 20px;
   width: 92%;
   color: white;
   font-size: 1.3em;
@@ -874,6 +878,8 @@ job-search-sidebar {
       text-transform: lowercase;
       max-width: 250px;
       overflow: hidden; }
+      job-search-sidebar .search-summary .badge .remove {
+        color: white; }
       job-search-sidebar .search-summary .badge.job-badge {
         background-color: #35B6E1; }
       job-search-sidebar .search-summary .badge.location-badge {
@@ -1274,8 +1280,8 @@ notifications {
     background: #35B6E1;
     color: white;
     text-align: center;
-    padding: 30px;
-    height: 85px;
+    padding: 17px;
+    height: 60px;
     font-size: 1.3em;
     font-family: "Avenir Medium", sans-serif;
     z-index: 100;
@@ -1292,13 +1298,13 @@ notifications {
       background-color: #35B6E1; }
     notifications .notification-container .close-btn {
       position: absolute;
-      top: 35px;
+      top: 20px;
       right: 20px;
       cursor: pointer; }
     notifications .notification-container button {
       position: absolute;
       right: 50px;
-      top: 22px;
+      top: 10px;
       border-radius: 4px;
       border: none;
       background-color: white;
@@ -1522,6 +1528,11 @@ applicants .btn-primary {
   .file-drop-zone.nv-file-over {
     color: #35B6E1;
     border: 2px solid #35B6E1; }
+
+profile-preview .no-description, candidate-dashboard .no-description {
+  border: 1px dashed #CCC;
+  padding: 25px;
+  cursor: pointer; }
 
 profile-preview h2, candidate-dashboard h2 {
   text-transform: uppercase;
@@ -1919,60 +1930,65 @@ profile-sub-header {
 .progress-100 {
   background-image: linear-gradient(90deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
 
-recruiter-promo {
+recruiter-promo, candidate-promo {
   padding-top: 100px;
   display: block; }
-  recruiter-promo .recruiter-promo-heading {
+  recruiter-promo .btn-primary, candidate-promo .btn-primary {
+    font-size: 1.4em; }
+  recruiter-promo .candidate-promo-heading, candidate-promo .candidate-promo-heading {
+    background-image: url("/img/header-home-candidat.jpg") !important;
+    background-position: center -100px; }
+  recruiter-promo .recruiter-promo-heading, recruiter-promo .candidate-promo-heading, candidate-promo .recruiter-promo-heading, candidate-promo .candidate-promo-heading {
     display: inline-block;
     width: 100%;
     padding: 50px 0;
     background-image: url("/img/header-home-recruteur.jpg");
     background-size: cover;
     background-repeat: no-repeat; }
-    recruiter-promo .recruiter-promo-heading h1, recruiter-promo .recruiter-promo-heading h2 {
+    recruiter-promo .recruiter-promo-heading h1, recruiter-promo .recruiter-promo-heading h2, recruiter-promo .candidate-promo-heading h1, recruiter-promo .candidate-promo-heading h2, candidate-promo .recruiter-promo-heading h1, candidate-promo .recruiter-promo-heading h2, candidate-promo .candidate-promo-heading h1, candidate-promo .candidate-promo-heading h2 {
       color: white;
       margin-top: 200px; }
-    recruiter-promo .recruiter-promo-heading h2 {
+    recruiter-promo .recruiter-promo-heading h2, recruiter-promo .candidate-promo-heading h2, candidate-promo .recruiter-promo-heading h2, candidate-promo .candidate-promo-heading h2 {
       margin-top: 0;
       margin-bottom: 25px; }
-    recruiter-promo .recruiter-promo-heading .promo-container {
+    recruiter-promo .recruiter-promo-heading .promo-container, recruiter-promo .candidate-promo-heading .promo-container, candidate-promo .recruiter-promo-heading .promo-container, candidate-promo .candidate-promo-heading .promo-container {
       max-width: 990px;
       width: auto;
       margin: auto; }
-      recruiter-promo .recruiter-promo-heading .promo-container .promo-label {
+      recruiter-promo .recruiter-promo-heading .promo-container .promo-label, recruiter-promo .candidate-promo-heading .promo-container .promo-label, candidate-promo .recruiter-promo-heading .promo-container .promo-label, candidate-promo .candidate-promo-heading .promo-container .promo-label {
         padding-top: 100px; }
-      recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box, recruiter-promo .recruiter-promo-heading .promo-container .login-box {
+      recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box, recruiter-promo .recruiter-promo-heading .promo-container .login-box, recruiter-promo .candidate-promo-heading .promo-container .sign-up-box, recruiter-promo .candidate-promo-heading .promo-container .login-box, candidate-promo .recruiter-promo-heading .promo-container .sign-up-box, candidate-promo .recruiter-promo-heading .promo-container .login-box, candidate-promo .candidate-promo-heading .promo-container .sign-up-box, candidate-promo .candidate-promo-heading .promo-container .login-box {
         border-radius: 4px;
         background: white;
         padding: 25px 10px; }
-        recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box h2, recruiter-promo .recruiter-promo-heading .promo-container .login-box h2 {
+        recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box h2, recruiter-promo .recruiter-promo-heading .promo-container .login-box h2, recruiter-promo .candidate-promo-heading .promo-container .sign-up-box h2, recruiter-promo .candidate-promo-heading .promo-container .login-box h2, candidate-promo .recruiter-promo-heading .promo-container .sign-up-box h2, candidate-promo .recruiter-promo-heading .promo-container .login-box h2, candidate-promo .candidate-promo-heading .promo-container .sign-up-box h2, candidate-promo .candidate-promo-heading .promo-container .login-box h2 {
           color: #333; }
-        recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box input, recruiter-promo .recruiter-promo-heading .promo-container .login-box input {
+        recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box input, recruiter-promo .recruiter-promo-heading .promo-container .login-box input, recruiter-promo .candidate-promo-heading .promo-container .sign-up-box input, recruiter-promo .candidate-promo-heading .promo-container .login-box input, candidate-promo .recruiter-promo-heading .promo-container .sign-up-box input, candidate-promo .recruiter-promo-heading .promo-container .login-box input, candidate-promo .candidate-promo-heading .promo-container .sign-up-box input, candidate-promo .candidate-promo-heading .promo-container .login-box input {
           margin-bottom: 15px; }
-      recruiter-promo .recruiter-promo-heading .promo-container .login-box {
+      recruiter-promo .recruiter-promo-heading .promo-container .login-box, recruiter-promo .candidate-promo-heading .promo-container .login-box, candidate-promo .recruiter-promo-heading .promo-container .login-box, candidate-promo .candidate-promo-heading .promo-container .login-box {
         margin-top: 25px; }
-  recruiter-promo .recruiter-promo-container {
+  recruiter-promo .recruiter-promo-container, candidate-promo .recruiter-promo-container {
     max-width: 990px;
     width: 100%;
     margin: auto; }
-    recruiter-promo .recruiter-promo-container h2 {
+    recruiter-promo .recruiter-promo-container h2, candidate-promo .recruiter-promo-container h2 {
       color: #35B6E1; }
-    recruiter-promo .recruiter-promo-container .screen-description {
+    recruiter-promo .recruiter-promo-container .screen-description, candidate-promo .recruiter-promo-container .screen-description {
       padding-top: 100px;
       font-size: 1.4em; }
-    recruiter-promo .recruiter-promo-container .step-by-step {
+    recruiter-promo .recruiter-promo-container .step-by-step, candidate-promo .recruiter-promo-container .step-by-step {
       margin-top: 50px; }
-      recruiter-promo .recruiter-promo-container .step-by-step .step .icon {
+      recruiter-promo .recruiter-promo-container .step-by-step .step .icon, candidate-promo .recruiter-promo-container .step-by-step .step .icon {
         padding: 15px;
         text-align: center;
         border-radius: 50%;
         color: white; }
-        recruiter-promo .recruiter-promo-container .step-by-step .step .icon strong {
+        recruiter-promo .recruiter-promo-container .step-by-step .step .icon strong, candidate-promo .recruiter-promo-container .step-by-step .step .icon strong {
           font-family: "Avenir Heavy", sans-serif;
           letter-spacing: 1px;
           text-transform: uppercase;
           margin-top: 15px; }
-      recruiter-promo .recruiter-promo-container .step-by-step .line {
+      recruiter-promo .recruiter-promo-container .step-by-step .line, candidate-promo .recruiter-promo-container .step-by-step .line {
         height: 5px;
         background: white;
         border: 1px solid #CCC;
@@ -1981,10 +1997,10 @@ recruiter-promo {
         z-index: -1;
         width: 78%;
         margin: auto; }
-    recruiter-promo .recruiter-promo-container .step-number {
+    recruiter-promo .recruiter-promo-container .step-number, candidate-promo .recruiter-promo-container .step-number {
       font-size: 45px;
       color: #35B6E1; }
-  recruiter-promo .free-job-post {
+  recruiter-promo .free-job-post, candidate-promo .free-job-post {
     width: 100%;
     padding: 20px;
     background-color: #35B6E1;
@@ -1992,22 +2008,29 @@ recruiter-promo {
     color: white;
     font-size: 1.7em;
     letter-spacing: 2px; }
-  recruiter-promo .screen-container {
+  recruiter-promo .screen-container, candidate-promo .screen-container {
     padding-top: 100px; }
-  recruiter-promo .partners-container {
+  recruiter-promo .partners-container, candidate-promo .partners-container {
     background-color: white; }
-    recruiter-promo .partners-container .partners {
+    recruiter-promo .partners-container .partners, candidate-promo .partners-container .partners {
       max-width: 990px;
       width: 100%;
       margin: auto; }
-      recruiter-promo .partners-container .partners .full-width {
+      recruiter-promo .partners-container .partners .full-width, candidate-promo .partners-container .partners .full-width {
         width: 80%; }
-  recruiter-promo .founder-picture {
+  recruiter-promo .founder-picture, candidate-promo .founder-picture {
     border-radius: 50%; }
-  recruiter-promo .about-container {
+  recruiter-promo .testimonial-container, candidate-promo .testimonial-container {
+    background: white;
+    margin-top: 10px; }
+    recruiter-promo .testimonial-container .about, candidate-promo .testimonial-container .about {
+      max-width: 990px;
+      margin: auto;
+      padding: 50px 0; }
+  recruiter-promo .about-container, candidate-promo .about-container {
     background: white;
     margin-top: 150px; }
-    recruiter-promo .about-container .about {
+    recruiter-promo .about-container .about, candidate-promo .about-container .about {
       max-width: 990px;
       margin: auto;
       padding: 50px 0; }
@@ -2178,6 +2201,9 @@ a:hover {
 
 .no-padding {
   padding: 0; }
+
+.no-margin {
+  margin: 0; }
 
 re-captcha > div > div {
   margin: auto; }

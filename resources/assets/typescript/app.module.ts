@@ -21,6 +21,7 @@ import { PostPreviewComponent } from './shared/components/post-preview.component
 import { PostComponent } from './shared/components/post.component';
 import { ProfileSubHeaderComponent } from './shared/components/profile-sub-header.component';
 import { RecruiterPromoComponent } from './shared/components/recruiter-promo.component';
+import { CandidatePromoComponent } from './shared/components/candidate-promo.component';
 import { ClubComponent } from './shared/components/club.component';
 import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.component';
 import { CguComponent } from './shared/components/cgu.component';
@@ -57,6 +58,7 @@ const metaConfig: MetaConfig = {
                     AboutComponent,
                     CgvComponent,
                     RecruiterPromoComponent,
+                    CandidatePromoComponent,
                     NotificationsComponent ],
     imports:      [ RouterModule,
                     HttpModule,

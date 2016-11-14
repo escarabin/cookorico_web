@@ -55,7 +55,7 @@ export class UNITYTinyMCE {
             {
                 language: 'fr_FR',
                 mode: 'exact',
-                height: 500,
+                height: 300,
                 readonly: __this.readOnly,
                 theme: 'modern',
                 plugins: [

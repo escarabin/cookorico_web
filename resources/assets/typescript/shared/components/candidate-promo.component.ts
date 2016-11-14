@@ -14,12 +14,12 @@ import { Notification } from './../../models/notification';
 declare var braintree:any;
 
 @Component({
-    selector: 'recruiter-promo',
+    selector: 'candidate-promo',
     providers: [ UserService, ReferenceService, BusinessService ],
-    templateUrl: '../templates/recruiter-promo.component.html'
+    templateUrl: '../templates/candidate-promo.component.html'
 })
 
-export class RecruiterPromoComponent {
+export class CandidatePromoComponent {
     userLastName: string;
     userFirstName: string;
     userCivilityId: number = 1;
@@ -37,12 +37,6 @@ export class RecruiterPromoComponent {
                 private referenceService: ReferenceService) {
         this.referenceService.getAllCivilities().subscribe((res:Response) => {
             this.civilities = res.json();
-        });
-
-        this.businessService.getAll().subscribe((res:Response) => {
-            this.businesses = res.json();
-
-            console.log('businesses are ', this.businesses);
         });
     }
 

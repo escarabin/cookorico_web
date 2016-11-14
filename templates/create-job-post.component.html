@@ -71,7 +71,6 @@
             <label>Temps de travail</label>
             <input type="number"
                    class="form-control"
-                   required
                    [disabled]="!userCanPostJob"
                    placeholder="h / semaine"
                    [(ngModel)]="jobPost.week_work_hours"
@@ -100,7 +99,7 @@
                    ngControl="jobPost.end_date"/>
         </div>
         <div class="col-md-6">
-            <label>Type d'emploi</label>
+            <label>Famille du poste</label>
             <select class="form-control"
                     required
                     [disabled]="!userCanPostJob"
@@ -133,7 +132,6 @@
             <label>Formation générale</label>
             <select class="form-control"
                     [(ngModel)]="jobPost.study_level_id"
-                    required
                     [disabled]="!userCanPostJob"
                     name="job_post_study_level"
                     ngControl="jobPost.study_level_id">

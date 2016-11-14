@@ -6,6 +6,7 @@ import { PostComponent } from './shared/components/post.component';
 import { ClubComponent } from './shared/components/club.component';
 import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.component';
 import { RecruiterPromoComponent } from './shared/components/recruiter-promo.component';
+import { CandidatePromoComponent } from './shared/components/candidate-promo.component';
 import { BusinessPageComponent } from './shared/components/business-page.component';
 import { CguComponent } from './shared/components/cgu.component';
 import { CgvComponent } from './shared/components/cgv.component';
@@ -97,6 +98,13 @@ const appRoutes: Routes = [
         data: {
             meta: {
                 title: 'Inscription recruteur'
+            }
+        }
+    },
+    { path: 'accueil-candidat', component: CandidatePromoComponent,
+        data: {
+            meta: {
+                title: 'Inscription candidat'
             }
         }
     },
