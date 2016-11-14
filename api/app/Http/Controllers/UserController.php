@@ -22,6 +22,11 @@ use App\Models\Alert;
 
 class UserController extends Controller
 {
+    // TODO: remove this
+    public function logUserInfos() {
+        return Auth::user();
+    }
+
     /**
      * Sign in user
      * @param $email
@@ -358,22 +363,7 @@ class UserController extends Controller
             }
         }
 
-        /**
-         * Populate the table containing the jobs the new candidate is looking for
-         */
-        $lookingForJobDataList = $request::get('lookingForJobNamingList');
-
-        // TODO : do it before launch!!!
-        /*foreach ($lookingForJobDataList as $data) {
-            $place = app('App\Http\Controllers\PlaceController')
-                     ->savePlaceData($data['place']);
-
-            DB::table('job_naming_user')->insert(
-                ['job_naming_id' => $data['id'],
-                 'place_id' => $place['id'],
-                 'user_id' => $user->id]
-            );
-        }*/
+        $user->save();
 
         if (array_key_exists('profilePictureUrl', $userData)) {
             $this->uploadProfilePictureBase64($userData['profilePictureUrl'], $user->id);
@@ -385,6 +375,24 @@ class UserController extends Controller
         $this->sendAccountConfirmationEmail($user);
 
         $user->save();
+
+        /**
+         * Populate the table containing the jobs the new candidate is looking for
+         */
+        $lookingForJobDataList = $request::get('lookingForJobNamingList');
+
+        foreach ($lookingForJobDataList as $data) {
+            $place = app('App\Http\Controllers\PlaceController')
+                ->savePlaceData($data['place']);
+
+            if ($data['id']) {
+                DB::table('job_naming_user')->insert(
+                    ['job_naming_id' => $data['id'],
+                        'place_id' => $place['id'],
+                        'user_id' => $user->id ]
+                );
+            }
+        }
 
         return $user;
     }

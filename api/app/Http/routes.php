@@ -105,6 +105,10 @@ Route::get('/user/is-part-of-a-group', 'UserController@isPartOfAGroup')
     ->name('isUserPartOfAGroup');
 Route::get('/user/skip-job-creation', 'UserController@skipJobCreationOnSignUp')
     ->name('skipJobCreationOnSignUp');
+Route::get('/user/', 'UserController@skipJobCreationOnSignUp')
+    ->name('skipJobCreationOnSignUp');
+Route::get('/user/log', 'UserController@logUserInfos')
+    ->name('logUserInfos');
 Route::get('/password/update/{oldPassword}/{newPassword}', 'UserController@signIn')
     ->name('signIn');
 

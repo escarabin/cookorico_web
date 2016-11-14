@@ -50,6 +50,10 @@ export class UNITYTinyMCE {
             this.readOnly = 1;
         }
 
+        this.htmlContent = this.mceContent;
+
+        console.log('mce content is', this.mceContent);
+
         //Attach tinyMCE to cloned textarea
         tinymce.init(
             {
