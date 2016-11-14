@@ -29,6 +29,7 @@ export class CreateJobPostComponent {
     user: any = [];
     jobPost:JobPost = new JobPost(null, '', '', null, null, null, null, null, null, null, null, 1, null, '', '', false, false, false);
     userCanPostJob: boolean = false;
+    showTinyMceEditor: boolean = false;
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
@@ -49,18 +50,6 @@ export class CreateJobPostComponent {
             if (params) {
                 __this.jobPost.id = params["jobPostId"];
                 __this.jobPost.business_id = params["businessId"];
-
-                if (__this.jobPost.id) {
-                    // Editing a specific item, let's retrieve it's data
-                    __this.jobPostService.get(__this.jobPost.id).subscribe((res: Response) => {
-                        __this.jobPost = res.json();
-                    });
-
-                    /**
-                     * If user is currently editing an existing job offer, let him do it
-                     */
-                    __this.userCanPostJob = true;
-                }
             }
         });
 
@@ -113,6 +102,29 @@ export class CreateJobPostComponent {
         });
     }
 
+    ngAfterViewInit() {
+        let __this = this;
+
+        if (this.jobPost.id) {
+            // Editing a specific item, let's retrieve it's data
+            this.jobPostService.get(this.jobPost.id).subscribe((res: Response) => {
+                this.jobPost = res.json();
+
+                setTimeout(function() {
+                    __this.showTinyMceEditor = true;
+                }, 500);
+            });
+
+            /**
+             * If user is currently editing an existing job offer, let him do it
+             */
+            this.userCanPostJob = true;
+        }
+        else {
+            this.showTinyMceEditor = true;
+        }
+    }
+
     submitJobPost() {
         let __this = this;
 
@@ -151,7 +163,6 @@ export class CreateJobPostComponent {
     }
 
     skipJobCreation() {
-        let __this = this;
         this.userService.skipJobCreation().subscribe((res: Response) => {
             this.userService.activateAccount(this.user.id).subscribe((res: Response) => {
                 this.router.navigate(['/profil/annonces']);

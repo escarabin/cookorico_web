@@ -182,7 +182,9 @@
                 </option>
             </select>
         </div>
-        <div class="col-md-12" [class.disabled]="!userCanPostJob">
+        <div class="col-md-12"
+             [class.disabled]="!userCanPostJob"
+             *ngIf="showTinyMceEditor">
             <label>Description</label>
             <unity-tinymce [mceContent]="jobPost.description"
                            (newContentInput)="jobDescriptionChanged($event)">
