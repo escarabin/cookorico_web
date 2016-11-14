@@ -161,7 +161,7 @@ return [
         Aws\Laravel\AwsServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Netshell\Paypal\PaypalServiceProvider::class,
-        Rochdi\Payline\PaylineServiceProvider::class
+       // Rochdi\Payline\PaylineServiceProvider::class
     ],
 
     /*
