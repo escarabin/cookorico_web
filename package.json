@@ -50,6 +50,7 @@
     "ng2-meta": "github:vinaygopinath/ng2-meta",
     "ng2-pagination": "^0.4.1",
     "ng2-slim-loading-bar": "^1.4.0",
+    "ng2-social-share": "0.0.10",
     "reflect-metadata": "^0.1.8",
     "rimraf": "^2.5.4",
     "rxjs": "5.0.0-beta.12",

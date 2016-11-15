@@ -88,8 +88,7 @@ export class JobSearchSidebarComponent {
 
                             for (let i = 0; i < params['jobNamingIdList']; i++) {
                                 let paramId = params['jobNamingIdList'][i];
-                                let test = this.getParamTitleFromId(paramId, 'jobNaming');
-                                __this.jobNamingList[paramId] = test;
+                                __this.jobNamingList[paramId] = this.getParamTitleFromId(paramId, 'jobNaming');
                             }
 
                             window.scrollTo(0, 99);
@@ -116,7 +115,15 @@ export class JobSearchSidebarComponent {
             zoom      : this.zoom,
             center    : latLng,
             mapTypeId : google.maps.MapTypeId.ROADMAP,
-            maxZoom   : 20
+            maxZoom   : 20,
+            zoomControl: false,
+            streetViewControl: false,
+            scrollwheel: false,
+            navigationControl: false,
+            mapTypeControl: false,
+            scaleControl: false,
+            draggable: false,
+            disableDoubleClickZoom: true
         };
         this.map  = new google.maps.Map(document.getElementById('google-map'), myOptions);
 

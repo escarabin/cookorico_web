@@ -555,6 +555,7 @@ search {
   margin: auto;
   display: block; }
   search .scrolled-down {
+    margin-top: 230px;
     display: inline-block; }
   search .user-not-logged-in {
     padding-top: 150px; }
