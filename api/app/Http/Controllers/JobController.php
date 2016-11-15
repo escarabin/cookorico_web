@@ -56,7 +56,7 @@ class JobController extends Controller
     public function getAll() {
         $jobs = Job::where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
             ->where('is_active', 1)
-            ->orderBy('created_at', 'ASC')
+            ->orderBy('created_at', 'DESC')
             ->get()
             ->load('business',
                     'user',
@@ -145,7 +145,7 @@ class JobController extends Controller
             $jobsQuery->whereIn('job_xp_level_id', $xpLevelIdList);
         }
 
-        $jobsQuery->orderBy('created_at', 'ASC');
+        $jobsQuery->orderBy('created_at', 'DESC');
 
         $jobs = $jobsQuery->get()->load('business',
                                         'user',

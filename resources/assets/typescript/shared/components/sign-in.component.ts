@@ -55,6 +55,8 @@ export class SignInComponent {
                     new Notification('success', 'Vous êtes connecté')
                 );
 
+                __this.router.navigate(['/profil']);
+
                 /**
                  * Close the sign-in modal
                  */

@@ -24,6 +24,7 @@ export class PricingPlansComponent {
     services: any = [];
     plans: any = [];
     isSimpleBusiness: boolean = true;
+    isPricingTableDisplayed: boolean = false;
     @Input public onlyServices: boolean = false;
 
     constructor(private userService: UserService,

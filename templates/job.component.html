@@ -72,11 +72,11 @@
                 Dés que possible
             </span>
             <span *ngIf="job.start_date">
-                <label>{{ job.start_date }}</label>
+                <label>{{ job.start_date | date:"dd/MM/yy" }}</label>
             </span>
         </div>
-        <div class="col-md-6 job-info end_date" *ngIf="job.end_date">
-            <i class="ton-li-clock-2"></i> &nbsp;Fin : <label>{{ job.end_date }}</label>
+        <div class="col-md-6 job-info end_date" *ngIf="job.end_date && job.end_date != '-0001-11-30'">
+            <i class="ton-li-clock-2"></i> &nbsp;Fin : <label>{{ job.end_date | date:"dd/MM/yy" }}</label>
         </div>
         <div class="col-md-6 job-info languages" *ngIf="job.languages">
             <i class="ton-li-speech-buble-4"></i>

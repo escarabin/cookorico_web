@@ -90,6 +90,9 @@ pricing-plans, businesses, my-job-posts {
     [10. PRICE TABLE]
 ========================================================================== */
   /* 10.1 General styles ================================== */
+  .price.odometer.odometer-auto-theme {
+    margin-left: -55px;
+  }
   .pricing-table h4, .pricing-table h3, .pricing-table .pricing-title {
     font-weight: 700; }
 

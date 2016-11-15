@@ -477,6 +477,8 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     uploadResume(resume: any) {
+        console.log('uploading resume', resume);
+
         let requestBody = resume;
         let pdfPostRequestHeaders = new Headers({ 'Content-Type': 'application/pdf' });
         let pdfPostRequestOptions = new RequestOptions({ headers: pdfPostRequestHeaders });

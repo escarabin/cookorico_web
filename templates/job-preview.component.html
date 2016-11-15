@@ -19,7 +19,9 @@
         </div>
         <div class="business_adress"
              *ngIf="job.business.place.city">
-            <i class="fa fa-map-marker"></i> &nbsp; {{ job.business.place.city }}
+            <i class="fa fa-map-marker"></i> &nbsp;
+            <span *ngIf="job.business.place.postalCode"> {{ job.business.place.postalCode }} -</span>
+            {{ job.business.place.city }}
         </div>
     </div>
 

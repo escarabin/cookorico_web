@@ -269,6 +269,8 @@ pricing-plans, businesses, my-job-posts {
   pricing-plans h3, businesses h3, my-job-posts h3 {
     font-family: "Avenir Heavy", sans-serif;
     color: #234484; }
+  pricing-plans .price.odometer.odometer-auto-theme, businesses .price.odometer.odometer-auto-theme, my-job-posts .price.odometer.odometer-auto-theme {
+    margin-left: -55px; }
   pricing-plans .pricing-table h4, pricing-plans .pricing-table h3, pricing-plans .pricing-table .pricing-title, businesses .pricing-table h4, businesses .pricing-table h3, businesses .pricing-table .pricing-title, my-job-posts .pricing-table h4, my-job-posts .pricing-table h3, my-job-posts .pricing-table .pricing-title {
     font-weight: 700; }
   pricing-plans .pricing-table .pricing-title, businesses .pricing-table .pricing-title, my-job-posts .pricing-table .pricing-title {
@@ -684,7 +686,8 @@ sign-in a {
   cursor: pointer; }
 
 #sign-in-modal .forgot-password {
-  text-align: right; }
+  text-align: right;
+  text-decoration: underline; }
 
 #sign-in-modal .facebook-login, #sign-in-modal .linkedin-login {
   text-align: center;

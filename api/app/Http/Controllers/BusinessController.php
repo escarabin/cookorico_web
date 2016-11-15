@@ -33,14 +33,16 @@ class BusinessController extends Controller
                 $key != "id" &&
                 $key != "created_at" &&
                 $key != "updated_at") {
-                $business[$key] = $value;
+                if (!is_array($value)) {
+                    $business[$key] = $value;
+                }
             }
         }
 
         $business->save();
 
         /**
-         * Loop throueth business photos
+         * Loop through business photos
          */
         $i = 1;
         foreach ($businessData['photos'] as $photo) {
@@ -107,32 +109,32 @@ class BusinessController extends Controller
                 $business->place_id = $place->id;
                 $business->save();
             }
+
+            /**
+             *  Create Sellsy Prospect related to current user / Contact
+             */
+            App::make('SellsyClient')
+                ->getService('Prospects')
+                ->call('create',
+                    ['third' =>
+                        ['cookorico_id' => $business->id,
+                            'name' => $business->title,
+                            'tel' => $business->phone,
+                            'email' => $business->email],
+                        'contact' =>
+                            ['cookorico_id' => Auth::user()->id,
+                                'name' => Auth::user()->email,
+                                'tel' => $business->phone,
+                                'forename' => Auth::user()->firstName],
+                        'address' =>
+                            ['name' => $place->adress,
+                                'part1' => $place->adress,
+                                'town' => $place->city,
+                                'zip' => $place->postalCode]
+                    ]
+                );
         }
 
-
-        /**
-         *  Create Sellsy Prospect related to current user / Contact
-         */
-         App::make('SellsyClient')
-             ->getService('Prospects')
-             ->call('create',
-            ['third' =>
-                ['cookorico_id' => $business->id,
-                    'name' => $business->title,
-                    'tel' => $business->phone,
-                    'email' => $business->email],
-                'contact' =>
-                    ['cookorico_id' => Auth::user()->id,
-                        'name' => Auth::user()->email,
-                        'tel' => $business->phone,
-                        'forename' => Auth::user()->firstName],
-                'address' =>
-                    ['name' => $place->adress,
-                        'part1' => $place->adress,
-                        'town' => $place->city,
-                        'zip' => $place->postalCode]
-            ]
-        );
 
         return $business;
     }
