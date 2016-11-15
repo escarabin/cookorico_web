@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Response } from '@angular/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'ng2-meta';
-import { CeiboShare } from 'ng2-social-share';
 
 // Services
 import { JobService } from '../../services/job.service';
@@ -13,7 +12,6 @@ import { Notification } from '../../models/notification';
 
 @Component({
     providers: [JobService],
-    directives: [CeiboShare],
     inputs: ['jobId'],
     selector: 'job',
     templateUrl: '../templates/job.component.html',

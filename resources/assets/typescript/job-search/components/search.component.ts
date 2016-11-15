@@ -39,6 +39,7 @@ export class SearchComponent {
         this.userService.getUserInfos().subscribe((res: Response) => {
             if (res.text().length > 10) {
                 this.user = res.json();
+                console.log('getting some user infos', this.user);
             }
             else {
                 /**

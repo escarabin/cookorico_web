@@ -1,4 +1,4 @@
-import { Component, Inject, ChangeDetectorRef } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
 
@@ -39,7 +39,6 @@ export class JobSearchResultsComponent {
     mapLng: number = 2.213749;
 
     constructor(@Inject(SearchService) private searchService: SearchService,
-                private ref: ChangeDetectorRef,
                 private referenceService: ReferenceService,
                 private route: ActivatedRoute) {
         let __this = this;
@@ -87,6 +86,8 @@ export class JobSearchResultsComponent {
          */
 
         searchService.parametersEmitter.subscribe((params) => {
+            console.log('[job-search-results] new params', params);
+
             this.parametersList = params;
         });
 
@@ -98,7 +99,7 @@ export class JobSearchResultsComponent {
 
             console.log('[job-search-results] new results', __this.jobs);
 
-            // window.scrollTo(0, 100);
+            window.scrollTo(0, 100);
 
             /**
              * Clear map markers

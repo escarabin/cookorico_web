@@ -65,8 +65,6 @@ export class CreateBusinessComponent {
 
                     __this.userService.getBusiness(__this.business.id).subscribe((res: Response) => {
                         __this.business = res.json();
-
-                        console.log('got it', res.json());
                     });
                 }
             }

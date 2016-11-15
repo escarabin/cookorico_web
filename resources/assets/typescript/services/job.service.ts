@@ -37,7 +37,7 @@ export class JobService {
     searchJobs(searchParameters: any) {
         let body = JSON.stringify({ searchParameters });
 
-        console.log('[job.service] searching for jobs', body);
+        console.log('[job.service] searching for jobs', searchParameters);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });

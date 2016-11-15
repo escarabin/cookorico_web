@@ -78,17 +78,21 @@ export class JobSearchSidebarComponent {
                                 __this.zoom = 8;
                             }
 
-                            for (let i = 0; i < params['contractTypeList'].length; i++) {
-                                let paramId = params['contractTypeList'][i];
-                                __this.contractTypeList[paramId] = this.getParamTitleFromId(paramId, 'contractType');
+                            if (params['contractTypeList']) {
+                                for (let i = 0; i < params['contractTypeList'].length; i++) {
+                                    let paramId = params['contractTypeList'][i];
+                                    __this.contractTypeList[paramId] = this.getParamTitleFromId(paramId, 'contractType');
+                                }
                             }
-
-                            for (let i = 0; i < params['xpLevelList'].length; i++) {
-                                let paramId = params['xpLevelList'][i];
-                                __this.xpLevelList[paramId] = this.getParamTitleFromId(paramId, 'xpLevel');
+                            if (params['xpLevelList']) {
+                                for (let i = 0; i < params['xpLevelList'].length; i++) {
+                                    let paramId = params['xpLevelList'][i];
+                                    __this.xpLevelList[paramId] = this.getParamTitleFromId(paramId, 'xpLevel');
+                                }
                             }
-
-                            __this.jobNamingList = params['jobNamingList'];
+                            if (params['jobNamingList']) {
+                                __this.jobNamingList = params['jobNamingList'];
+                            }
 
                             window.scrollTo(0, 99);
                         });
@@ -248,6 +252,8 @@ export class JobSearchSidebarComponent {
      * @param place
      */
     parseAdress(place: Object) {
+        console.log('[job-search-sidebar] just parsed address', this.parametersList);
+
         this.parametersList['place'] = place;
         this.searchService.search(this.parametersList);
         this.mapLat = place['geometry']['location'].lat();

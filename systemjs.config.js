@@ -26,7 +26,6 @@
       'moment':                     'node_modules/moment',
       'notifications':              'node_modules/angular2-notifications',
       'ng2-img-cropper':            'node_modules/ng2-img-cropper',
-      'ng2-social-share':           'node_modules/ng2-social-share',
       'ng2-file-upload':            'node_modules/ng2-file-upload',
       'angular2-google-map-auto-complete':'node_modules/angular2-google-map-auto-complete',
       'angular2-google-maps':       'node_modules/angular2-google-maps',
@@ -59,8 +58,7 @@
       'ng2-meta':                   { main: 'dist/index.js', defaultExtension: 'js' },
       'braintree-web':              { main: 'index.js', defaultExtension: 'js' },
       'braintree-web/paypal':       { main: 'paypal.js', defaultExtension: 'js' },
-      'angular2-recaptcha':         { defaultExtension: 'js', main:'index' },
-      'ng2-social-share':           { defaultExtension: 'js', main:'ng2-social-share.js' }
+      'angular2-recaptcha':         { defaultExtension: 'js', main:'index' }
 
     }
   });
