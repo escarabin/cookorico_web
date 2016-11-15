@@ -105,7 +105,7 @@ export class JobSearchSidebarComponent {
          * Subscribe to new search results coming from search.service
          */
         SearchService.resultsEmitter.subscribe((results) => {
-            __this.jobs = results.json();
+            __this.jobs = Object.values(results.json());
         });
     }
 

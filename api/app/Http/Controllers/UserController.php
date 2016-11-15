@@ -14,6 +14,7 @@ use Auth;
 use Log;
 use Hash;
 use Mail;
+use Session;
 
 use App\Models\User;
 use App\Models\Application;
@@ -148,6 +149,7 @@ class UserController extends Controller
         Log::info('logging user out');
 
         Auth::logout();
+        Session::flush();
     }
 
     /**

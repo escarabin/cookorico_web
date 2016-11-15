@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
 
@@ -40,6 +40,7 @@ export class JobSearchResultsComponent {
 
     constructor(@Inject(SearchService) private searchService: SearchService,
                 private referenceService: ReferenceService,
+                private ref: ChangeDetectorRef,
                 private route: ActivatedRoute) {
         let __this = this;
 
@@ -95,9 +96,8 @@ export class JobSearchResultsComponent {
          * Subscribe to new search results coming from search.service
          */
         searchService.resultsEmitter.subscribe((results) => {
-            __this.jobs = results.json();
-
-            console.log('[job-search-results] new results', __this.jobs);
+            __this.jobs = Object.values(results.json());
+            console.log('[job-search-results] new results', __this.jobs, __this.jobs.length);
 
             window.scrollTo(0, 100);
 
@@ -139,6 +139,7 @@ export class JobSearchResultsComponent {
 
                 this.mapMarkers.push(marker);
             }
+
         });
 
         /**
