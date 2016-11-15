@@ -91,6 +91,9 @@ class JobController extends Controller
     public function search(Request $request) {
         $parameters = $request::get('searchParameters');
 
+        Log::info('searching for jobs');
+        Log::info($request::all());
+
         $contractTypeList = array();
         $jobNamingList = array();
         $xpLevelList = array();

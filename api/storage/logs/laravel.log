@@ -1,427 +1,102 @@
-[2016-11-15 11:02:49] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
+[2016-11-15 12:25:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/5/0/0',
 )  
-[2016-11-15 11:02:54] local.INFO: array (
+[2016-11-15 12:25:32] local.INFO: searching for jobs  
+[2016-11-15 12:25:32] local.INFO: array (
+  'searchParameters' => 
+  array (
+    'contractTypeIdList' => 
+    array (
+      0 => 0,
+    ),
+    'jobNamingIdList' => 
+    array (
+      5 => 'Pizzaïolo / Crêpier',
+    ),
+    'xpLevelIdList' => 
+    array (
+      0 => 0,
+    ),
+  ),
+)  
+[2016-11-15 12:26:16] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/5/0/0',
+)  
+[2016-11-15 12:26:16] local.INFO: searching for jobs  
+[2016-11-15 12:26:16] local.INFO: array (
+  'searchParameters' => 
+  array (
+    'contractTypeList' => 
+    array (
+      0 => 0,
+    ),
+    'jobNamingList' => 
+    array (
+      5 => 'Pizzaïolo / Crêpier',
+    ),
+    'xpLevelList' => 
+    array (
+      0 => 0,
+    ),
+  ),
+)  
+[2016-11-15 12:27:09] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/5/0/0',
+)  
+[2016-11-15 12:27:10] local.INFO: searching for jobs  
+[2016-11-15 12:27:10] local.INFO: array (
+  'searchParameters' => 
+  array (
+    'contractTypeList' => 
+    array (
+      0 => 0,
+    ),
+    'jobNamingList' => 
+    array (
+      5 => 'Pizzaïolo / Crêpier',
+    ),
+    'xpLevelList' => 
+    array (
+      0 => 0,
+    ),
+  ),
+)  
+[2016-11-15 12:27:16] local.INFO: array (
   'redirectionUrl' => '/',
 )  
-[2016-11-15 11:02:54] local.INFO: array (
+[2016-11-15 12:27:16] local.INFO: array (
   'redirectionUrl' => '/',
 )  
-[2016-11-15 11:02:54] local.INFO: array (
+[2016-11-15 12:27:17] local.INFO: array (
   'redirectionUrl' => '/',
 )  
-[2016-11-15 11:03:01] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:03:01] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:03:01] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:03:02] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:03:04] local.INFO: array (
-  'redirectionUrl' => '/profil/annonces',
-)  
-[2016-11-15 11:03:04] local.INFO: array (
-  'redirectionUrl' => '/profil/annonces',
-)  
-[2016-11-15 11:03:06] local.INFO: array (
-  'redirectionUrl' => '/profil/annonces',
-)  
-[2016-11-15 11:03:06] local.INFO: array (
-  'redirectionUrl' => '/profil/annonces',
-)  
-[2016-11-15 11:03:06] local.INFO: array (
-  'redirectionUrl' => '/profil/annonces',
-)  
-[2016-11-15 11:03:06] local.INFO: array (
-  'redirectionUrl' => '/profil/annonces',
-)  
-[2016-11-15 11:03:12] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:12] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:12] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:12] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:12] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:12] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:37] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:03:40] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:03:40] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:03:40] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:03:43] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:43] local.INFO: logging user out  
-[2016-11-15 11:03:43] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:43] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:43] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:43] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:43] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:03:44] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:03:44] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:03:44] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:03:45] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:03:47] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:03:47] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:03:47] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:03:47] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:03:47] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:03:47] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:03:58] local.INFO: array (
-  'redirectionUrl' => '/profil/apercu',
-)  
-[2016-11-15 11:03:58] local.INFO: array (
-  'redirectionUrl' => '/profil/apercu',
-)  
-[2016-11-15 11:03:59] local.INFO: array (
-  'redirectionUrl' => '/profil/apercu',
-)  
-[2016-11-15 11:03:59] local.INFO: array (
-  'redirectionUrl' => '/profil/apercu',
-)  
-[2016-11-15 11:03:59] local.INFO: array (
-  'redirectionUrl' => '/profil/apercu',
-)  
-[2016-11-15 11:03:59] local.INFO: array (
-  'redirectionUrl' => '/profil/apercu',
-)  
-[2016-11-15 11:04:01] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:04:01] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:04:01] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:04:01] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:04:01] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:04:01] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:04:02] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:04:02] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:04:02] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:04:02] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:04:03] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:04:03] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:04:03] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:04:05] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:04:05] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:04:05] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:04:05] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:04:05] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:04:05] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:04:05] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:04:05] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:04:05] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:04:50] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:11:33] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:11:38] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:11:38] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:11:38] local.INFO: array (
-  'redirectionUrl' => '/recherche/annonce/42',
-)  
-[2016-11-15 11:11:43] local.INFO: array (
-  'redirectionUrl' => '/recherche',
-)  
-[2016-11-15 11:11:43] local.INFO: array (
-  'redirectionUrl' => '/recherche',
-)  
-[2016-11-15 11:11:43] local.INFO: array (
-  'redirectionUrl' => '/recherche',
-)  
-[2016-11-15 11:12:41] local.INFO: array (
-  'redirectionUrl' => '/recherche',
-)  
-[2016-11-15 11:14:02] local.INFO: array (
-  'redirectionUrl' => '/recherche',
-)  
-[2016-11-15 11:14:52] local.INFO: array (
-  'redirectionUrl' => '/recherche',
-)  
-[2016-11-15 11:15:39] local.INFO: array (
-  'redirectionUrl' => '/recherche',
-)  
-[2016-11-15 11:15:57] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:15:57] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:15:57] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:15:58] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:15:58] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:15:58] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:15:59] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:21:58] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:23:15] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:23:26] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:23:37] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:23:37] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:23:38] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:23:39] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:23:39] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:23:39] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:23:39] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:03] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:03] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:03] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:03] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:03] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:03] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:10] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:10] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:10] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:10] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:11] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:11] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:11] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:18] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:18] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:18] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:18] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:18] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:18] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:19] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:19] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:19] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:22] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:22] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:22] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:22] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:22] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:22] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:23] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:23] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:23] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:24] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/0/0/0',
-)  
-[2016-11-15 11:24:41] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:41] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:41] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:41] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:41] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:41] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:41] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:41] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:42] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:42] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:42] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:42] local.INFO: array (
-  'redirectionUrl' => '/',
-)  
-[2016-11-15 11:24:59] local.INFO: array (
-  'redirectionUrl' => '/recherche/0/3/0/0',
+[2016-11-15 12:27:20] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/5/0/0',
+)  
+[2016-11-15 12:27:20] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/5/0/0',
+)  
+[2016-11-15 12:27:21] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/5/0/0',
+)  
+[2016-11-15 12:27:21] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/5/0/0',
+)  
+[2016-11-15 12:27:21] local.INFO: searching for jobs  
+[2016-11-15 12:27:21] local.INFO: array (
+  'searchParameters' => 
+  array (
+    'contractTypeList' => 
+    array (
+      0 => 0,
+    ),
+    'jobNamingList' => 
+    array (
+      5 => 'Pizzaïolo / Crêpier',
+    ),
+    'xpLevelList' => 
+    array (
+      0 => 0,
+    ),
+  ),
 )  

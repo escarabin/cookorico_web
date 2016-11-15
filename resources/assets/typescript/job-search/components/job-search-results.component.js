@@ -28,9 +28,9 @@ var JobSearchResultsComponent = (function () {
         this.contractTypeId = this.routeParams.get('contractTypeId');
         this.jobNamingId = this.routeParams.get('jobNamingId');
         this.searchText = this.routeParams.get('searchText');
-        this.jobService.getAllJobs().subscribe(function (res) {
+        /*this.jobService.getAllJobs().subscribe(function (res) {
             __this.jobs = res.json();
-        });
+        });*/
     }
     /**
      * Function called from search.component

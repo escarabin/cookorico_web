@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, Inject } from '@angular/core';
 import { Response } from '@angular/http';
 
-// Components
+// Services
 import { ReferenceService } from '../../services/reference.service';
 import { SearchService } from '../../services/search.service';
 
@@ -52,6 +52,8 @@ export class JobSearchSidebarComponent {
          */
         SearchService.parametersEmitter.subscribe(
             params => {
+                console.log('[job-search-sidebar] received some search params', params);
+
                 referenceService.getAllJobNamings().subscribe((jobNamingList: Response) => {
                     __this.jobNamings = jobNamingList.json();
 
@@ -76,20 +78,17 @@ export class JobSearchSidebarComponent {
                                 __this.zoom = 8;
                             }
 
-                            for (let i = 0; i < params['contractTypeIdList']; i++) {
-                                let paramId = params['contractTypeIdList'][i];
+                            for (let i = 0; i < params['contractTypeList'].length; i++) {
+                                let paramId = params['contractTypeList'][i];
                                 __this.contractTypeList[paramId] = this.getParamTitleFromId(paramId, 'contractType');
                             }
 
-                            for (let i = 0; i < params['xpLevelIdList']; i++) {
-                                let paramId = params['xpLevelIdList'][i];
+                            for (let i = 0; i < params['xpLevelList'].length; i++) {
+                                let paramId = params['xpLevelList'][i];
                                 __this.xpLevelList[paramId] = this.getParamTitleFromId(paramId, 'xpLevel');
                             }
 
-                            for (let i = 0; i < params['jobNamingIdList']; i++) {
-                                let paramId = params['jobNamingIdList'][i];
-                                __this.jobNamingList[paramId] = this.getParamTitleFromId(paramId, 'jobNaming');
-                            }
+                            __this.jobNamingList = params['jobNamingList'];
 
                             window.scrollTo(0, 99);
                         });

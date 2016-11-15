@@ -28,6 +28,7 @@ export class SearchService {
          */
         if (params) {
             this.parametersEmitter.emit(params);
+            console.log('[search-service] searching for jobs with params', params);
 
             /**
              * Search jobs via job-service & emit results
@@ -37,6 +38,8 @@ export class SearchService {
             });
         }
         else {
+            console.log('[search-service] getting all jobs');
+
             /**
              * Get all jobs via job-service & emit results
              */

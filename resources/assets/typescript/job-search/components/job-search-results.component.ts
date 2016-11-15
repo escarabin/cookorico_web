@@ -1,8 +1,10 @@
 import { Component, Inject, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Response } from '@angular/http';
 
 // Services
 import { SearchService } from '../../services/search.service';
+import { ReferenceService } from '../../services/reference.service';
 
 // Pagination
 import { PaginatePipe, PaginationService } from 'ng2-pagination';
@@ -11,7 +13,7 @@ import appGlobals = require('./../../globals');
 
 @Component({
     selector: 'job-search-results',
-    providers: [PaginationService],
+    providers: [PaginationService, ReferenceService],
     pipes: [PaginatePipe],
     templateUrl: '../templates/job-search-results.component.html',
 })
@@ -23,10 +25,11 @@ export class JobSearchResultsComponent {
     jobNamingId: string;
     searchText: string;
     isMapModeEnabled: boolean = false;
-    parametersList: any = [];
+    parametersList: any = {};
     placeId: string;
     mapMarkers: any = [];
     map: any;
+    jobNamings: any = [];
 
     /**
      * By default, populate place object with France coords
@@ -37,6 +40,7 @@ export class JobSearchResultsComponent {
 
     constructor(@Inject(SearchService) private searchService: SearchService,
                 private ref: ChangeDetectorRef,
+                private referenceService: ReferenceService,
                 private route: ActivatedRoute) {
         let __this = this;
 
@@ -52,20 +56,28 @@ export class JobSearchResultsComponent {
                 __this.searchText = params['searchText'];
                 __this.placeId = params['placeId'];
 
-                this.parametersList['contractTypeIdList'] = [ this.contractTypeId ];
-                this.parametersList['jobNamingIdList'] = [ this.jobNamingId ];
-                this.parametersList['xpLevelIdList'] = [ this.xpLevelId ];
+                this.parametersList['contractTypeList'] = {};
+                this.parametersList['jobNamingList'] = {};
+                this.parametersList['xpLevelList'] = {};
 
-                /**
-                 * Get google maps data from placeId using reverse geocoding API
-                 */
-                let geocoder = new google.maps.Geocoder;
-                geocoder.geocode({'placeId': __this.placeId}, function(results) {
-                    let place = results[0];
+                referenceService.getAllJobNamings().subscribe((jobNamingList: Response) => {
+                    __this.jobNamings = jobNamingList.json();
 
-                    __this.parametersList['place'] = place;
+                    this.parametersList['jobNamingList'][this.jobNamingId] = this.getParamTitleFromId(__this.jobNamingId, 'jobNaming');
+                    this.parametersList['contractTypeList'][0] = 0;
+                    this.parametersList['xpLevelList'][0] = 0;
 
-                    searchService.search(__this.parametersList);
+                    /**
+                     * Get google maps data from placeId using reverse geocoding API
+                     */
+                    let geocoder = new google.maps.Geocoder;
+                    geocoder.geocode({'placeId': __this.placeId}, function(results) {
+                        let place = results[0];
+
+                        __this.parametersList['place'] = place;
+
+                        searchService.search(__this.parametersList);
+                    });
                 });
             }
         });
@@ -84,7 +96,7 @@ export class JobSearchResultsComponent {
         searchService.resultsEmitter.subscribe((results) => {
             __this.jobs = results.json();
 
-            console.log('new results', __this.jobs);
+            console.log('[job-search-results] new results', __this.jobs);
 
             // window.scrollTo(0, 100);
 
@@ -189,5 +201,19 @@ export class JobSearchResultsComponent {
      */
     pageChanged() {
         window.scrollTo(0, 100);
+    }
+
+
+    /**
+     * Get parameter title from its id
+     * @param parameterId
+     * @param parameterType
+     */
+    getParamTitleFromId(parameterId: number, parameterType: string) {
+        for (let i = 0; i < this.jobNamings.length; i++) {
+            if (this.jobNamings[i].id == parameterId) {
+                return this.jobNamings[i]['title'];
+            }
+        }
     }
 }
