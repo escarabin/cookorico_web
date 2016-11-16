@@ -76,18 +76,18 @@ Route::post('/user/create', 'UserController@createUser')
     ->name('createUser');
 Route::post('/user/candidate/create', 'UserController@createCandidateUser')
     ->name('createCandidateUser');
-Route::get('/user/matching_profiles/', 'UserController@getMatchingProfiles')
+Route::get('/user/matching_profiles/{userId?}', 'UserController@getMatchingProfiles')
     ->name('getMatchingProfiles');
-Route::get('/user/businesses/', 'UserController@getBusinesses')
+Route::get('/user/businesses/{userId?}', 'UserController@getBusinesses')
     ->name('getAllUserBusinesses');
-Route::post('/user/upload_profile_picture', 'UserController@uploadProfilePicture')
+Route::post('/user/upload_profile_picture/{userId?}', 'UserController@uploadProfilePicture')
     ->name('uploadProfilePicture');
-Route::post('/user/upload_resume', 'UserController@uploadResume')
+Route::post('/user/upload_resume/{userId?}', 'UserController@uploadResume')
     ->name('uploadResume');
-Route::post('/user/save_info', 'UserController@saveInfo');
+Route::post('/user/save_info/{userId?}', 'UserController@saveInfo');
 /*Route::post('/user/create_candidate', 'UserController@fillCandidateInfos')
     ->name('createCandidate');*/
-Route::get('/user/get_profile_percentage', 'UserController@getProfilePercentage')
+Route::get('/user/get_profile_percentage/{userId?}', 'UserController@getProfilePercentage')
     ->name('getProfilePercentage');
 Route::get('/user/disable_account', 'UserController@disableAccount')
     ->name('disableAccount');
@@ -95,21 +95,19 @@ Route::get('/user/make_candidate_accessible/{candidateId}', 'UserController@subt
     ->name('subtractProfileContact');
 Route::get('/user/access_to_candidate/{candidateId}', 'UserController@doRecruiterHasAccessToCandidate')
     ->name('doRecruiterHasAccessToCandidate');
-Route::post('/user/save-job-seeking-data', 'UserController@saveJobSeekingData')
+Route::post('/user/save-job-seeking-data/{userId?}', 'UserController@saveJobSeekingData')
     ->name('saveJobSeekingData');
-Route::post('/user/languages/save', 'UserController@saveSpokenLanguages')
+Route::post('/user/languages/save/{userId?}', 'UserController@saveSpokenLanguages')
     ->name('saveSpokenLanguages');
-Route::get('/user/languages', 'UserController@getSpokenLanguages')
+Route::get('/user/languages/{userId?}', 'UserController@getSpokenLanguages')
     ->name('getSpokenLanguages');
-Route::get('/user/is-part-of-a-group', 'UserController@isPartOfAGroup')
+Route::get('/user/is-part-of-a-group/{userId?}', 'UserController@isPartOfAGroup')
     ->name('isUserPartOfAGroup');
-Route::get('/user/skip-job-creation', 'UserController@skipJobCreationOnSignUp')
-    ->name('skipJobCreationOnSignUp');
-Route::get('/user/', 'UserController@skipJobCreationOnSignUp')
+Route::get('/user/skip-job-creation/{userId?}', 'UserController@skipJobCreationOnSignUp')
     ->name('skipJobCreationOnSignUp');
 Route::get('/user/log', 'UserController@logUserInfos')
     ->name('logUserInfos');
-Route::get('/password/update/{oldPassword}/{newPassword}', 'UserController@signIn')
+Route::get('/password/update/{oldPassword}/{newPassword}/{userId?}', 'UserController@signIn')
     ->name('signIn');
 
 // Posts
@@ -179,9 +177,9 @@ Route::get('/user/experiences/{userId?}', 'UserController@getExperiences')
     ->name('getAllExperiences');
 Route::get('/experience/{experienceId}', 'UserController@getExperience')
     ->name('getExperience');
-Route::post('/experience/create', 'ExperienceController@createExperience')
+Route::post('/experience/create/{userId?}', 'ExperienceController@createExperience')
     ->name('createExperience');
-Route::post('/experience/update', 'ExperienceController@updateExperience')
+Route::post('/experience/update/{userId?}', 'ExperienceController@updateExperience')
     ->name('updateExperience');
 Route::get('/experience/delete/{experiences}', 'ExperienceController@deleteExperiences')
     ->name('deleteExperiences');
@@ -229,7 +227,7 @@ Route::get('/diplomas/all', 'ReferenceController@getAllDiplomas')
     ->name('getAllDiplomas');
 
 // Businesses
-Route::post('/business/create', 'BusinessController@create')
+Route::post('/business/create/{userId?}', 'BusinessController@create')
     ->name('createBusiness');
 Route::get('/business/{businessId}', 'BusinessController@get')
     ->name('getBusiness');
