@@ -52,6 +52,8 @@ export class PricingPlansComponent {
             for (let i=0; i < Object.keys(servicesObject).length; i++) {
                 let service = servicesObject[Object.keys(servicesObject)[i]];
 
+                console.log('servce is', service);
+
                 let isSimpleBusinessService = service['customfields'][1]['boolval'];
                 if (this.isSimpleBusiness && isSimpleBusinessService == 'Y') {
                     __this.services.push(servicesObject[Object.keys(servicesObject)[i]]);

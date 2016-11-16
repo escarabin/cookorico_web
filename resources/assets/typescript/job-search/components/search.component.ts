@@ -23,7 +23,7 @@ export class SearchComponent {
     studyLevelId: number;
     searchParameters: any = [];
     user: any;
-    scrollTop: number;
+    scrollTop: number = 0;
     routeSegments: any = [];
     seoRouteData: string;
     locationName: string;
@@ -36,20 +36,7 @@ export class SearchComponent {
                 private notificationService: NotificationsService) {
         let __this = this;
 
-        this.userService.getUserInfos().subscribe((res: Response) => {
-            if (res.text().length > 10) {
-                this.user = res.json();
-                console.log('getting some user infos', this.user);
-            }
-            else {
-                /**
-                 * If user is not logged in, show sign-up notification
-                 */
-                this.notificationService.show(
-                    new Notification('info', 'Pour postuler', '/inscription-candidat', 'Inscrivez-vous', true)
-                );
-            }
-        });
+        this.user = JSON.parse(localStorage.getItem('user'));
 
         route.params.subscribe(params => {
             if (params) {
@@ -105,8 +92,6 @@ export class SearchComponent {
      * @param event
      */
     onPageScroll(event: any) {
-        if (this.user) {
-            this.scrollTop = event.target['scrollingElement']['scrollTop'];
-        }
+        this.scrollTop = event.target['scrollingElement']['scrollTop'];
     }
 }

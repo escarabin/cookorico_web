@@ -42,14 +42,20 @@
         <br />
         <button class="btn btn-primary full-width"
                 (click)="payWithPaypal(service)"
+                *ngIf="!onlyServices"
                 id="pay-with-paypal-btn-{{ i }}">
             <span class="fa fa-paypal"></span> &nbsp; Souscrire
+        </button>
+        <button class="btn btn-primary full-width"
+                routerLink="/accueil-recruteur"
+                *ngIf="onlyServices">
+            Je m'inscris
         </button>
     </div>
 </div>
 
 <div class="col-md-12 centered"
-     *ngIf="!isPricingTableDisplayed">
+     *ngIf="!isPricingTableDisplayed && !onlyServices">
     <button class="btn btn-primary"
             (click)="isPricingTableDisplayed = true">
         <span class="fa fa-plus"></span> &nbsp; En savoir plus

@@ -17,6 +17,7 @@ import { Notification } from '../../models/notification';
 
 import { ModalDirective } from 'ng2-bootstrap/components/modal/modal.component';
 
+
 // Pipes
 // import { SafePipe } from './../../pipes/safe.pipe';
 
@@ -292,15 +293,22 @@ export class ProfilePreviewComponent {
             /**
              * File has been successfully uploaded to AWS S3
              */
-            if (res['_body']) {
+            if (res != 'error') {
                 this.notificationService.show(
                     new Notification('success', 'Votre CV a bien été modifié')
                 );
 
+                this.user.resumeUrl = res;
+
                 /**
                  * Close resume modal
                  */
-                document.getElementById('edit-resume-modal').click();
+                this.hideEditResumeModal();
+            }
+            else {
+                this.notificationService.show(
+                    new Notification('error', 'Une erreur est survenue, veuillez réessayer')
+                );
             }
 
             this.isLoading = false;

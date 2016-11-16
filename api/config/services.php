@@ -42,19 +42,19 @@ return [
     'linkedin' => [
         'client_id' => env('LINKEDIN_ID'),
         'client_secret' => env('LINKEDIN_SECRET'),
-        'redirect' => 'http://localhost:8888/api/public/auth/linkedin/callback',
+        'redirect' => env('ROOT_URL').'/api/public/auth/linkedin/callback',
     ],
 
     'google' => [
         'client_id' => env('GOOGLE_ID'),
         'client_secret' => env('GOOGLE_SECRET'),
-        'redirect' => 'http://localhost:8888/api/public/auth/google/callback',
+        'redirect' => env('ROOT_URL').'/api/public/auth/google/callback',
     ],
 
     'facebook' => [
         'client_id' => env('FACEBOOK_ID'),
         'client_secret' => env('FACEBOOK_SECRET'),
-        'redirect' => 'http://localhost:8888/api/public/auth/facebook/callback',
+        'redirect' => env('ROOT_URL').'/api/public/auth/facebook/callback',
     ],
 
     'paypal' => [

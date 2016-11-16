@@ -134,6 +134,7 @@ class JobController extends Controller
         $jobsQuery = Job::query();
         $jobsQuery = Job::where('created_at', '>', date("Y-m-d", strtotime("-1 month")));
         $jobsQuery->where('is_active', 1);
+        $jobsQuery->where('is_accepted', 1);
 
         if (count($jobNamingIdList)) {
             $jobsQuery->whereIn('job_naming_id', $jobNamingIdList);
@@ -374,17 +375,22 @@ class JobController extends Controller
                                     <postalcode><![CDATA['.$job->business->place->postalCode.']]></postalcode>
                                     <country><![CDATA[FRANCE]]></country>
                                     <description><![CDATA['.$job->description.']]></description>
-                                    <category><![CDATA['.$job->jobNaming->title.']]></category>
-                                    <education><![CDATA['.$job->studyLevel->title.']]></education>
-                                    <jobtype><![CDATA['.$job->contractType->title.']]></jobtype>
-                                    <experience><![CDATA['.$job->jobXpLevel->title.']]></experience>
-                                </job>';
+                                    <category><![CDATA['.$job->jobNaming->title.']]></category>';
+
+            if ($job->studyLevel) {
+                $xmlFileContent .= "<education><![CDATA['.$job->studyLevel->title.']]></education>";
+            }
+            if ($job->jobXpLevel) {
+                $xmlFileContent .= "<experience><![CDATA['.$job->jobXpLevel->title.']]></experience>";
+            }
+            if ($job->contractType) {
+                $xmlFileContent .= "<jobtype><![CDATA['.$job->contractType->title.']]></jobtype>";
+            }
+            $xmlFileContent .= '</job>';
         }
 
         $xmlFileContent .= '    </source>
                             </xml>';
-
-        Log::info($xmlFileContent);
 
         return $xmlFileContent;
     }

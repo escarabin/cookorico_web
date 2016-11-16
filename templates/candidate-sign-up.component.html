@@ -101,7 +101,7 @@
             <input type="phone"
                    class="form-control"
                    required
-                   name="firstName"
+                   name="phone"
                    [(ngModel)]="user.phone"
                    ngControl="user.phone"
                    placeholder="Téléphone"/>
@@ -126,7 +126,7 @@
                     required
                     [class.error]="lookingForJobNamingList[0]['id'] == 0"
                     [(ngModel)]="lookingForJobNamingList[0]['id']">
-                <option disabled selected value="0">-- Type de poste --</option>
+                <option selected value="0">-- Type de poste --</option>
                 <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
                           label="{{ jobNamingGroup.title }}">
                     <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
@@ -138,7 +138,7 @@
             <select class="form-control"
                     name="loooking_for_job_naming_1"
                     [(ngModel)]="lookingForJobNamingList[1]['id']">
-                <option disabled selected value="0">-- Type de poste --</option>
+                <option selected value="0">-- Type de poste --</option>
                 <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
                           label="{{ jobNamingGroup.title }}">
                     <option *ngFor="let jobNaming of jobNamingGroup.job_namings"
@@ -150,7 +150,7 @@
             <select class="form-control"
                     name="loooking_for_job_naming_2"
                     [(ngModel)]="lookingForJobNamingList[2]['id']">
-                <option disabled selected value="0">-- Type de poste --</option>
+                <option selected value="0">-- Type de poste --</option>
                 <optgroup *ngFor="let jobNamingGroup of jobNamingGroups"
                           label="{{ jobNamingGroup.title }}">
                     <option *ngFor="let jobNaming of jobNamingGroup.job_namings"

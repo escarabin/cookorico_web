@@ -15,6 +15,8 @@ use Log;
 use Hash;
 use Mail;
 use Session;
+use Response;
+use Illuminate\Support\Facades\Input;
 
 use App\Models\User;
 use App\Models\Application;
@@ -809,13 +811,27 @@ class UserController extends Controller
 
     /**
      * Upload a new resume
-     * @param Request $request
      * @return string
      */
-    public function uploadResume(Request $request) {
-        Log::info($request::all());
+    public function uploadResume() {
+        $input = Input::all();
+        $destinationPath = 'uploads';
+        $fileName = rand(11111, 99999) . '.pdf';
+        $upload_success = $input['uploads'][0]->move($destinationPath, $fileName); // uploading file to given path
 
-        return 'test';
+        $user = Auth::user();
+
+        app('App\Http\Controllers\FileController')
+            ->upload('oechr-resume', $user->id.'.pdf', $destinationPath.'/'.$fileName);
+
+        $user->resumeUrl = "https://s3-eu-west-1.amazonaws.com/oechr-resume/".$user->id.".pdf";
+        $user->save();
+
+        if ($upload_success) {
+            return Response::json($user->resumeUrl, 200);
+        } else {
+            return Response::json('error', 400);
+        }
     }
 
     /**

@@ -82,7 +82,7 @@ export class CandidateDashboardComponent {
                     let geocoder = new google.maps.Geocoder;
                     geocoder.geocode({'placeId': this.user['looking_for_job_naming_places'][i]['googlePlaceId']},
                         function(results) {
-                            if (results) {
+                            if (results != null) {
                                 let place = results[0];
                                 __this.lookingForJobNamingList[i]['place'] = place;
 

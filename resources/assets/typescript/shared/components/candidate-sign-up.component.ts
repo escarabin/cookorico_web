@@ -91,6 +91,8 @@ export class CandidateSignUpComponent {
         this.userService.createCandidateUser(this.user, this.lookingForJobNamingList).subscribe((res: Response) => {
             let createdUser = res.json();
 
+
+
             this.userService.loginUsingId(createdUser.id).subscribe((res: Response) => {
                 localStorage.setItem('user', JSON.stringify(createdUser));
 

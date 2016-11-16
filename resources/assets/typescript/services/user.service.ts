@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Observable';
 import appGlobals = require('./../globals');
 
 // Models
@@ -477,13 +478,41 @@ export class UserService {
      * @returns {Observable<Response>}
      */
     uploadResume(resume: any) {
-        console.log('uploading resume', resume);
-
-        let requestBody = resume;
-        let pdfPostRequestHeaders = new Headers({ 'Content-Type': 'application/pdf' });
+        let requestBody = JSON.stringify({ resume });
+        let pdfPostRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
         let pdfPostRequestOptions = new RequestOptions({ headers: pdfPostRequestHeaders });
+        return this.makeFileRequest(this.uploadResumeUrl, [ resume ]);
+    }
 
-        return this.http.post(this.uploadResumeUrl, requestBody, pdfPostRequestOptions);
+    private makeFileRequest (url: string, files: File[]): Observable {
+        return Observable.create(observer => {
+            let formData: FormData = new FormData(),
+                xhr: XMLHttpRequest = new XMLHttpRequest();
+
+            for (let i = 0; i < files.length; i++) {
+                formData.append("uploads[]", files[i], files[i].name);
+            }
+
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        observer.next(JSON.parse(xhr.response));
+                        observer.complete();
+                    } else {
+                        observer.error(xhr.response);
+                    }
+                }
+            };
+
+            xhr.upload.onprogress = (event) => {
+                this.progress = Math.round(event.loaded / event.total * 100);
+
+                this.progressObserver.next(this.progress);
+            };
+
+            xhr.open('POST', url, true);
+            xhr.send(formData);
+        });
     }
 
     /**

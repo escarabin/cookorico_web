@@ -93,8 +93,6 @@ class AuthController extends Controller
     {
         $user = Socialite::driver($provider)->user();
 
-        Log::info('getting callback');
-
         if ($provider == 'linkedin') {
             // Check if user has already been created
             if (!User::where('socialite_id', $user->id)->first()) {
