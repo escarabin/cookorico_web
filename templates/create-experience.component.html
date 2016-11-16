@@ -79,7 +79,7 @@
         </div>
         <div class="col-md-6">
             <button class="btn btn-primary submit-btn"
-                    [disabled]="!experienceForm.valid || isLoading"
+                    [disabled]="!experienceForm.valid || isLoading || !isBusinessIdentified"
                     (click)="submitExperience()">
                 <span *ngIf="!isLoading">
                     Sauvegarder

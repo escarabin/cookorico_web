@@ -4,11 +4,15 @@ import { Response } from '@angular/http';
 // Services
 import { BusinessService } from './../../services/business.service';
 import { PlaceService } from './../../services/place.service';
-import { UserService } from './../../services/user.service';
+import { PlaceService } from './../../services/place.service';
+import { NotificationsService } from '../../services/notification.service';
+
+// Models
+import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'business-select',
-    providers: [BusinessService, PlaceService, UserService],
+    providers: [ BusinessService, PlaceService ],
     templateUrl: '../templates/business-select.component.html',
     inputs: ['businessId', 'onlyUserBusinesses', 'isRequired', 'isMultiple']
 })
@@ -24,10 +28,11 @@ export class BusinessSelectComponent {
     @Output() businessIdChange: EventEmitter = new EventEmitter();
     public adress: Object;
     isViewInit: boolean = false;
+    error: boolean = false;
 
     constructor(private businessService: BusinessService,
-                private placeService: PlaceService,
-                private userService: UserService) {
+                private notificationService: NotificationsService,
+                private placeService: PlaceService) {
 
     }
 
@@ -64,11 +69,19 @@ export class BusinessSelectComponent {
 
         // Save selected place data for further use
         this.placeService.save(place).subscribe((res: Response) => {
-            console.log('--> place has been saved', res.json());
+            let jsonRes = res.json();
 
-            __this.businessId = res.json()['id'];
-
-            __this.businessIdHasChanged();
+            if (!jsonRes['googlePlaceId']) {
+                __this.businessId = res.json()['id'];
+                __this.businessIdHasChanged();
+                __this.error = false;
+            }
+            else {
+                __this.error = true;
+                __this.notificationService.show(
+                    new Notification('error', 'Ceci ne semble pas être un établissement, veuillez réessayer')
+                );
+            }
         });
     }
 

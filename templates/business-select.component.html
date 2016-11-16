@@ -29,6 +29,7 @@
         </ng-select>-->
 
         <input type="text"
+               [class.input-error]="error"
                class="form-control"
                [(ngModel)]="businessInputText"
                ngControl="businessInputText"

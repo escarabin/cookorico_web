@@ -23,6 +23,7 @@ export class CreateExperienceComponent {
     public adress: Object;
     experience:Experience = new Experience();
     isLoading: boolean = false;
+    isBusinessIdentified: boolean = false;
     sendTestimonialRequest: boolean = false;
 
     constructor(private referenceService: ReferenceService,
@@ -103,6 +104,7 @@ export class CreateExperienceComponent {
     }
 
     handleBusinessIdChange(businessId: number) {
+        this.isBusinessIdentified = true;
         this.experience.business_id = businessId;
     }
 }

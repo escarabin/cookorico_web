@@ -30,6 +30,11 @@
     border-color: #E13543;
     background: #fbf1f2; }
 
+.input-error {
+  background-image: url("/img/input-error-cross.png");
+  background-position: 95% center;
+  background-repeat: no-repeat; }
+
 .input-group-addon:first-child {
   background: white;
   border: none;
