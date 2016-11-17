@@ -16,4 +16,11 @@ export class SellsyService {
     public getServices() {
         return this.http.request(this.getServicesUrl);
     }
+
+    /**
+     * Open Sellsy contact box/popup
+     */
+    public openContactBox() {
+        document.body.innerHTML += '<script type="application/javascript" src="https://www.sellsy.com/?_f=snippet&hash=JTdGJTI5JUZEJTIzJTI3JTNCNSVCOSVDNzZJVyUwMSU5MyVDRCUwRW4lRENDcyVFOSUwRiVGRDYlOEYlN0RsJUNCdiU5QnYlRkMlREVINWslRTYlRjd3JURFJUNCJTk0UjQ1JUMwb00lODglRDUlM0VSJUVDJUM1JThCJTNCVVZsJTE3JUI4JUI5ayU4Qw=="></script>';
+    }
 }

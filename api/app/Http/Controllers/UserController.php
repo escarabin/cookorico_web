@@ -365,6 +365,7 @@ class UserController extends Controller
         $user->user_type_id = 3;
         $user->is_verified = 1;
         $user->is_active = 1;
+        $user->alert_frequency_id = 1;
 
         foreach ($userData as $key => $value) {
             if ($key != "profilePictureUrl" && $key != "password") {

@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Response } from '@angular/http';
-import { Router } from '@angular/router';
 
 // Services
 import { UserService } from './../../services/user.service';
@@ -29,7 +28,6 @@ export class PricingPlansComponent {
     constructor(private userService: UserService,
                 private sellsyService: SellsyService,
                 private planService: PlanService,
-                private router: Router,
                 private notificationService: NotificationsService) {
         let __this = this;
 
@@ -51,7 +49,7 @@ export class PricingPlansComponent {
             for (let i=0; i < Object.keys(servicesObject).length; i++) {
                 let service = servicesObject[Object.keys(servicesObject)[i]];
 
-                console.log('servce is', service);
+                console.log('service is ', service);
 
                 let isSimpleBusinessService = service['customfields'][1]['boolval'];
                 if (this.isSimpleBusiness && isSimpleBusinessService == 'Y') {
@@ -72,6 +70,10 @@ export class PricingPlansComponent {
                 }
             }
         });
+    }
+
+    openContactBox() {
+        this.sellsyService.openContactBox();
     }
 
     /**
