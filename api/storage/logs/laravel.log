@@ -1911,3 +1911,20 @@ Stack trace:
 #52 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(99): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #53 /Applications/MAMP/htdocs/oechr/api/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #54 {main}  
+[2016-11-17 10:05:04] local.INFO: logging user out  
+[2016-11-17 10:07:33] local.INFO: logging user out  
+[2016-11-17 10:12:03] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-17 10:12:43] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-17 10:12:47] local.INFO: array (
+  'redirectionUrl' => '/profil/annonces_admin',
+)  
+[2016-11-17 10:12:48] local.INFO: array (
+  'redirectionUrl' => '/profil/annonces_admin',
+)  
+[2016-11-17 10:12:48] local.INFO: array (
+  'redirectionUrl' => '/profil/annonces_admin',
+)  

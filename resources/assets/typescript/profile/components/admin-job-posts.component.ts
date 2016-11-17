@@ -4,13 +4,14 @@ import { Response } from '@angular/http';
 // Services
 import { UserService } from '../../services/user.service';
 import { NotificationsService } from '../../services/notification.service';
+import { JobService } from '../../services/job.service';
 
 // Models
 import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'admin-job-posts',
-    providers: [UserService],
+    providers: [UserService, JobService],
     templateUrl: '../templates/admin-job-posts.component.html'
 })
 
@@ -22,25 +23,20 @@ export class AdminJobPostsComponent {
     postStatusFilter: string = "0";
 
     constructor(private userService: UserService,
+                private jobService: JobService,
                 private notificationService: NotificationsService) {
         let __this = this;
 
-        this.userService.getJobPosts().subscribe((res: Response) => {
+        this.jobService.getAllJobs().subscribe((res: Response) => {
             /**
              * Keep only job-posts that have not been reviewed
              */
-            for (let i = 0; i < res.json().length; i++) {
+            __this.items = res.json();
+            /*for (let i = 0; i < res.json().length; i++) {
                 if (!res.json()[i]['is_accepted'] && !res.json()[i]['is_rejected']) {
                     __this.items.push(res.json()[i]);
                 }
-            }
-
-            /**
-             * Defined how many job posts the user is now able to post
-             */
-            for (let i = 0; i < (5 - __this.items.length); i++) {
-                this.jobPlacementsLeftNum.push(1);
-            }
+            }*/
         });
     }
 
