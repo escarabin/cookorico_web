@@ -27,8 +27,6 @@ export class ExperiencesComponent {
 
         this.userService.getExperiences(user.id).subscribe((res: Response) => {
             __this.items = res.json();
-
-            console.log('experiences', __this.items);
         });
     }
 

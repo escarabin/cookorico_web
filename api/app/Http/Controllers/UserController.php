@@ -562,6 +562,7 @@ class UserController extends Controller
 
     /**
      * Get user's work experiences
+     * @param $userId
      * @return mixed
      */
     public function getExperiences($userId = null) {
@@ -591,6 +592,7 @@ class UserController extends Controller
 
     /**
      * Get user's education
+     * @param $userId
      * @return mixed
      */
     public function getEducation($userId = null) {

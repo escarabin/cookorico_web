@@ -23,7 +23,9 @@ export class EducationComponent {
                 private notificationService: NotificationsService) {
         let __this = this;
 
-        this.userService.getEducation().subscribe((res: Response) => {
+        let user = JSON.parse(localStorage.getItem('user'));
+
+        this.userService.getEducation(user.id).subscribe((res: Response) => {
             __this.items = res.json();
         });
     }
