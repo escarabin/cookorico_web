@@ -12,7 +12,6 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'website-editor',
-    providers: [ WebsiteEditorService, ReferenceService ],
     templateUrl: '../templates/website-editor.component.html',
 })
 

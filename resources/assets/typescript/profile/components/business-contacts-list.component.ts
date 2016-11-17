@@ -12,7 +12,6 @@ import { Notification } from './../../models/notification';
 
 @Component({
     selector: 'business-contacts-list',
-    providers: [ ReferenceService, UserService ],
     templateUrl: '../templates/business-contacts-list.component.html',
     inputs: ['business']
 })

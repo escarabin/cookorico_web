@@ -12,6 +12,8 @@ import { ReCaptchaModule } from 'angular2-recaptcha';
 // Services
 import { NotificationsService } from './services/notification.service';
 import { UserService } from './services/user.service';
+import { ClubService } from './services/club.service';
+import { JobService } from './services/job.service';
 
 // Components
 import { AppComponent }   from './app.component';
@@ -72,7 +74,9 @@ const metaConfig: MetaConfig = {
                     routing ],
     providers:    [ NotificationsService,
                     UserService,
-                    MetaService ],
+                    MetaService,
+                    ClubService,
+                    JobService ],
     bootstrap:    [ AppComponent ],
 })
 

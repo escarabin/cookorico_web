@@ -22,7 +22,6 @@ import { ModalDirective } from 'ng2-bootstrap/components/modal/modal.component';
 // import { SafePipe } from './../../pipes/safe.pipe';
 
 @Component({
-    providers: [ UserService ],
     selector: 'profile-preview',
     templateUrl: '../templates/profile-preview.component.html',
     // pipes: [ SafePipe ]

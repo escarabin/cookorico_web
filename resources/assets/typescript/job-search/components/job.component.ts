@@ -11,7 +11,6 @@ import { NotificationsService } from '../../services/notification.service';
 import { Notification } from '../../models/notification';
 
 @Component({
-    providers: [JobService],
     inputs: ['jobId'],
     selector: 'job',
     templateUrl: '../templates/job.component.html',

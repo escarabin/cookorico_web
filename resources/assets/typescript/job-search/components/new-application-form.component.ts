@@ -12,7 +12,6 @@ import { Notification } from '../../models/notification';
 import { Application } from '../../models/application';
 
 @Component({
-    providers: [JobService, UserService],
     selector: 'new-application-form',
     templateUrl: '../templates/new-application-form.component.html',
     inputs: ['jobId']

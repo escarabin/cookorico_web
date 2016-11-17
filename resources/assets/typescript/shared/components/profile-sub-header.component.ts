@@ -7,7 +7,6 @@ import { UserService } from './../../services/user.service';
 
 @Component({
     selector: 'profile-sub-header',
-    providers: [ UserService ],
     templateUrl: '../templates/profile-sub-header.component.html'
 })
 

@@ -6,7 +6,6 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { PostService } from './../../services/post.service';
 
 @Component({
-    providers: [PostService],
     inputs: ['postId'],
     selector: 'post',
     templateUrl: '../templates/post.component.html',

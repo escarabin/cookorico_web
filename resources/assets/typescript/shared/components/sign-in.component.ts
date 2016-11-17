@@ -16,7 +16,6 @@ import { ComponentsHelper } from
 @Component({
     templateUrl: '../templates/sign-in.component.html',
     selector: 'sign-in',
-    providers: [ UserService ],
     viewProviders: [{provide: ComponentsHelper, useClass: ComponentsHelper}],
 })
 

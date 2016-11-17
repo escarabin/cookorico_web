@@ -5,7 +5,6 @@ import { Response } from '@angular/http';
 import { UserService } from '../../services/user.service';
 
 @Component({
-    providers: [UserService],
     selector: 'profile-sidebar',
     templateUrl: '../templates/profile-sidebar.component.html'
 })

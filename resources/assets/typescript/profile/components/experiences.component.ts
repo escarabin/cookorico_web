@@ -10,7 +10,6 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'experiences',
-    providers: [UserService],
     templateUrl: '../templates/experiences.component.html'
 })
 

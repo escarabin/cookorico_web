@@ -13,7 +13,6 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'create-experience',
-    providers: [ReferenceService, UserService],
     templateUrl: '../templates/create-study.component.html'
 })
 

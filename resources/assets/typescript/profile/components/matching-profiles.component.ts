@@ -7,7 +7,6 @@ import { ReferenceService } from './../../services/reference.service';
 
 @Component({
     selector: 'matching-profiles',
-    providers: [ UserService, ReferenceService ],
     templateUrl: '../templates/matching-profiles.component.html',
 })
 

@@ -12,7 +12,6 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'my-job-posts',
-    providers: [UserService, JobPostService],
     templateUrl: '../templates/my-job-posts.component.html'
 })
 

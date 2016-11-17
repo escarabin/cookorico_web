@@ -15,7 +15,6 @@ declare var braintree:any;
 
 @Component({
     selector: 'pricing-plans',
-    providers: [ UserService, SellsyService, PlanService ],
     templateUrl: '../templates/pricing-plans.component.html',
     inputs: [ 'onlyServices' ]
 })

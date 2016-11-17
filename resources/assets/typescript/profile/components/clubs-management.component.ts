@@ -13,7 +13,6 @@ import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 @Component({
     selector: 'clubs-management',
-    providers: [ClubService],
     templateUrl: '../templates/clubs-management.component.html'
 })
 

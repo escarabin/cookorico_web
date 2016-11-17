@@ -14,7 +14,6 @@ declare var braintree:any;
 
 @Component({
     selector: 'recruiter-promo',
-    providers: [ UserService, ReferenceService ],
     templateUrl: '../templates/recruiter-promo.component.html'
 })
 

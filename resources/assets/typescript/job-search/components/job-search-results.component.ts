@@ -13,7 +13,7 @@ import appGlobals = require('./../../globals');
 
 @Component({
     selector: 'job-search-results',
-    providers: [PaginationService, ReferenceService],
+    providers: [PaginationService],
     pipes: [PaginatePipe],
     templateUrl: '../templates/job-search-results.component.html',
 })

@@ -8,7 +8,6 @@ import { SearchService } from '../../services/search.service';
 import appGlobals = require('./../../globals');
 
 @Component({
-    providers: [ ReferenceService ],
     selector: 'job-search-sidebar',
     templateUrl: '../templates/job-search-sidebar.component.html'
 })

@@ -12,7 +12,6 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'applicants',
-    providers: [UserService, ApplicationService],
     templateUrl: '../templates/applicants.component.html'
 })
 

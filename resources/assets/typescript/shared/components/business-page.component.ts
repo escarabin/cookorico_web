@@ -9,7 +9,6 @@ import { ClubService } from './../../services/club.service';
 
 @Component({
     selector: 'business-page',
-    providers: [ JobService, BusinessService, ClubService ],
     templateUrl: '../templates/business-page.component.html',
 })
 

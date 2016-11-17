@@ -35,6 +35,14 @@ import { BusinessContactsListComponent } from './components/business-contacts-li
 
 // Services
 import { UserService } from './../services/user.service';
+import { JobService } from './../services/job.service';
+import { ApplicationService } from './../services/application.service';
+import { ClubService } from './../services/club.service';
+import { BusinessService } from './../services/business.service';
+import { TestimonialService } from './../services/testimonial.service';
+import { MailService } from './../services/mail.service';
+import { JobPostService } from './../services/job-post.service';
+import { WebsiteEditorService } from './../services/website-editor.service';
 
 @NgModule({
     declarations: [ ProfileComponent,
@@ -68,7 +76,14 @@ import { UserService } from './../services/user.service';
                     FormsModule,
                     CommonModule,
                     SharedModule ],
-    providers:    [ UserService ]
+    providers:    [ UserService,
+                    JobService,
+                    ApplicationService,
+                    ClubService,
+                    TestimonialService,
+                    MailService,
+                    WebsiteEditorService,
+                    JobPostService ]
 })
 
 export class ProfileModule {}

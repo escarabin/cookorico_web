@@ -14,7 +14,6 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'create-alert',
-    providers: [ReferenceService, UserService],
     templateUrl: '../templates/create-alert.component.html'
 })
 

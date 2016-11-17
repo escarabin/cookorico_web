@@ -19,7 +19,6 @@ import { CropperSettings, ImageCropperComponent } from 'ng2-img-cropper';
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 @Component({
-    providers: [ UserService, ReferenceService ],
     selector: 'candidate-sign-up',
     templateUrl: '../templates/candidate-sign-up.component.html',
 })

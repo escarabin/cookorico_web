@@ -10,7 +10,6 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'alerts',
-    providers: [UserService],
     templateUrl: '../templates/alerts.component.html'
 })
 

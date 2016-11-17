@@ -6,7 +6,6 @@ import { Response } from '@angular/http';
 import { ClubService } from './../../services/club.service';
 
 @Component({
-    providers: [ClubService],
     inputs: ['clubId'],
     selector: 'club',
     templateUrl: '../templates/club.component.html',

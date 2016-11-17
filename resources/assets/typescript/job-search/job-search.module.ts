@@ -25,7 +25,8 @@ import { JobService } from './../services/job.service';
     imports:      [ jobSearchRouting,
                     AgmCoreModule,
                     SharedModule ],
-    providers:    [ SearchService, JobService ],
+    providers:    [ SearchService,
+                    JobService ],
 })
 
 export class JobSearchModule {}

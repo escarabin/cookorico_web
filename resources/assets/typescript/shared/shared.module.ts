@@ -26,6 +26,10 @@ import { ButtonsModule,
 
 // Services
 import { UserService } from './../services/user.service';
+import { ReferenceService } from './../services/reference.service';
+import { BusinessService } from './../services/business.service';
+import { PlaceService } from './../services/place.service';
+import { SellsyService } from './../services/sellsy.service';
 
 // Global vars
 import appGlobals = require('./../globals');
@@ -58,7 +62,11 @@ import appGlobals = require('./../globals');
                     TooltipModule,
                     Ng2PaginationModule,
                     ModalModule ],
-    providers:    [ UserService ],
+    providers:    [ UserService,
+                    ReferenceService,
+                    PlaceService,
+                    BusinessService,
+                    SellsyService ],
     imports:      [ FormsModule,
                     HttpModule,
                     RouterModule,

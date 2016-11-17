@@ -14,7 +14,6 @@ import { UNITYTinyMCE } from './../../shared/components/tiny-mce.component';
 
 @Component({
     selector: 'create-mail-template',
-    providers: [MailService],
     templateUrl: '../templates/create-mail-template.component.html'
 })
 

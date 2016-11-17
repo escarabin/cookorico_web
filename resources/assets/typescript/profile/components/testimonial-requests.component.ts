@@ -6,7 +6,6 @@ import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'testimonial-requests',
-    providers: [UserService],
     templateUrl: '../templates/testimonial-requests.component.html'
 })
 

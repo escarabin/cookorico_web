@@ -10,7 +10,6 @@ import { NotificationsService } from '../../services/notification.service';
 import { Notification } from '../../models/notification';
 
 @Component({
-    providers: [ UserService, ReferenceService ],
     selector: 'candidate-dashboard',
     templateUrl: '../templates/candidate-dashboard.component.html',
 })
