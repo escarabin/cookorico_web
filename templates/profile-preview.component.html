@@ -144,8 +144,9 @@
                     <i class="icon-bubble"></i> &nbsp;Présentation
                 </div>
             </h2>
-            <h3 (click)="editingItems['description'] = true" class="no-description"
-                *ngIf="user.description && user.description.length == 0">
+            <h3 (click)="editingItems['description'] = true"
+                class="no-description"
+                *ngIf="!user.description || user.description.length == 0">
                 Cliquez ici pour saisir votre présentation
             </h3>
             <div class="description"

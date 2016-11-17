@@ -177,12 +177,13 @@ export class UserService {
 
     /**
      * Get current user infos
+     * @param userId
      * @returns {Observable<Response>}
      */
-    getUserInfos() {
+    getUserInfos(userId?: number) {
         let __this = this;
 
-        return this.http.get(__this.getUserInfosUrl);
+        return this.http.get(__this.getUserInfosUrl + '/' + userId);
     }
 
     /**
@@ -546,8 +547,8 @@ export class UserService {
     /**
      * Get the percentage which the profile is filled in
      */
-    getProfilePercentage() {
-        return this.http.get(this.getFillPercentageUrl);
+    getProfilePercentage(userId?: number) {
+        return this.http.get(this.getFillPercentageUrl + '/' + userId);
     }
 
     /**
@@ -606,10 +607,11 @@ export class UserService {
 
     /**
      * Get user's spoken languages
+     * @param userId
      * @returns {Observable<Response>}
      */
-    getSpokenLanguages() {
-        return this.http.get(this.getSpokenLanguagesUrl);
+    getSpokenLanguages(userId?: number) {
+        return this.http.get(this.getSpokenLanguagesUrl + '/' + userId);
     }
 
     /**

@@ -50,7 +50,7 @@ export class ProfileSubHeaderComponent {
         /**
          * Then get user fresh data
          */
-        UserService.getUserInfos().subscribe((res: Response) => {
+        UserService.getUserInfos(this.user.id).subscribe((res: Response) => {
             if (res.text().length > 10) {
                 this.user = res.json();
             }
@@ -59,7 +59,7 @@ export class ProfileSubHeaderComponent {
         /**
          * Get profile percentage of fill
          */
-        UserService.getProfilePercentage().subscribe((res: Response) => {
+        UserService.getProfilePercentage(this.user.id).subscribe((res: Response) => {
             this.profilePercentage = res.json();
         });
     }

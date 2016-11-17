@@ -66,9 +66,12 @@ class UserController extends Controller
      * @return int
      */
     public function getProfilePercentage($userId = null) {
-        $user = Auth::user();
+        $user = null;
 
-        if ($userId) {
+        if ($userId == "undefined" || !$user) {
+            $user = Auth::user();
+        }
+        else {
             $user = User::find($userId);
         }
 
@@ -156,21 +159,26 @@ class UserController extends Controller
 
     /**
      * Get logged user related infos
+     * @param $userId
      * @return mixed
      */
-    public function getInfos() {
-        $user = array();
-        
-        if (Auth::user()) {
-            $user = Auth::user()
-                ->load('plans',
-                    'status',
-                    'type',
-                    'civility',
-                    'place',
-                    'lookingForJobNamings',
-                    'lookingForJobNamingPlaces');
+    public function getInfos($userId = null) {
+        $user = null;
+
+        if ($userId == "undefined" || !$userId) {
+            $user = Auth::user();
         }
+        else {
+            $user = User::find($userId);
+        }
+
+        $user->load('plans',
+                'status',
+                'type',
+                'civility',
+                'place',
+                'lookingForJobNamings',
+                'lookingForJobNamingPlaces');
 
         return $user;
     }
@@ -878,11 +886,16 @@ class UserController extends Controller
 
     /**
      * Get user spoken languages
+     *
      * @return mixed
      */
-    public function getSpokenLanguages() {
+    public function getSpokenLanguages($userId = null) {
+        if ($userId == "undefined" || !$userId) {
+            $userId = Auth::user()->id;
+        }
+
         $languages = DB::table('language_user')
-                        ->where('user_id', Auth::user()->id)
+                        ->where('user_id', $userId)
                         ->get();
 
         foreach ($languages as $lang) {
@@ -905,8 +918,6 @@ class UserController extends Controller
      */
     public function savePayment(Request $request) {
         $serviceData = $request::get('service');
-
-        Log::info($serviceData);
 
         $pricingPlanTitle = $serviceData['name'];
 

@@ -60,7 +60,7 @@ Route::get('/job-post/pull-up/{jobId}', 'JobController@pulluP')
 // User
 Route::get('/sign-in/{email}/{password}', 'UserController@signIn')
     ->name('signIn');
-Route::get('/user/get_infos', 'UserController@getInfos')
+Route::get('/user/get_infos/{userId?}', 'UserController@getInfos')
     ->name('getInfos');
 Route::get('/user/confirm_address/{userId}', 'UserController@confirmEmailAddress')
     ->name('confirmEmailAddress');

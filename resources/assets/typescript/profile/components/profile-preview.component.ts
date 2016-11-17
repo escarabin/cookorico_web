@@ -132,8 +132,8 @@ export class ProfilePreviewComponent {
                         __this.testimonials = res.json();
                     });
 
-                    __this.userService.getSpokenLanguages().subscribe((res: Response) => {
-                        this.userLanguages = res.json();
+                    __this.userService.getSpokenLanguages(__this.user.id).subscribe((res: Response) => {
+                        __this.userLanguages = res.json();
                     });
                 });
             }
