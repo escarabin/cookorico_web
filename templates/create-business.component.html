@@ -178,9 +178,9 @@
         </div>
         <div class="col-md-6">
             <button class="btn btn-primary submit-btn"
-                    [class.disabled]="!isAddressParsed || !createBusinessForm.valid"
+                    [class.disabled]="!isAddressParsed || !createBusinessForm.valid || isLoading"
                     (click)="submitBusiness()">
-                Sauvegarder
+                Sauvegarder &nbsp; <span class="fa fa-spinner fa-spin" *ngIf="isLoading"></span>
             </button>
         </div>
     </form>

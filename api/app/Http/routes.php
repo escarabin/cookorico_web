@@ -46,7 +46,7 @@ Route::post('/jobs/search/', 'JobController@search')
     ->name('searchJobs');
 Route::get('/user/job-posts/all', 'UserController@getJobPosts')
     ->name('getMyJobPosts');
-Route::post('/job-post/create', 'JobController@create')
+Route::post('/job-post/create/{userId?}', 'JobController@create')
     ->name('createJobPost');
 Route::get('/job-post/accept/{jobPostId}', 'JobController@accept')
     ->name('acceptJobPost');

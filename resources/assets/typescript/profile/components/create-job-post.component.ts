@@ -127,7 +127,7 @@ export class CreateJobPostComponent {
     submitJobPost() {
         let __this = this;
 
-        this.jobPostService.save(__this.jobPost).subscribe((res: Response) => {
+        this.jobPostService.save(__this.jobPost, this.user.id).subscribe((res: Response) => {
             let job = res['_body'];
 
             if (job) {

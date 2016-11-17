@@ -34,7 +34,12 @@ class BusinessController extends Controller
                 $key != "created_at" &&
                 $key != "updated_at") {
                 if (!is_array($value)) {
-                    $business[$key] = $value;
+                    if ($key == 'logo' && strpos($value, 'base64')) {
+
+                    }
+                    else {
+                        $business[$key] = $value;
+                    }
                 }
             }
         }
@@ -45,9 +50,30 @@ class BusinessController extends Controller
          * Loop through business photos
          */
         $i = 1;
+
+        /**
+         * Check if user has deleted some photos
+         */
+        $businessExistingPhotos = $business->photos;
+        foreach ($businessExistingPhotos as $existingPhoto) {
+            $photoShouldBeDeleted = true;
+
+            foreach ($businessData['photos'] as $photo) {
+                if (array_key_exists('id', $photo)) {
+                    if ($photo['id'] == $existingPhoto['id']) {
+                        $photoShouldBeDeleted = false;
+                    }
+                }
+            }
+
+            if ($photoShouldBeDeleted) {
+                BusinessPhoto::find($existingPhoto['id'])->delete();
+            }
+        }
+
         foreach ($businessData['photos'] as $photo) {
             // Create photo only if it is not yet stored in db
-            //if (!BusinessPhoto::where('url', $photo['url'])->first()) {
+            if (!BusinessPhoto::where('url', $photo['url'])->first()) {
                 $businessPhoto = new BusinessPhoto();
 
                 /**
@@ -70,17 +96,26 @@ class BusinessController extends Controller
                     fwrite($ifp, base64_decode($data[1]));
                     fclose($ifp);
 
-                    app('App\Http\Controllers\FileController')
-                        ->upload('oechr-business-picture', $business->id.'/'.$i.'.jpg', $newFilePath);
+                    $photoId = rand(0, 1000000);
 
-                    $businessPhoto->url = 'https://s3-eu-west-1.amazonaws.com/oechr-business-picture/'.$business->id.'/'.$i.'.jpg';
+                    app('App\Http\Controllers\FileController')
+                        ->upload('oechr-business-picture', $business->id.'/'.$photoId.'.jpg', $newFilePath);
+
+                    $businessPhoto->url = 'https://s3-eu-west-1.amazonaws.com/oechr-business-picture/'.$business->id.'/'.$photoId.'.jpg';
+
+                    if ($businessData['logo'] == $photo['url']) {
+                        $business->logo = $businessPhoto->url;
+                        $business->save();
+                    }
                 }
                 else {
                     $businessPhoto->url = $photo['url'];
                 }
+
+
                 $businessPhoto->business_id = $business->id;
                 $businessPhoto->save();
-            //}
+            }
             $i += 1;
         }
 

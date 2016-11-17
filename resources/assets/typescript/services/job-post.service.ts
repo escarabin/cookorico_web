@@ -19,14 +19,15 @@ export class JobPostService {
     /**
      * Create a new job post / Update existing
      * @param jobPost
+     * @param userId
      * @returns {any}
      */
-    save(jobPost: JobPost) {
+    save(jobPost: JobPost, userId?: number) {
         let body = JSON.stringify({ jobPost });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.createJobPostUrl, body, options);
+        return this.http.post(this.createJobPostUrl + '/' + userId, body, options);
     }
 
     /**

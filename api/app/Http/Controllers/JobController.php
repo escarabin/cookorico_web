@@ -11,6 +11,7 @@ use DB;
 use Mail;
 
 use App\Models\Job;
+use App\Models\User;
 use App\Models\MailTemplate;
 use App\Models\Application;
 
@@ -261,9 +262,10 @@ class JobController extends Controller
     /**
      * Create a new job post
      * @param Request $request
+     * @param $userId
      * @return Job
      */
-    public function create(Request $request) {
+    public function create(Request $request, $userId = null) {
         $jobPostData = $request::input('jobPost');
 
         /**
@@ -297,26 +299,36 @@ class JobController extends Controller
 
         $mailTemplate = MailTemplate::where('slug', $templateName)->first();
 
-        $user = Auth::user();
+        $user = null;
+
+        if ($userId == "undefined" || !$userId) {
+            $user = Auth::user();
+        }
+        else {
+            $user = User::find($userId);
+        }
 
         /**
          * Necessary workaround to append civility data to user object
          */
         $user->civility = $user->civility;
 
-        Mail::send('emails.'.$templateName,
-            [
-                'user' => $user,
-            ],
-            function ($message) use ($user, $mailTemplate) {
-                $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+        if (!array_key_exists('id', $jobPostData)) {
+            $jobPost->user_id = $user->id;
 
-                $message->to($user->email, 'Test')
-                    ->subject($mailTemplate->subject);
-            }
-        );
+            Mail::send('emails.' . $templateName,
+                [
+                    'user' => $user,
+                ],
+                function ($message) use ($user, $mailTemplate) {
+                    $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
 
-        $jobPost->user_id = Auth::user()->id;
+                    $message->to($user->email, 'Test')
+                        ->subject($mailTemplate->subject);
+                }
+            );
+        }
+
 
         $jobPost->save();
 

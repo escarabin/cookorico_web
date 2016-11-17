@@ -203,6 +203,7 @@ export class CreateBusinessComponent {
                         new Notification('success', 'Votre établissement a bien été créee')
                     );
 
+                    location.reload();
 
                     if (!__this.user.is_active) {
                         __this.router.navigate(['/profil/annonce/creer/' + createdBusinessId]);
