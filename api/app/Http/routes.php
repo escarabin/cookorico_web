@@ -44,7 +44,7 @@ Route::get('/jobs/all', 'JobController@getAll')
     ->name('getAllJobs');
 Route::post('/jobs/search/', 'JobController@search')
     ->name('searchJobs');
-Route::get('/user/job-posts/all', 'UserController@getJobPosts')
+Route::get('/user/job-posts/all/{userId?}', 'UserController@getJobPosts')
     ->name('getMyJobPosts');
 Route::post('/job-post/create/{userId?}', 'JobController@create')
     ->name('createJobPost');
@@ -259,7 +259,7 @@ Route::post('/plan/payment/save', 'UserController@savePayment')
     ->name('savePayment');
 
 // Applicants
-Route::get('/applicants/all', 'UserController@getApplicants')
+Route::get('/applicants/all/{userId?}', 'UserController@getApplicants')
     ->name('getAllApplicants');
 
 // Mails

@@ -21,12 +21,15 @@ export class ApplicantsComponent {
     jobPostId: number = null;
     allItemsChecked: boolean;
     checkedItemsList: any = [];
+    user: any = {};
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService,
                 private applicationService: ApplicationService,
                 private route: ActivatedRoute) {
         let __this = this;
+
+        this.user = localStorage.getItem('user');
 
         this.userService.getJobPosts().subscribe((res: Response) => {
             __this.jobPosts = res.json();
@@ -48,7 +51,7 @@ export class ApplicantsComponent {
         let __this = this;
         this.items = [];
 
-        this.userService.getApplicants().subscribe((res: Response) => {
+        this.userService.getApplicants(this.user.id).subscribe((res: Response) => {
             console.log('res is', res.json());
 
             let allApplicants = res.json();

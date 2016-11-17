@@ -665,10 +665,15 @@ class UserController extends Controller
 
     /**
      * Get user's businesses
+     * @param $userId
      * @return mixed
      */
-    public function getBusinesses() {
-        $businesses = Auth::user()->businesses
+    public function getBusinesses($userId = null) {
+        if ($userId == "undefined") {
+            $userId = Auth::user()->id;
+        }
+
+        $businesses = User::find($userId)->businesses
                         ->load('type', 'place');
 
         return $businesses;
@@ -697,9 +702,14 @@ class UserController extends Controller
 
     /**
      * Get user's job posts
+     * @param $userId
      */
-    public function getJobPosts() {
-        $jobPosts = Auth::user()->jobPosts
+    public function getJobPosts($userId = null) {
+        if ($userId == "undefined") {
+            $userId = Auth::user()->id;
+        }
+
+        $jobPosts = User::find($userId)->jobPosts
                     ->load('jobNaming', 'business', 'contractType', 'applications');
 
         foreach ($jobPosts as $jobPost) {
@@ -711,9 +721,14 @@ class UserController extends Controller
 
     /**
      * Get users that applied to logged user job offers
+     * @param $userId
      */
-    public function getApplicants() {
-        $userJobs = Auth::user()->jobPosts;
+    public function getApplicants($userId = null) {
+        if ($userId == "undefined") {
+            $userId = Auth::user()->id;
+        }
+
+        $userJobs = User::find($userId)->jobPosts;
         $userJobsIdList = array();
 
         foreach ($userJobs as $job) {

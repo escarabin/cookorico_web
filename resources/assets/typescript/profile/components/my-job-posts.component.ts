@@ -24,6 +24,7 @@ export class MyJobPostsComponent {
     postStatus: number = 'is_accepted';
     userCanPullUpJobPost: boolean = false;
     userCanPostJob: boolean = false;
+    user: any = {};
 
     constructor(private userService: UserService,
                 private jobPostService: JobPostService,
@@ -31,7 +32,9 @@ export class MyJobPostsComponent {
                 private notificationService: NotificationsService) {
         let __this = this;
 
-        this.userService.getJobPosts().subscribe((res: Response) => {
+        this.user = JSON.parse(localStorage.getItem('user'));
+
+        this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
             __this.items = res.json();
 
             /**

@@ -308,9 +308,10 @@ export class UserService {
 
     /**
      * Get user's job posts
+     * @param userId
      */
-    getJobPosts() {
-        return this.http.get(this.getJobPostsUrl);
+    getJobPosts(userId?: number) {
+        return this.http.get(this.getJobPostsUrl + '/' + userId);
     }
 
     /**
@@ -365,9 +366,10 @@ export class UserService {
 
     /**
      * Get user's businesses
+     * @param userId
      */
-    getBusinesses() {
-        return this.http.get(this.getBusinessesUrl);
+    getBusinesses(userId?: number) {
+        return this.http.get(this.getBusinessesUrl + '/' + userId);
     }
 
     /**
@@ -381,18 +383,20 @@ export class UserService {
 
     /**
      * Get the plans that current user subscribed to
+     * @param userId
      * @returns {any}
      */
-    getPlans() {
+    getPlans(userId?: number) {
         return this.http.get(this.getPlansUrl);
     }
 
     /**
      * Get users that applied to logged user job offers
+     * @param userId
      * @returns {any}
      */
-    getApplicants() {
-        return this.http.get(this.getApplicantsUrl);
+    getApplicants(userId?: number) {
+        return this.http.get(this.getApplicantsUrl + '/' + userId);
     }
 
     /**

@@ -13,11 +13,14 @@ export class BusinessesComponent {
     items: any = [];
     allItemsChecked: boolean;
     checkedItemsList: any = [];
+    user: any;
 
     constructor(private userService: UserService) {
         let __this = this;
 
-        this.userService.getBusinesses().subscribe((res: Response) => {
+        this.user = JSON.parse(localStorage.getItem('user'));
+
+        this.userService.getBusinesses(this.user.id).subscribe((res: Response) => {
             __this.items = res.json();
         });
     }
