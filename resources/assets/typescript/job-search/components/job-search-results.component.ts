@@ -139,7 +139,6 @@ export class JobSearchResultsComponent {
 
                 this.mapMarkers.push(marker);
             }
-
         });
 
         /**

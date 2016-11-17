@@ -31,6 +31,7 @@ export class JobSearchSidebarComponent {
     locationName: string;
     isMobileSearchVisible: boolean = false;
     map: any;
+    mapMarkers: any = [];
 
     /**
      * By default, populate place object with France coords
@@ -106,6 +107,45 @@ export class JobSearchSidebarComponent {
          */
         SearchService.resultsEmitter.subscribe((results) => {
             __this.jobs = Object.values(results.json());
+
+            /**
+             * Clear map markers
+             */
+            for (let i = 0; i < __this.mapMarkers.length; i++) {
+                __this.mapMarkers[i].setMap(null);
+            }
+
+            /**
+             * Create new markers, append them to the map
+             */
+            for (let i = 0; i < __this.jobs.length; i++) {
+                let jobLatLng = new google.maps.LatLng(
+                    __this.jobs[i]['business']['place']['lat'],
+                    __this.jobs[i]['business']['place']['lon']
+                );
+
+                let marker = new google.maps.Marker({
+                    position : jobLatLng,
+                    map      : this.map
+                });
+
+                let infoContentString = '<strong>' + __this.jobs[i]["title"] + '</strong><br /> ' +
+                    '<p>' + __this.jobs[i]["business"]["title"] + '</p> ' +
+                    '<p>' + __this.jobs[i]["business"]["place"]["city"] + '</p> ' +
+                    '<a href="/#/recherche/annonce/' + __this.jobs[i]['id'] + '"><button class="btn btn-primary full-width">' +
+                    'Voir l\'offre ' +
+                    '</button></a>';
+
+                let infowindow = new google.maps.InfoWindow({
+                    content: infoContentString
+                });
+
+                marker.addListener('click', function() {
+                    infowindow.open(__this.map, marker);
+                });
+
+                this.mapMarkers.push(marker);
+            }
         });
     }
 
