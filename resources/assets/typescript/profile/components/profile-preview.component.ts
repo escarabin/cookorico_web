@@ -288,7 +288,7 @@ export class ProfilePreviewComponent {
     uploadResume() {
         this.isLoading = true;
 
-        this.userService.uploadResume(this.resumeData).subscribe((res: Response) => {
+        this.userService.uploadResume(this.resumeData, this.user.id).subscribe((res: Response) => {
             /**
              * File has been successfully uploaded to AWS S3
              */

@@ -481,7 +481,7 @@ export class UserService {
         let requestBody = JSON.stringify({ resume });
         let pdfPostRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
         let pdfPostRequestOptions = new RequestOptions({ headers: pdfPostRequestHeaders });
-        return this.makeFileRequest(this.uploadResumeUrl, [ resume ]);
+        return this.makeFileRequest(this.uploadResumeUrl + '/' + userId, [ resume ]);
     }
 
     private makeFileRequest (url: string, files: File[]): Observable {

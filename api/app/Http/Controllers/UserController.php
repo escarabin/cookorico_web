@@ -813,15 +813,23 @@ class UserController extends Controller
 
     /**
      * Upload a new resume
+     * @param $userId
      * @return string
      */
-    public function uploadResume() {
+    public function uploadResume($userId = null) {
         $input = Input::all();
         $destinationPath = 'uploads';
         $fileName = rand(11111, 99999) . '.pdf';
         $upload_success = $input['uploads'][0]->move($destinationPath, $fileName); // uploading file to given path
 
-        $user = Auth::user();
+        $user = null;
+
+        if (!$userId) {
+            $user = Auth::user();
+        }
+        else {
+            $user = User::find($userId);
+        }
 
         app('App\Http\Controllers\FileController')
             ->upload('oechr-resume', $user->id.'.pdf', $destinationPath.'/'.$fileName);
