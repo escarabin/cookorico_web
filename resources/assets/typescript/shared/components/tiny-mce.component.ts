@@ -52,8 +52,6 @@ export class UNITYTinyMCE {
 
         this.htmlContent = this.mceContent;
 
-        console.log('mce content is', this.mceContent);
-
         //Attach tinyMCE to cloned textarea
         tinymce.init(
             {
@@ -75,8 +73,10 @@ export class UNITYTinyMCE {
     }
 
     ngOnDestroy() {
+        // TODO: destroy tinymce element on view destroy
+
         //destroy cloned elements
-        tinymce.get(this.elementID).remove();
+        // tinymce.get(this.elementID).remove();
 
         /* var elem = document.getElementById(this.elementID);
         elem.parentElement.removeChild(elem); */
