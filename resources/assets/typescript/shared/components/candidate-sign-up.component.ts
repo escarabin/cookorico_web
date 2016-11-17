@@ -43,6 +43,7 @@ export class CandidateSignUpComponent {
                                     {'id': 0, 'place': null}];
     is_cgu_accepted: boolean = false;
     isCaptchaCorrect: boolean = false;
+    resumeData: any;
 
     /**
      * Google recaptcha vars
@@ -86,11 +87,11 @@ export class CandidateSignUpComponent {
     }
 
     signUp() {
-        console.log(this.user, this.lookingForJobNamingList);
         this.userService.createCandidateUser(this.user, this.lookingForJobNamingList).subscribe((res: Response) => {
             let createdUser = res.json();
+            this.user = createdUser;
 
-
+            console.log('user is created', this.user);
 
             this.userService.loginUsingId(createdUser.id).subscribe((res: Response) => {
                 localStorage.setItem('user', JSON.stringify(createdUser));
@@ -99,7 +100,12 @@ export class CandidateSignUpComponent {
                     new Notification('success', 'Un mail vient de vous être envoyé pour confirmer votre inscription')
                 );
 
-                this.router.navigate(['/profil']);
+                if (this.resumeData) {
+                    this.uploadResume();
+                }
+                else {
+                    this.router.navigate(['/profil']);
+                }
             });
         });
     }
@@ -123,8 +129,30 @@ export class CandidateSignUpComponent {
     }
 
     public resumeFileDropped(e:any):void {
-        this.isResumeLoading = true;
-        this.resumefileChangeListener(e);
+        this.resumeData = e[0];
+
+        console.log('resume data', this.resumeData);
+
+        if (this.resumeData.type == "application/pdf") {
+            this.notificationService.show(
+                new Notification('success', 'Votre CV (' + this.resumeData.name + ') a été pris en compte')
+            );
+        }
+        else {
+            this.notificationService.show(
+                new Notification('error', 'Seuls les fichiers de type PDF sont acceptés')
+            );
+        }
+    }
+
+    uploadResume() {
+        this.isLoading = true;
+
+        this.userService.uploadResume(this.resumeData, this.user.id).subscribe((res: Response) => {
+            this.isLoading = false;
+
+            this.router.navigate(['/profil']);
+        });
     }
 
     public resumefileChangeListener($event) {

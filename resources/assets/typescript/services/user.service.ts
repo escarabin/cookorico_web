@@ -477,7 +477,7 @@ export class UserService {
      * @param resume
      * @returns {Observable<Response>}
      */
-    uploadResume(resume: any) {
+    uploadResume(resume: any, userId: number) {
         let requestBody = JSON.stringify({ resume });
         let pdfPostRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
         let pdfPostRequestOptions = new RequestOptions({ headers: pdfPostRequestHeaders });

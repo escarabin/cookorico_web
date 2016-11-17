@@ -14,6 +14,7 @@ import { NotificationsService } from './services/notification.service';
 import { UserService } from './services/user.service';
 import { ClubService } from './services/club.service';
 import { JobService } from './services/job.service';
+import { PlanService } from './services/plan.service';
 
 // Components
 import { AppComponent }   from './app.component';
@@ -76,6 +77,7 @@ const metaConfig: MetaConfig = {
                     UserService,
                     MetaService,
                     ClubService,
+                    PlanService,
                     JobService ],
     bootstrap:    [ AppComponent ],
 })
