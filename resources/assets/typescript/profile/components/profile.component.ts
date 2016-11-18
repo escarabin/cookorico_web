@@ -34,7 +34,7 @@ export class ProfileComponent {
         }
 
         if (this.user.user_type_id == 2) {
-            this.userService.isUserPartOfAGroup().subscribe((res: Response) => {
+            this.userService.isUserPartOfAGroup(this.user.id).subscribe((res: Response) => {
                 if (res['_body'] == 'true') {
                     this.isInAGroup = true;
                 }

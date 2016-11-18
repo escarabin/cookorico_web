@@ -248,15 +248,23 @@ class UserController extends Controller
     /**
      * Function used to get current user
      * matching profiles for all job posts
+     * @param $userId
      */
-    public function getMatchingProfiles() {
+    public function getMatchingProfiles($userId = null) {
+        $user = null;
+
+        if ($userId == "undefined" || !$user) {
+            $user = Auth::user();
+        }
+        else {
+            $user = User::find($userId);
+        }
+
         /**
          * First, list all user jobs posts values
          * & populate arrays of parameter ids
          */
-        $jobPostList = Auth::user()
-                        ->jobPosts
-                        ->load('jobNaming');
+        $jobPostList = $user->jobPosts->load('jobNaming');
 
         $jobNamingIdList = array();
         foreach ($jobPostList as $jobPost) {
@@ -681,9 +689,14 @@ class UserController extends Controller
 
     /**
      * Get the plans that logged user subscribed to
+     * @param $userId
+     * @return mixed
      */
-    public function getPlans() {
-        $plans = Auth::user()->plans
+    public function getPlans($userId = null) {
+        if ($userId == "undefined") {
+            $userId = Auth::user()->id;
+        }
+        $plans = User::find($userId)->plans
                         ->load('pricingPlan');
 
         return $plans;
@@ -691,10 +704,15 @@ class UserController extends Controller
 
     /**
      * Get user's created testimonials
+     * @param $userId
      * @return mixed
      */
-    public function getCreatedTestimonials() {
-        $testimonials = Auth::user()->createdTestimonials
+    public function getCreatedTestimonials($userId = null) {
+        if ($userId == "undefined") {
+            $userId = Auth::user()->id;
+        }
+
+        $testimonials = User::find($userId)->createdTestimonials
             ->load('jobNaming', 'employee', 'business', 'recruiter');
 
         return $testimonials;

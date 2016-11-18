@@ -19,6 +19,7 @@ export class BusinessesComponent {
         let __this = this;
 
         this.user = JSON.parse(localStorage.getItem('user'));
+        console.log('getting businesses with user' + this.user);
 
         this.userService.getBusinesses(this.user.id).subscribe((res: Response) => {
             __this.items = res.json();

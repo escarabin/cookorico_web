@@ -45,7 +45,7 @@ export class MyJobPostsComponent {
             }
         });
 
-        this.userService.getPlans().subscribe((res: Response) => {
+        this.userService.getPlans(this.user.id).subscribe((res: Response) => {
             let plans = res.json();
 
             /**

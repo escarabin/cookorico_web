@@ -31,7 +31,7 @@ export class ApplicantsComponent {
 
         this.user = localStorage.getItem('user');
 
-        this.userService.getJobPosts().subscribe((res: Response) => {
+        this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
             __this.jobPosts = res.json();
         });
 

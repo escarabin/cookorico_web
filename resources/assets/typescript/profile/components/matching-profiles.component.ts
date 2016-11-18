@@ -17,17 +17,20 @@ export class MatchingProfilesComponent {
     xpLevelId: number = 0;
     xpLevels: any = [];
     isLoadingProfiles: boolean = true;
+    user: any = {};
 
     constructor(private userService: UserService,
                 private referenceService: ReferenceService) {
         let __this = this;
 
-        this.userService.getMatchingProfiles().subscribe((res: Response) => {
+        this.user = JSON.parse(localStorage.getItem('user'));
+
+        this.userService.getMatchingProfiles(this.user.id).subscribe((res: Response) => {
             __this.items = res.json();
             __this.isLoadingProfiles = false;
         });
 
-        this.userService.getJobPosts().subscribe((res: Response) => {
+        this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
             __this.jobPosts = res.json();
         });
 

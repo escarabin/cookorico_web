@@ -38,8 +38,12 @@ export class CandidateDashboardComponent {
 
         this.user = JSON.parse(localStorage.getItem('user'));
 
-        this.userService.getProfilePercentage().subscribe((res: Response) => {
+        this.userService.getProfilePercentage(this.user.id).subscribe((res: Response) => {
             this.profilePercentage = res.json();
+        });
+
+        this.userService.getSpokenLanguages(this.user.id).subscribe((res: Response) => {
+            this.userLanguages = res.json();
         });
 
         this.referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
@@ -60,10 +64,6 @@ export class CandidateDashboardComponent {
 
         this.referenceService.getAllLanguageLevels().subscribe((res: Response) => {
             this.languageLevels = res.json();
-        });
-
-        this.userService.getSpokenLanguages().subscribe((res: Response) => {
-            this.userLanguages = res.json();
         });
 
         /**

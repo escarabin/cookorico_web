@@ -301,9 +301,10 @@ export class UserService {
 
     /**
      * Get user's matching profiles for all job-posts
+     * @param userId
      */
-    getMatchingProfiles() {
-        return this.http.get(this.getMatchingProfilesUrl);
+    getMatchingProfiles(userId?: number) {
+        return this.http.get(this.getMatchingProfilesUrl + '/' + userId);
     }
 
     /**
@@ -359,9 +360,10 @@ export class UserService {
 
     /**
      * Get user's created testimonials
+     * @param userId
      */
-    getAskedTestimonials() {
-        return this.http.get(this.getCreatedTestimonialsUrl);
+    getAskedTestimonials(userId?: number) {
+        return this.http.get(this.getCreatedTestimonialsUrl + '/' + userId);
     }
 
     /**
@@ -369,6 +371,8 @@ export class UserService {
      * @param userId
      */
     getBusinesses(userId?: number) {
+        console.log('getting businesses with userId' + userId);
+
         return this.http.get(this.getBusinessesUrl + '/' + userId);
     }
 
@@ -387,7 +391,7 @@ export class UserService {
      * @returns {any}
      */
     getPlans(userId?: number) {
-        return this.http.get(this.getPlansUrl);
+        return this.http.get(this.getPlansUrl + '/' + userId);
     }
 
     /**
@@ -620,10 +624,11 @@ export class UserService {
 
     /**
      * Know if user businesses are part of a group
+     * @param userId
      * @returns {Observable<Response>}
      */
-    isUserPartOfAGroup() {
-        return this.http.get(this.isUserPartOfAGroupUrl);
+    isUserPartOfAGroup(userId?: number) {
+        return this.http.get(this.isUserPartOfAGroupUrl + '/' + userId);
     }
 
     /**

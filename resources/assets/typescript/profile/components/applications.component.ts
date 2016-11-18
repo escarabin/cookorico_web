@@ -16,10 +16,13 @@ import { Notification } from '../../models/notification';
 export class ApplicationsComponent {
     applications: any = [];
     statusId: number = 0;
+    user: number;
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService) {
         let __this = this;
+
+        this.user = JSON.parse(localStorage.getItem('user'));
 
         __this.refreshApplications()
     }
@@ -51,7 +54,7 @@ export class ApplicationsComponent {
     refreshApplications() {
         let __this = this;
 
-        this.userService.getApplications().subscribe((res: Response) => {
+        this.userService.getApplications(this.user.id).subscribe((res: Response) => {
             __this.applications = res.json();
         });
     }

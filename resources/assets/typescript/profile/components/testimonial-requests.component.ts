@@ -11,13 +11,16 @@ import { UserService } from '../../services/user.service';
 
 export class TestimonialRequestsComponent {
     testimonials: any = [];
+    user: any = {};
     accepted_testimonial_requests: any = [];
     rejected_testimonial_requests: any = [];
 
     constructor(private userService: UserService) {
         let __this = this;
 
-        this.userService.getAskedTestimonials().subscribe((res: Response) => {
+        this.user = JSON.parse(localStorage.getItem('user'));
+
+        this.userService.getAskedTestimonials(this.user.id).subscribe((res: Response) => {
             let allTestimonials = res.json();
 
             for (let i = 0; i < allTestimonials.length; i++) {

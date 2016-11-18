@@ -215,7 +215,7 @@ Route::get('/testimonial/reject/{testimonialId}', 'TestimonialController@reject'
     ->name('rejectTestimonial');
 Route::get('/testimonial/{testimonialId?}', 'TestimonialController@get')
     ->name('getTestimonial');
-Route::get('/created_testimonials/all', 'UserController@getCreatedTestimonials')
+Route::get('/created_testimonials/all/{userId?}', 'UserController@getCreatedTestimonials')
     ->name('getCreatedTestimonials');
 Route::get('/testimonial/request/{businessId}/{experienceId}', 'TestimonialController@request')
     ->name('requestTestimonials');
@@ -253,7 +253,7 @@ Route::get('/job_xp_levels/all', 'ReferenceController@getAllJobXpLevels')
     ->name('getAllJobXpLevels');
 
 // Plans
-Route::get('/user/plans/all', 'UserController@getPlans')
+Route::get('/user/plans/all/{userId?}', 'UserController@getPlans')
     ->name('getAllPlans');
 Route::post('/plan/payment/save', 'UserController@savePayment')
     ->name('savePayment');

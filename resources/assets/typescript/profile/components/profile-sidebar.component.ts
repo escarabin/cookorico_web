@@ -22,7 +22,7 @@ export class ProfileSidebarComponent {
         let __this = this;
 
         if (this.user.user_type_id == 2) {
-            this.userService.getPlans().subscribe((res: Response) => {
+            this.userService.getPlans(this.user.id).subscribe((res: Response) => {
                 __this.plans = res.json();
             });
         }
