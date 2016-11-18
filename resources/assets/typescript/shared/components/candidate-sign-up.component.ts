@@ -134,8 +134,6 @@ export class CandidateSignUpComponent {
     public resumeFileDropped(e:any):void {
         this.resumeData = e[0];
 
-        console.log('resume data', this.resumeData);
-
         if (this.resumeData.type == "application/pdf") {
             this.notificationService.show(
                 new Notification('success', 'Votre CV (' + this.resumeData.name + ') a été pris en compte')

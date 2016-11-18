@@ -226,6 +226,12 @@ export class ProfilePreviewComponent {
         document.getElementById("modal-backdrop-replacement").style.display = "none";
     }
 
+    public resumeFileChangeListener($event) {
+        console.log('resume file dropped', $event);
+
+        this.resumeFileDropped($event.target.files);
+    }
+
     public fileChangeListener($event) {
         var image:any = new Image();
 
