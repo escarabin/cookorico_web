@@ -28,6 +28,7 @@ export class CandidateSignUpComponent {
     jobNamingGroups: any = [];
     civilities: any = [];
     xpLevels: any = [];
+    isLoading: boolean = false;
     @ViewChild('cropper', undefined) cropper: ImageCropperComponent;
     cropper:ImageCropperComponent;
     profilePictureData: any;
@@ -87,6 +88,7 @@ export class CandidateSignUpComponent {
     }
 
     signUp() {
+        this.isLoading = true;
         this.userService.createCandidateUser(this.user, this.lookingForJobNamingList).subscribe((res: Response) => {
             let createdUser = res.json();
             this.user = createdUser;
@@ -95,6 +97,7 @@ export class CandidateSignUpComponent {
 
             this.userService.loginUsingId(createdUser.id).subscribe((res: Response) => {
                 localStorage.setItem('user', JSON.stringify(createdUser));
+                this.isLoading = false;
 
                 this.notificationService.show(
                     new Notification('success', 'Un mail vient de vous être envoyé pour confirmer votre inscription')
