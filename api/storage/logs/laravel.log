@@ -683,3 +683,103 @@ Stack trace:
 #54 {main}  
 [2016-11-18 09:31:39] local.INFO: logging user out  
 [2016-11-18 09:34:56] local.INFO: logging user out  
+[2016-11-18 09:45:42] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-18 09:45:47] local.INFO: array (
+  'redirectionUrl' => '/recherche/annonce/7',
+)  
+[2016-11-18 09:45:47] local.INFO: array (
+  'redirectionUrl' => '/recherche/annonce/7',
+)  
+[2016-11-18 09:45:47] local.INFO: array (
+  'redirectionUrl' => '/recherche/annonce/7',
+)  
+[2016-11-18 09:47:10] local.INFO: array (
+  'redirectionUrl' => '/recherche/annonce/7',
+)  
+[2016-11-18 09:47:27] local.INFO: array (
+  'redirectionUrl' => '/recherche',
+)  
+[2016-11-18 09:47:27] local.INFO: array (
+  'redirectionUrl' => '/recherche',
+)  
+[2016-11-18 09:47:27] local.INFO: array (
+  'redirectionUrl' => '/recherche',
+)  
+[2016-11-18 09:47:29] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:47:29] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:47:29] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:47:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-18 09:47:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-18 09:47:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-18 09:47:31] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-18 09:47:40] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:47:40] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:47:40] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:47:40] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:47:40] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:47:40] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:18] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:18] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:18] local.INFO: logging user out  
+[2016-11-18 09:52:18] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:18] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:18] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:19] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:19] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:19] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:19] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:19] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:19] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-18 09:52:19] local.INFO: array (
+  'redirectionUrl' => '/',
+)  

@@ -39,11 +39,13 @@ export class NewApplicationFormComponent {
 
         let __this = this;
 
-        this.userService.getUserInfos().subscribe((res: Response) => {
+        this.user = JSON.parse(localStorage.getItem('user'));
+
+        this.userService.getUserInfos(this.user.id).subscribe((res: Response) => {
             __this.user = res.json();
         });
 
-        this.userService.getApplications().subscribe((res: Response) => {
+        this.userService.getApplications(this.user.id).subscribe((res: Response) => {
             if (res['_body']) {
                 let applications = res.json();
 
