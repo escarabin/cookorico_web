@@ -20,6 +20,7 @@ export class CreateStudyComponent {
     diplomas: any;
     isLoading: boolean = false;
     study:Study = new Study();
+    user: any = {};
 
     constructor(private referenceService: ReferenceService,
                 private notificationService: NotificationsService,
@@ -51,7 +52,7 @@ export class CreateStudyComponent {
         let __this = this;
 
         if (!this.study.id) {
-            this.userService.createStudy(__this.study).subscribe((res:Response) => {
+            this.userService.createStudy(__this.study, __this.user.id).subscribe((res:Response) => {
                 if (res['_body']) {
                     __this.notificationService.show(
                         new Notification('success', 'Votre formation a bien été créee')

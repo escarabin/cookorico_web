@@ -26,10 +26,10 @@ export class BusinessService {
      * @param place
      * @returns {Observable<Response>}
      */
-    create(business: Business, place: Place) {
+    create(business: Business, place: Place, userId?: number) {
         let requestBody = JSON.stringify({ business, place });
 
-        return this.http.post(this.createBusinessUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.createBusinessUrl + '/' + userId, requestBody, this.postRequestOptions);
     }
 
     /**

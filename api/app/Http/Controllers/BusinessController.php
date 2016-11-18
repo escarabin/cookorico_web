@@ -17,11 +17,21 @@ class BusinessController extends Controller
     /**
      * Create a new business
      * @param Request $request
+     * @param $userId
      * @return Business
      */
-    public function create(Request $request) {
+    public function create(Request $request, $userId = null) {
         $businessData = $request::input('business');
         $business = new Business;
+
+        $user = null;
+
+        if ($userId == "undefined" || !$userId) {
+            $user = Auth::user();
+        }
+        else {
+            $user = User::find($userId);
+        }
 
         if (array_key_exists('id', $businessData)) {
             $business = Business::find($businessData['id']);
@@ -120,7 +130,7 @@ class BusinessController extends Controller
         }
 
         if (!array_key_exists('id', $businessData)) {
-            $user_id = Auth::user()->id;
+            $user_id = $user->id;
             $business->users()->attach($user_id);
             $business->save();
             /**
@@ -157,10 +167,10 @@ class BusinessController extends Controller
                             'tel' => $business->phone,
                             'email' => $business->email],
                         'contact' =>
-                            ['cookorico_id' => Auth::user()->id,
-                                'name' => Auth::user()->email,
+                            ['cookorico_id' => $user->id,
+                                'name' => $user->email,
                                 'tel' => $business->phone,
-                                'forename' => Auth::user()->firstName],
+                                'forename' => $user->firstName],
                         'address' =>
                             ['name' => $place->adress,
                                 'part1' => $place->adress,
@@ -169,7 +179,6 @@ class BusinessController extends Controller
                     ]
                 );
         }
-
 
         return $business;
     }

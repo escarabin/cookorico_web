@@ -191,7 +191,7 @@ Route::get('/study/{studyId}', 'EducationController@getStudy')
     ->name('getStudy');
 Route::get('/education/delete/{listStudyId}', 'EducationController@deleteEducation')
     ->name('deleteEducation');
-Route::post('/study/create', 'EducationController@createStudy')
+Route::post('/study/create/{userId?}', 'EducationController@createStudy')
     ->name('createStudy');
 Route::post('/study/update', 'EducationController@updateStudy')
     ->name('updateStudy');

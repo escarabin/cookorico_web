@@ -48,7 +48,7 @@
                    style="float: left;"
                    ng2FileSelect
                    [uploader]="resumeUploader"
-                   (change)="fileChangeListener($event)"/>
+                   (change)="resumeFileChangeListener($event)"/>
         </div>
         <div class="col-md-6">
             <img-cropper #cropper [image]="profilePictureData" [settings]="cropperSettings">

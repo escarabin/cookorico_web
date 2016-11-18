@@ -406,17 +406,19 @@ export class UserService {
     /**
      * Create new work experience
      * @param experience
+     * @param userId
      * @returns {Observable<Response>}
      */
-    createExperience(experience: Experience) {
+    createExperience(experience: Experience, userId?: number) {
         let requestBody = JSON.stringify({ experience });
 
-        return this.http.post(this.createExperienceUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.createExperienceUrl + '/' + userId, requestBody, this.postRequestOptions);
     }
 
     /**
      * Update existing work experience
      * @param experience
+     * @param userId
      * @returns {Observable<Response>}
      */
     updateExperience(experience: Experience) {
@@ -428,12 +430,13 @@ export class UserService {
     /**
      * Create new study
      * @param study
+     * @param userId
      * @returns {Observable<Response>}
      */
-    createStudy(study: Study) {
+    createStudy(study: Study, userId?: number) {
         let requestBody = JSON.stringify({ study });
 
-        return this.http.post(this.createStudyUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.createStudyUrl + '/' + userId, requestBody, this.postRequestOptions);
     }
 
     /**

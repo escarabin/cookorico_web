@@ -158,8 +158,10 @@ export class CandidateSignUpComponent {
         });
     }
 
-    public resumefileChangeListener($event) {
+    public resumeFileChangeListener($event) {
+        console.log('resume file dropped', $event);
 
+        this.resumeFileDropped($event.target.files);
     }
 
     public pictureChangeListener($event) {

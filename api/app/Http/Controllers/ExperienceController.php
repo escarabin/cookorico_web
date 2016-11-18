@@ -13,13 +13,21 @@ class ExperienceController extends Controller
     /**
      * Create new work experience
      * @param Request $request
+     * @param $userId
      * @return Experience
      */
-    public function createExperience(Request $request) {
-        $user_id = Auth::user()->id;
+    public function createExperience(Request $request, $userId = null) {
+        $user = null;
+
+        if ($userId == "undefined" || !$user) {
+            $user = Auth::user();
+        }
+        else {
+            $user = User::find($userId);
+        }
 
         $experience = new Experience;
-        $experience->user_id = $user_id;
+        $experience->user_id = $user->id;
 
         $experienceData = $request::input('experience');
 
@@ -35,9 +43,10 @@ class ExperienceController extends Controller
     /**
      * Update existing work experience
      * @param Request $request
+     * @param $userId
      * @return Experience
      */
-    public function updateExperience(Request $request) {
+    public function updateExperience(Request $request, $userId = null) {
         $experienceData = $request::input('experience');
 
         $experience = Experience::find($experienceData['id']);

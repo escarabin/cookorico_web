@@ -24,6 +24,7 @@ export class CreateExperienceComponent {
     isLoading: boolean = false;
     isBusinessIdentified: boolean = false;
     sendTestimonialRequest: boolean = false;
+    user: any = {};
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
@@ -34,6 +35,8 @@ export class CreateExperienceComponent {
         this.referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
             this.jobNamingGroups = res.json();
         })
+
+        this.user = JSON.parse(localStorage.getItem('user'));
     }
 
     ngAfterViewInit() {
@@ -58,7 +61,7 @@ export class CreateExperienceComponent {
         let __this = this;
 
         if (!this.experience.id) {
-            this.userService.createExperience(__this.experience).subscribe((res: Response) => {
+            this.userService.createExperience(__this.experience, this.user.id).subscribe((res: Response) => {
                 this.experience = res.json();
                 if (res['_body']) {
                     __this.notificationService.show(
@@ -86,7 +89,7 @@ export class CreateExperienceComponent {
             });
         }
         else {
-            this.userService.updateExperience(__this.experience).subscribe((res: Response) => {
+            this.userService.updateExperience(__this.experience, this.user.id).subscribe((res: Response) => {
                 if (res['_body']) {
                     __this.notificationService.show(
                         new Notification('success', 'Vos modifications ont bien été enregistrées')

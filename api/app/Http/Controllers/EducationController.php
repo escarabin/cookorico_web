@@ -13,14 +13,22 @@ class EducationController extends Controller
     /**
      * Create new study
      * @param Request $request
+     * @param $userId
      * @return Study
      */
-    public function createStudy(Request $request) {
-        $user_id = Auth::user()->id;
+    public function createStudy(Request $request, $userId = null) {
+        $user = null;
+
+        if ($userId == "undefined" || !$user) {
+            $user = Auth::user();
+        }
+        else {
+            $user = User::find($userId);
+        }
 
         $study = new Study;
 
-        $study->user_id = $user_id;
+        $study->user_id = $user->id;
 
         $studyData = $request::input('study');
 
