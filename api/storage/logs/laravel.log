@@ -899,3 +899,14 @@ Stack trace:
 #53 /Applications/MAMP/htdocs/oechr/api/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #54 {main}  
 [2016-11-18 13:35:20] local.INFO: logging user out  
+[2016-11-18 13:40:28] local.INFO: logging user out  
+[2016-11-18 13:46:59] local.INFO: logging user out  
+[2016-11-18 13:51:18] local.INFO: logging user out  
+[2016-11-18 13:51:26] local.INFO: logging user out  
+[2016-11-18 13:51:33] local.INFO: logging user out  
+[2016-11-18 13:52:03] local.INFO: logging user out  
+[2016-11-18 13:52:56] local.INFO: logging user out  
+[2016-11-18 13:53:34] local.INFO: logging user out  
+[2016-11-18 13:54:48] local.INFO: logging user out  
+[2016-11-18 13:55:42] local.INFO: logging user out  
+[2016-11-18 13:56:01] local.INFO: logging user out  

@@ -71,6 +71,7 @@ export class CandidateDashboardComponent {
          */
         if (this.user['looking_for_job_namings']) {
             for (let i = 0; i < this.user['looking_for_job_namings'].length; i++) {
+
                 if (this.lookingForJobNamingList[i]) {
                     this.lookingForJobNamingList[i]['id'] = this.user['looking_for_job_namings'][i]['id'];
 
@@ -78,17 +79,23 @@ export class CandidateDashboardComponent {
                      * PARSE GOOGLE MAPS DATA
                      * @type {google.maps.Geocoder}
                      */
-                    let geocoder = new google.maps.Geocoder;
-                    geocoder.geocode({'placeId': this.user['looking_for_job_naming_places'][i]['googlePlaceId']},
-                        function(results) {
-                            if (results != null) {
-                                let place = results[0];
-                                __this.lookingForJobNamingList[i]['place'] = place;
+                    if (this.user['looking_for_job_naming_places']) {
+                        this.userService.getUserInfos(this.user.id).subscribe((res: Response) => {
+                            this.user = res.json();
 
-                                __this.ref.detectChanges();
-                            }
-                        }
-                    );
+                            let geocoder = new google.maps.Geocoder;
+                            geocoder.geocode({'placeId': this.user['looking_for_job_naming_places'][i]['googlePlaceId']},
+                                function(results) {
+                                    if (results != null) {
+                                        let place = results[0];
+                                        __this.lookingForJobNamingList[i]['place'] = place;
+
+                                        __this.ref.detectChanges();
+                                    }
+                                }
+                            );
+                        });
+                    }
                 }
             }
         }
