@@ -109,6 +109,8 @@ Route::get('/user/log', 'UserController@logUserInfos')
     ->name('logUserInfos');
 Route::get('/password/update/{oldPassword}/{newPassword}/{userId?}', 'UserController@signIn')
     ->name('signIn');
+Route::get('/user/no-experience', 'UserController@saveNoExperience')
+    ->name('saveNoExperience');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')

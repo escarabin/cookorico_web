@@ -910,3 +910,70 @@ Stack trace:
 [2016-11-18 13:54:48] local.INFO: logging user out  
 [2016-11-18 13:55:42] local.INFO: logging user out  
 [2016-11-18 13:56:01] local.INFO: logging user out  
+[2016-11-18 14:16:01] local.ERROR: exception 'ErrorException' with message 'Missing argument 1 for Illuminate\Routing\Router::get(), called in /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 215 and defined' in /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Routing/Router.php:127
+Stack trace:
+#0 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(127): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'Missing argumen...', '/Applications/M...', 127, Array)
+#1 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(215): Illuminate\Routing\Router->get()
+#2 /Applications/MAMP/htdocs/oechr/api/app/Http/routes.php(112): Illuminate\Support\Facades\Facade::__callStatic('get', Array)
+#3 /Applications/MAMP/htdocs/oechr/api/app/Http/routes.php(112): Illuminate\Support\Facades\Route::get()
+#4 /Applications/MAMP/htdocs/oechr/api/app/Providers/RouteServiceProvider.php(58): require('/Applications/M...')
+#5 [internal function]: App\Providers\RouteServiceProvider->App\Providers\{closure}(Object(Illuminate\Routing\Router))
+#6 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(398): call_user_func(Object(Closure), Object(Illuminate\Routing\Router))
+#7 /Applications/MAMP/htdocs/oechr/api/app/Providers/RouteServiceProvider.php(59): Illuminate\Routing\Router->group(Array, Object(Closure))
+#8 /Applications/MAMP/htdocs/oechr/api/app/Providers/RouteServiceProvider.php(40): App\Providers\RouteServiceProvider->mapWebRoutes(Object(Illuminate\Routing\Router))
+#9 [internal function]: App\Providers\RouteServiceProvider->map(Object(Illuminate\Routing\Router))
+#10 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Container/Container.php(507): call_user_func_array(Array, Array)
+#11 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/RouteServiceProvider.php(72): Illuminate\Container\Container->call(Array)
+#12 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/RouteServiceProvider.php(31): Illuminate\Foundation\Support\Providers\RouteServiceProvider->loadRoutes()
+#13 /Applications/MAMP/htdocs/oechr/api/app/Providers/RouteServiceProvider.php(29): Illuminate\Foundation\Support\Providers\RouteServiceProvider->boot(Object(Illuminate\Routing\Router))
+#14 [internal function]: App\Providers\RouteServiceProvider->boot(Object(Illuminate\Routing\Router))
+#15 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Container/Container.php(507): call_user_func_array(Array, Array)
+#16 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(757): Illuminate\Container\Container->call(Array)
+#17 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(740): Illuminate\Foundation\Application->bootProvider(Object(App\Providers\RouteServiceProvider))
+#18 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}(Object(App\Providers\RouteServiceProvider), 14)
+#19 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(741): array_walk(Array, Object(Closure))
+#20 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php(17): Illuminate\Foundation\Application->boot()
+#21 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#22 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(219): Illuminate\Foundation\Application->bootstrapWith(Array)
+#23 /Applications/MAMP/htdocs/oechr/api/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
+#24 /Applications/MAMP/htdocs/oechr/api/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 {main}  
+[2016-11-18 14:29:00] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-18 14:29:06] local.INFO: array (
+  'redirectionUrl' => '/recherche/annonce/784',
+)  
+[2016-11-18 14:29:06] local.INFO: array (
+  'redirectionUrl' => '/recherche/annonce/784',
+)  
+[2016-11-18 14:29:06] local.INFO: array (
+  'redirectionUrl' => '/recherche/annonce/784',
+)  
+[2016-11-18 14:29:52] local.INFO: array (
+  'redirectionUrl' => '/profil/candidatures',
+)  
+[2016-11-18 14:29:52] local.INFO: array (
+  'redirectionUrl' => '/profil/candidatures',
+)  
+[2016-11-18 14:29:52] local.INFO: array (
+  'redirectionUrl' => '/profil/candidatures',
+)  
+[2016-11-18 14:34:40] local.INFO: array (
+  'redirectionUrl' => '/profil/espace-candidat',
+)  
+[2016-11-18 14:34:40] local.INFO: array (
+  'redirectionUrl' => '/profil/espace-candidat',
+)  
+[2016-11-18 14:34:41] local.INFO: array (
+  'redirectionUrl' => '/profil/apercu',
+)  
+[2016-11-18 14:34:41] local.INFO: array (
+  'redirectionUrl' => '/profil/espace-candidat',
+)  
+[2016-11-18 14:34:41] local.INFO: array (
+  'redirectionUrl' => '/profil/apercu',
+)  
+[2016-11-18 14:34:41] local.INFO: array (
+  'redirectionUrl' => '/profil/apercu',
+)  

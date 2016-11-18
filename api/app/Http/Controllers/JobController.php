@@ -190,32 +190,6 @@ class JobController extends Controller
             }
         }
 
-        /**
-         * If no jobs found, try to find close businesses
-         * TODO
-
-        if (count($jobs)) {
-            $locationOrderedBusinesses = Business::select(DB::raw("*, " .
-                "( " .
-                "6371 * " .
-                "acos( " .
-                "cos( radians(?) ) * " .
-                "cos( radians( lat ) ) * " .
-                "cos( " .
-                "radians( lon ) - radians(?)" .
-                ") + " .
-                "sin( radians(?) ) * " .
-                "sin( radians( lat ) ) " .
-                ")" .
-                ") AS distance"))->having("distance", "<", 100)
-                                 ->orderBy("distance")
-                                 ->get();
-
-            Log::info('getting businesses');
-            Log::info(print_r($locationOrderedBusinesses));
-        }
-         */
-
         return $jobs;
     }
 
@@ -232,6 +206,7 @@ class JobController extends Controller
 
         $newApplication->user_id = $user->id;
         $newApplication->job_id = $applicationData['job_id'];
+        $newApplication->status_id = 2;
         $newApplication->comment = $applicationData['comment'];
 
         /**

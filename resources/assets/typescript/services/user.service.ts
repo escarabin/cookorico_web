@@ -483,6 +483,14 @@ export class UserService {
         return this.http.post(this.uploadProfilePictureUrl, requestBody, this.postRequestOptions);
     }
 
+    /**
+     * Save the fact that the current has no experience
+     * @param userId
+     */
+    noExperience(userId?: number) {
+        return this.http.request(this.noExperienceUrl + '/' + userId);
+    }
+
 
     /**
      * Upload new resume for current user

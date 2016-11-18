@@ -362,6 +362,15 @@ class UserController extends Controller
     }
 
     /**
+     * Save the fact that the current has no experience
+     * @param userId
+     * @return mixed
+     */
+    public function saveNoExperience($userId = null) {
+
+    }
+
+    /**
      * Create new candidate user
      * @param Request $request
      * @return User
@@ -374,6 +383,7 @@ class UserController extends Controller
         $user->is_verified = 1;
         $user->is_active = 1;
         $user->alert_frequency_id = 1;
+        $user->user_status_id = 1;
 
         foreach ($userData as $key => $value) {
             if ($key != "profilePictureUrl" && $key != "password") {

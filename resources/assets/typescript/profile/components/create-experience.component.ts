@@ -47,6 +47,8 @@ export class CreateExperienceComponent {
                 __this.experience.id = params["experienceId"];
 
                 if (__this.experience.id) {
+                    __this.isBusinessIdentified = true;
+
                     // Editing a specific item, let's retrieve it's data
                     __this.userService.getExperience(__this.experience.id).subscribe((res: Response) => {
                         __this.experience = res.json();
