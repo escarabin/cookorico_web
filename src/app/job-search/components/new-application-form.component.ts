@@ -13,7 +13,7 @@ import { Application } from '../../models/application';
 
 @Component({
     selector: 'new-application-form',
-    templateUrl: '../templates/new-application-form.component.html',
+    templateUrl: '../../../templates/new-application-form.component.html',
     inputs: ['jobId']
 })
 

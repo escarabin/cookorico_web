@@ -14,7 +14,7 @@ declare var braintree:any;
 
 @Component({
     selector: 'recruiter-promo',
-    templateUrl: '../templates/recruiter-promo.component.html'
+    templateUrl: '../../../templates/recruiter-promo.component.html'
 })
 
 export class RecruiterPromoComponent {

@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import appGlobals = require('./../globals');
+import { apiUrl } from '../globals';
 
 @Injectable()
 export class ReferenceService {
-    allStatesListingUrl = appGlobals.apiUrl + '/states/all';
-    allContractTypesListingUrl = appGlobals.apiUrl + '/contract_types/all';
-    allJobTypesListingUrl = appGlobals.apiUrl + '/job_types/all';
-    allJobNamingsListingUrl = appGlobals.apiUrl + '/job_namings/all';
-    allStudyLevelsListingUrl = appGlobals.apiUrl + '/study_levels/all';
-    allDiplomasListingUrl = appGlobals.apiUrl + '/diplomas/all';
-    allJobNamingGroupsUrl = appGlobals.apiUrl + '/job_naming_groups/all';
-    getAlertFrequenciesListingUrl = appGlobals.apiUrl + '/alert_frequencies/all';
-    getAllBusinessTypesListingUrl = appGlobals.apiUrl + '/business_types/all';
-    getAllJobXpLevelsUrl = appGlobals.apiUrl + '/job_xp_levels/all';
-    getAllCivilitiesUrl = appGlobals.apiUrl + '/civilities/all';
-    getAllCandidateStatusesURL = appGlobals.apiUrl + '/candidate-statuses/all';
-    getAllLanguagesUrl = appGlobals.apiUrl + '/languages/all';
-    getAllLanguageLevelsUrl = appGlobals.apiUrl + '/language-levels/all';
+    allStatesListingUrl = apiUrl + '/states/all';
+    allContractTypesListingUrl = apiUrl + '/contract_types/all';
+    allJobTypesListingUrl = apiUrl + '/job_types/all';
+    allJobNamingsListingUrl = apiUrl + '/job_namings/all';
+    allStudyLevelsListingUrl = apiUrl + '/study_levels/all';
+    allDiplomasListingUrl = apiUrl + '/diplomas/all';
+    allJobNamingGroupsUrl = apiUrl + '/job_naming_groups/all';
+    getAlertFrequenciesListingUrl = apiUrl + '/alert_frequencies/all';
+    getAllBusinessTypesListingUrl = apiUrl + '/business_types/all';
+    getAllJobXpLevelsUrl = apiUrl + '/job_xp_levels/all';
+    getAllCivilitiesUrl = apiUrl + '/civilities/all';
+    getAllCandidateStatusesURL = apiUrl + '/candidate-statuses/all';
+    getAllLanguagesUrl = apiUrl + '/languages/all';
+    getAllLanguageLevelsUrl = apiUrl + '/language-levels/all';
 
     constructor(private http: Http) {
 

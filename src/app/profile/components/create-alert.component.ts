@@ -14,7 +14,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'create-alert',
-    templateUrl: '../templates/create-alert.component.html'
+    templateUrl: '../../../templates/create-alert.component.html'
 })
 
 export class CreateAlertComponent {

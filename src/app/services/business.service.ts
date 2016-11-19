@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
-import appGlobals = require('./../globals');
+import { apiUrl } from '../globals';
 
 // Models
 import { Business } from '../models/business';
@@ -8,11 +8,11 @@ import { Place } from '../models/place';
 
 @Injectable()
 export class BusinessService {
-    createBusinessUrl = appGlobals.apiUrl + "/business/create";
-    getBusinessUrl = appGlobals.apiUrl + "/business";
-    getAllBusinessesUrl = appGlobals.apiUrl + "/businesses/all";
-    detachUserUrl = appGlobals.apiUrl + "/business/detach-user";
-    attachUserUrl = appGlobals.apiUrl + "/business/attach-user";
+    createBusinessUrl = apiUrl + "/business/create";
+    getBusinessUrl = apiUrl + "/business";
+    getAllBusinessesUrl = apiUrl + "/businesses/all";
+    detachUserUrl = apiUrl + "/business/detach-user";
+    attachUserUrl = apiUrl + "/business/attach-user";
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 

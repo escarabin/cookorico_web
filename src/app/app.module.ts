@@ -33,7 +33,7 @@ import { CgvComponent } from './shared/components/cgv.component';
 import { AboutComponent } from './shared/components/about.component';
 
 // Global vars
-import appGlobals = require('./globals');
+import { googleMapsApiKey } from 'globals';
 
 const metaConfig: MetaConfig = {
     //Append a title suffix such as a site name to all titles
@@ -69,7 +69,7 @@ const metaConfig: MetaConfig = {
                     ReCaptchaModule,
                     BrowserModule,
                     AgmCoreModule.forRoot({
-                        apiKey: appGlobals.googleMapsApiKey
+                        apiKey: googleMapsApiKey
                     }),
                     MetaModule.forRoot(metaConfig),
                     routing ],

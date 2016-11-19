@@ -10,7 +10,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'alerts',
-    templateUrl: '../templates/alerts.component.html'
+    templateUrl: '../../../templates/alerts.component.html'
 })
 
 export class AlertsComponent {

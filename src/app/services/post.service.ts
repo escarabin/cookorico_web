@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http } from '@angular/http';
-import appGlobals = require('./../globals');
+import { apiUrl } from '../globals';
 
 @Injectable()
 export class PostService {
-    allPostsListingUrl = appGlobals.apiUrl + '/posts/all';
-    showPostListingUrl = appGlobals.apiUrl + '/post/';
+    allPostsListingUrl = apiUrl + '/posts/all';
+    showPostListingUrl = apiUrl + '/post/';
     postId: number;
 
     constructor(private http: Http) {

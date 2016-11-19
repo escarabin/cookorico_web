@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
-import appGlobals = require('./../globals');
+import { apiUrl } from '../globals';
 
 @Injectable()
 export class ClubService {
-    allClubsListingUrl = appGlobals.apiUrl + '/clubs/all';
-    allGroupsListingUrl = appGlobals.apiUrl + '/groups/all';
-    showClubListingUrl = appGlobals.apiUrl + '/club';
-    createClubUrl = appGlobals.apiUrl + '/club/create';
-    detachBusinessFromClubUrl = appGlobals.apiUrl + '/club/detach-business';
-    deleteClubUrl = appGlobals.apiUrl + '/club/delete';
-    attachBusinessToClubUrl = appGlobals.apiUrl + '/club/attach-business';
+    allClubsListingUrl = apiUrl + '/clubs/all';
+    allGroupsListingUrl = apiUrl + '/groups/all';
+    showClubListingUrl = apiUrl + '/club';
+    createClubUrl = apiUrl + '/club/create';
+    detachBusinessFromClubUrl = apiUrl + '/club/detach-business';
+    deleteClubUrl = apiUrl + '/club/delete';
+    attachBusinessToClubUrl = apiUrl + '/club/attach-business';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 

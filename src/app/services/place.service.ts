@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import appGlobals = require('./../globals');
+import { apiUrl } from '../globals';
 
 @Injectable()
 export class PlaceService {
-    savePlaceUrl = appGlobals.apiUrl + "/place/save";
+    savePlaceUrl = apiUrl + "/place/save";
     defaultPostRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     defaultPostRequestOptions = new RequestOptions({ headers: this.defaultPostRequestHeaders });
 

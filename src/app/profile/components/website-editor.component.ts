@@ -12,7 +12,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'website-editor',
-    templateUrl: '../templates/website-editor.component.html',
+    templateUrl: '../../../templates/website-editor.component.html',
 })
 
 export class WebsiteEditorComponent {

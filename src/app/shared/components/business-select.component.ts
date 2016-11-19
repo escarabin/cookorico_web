@@ -13,7 +13,7 @@ import { Notification } from '../../models/notification';
 @Component({
     selector: 'business-select',
     providers: [ BusinessService, PlaceService ],
-    templateUrl: '../templates/business-select.component.html',
+    templateUrl: '../../../templates/business-select.component.html',
     inputs: ['businessId', 'onlyUserBusinesses', 'isRequired', 'isMultiple']
 })
 

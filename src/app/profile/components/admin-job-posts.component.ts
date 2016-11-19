@@ -11,7 +11,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'admin-job-posts',
-    templateUrl: '../templates/admin-job-posts.component.html'
+    templateUrl: '../../../templates/admin-job-posts.component.html'
 })
 
 export class AdminJobPostsComponent {

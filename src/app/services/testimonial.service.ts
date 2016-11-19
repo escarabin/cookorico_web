@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import appGlobals = require('./../globals');
+import { apiUrl } from '../globals';
 
 @Injectable()
 export class TestimonialService {
-    requestTestimonialUrl = appGlobals.apiUrl + '/testimonial/request';
+    requestTestimonialUrl = apiUrl + '/testimonial/request';
 
     constructor(private http: Http) {
 

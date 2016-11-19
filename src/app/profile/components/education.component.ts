@@ -10,7 +10,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'education',
-    templateUrl: '../templates/education.component.html'
+    templateUrl: '../../../templates/education.component.html'
 })
 
 export class EducationComponent {

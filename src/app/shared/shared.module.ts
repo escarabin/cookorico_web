@@ -31,9 +31,6 @@ import { BusinessService } from './../services/business.service';
 import { PlaceService } from './../services/place.service';
 import { SellsyService } from './../services/sellsy.service';
 
-// Global vars
-import appGlobals = require('./../globals');
-
 @NgModule({
     declarations: [ UNITYTinyMCE,
                     JobPreviewComponent,

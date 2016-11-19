@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HTTP_PROVIDERS, Http, Headers, RequestOptions } from '@angular/http';
-import appGlobals = require('./../globals');
+import { apiUrl } from '../globals';
 
 // Models
 import { Option } from '../models/option';
 
 @Injectable()
 export class WebsiteEditorService {
-    saveOptionUrl = appGlobals.apiUrl + "/option/save";
-    getTrafficDrivenCatsUrl = appGlobals.apiUrl + "/website_editor/traffic_cats";
-    saveTrafficDrivenCatsUrl = appGlobals.apiUrl + "/website_editor/save_traffic_cats";
+    saveOptionUrl = apiUrl + "/option/save";
+    getTrafficDrivenCatsUrl = apiUrl + "/website_editor/traffic_cats";
+    saveTrafficDrivenCatsUrl = apiUrl + "/website_editor/save_traffic_cats";
 
     constructor(private http: Http) {
 

@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
-import appGlobals = require('../../globals');
+let appGlobals = require('../../globals');
 
 // Services
 import { UserService } from './../../services/user.service';
@@ -20,7 +20,7 @@ import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 @Component({
     selector: 'candidate-sign-up',
-    templateUrl: '../templates/candidate-sign-up.component.html',
+    templateUrl: '../../../templates/candidate-sign-up.component.html',
 })
 
 export class CandidateSignUpComponent {

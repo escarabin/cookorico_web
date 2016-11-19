@@ -7,7 +7,7 @@ import { UserService } from './../../services/user.service';
 
 @Component({
     selector: 'profile',
-    templateUrl: '../templates/profile.component.html',
+    templateUrl: '../../../templates/profile.component.html',
 })
 
 export class ProfileComponent {

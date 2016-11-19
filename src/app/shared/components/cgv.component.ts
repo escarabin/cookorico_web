@@ -3,7 +3,7 @@ import { Response } from '@angular/http';
 
 @Component({
     selector: 'cgv',
-    templateUrl: '../templates/cgv.component.html'
+    templateUrl: '../../../templates/cgv.component.html'
 })
 
 export class CgvComponent {

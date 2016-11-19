@@ -18,7 +18,7 @@ import { FileUploader } from 'ng2-file-upload';
 
 @Component({
     selector: 'create-business',
-    templateUrl: '../templates/create-business.component.html'
+    templateUrl: '../../../templates/create-business.component.html'
 })
 
 export class CreateBusinessComponent {

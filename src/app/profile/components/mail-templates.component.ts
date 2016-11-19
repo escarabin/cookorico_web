@@ -7,7 +7,7 @@ import { NotificationsService } from '../../services/notification.service';
 
 @Component({
     selector: 'mail-templates',
-    templateUrl: '../templates/mail-templates.component.html'
+    templateUrl: '../../../templates/mail-templates.component.html'
 })
 
 export class MailTemplatesComponent {

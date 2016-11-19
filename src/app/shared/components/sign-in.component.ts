@@ -14,7 +14,7 @@ import { ComponentsHelper } from
     'ng2-bootstrap/components/utils/components-helper.service';
 
 @Component({
-    templateUrl: '../templates/sign-in.component.html',
+    templateUrl: '../../../templates/sign-in.component.html',
     selector: 'sign-in',
     viewProviders: [{provide: ComponentsHelper, useClass: ComponentsHelper}],
 })

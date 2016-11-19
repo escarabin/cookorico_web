@@ -14,7 +14,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'create-experience',
-    templateUrl: '../templates/create-experience.component.html'
+    templateUrl: '../../../templates/create-experience.component.html'
 })
 
 export class CreateExperienceComponent {

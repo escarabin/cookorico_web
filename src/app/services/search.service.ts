@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Response, Http, Headers, RequestOptions } from '@angular/http';
-import appGlobals = require('./../globals');
+import { apiUrl } from '../globals';
 
 // Services
 import { JobService } from './../services/job.service';
@@ -11,7 +11,7 @@ export class SearchService {
     resultsEmitter = new EventEmitter();
     mapModeEmitter = new EventEmitter();
     isMapModeEnabled: boolean = false;
-    getSeoDataFromPathUrl = appGlobals.apiUrl + '/seo-route';
+    getSeoDataFromPathUrl = apiUrl + '/seo-route';
 
     constructor(private jobService: JobService,
                 private http: Http) {

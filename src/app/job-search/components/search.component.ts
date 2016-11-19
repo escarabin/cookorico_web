@@ -11,7 +11,7 @@ import { SearchService } from './../../services/search.service';
 import { Notification } from './../../models/notification';
 
 @Component({
-    templateUrl: '../templates/search.component.html',
+    templateUrl: '../../../templates/search.component.html',
     providers: [ UserService ],
     selector: 'search',
 })

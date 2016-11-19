@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'app',
-    templateUrl: '/templates/app.component.html'
+    templateUrl: '../templates/app.component.html'
 })
 
 export class AppComponent {

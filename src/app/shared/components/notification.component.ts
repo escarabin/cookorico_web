@@ -5,7 +5,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'notifications',
-    templateUrl: '../templates/notification.component.html'
+    templateUrl: '../../../templates/notification.component.html'
 })
 
 export class NotificationsComponent {

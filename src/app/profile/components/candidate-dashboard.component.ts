@@ -11,7 +11,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'candidate-dashboard',
-    templateUrl: '../templates/candidate-dashboard.component.html',
+    templateUrl: '../../../templates/candidate-dashboard.component.html',
 })
 
 export class CandidateDashboardComponent {

@@ -6,7 +6,7 @@ import { JobService } from './../../services/job.service';
 
 @Component({
     selector: 'home',
-    templateUrl: '../templates/home.component.html',
+    templateUrl: '../../../templates/home.component.html',
 })
 
 export class HomeComponent {
@@ -32,5 +32,8 @@ export class HomeComponent {
         else {
             this.innerHeight = 300;
         }
+
+        document.getElementById('home-heading').setAttribute("style","height:" + this.innerHeight + "px;");
+        document.getElementById('home-heading-title').setAttribute("style","margin-top:" + this.innerHeight / 11 + "px;");
     }
 }

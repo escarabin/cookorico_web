@@ -12,7 +12,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'applicants',
-    templateUrl: '../templates/applicants.component.html'
+    templateUrl: '../../../templates/applicants.component.html'
 })
 
 export class ApplicantsComponent {

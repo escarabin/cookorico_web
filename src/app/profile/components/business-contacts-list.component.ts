@@ -12,7 +12,7 @@ import { Notification } from './../../models/notification';
 
 @Component({
     selector: 'business-contacts-list',
-    templateUrl: '../templates/business-contacts-list.component.html',
+    templateUrl: '../../../templates/business-contacts-list.component.html',
     inputs: ['business']
 })
 

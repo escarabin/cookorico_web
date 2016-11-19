@@ -6,7 +6,7 @@ import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'profile-sidebar',
-    templateUrl: '../templates/profile-sidebar.component.html'
+    templateUrl: '../../../templates/profile-sidebar.component.html'
 })
 
 export class ProfileSidebarComponent {

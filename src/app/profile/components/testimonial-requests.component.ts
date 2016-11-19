@@ -6,7 +6,7 @@ import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'testimonial-requests',
-    templateUrl: '../templates/testimonial-requests.component.html'
+    templateUrl: '../../../templates/testimonial-requests.component.html'
 })
 
 export class TestimonialRequestsComponent {

@@ -9,7 +9,7 @@ import { User } from './../../models/user';
 import { UserService } from './../../services/user.service';
 
 @Component({
-    templateUrl: '../templates/header.component.html',
+    templateUrl: '../../../templates/header.component.html',
     selector: 'header',
 })
 
@@ -22,12 +22,16 @@ export class HeaderComponent {
     constructor (@Inject(UserService) UserService,
                  private userService: UserService,
                  private router: Router) {
-        UserService.getUserInfos().subscribe((res: Response) => {
-            if (res.text().length > 10) {
-                this.user = res.json();
-                localStorage.setItem('user', JSON.stringify(this.user));
-            }
-        });
+        this.user = JSON.parse(localStorage.getItem('user'));
+
+        if (this.user) {
+            UserService.getUserInfos(this.user.id).subscribe((res: Response) => {
+                if (res.text().length > 10) {
+                    this.user = res.json();
+                    localStorage.setItem('user', JSON.stringify(this.user));
+                }
+            });
+        }
 
         UserService.userChangeEmitter.subscribe(res => {
             console.log('received something user', res);

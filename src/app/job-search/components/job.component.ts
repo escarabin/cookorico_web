@@ -13,7 +13,7 @@ import { Notification } from '../../models/notification';
 @Component({
     inputs: ['jobId'],
     selector: 'job',
-    templateUrl: '../templates/job.component.html',
+    templateUrl: '../../../templates/job.component.html',
 })
 
 export class JobComponent {

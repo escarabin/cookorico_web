@@ -1,7 +1,7 @@
 <div class="heading"
-     [ngStyle]="{'height': innerHeight}"
+     id="home-heading"
      (window:resize)="fitMainDivToWindow()">
-    <h1 [ngStyle]="{'margin-top': innerHeight / 9}">Le réveil de l’emploi en hôtellerie restauration</h1>
+    <h1 id="home-heading-title">Le réveil de l’emploi en hôtellerie restauration</h1>
     <h2>{{ jobs.length + 100 }} offres de moins de 30 jours</h2>
     <div class="job-search row">
         <job-search-bar></job-search-bar>

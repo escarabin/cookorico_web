@@ -23,7 +23,7 @@ import { ModalDirective } from 'ng2-bootstrap/components/modal/modal.component';
 
 @Component({
     selector: 'profile-preview',
-    templateUrl: '../templates/profile-preview.component.html',
+    templateUrl: '../../../templates/profile-preview.component.html',
     // pipes: [ SafePipe ]
 })
 
@@ -31,7 +31,6 @@ export class ProfilePreviewComponent {
     @ViewChild('cropper', undefined) cropper: ImageCropperComponent;
     @ViewChild('profilePictureModal') public profilePictureModal: ModalDirective;
     cropper:ImageCropperComponent;
-    @Output profilePictureChanged: EventEmitter = new EventEmitter();
     user: any = [];
     experiences: any = [];
     userLanguages: any = [];
@@ -287,8 +286,6 @@ export class ProfilePreviewComponent {
             }
 
             this.isLoading = false;
-
-            this.profilePictureChanged.emit();
 
             /**
              * Full reloading of page because it appears to be a bug inside

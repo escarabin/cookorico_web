@@ -13,9 +13,9 @@ import { BusinessPageComponent } from './shared/components/business-page.compone
 
 const appRoutes: Routes = [
     // Child routing
-    /*{
+    {
         path: 'profil',
-        loadChildren: '/js/typescript/profile/profile.module#ProfileModule',
+        loadChildren: 'app/profile/profile.module#ProfileModule',
         data: {
             meta: {
                 title: 'Profil'
@@ -25,14 +25,14 @@ const appRoutes: Routes = [
 
     {
         path: 'recherche',
-        loadChildren: '/js/typescript/job-search/job-search.module#JobSearchModule',
+        loadChildren: 'app/job-search/job-search.module#JobSearchModule',
         data: {
             meta: {
                 title: 'Recherche d\'emploi'
             }
         }
     },
-*/
+
     // Business page
     { path: 'etablissement/:businessId', component: BusinessPageComponent,
         data: {

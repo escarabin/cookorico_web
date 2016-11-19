@@ -6,7 +6,7 @@ import { ReferenceService } from '../../services/reference.service';
 
 @Component({
     selector: 'job-search-bar',
-    templateUrl: '../templates/job-search-bar.component.html',
+    templateUrl: '../../../templates/job-search-bar.component.html',
 })
 
 export class JobSearchBarComponent {

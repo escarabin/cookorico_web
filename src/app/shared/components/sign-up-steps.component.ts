@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'sign-up-steps',
-    templateUrl: '../templates/sign-up-steps.component.html',
+    templateUrl: '../../../templates/sign-up-steps.component.html',
     inputs: [ 'stepId' ]
 })
 

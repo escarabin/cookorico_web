@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    templateUrl: '../templates/custom-pagination.component.html',
+    templateUrl: '../../../templates/custom-pagination.component.html',
     selector: 'custom-pagination',
     inputs: ['pagination']
 })

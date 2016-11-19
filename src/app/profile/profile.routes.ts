@@ -54,10 +54,10 @@ const profileRoutes: Routes = [
             {path: 'formation', redirectTo: '/profil/formations'},
 
             // Alerts
-            {path: 'alerte/editer/:alertId', component: CreateAlertComponent},
+            /*{path: 'alerte/editer/:alertId', component: CreateAlertComponent},
             {path: 'alerte/creer', component: CreateAlertComponent},
             {path: 'alertes', component: AlertsComponent},
-            {path: 'alerte', redirectTo: '/profil/alertes'},
+            {path: 'alerte', redirectTo: '/profil/alertes'},*/
 
             // Testimonials
             {path: 'recommandation/creer/:testimonialId', component: CreateTestimonialComponent},

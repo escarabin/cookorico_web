@@ -14,8 +14,6 @@ import { ApplicationsComponent } from './components/applications.component';
 import { EducationComponent } from './components/education.component';
 import { CreateStudyComponent } from './components/create-study.component';
 import { ProfileSidebarComponent } from './components/profile-sidebar.component';
-import { AlertsComponent } from './components/alerts.component';
-import { CreateAlertComponent } from './components/create-alert.component';
 import { CandidateDashboardComponent } from './components/candidate-dashboard.component';
 import { TestimonialsComponent } from './components/testimonials.component';
 import { TestimonialRequestsComponent } from './components/testimonial-requests.component';
@@ -53,8 +51,6 @@ import { WebsiteEditorService } from './../services/website-editor.service';
                     ApplicationsComponent,
                     EducationComponent,
                     CreateStudyComponent,
-                    AlertsComponent,
-                    CreateAlertComponent,
                     TestimonialsComponent,
                     BusinessesComponent,
                     MyJobPostsComponent,

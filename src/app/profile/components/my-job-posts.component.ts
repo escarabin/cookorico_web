@@ -12,7 +12,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'my-job-posts',
-    templateUrl: '../templates/my-job-posts.component.html'
+    templateUrl: '../../../templates/my-job-posts.component.html'
 })
 
 export class MyJobPostsComponent {

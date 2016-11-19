@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
-import appGlobals = require('./../globals');
+import { apiUrl } from '../globals';
 
 // Models
 import { MailTemplate } from '../models/mail-template';
 
 @Injectable()
 export class MailService {
-    getTemplatesUrl = appGlobals.apiUrl + "/mail/templates/all";
-    getTemplateUrl = appGlobals.apiUrl + "/mail/template";
-    editTemplateUrl = appGlobals.apiUrl + "/mail/edit_template";
+    getTemplatesUrl = apiUrl + "/mail/templates/all";
+    getTemplateUrl = apiUrl + "/mail/template";
+    editTemplateUrl = apiUrl + "/mail/edit_template";
 
     constructor(private http: Http) {
 

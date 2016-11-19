@@ -5,11 +5,11 @@ import { Response } from '@angular/http';
 import { ReferenceService } from '../../services/reference.service';
 import { SearchService } from '../../services/search.service';
 
-import appGlobals = require('./../../globals');
+let appGlobals = require('./../../globals');
 
 @Component({
     selector: 'job-search-sidebar',
-    templateUrl: '../templates/job-search-sidebar.component.html'
+    templateUrl: '../../../templates/job-search-sidebar.component.html'
 })
 
 export class JobSearchSidebarComponent {

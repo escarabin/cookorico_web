@@ -9,13 +9,13 @@ import { ReferenceService } from '../../services/reference.service';
 // Pagination
 import { PaginatePipe, PaginationService } from 'ng2-pagination';
 
-import appGlobals = require('./../../globals');
+let appGlobals = require('./../../globals');
 
 @Component({
     selector: 'job-search-results',
     providers: [PaginationService],
     pipes: [PaginatePipe],
-    templateUrl: '../templates/job-search-results.component.html',
+    templateUrl: '../../../templates/job-search-results.component.html',
 })
 
 export class JobSearchResultsComponent {

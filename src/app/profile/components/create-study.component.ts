@@ -13,7 +13,7 @@ import { Notification } from '../../models/notification';
 
 @Component({
     selector: 'create-experience',
-    templateUrl: '../templates/create-study.component.html'
+    templateUrl: '../../../templates/create-study.component.html'
 })
 
 export class CreateStudyComponent {

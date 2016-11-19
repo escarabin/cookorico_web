@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
-import appGlobals = require('./../globals');
+import { apiUrl } from '../globals';
 
 @Injectable()
 export class ApplicationService {
-    acceptApplicationUrl = appGlobals.apiUrl + "/application/accept";
-    rejectApplicationUrl = appGlobals.apiUrl + "/application/reject";
+    acceptApplicationUrl = apiUrl + "/application/accept";
+    rejectApplicationUrl = apiUrl + "/application/reject";
 
     constructor(private http: Http) {
 
