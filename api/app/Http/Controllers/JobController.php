@@ -262,6 +262,10 @@ class JobController extends Controller
         }
 
         foreach ($jobPostData as $key => $value) {
+            if ($key == "study_level") {
+                $key = "study_level_id";
+            }
+
             if ($key != 'user_id' && $key != 'type' && !is_array($value)) {
                 $jobPost[$key] = $value;
             }

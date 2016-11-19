@@ -1,6 +1,7 @@
-<div class="col-md-12">
-    <h3 *ngIf="!application.id">Postuler à cette offre</h3>
-    <h3 *ngIf="application.id">Vous avez déjà postulé à cette offre</h3>
+<div class="col-md-12 centered">
+    <h3 *ngIf="!application.id && user.resumeUrl">Postuler à cette offre</h3>
+    <h3 *ngIf="application.id && user.resumeUrl">Vous avez déjà postulé à cette offre</h3>
+    <h3 *ngIf="!user.resumeUrl">Vous devez renseigner <a routerLink="/profil">votre CV</a> pour posuler</h3>
 </div>
 
 <div class="col-md-12"
@@ -8,7 +9,7 @@
 
 </div>
 
-<div class="col-md-12" *ngIf="!application.id">
+<div class="col-md-12" *ngIf="!application.id && user.resumeUrl">
     <unity-tinymce [mceContent]="application.comment"
                    [readOnly]="application.id"
                    (newContentInput)="commentChanged($event)">
@@ -16,7 +17,7 @@
     </unity-tinymce>
 </div>
 
-<div *ngIf="!application.id">
+<div *ngIf="!application.id && user.resumeUrl">
     <div class="col-md-6 back-btn-container">
         <a routerLink="/recherche">
             <button class="btn btn-default">
@@ -26,9 +27,9 @@
     </div>
     <div class="col-md-6 apply-btn-container">
         <button (click)="submitApplication()"
-                [disabled]="application.id"
+                [disabled]="application.id || isLoading"
                 class="btn btn-primary">
-            Postuler
+            Postuler &nbsp; <span *ngIf="isLoading" class="fa fa-spinner fa-spin"></span>
         </button>
     </div>
 </div>

@@ -180,7 +180,7 @@
             </div>
         </h2>
         <div class="list-container col-md-12">
-            <div *ngIf="experiences.length == 0 && editableProfile">
+            <div *ngIf="experiences.length == 0 && editableProfile && !user.no_experience">
                 <div class="alert alert-default" role="alert">
                     <h3>
                         <span class="fa fa-warning"></span> Vous n'avez renseigné aucune expérience !
@@ -192,9 +192,22 @@
                     </button>
                     <br />
                     <br />
-                    <a routerLink="" class="underlined">
+                    <a class="underlined cursor-pointer"
+                       (click)="userHasNoExperience()">
                         Je n'ai aucune expérience
                     </a>
+                </div>
+            </div>
+            <div *ngIf="user.no_experience && editableProfile">
+                <div class="alert alert-default" role="alert">
+                    <h3>
+                        Vous n'avez pas encore d'expérience professionnelle dans le domaine du CHR
+                    </h3>
+                    <br />
+                    <button class="btn btn-default"
+                            routerLink="/profil/experiences">
+                        Ajouter une expérience
+                    </button>
                 </div>
             </div>
             <ul *ngIf="experiences.length > 0">

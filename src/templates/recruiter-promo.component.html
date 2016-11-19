@@ -69,9 +69,9 @@
                     </div>
                     <div class="col-md-12">
                         <button class="btn btn-primary full-width"
-                                [class.disabled]="isAlreadySignedUp || !signUpForm.valid"
+                                [class.disabled]="isAlreadySignedUp || !signUpForm.valid || isLoading"
                                 (click)="signUp()">
-                            M'inscrire
+                            M'inscrire &nbsp; <span class="fa fa-spinner fa-spin" *ngIf="isLoading"></span>
                         </button>
                     </div>
                 </form>

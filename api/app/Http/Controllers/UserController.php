@@ -367,7 +367,19 @@ class UserController extends Controller
      * @return mixed
      */
     public function saveNoExperience($userId = null) {
+        $user = null;
 
+        if ($userId == "undefined" || !$user) {
+            $user = Auth::user();
+        }
+        else {
+            $user = User::find($userId);
+        }
+
+        $user->no_experience = true;
+        $user->save();
+
+        return $user;
     }
 
     /**
@@ -706,8 +718,24 @@ class UserController extends Controller
         if ($userId == "undefined") {
             $userId = Auth::user()->id;
         }
-        $plans = User::find($userId)->plans
+
+        $user = User::find($userId);
+
+        $plans = $user->plans
                         ->load('pricingPlan');
+
+        /**
+         * Browse user businesses to check if they have plans
+         */
+        $businesses = $user->businesses;
+
+        foreach ($businesses as $business) {
+            $businessPlans = $business->plans;
+
+            foreach ($businessPlans as $businessPlan) {
+                $plans[] = $businessPlan;
+            }
+        }
 
         return $plans;
     }
@@ -1052,9 +1080,15 @@ class UserController extends Controller
 
     /**
      * Skip job creation after sign up as a recruiter
+     * @param $userId
+     * @return mixed
      */
-    public function skipJobCreationOnSignUp() {
-        $user = Auth::user();
+    public function skipJobCreationOnSignUp($userId = null) {
+        if ($userId == "undefined" || !$userId) {
+            $userId = Auth::user()->id;
+        }
+
+        $user = User::find($userId);
         $user->is_active = true;
         $user->save();
 

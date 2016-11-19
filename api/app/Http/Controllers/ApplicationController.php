@@ -18,6 +18,7 @@ class ApplicationController extends Controller
         $application = Application::find($applicationId);
 
         $application->is_interested = true;
+        $application->status_id = 1;
 
         $application->save();
 
@@ -55,6 +56,7 @@ class ApplicationController extends Controller
         $application = Application::find($applicationId);
 
         $application->is_rejected = true;
+        $application->status_id = 3;
 
         $application->save();
 

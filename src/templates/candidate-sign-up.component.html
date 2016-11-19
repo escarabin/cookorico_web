@@ -189,9 +189,11 @@
             </div>
         </div>
         <div class="col-md-12">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-6 col-md-offset-3 centered">
+                <label>Niveau d'experience</label>
                 <select class="form-control"
                         name="xpLevelId"
+                        required
                         [(ngModel)]="user.job_xp_level_id"
                         ngControl="user.job_xp_level_id">
                     <option disabled selected value="null">-- Niveau d'experience --</option>
@@ -201,6 +203,8 @@
                     </option>
                 </select>
             </div>
+        </div>
+        <div class="col-md-12">
             <hr />
         </div>
         <div class="col-md-6">

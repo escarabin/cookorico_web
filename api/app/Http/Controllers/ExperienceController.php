@@ -26,6 +26,9 @@ class ExperienceController extends Controller
             $user = User::find($userId);
         }
 
+        $user->no_experience = false;
+        $user->save();
+
         $experience = new Experience;
         $experience->user_id = $user->id;
 

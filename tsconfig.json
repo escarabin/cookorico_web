@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "system",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -10,8 +10,9 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "outFile": "app.js",
+    "outDir": "/js",
     "exclude": [
-      "/Applications/MAMP/htdocs/oechr/node_modules/"
+      "/node_modules"
     ]
   }
 }

@@ -1,18 +1,11 @@
-var elixir = require('laravel-elixir');
+var gulp = require('gulp');
+var ts = require('gulp-typescript');
 
-var elixirTypscript = require('elixir-typescript');
-
-elixir(function(mix) {
-    mix.sass('app.scss');
-
-    mix.typescript('app.js','js/','/**/*.ts',{
-        "target": "ES5",
-        "module": "system",
-        "moduleResolution": "node",
-        "sourceMap": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "removeComments": false,
-        "noImplicitAny": false
-    });
+gulp.task('default', function () {
+    return gulp.src('resources/assets/typescript/**/*.ts')
+        .pipe(ts({
+            noImplicitAny: true,
+            out: 'app.js'
+        }))
+        .pipe(gulp.dest('js'));
 });

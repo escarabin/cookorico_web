@@ -55,6 +55,14 @@ class Business extends Model
     }
 
     /**
+     * Get the plans that current business subscribed to
+     */
+    public function plans()
+    {
+        return $this->hasMany(Plan::class);
+    }
+
+    /**
      * Get the business's jobs
      */
     public function jobs() {

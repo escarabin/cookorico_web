@@ -7,6 +7,9 @@
     <div *ngFor="let plan of plans"
          class="col-md-12 centered">
         <div class="col-md-12">
+            <h3>Vous bénéficiez actuellement de {{ plan.pricing_plan.title }}</h3>
+        </div>
+        <div class="col-md-12">
             <h3>Il vous reste actuellement {{ plan.credits }} crédits</h3>
         </div>
         <div class="col-md-12">
@@ -47,7 +50,7 @@
             <span class="fa fa-paypal"></span> &nbsp; Souscrire
         </button>
         <button class="btn btn-primary full-width"
-                routerLink="/accueil-recruteur"
+                (click)="focusOnSignUp()"
                 *ngIf="onlyServices">
             Je m'inscris
         </button>
