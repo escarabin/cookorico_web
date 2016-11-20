@@ -76,6 +76,21 @@ export class SignInComponent {
         });
     }
 
+    public openSignInModal() {
+        this.showModalBackdrop();
+        document.getElementById("sign-in-modal").style.display = "block";
+    }
+    public hideSignInModal() {
+        this.hideModalBackdrop();
+        document.getElementById("sign-in-modal").style.display = "none";
+    }
+    public showModalBackdrop() {
+        document.getElementById("modal-backdrop-replacement").style.display = "block";
+    }
+    public hideModalBackdrop() {
+        document.getElementById("modal-backdrop-replacement").style.display = "none";
+    }
+
     /**
      * Handle [ENTER] key press on login form
      * @param keyCode

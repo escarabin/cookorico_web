@@ -1,5 +1,5 @@
 <!-- User is not connected -->
-<a (click)="signInModal.show()"
+<a (click)="openSignInModal()"
     id="main-login-btn">
     <li *ngIf="!user">
         Se connecter
@@ -15,7 +15,8 @@
 
 <div bsModal
      #signInModal="bs-modal"
-     class="modal fade"
+     id="sign-in-modal"
+     class="modal fade in"
      tabindex="-1"
      role="dialog"
      id="sign-in-modal"
@@ -57,7 +58,7 @@
                         <span (click)="forgotPassword=!forgotPassword">Mot de passe oublié ?</span>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6">
-                        <button (click)="signInModal.hide()"
+                        <button (click)="hideSignInModal()"
                                 class="close-sign-in-modal"
                                 id="close-sign-in-modal"
                                 *ngIf="!forgotPassword">
@@ -124,4 +125,17 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- TODO : this is a workaround, we have to change it in near future -->
+<div id="modal-backdrop-replacement"
+     style="background: rgba(0,0,0,0.7);
+             position: fixed;
+             display: none;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             z-index: 10;">
+
 </div>
