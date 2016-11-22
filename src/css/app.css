@@ -1135,6 +1135,12 @@ profile {
         border-left: 4px solid transparent;
         display: inline-block;
         width: 100%; }
+        profile .list-container ul li .trash-container {
+          color: #CCC;
+          padding-top: 10px;
+          cursor: pointer; }
+          profile .list-container ul li .trash-container:hover {
+            color: #333; }
         profile .list-container ul li a {
           text-decoration: none; }
         profile .list-container ul li .matching-profiles {

@@ -17,14 +17,15 @@ export class ExperiencesComponent {
     items: any = [];
     allItemsChecked: boolean;
     checkedItemsList: any = [];
+    user: any = {};
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService) {
         let __this = this;
 
-        let user = JSON.parse(localStorage.getItem('user'));
+        this.user = JSON.parse(localStorage.getItem('user'));
 
-        this.userService.getExperiences(user.id).subscribe((res: Response) => {
+        this.userService.getExperiences(this.user.id).subscribe((res: Response) => {
             __this.items = res.json();
         });
     }
@@ -61,17 +62,15 @@ export class ExperiencesComponent {
         }
     }
 
-    deleteSelectedItems() {
+    deleteItem(itemId: number) {
         let __this = this;
 
-        let parsedListItemId = this.checkedItemsList.join(',');
-
-        this.userService.deleteExperiences(parsedListItemId).subscribe((res: Response) => {
-            __this.userService.getExperiences().subscribe((res: Response) => {
+        this.userService.deleteExperiences([itemId]).subscribe((res: Response) => {
+            __this.userService.getExperiences(__this.user.id).subscribe((res: Response) => {
                 __this.items = res.json();
 
                 __this.notificationService.show(
-                    new Notification('success', 'Ces expériences ont bien été supprimées')
+                    new Notification('success', 'Cette expérience a bien été supprimée')
                 );
 
                 this.checkedItemsList = [];

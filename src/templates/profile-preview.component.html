@@ -144,7 +144,7 @@
                     <i class="icon-bubble"></i> &nbsp;Présentation
                 </div>
             </h2>
-            <h3 (click)="editingItems['description'] = true"
+            <h3 (click)="startEditingDescription()"
                 class="no-description"
                 *ngIf="!user.description || user.description.length == 0">
                 Cliquez ici pour saisir votre présentation
@@ -158,7 +158,8 @@
             </div>
             <textarea class="form-control"
                       rows="10"
-                      *ngIf="editingItems['description']"
+                      id="candidate-description"
+                      [class.hidden]="!editingItems['description']"
                       (change)="saveProfileInfo('description', user.description)"
                       [(ngModel)]="user.description">
 
@@ -180,7 +181,7 @@
             </div>
             <div class="col-md-1" *ngIf="editableProfile">
                 <a routerLink="/profil/experiences">
-                    <span class="fa fa-plus"></span>
+                    <span class="fa fa-edit"></span>
                 </a>
             </div>
         </h2>
@@ -246,7 +247,7 @@
             </div>
             <div class="col-md-1" *ngIf="editableProfile">
                 <a routerLink="/profil/formations">
-                    <span class="fa fa-plus"></span>
+                    <span class="fa fa-edit"></span>
                 </a>
             </div>
         </h2>
@@ -286,14 +287,14 @@
     </div>
 
     <div class="col-md-10 col-md-offset-1"
-         *ngIf="user.languages">
+         *ngIf="user.languages && !editableProfile">
         <h2 class="row">
             <div class="col-md-11 col-sm-11 col-xs-10">
                 {{ user.languages.length }} Langues parlées
             </div>
             <div class="col-md-1" *ngIf="editableProfile">
                 <a routerLink="/profil/espace-candidat">
-                    <span class="fa fa-plus"></span>
+                    <span class="fa fa-edit"></span>
                 </a>
             </div>
         </h2>
@@ -311,6 +312,71 @@
                 </li>
             </ul>
         </div>
+    </div>
+
+
+    <div class="col-md-10 col-md-offset-1" *ngIf="editableProfile">
+        <form #languageForm="ngForm">
+            <div class="col-md-12">
+                <h2 class="centered">Vos langues parlées</h2>
+            </div>
+            <div *ngFor="let spokenLanguage of userLanguages; let i = index">
+                <div class="col-md-6">
+                    <label>Langue</label>
+                    <select class="form-control"
+                            name="language{{ i }}"
+                            required
+                            [(ngModel)]="spokenLanguage['language_id']"
+                            ngControl="language['language_id']">
+                        <option value="0" disabled selected>-- Langue --</option>
+                        <option *ngFor="let language of languages"
+                                value="{{ language.id }}">
+                            {{ language.title }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <label>Votre niveau</label>
+                    <select class="form-control"
+                            name="language_level_{{ i }}"
+                            required
+                            [(ngModel)]="spokenLanguage['language_level_id']"
+                            ngControl="language['language_level_id']">
+                        <option value="0" disabled selected>-- Votre niveau --</option>
+                        <option *ngFor="let languageLevel of languageLevels"
+                                value="{{ languageLevel.id }}">
+                            {{ languageLevel.title }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    <br />
+                    <br />
+                    <br />
+                    <button class="btn btn-default"
+                            (click)="removeSpokenLanguage(i)">
+                        <span class="icon-trash"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <br />
+                <button class="btn btn-default full-width"
+                        [disabled]="isSavingLanguages"
+                        (click)="addNewSpokenLanguage()">
+                    <span class="fa fa-plus"></span> &nbsp; Ajouter une nouvelle langue
+                </button>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <br />
+                <button class="btn btn-primary full-width"
+                        [disabled]="isSavingLanguages || !languageForm.valid"
+                        (click)="saveSpokenLanguages()">
+                    Enregistrer les langues
+                    <span class="fa fa-spinner fa-spin" *ngIf="isSavingLanguages"></span>
+                </button>
+            </div>
+        </form>
     </div>
 
     <!--<div class="col-md-10 col-md-offset-1">
@@ -342,6 +408,8 @@
     </div>-->
 
     <div class="col-md-10 col-md-offset-1 centered" *ngIf="editableProfile">
+        <br />
+        <br />
         <button class="btn btn-danger"
                 (click)="disableAccount()">
             <span class="fa fa-warning"></span> &nbsp; Désactiver mon compte

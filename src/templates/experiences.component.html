@@ -64,9 +64,10 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-1 like-container"
-                 tooltipPlacement="top" tooltip="Vous avez été recommandé sur cette expérience">
-                <h1 *>
+            <div class="col-md-1 col-sm-1 col-xs-1 trash-container"
+                 (click)="deleteItem(item.id)"
+                 tooltipPlacement="top" tooltip="Cliquez pour supprimer cette expérience">
+                <h1>
                     <i class="fa fa-trash"></i>
                 </h1>
             </div>

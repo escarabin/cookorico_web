@@ -24,11 +24,7 @@ export class CandidateDashboardComponent {
     candidateStatuses: any = [];
     isSavingStatus: boolean = false;
     isSavingJobSeekingData: boolean = false;
-    isSavingLanguages: boolean = false;
-    languages: any = [];
     alertFrequencies: any = [];
-    languageLevels: any = [];
-    userLanguages: any = [{'language_id': 0, 'language_level_id': 0}];
 
     constructor(private userService: UserService,
                 private ref: ChangeDetectorRef,
@@ -42,10 +38,6 @@ export class CandidateDashboardComponent {
             this.profilePercentage = res.json();
         });
 
-        this.userService.getSpokenLanguages(this.user.id).subscribe((res: Response) => {
-            this.userLanguages = res.json();
-        });
-
         this.referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
             this.jobNamingGroups = res.json();
         });
@@ -54,16 +46,8 @@ export class CandidateDashboardComponent {
             this.candidateStatuses = res.json();
         });
 
-        this.referenceService.getAllLanguages().subscribe((res: Response) => {
-            this.languages = res.json();
-        });
-
         this.referenceService.getAllAlertFrequencies().subscribe((res: Response) => {
             this.alertFrequencies = res.json();
-        });
-
-        this.referenceService.getAllLanguageLevels().subscribe((res: Response) => {
-            this.languageLevels = res.json();
         });
 
         /**
@@ -115,47 +99,6 @@ export class CandidateDashboardComponent {
                 new Notification('success', 'Votre status a bien été modifié')
             );
         });
-    }
-
-    addNewSpokenLanguage() {
-        this.userLanguages.push({'id': 0, 'language_level_id': 0});
-    }
-
-    saveSpokenLanguages() {
-        this.isSavingLanguages = true;
-        let langDataIsCorrect = true;
-
-        /**
-         * Check if user has selected a level for each language
-         * and a language for each level
-         */
-        for (let i = 0; i < this.userLanguages.length; i++) {
-            let langData = this.userLanguages[i];
-            if (langData.language_id == 0 || langData.language_level_id == 0) {
-                langDataIsCorrect = false
-            }
-        }
-
-        if (langDataIsCorrect) {
-            this.userService.saveSpokenLanguages(this.userLanguages, this.user.id).subscribe((res: Response) => {
-                this.isSavingLanguages = false;
-
-                this.notificationService.show(
-                    new Notification('success', 'Vos informations ont été enregistrées')
-                );
-            });
-        }
-        else {
-            this.isSavingLanguages = false;
-
-            this.notificationService.show(
-                new Notification('error', 'Veuillez compléter tous les champs')
-            );
-        }
-    }
-
-    removeSpokenLanguage(spokenLanguageId: number) {
-        this.userLanguages.splice(spokenLanguageId, 1);
     }
 
     saveJobSeekingInfos() {

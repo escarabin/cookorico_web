@@ -7,7 +7,7 @@
 <div class="col-md-12 list-container">
     <ul>
         <li class="row" *ngFor="let item of items">
-            <div class="col-md-12 col-sm-12 col-xs-9 item"
+            <div class="col-md-11 col-sm-11 col-xs-8 item"
                  [class.logo]="item.business.logo">
                 <a routerLink="/profil/formation/editer/{{ item.id }}">
                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
@@ -26,6 +26,13 @@
                         </span>
                     </div>
                 </a>
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-1 trash-container"
+                 (click)="deleteItem(item.id)"
+                 tooltipPlacement="top" tooltip="Cliquez pour supprimer cette formation">
+                <h1>
+                    <i class="fa fa-trash"></i>
+                </h1>
             </div>
         </li>
     </ul>

@@ -17,14 +17,15 @@ export class EducationComponent {
     items: any = [];
     allItemsChecked: boolean;
     checkedItemsList: any = [];
+    user: any = {};
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService) {
         let __this = this;
 
-        let user = JSON.parse(localStorage.getItem('user'));
+        this.user = JSON.parse(localStorage.getItem('user'));
 
-        this.userService.getEducation(user.id).subscribe((res: Response) => {
+        this.userService.getEducation(this.user.id).subscribe((res: Response) => {
             __this.items = res.json();
         });
     }
@@ -61,17 +62,15 @@ export class EducationComponent {
         }
     }
 
-    deleteSelectedItems() {
+    deleteItem(itemId: number) {
         let __this = this;
 
-        let parsedListItemId = this.checkedItemsList.join(',');
-
-        this.userService.deleteEducation(parsedListItemId).subscribe((res: Response) => {
-            __this.userService.getEducation().subscribe((res: Response) => {
+        this.userService.deleteEducation([itemId]).subscribe((res: Response) => {
+            __this.userService.getEducation(__this.user.id).subscribe((res: Response) => {
                 __this.items = res.json();
 
                 __this.notificationService.show(
-                    new Notification('success', 'Ces formations ont bien été supprimées')
+                    new Notification('success', 'Cette formation a bien été supprimée')
                 );
 
                 this.checkedItemsList = [];

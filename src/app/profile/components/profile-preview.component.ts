@@ -5,6 +5,7 @@ import { Response } from '@angular/http';
 // Services
 import { UserService } from '../../services/user.service';
 import { NotificationsService } from '../../services/notification.service';
+import { ReferenceService } from '../../services/reference.service';
 
 // Image cropping
 import { CropperSettings, ImageCropperComponent } from 'ng2-img-cropper';
@@ -40,6 +41,10 @@ export class ProfilePreviewComponent {
     profilePictureUrl: string;
     resumeData: any;
     isLoading:boolean = false;
+    isSavingLanguages: boolean = false;
+    languages: any = [];
+    languageLevels: any = [];
+    userLanguages: any = [{'language_id': 0, 'language_level_id': 0}];
     editableProfile: boolean = false;
     cropperSettings: CropperSettings;
     editingItems: any = [];
@@ -61,6 +66,7 @@ export class ProfilePreviewComponent {
     constructor(private userService: UserService,
                 private route: ActivatedRoute,
                 private router: Router,
+                private referenceService: ReferenceService,
                 private notificationService: NotificationsService) {
         let __this = this;
 
@@ -73,6 +79,24 @@ export class ProfilePreviewComponent {
             if (event.url.indexOf('complet') != -1) {
                 this.userInfosAccessible = true;
             }
+        });
+
+        /**
+         * GET reference data
+         */
+        this.referenceService.getAllLanguages().subscribe((res: Response) => {
+            this.languages = res.json();
+        });
+
+        this.referenceService.getAllLanguageLevels().subscribe((res: Response) => {
+            this.languageLevels = res.json();
+        });
+
+        /**
+         * GET user spoken languages
+         */
+        this.userService.getSpokenLanguages(this.user.id).subscribe((res: Response) => {
+            this.userLanguages = res.json();
         });
 
         /**
@@ -411,6 +435,56 @@ export class ProfilePreviewComponent {
 
             this.hideChangePasswordModal();
         });
+    }
+
+
+    addNewSpokenLanguage() {
+        this.userLanguages.push({'id': 0, 'language_level_id': 0});
+    }
+
+    saveSpokenLanguages() {
+        this.isSavingLanguages = true;
+        let langDataIsCorrect = true;
+
+        /**
+         * Check if user has selected a level for each language
+         * and a language for each level
+         */
+        for (let i = 0; i < this.userLanguages.length; i++) {
+            let langData = this.userLanguages[i];
+            if (langData.language_id == 0 || langData.language_level_id == 0) {
+                langDataIsCorrect = false
+            }
+        }
+
+        if (langDataIsCorrect) {
+            this.userService.saveSpokenLanguages(this.userLanguages, this.user.id).subscribe((res: Response) => {
+                this.isSavingLanguages = false;
+
+                this.notificationService.show(
+                    new Notification('success', 'Vos informations ont été enregistrées')
+                );
+            });
+        }
+        else {
+            this.isSavingLanguages = false;
+
+            this.notificationService.show(
+                new Notification('error', 'Veuillez compléter tous les champs')
+            );
+        }
+    }
+
+    removeSpokenLanguage(spokenLanguageId: number) {
+        this.userLanguages.splice(spokenLanguageId, 1);
+    }
+
+
+    startEditingDescription() {
+        this.editingItems['description'] = true;
+        setTimeout(function() {
+            document.getElementById('candidate-description').focus();
+        }, 100);
     }
 
     /**
