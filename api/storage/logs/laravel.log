@@ -227,3 +227,27 @@ Stack trace:
 #53 /Applications/MAMP/htdocs/oechr_ng_cli/api/public/index.php(57): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #54 {main}  
 [2016-11-22 11:12:43] local.INFO: logging user out  
+[2016-11-22 11:19:17] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 11:21:08] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 11:21:46] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 11:22:30] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 11:22:45] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 11:22:48] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-22 11:22:49] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-22 11:22:49] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
