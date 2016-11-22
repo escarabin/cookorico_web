@@ -348,7 +348,7 @@ export class ProfilePreviewComponent {
      * @param value
      */
     saveProfileInfo(key: string, value: string) {
-        this.userService.updateInfo(key, value).subscribe((res: Response) => {
+        this.userService.updateInfo(key, value, this.user.id).subscribe((res: Response) => {
             this.editingItems[key] = false;
 
             if (key == 'new_email') {
