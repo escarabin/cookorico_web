@@ -167,6 +167,6 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function jobPosts() {
-        return $this->hasMany(Job::class);
+        return $this->hasMany(Job::class)->orderBy('created_at', 'DESC');
     }
 }

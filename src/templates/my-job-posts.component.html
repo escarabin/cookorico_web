@@ -50,7 +50,7 @@
     <ul>
         <li class="row" *ngFor="let item of items">
             <div class="col-md-12 col-sm-12 col-xs-12 item"
-                 *ngIf="item[postStatus] == true
+                 *ngIf="item[postStatus] == true && item['dayDiff'] < 30
                         || (item['dayDiff'] > 30 && postStatus == 'is_expired')
                         || (postStatus == 'is_reviewing' && !item.is_accepted && !item.is_rejected)
                         || postStatus == null"

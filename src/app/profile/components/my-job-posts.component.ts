@@ -154,7 +154,16 @@ export class MyJobPostsComponent {
         let todayDate = new Date();
 
         for (let i = 0; i < this.items.length; i++) {
-            if (statusTitle == "is_reviewing") {
+            if (statusTitle == "is_accepted") {
+                let job = this.items[i];
+                let createDate = new Date(job['created_at']);
+                let dayDiff = Math.round((todayDate-createDate)/(1000*60*60*24));
+
+                if (dayDiff < 30) {
+                    count += 1;
+                }
+            }
+            else if (statusTitle == "is_reviewing") {
                 if (!this.items[i]['is_accepted'] && !this.items[i]['is_rejected']) {
                     count += 1;
                 }
