@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 // Services
 import { UserService } from './../../services/user.service';
@@ -14,8 +15,7 @@ declare var braintree;
 
 @Component({
     selector: 'pricing-plans',
-    templateUrl: '../../../templates/pricing-plans.component.html',
-    inputs: [ 'onlyServices' ]
+    templateUrl: '../../../templates/pricing-plans.component.html'
 })
 
 export class PricingPlansComponent {
@@ -23,13 +23,24 @@ export class PricingPlansComponent {
     plans: any = [];
     isSimpleBusiness: boolean = true;
     isPricingTableDisplayed: boolean = false;
-    @Input public onlyServices: boolean;
+    public onlyServices: boolean;
 
     constructor(private userService: UserService,
                 private sellsyService: SellsyService,
                 private planService: PlanService,
+                private router: Router,
                 private notificationService: NotificationsService) {
         let __this = this;
+
+        router.events.subscribe((event) => {
+            let url = event['url'];
+            if (url == '/accueil-recruteur') {
+                this.onlyServices = true;
+            }
+            else {
+                this.onlyServices = false;
+            }
+        });
 
         /**
          * Pupulate sellsy services array
@@ -138,6 +149,8 @@ export class PricingPlansComponent {
     }
 
     focusOnSignUp() {
+        console.log('found', document.getElementById("userLastName"));
+
         document.getElementById("userLastName").focus();
         window.scrollTo(0, 0);
     }
