@@ -204,10 +204,18 @@ class UserController extends Controller
     /**
      * Save user's job seeking data
      * @param Request $request
+     * @param $userId
      * @return User
      */
-    public function saveJobSeekingData(Request $request) {
-        $user = Auth::user();
+    public function saveJobSeekingData(Request $request, $userId = null) {
+        $user = null;
+
+        if ($userId == "undefined" || !$userId) {
+            $user = Auth::user();
+        }
+        else {
+            $user = User::find($userId);
+        }
 
         $jobSeekingData = $request::get('lookingForJobNamingList');
 
@@ -950,19 +958,29 @@ class UserController extends Controller
     /**
      * Save user spoken languages and levels
      * @param Request $request
+     * @param $userId
      */
-    public function saveSpokenLanguages(Request $request) {
+    public function saveSpokenLanguages(Request $request, $userId = null) {
+        $user = null;
+
+        if ($userId == "undefined" || !$userId) {
+            $user = Auth::user();
+        }
+        else {
+            $user = User::find($userId);
+        }
+
         $spokenLanguagesData = $request::get('languages');
 
         /**
          * Remove existing data
          */
-        DB::table('language_user')->where('user_id', Auth::user()->id)->delete();
+        DB::table('language_user')->where('user_id', $user->id)->delete();
 
         foreach ($spokenLanguagesData as $language) {
             DB::table('language_user')->insert(
                 ['language_id' => $language['language_id'],
-                 'user_id' => Auth::user()->id,
+                 'user_id' => $user->id,
                  'language_level_id' => $language['language_level_id']]
             );
         }

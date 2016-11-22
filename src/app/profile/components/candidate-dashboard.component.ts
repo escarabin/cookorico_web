@@ -123,14 +123,36 @@ export class CandidateDashboardComponent {
 
     saveSpokenLanguages() {
         this.isSavingLanguages = true;
+        let langDataIsCorrect = true;
+        console.log(this.userLanguages);
 
-        this.userService.saveSpokenLanguages(this.userLanguages).subscribe((res: Response) => {
+        /**
+         * Check if user has selected a level for each language
+         * and a language for each level
+         */
+        for (let i = 0; i < this.userLanguages.length; i++) {
+            let langData = this.userLanguages[i];
+            if (langData.language_id == 0 || langData.language_level_id == 0) {
+                langDataIsCorrect = false
+            }
+        }
+
+        if (langDataIsCorrect) {
+            this.userService.saveSpokenLanguages(this.userLanguages, this.user.id).subscribe((res: Response) => {
+                this.isSavingLanguages = false;
+
+                this.notificationService.show(
+                    new Notification('success', 'Vos informations ont été enregistrées')
+                );
+            });
+        }
+        else {
             this.isSavingLanguages = false;
 
             this.notificationService.show(
-                new Notification('success', 'Vos informations ont bien été enregistrées')
+                new Notification('error', 'Veuillez compléter tous les champs')
             );
-        });
+        }
     }
 
     removeSpokenLanguage(spokenLanguageId: number) {
@@ -139,7 +161,7 @@ export class CandidateDashboardComponent {
 
     saveJobSeekingInfos() {
         this.isSavingJobSeekingData = true;
-        this.userService.saveJobSeekingData(this.lookingForJobNamingList, this.user.alert_frequency_id).subscribe((res: Response) => {
+        this.userService.saveJobSeekingData(this.lookingForJobNamingList, this.user.alert_frequency_id, this.user.id).subscribe((res: Response) => {
             this.isSavingJobSeekingData = false;
 
             this.userService.getUserInfos().subscribe((res: Response) => {
@@ -147,7 +169,7 @@ export class CandidateDashboardComponent {
             });
 
             this.notificationService.show(
-                new Notification('success', 'Vos informations ont bien été enregistrées')
+                new Notification('success', 'Vos informations ont été enregistrées')
             );
         });
     }

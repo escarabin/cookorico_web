@@ -607,23 +607,25 @@ export class UserService {
      * Save logged user job seeking data
      * @param lookingForJobNamingList
      * @param alertFrequencyId
+     * @param userId
      * @returns {Observable<Response>}
      */
-    saveJobSeekingData(lookingForJobNamingList: any, alertFrequencyId: number) {
+    saveJobSeekingData(lookingForJobNamingList: any, alertFrequencyId: number, userId?: number) {
         let requestBody = JSON.stringify({ lookingForJobNamingList, alertFrequencyId });
 
-        return this.http.post(this.saveJobSeekingDataUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.saveJobSeekingDataUrl + '/' + userId, requestBody, this.postRequestOptions);
     }
 
     /**
      * Save user's spoken languages
      * @param languages
+     * @param userId
      * @returns {Observable<Response>}
      */
-    saveSpokenLanguages(languages: any) {
+    saveSpokenLanguages(languages: any, userId?: number) {
         let requestBody = JSON.stringify({ languages });
 
-        return this.http.post(this.saveLanguagesUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.saveLanguagesUrl + '/' + userId, requestBody, this.postRequestOptions);
     }
 
     /**
