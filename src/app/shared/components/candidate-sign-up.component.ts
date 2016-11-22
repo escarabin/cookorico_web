@@ -133,7 +133,7 @@ export class CandidateSignUpComponent {
 
     public resumeFileDropped(e:any):void {
         this.resumeData = e[0];
-        
+
         if (this.resumeData.type == "application/pdf"
             || this.resumeData.type == "application/msword"
             || this.resumeData.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {

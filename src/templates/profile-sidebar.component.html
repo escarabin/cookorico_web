@@ -63,13 +63,13 @@
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
             <i class="icon-bell"></i> &nbsp; Alertes
-        </a>-->
+        </a>
         <a *ngIf="user.user_type_id == 3"
            routerLink="/profil/recommandations"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
             <i class="icon-like"></i> &nbsp; Recommandations
-        </a>
+        </a>-->
         <a *ngIf="user.user_type_id == 2"
            routerLink="/profil/annonces"
            [class.visible]="isMobileMenuVisible"
@@ -100,12 +100,12 @@
            routerLinkActive="active">
             <i class="icon-layers"></i> &nbsp; Établissements
         </a>
-        <a *ngIf="user.user_type_id == 2"
+        <!--<a *ngIf="user.user_type_id == 2"
            routerLink="/profil/demandes_de_recommandation"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
             <i class="icon-like"></i> &nbsp; Recommandations
-        </a>
+        </a>-->
         <a *ngIf="user.user_type_id == 1"
            routerLink="/profil/mail-templates"
            [class.visible]="isMobileMenuVisible"

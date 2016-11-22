@@ -175,8 +175,13 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <h2 class="row">
-            <div class="col-md-12">
+            <div class="col-md-11">
                 <i class="icon-badge"></i> &nbsp;Expériences &nbsp; <span class="badge">{{ experiences.length }}</span>
+            </div>
+            <div class="col-md-1" *ngIf="editableProfile">
+                <a routerLink="/profil/experiences">
+                    <span class="fa fa-plus"></span>
+                </a>
             </div>
         </h2>
         <div class="list-container col-md-12">
@@ -236,8 +241,13 @@
 
     <div class="col-md-10 col-md-offset-1">
         <h2 class="row">
-            <div class="col-md-12">
+            <div class="col-md-11">
                 <i class="icon-graduation"></i> &nbsp;Formations &nbsp; <span class="badge">{{ education.length }}</span>
+            </div>
+            <div class="col-md-1" *ngIf="editableProfile">
+                <a routerLink="/profil/formations">
+                    <span class="fa fa-plus"></span>
+                </a>
             </div>
         </h2>
 
@@ -281,6 +291,11 @@
             <div class="col-md-11 col-sm-11 col-xs-10">
                 {{ user.languages.length }} Langues parlées
             </div>
+            <div class="col-md-1" *ngIf="editableProfile">
+                <a routerLink="/profil/espace-candidat">
+                    <span class="fa fa-plus"></span>
+                </a>
+            </div>
         </h2>
         <div class="list-container col-md-12">
             <ul>
@@ -298,7 +313,7 @@
         </div>
     </div>
 
-    <div class="col-md-10 col-md-offset-1">
+    <!--<div class="col-md-10 col-md-offset-1">
         <h2 class="row">
             <div class="col-md-12">
                 <i class="icon-like"></i> &nbsp;Recommandations &nbsp; <span class="badge">{{ testimonials.length }}</span>
@@ -324,7 +339,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div>-->
 
     <div class="col-md-10 col-md-offset-1 centered" *ngIf="editableProfile">
         <button class="btn btn-danger"
