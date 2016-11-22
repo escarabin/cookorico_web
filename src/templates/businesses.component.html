@@ -25,9 +25,11 @@
                          [class.col-sm-7]="!item.logo"
                          class="col-xs-8">
                         <h3>{{ item.title }}</h3>
-                        <i class="fa fa-map-marker"></i> &nbsp; {{ item.place.adress }}<br />
-                        <span *ngIf="item.place.city">
-                            {{ item.place.city }}
+                        <span *ngIf="item.place">
+                            <i class="fa fa-map-marker"></i> &nbsp; {{ item.place.adress }}<br />
+                            <span *ngIf="item.place.city">
+                                {{ item.place.city }}
+                            </span>
                         </span>
                     </div>
                 </a>

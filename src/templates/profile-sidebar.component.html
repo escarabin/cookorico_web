@@ -94,7 +94,7 @@
            routerLinkActive="active">
             <i class="icon-user"></i> &nbsp; Profils correspondants
         </a>
-        <a *ngIf="user.user_type_id == 2"
+        <a *ngIf="user.user_type_id == 1 || user.user_type_id == 2"
            routerLink="/profil/etablissements"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">

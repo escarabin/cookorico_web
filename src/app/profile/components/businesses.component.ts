@@ -3,6 +3,7 @@ import { Response } from '@angular/http';
 
 // Services
 import { UserService } from '../../services/user.service';
+import { BusinessService } from '../../services/business.service';
 
 @Component({
     selector: 'businesses',
@@ -15,64 +16,21 @@ export class BusinessesComponent {
     checkedItemsList: any = [];
     user: any;
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService,
+                private businessService: BusinessService) {
         let __this = this;
 
         this.user = JSON.parse(localStorage.getItem('user'));
 
-        this.userService.getBusinesses(this.user.id).subscribe((res: Response) => {
-            __this.items = res.json();
-        });
-    }
-
-    toggleAllItems() {
-        this.allItemsChecked =! this.allItemsChecked;
-
-        if (this.allItemsChecked) {
-            let checkedItemsListId = [];
-            for (let i = 0; i < this.items.length; i++) {
-                checkedItemsListId.push(this.items[i].id);
-            }
-            this.checkedItemsList = checkedItemsListId;
-        }
-        else {
-            this.checkedItemsList = [];
-        }
-    }
-
-    saveCheckedItem(itemId) {
-        let indexOfItemId = this.checkedItemsList.indexOf(itemId);
-        if (indexOfItemId == -1) {
-            this.checkedItemsList.push(itemId);
-        }
-        else {
-            this.checkedItemsList.splice(indexOfItemId, 1);
-        }
-
-        if (this.checkedItemsList.length != this.items.length) {
-            this.allItemsChecked = false;
-        }
-        else {
-            this.allItemsChecked = true;
-        }
-    }
-
-    deleteSelectedItems() {
-        let __this = this;
-
-        let parsedListItemId = this.checkedItemsList.join(',');
-
-       /* this.userService.deleteBusinesses(parsedListItemId).subscribe((res: Response) => {
-            __this.userService.getBusinesses().subscribe((res: Response) => {
+        if (this.user.user_type_id == 1) {
+            this.businessService.getAll().subscribe((res: Response) => {
                 __this.items = res.json();
-
-                __this.notificationService.show(
-                    new Notification('success', 'Ces établissements ont bien été supprimées')
-                );
-
-                this.checkedItemsList = [];
-                this.allItemsChecked = false;
             });
-        });*/
+        }
+        else {
+            this.userService.getBusinesses(this.user.id).subscribe((res: Response) => {
+                __this.items = res.json();
+            });
+        }
     }
 }
