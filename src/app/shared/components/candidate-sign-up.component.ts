@@ -133,15 +133,17 @@ export class CandidateSignUpComponent {
 
     public resumeFileDropped(e:any):void {
         this.resumeData = e[0];
-
-        if (this.resumeData.type == "application/pdf") {
+        
+        if (this.resumeData.type == "application/pdf"
+            || this.resumeData.type == "application/msword"
+            || this.resumeData.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
             this.notificationService.show(
                 new Notification('success', 'Votre CV (' + this.resumeData.name + ') a été pris en compte')
             );
         }
         else {
             this.notificationService.show(
-                new Notification('error', 'Seuls les fichiers de type PDF sont acceptés')
+                new Notification('error', 'Seuls les fichiers de type PDF ou WORD sont acceptés')
             );
         }
     }

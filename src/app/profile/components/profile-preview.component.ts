@@ -182,12 +182,16 @@ export class ProfilePreviewComponent {
     public resumeFileDropped(e:any):void {
         this.resumeData = e[0];
 
-        if (this.resumeData.type == "application/pdf") {
+        console.log('resume file dropped', this.resumeData);
+
+        if (this.resumeData.type == "application/pdf"
+            || this.resumeData.type == "application/msword"
+            || this.resumeData.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
             this.uploadResume();
         }
         else {
             this.notificationService.show(
-                new Notification('error', 'Seuls les fichiers de type PDF sont acceptés')
+                new Notification('error', 'Seuls les fichiers de type PDF ou WORD sont acceptés')
             );
         }
     }

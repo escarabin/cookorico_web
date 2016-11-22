@@ -918,8 +918,11 @@ class UserController extends Controller
      */
     public function uploadResume($userId = null) {
         $input = Input::all();
+
+        $fileExtension = Input::file('uploads')[0]->getClientOriginalExtension();
+
         $destinationPath = 'uploads';
-        $fileName = rand(11111, 99999) . '.pdf';
+        $fileName = rand(11111, 99999) . '' . $fileExtension;
         $upload_success = $input['uploads'][0]->move($destinationPath, $fileName); // uploading file to given path
 
         $user = null;
@@ -932,9 +935,9 @@ class UserController extends Controller
         }
 
         app('App\Http\Controllers\FileController')
-            ->upload('oechr-resume', $user->id.'.pdf', $destinationPath.'/'.$fileName);
+            ->upload('oechr-resume', $user->id.'.'.$fileExtension, $destinationPath.'/'.$fileName);
 
-        $user->resumeUrl = "https://s3-eu-west-1.amazonaws.com/oechr-resume/".$user->id.".pdf";
+        $user->resumeUrl = "https://s3-eu-west-1.amazonaws.com/oechr-resume/".$user->id.".".$fileExtension;
         $user->save();
 
         if ($upload_success) {
