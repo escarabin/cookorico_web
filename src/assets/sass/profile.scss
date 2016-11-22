@@ -169,6 +169,16 @@ profile {
         display: inline-block;
         width: 100%;
 
+        .trash-container {
+          color: #CCC;
+          padding-top: 10px;
+          cursor: pointer;
+
+          &:hover {
+            color: #333;
+          }
+        }
+
         a {
           text-decoration: none;
         }
