@@ -257,14 +257,25 @@ export class ProfilePreviewComponent {
         else {
             file = $event[0];
         }
-        var myReader:FileReader = new FileReader();
-        let __this = this;
-        myReader.onloadend = function (loadEvent:any) {
-            image.src = loadEvent.target.result;
-            __this.cropper.setImage(image);
-        };
 
-        myReader.readAsDataURL(file);
+        /**
+         * Do not accept files that are over 1MB
+         */
+        if (file.size < 1000000) {
+            var myReader:FileReader = new FileReader();
+            let __this = this;
+            myReader.onloadend = function (loadEvent:any) {
+                image.src = loadEvent.target.result;
+                __this.cropper.setImage(image);
+            };
+
+            myReader.readAsDataURL(file);
+        }
+        else {
+            this.notificationService.show(
+                new Notification('error', 'Votre photo doit faire moins d\'1 mo')
+            );
+        }
     }
 
     uploadProfilePicture() {
