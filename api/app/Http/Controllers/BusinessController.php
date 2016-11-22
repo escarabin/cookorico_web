@@ -180,6 +180,17 @@ class BusinessController extends Controller
                     ]
                 );
         }
+        else {
+            /**
+             * Update place data
+             */
+            $placeData = $request::input('place');
+            $place = Place::where('googlePlaceId', $placeData['googlePlaceId'])->first();
+            foreach ($placeData as $key => $value) {
+                $place[$key] = $value;
+            }
+            $place->save();
+        }
 
         return $business;
     }

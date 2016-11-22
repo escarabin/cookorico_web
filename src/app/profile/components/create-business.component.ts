@@ -49,7 +49,6 @@ export class CreateBusinessComponent {
         /**
          * By default, get user's email and set it as business's email
          */
-
         this.business.email = this.user.email;
 
         route.params.subscribe(params => {
