@@ -45,10 +45,9 @@ export class JobSearchResultsComponent {
                 private route: ActivatedRoute) {
         let __this = this;
 
-        /*let headContent = document.getElementsByTagName('head')[0].innerHTML;
-        headContent = headContent.replace('<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHar3rTVpUcvpFDj88PttAPy85Bk17R18&amp;libraries=places"></script>', '');
-        document.getElementsByTagName('head')[0].innerHTML = headContent*/
-
+        /**
+         * Retrieve search params from route
+         */
         route.params.subscribe(params => {
             if (params) {
                 __this.xpLevelId = params['xpLevelId'];
@@ -174,8 +173,6 @@ export class JobSearchResultsComponent {
             maxZoom   : 20
         };
 
-        console.log('setting up map');
-
         if (!this.map) {
             this.map  = new google.maps.Map(document.getElementById('google-map-results'), myOptions);
             this.map.setOptions({styles: appGlobals.googleMapStyles});
@@ -191,23 +188,11 @@ export class JobSearchResultsComponent {
     }
 
     /**
-     * Function called from search.component
-     * after user changed the search parameters
-     * @param searchParameters
-
-    updateSearchResults(searchParameters: any) {
-        let __this = this;
-
-        __this.jobs = [];
-    }*/
-
-    /**
      * Pagination triggers
      */
     pageChanged() {
         window.scrollTo(0, 100);
     }
-
 
     /**
      * Get parameter title from its id

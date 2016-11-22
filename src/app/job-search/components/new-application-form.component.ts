@@ -27,23 +27,33 @@ export class NewApplicationFormComponent {
                 private userService: UserService,
                 private notificationService: NotificationsService,
                 private router: Router) {
+        let __this = this;
 
+        /**
+         * Retrieve user Object from localStorage
+         */
+        this.user = JSON.parse(localStorage.getItem('user'));
+
+        /**
+         * Retrieve job from route params
+         */
         route.params.subscribe(params => {
             if (params) {
                 this.jobId = params["jobId"];
+                this.application.job_id = parseInt(this.jobId);
             }
         });
 
-        this.application.job_id = parseInt(this.jobId);
-
-        let __this = this;
-
-        this.user = JSON.parse(localStorage.getItem('user'));
-
+        /**
+         * Retrieve fresh user data
+         */
         this.userService.getUserInfos(this.user.id).subscribe((res: Response) => {
             __this.user = res.json();
         });
 
+        /**
+         * GET existing user applications
+         */
         this.userService.getApplications(this.user.id).subscribe((res: Response) => {
             if (res['_body']) {
                 let applications = res.json();

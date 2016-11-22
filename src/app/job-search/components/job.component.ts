@@ -26,14 +26,24 @@ export class JobComponent {
                 private router: Router,
                 private metaService: MetaService,
                 private jobService: JobService) {
+        /**
+         * Retrieve user Object
+         * @type {any}
+         */
         this.user = JSON.parse(localStorage.getItem('user'));
 
+        /**
+         * Get jobId from route params
+         */
         route.params.subscribe(params => {
             if (params) {
                 this.jobId = params["jobId"];
             }
         });
 
+        /**
+         * GET job data
+         */
         jobService.getJob(this.jobId).subscribe((res: Response) => {
             this.job = res.json();
 
@@ -44,6 +54,9 @@ export class JobComponent {
         });
     }
 
+    /**
+     * Deactivate specific job post
+     */
     deactivateJobPost() {
         this.jobService.deactivateJobPost(this.jobId).subscribe((res: Response) => {
             this.notificationService.show(

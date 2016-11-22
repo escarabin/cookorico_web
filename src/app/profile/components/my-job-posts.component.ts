@@ -117,7 +117,7 @@ export class MyJobPostsComponent {
 
     pullUpJobPost() {
         this.jobPostService.pullUpJobPost().subscribe((post: Response) => {
-            this.userService.getJobPosts().subscribe((res: Response) => {
+            this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
                 __this.notificationService.show(
                     new Notification('success', 'Votre annonce a bien été remontée en haut de liste')
                 );
@@ -128,8 +128,10 @@ export class MyJobPostsComponent {
     }
 
     deactivateJobPost(jobPostId: number) {
+        console.log('deactivating ' + jobPostId);
+
         this.jobPostService.deactivate(jobPostId).subscribe((post: Response) => {
-            this.userService.getJobPosts().subscribe((res: Response) => {
+            this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
                 __this.notificationService.show(
                     new Notification('success', 'Votre annonce a bien été désactivée')
                 );

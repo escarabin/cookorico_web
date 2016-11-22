@@ -282,6 +282,9 @@ export class JobSearchSidebarComponent {
         this.searchService.search(this.parametersList);
     }
 
+    /**
+     * Triggered after user clicks on map
+     */
     mapClicked() {
         this.searchService.toggleMapSearch(this.parametersList['place']);
     }
