@@ -6,7 +6,7 @@
         <b>{{ jobs.length }} offres</b> correspondent à vos critères
     </div>
     <div class="jobs-count" *ngIf="isLoadingJobs">
-        Chargement des offres en cours... &nbsp; <span class="fa fa-spinner fa-spin"></span>
+        Chargement des offres en cours... <span class="fa fa-spinner fa-spin"></span>
     </div>
     <div class="col-md-12 search-results-container">
         <div *ngIf="jobs.length == 0 && parametersList['place']"
@@ -28,8 +28,16 @@
 
 <div class="row"
      [class.not-visible]="!isMapModeEnabled">
-    <div class="jobs-count">
-        <b>{{ jobs.length }} offres</b> correspondent à vos critères
+    <div class="jobs-count row">
+        <div class="col-md-2">
+            <button class="btn btn-default"
+                    (click)="isMapModeEnabled = false">
+                < Retour
+            </button>
+        </div>
+        <div class="col-md-10">
+            <b>{{ jobs.length }} offres</b> correspondent à vos critères
+        </div>
     </div>
 
     <div id="google-map-results">
