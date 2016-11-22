@@ -1,0 +1,231 @@
+pricing-plans, businesses, my-job-posts {
+  .plans-container {
+    max-width: 990px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .plan {
+    box-shadow: $mainBoxShadow;
+    border-radius: $mainBorderRadius;
+    padding: 10px;
+    margin: 35px;
+
+    p {
+      height: 80px;
+    }
+
+    h3 {
+      color: #333;
+    }
+
+    &.plan-0 {
+      h2 {
+        color: #F18B06;
+      }
+      button {
+        background-color: #F18B06;
+      }
+    }
+
+    &.plan-1 {
+      h2 {
+        color: #48CFAD;
+      }
+      button {
+        background-color: #48CFAD;
+      }
+    }
+
+    &.plan-2 {
+      h2 {
+        color: #9375AE;
+      }
+      button {
+        background-color: #9375AE;
+      }
+    }
+  }
+
+  .group-info {
+    h2 {
+      color: $oechrBlueColor;
+      font-size: 2em;
+
+    }
+  }
+
+  .about-us {
+    padding: 25px;
+    background: $oechrBlueColor;
+    color: white;
+    border-radius: $mainBorderRadius;
+
+    h3, h2 {
+      color: white;
+      font-size: 2em;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    button {
+      margin-left: 15px;
+      font-size: 1.2em;
+    }
+  }
+
+  h3 {
+    font-family: $mainBoldFontFamily;
+    color: #234484;
+  }
+
+  /* ==========================================================================
+    [10. PRICE TABLE]
+========================================================================== */
+  /* 10.1 General styles ================================== */
+  .price.odometer.odometer-auto-theme {
+    margin-left: -55px;
+  }
+  .pricing-table h4, .pricing-table h3, .pricing-table .pricing-title {
+    font-weight: 700; }
+
+  .pricing-table .pricing-title {
+    font-size: 18px;
+    display: block; }
+
+  .pricing-table p {
+    line-height: 1.5em; }
+
+  .pricing-table .pricing-plan {
+    padding: 30px 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 30px; }
+  .pricing-table .pricing-plan.best-value {
+    border: 2px solid #fe3f51; }
+
+  .pricing-table .icon {
+    font-size: 3.5em; }
+
+  .pricing-table .pricing-header {
+    padding: 50px 0;
+    border-radius: 3px 3px 0 0;
+    background-color: #1abc9c;
+    text-align: center; }
+  .pricing-table .pricing-header .icon {
+    color: #86eeda; }
+  .pricing-table .pricing-header h3 {
+    color: #c4cad6; }
+  .pricing-table .pricing-header p {
+    color: #86eeda; }
+
+  .pricing-table .pricing-include {
+    color: #6aa74c; }
+
+  .pricing-table .pricing-exclude {
+    color: #767676; }
+
+  .pricing-table .list-features {
+    margin: 30px 0; }
+  .pricing-table .list-features li {
+    padding: 1em;
+    margin: 0 -15px; }
+
+  .pricing-table .pricing-details {
+    margin-top: 30px; }
+
+  .pricing-table .pricing-include,
+  .pricing-table .pricing-exclude {
+    margin-right: 10px; }
+
+  .pricing-price {
+    font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 49px;
+    color: #242a34; }
+  .pricing-price sup, .pricing-price .price:before, .pricing-price .price:after {
+    font-size: 0.3em;
+    font-weight: 300;
+    font-style: italic; }
+  .pricing-price .price > div {
+    float: left; }
+  .pricing-price .price:before {
+    content: '€'; }
+  .pricing-price .price:after {
+    color: #505c73; }
+  .pricing-price.price-lg {
+    font-size: 73.5px; }
+
+  @media (max-width: 991px) {
+    .pricing-price {
+      /*span {
+              display: block;
+          }*/ } }
+
+  /* 10.2 Summary ================================== */
+  /* 10.3 Features  ================================== */
+  /* 10.4 Colorful ================================== */
+  .pricing-table-colorful .pricing-plan {
+    padding: 0; }
+  .pricing-table-colorful .pricing-plan.best-value {
+    border-color: #1abc9c; }
+  .pricing-table-colorful .pricing-plan .pricing-details {
+    padding: 15px; }
+
+  /* 10.5 Table ================================== */
+  .pricing-table .pricing-table-tabs {
+    width: 100%; }
+  .pricing-table .pricing-table-tabs label {
+    width: 33.33%;
+    padding: 12px 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+
+  .pricing-table .pricing-details {
+    margin-top: 0; }
+
+  .pricing-table table {
+    margin-top: 60px; }
+  .pricing-table table th, .pricing-table table td {
+    padding: 10px 15px !important;
+    vertical-align: middle !important;
+    border: 1px solid #ddd !important; }
+  .pricing-table table th {
+    background-color: whitesmoke;
+    font-weight: normal; }
+  .pricing-table table td {
+    text-align: center; }
+  .pricing-table table thead th {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .pricing-table table tbody.pricing-details th {
+    background-color: transparent; }
+  .pricing-table table tfoot {
+    font-size: 0.8em; }
+  .pricing-table table tfoot td {
+    border: 0; }
+  .pricing-table table .pricing-prev {
+    float: left; }
+  .pricing-table table .pricing-next {
+    float: right; }
+  .pricing-table table .visible-cell {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s; }
+
+  @media (max-width: 767px) {
+    .pricing-table table thead th {
+      display: none; }
+    .pricing-table table td[headers*='ph-'] {
+      display: none; }
+    .pricing-table table tbody th {
+      width: 60%; } }
+}

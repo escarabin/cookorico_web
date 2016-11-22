@@ -14,11 +14,9 @@ import { Application } from '../../models/application';
 @Component({
     selector: 'new-application-form',
     templateUrl: '../../../templates/new-application-form.component.html',
-    inputs: ['jobId']
 })
 
 export class NewApplicationFormComponent {
-    @Input jobId:string;
     comment: string;
     user: any = {};
     application:Application = new Application();
@@ -63,7 +61,7 @@ export class NewApplicationFormComponent {
         let __this = this;
         this.isLoading = true;
 
-        this.jobService.apply(__this.application).subscribe((res: Response) => {
+        this.jobService.apply(__this.application, __this.user.id).subscribe((res: Response) => {
             this.notificationService.show(
                 new Notification('success', 'Votre candidature a bien été enregistrée')
             );

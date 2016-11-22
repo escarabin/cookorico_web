@@ -1,0 +1,14 @@
+business-select {
+  display: inline-block;
+  width: 100%;
+
+  .no-results-label {
+    background: white;
+    position: absolute;
+    top: -40px;
+    box-shadow: $mainBoxShadow;
+    border-radius: $mainBorderRadius;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+}

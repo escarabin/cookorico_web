@@ -1,0 +1,29 @@
+clubs-management {
+  .create-club {
+    background: $oechrBlueColor;
+    color: white;
+    margin: 0;
+    padding: 25px;
+  }
+
+  input, select {
+    margin-bottom: 15px;
+  }
+
+  ul {
+    li {
+      .logo-container {
+        height: 120px;
+        overflow: hidden;
+      }
+
+      &.business {
+        background-color: $mainBgColor;
+
+        &:nth-child(odd) {
+          background: white;
+        }
+      }
+    }
+  }
+}

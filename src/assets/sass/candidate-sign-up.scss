@@ -1,0 +1,22 @@
+candidate-sign-up {
+  display: block;
+  background: white;
+  border-radius: $mainBorderRadius;
+  max-width: 990px;
+  margin: auto;
+  padding: 25px;
+  padding-top: $mainPagePaddingTop;
+
+  h1 {
+    color: $oechrBlueColor;
+    font-family: $mainBoldFontFamily;
+  }
+
+  input, select {
+    margin-bottom: 15px;
+  }
+
+  canvas {
+    fill: white;
+  }
+}

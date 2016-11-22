@@ -1,0 +1,58 @@
+job-search-results {
+  background: white;
+  display: block;
+  border-radius: $mainBorderRadius;
+  padding: 5px 10px;
+
+  job-search-bar {
+    margin-top: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: 100% !important;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 150px;
+  }
+
+  .sebm-google-map-container, #google-map-results {
+    height: 900px;
+    padding: 0 15px;
+    width: 98%;
+    display: block;
+  }
+
+  .jobs-count {
+    text-align: center;
+    padding: 15px;
+    margin: 0 15px;
+    color: white;
+    font-size: 2em;
+    background-color: $oechrBlueColor;
+  }
+
+  h2 {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: $mobileWidth) {
+  job-search-results {
+    box-shadow: none;
+    padding: 0;
+
+    .row {
+      margin: 0;
+    }
+
+    .search-results-container {
+      padding: 0;
+    }
+
+    .jobs-count {
+      margin: 0;
+      font-size: 1.2em;
+    }
+  }
+}

@@ -1,0 +1,100 @@
+.form-control {
+  height: 50px;
+  box-shadow: none;
+  -webkit-appearance:none;
+  border-radius: $mainBorderRadius;
+  border: 1px solid $lightGrey;
+  transition-duration: 250ms;
+  transition-property: all;
+  font-size: 18px;
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &.error, &.wrong {
+    border-color: $dangerColor;
+    background: #fbf1f2;
+  }
+}
+
+.input-error {
+  background-image: url('/img/input-error-cross.png');
+  background-position: 95% center;
+  background-repeat: no-repeat;
+}
+
+.input-group-addon:first-child {
+  background: white;
+  border: none;
+  border-bottom: 1px solid #CCC;
+  border-radius: 0;
+  font-size: 2em;
+}
+
+input[type="file"] {
+  border: none;
+}
+
+.input-group input {
+  border: 0;
+  color: #9c9c9c;
+}
+
+select[required].ng-invalid, input[required].ng-invalid {
+  border-color: $dangerColor;
+  background: #fbf1f2;
+}
+
+label {
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-family: $mainBoldFontFamily;
+
+  &.success {
+     color: $successColor;
+   }
+
+  &.danger {
+    color: $dangerColor;
+  }
+
+  &.info {
+    color: $infoColor;
+  }
+
+  &.warning {
+    color: $warningColor;
+  }
+}
+
+md-checkbox {
+  &.dark-bg {
+    .md-checkbox-frame {
+      border-color: white;
+    }
+  }
+
+  &.md-checkbox-checked {
+    .md-checkbox-background {
+      background-color: $oechrBlueColor;
+    }
+  }
+
+  &.md-checkbox-focused {
+    .md-ink-ripple {
+      background-color: rgba($oechrBlueColor, 0.25)
+    }
+  }
+
+  .md-checkbox-frame {
+    border: 2px solid rgba(0, 0, 0, 0.36);
+  }
+}
+
+ng-select {
+  .ui-select-choices-row {
+    padding: 5px 10px;
+  }
+}

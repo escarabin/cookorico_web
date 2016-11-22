@@ -1,0 +1,73 @@
+my-job-posts {
+  .job-stats, .job-applications {
+    font-family: $mainMediumFontFamily;
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  .job-stats {
+    margin-top: 0.5%;
+  }
+
+  .matching-profiles {
+    padding-top: 10px;
+  }
+
+  .header-container {
+    height: auto !important;
+    border-top: 1px solid #e6e6e6 !important;
+  }
+
+  .list-container {
+    ul {
+      li {
+        a {
+          color: #35B6E1;
+          text-decoration: underline !important;
+        }
+
+        .btn-danger {
+          background-color: $dangerColor !important;
+        }
+
+        button {
+          height: 30px !important;
+          padding: 5px !important;
+          margin-top: 5px !important;
+        }
+
+        h3, .ref {
+          color: #3a63a0 !important;
+          font-family: $mainBoldFontFamily !important;
+        }
+
+        &.free-job-placement {
+          padding: 30px;
+          margin: 10px 15px;
+          width: 97%;
+          background: $mainBgColor;
+          border-radius: $mainBorderRadius;
+          border: 1px dashed #CCC;
+
+          h3 {
+            text-transform: uppercase;
+            color: #3a63a0;
+          }
+
+          &:nth-child(odd) {
+            background: $mainBgColor;
+          }
+
+          .show-post {
+            color: $oechrBlueColor;
+            text-decoration: underline;
+          }
+
+          .job-filled {
+            color: $dangerColor;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+custom-pagination {
+  .pagination-previous, .page, .pagination-next {
+    float: left;
+    cursor: pointer;
+  }
+
+  .pagination-previous, .pagination-next {
+    width: 15%;
+    text-align: center;
+    padding: 15px;
+    font-family: $mainBoldFontFamily;
+  }
+
+  .pagination-next {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+  }
+
+  .pages {
+    display: inline-block;
+
+    .page {
+      padding: 15px;
+    }
+  }
+}

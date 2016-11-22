@@ -102,7 +102,7 @@
         </a>
     </div>
 
-    <new-application-form [jobId]="job.id" *ngIf="user && user.user_type_id == 3"></new-application-form>
+    <new-application-form *ngIf="user && user.user_type_id == 3"></new-application-form>
 
     <applicants *ngIf="job.applications > 0 && user && user.user_type_id == 2 && job.user_id == user.id"></applicants>
 </div>

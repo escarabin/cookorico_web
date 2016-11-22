@@ -75,14 +75,15 @@ export class JobService {
     /**
      * Apply to a specific job
      * @param application
+     * @param userId
      * @returns {Observable<Response>}
      */
-    apply(application: Application) {
+    apply(application: Application, userId?: number) {
         let body = JSON.stringify({ application });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.applyJobUrl, body, options);
+        return this.http.post(this.applyJobUrl + '/' + userId, body, options);
     }
 
     /**
