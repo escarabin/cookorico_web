@@ -157,8 +157,6 @@ export class CandidateSignUpComponent {
     }
 
     public resumeFileChangeListener($event) {
-        console.log('resume file dropped', $event);
-
         this.resumeFileDropped($event.target.files);
     }
 

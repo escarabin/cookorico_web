@@ -860,14 +860,19 @@ class UserController extends Controller
     /**
      * Upload a new profile picture
      * @param Request $request
+     * @param $userId
      * @return string
      */
-    public function uploadProfilePicture(Request $request) {
-        $userId = Auth::user()->id;
+    public function uploadProfilePicture(Request $request, $userId = null) {
+        if ($userId == "undefined") {
+            $userId = Auth::user()->id;
+        }
+
+        $user = User::find($userId);
 
         $base64String = $request::input('base64');
 
-        $newFilePath = $this->uploadProfilePictureBase64($base64String, $userId);
+        $newFilePath = $this->uploadProfilePictureBase64($base64String, $user->id);
 
         return $newFilePath;
     }

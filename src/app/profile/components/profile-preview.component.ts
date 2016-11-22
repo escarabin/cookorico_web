@@ -281,7 +281,7 @@ export class ProfilePreviewComponent {
     uploadProfilePicture() {
         this.isLoading = true;
 
-        this.userService.uploadProfilePicture(this.profilePictureData.image).subscribe((res: Response) => {
+        this.userService.uploadProfilePicture(this.profilePictureData.image, this.user.id).subscribe((res: Response) => {
             /**
              * File has been successfully uploaded to AWS S3
              */

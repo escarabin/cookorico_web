@@ -476,12 +476,13 @@ export class UserService {
     /**
      * Upload new profile picture for current user
      * @param base64
+     * @param userId
      * @returns {Observable<Response>}
      */
-    uploadProfilePicture(base64: string) {
+    uploadProfilePicture(base64: string, userId?: number) {
         let requestBody = JSON.stringify({ base64 });
 
-        return this.http.post(this.uploadProfilePictureUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.uploadProfilePictureUrl + '/' + userId, requestBody, this.postRequestOptions);
     }
 
     /**
@@ -495,9 +496,10 @@ export class UserService {
     /**
      * Upload new resume for current user
      * @param resume
+     * @param userId
      * @returns {Observable<Response>}
      */
-    uploadResume(resume: any, userId: number) {
+    uploadResume(resume: any, userId?: number) {
         let requestBody = JSON.stringify({ resume });
         let pdfPostRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
         let pdfPostRequestOptions = new RequestOptions({ headers: pdfPostRequestHeaders });
