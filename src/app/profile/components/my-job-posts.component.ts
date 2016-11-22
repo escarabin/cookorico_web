@@ -56,6 +56,8 @@ export class MyJobPostsComponent {
                 }
             }
 
+            console.log('items are', __this.items);
+
             /**
              * Defined how many job posts the user is now able to post
              */
@@ -157,25 +159,17 @@ export class MyJobPostsComponent {
 
         for (let i = 0; i < this.items.length; i++) {
             if (statusTitle == "is_accepted") {
-                let job = this.items[i];
-                let createDate = new Date(job['created_at']);
-                let dayDiff = Math.round((todayDate-createDate)/(1000*60*60*24));
-
-                if (dayDiff < 30) {
+                if (this.items[i]['dayDiff'] < 30 && this.items[i]['is_accepted'] && this.items[i]['is_active']) {
                     count += 1;
                 }
             }
             else if (statusTitle == "is_reviewing") {
-                if (!this.items[i]['is_accepted'] && !this.items[i]['is_rejected']) {
+                if (!this.items[i]['is_accepted'] && !this.items[i]['is_rejected'] && this.items[i]['dayDiff'] < 30) {
                     count += 1;
                 }
             }
             else if (statusTitle == "is_expired") {
-                let job = this.items[i];
-                let createDate = new Date(job['created_at']);
-                let dayDiff = Math.round((todayDate-createDate)/(1000*60*60*24));
-
-                if (dayDiff > 30) {
+                if (this.items[i]['dayDiff'] > 30) {
                     count += 1;
                 }
             }

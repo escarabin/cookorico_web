@@ -49,12 +49,12 @@
 <div class="col-md-12 list-container">
     <ul>
         <div *ngFor="let item of items">
-            <li class="row" *ngFor="let item of items">
+            <li class="row"
+                *ngIf="(item[postStatus] && item['dayDiff'] < 30 && item['is_active'])
+                       || (item['dayDiff'] > 30 && postStatus == 'is_expired')
+                       || (postStatus == 'is_reviewing' && !item.is_accepted && !item.is_rejected && item['dayDiff'] < 30)
+                       || postStatus == null">
                 <div class="col-md-12 col-sm-12 col-xs-12 item"
-                     *ngIf="item[postStatus] == true && item['dayDiff'] < 30
-                            || (item['dayDiff'] > 30 && postStatus == 'is_expired')
-                            || (postStatus == 'is_reviewing' && !item.is_accepted && !item.is_rejected)
-                            || postStatus == null"
                      [class.logo]="item.business.logo">
                     <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
                         <img src="{{ item.business.logo }}"
@@ -77,7 +77,7 @@
                         <button class="btn btn-primary"
                                 (click)="pullUpJobPost()"
                                 [disabled]="!userCanPullUpJobPost"
-                                *ngIf="item.is_active && item.is_accepted">
+                                *ngIf="item.is_active && item.is_accepted && postStatus == 'is_accepted'">
                             Remonter l'offre
                         </button>
                         <!--<span *ngIf="item.is_accepted" class="alert-success">En ligne</span>
