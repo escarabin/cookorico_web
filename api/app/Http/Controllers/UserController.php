@@ -68,43 +68,48 @@ class UserController extends Controller
     public function getProfilePercentage($userId = null) {
         $user = null;
 
-        if ($userId == "undefined" || !$user) {
+        if ($userId == "undefined" || !$userId) {
             $user = Auth::user();
         }
         else {
             $user = User::find($userId);
         }
 
-        /**
-         * Initial percentage
-         */
-        $percentage = 10;
+        if ($user->user_type_id == 3) {
+            /**
+             * Initial percentage
+             */
+            $percentage = 10;
 
-        if ($user->experiences) {
-            $percentage += 15;
+            if ($user->experiences) {
+                $percentage += 15;
+            }
+
+            if ($user->education) {
+                $percentage += 15;
+            }
+
+            if ($user->languages) {
+                $percentage += 15;
+            }
+
+            if ($user->description) {
+                $percentage += 15;
+            }
+
+            if ($user->profilePictureUrl) {
+                $percentage += 10;
+            }
+
+            if ($user->resumeUrl) {
+                $percentage += 20;
+            }
+
+            return $percentage;
         }
-
-        if ($user->education) {
-            $percentage += 15;
+        else {
+            return "0";
         }
-
-        if ($user->languages) {
-            $percentage += 15;
-        }
-
-        if ($user->description) {
-            $percentage += 15;
-        }
-
-        if ($user->profilePictureUrl) {
-            $percentage += 10;
-        }
-
-        if ($user->resumeUrl) {
-            $percentage += 20;
-        }
-
-        return $percentage;
     }
 
     /**
@@ -145,6 +150,19 @@ class UserController extends Controller
         Auth::loginUsingId($userId);
 
         return Auth::user();
+    }
+
+    /**
+     * Login using specific email
+     * @param $userId
+     * @return User
+     */
+    public function loginUsingEmail($email) {
+        $user = User::where('email', $email)->first();
+
+        Auth::loginUsingId($user->id);
+
+        return $user;
     }
 
     /**
@@ -253,7 +271,7 @@ class UserController extends Controller
     public function getMatchingProfiles($userId = null) {
         $user = null;
 
-        if ($userId == "undefined" || !$user) {
+        if ($userId == "undefined" || !$userId) {
             $user = Auth::user();
         }
         else {
@@ -640,11 +658,8 @@ class UserController extends Controller
         }
 
         $education = User::find($userId)->education
-                         ->load('diploma', 'business');
+                         ->load('diploma', 'business', 'business.place');
 
-        foreach ($education as $study) {
-            $study->business->place = $study->business->place;
-        }
 
         return $education;
     }
@@ -1089,7 +1104,8 @@ class UserController extends Controller
         }
 
         $user = User::find($userId);
-        $user->is_active = true;
+        $user->is_active = 1;
+        $user->is_verified = 1;
         $user->save();
 
         $pricingPlan = PricingPlan::find(11);
@@ -1109,8 +1125,12 @@ class UserController extends Controller
     /**
      * Update current user password
      */
-    public function updatePassword($oldPassword, $newPassword) {
-        $user = Auth::user();
+    public function updatePassword($oldPassword, $newPassword, $userId) {
+        if ($userId == "undefined" || !$userId) {
+            $userId = Auth::user()->id;
+        }
+
+        $user = User::find($userId);
 
         $user->password = Hash::make($newPassword);
         $user->save();

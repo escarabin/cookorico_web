@@ -35,8 +35,9 @@ class ImportController extends Controller
         $this->importCandidates();
         $this->importJobPosts();
         $this->setPassword();
-        $this->importApplications();*/
-        $this->setPhoneAsPwd();
+        $this->importApplications();
+        $this->setPhoneAsPwd();*/
+        $this->importPlans();
         // return $oldCandidates;
     }
 
@@ -381,6 +382,8 @@ class ImportController extends Controller
                     $plan->credits = $oldPlan->credits;
                 }
 
+                Log::info('pack id is '.$oldPlan->id_pack);
+
                 $plan->business_id = $oldPlan->id_etablissement;
                 $plan->spaces = 5;
                 $plan->daily_contacts = 10;
@@ -394,6 +397,9 @@ class ImportController extends Controller
                 }
                 if ($oldPlan->id_pack == 3 || $oldPlan->id_pack == 6) {
                     $plan->pricing_plan_id = 6;
+                }
+                if ($oldPlan->id_pack == 7) {
+                    $plan->pricing_plan_id = 11;
                 }
 
                 $plan->save();

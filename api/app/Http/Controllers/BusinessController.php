@@ -8,6 +8,7 @@ use App\Models\BusinessPhoto;
 use Illuminate\Support\Facades\Request;
 use App\Models\Business;
 use App\Models\Place;
+use App\Models\User;
 use Log;
 use Auth;
 use DB;

@@ -22,7 +22,7 @@ class ClubController extends Controller
      */
     public function get($id)
     {
-        $club = User::find($id)->load('businesses');
+        $club = User::find($id)->load('businesses', 'plans');
 
         return $club;
     }
@@ -33,7 +33,7 @@ class ClubController extends Controller
      * @return mixed
      */
     public function getAll() {
-        $clubs = User::where('user_type_id', 4)->get()->load('businesses');
+        $clubs = User::where('user_type_id', 4)->orderBy('username', 'ASC')->get()->load('businesses');
 
         foreach ($clubs as $club) {
             $i = 0;
@@ -52,7 +52,7 @@ class ClubController extends Controller
      * @return mixed
      */
     public function getAllGroups() {
-        $groups = User::where('user_type_id', 5)->get()->load('businesses');
+        $groups = User::where('user_type_id', 5)->orderBy('username', 'ASC')->get()->load('businesses');
 
         foreach ($groups as $group) {
             $i = 0;
@@ -100,6 +100,8 @@ class ClubController extends Controller
 
         $club = new User();
         $club->user_type_id = 4;
+        $club->is_active = 1;
+        $club->is_verified = 1;
 
         if ($request::get('isGroup') == 'true') {
             $club->user_type_id = 5;

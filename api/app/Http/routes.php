@@ -36,7 +36,7 @@ Route::get('/pricing', 'PricingControl@show')
     ->name('showPricing');
 
 // Jobs
-Route::post('/apply_job', 'JobController@apply')
+Route::post('/apply_job/{userId?}', 'JobController@apply')
     ->name('applyJob');
 Route::get('/job/{id}', 'JobController@get')
     ->name('showJob');
@@ -107,10 +107,12 @@ Route::get('/user/skip-job-creation/{userId?}', 'UserController@skipJobCreationO
     ->name('skipJobCreationOnSignUp');
 Route::get('/user/log', 'UserController@logUserInfos')
     ->name('logUserInfos');
-Route::get('/password/update/{oldPassword}/{newPassword}/{userId?}', 'UserController@signIn')
-    ->name('signIn');
+Route::get('/password/update/{oldPassword}/{newPassword}/{userId?}', 'UserController@updatePassword')
+    ->name('updatePassword');
 Route::get('/user/no-experience/{userId?}', 'UserController@saveNoExperience')
     ->name('saveNoExperience');
+Route::get('/user/login-using-email/{email}', 'UserController@loginUsingEmail')
+    ->name('loginUsingEmail');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')

@@ -38,9 +38,28 @@ export class MyJobPostsComponent {
             __this.items = res.json();
 
             /**
+             * Get how many expired job posts are in DB
+             * (created_at more than 30 days ago)
+             */
+            let activeItems = [];
+            let todayDate = new Date();
+
+            for (let i = 0; i < __this.items.length; i++) {
+                let job = __this.items[i];
+                let createDate = new Date(job['created_at']);
+                let dayDiff = Math.round((todayDate-createDate)/(1000*60*60*24));
+
+                __this.items[i]['dayDiff'] = dayDiff;
+
+                if (dayDiff < 30) {
+                    activeItems.push(job);
+                }
+            }
+
+            /**
              * Defined how many job posts the user is now able to post
              */
-            for (let i = 0; i < (5 - __this.items.length); i++) {
+            for (let i = 0; i < (5 - activeItems.length); i++) {
                 this.jobPlacementsLeftNum.push(1);
             }
         });
@@ -132,10 +151,20 @@ export class MyJobPostsComponent {
 
     getJobPostsCount(statusTitle: string) {
         let count = 0;
+        let todayDate = new Date();
 
         for (let i = 0; i < this.items.length; i++) {
             if (statusTitle == "is_reviewing") {
                 if (!this.items[i]['is_accepted'] && !this.items[i]['is_rejected']) {
+                    count += 1;
+                }
+            }
+            else if (statusTitle == "is_expired") {
+                let job = this.items[i];
+                let createDate = new Date(job['created_at']);
+                let dayDiff = Math.round((todayDate-createDate)/(1000*60*60*24));
+
+                if (dayDiff > 30) {
                     count += 1;
                 }
             }

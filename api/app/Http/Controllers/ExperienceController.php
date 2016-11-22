@@ -7,6 +7,7 @@ use Log;
 use Illuminate\Support\Facades\Request;
 use Auth;
 use App\Models\Experience;
+use App\Models\User;
 
 class ExperienceController extends Controller
 {
@@ -19,7 +20,7 @@ class ExperienceController extends Controller
     public function createExperience(Request $request, $userId = null) {
         $user = null;
 
-        if ($userId == "undefined" || !$user) {
+        if ($userId == "undefined" || !$userId) {
             $user = Auth::user();
         }
         else {

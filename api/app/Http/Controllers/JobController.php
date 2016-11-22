@@ -196,10 +196,18 @@ class JobController extends Controller
     /**
      * Apply to a specific job, as a candidate
      * @param Request $request
+     * @param $userId
      * @return Application
      */
-    public function apply(Request $request) {
-        $user = Auth::user();
+    public function apply(Request $request, $userId = null) {
+        $user = null;
+
+        if ($userId == "undefined" || !$userId) {
+            $user = Auth::user();
+        }
+        else {
+            $user = User::find($userId);
+        }
 
         $newApplication = new Application;
         $applicationData = $request::input('application');
@@ -208,6 +216,8 @@ class JobController extends Controller
         $newApplication->job_id = $applicationData['job_id'];
         $newApplication->status_id = 2;
         $newApplication->comment = $applicationData['comment'];
+
+        Log::info($request::all());
 
         /**
          * Send confirmation email to candidate
@@ -243,6 +253,15 @@ class JobController extends Controller
     public function create(Request $request, $userId = null) {
         $jobPostData = $request::input('jobPost');
 
+        $user = null;
+
+        if ($userId == "undefined" || !$userId) {
+            $user = Auth::user();
+        }
+        else {
+            $user = User::find($userId);
+        }
+
         /**
          * If job-post id is already defined, just update job-post, else create it
          */
@@ -252,7 +271,7 @@ class JobController extends Controller
         }
 
         // Substract one credit from user's subscription
-        $userPlans = Auth::user()->plans;
+        $userPlans = $user->plans;
 
         foreach ($userPlans as $plan) {
             if ($plan->credits > 0) {
@@ -278,14 +297,6 @@ class JobController extends Controller
 
         $mailTemplate = MailTemplate::where('slug', $templateName)->first();
 
-        $user = null;
-
-        if ($userId == "undefined" || !$userId) {
-            $user = Auth::user();
-        }
-        else {
-            $user = User::find($userId);
-        }
 
         /**
          * Necessary workaround to append civility data to user object

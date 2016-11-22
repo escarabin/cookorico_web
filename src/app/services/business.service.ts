@@ -24,6 +24,7 @@ export class BusinessService {
      * Create a new business with its related place
      * @param business
      * @param place
+     * @param userId
      * @returns {Observable<Response>}
      */
     create(business: Business, place: Place, userId?: number) {

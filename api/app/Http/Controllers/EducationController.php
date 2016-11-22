@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Study;
+use App\Models\User;
 use Illuminate\Support\Facades\Request;
 use Auth;
 use Log;
@@ -19,7 +20,7 @@ class EducationController extends Controller
     public function createStudy(Request $request, $userId = null) {
         $user = null;
 
-        if ($userId == "undefined" || !$user) {
+        if ($userId == "undefined" || !$userId) {
             $user = Auth::user();
         }
         else {
