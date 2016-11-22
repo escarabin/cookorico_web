@@ -23,10 +23,11 @@ export class JobService {
 
     /**
      * Listing all jobs
+     * @param includeExpiredJobs
      * @returns {Observable<Response>}
      */
-    getAllJobs() {
-        return this.http.request(this.allJobsListingUrl);
+    getAllJobs(includeExpiredJobs?: boolean) {
+        return this.http.request(this.allJobsListingUrl + '/' + includeExpiredJobs);
     }
 
     /**

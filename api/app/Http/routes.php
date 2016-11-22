@@ -40,7 +40,7 @@ Route::post('/apply_job/{userId?}', 'JobController@apply')
     ->name('applyJob');
 Route::get('/job/{id}', 'JobController@get')
     ->name('showJob');
-Route::get('/jobs/all', 'JobController@getAll')
+Route::get('/jobs/all/{includeExpiredJobs?}', 'JobController@getAll')
     ->name('getAllJobs');
 Route::post('/jobs/search/', 'JobController@search')
     ->name('searchJobs');

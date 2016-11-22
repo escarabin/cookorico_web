@@ -18,6 +18,7 @@ export class AdminJobPostsComponent {
     acceptedItems: any = [];
     itemsToReview: any = [];
     rejectedItems: any = [];
+    expiredItems: any = [];
     allItemsChecked: boolean;
     checkedItemsList: any = [];
     jobPlacementsLeftNum: any = [];
@@ -36,18 +37,30 @@ export class AdminJobPostsComponent {
         this.acceptedItems = [];
         this.rejectedItems = [];
         this.itemsToReview = [];
+        this.expiredItems = [];
 
-        this.jobService.getAllJobs().subscribe((res: Response) => {
+        let todayDate = new Date();
+
+        this.jobService.getAllJobs(true).subscribe((res: Response) => {
             for (let i = 0; i < res.json().length; i++) {
-                if (res.json()[i]['is_accepted']) {
-                    this.acceptedItems.push(res.json()[i]);
+                let job = res.json()[i];
+                let createDate = new Date(job['created_at']);
+                let dayDiff = Math.round((todayDate-createDate)/(1000*60*60*24));
+                console.log('day diff is' + dayDiff);
+
+                if (dayDiff > 30) {
+                    this.expiredItems.push(job);
                 }
-                if (res.json()[i]['is_rejected']) {
-                    this.rejectedItems.push(res.json()[i]);
+                else if (job['is_accepted']) {
+                    this.acceptedItems.push(job);
                 }
-                if (res.json()[i]['is_active'] && !res.json()[i]['is_accepted'] && !res.json()[i]['is_rejected']) {
-                    this.itemsToReview.push(res.json()[i]);
+                else if (job['is_rejected']) {
+                    this.rejectedItems.push(job);
                 }
+                else if (job['is_active'] && !job['is_accepted'] && !job['is_rejected']) {
+                    this.itemsToReview.push(job);
+                }
+
             }
         });
     }
