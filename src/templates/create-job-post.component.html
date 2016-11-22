@@ -30,12 +30,19 @@
                    name="job_post_title"/>
         </div>
         <div class="col-md-12" [class.disabled]="!userCanPostJob">
-            <business-select [businessId]="jobPost.business_id"
-                             [onlyUserBusinesses]="true"
-                             [isRequired]="true"
-                             (businessIdChange)="handleBusinessIdChange($event)">
-
-            </business-select>
+            <label>Établissement</label>
+            <select class="form-control"
+                    [(ngModel)]="jobPost.business_id"
+                    ngControl="jobPost.business_id"
+                    name="businessId"
+                    required>
+                <option selected disabled>-- Établissement --</option>
+                <option *ngFor="let business of businesses"
+                        value="{{ business.id }}"
+                        [selected]="businessId==business.id">
+                    {{ business.title }} - <i *ngIf="business.place">{{ business.place.city }}</i>
+                </option>
+            </select>
         </div>
         <div class="col-md-6">
             <label>Type d'offre</label>

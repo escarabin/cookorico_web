@@ -7,6 +7,7 @@ import { ReferenceService } from '../../services/reference.service';
 import { UserService } from '../../services/user.service';
 import { JobPostService } from '../../services/job-post.service';
 import { NotificationsService } from '../../services/notification.service';
+import { BusinessService } from '../../services/business.service';
 
 // Models
 import { JobPost } from '../../models/job-post';
@@ -26,6 +27,7 @@ export class CreateJobPostComponent {
     studyLevels: any = [];
     jobXpLevels: any = [];
     user: any = [];
+    businesses: any = [];
     jobPost:JobPost = new JobPost(null, '', '', null, null, null, null, null, null, null, null, 1, null, '', '', false, false, false);
     userCanPostJob: boolean = false;
     showTinyMceEditor: boolean = false;
@@ -34,6 +36,7 @@ export class CreateJobPostComponent {
                 private userService: UserService,
                 private jobPostService: JobPostService,
                 private notificationService: NotificationsService,
+                private businessService: BusinessService,
                 private route: ActivatedRoute,
                 private router: Router) {
         let __this = this;
@@ -71,6 +74,20 @@ export class CreateJobPostComponent {
                 }
             }
         });
+
+        /**
+         * If user is admin, show him every businesses
+         */
+        if (this.user.user_type_id == 1) {
+            this.businessService.getAll().subscribe((res: Response) => {
+                this.businesses = res.json();
+            });
+        }
+        else {
+            this.userService.getBusinesses(this.user.id).subscribe((res: Response) => {
+                this.businesses = res.json();
+            });
+        }
 
         this.referenceService.getAllDiplomas().subscribe((res: Response) => {
             __this.diplomas = res.json();
