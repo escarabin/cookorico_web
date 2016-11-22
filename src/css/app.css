@@ -1901,7 +1901,11 @@ recruiter-promo, candidate-promo {
   padding-top: 100px;
   display: block; }
   recruiter-promo .btn-primary, candidate-promo .btn-primary {
-    font-size: 1.4em; }
+    font-size: 1.7em;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    max-height: 200px;
+    height: 50px; }
   recruiter-promo .candidate-promo-heading, candidate-promo .candidate-promo-heading {
     background-image: url("/img/header-home-candidat.jpg") !important;
     background-position: center -100px; }
