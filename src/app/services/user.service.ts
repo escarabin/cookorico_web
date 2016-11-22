@@ -655,9 +655,10 @@ export class UserService {
      * Update current user password
      * @param oldPassword
      * @param newPassword
+     * @param userId
      */
-    changePassword(oldPassword: string, newPassword: string) {
-        return this.http.get(this.changePasswordUrl + '/' + oldPassword + '/' + newPassword);
+    changePassword(oldPassword: string, newPassword: string, userId?: number) {
+        return this.http.get(this.changePasswordUrl + '/' + oldPassword + '/' + newPassword + '/' + userId);
     }
 
     /**

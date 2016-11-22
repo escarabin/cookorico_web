@@ -387,12 +387,14 @@ export class ProfilePreviewComponent {
     saveNewPassword() {
         this.isSavingModal = true;
 
-        this.userService.changePassword(this.oldPassword, this.newPassword).subscribe((res: Response) => {
+        this.userService.changePassword(this.oldPassword, this.newPassword, this.user.id).subscribe((res: Response) => {
             this.isSavingModal = false;
 
             this.notificationService.show(
                 new Notification('success', 'Votre mot de passe a bien été modifié')
             );
+
+            this.hideChangePasswordModal();
         });
     }
 
