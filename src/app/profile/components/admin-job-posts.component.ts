@@ -26,21 +26,27 @@ export class AdminJobPostsComponent {
     constructor(private userService: UserService,
                 private jobService: JobService,
                 private notificationService: NotificationsService) {
-        let __this = this;
+        this.retrieveJobPosts();
+    }
+
+    retrieveJobPosts() {
+        /**
+         * Flush all existing data
+         */
+        this.acceptedItems = [];
+        this.rejectedItems = [];
+        this.itemsToReview = [];
 
         this.jobService.getAllJobs().subscribe((res: Response) => {
-            /**
-             * Keep only job-posts that have not been reviewed
-             */
             for (let i = 0; i < res.json().length; i++) {
                 if (res.json()[i]['is_accepted']) {
-                    __this.acceptedItems.push(res.json()[i]);
+                    this.acceptedItems.push(res.json()[i]);
                 }
                 if (res.json()[i]['is_rejected']) {
-                    __this.rejectedItems.push(res.json()[i]);
+                    this.rejectedItems.push(res.json()[i]);
                 }
                 if (res.json()[i]['is_active'] && !res.json()[i]['is_accepted'] && !res.json()[i]['is_rejected']) {
-                    __this.itemsToReview.push(res.json()[i]);
+                    this.itemsToReview.push(res.json()[i]);
                 }
             }
         });
@@ -54,11 +60,7 @@ export class AdminJobPostsComponent {
                 new Notification('success', 'Cette annonce a bien été accepté et est en ligne')
             );
 
-            for (let i = 0; i < __this.items.length; i++) {
-                if (__this.items[i]['id'] == jobPostId) {
-                    __this.items[i]['is_accepted'] = true;
-                }
-            }
+            this.retrieveJobPosts();
         });
     }
 
@@ -70,12 +72,7 @@ export class AdminJobPostsComponent {
                 new Notification('warning', 'Cette annonce a bien été refusée et ne sera pas en ligne')
             );
 
-            for (let i = 0; i < __this.items.length; i++) {
-                if (__this.items[i]['id'] == jobPostId) {
-                    console.log('changing');
-                    __this.items[i]['is_rejected'] = true;
-                }
-            }
+            this.retrieveJobPosts();
         });
     }
 }
