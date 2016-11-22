@@ -72,8 +72,7 @@ export class BusinessSelectComponent {
             let jsonRes = res.json();
 
             if (!jsonRes['googlePlaceId']) {
-                __this.businessId = res.json()['id'];
-                __this.businessIdHasChanged();
+                __this.businessIdHasChanged(res.json()['id']);
                 __this.error = false;
             }
             else {
@@ -93,7 +92,7 @@ export class BusinessSelectComponent {
         this.businessInputText = newText;
     }
 
-    businessIdHasChanged() {
-        this.businessIdChange.emit(this.businessId);
+    businessIdHasChanged(businessId: number) {
+        this.businessIdChange.emit(businessId);
     }
 }

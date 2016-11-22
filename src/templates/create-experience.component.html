@@ -23,10 +23,17 @@
         </div>
         <div class="col-md-6">
             <business-select [isRequired]="true"
+                             *ngIf="!business.title"
                              [businessId]="experience.business_id"
                              (businessIdChange)="handleBusinessIdChange($event)">
 
             </business-select>
+            <label *ngIf="business.title">Établissement</label>
+            <select class="form-control"
+                    *ngIf="business.title"
+                    disabled>
+                <option selected disabled>{{ business.title }}</option>
+            </select>
         </div>
         <div class="col-md-6">
             <label>Date de début</label>

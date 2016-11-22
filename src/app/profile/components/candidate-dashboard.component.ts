@@ -24,6 +24,7 @@ export class CandidateDashboardComponent {
     candidateStatuses: any = [];
     isSavingStatus: boolean = false;
     isSavingJobSeekingData: boolean = false;
+    jobSeekingDataCorrect: boolean = true;
     alertFrequencies: any = [];
 
     constructor(private userService: UserService,
@@ -33,6 +34,11 @@ export class CandidateDashboardComponent {
         let __this = this;
 
         this.user = JSON.parse(localStorage.getItem('user'));
+
+        this.userService.getUserInfos(this.user.id).subscribe((res: Response) => {
+            this.user = res.json();
+            localStorage.setItem('user', JSON.parse(this.user));
+        });
 
         this.userService.getProfilePercentage(this.user.id).subscribe((res: Response) => {
             this.profilePercentage = res.json();
@@ -103,16 +109,30 @@ export class CandidateDashboardComponent {
 
     saveJobSeekingInfos() {
         this.isSavingJobSeekingData = true;
-        this.userService.saveJobSeekingData(this.lookingForJobNamingList, this.user.alert_frequency_id, this.user.id).subscribe((res: Response) => {
-            this.isSavingJobSeekingData = false;
 
-            this.userService.getUserInfos().subscribe((res: Response) => {
-                this.user = res.json();
+        for (let i = 0; i < this.lookingForJobNamingList.length; i++) {
+            if (!this.lookingForJobNamingList[i]['place']) {
+                this.jobSeekingDataCorrect = false;
+            }
+        }
+
+        if (this.jobSeekingDataCorrect) {
+            this.userService.saveJobSeekingData(this.lookingForJobNamingList, this.user.alert_frequency_id, this.user.id).subscribe((res: Response) => {
+                this.isSavingJobSeekingData = false;
+
+                this.userService.getUserInfos().subscribe((res: Response) => {
+                    this.user = res.json();
+                });
+
+                this.notificationService.show(
+                    new Notification('success', 'Vos informations ont été enregistrées')
+                );
             });
-
+        }
+        else {
             this.notificationService.show(
-                new Notification('success', 'Vos informations ont été enregistrées')
+                new Notification('success', 'Veuillez remplir tous les champs')
             );
-        });
+        }
     }
 }

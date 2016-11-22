@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ReferenceService } from '../../services/reference.service';
 import { UserService } from '../../services/user.service';
 import { NotificationsService } from '../../services/notification.service';
+import { BusinessService } from '../../services/business.service';
 
 // Models
 import { Study } from '../../models/study';
@@ -21,13 +22,17 @@ export class CreateStudyComponent {
     isLoading: boolean = false;
     study:Study = new Study();
     user: any = {};
+    business: any = {};
 
     constructor(private referenceService: ReferenceService,
                 private notificationService: NotificationsService,
                 private userService: UserService,
+                private businessService: BusinessService,
                 private route: ActivatedRoute,
                 private router: Router) {
         let __this = this;
+
+        this.user = JSON.parse(localStorage.getItem('user'));
 
         route.params.subscribe(params => {
             if (params) {
@@ -37,6 +42,10 @@ export class CreateStudyComponent {
                     // Editing a specific item, let's retrieve it's data
                     __this.userService.getStudy(__this.study.id).subscribe((res: Response) => {
                         __this.study = res.json();
+
+                        __this.businessService.get(__this.study.business_id).subscribe((res: Response) => {
+                            __this.business = res.json();
+                        });
                     });
                 }
             }

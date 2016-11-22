@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ReferenceService } from '../../services/reference.service';
 import { UserService } from '../../services/user.service';
 import { NotificationsService } from '../../services/notification.service';
+import { BusinessService } from '../../services/business.service';
 import { TestimonialService } from '../../services/testimonial.service';
 
 // Models
@@ -25,10 +26,12 @@ export class CreateExperienceComponent {
     isBusinessIdentified: boolean = false;
     sendTestimonialRequest: boolean = false;
     user: any = {};
+    business: any = {};
 
     constructor(private referenceService: ReferenceService,
                 private userService: UserService,
                 private notificationService: NotificationsService,
+                private businessService: BusinessService,
                 private testimonialService: TestimonialService,
                 private route: ActivatedRoute,
                 private router: Router) {
@@ -52,6 +55,10 @@ export class CreateExperienceComponent {
                     // Editing a specific item, let's retrieve it's data
                     __this.userService.getExperience(__this.experience.id).subscribe((res: Response) => {
                         __this.experience = res.json();
+
+                        __this.businessService.get(__this.experience.business_id).subscribe((res: Response) => {
+                            __this.business = res.json();
+                        });
                     });
                 }
             }
