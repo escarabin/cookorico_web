@@ -30,6 +30,7 @@ export class JobSearchResultsComponent {
     mapMarkers: any = [];
     map: any;
     jobNamings: any = [];
+    isLoadingJobs: boolean = true;
 
     /**
      * By default, populate place object with France coords
@@ -97,6 +98,9 @@ export class JobSearchResultsComponent {
          */
         searchService.resultsEmitter.subscribe((results) => {
             __this.jobs = Object.values(results.json());
+
+            __this.isLoadingJobs = false;
+
             console.log('[job-search-results] new results', __this.jobs, __this.jobs.length);
 
             window.scrollTo(0, 100);

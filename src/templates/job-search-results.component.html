@@ -2,8 +2,11 @@
 
 <div class="row"
      *ngIf="!isMapModeEnabled">
-    <div class="jobs-count">
+    <div class="jobs-count" *ngIf="!isLoadingJobs">
         <b>{{ jobs.length }} offres</b> correspondent à vos critères
+    </div>
+    <div class="jobs-count" *ngIf="isLoadingJobs">
+        Chargement des offres en cours... &nbsp; <span class="fa fa-spinner fa-spin"></span>
     </div>
     <div class="col-md-12 search-results-container">
         <div *ngIf="jobs.length == 0 && parametersList['place']"

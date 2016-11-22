@@ -473,3 +473,99 @@ Stack trace:
 #52 /Applications/MAMP/htdocs/oechr_ng_cli/api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(99): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #53 /Applications/MAMP/htdocs/oechr_ng_cli/api/public/index.php(57): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #54 {main}  
+[2016-11-22 14:25:09] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:26:29] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:27:11] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:27:22] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-22 14:27:22] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-22 14:27:22] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-22 14:27:25] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:27:25] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:27:25] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:27:25] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:27:43] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:27:47] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-22 14:27:47] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-22 14:27:47] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-22 14:27:48] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:27:48] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:27:48] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:27:48] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:28:28] local.INFO: array (
+  'redirectionUrl' => '/recherche/0/0/0/0',
+)  
+[2016-11-22 14:28:36] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-22 14:28:36] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-22 14:28:36] local.INFO: array (
+  'redirectionUrl' => '/',
+)  
+[2016-11-22 14:28:40] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/5/0/0',
+)  
+[2016-11-22 14:28:40] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/5/0/0',
+)  
+[2016-11-22 14:28:40] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/5/0/0',
+)  
+[2016-11-22 14:28:41] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJhZDWpy_eDkgRMKvkNs2lDAQ/5/0/0',
+)  
+[2016-11-22 14:28:48] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJD7fiBh9u5kcRYJSMaMOCCwQ/3/0/0',
+)  
+[2016-11-22 14:28:48] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJD7fiBh9u5kcRYJSMaMOCCwQ/3/0/0',
+)  
+[2016-11-22 14:28:48] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJD7fiBh9u5kcRYJSMaMOCCwQ/3/0/0',
+)  
+[2016-11-22 14:28:48] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJD7fiBh9u5kcRYJSMaMOCCwQ/3/0/0',
+)  
+[2016-11-22 14:28:48] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJD7fiBh9u5kcRYJSMaMOCCwQ/3/0/0',
+)  
+[2016-11-22 14:28:48] local.INFO: array (
+  'redirectionUrl' => '/recherche/ChIJD7fiBh9u5kcRYJSMaMOCCwQ/3/0/0',
+)  
