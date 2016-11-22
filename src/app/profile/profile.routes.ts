@@ -27,6 +27,7 @@ import { TestimonialRequestsComponent } from "./components/testimonial-requests.
 import { PricingPlansComponent } from '../shared/components/pricing-plans.component';
 import { CandidateDashboardComponent } from './components/candidate-dashboard.component';
 import { ClubsManagementComponent } from './components/clubs-management.component';
+import { BusinessContactsListComponent } from './components/business-contacts-list.component';
 
 const profileRoutes: Routes = [
     {
@@ -71,6 +72,7 @@ const profileRoutes: Routes = [
             {path: 'demandes_de_recommandation', component: TestimonialRequestsComponent},
 
             // Businesses
+            {path: 'etablissement/contacts/:businessId', component: BusinessContactsListComponent},
             {path: 'etablissement/editer/:businessId', component: CreateBusinessComponent},
             {path: 'etablissement/creer', component: CreateBusinessComponent},
             {path: 'etablissement', redirectTo: '/profil/etablissements'},

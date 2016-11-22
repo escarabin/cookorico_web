@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Response } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 
 // Services
 import { ReferenceService } from './../../services/reference.service';
@@ -13,7 +14,6 @@ import { Notification } from './../../models/notification';
 @Component({
     selector: 'business-contacts-list',
     templateUrl: '../../../templates/business-contacts-list.component.html',
-    inputs: ['business']
 })
 
 export class BusinessContactsListComponent {
@@ -22,22 +22,32 @@ export class BusinessContactsListComponent {
     loggedUser: any = {};
     contacts: any = [];
     error: string;
-    @Input business: any = {};
+    business: any = {};
     @Output() businessUsersChanged: EventEmitter = new EventEmitter();
 
     constructor(private referenceService: ReferenceService,
                 private notificationService: NotificationsService,
                 private businessService: BusinessService,
+                private route: ActivatedRoute,
                 private userService: UserService) {
+        let __this = this;
+
         this.loggedUser = JSON.parse(localStorage.getItem('user'));
 
         this.referenceService.getAllCivilities().subscribe((res: Response) => {
             this.civilities = res.json();
         });
-    }
 
-    ngAfterViewInit() {
-        console.log('business is ', this.business);
+        route.params.subscribe(params => {
+            if (params) {
+                __this.business.id = params["businessId"];
+                if (__this.business.id) {
+                    __this.userService.getBusiness(__this.business.id).subscribe((res: Response) => {
+                        __this.business = res.json();
+                    });
+                }
+            }
+        });
     }
 
     /**
