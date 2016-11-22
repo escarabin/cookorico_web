@@ -31,6 +31,7 @@ import { AdminJobPostsComponent } from './components/admin-job-posts.component';
 import { ClubsManagementComponent } from './components/clubs-management.component';
 import { BusinessContactsListComponent } from './components/business-contacts-list.component';
 import { RecruitersAdminComponent } from './components/recruiters-admin.component';
+import { ConfirmUserAccountComponent } from './components/confirm-user-account.component';
 
 // Services
 import { UserService } from './../services/user.service';
@@ -60,6 +61,7 @@ import { WebsiteEditorService } from './../services/website-editor.service';
                     MailTemplatesComponent,
                     CreateMailTemplateComponent,
                     WebsiteEditorComponent,
+                    ConfirmUserAccountComponent,
                     CreateBusinessComponent,
                     CandidateDashboardComponent,
                     SignUpStepsComponent,

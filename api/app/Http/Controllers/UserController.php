@@ -1129,9 +1129,16 @@ class UserController extends Controller
 
     /**
      * Know if currently logged user is part of a group
+     * @param $userId
      */
-    public function isPartOfAGroup() {
-        $businesses = Auth::user()->businesses;
+    public function isPartOfAGroup($userId = null) {
+        if ($userId == "undefined" || !$userId) {
+            $userId = Auth::user()->id;
+        }
+
+        $user = User::find($userId);
+
+        $businesses = $user->businesses;
         $isUserPartOfAGroup = 'false';
 
         foreach ($businesses as $business) {

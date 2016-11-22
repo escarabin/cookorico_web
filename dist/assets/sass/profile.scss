@@ -1,0 +1,297 @@
+profile {
+  padding-top: 40px;
+  display: block;
+  max-width: $mainPageMaxWidth;
+  margin: auto;
+
+  .scrolled-down {
+    margin-top: 230px;
+  }
+
+  .add-item-container {
+    padding: 15px 0;
+
+    button {
+      font-size: 1.4em;
+      height: 66px;
+    }
+  }
+
+  .router-outlet-container {
+    width: 75%;
+    float: left;
+    margin-left: 3%;
+    padding: $mainBlockPadding;
+
+    &.full-width {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  .header-container {
+    height: 80px;
+    border-bottom: 1px solid #e6e6e6;
+    text-align: center;
+    background: white;
+    padding: 0;
+
+    select {
+      height: 59px;
+    }
+
+    .filter {
+      border-right: 1px solid #e6e6e6;
+      padding: 15px;
+      float: left;
+      text-transform: uppercase;
+      font-family: $mainBoldFontFamily;
+      cursor: pointer;
+
+      label {
+        cursor: pointer;
+      }
+
+      &:hover {
+        background-color: whitesmoke;
+      }
+
+      &.active {
+        background-color: $oechrBlueColor;
+
+        label {
+          color: white;
+        }
+      }
+    }
+
+    .items-count {
+      text-align: center;
+      font-family: $mainBoldFontFamily;
+      font-size: 2em;
+      color: white;
+      padding: 15px;
+    }
+
+    .main-checkbox-container {
+      padding: 22px;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      background: $oechrBlueColor;
+      border-top-left-radius: $mainBorderRadius;
+
+      md-checkbox {
+        pointer-events: none;
+      }
+
+      &.selected {
+        background-color: $oechrBlueColor;
+      }
+    }
+
+    .actions-container {
+      padding: 0;
+      text-align: right;
+
+      button {
+        width: 60px;
+        height: 69px;
+        background: transparent;
+        border: none;
+        color: white;
+
+        &:hover {
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2em;
+    font-family: $mainBoldFontFamily;
+  }
+
+  form .submit-btn, form .back-btn {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    height: 60px;
+  }
+
+  form label {
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+  }
+
+  .router-outlet-container {
+    background: white;
+    border-radius: $mainBorderRadius;
+  }
+
+  .page-title-container h3 {
+    padding: 25px;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    color: #a4acb3;
+    text-align: center;
+  }
+
+  .dynamic_data {
+    font-family: $mainMediumFontFamily;
+    color: $mainBlueColor;
+  }
+
+  .list-container {
+    padding: 0;
+
+    .checkbox-container {
+      float: left;
+      padding: 40px 0;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      cursor: pointer;
+    }
+
+    ul {
+      padding: 0;
+      margin-bottom: 0;
+
+      li {
+        background: whitesmoke;
+        padding: 0;
+        margin: 0;
+        transition-property: all;
+        transition-duration: 150ms;
+        border-left: 4px solid transparent;
+        display: inline-block;
+        width: 100%;
+
+        .trash-container {
+          color: #CCC;
+          padding-top: 10px;
+          cursor: pointer;
+
+          &:hover {
+            color: #333;
+          }
+        }
+
+        .small-btn {
+          height: 40px !important;
+          padding: 0 !important;
+          background: white !important;
+          border: 1px solid #CCC !important;
+          color: black !important;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        .matching-profiles {
+          text-decoration: underline;
+        }
+
+        button {
+          border: none;
+          border-radius: 4px;
+          color: white;
+          height: 50px;
+          padding: 15px;
+          margin-top: 10px;
+          background-color: #3a63a0;
+          text-decoration: none;
+        }
+
+        md-checkbox {
+          pointer-events: none;
+        }
+
+        &:nth-child(odd) {
+          background: white;
+        }
+
+        &:hover {
+          background-color: #f0f0f0;
+          border-color: $oechrBlueColor;
+        }
+
+        &.selected {
+          background: $oechrBlueColor;
+          color: white;
+
+          .checkbox-container {
+            background: $oechrBlueColor;
+          }
+
+          .item-desc, h3 {
+            color: white;
+          }
+
+          md-checkbox .md-checkbox-frame {
+            border: none;
+          }
+        }
+
+        a {
+          color: #333;
+        }
+
+        h3 {
+          font-family: $mainMediumFontFamily;
+          max-height: 20px;
+          overflow: hidden;
+          color: $mainBlueColor;
+          margin: 5px 0;
+        }
+
+        .date {
+          color: #a9a9a9;
+          font-family: $mainMediumFontFamily;
+          font-size: 0.9em;
+        }
+
+        .item {
+          padding: 10px;
+          display: inline-block;
+
+          .item-desc {
+            float: left;
+            padding-left: 10px;
+          }
+
+          .item-action-btn {
+            border: none;
+            background: none;
+            position: absolute;
+            right: 50px;
+          }
+
+          &.logo, &.photo {
+            img {
+              max-width: 80px;
+              max-height: 80px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $tabletWidth) {
+  profile {
+    .list-container ul li .date {
+      display: none;
+    }
+
+    .router-outlet-container {
+      width: 100%;
+      margin-left: 0;
+      padding: 105px 0 0 0;
+    }
+  }
+}

@@ -107,7 +107,7 @@ export class CandidateSignUpComponent {
                     this.uploadResume();
                 }
                 else {
-                    this.router.navigate(['/profil']);
+                    this.router.navigate(['/profil/confirmation-du-compte/3']);
                 }
             });
         });

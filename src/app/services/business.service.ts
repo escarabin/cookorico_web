@@ -12,6 +12,7 @@ export class BusinessService {
     getBusinessUrl = apiUrl + "/business";
     getAllBusinessesUrl = apiUrl + "/businesses/all";
     detachUserUrl = apiUrl + "/business/detach-user";
+    searchBusinessUrl = apiUrl + "/business/search";
     attachUserUrl = apiUrl + "/business/attach-user";
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
@@ -48,6 +49,14 @@ export class BusinessService {
      */
     get(businessId: number) {
         return this.http.get(this.getBusinessUrl + '/' + businessId);
+    }
+
+    /**
+     * Search for businesses by title
+     * @param searchText
+     */
+    search(searchText: string) {
+        return this.http.get(this.searchBusinessUrl + '/' + searchText);
     }
 
     /**

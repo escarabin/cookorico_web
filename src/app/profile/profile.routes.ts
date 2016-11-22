@@ -29,6 +29,7 @@ import { CandidateDashboardComponent } from './components/candidate-dashboard.co
 import { ClubsManagementComponent } from './components/clubs-management.component';
 import { BusinessContactsListComponent } from './components/business-contacts-list.component';
 import { RecruitersAdminComponent } from './components/recruiters-admin.component';
+import { ConfirmUserAccountComponent } from "./components/confirm-user-account.component";
 
 const profileRoutes: Routes = [
     {
@@ -39,6 +40,7 @@ const profileRoutes: Routes = [
             {path: 'apercu', component: ProfilePreviewComponent},
             {path: 'apercu/:userId', component: ProfilePreviewComponent},
             {path: 'apercu/:userId/complet', component: ProfilePreviewComponent},
+            {path: 'confirmation-du-compte/:userTypeId', component: ConfirmUserAccountComponent},
 
             // Experiences
             {path: 'experience/editer/:experienceId', component: CreateExperienceComponent},
@@ -98,10 +100,10 @@ const profileRoutes: Routes = [
             {path: 'profils-correspondants/:jobPostId', component: MatchingProfilesComponent},
 
             // Mails
+            {path: 'mail-template/edit/:templateId', component: CreateMailTemplateComponent},
+            {path: 'mail-template/create', component: CreateMailTemplateComponent},
             {path: 'mail-templates', component: MailTemplatesComponent},
             {path: 'mail-template', redirectTo: '/profil/mail-templates'},
-            {path: 'mail-template/create', component: CreateMailTemplateComponent},
-            {path: 'mail-template/edit/:templateId', component: CreateMailTemplateComponent},
 
             // Candidate dashboard
             {path: 'espace-candidat', component: CandidateDashboardComponent},

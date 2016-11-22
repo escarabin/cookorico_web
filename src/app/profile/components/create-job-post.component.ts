@@ -30,6 +30,7 @@ export class CreateJobPostComponent {
     businesses: any = [];
     jobPost:JobPost = new JobPost(null, '', '', null, null, null, null, null, null, null, null, 1, null, '', '', false, false, false);
     userCanPostJob: boolean = false;
+    isLoading: boolean = false;
     showTinyMceEditor: boolean = false;
 
     constructor(private referenceService: ReferenceService,
@@ -143,6 +144,7 @@ export class CreateJobPostComponent {
 
     submitJobPost() {
         let __this = this;
+        this.isLoading = true;
 
         this.jobPostService.save(__this.jobPost, this.user.id).subscribe((res: Response) => {
             let job = res['_body'];
@@ -161,7 +163,7 @@ export class CreateJobPostComponent {
 
                 if (!__this.user['is_active']) {
                     __this.userService.activateAccount(__this.user.id).subscribe((res: Response) => {
-                        __this.router.navigate(['/profil/annonces']);
+                        __this.router.navigate(['/profil/confirmation-du-compte/2']);
                     });
                 }
                 else {
@@ -175,13 +177,15 @@ export class CreateJobPostComponent {
                     new Notification('error', 'Une erreur inconnue est survenue, veuillez rééssayer')
                 );
             }
+
+            this.isLoading = false;
         });
     }
 
     skipJobCreation() {
         this.userService.skipJobCreation(this.user.id).subscribe((res: Response) => {
             this.userService.activateAccount(this.user.id).subscribe((res: Response) => {
-                this.router.navigate(['/profil/annonces']);
+                this.router.navigate(['/profil/confirmation-du-compte/2']);
             });
         });
     }

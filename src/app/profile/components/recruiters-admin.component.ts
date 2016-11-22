@@ -5,8 +5,13 @@ import { Router } from '@angular/router';
 // Services
 import { UserService } from '../../services/user.service';
 
+// Pagination
+import { PaginatePipe, PaginationService } from 'ng2-pagination';
+
 @Component({
     selector: 'recruiters-admin',
+    providers: [PaginationService],
+    pipes: [PaginatePipe],
     templateUrl: '../../../templates/recruiters-admin.component.html'
 })
 

@@ -1,0 +1,23 @@
+.badge {
+  position: relative;
+  top: -2px;
+  background-color: white;
+  color: #333;
+  font-size: 1em;
+  padding: 5px 15px;
+  border-radius: $mainBorderRadius;
+
+  &.inactive {
+    color: #CCC;
+  }
+
+  &.danger {
+    background-color: $dangerColor;
+    color: white;
+  }
+
+  &.info {
+    background-color: $oechrBlueColor;
+    color: white;
+  }
+}

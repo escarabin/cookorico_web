@@ -229,9 +229,7 @@ class BusinessController extends Controller
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getAll() {
-        $businesses = Business::all()
-                        ->load('type')
-                        ->load('place');
+        $businesses = Business::all();
 
         return $businesses;
     }
@@ -248,6 +246,21 @@ class BusinessController extends Controller
     }
 
     /**
+     * Search for businesses by title
+     * @param $searchText
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function search($searchText) {
+        $businesses = Business::where('title', 'LIKE', '%'.$searchText.'%')
+                    ->get()
+                    ->load('photos')
+                    ->load('users')
+                    ->load('place');;
+
+        return $businesses;
+    }
+
+    /**
      * Detach user to specific business
      * @param $userId
      * @param $businessId
@@ -256,6 +269,7 @@ class BusinessController extends Controller
         DB::table('business_user')
             ->where('user_id', $userId)
             ->where('business_id', $businessId)
+            ->orderBy('title', 'ASC')
             ->delete();
     }
 }

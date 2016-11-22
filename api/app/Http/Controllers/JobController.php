@@ -56,9 +56,7 @@ class JobController extends Controller
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getAll($includeExpiredJobs) {
-        Log::info($includeExpiredJobs);
-
-        if ($includeExpiredJobs != "true") {
+        /* if ($includeExpiredJobs != "true") {
             $jobs = Job::where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
                 ->where('is_active', 1)
                 ->orderBy('created_at', 'DESC')
@@ -70,7 +68,7 @@ class JobController extends Controller
                     'studyLevel',
                     'contractType',
                     'jobXpLevel',
-                    'languages');;
+                    'languages');
         }
         else {
             $jobs = Job::orderBy('created_at', 'DESC')
@@ -83,7 +81,20 @@ class JobController extends Controller
                     'contractType',
                     'jobXpLevel',
                     'languages');
-        }
+        }*/
+
+        $jobs = Job::where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
+            ->where('is_active', 1)
+            ->orderBy('created_at', 'DESC')
+            ->get()
+            ->load('business',
+                'user',
+                'jobNaming',
+                'type',
+                'studyLevel',
+                'contractType',
+                'jobXpLevel',
+                'languages');
 
         /**
          * Necessary ugly workaround

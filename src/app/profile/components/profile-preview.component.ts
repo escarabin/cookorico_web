@@ -118,7 +118,7 @@ export class ProfilePreviewComponent {
                         this.router.navigate(['/profil/annonces']);
                     }
                     else if (this.user.user_type_id == 1) {
-                        this.router.navigate(['/profil/annonces_admin']);
+                        this.router.navigate(['/profil/recruteurs-admin']);
                     }
 
                     // The profile is logged user's one so he is able to edit it

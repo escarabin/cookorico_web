@@ -1,0 +1,47 @@
+applications {
+  display: block;
+
+  .application {
+    &.accepted {
+      background-color: #ebfbec !important;
+    }
+
+    &.sent {
+      background-color: #e3f7fd !important;
+    }
+
+    &.rejected {
+      background-color: #fdf3f4 !important;
+    }
+  }
+
+  ul {
+    li {
+      border-bottom: 1px solid #d4d4d4 !important;
+
+      .item {
+        button {
+          background: white !important;
+          color: #333 !important;
+        }
+
+        .logo {
+          top: 0 !important;
+        }
+      }
+    }
+  }
+
+  .header-container {
+    background: white !important;
+    height: auto !important;
+  }
+
+  h3 {
+    margin: 10px 0 5px 0 !important
+  }
+
+  .date {
+    margin-left: 20px;
+  }
+}

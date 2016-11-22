@@ -1,0 +1,123 @@
+header {
+  width: 100%;
+  background-color: white;
+
+  .mobile-menu {
+    position: fixed;
+    background: $oechrBlueColor;
+    z-index: 100;
+    overflow: hidden;
+    top: 70px;
+    width: 100%;
+    max-height: 0;
+    height: auto;
+    transition-duration: 500ms;
+    transition-property: all;
+    display: none;
+
+    a {
+      color: white;
+    }
+
+    ul {
+      padding: 0;
+
+      li {
+        width: 100%;
+      }
+    }
+
+    &.shown {
+      max-height: 100%;
+      overflow: visible;
+    }
+  }
+
+  .header-wrapper {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    height: $headerHeight;
+    background-color: #003c50;
+
+    /* Transparent header on home page */
+    &.transparent {
+      background: none;
+      color: white;
+
+      a {
+        color: white;
+      }
+    }
+  }
+
+  .logo {
+    background-image: url("/img/cookorico_logo.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    width: 190px;
+    height: 75px;
+    margin: 10px 25px;
+  }
+
+  ul {
+    a {
+      color: white;
+      letter-spacing: 1px;
+      cursor: pointer;
+      font-weight: 400;
+    }
+
+    li {
+      float: right;
+      padding: 40px;
+      text-transform: uppercase;
+      font-family: $mainMediumFontFamily;
+
+      .recruiter_btn a {
+        border: 2px solid white;
+        border-radius: $mainBorderRadius;
+        padding: 10px 15px 10px 15px;
+        font-weight: 600;
+        background: white;
+        color: $mainBlueColor;
+      }
+    }
+  }
+
+    .mobile-menu-toggle {
+      color: white;
+      font-size: 2em;
+      padding: 20px 25px;
+      text-align: right;
+    }
+  }
+
+@media (max-width: $mobileWidth) {
+  header {
+    .header-wrapper {
+      height: $headerHeight - 30;
+    }
+
+    .logo {
+      background-image: url("/img/cookorico_picto.png");
+      width: 25px;
+      height: 45px;
+      margin: 10px 5px;
+    }
+
+    .mobile-menu-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: darken($oechrBlueColor, 50%);
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    .mobile-menu {
+      display: block;
+    }
+  }
+}

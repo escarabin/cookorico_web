@@ -1,0 +1,14 @@
+website-editor {
+    .delete-url {
+        padding: 15px;
+    }
+    
+    .description-preview {
+        margin: 15px;
+        padding: 25px;
+        border-radius: $mainBorderRadius;
+        background: $oechrBlueColor;
+        width: 96%;
+        color: white;
+    }
+}

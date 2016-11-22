@@ -27,6 +27,10 @@ export class AdminJobPostsComponent {
     constructor(private userService: UserService,
                 private jobService: JobService,
                 private notificationService: NotificationsService) {
+
+    }
+
+    ngAfterViewInit() {
         this.retrieveJobPosts();
     }
 
@@ -39,26 +43,16 @@ export class AdminJobPostsComponent {
         this.itemsToReview = [];
         this.expiredItems = [];
 
-        let todayDate = new Date();
-
         this.jobService.getAllJobs(true).subscribe((res: Response) => {
             for (let i = 0; i < res.json().length; i++) {
-                let job = res.json()[i];
-                let createDate = new Date(job['created_at']);
-                let dayDiff = Math.round((todayDate-createDate)/(1000*60*60*24));
-                console.log('day diff is' + dayDiff);
-
-                if (dayDiff > 30) {
-                    this.expiredItems.push(job);
+                if (res.json()[i]['is_accepted']) {
+                    this.acceptedItems.push(res.json()[i]);
                 }
-                else if (job['is_accepted']) {
-                    this.acceptedItems.push(job);
+                else if (res.json()[i]['is_rejected']) {
+                    this.rejectedItems.push(res.json()[i]);
                 }
-                else if (job['is_rejected']) {
-                    this.rejectedItems.push(job);
-                }
-                else if (job['is_active'] && !job['is_accepted'] && !job['is_rejected']) {
-                    this.itemsToReview.push(job);
+                if (res.json()[i]['is_active'] && !res.json()[i]['is_accepted'] && !res.json()[i]['is_rejected']) {
+                    this.itemsToReview.push(res.json()[i]);
                 }
 
             }

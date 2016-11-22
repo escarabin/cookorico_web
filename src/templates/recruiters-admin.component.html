@@ -25,7 +25,7 @@
 
 <div class="col-md-12 list-container">
     <ul>
-        <li class="row" *ngFor="let recruiter of recruiterUsers">
+        <li class="row" *ngFor="let recruiter of recruiterUsers | paginate: { itemsPerPage: 20, currentPage: p }">
             <div class="col-md-12 col-sm-12 col-xs-12 item">
                 <div class="col-md-4">
                     <span *ngIf="recruiter.firstName || recruiter.lastName">
@@ -59,4 +59,8 @@
             </div>
         </li>
     </ul>
+
+    <pagination-controls #pagination (pageChange)="p = $event" (click)="pageChanged()">
+       <!-- <custom-pagination [pagination]="pagination"></custom-pagination>-->
+    </pagination-controls>
 </div>

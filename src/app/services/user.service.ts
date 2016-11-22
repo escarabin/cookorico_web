@@ -374,8 +374,6 @@ export class UserService {
      * @param userId
      */
     getBusinesses(userId?: number) {
-        console.log('getting businesses with userId' + userId);
-
         return this.http.get(this.getBusinessesUrl + '/' + userId);
     }
 

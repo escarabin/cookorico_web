@@ -1,0 +1,122 @@
+profile-sidebar {
+  display: block;
+  border-radius: $mainBorderRadius;
+  width: 20%;
+  float: left;
+
+  .user-infos {
+    text-align: left;
+    margin: 0 15px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: $mainBorderRadius;
+    padding: 15px 0;
+
+    .plan {
+      .plan-infos {
+        padding: 5px 0;
+      }
+
+      .plan-credits {
+        font-size: 1.5em;
+        padding: 0;
+        font-family: $mainMediumFontFamily;;
+        color: $oechrBlueColor;
+
+        hr {
+          margin: 5px;
+        }
+      }
+    }
+  }
+
+  .new-job-post-btn {
+    background-color: white;
+    color: $mainDarkTextColor;
+    font-family: $mainBoldFontFamily;
+    border: none;
+    height: 45px;
+    margin-top: 20px;
+  }
+
+  .profile-sidebar-menu {
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    max-height: 70px;
+    transition-property: all;
+    transition-duration: 350ms;
+
+    a {
+      color: $mainDarkTextColor;
+      display: inline-block;
+      width: 100%;
+      padding: 15px;
+      background: white;
+      font-size: 1.15em;
+      margin: 5px 0;
+      border-radius: $mainBorderRadius;
+      border-left: 4px solid transparent;
+
+      &.active {
+        font-family: $mainBoldFontFamily;
+        border-color: $oechrBlueColor;
+      }
+
+      &:hover {
+        border-color: $oechrBlueColor;
+      }
+    }
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5em;
+    color: $oechrBlueColor;
+  }
+}
+
+@media (max-width: $tabletWidth) {
+  profile-sidebar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 25px;
+    position: fixed;
+    background: #f7f7f8;
+    z-index: 10;
+    border-radius: 0;
+
+    &.scrolled-down {
+      position: fixed;
+      top: 0;
+      margin: 0 !important;
+      -moz-box-shadow: 0px 5px 10px 0px #c0c0c0;
+      -webkit-box-shadow: 0px 5px 10px 0px #c0c0c0;
+      -o-box-shadow: 0px 5px 10px 0px #c0c0c0;
+      box-shadow: 0px 5px 10px 0px #c0c0c0;
+      filter:progid:DXImageTransform.Microsoft.Shadow(color=#c0c0c0, Direction=180, Strength=10);
+    }
+
+    .profile-sidebar-menu {
+      margin: 0;
+
+      &.full-height {
+        max-height: 500px;
+      }
+
+      a {
+        display: none;
+
+        &.active, &.visible {
+          display: inline-block;
+        }
+      }
+    }
+
+    .mobile-menu-toggle {
+      display: inline-block;
+    }
+  }
+}

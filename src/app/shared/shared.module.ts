@@ -15,6 +15,7 @@ import { ApplicantsComponent } from './../profile/components/applicants.componen
 import { PricingPlansComponent } from './components/pricing-plans.component';
 import { ImageCropperComponent } from 'ng2-img-cropper';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload/ng2-file-upload';
+import { CustomPaginationComponent } from './components/custom-pagination.component';
 
 // Bootstrap modules
 import { ButtonsModule,
@@ -38,6 +39,7 @@ import { SellsyService } from './../services/sellsy.service';
                     FileSelectDirective,
                     FileDropDirective,
                     ImageCropperComponent,
+                    CustomPaginationComponent,
                     ApplicantsComponent,
                     PricingPlansComponent,
                     GoogleplaceDirective ],
@@ -49,6 +51,7 @@ import { SellsyService } from './../services/sellsy.service';
                     FileSelectDirective,
                     FileDropDirective,
                     ImageCropperComponent,
+                    CustomPaginationComponent,
                     PricingPlansComponent,
                     ButtonsModule,
                     CollapseModule,

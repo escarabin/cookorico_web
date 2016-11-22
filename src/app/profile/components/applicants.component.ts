@@ -29,7 +29,7 @@ export class ApplicantsComponent {
                 private route: ActivatedRoute) {
         let __this = this;
 
-        this.user = localStorage.getItem('user');
+        this.user = JSON.parse(localStorage.getItem('user'));
 
         this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
             __this.jobPosts = res.json();

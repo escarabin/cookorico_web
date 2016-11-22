@@ -1,7 +1,33 @@
-<h2 class="centered">
+<h2 class="centered" *ngIf="!isLoading">
     Vous avez {{ items.length }} établissement(s)
     <hr />
 </h2>
+
+<h2 class="centered" *ngIf="isLoading">
+    Chargement des établissements... &nbsp; <span class="fa fa-spinner fa-spin"></span>
+    <hr />
+</h2>
+
+<div *ngIf="user.user_type_id == 1">
+    <div class="col-md-10">
+        <hr />
+        <input class="form-control full-width"
+               type="text"
+               [(ngModel)]="searchText"
+               name="searchText"
+               ngControl="searchText"
+               placeholder="Rechercher par nom"/>
+        <hr />
+    </div>
+    <div class="col-md-2">
+        <br />
+        <br />
+        <button class="btn btn-primary"
+                (click)="searchBusiness()">
+            Rechercher
+        </button>
+    </div>
+</div>
 
 <!-- <div class="alert alert-warning alert-dismissible fade in" role="alert"
      *ngIf="items.length == 1">
@@ -11,7 +37,7 @@
 
 <div class="col-md-12 list-container">
     <ul>
-        <li class="row" *ngFor="let item of items">
+        <li class="row" *ngFor="let item of items | paginate: { itemsPerPage: 20, currentPage: p }">
             <div class="col-md-12 col-sm-12 col-xs-12 item"
                  [class.logo]="item.logo">
                 <a routerLink="/profil/etablissement/editer/{{ item.id }}">
@@ -50,6 +76,9 @@
             </div>
         </li>
     </ul>
+    <pagination-controls #pagination (pageChange)="p = $event" (click)="pageChanged()">
+       <!-- <custom-pagination [pagination]="pagination"></custom-pagination>-->
+    </pagination-controls>
 </div>
 
 <div class="col-md-12 centered">
