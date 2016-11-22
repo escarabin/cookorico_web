@@ -15,7 +15,9 @@ import { Notification } from '../../models/notification';
 })
 
 export class AdminJobPostsComponent {
-    items: any = [];
+    acceptedItems: any = [];
+    itemsToReview: any = [];
+    rejectedItems: any = [];
     allItemsChecked: boolean;
     checkedItemsList: any = [];
     jobPlacementsLeftNum: any = [];
@@ -30,12 +32,17 @@ export class AdminJobPostsComponent {
             /**
              * Keep only job-posts that have not been reviewed
              */
-            __this.items = res.json();
-            /*for (let i = 0; i < res.json().length; i++) {
-                if (!res.json()[i]['is_accepted'] && !res.json()[i]['is_rejected']) {
-                    __this.items.push(res.json()[i]);
+            for (let i = 0; i < res.json().length; i++) {
+                if (res.json()[i]['is_accepted']) {
+                    __this.acceptedItems.push(res.json()[i]);
                 }
-            }*/
+                if (res.json()[i]['is_rejected']) {
+                    __this.rejectedItems.push(res.json()[i]);
+                }
+                if (res.json()[i]['is_active'] && !res.json()[i]['is_accepted'] && !res.json()[i]['is_rejected']) {
+                    __this.itemsToReview.push(res.json()[i]);
+                }
+            }
         });
     }
 

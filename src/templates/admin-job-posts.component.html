@@ -1,19 +1,12 @@
 <div class="col-md-12 header-container">
     <div class="col-md-12 col-sm-12 col-xs-11 items-count">
-        <span *ngIf="checkedItemsList.length > 0">
-            {{ checkedItemsList.length }}
-        </span>
-        <span *ngIf="checkedItemsList.length == 0">
-            {{ items.length }}
-        </span> annonce<span *ngIf="items.length > 1">s</span>
-        à valider
-        <span *ngIf="checkedItemsList.length > 0"> sélectionnées </span>
+        {{ itemsToReview.length }} annonce<span *ngIf="itemsToReview.length > 1">s</span> à valider
     </div>
 </div>
 
 <div class="col-md-12 list-container">
     <ul>
-        <li class="row" *ngFor="let item of items">
+        <li class="row" *ngFor="let item of itemsToReview">
             <div class="col-md-12 col-sm-12 col-xs-12 item"
                  [class.logo]="item.business.logo">
                 <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
@@ -42,6 +35,140 @@
                 <div class="col-md-3 col-sm-3 col-xs-4 centered">
                     <button (click)="acceptJobPost(item.id)"
                        class="btn btn-success">
+                        Valider
+                    </button>
+                    <button (click)="rejectJobPost(item.id)"
+                            class="btn btn-danger">
+                        Rejeter
+                    </button>
+                    <br />
+                    <br />
+                    <a class="show-post"
+                       routerLink="/profil/annonce/editer/{{ item.id }}">
+                        Modifier l'annonce<br />
+                    </a>
+                </div>
+                <div class="col-md-2 col-sm-2 hidden-xs job-stats">
+                    <b>REF{{ item.id }}</b><br />
+                    <span *ngIf="item.print_count">
+                        <i class="icon-eyeglasses"></i> &nbsp; {{ item.print_count }} vues<br />
+                    </span>
+                    <span *ngIf="item.click_count">
+                        <i class="icon-cursor"></i> &nbsp; {{ item.click_count }} clics<br />
+                    </span>
+                    <a class="show-post"
+                       routerLink="/recherche/annonce/{{ item.id }}">
+                        Voir l'annonce<br />
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="col-md-12 header-container">
+    <div class="col-md-12 col-sm-12 col-xs-11 items-count">
+        {{ acceptedItems.length }} annonce<span *ngIf="acceptedItems.length > 1">s</span> en ligne
+    </div>
+</div>
+
+<div class="col-md-12 list-container">
+    <ul>
+        <li class="row" *ngFor="let item of acceptedItems">
+            <div class="col-md-12 col-sm-12 col-xs-12 item"
+                 [class.logo]="item.business.logo">
+                <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
+                    <img src="{{ item.business.logo }}"
+                         class="full-width"/>
+                </div>
+                <div [class.col-md-5]="item.business.logo"
+                     [class.col-md-7]="!item.business.logo"
+                     [class.col-sm-5]="item.business.logo"
+                     [class.col-sm-7]="!item.business.logo"
+                     class="col-xs-8">
+                    <h3>{{ item.job_naming.title.substr(0, 30) }}...</h3>
+                    <span *ngIf="item.is_accepted" class="alert-info">En ligne</span>
+                    <span *ngIf="!item.is_accepted" class="alert-warning">En validation</span>
+                    <span *ngIf="item.is_rejected" class="alert-danger">Rejetée</span>
+                    <br />
+                    {{ item.contract_type.title }} - {{ item.week_work_hours }}h<br />
+                    {{ item.business.title }}<br />
+                    Publié le {{ item.created_at | date:"dd/MM/yyyy" }}<br />
+                    <!-- <span class="date">
+                        {{ item.start_date }} &nbsp;
+                        <span class="fa fa-arrow-right"></span> &nbsp;
+                        {{ item.end_date }}
+                    </span> -->
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-4 centered">
+                    <button (click)="acceptJobPost(item.id)"
+                            class="btn btn-success">
+                        Valider
+                    </button>
+                    <button (click)="rejectJobPost(item.id)"
+                            class="btn btn-danger">
+                        Rejeter
+                    </button>
+                    <br />
+                    <br />
+                    <a class="show-post"
+                       routerLink="/profil/annonce/editer/{{ item.id }}">
+                        Modifier l'annonce<br />
+                    </a>
+                </div>
+                <div class="col-md-2 col-sm-2 hidden-xs job-stats">
+                    <b>REF{{ item.id }}</b><br />
+                    <span *ngIf="item.print_count">
+                        <i class="icon-eyeglasses"></i> &nbsp; {{ item.print_count }} vues<br />
+                    </span>
+                    <span *ngIf="item.click_count">
+                        <i class="icon-cursor"></i> &nbsp; {{ item.click_count }} clics<br />
+                    </span>
+                    <a class="show-post"
+                       routerLink="/recherche/annonce/{{ item.id }}">
+                        Voir l'annonce<br />
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="col-md-12 header-container">
+    <div class="col-md-12 col-sm-12 col-xs-11 items-count">
+        {{ rejectedItems.length }} annonce<span *ngIf="rejectedItems.length > 1">s</span> rejetées
+    </div>
+</div>
+
+<div class="col-md-12 list-container">
+    <ul>
+        <li class="row" *ngFor="let item of rejectedItems">
+            <div class="col-md-12 col-sm-12 col-xs-12 item"
+                 [class.logo]="item.business.logo">
+                <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
+                    <img src="{{ item.business.logo }}"
+                         class="full-width"/>
+                </div>
+                <div [class.col-md-5]="item.business.logo"
+                     [class.col-md-7]="!item.business.logo"
+                     [class.col-sm-5]="item.business.logo"
+                     [class.col-sm-7]="!item.business.logo"
+                     class="col-xs-8">
+                    <h3>{{ item.job_naming.title.substr(0, 30) }}...</h3>
+                    <span class="alert-danger">Rejetée</span>
+                    <br />
+                    {{ item.contract_type.title }} - {{ item.week_work_hours }}h<br />
+                    {{ item.business.title }}<br />
+                    Publié le {{ item.created_at | date:"dd/MM/yyyy" }}<br />
+                    <!-- <span class="date">
+                        {{ item.start_date }} &nbsp;
+                        <span class="fa fa-arrow-right"></span> &nbsp;
+                        {{ item.end_date }}
+                    </span> -->
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-4 centered">
+                    <button (click)="acceptJobPost(item.id)"
+                            class="btn btn-success">
                         Valider
                     </button>
                     <button (click)="rejectJobPost(item.id)"
