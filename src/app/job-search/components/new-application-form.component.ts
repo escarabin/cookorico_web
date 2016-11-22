@@ -61,15 +61,24 @@ export class NewApplicationFormComponent {
         let __this = this;
         this.isLoading = true;
 
-        this.jobService.apply(__this.application, __this.user.id).subscribe((res: Response) => {
-            this.notificationService.show(
-                new Notification('success', 'Votre candidature a bien été enregistrée')
-            );
+        if (this.application.comment) {
+            this.jobService.apply(__this.application, __this.user.id).subscribe((res: Response) => {
+                this.notificationService.show(
+                    new Notification('success', 'Votre candidature a bien été enregistrée')
+                );
 
+                this.isLoading = false;
+
+                this.router.navigate(['/profil/candidatures']);
+            });
+        }
+        else {
             this.isLoading = false;
 
-            this.router.navigate(['/profil/candidatures']);
-        });
+            this.notificationService.show(
+                new Notification('error', 'Vous devez écrire un commentaire dans la zone dédiée pour postuler')
+            );
+        }
     }
 
     commentChanged(newComment) {

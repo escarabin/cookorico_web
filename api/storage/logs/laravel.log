@@ -743,3 +743,26 @@ Stack trace:
 #52 /Applications/MAMP/htdocs/oechr_ng_cli/api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(99): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #53 /Applications/MAMP/htdocs/oechr_ng_cli/api/public/index.php(57): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #54 {main}  
+[2016-11-22 14:41:01] local.INFO: array (
+  'redirectionUrl' => '/recherche/annonce/6',
+)  
+[2016-11-22 14:42:02] local.INFO: array (
+  'redirectionUrl' => '/recherche/annonce/6',
+)  
+[2016-11-22 14:42:11] local.INFO: array (
+  'application' => 
+  array (
+    'job_id' => 6,
+    'comment' => '<p>fdsq</p>
+<p>fqdsfqs</p>',
+  ),
+)  
+[2016-11-22 14:42:14] local.INFO: array (
+  'redirectionUrl' => '/profil/candidatures',
+)  
+[2016-11-22 14:42:15] local.INFO: array (
+  'redirectionUrl' => '/profil/candidatures',
+)  
+[2016-11-22 14:42:15] local.INFO: array (
+  'redirectionUrl' => '/profil/candidatures',
+)  
