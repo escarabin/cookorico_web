@@ -22,6 +22,12 @@
                 routerLink="/profil/mon_abonnement">
             Gérer ma formule
         </button>
+        <br />
+        <br />
+        <button class="btn btn-default full-width"
+                (click)="openChangePasswordModal()">
+            Modifier mot de passe
+        </button>
     </div>
 </div>
 
@@ -100,6 +106,12 @@
            routerLinkActive="active">
             <i class="icon-layers"></i> &nbsp; Établissements
         </a>
+        <a *ngIf="user.user_type_id == 1"
+           routerLink="/profil/recruteurs-admin"
+           [class.visible]="isMobileMenuVisible"
+           routerLinkActive="active">
+            <i class="icon-users"></i> &nbsp; Recruteurs
+        </a>
         <!--<a *ngIf="user.user_type_id == 2"
            routerLink="/profil/demandes_de_recommandation"
            [class.visible]="isMobileMenuVisible"
@@ -136,5 +148,56 @@
          (click)="isMobileMenuVisible = !isMobileMenuVisible">
         <i [class.icon-plus]="!isMobileMenuVisible"
            [class.icon-close]="isMobileMenuVisible"></i>
+    </div>
+</div>
+
+<div bsModal
+     #changePasswordModal="bs-modal"
+     class="modal fade in"
+     tabindex="-1"
+     role="dialog"
+     id="change-password-modal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body row">
+                <div class="col-md-12">
+                    <input type="password"
+                           [(ngModel)]="oldPassword"
+                           ngControl="oldPassword"
+                           class="form-control"
+                           placeholder="Ancien mot de passe">
+                </div>
+                <div class="col-md-12">
+                    <br />
+                    <input type="password"
+                           [(ngModel)]="newPassword"
+                           ngControl="newPassword"
+                           class="form-control"
+                           placeholder="Nouveau mot de passe">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-6">
+                    <button type="button"
+                            class="btn btn-default full-width"
+                            id="close-change-password-modal"
+                            (click)="hideChangePasswordModal()"
+                            data-dismiss="modal">
+                        Fermer
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <button type="button"
+                            class="btn btn-primary full-width"
+                            [disabled]="!oldPassword || !newPassword"
+                            id="close-change-password-modal"
+                            (click)="saveNewPassword()"
+                            data-dismiss="modal">
+                        Sauvegarder
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

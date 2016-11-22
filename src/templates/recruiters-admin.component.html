@@ -1,0 +1,62 @@
+<div class="col-md-12 header-container">
+    <div class="col-md-12 col-sm-12 col-xs-11 items-count" style="color: black">
+        {{ recruiterUsers.length }} recruteurs
+    </div>
+</div>
+
+<div class="col-md-10">
+    <hr />
+    <input class="form-control full-width"
+           type="text"
+           [(ngModel)]="searchEmail"
+           name="searchEmail"
+           ngControl="searchEmail"
+           placeholder="Rechercher par email"/>
+    <hr />
+</div>
+<div class="col-md-2">
+    <br />
+    <br />
+    <button class="btn btn-primary"
+            (click)="searchRecruiter()">
+        Rechercher
+    </button>
+</div>
+
+<div class="col-md-12 list-container">
+    <ul>
+        <li class="row" *ngFor="let recruiter of recruiterUsers">
+            <div class="col-md-12 col-sm-12 col-xs-12 item">
+                <div class="col-md-4">
+                    <span *ngIf="recruiter.firstName || recruiter.lastName">
+                          <span class="fa fa-user"></span> &nbsp; {{ recruiter.firstName }} {{ recruiter.lastName }}<br />
+                    </span>
+                    <span class="fa fa-envelope"></span> &nbsp; {{ recruiter.email }}<br />
+                </div>
+                <div class="col-md-5">
+                    <span *ngFor="let business of recruiter.businesses">
+                        <div class="col-md-8">
+                            <span class="fa fa-home"></span> {{ business.title }}<br />
+                            <span class="fa fa-location-arrow"></span> {{ business.place.city }}
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-default full-width small-btn"
+                                    routerLink="/profil/etablissement/editer/{{ business.id }}">
+                                Modifier
+                            </button>
+                        </div>
+                        <div class="col-md-12">
+                            <hr />
+                        </div>
+                    </span>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary full-width"
+                            (click)="loginUsingId(recruiter.id)">
+                        Accéder au compte
+                    </button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

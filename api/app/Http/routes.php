@@ -115,6 +115,10 @@ Route::get('/user/no-experience/{userId?}', 'UserController@saveNoExperience')
     ->name('saveNoExperience');
 Route::get('/user/login-using-email/{email}', 'UserController@loginUsingEmail')
     ->name('loginUsingEmail');
+Route::get('/user/recruiters/all', 'UserController@getAllRecruiters')
+    ->name('getAllRecruiters');
+Route::get('/user/recruiters/search/{email}', 'UserController@searchRecruiters')
+    ->name('searchRecruiters');
 
 // Posts
 Route::get('/post/{id}', 'PostController@get')

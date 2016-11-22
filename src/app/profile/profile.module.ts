@@ -30,6 +30,7 @@ import { CreateTestimonialComponent } from './components/create-testimonial.comp
 import { AdminJobPostsComponent } from './components/admin-job-posts.component';
 import { ClubsManagementComponent } from './components/clubs-management.component';
 import { BusinessContactsListComponent } from './components/business-contacts-list.component';
+import { RecruitersAdminComponent } from './components/recruiters-admin.component';
 
 // Services
 import { UserService } from './../services/user.service';
@@ -62,6 +63,7 @@ import { WebsiteEditorService } from './../services/website-editor.service';
                     CreateBusinessComponent,
                     CandidateDashboardComponent,
                     SignUpStepsComponent,
+                    RecruitersAdminComponent,
                     MatchingProfilesComponent,
                     TestimonialRequestsComponent,
                     CreateTestimonialComponent,

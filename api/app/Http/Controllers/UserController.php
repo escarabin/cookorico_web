@@ -799,6 +799,30 @@ class UserController extends Controller
     }
 
     /**
+     * GET a listing of all recruiters accounts
+     */
+    public function getAllRecruiters() {
+        $users = User::where('user_type_id', 2)->get()->load('businesses', 'businesses.place');
+
+        return $users;
+    }
+
+    /**
+     * GET a listing of all recruiters accounts
+     * @param $searchEmail
+     */
+    public function searchRecruiters($searchEmail) {
+        Log::info('search with email'.$searchEmail);
+
+        $users = User::where('user_type_id', 2)
+                    ->where('email', 'LIKE', '%'.$searchEmail.'%')
+                    ->get()
+                    ->load('businesses', 'businesses.place');
+
+        return $users;
+    }
+
+    /**
      * Get users that applied to logged user job offers
      * @param $userId
      */

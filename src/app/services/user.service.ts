@@ -67,6 +67,8 @@ export class UserService {
     saveJobSeekingDataUrl = apiUrl + '/user/save-job-seeking-data';
     isUserPartOfAGroupUrl = apiUrl + '/user/is-part-of-a-group';
     skipJobCreationUrl = apiUrl + '/user/skip-job-creation';
+    getAllRecruitersUrl = apiUrl + '/user/recruiters/all';
+    searchRecruitersUrl = apiUrl + '/user/recruiters/search';
     noExperienceUrl = apiUrl + '/user/no-experience';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
@@ -664,6 +666,20 @@ export class UserService {
      */
     changePassword(oldPassword: string, newPassword: string, userId?: number) {
         return this.http.get(this.changePasswordUrl + '/' + oldPassword + '/' + newPassword + '/' + userId);
+    }
+
+    /**
+     * GET listing of all recruiters accounts
+     */
+    getAllRecruiters() {
+        return this.http.get(this.getAllRecruitersUrl);
+    }
+
+    /**
+     * GET listing of all recruiters accounts
+     */
+    searchRecruiters(email: string) {
+        return this.http.get(this.searchRecruitersUrl + '/' + email);
     }
 
     /**

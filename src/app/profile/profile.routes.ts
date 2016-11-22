@@ -28,6 +28,7 @@ import { PricingPlansComponent } from '../shared/components/pricing-plans.compon
 import { CandidateDashboardComponent } from './components/candidate-dashboard.component';
 import { ClubsManagementComponent } from './components/clubs-management.component';
 import { BusinessContactsListComponent } from './components/business-contacts-list.component';
+import { RecruitersAdminComponent } from './components/recruiters-admin.component';
 
 const profileRoutes: Routes = [
     {
@@ -114,6 +115,9 @@ const profileRoutes: Routes = [
 
             // Website editor
             {path: 'website-editor', component: WebsiteEditorComponent},
+
+            // Admin
+            {path: 'recruteurs-admin', component: RecruitersAdminComponent},
 
             {
                 path: '',

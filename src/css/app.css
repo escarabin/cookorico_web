@@ -1141,6 +1141,12 @@ profile {
           cursor: pointer; }
           profile .list-container ul li .trash-container:hover {
             color: #333; }
+        profile .list-container ul li .small-btn {
+          height: 40px !important;
+          padding: 0 !important;
+          background: white !important;
+          border: 1px solid #CCC !important;
+          color: black !important; }
         profile .list-container ul li a {
           text-decoration: none; }
         profile .list-container ul li .matching-profiles {
