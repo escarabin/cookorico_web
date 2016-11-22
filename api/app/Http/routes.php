@@ -54,6 +54,8 @@ Route::get('/job-post/reject/{jobPostId}', 'JobController@reject')
     ->name('rejectJobPost');
 Route::get('/job-post/deactivate/{jobId}', 'JobController@deactivate')
     ->name('deactivateJobPost');
+Route::get('/job-post/activate/{jobId}', 'JobController@activate')
+    ->name('activateJobPost');
 Route::get('/job-post/pull-up/{jobId}', 'JobController@pulluP')
     ->name('pulluP');
 

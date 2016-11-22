@@ -423,4 +423,17 @@ class JobController extends Controller
 
         return $jobPost;
     }
+
+    /**
+     * Activate specific job post
+     * @param $jobPostId
+     * @return Job
+     */
+    public function activate($jobPostId) {
+        $jobPost = Job::find($jobPostId);
+        $jobPost->is_active = true;
+        $jobPost->save();
+
+        return $jobPost;
+    }
 }

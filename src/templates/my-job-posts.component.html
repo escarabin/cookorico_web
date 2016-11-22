@@ -27,6 +27,13 @@
             </label>
         </div>
         <div class="filter"
+             [class.active]="postStatus == 'is_inactive'"
+             (click)="postStatus = 'is_inactive'">
+            <label class="danger">
+                Inactives ({{ getJobPostsCount('is_inactive') }})
+            </label>
+        </div>
+        <div class="filter"
              [class.active]="postStatus == 'is_rejected'"
              (click)="postStatus = 'is_rejected'">
             <label class="danger">
@@ -53,6 +60,7 @@
                 *ngIf="(item[postStatus] && item['dayDiff'] < 30 && item['is_active'])
                        || (item['dayDiff'] > 30 && postStatus == 'is_expired')
                        || (postStatus == 'is_reviewing' && !item.is_accepted && !item.is_rejected && item['dayDiff'] < 30)
+                       || (postStatus == 'is_inactive' && item.is_accepted && !item.is_active && item['dayDiff'] < 30)
                        || postStatus == null">
                 <div class="col-md-12 col-sm-12 col-xs-12 item"
                      [class.logo]="item.business.logo">
@@ -118,6 +126,12 @@
                            *ngIf="item.is_accepted && item.is_active">
                             <button class="btn btn-danger full-width">
                                 Offre pourvue
+                            </button>
+                        </a>
+                        <a (click)="activateJobPost(item.id)"
+                           *ngIf="!item.is_active">
+                            <button class="btn btn-success full-width">
+                                Ré-activer l'offre
                             </button>
                         </a>
                     </div>

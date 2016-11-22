@@ -56,8 +56,6 @@ export class MyJobPostsComponent {
                 }
             }
 
-            console.log('items are', __this.items);
-
             /**
              * Defined how many job posts the user is now able to post
              */
@@ -130,14 +128,30 @@ export class MyJobPostsComponent {
     }
 
     deactivateJobPost(jobPostId: number) {
-        console.log('deactivating ' + jobPostId);
-
         this.jobPostService.deactivate(jobPostId).subscribe((post: Response) => {
-            this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
-                __this.notificationService.show(
-                    new Notification('success', 'Votre annonce a bien été désactivée')
-                );
-            });
+            for (let i = 0; i < this.items.length; i++) {
+                if (this.items[i]['id'] == jobPostId) {
+                    this.items[i]['is_active'] = false;
+                }
+            }
+
+            this.notificationService.show(
+                new Notification('success', 'Votre annonce a bien été désactivée')
+            );
+        });
+    }
+
+    activateJobPost(jobPostId: number) {
+        this.jobPostService.activate(jobPostId).subscribe((post: Response) => {
+            for (let i = 0; i < this.items.length; i++) {
+                if (this.items[i]['id'] == jobPostId) {
+                    this.items[i]['is_active'] = true;
+                }
+            }
+
+            this.notificationService.show(
+                new Notification('success', 'Votre annonce a bien été ré-activée')
+            );
         });
     }
 
@@ -170,6 +184,11 @@ export class MyJobPostsComponent {
             }
             else if (statusTitle == "is_expired") {
                 if (this.items[i]['dayDiff'] > 30) {
+                    count += 1;
+                }
+            }
+            else if (statusTitle == "is_inactive") {
+                if (this.items[i]['is_accepted'] && this.items[i]['dayDiff'] < 30 && !this.items[i]['is_active']) {
                     count += 1;
                 }
             }
