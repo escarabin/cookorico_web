@@ -838,10 +838,14 @@ class UserController extends Controller
     /**
      * Save user's new info
      * @param Request $request
+     * @param $userId
      * @return mixed
      */
-    public function saveInfo(Request $request) {
-        $user = Auth::user();
+    public function saveInfo(Request $request, $userId = null) {
+        if ($userId == "undefined") {
+            $userId = Auth::user()->id;
+        }
+        $user = User::find($userId);
         $key = $request::input('key');
         $value = $request::input('value');
         $user[$key] = $value;

@@ -541,9 +541,10 @@ export class UserService {
      * Save logged user edited profile info
      * @param key
      * @param value
+     * @param userId
      * @returns {Observable<Response>}
      */
-    updateInfo(key: string, value: string) {
+    updateInfo(key: string, value: string, userId?: number) {
         let requestBody = JSON.stringify({ key, value });
 
         let userJson = JSON.parse(localStorage.getItem('user'));
@@ -551,7 +552,7 @@ export class UserService {
 
         localStorage.setItem('user', JSON.stringify(userJson));
 
-        return this.http.post(this.saveUserInfoUrl, requestBody, this.postRequestOptions);
+        return this.http.post(this.saveUserInfoUrl + '/' + userId, requestBody, this.postRequestOptions);
     }
 
     /**

@@ -108,7 +108,7 @@ export class CandidateDashboardComponent {
 
     saveUserStatus() {
         this.isSavingStatus = true;
-        this.userService.updateInfo('user_status_id', this.user.user_status_id).subscribe((res: Response) => {
+        this.userService.updateInfo('user_status_id', this.user.user_status_id, this.user.id).subscribe((res: Response) => {
             this.isSavingStatus = false;
 
             this.notificationService.show(
@@ -124,7 +124,6 @@ export class CandidateDashboardComponent {
     saveSpokenLanguages() {
         this.isSavingLanguages = true;
         let langDataIsCorrect = true;
-        console.log(this.userLanguages);
 
         /**
          * Check if user has selected a level for each language
