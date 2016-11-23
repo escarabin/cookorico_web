@@ -7,13 +7,16 @@
     <div *ngFor="let plan of plans"
          class="col-md-12 centered">
         <div class="col-md-12">
-            <h3>Vous bénéficiez actuellement de {{ plan.pricing_plan.title }}</h3>
+            <h3>Vous bénéficiez actuellement du {{ plan.pricing_plan.title }}</h3>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12" *ngIf="plan.credits != -1">
             <h3>Il vous reste actuellement {{ plan.credits }} crédits</h3>
         </div>
+        <div class="col-md-12" *ngIf="plan.credits == -1">
+            Votre offre est valable jusqu'au {{ plan.expire_date | date:"dd/MM/yy" }}
+        </div>
         <div class="col-md-12">
-            <h3>{{ plan.pricing_plan.daily_contacts }} accès CVthèque disponibles</h3><br />
+            <h3>{{ plan.daily_remaining_contacts }} accès CVthèque disponibles</h3><br />
         </div>
         <div class="col-md-12">
             <!-- TODO: ré-activer la date de facturation -->
