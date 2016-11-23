@@ -395,7 +395,7 @@ class UserController extends Controller
     public function saveNoExperience($userId = null) {
         $user = null;
 
-        if ($userId == "undefined" || !$user) {
+        if ($userId == "undefined" || !$userId) {
             $user = Auth::user();
         }
         else {
