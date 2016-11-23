@@ -70,7 +70,7 @@ export class CreateJobPostComponent {
         this.userService.getPlans(this.user.id).subscribe((res: Response) => {
             let plans = res.json();
             for (let i = 0; i < plans.length; i++) {
-                if (plans[i]['credits'] > 0) {
+                if (plans[i]['credits'] > 0 || plans[i]['credits'] == -1) {
                     __this.userCanPostJob = true;
                 }
             }

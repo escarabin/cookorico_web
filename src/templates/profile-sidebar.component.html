@@ -5,9 +5,12 @@
     <div *ngFor="let plan of plans"
          class="col-md-12">
         <div class="plan"
-             *ngIf="plan.credits > 0 && user.user_type_id == 2">
-            <div class="col-md-12 plan-credits">
+             *ngIf="(plan.credits > 0 || plan.credits == -1) && user.user_type_id == 2">
+            <div class="col-md-12 plan-credits" *ngIf="plan.credits > 0">
                 {{ plan.credits }} crédits
+            </div>
+            <div class="col-md-12 plan-credits" *ngIf="plan.credits == -1">
+                Pack illimité
             </div>
             <div class="col-md-12 plan-infos">
                 {{ plan.daily_contacts }} contacts disponibles<br />

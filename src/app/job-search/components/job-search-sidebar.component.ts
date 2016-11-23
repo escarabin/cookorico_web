@@ -52,8 +52,6 @@ export class JobSearchSidebarComponent {
          */
         SearchService.parametersEmitter.subscribe(
             params => {
-                console.log('[job-search-sidebar] received some search params', params);
-
                 referenceService.getAllJobNamings().subscribe((jobNamingList: Response) => {
                     __this.jobNamings = jobNamingList.json();
 

@@ -245,8 +245,6 @@ class JobController extends Controller
         $newApplication->status_id = 2;
         $newApplication->comment = $applicationData['comment'];
 
-        Log::info($request::all());
-
         /**
          * Send confirmation email to candidate
          */
@@ -359,10 +357,30 @@ class JobController extends Controller
      */
     public function accept($jobPostId) {
         $jobPost = Job::find($jobPostId);
-
         $jobPost->is_accepted = true;
-
         $jobPost->save();
+
+        $user = $jobPost->user->load('civility');
+
+        /**
+         * Send confirmation email to recruiter
+         */
+        $templateName = 'job-post-online';
+
+        $mailTemplate = MailTemplate::where('slug', $templateName)->first();
+
+        Mail::send('emails.'.$templateName,
+            [
+                'user' => $user,
+                'job' => $jobPost
+            ],
+            function ($message) use ($user, $mailTemplate) {
+                $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                $message->to($user->email, 'Test')
+                    ->subject($mailTemplate->subject);
+            }
+        );
 
         return $jobPost;
     }

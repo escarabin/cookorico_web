@@ -76,7 +76,7 @@ export class MyJobPostsComponent {
                 if (plan.pull_up_job_credits < 0 || plan.pull_up_job_credits > 0) {
                     __this.userCanPullUpJobPost = true;
                 }
-                if (plan.credits > 0) {
+                if (plan.credits > 0 || plan.credits == -1) {
                     __this.userCanPostJob = true;
                 }
             }
