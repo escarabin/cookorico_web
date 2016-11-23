@@ -252,6 +252,10 @@ export class CreateBusinessComponent {
         myReader.onloadend = function (loadEvent:any) {
             image.src = loadEvent.target.result;
             __this.business.photos.splice(0, 0, {url: image.src});
+
+            if (__this.business.photos.length == 1) {
+                __this.business.logo = image.src;
+            }
             __this.isIntepretingFile = false;
         };
 
