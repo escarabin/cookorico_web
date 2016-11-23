@@ -744,8 +744,7 @@ class UserController extends Controller
 
         $user = User::find($userId);
 
-        $plans = $user->plans
-                        ->load('pricingPlan');
+        $plans = $user->plans->load('pricingPlan');
 
         /**
          * Browse user businesses to check if they have plans
@@ -753,7 +752,7 @@ class UserController extends Controller
         $businesses = $user->businesses;
 
         foreach ($businesses as $business) {
-            $businessPlans = $business->plans;
+            $businessPlans = $business->plans->load('pricingPlan');
 
             foreach ($businessPlans as $businessPlan) {
                 $plans[] = $businessPlan;

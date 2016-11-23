@@ -107,16 +107,20 @@ export class PricingPlansComponent {
                     /**
                      * Pack illimité
                      */
-                    let duration = newPlans[i]['pricing_plan']['duration'];
-                    let purchaseDate = new Date(newPlans[i]['created_at']);
-                    let expireDate = purchaseDate.addMonths(duration);
-                    newPlans[i]['expire_date'] = expireDate;
-                    __this.plans.push(newPlans[i]);
+
+                    console.log('plan is ', newPlans[i]);
+                    if (newPlans[i]['pricing_plan']) {
+                        let duration = newPlans[i]['pricing_plan']['duration'];
+                        let purchaseDate = new Date(newPlans[i]['created_at']);
+                        let expireDate = purchaseDate.addMonths(duration);
+                        newPlans[i]['expire_date'] = expireDate;
+                        __this.plans.push(newPlans[i]);
+                        i = 10000;
+                    }
                 }
             }
 
             __this.onlyServices = false;
-            console.log('plans are', __this.plans);
         });
     }
 

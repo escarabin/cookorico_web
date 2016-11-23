@@ -84,7 +84,6 @@
 
                         <button class="btn btn-primary"
                                 (click)="pullUpJobPost()"
-                                [disabled]="!userCanPullUpJobPost"
                                 *ngIf="item.is_active && item.is_accepted && postStatus == 'is_accepted'">
                             Remonter l'offre
                         </button>

@@ -31,7 +31,14 @@ export class ProfileSidebarComponent {
 
         if (this.user.user_type_id == 2) {
             this.userService.getPlans(this.user.id).subscribe((res: Response) => {
-                __this.plans = res.json();
+                let plans = [];
+
+                for (let i = 0; i < res.json().length; i++) {
+                    if (res.json()[i]['credits'] == -1) {
+                        __this.plans.push(res.json()[i]);
+                        i = 1000;
+                    }
+                }
             });
         }
     }
