@@ -245,12 +245,39 @@ class JobController extends Controller
         $newApplication->status_id = 2;
         $newApplication->comment = $applicationData['comment'];
 
+        $applicationJob = Job::find($newApplication->job_id)->load('business', 'business.users');
+
+        /**
+         * Send a mail to every recruiters of business
+         */
+        foreach ($applicationJob->business->users as $recruiterUser) {
+            $templateName = 'new-applicant';
+
+            $mailTemplate = MailTemplate::where('slug', $templateName)->first();
+
+            Mail::send('emails.'.$templateName,
+                [
+                    'user' => $recruiterUser,
+                    'job' => $applicationJob,
+                    'candidate' => $user
+                ],
+                function ($message) use ($recruiterUser, $mailTemplate) {
+                    $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                    $message->to($recruiterUser->email, 'Test')
+                        ->subject($mailTemplate->subject);
+                }
+            );
+        }
+
         /**
          * Send confirmation email to candidate
          */
         $templateName = 'job-applied';
 
         $mailTemplate = MailTemplate::where('slug', $templateName)->first();
+
+        Log::info('');
 
         Mail::send('emails.'.$templateName,
             [
