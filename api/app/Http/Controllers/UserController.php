@@ -1128,6 +1128,40 @@ class UserController extends Controller
     }
 
     /**
+     * Send user informations to reset his password by mail
+     */
+    public function sendResetPasswordMail($email) {
+        $user = User::where('email', $email)->first();
+
+        if (!$user) {
+            return 'false';
+        }
+        else {
+            if ($user->user_type_id == 3) {
+                $templateName = "reset-password-candidate";
+            }
+            else {
+                $templateName = "reset-password-recruiter";
+            }
+
+            $mailTemplate = MailTemplate::where('slug', $templateName)->first();
+
+            Mail::send('emails.'.$templateName,
+                [
+                    'content' => $mailTemplate->message,
+                    'user' => $user,
+                ],
+                function ($message) use ($user, $mailTemplate) {
+                    $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                    $message->to($user->email, 'Test')
+                        ->subject($mailTemplate->subject);
+                }
+            );
+        }
+    }
+
+    /**
      * Know if currently logged user is part of a group
      * @param $userId
      */
