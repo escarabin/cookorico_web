@@ -39,6 +39,10 @@ export class DefineNewPasswordComponent {
             this.notificationService.show(
                 new Notification('success', 'Votre mot de passe a bien été modifié')
             );
+
+            localStorage.setItem('user', JSON.stringify(res.json()));
+
+            this.router.navigate(['/profil']);
         });
     }
 }
