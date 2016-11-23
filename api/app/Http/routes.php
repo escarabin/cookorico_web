@@ -304,13 +304,9 @@ Route::post('/seo-route', 'WebsiteEditorController@getSeoRoute')
 Route::get('/sellsy/services/all', 'SellsyController@getServices')
     ->name('getAllSellsyServices');
 
-// Password reset link request routes
-Route::get('/password/email', 'Auth\PasswordController@getEmail');
-Route::post('/password/email', 'Auth\PasswordController@postEmail');
-
 // Password reset routes
 Route::get('/password/reset/{token}', 'Auth\PasswordController@getReset');
-Route::get('/password/reset/{email}', 'UserController@sendResetPasswordMail');
+Route::get('/password/email/{email}', 'UserController@sendResetPasswordMail');
 
 Route::get('/payline', 'UserController@doPaylinePayment');
 

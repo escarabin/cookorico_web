@@ -506,6 +506,12 @@ job {
       padding: 10px; }
       job .job-infos-list .job-info {
         height: auto; } }
+define-new-password {
+  padding-top: 100px;
+  display: block;
+  max-width: 1200px;
+  margin: auto; }
+
 create-business .logo {
   height: 90px;
   background-size: contain;

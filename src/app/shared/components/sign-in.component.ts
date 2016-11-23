@@ -110,8 +110,18 @@ export class SignInComponent {
     }
 
     resetPassword() {
-        this.userService.resetPassword().subscribe((res:Response) => {
-            console.log(res.json());
+        this.userService.resetPassword(this.email).subscribe((res:Response) => {
+            if (res['_body'] == 'false') {
+                this.notificationService.show(
+                    new Notification('error', 'Aucun utilisateur n\'a été trouvé avec cette adresse')
+                );
+            }
+            else {
+                this.notificationService.show(
+                    new Notification('success', 'Un email vient de vous être envoyé')
+                );
+            }
+
         });
     }
 }

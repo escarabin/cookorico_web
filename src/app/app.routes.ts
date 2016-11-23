@@ -8,8 +8,8 @@ import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.
 import { CguComponent } from './shared/components/cgu.component';
 import { CgvComponent } from './shared/components/cgv.component';
 import { AboutComponent } from './shared/components/about.component';
-
 import { BusinessPageComponent } from './shared/components/business-page.component';
+import { DefineNewPasswordComponent } from "./shared/components/define-new-password.component";
 
 const appRoutes: Routes = [
     // Child routing
@@ -45,6 +45,15 @@ const appRoutes: Routes = [
         data: {
             meta: {
                 title: 'Club'
+            }
+        }
+    },
+
+
+    { path: 'definir-nouveau-mot-de-passe/:userId', component: DefineNewPasswordComponent,
+        data: {
+            meta: {
+                title: 'Nouveau mot de passe'
             }
         }
     },

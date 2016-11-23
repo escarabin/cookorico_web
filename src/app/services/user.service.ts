@@ -173,9 +173,7 @@ export class UserService {
      * @returns {any}
      */
     resetPassword(email) {
-        let requestBody = JSON.stringify({ email: email });
-
-        return this.http.post(this.resetPasswordUrl, requestBody, this.postRequestOptions);
+        return this.http.get(this.resetPasswordUrl + '/' + email);
     }
 
     /**

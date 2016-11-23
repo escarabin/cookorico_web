@@ -31,6 +31,7 @@ import { CandidateSignUpComponent } from './shared/components/candidate-sign-up.
 import { CguComponent } from './shared/components/cgu.component';
 import { CgvComponent } from './shared/components/cgv.component';
 import { AboutComponent } from './shared/components/about.component';
+import { DefineNewPasswordComponent } from "./shared/components/define-new-password.component";
 
 // Global vars
 import { googleMapsApiKey } from 'globals';
@@ -61,6 +62,7 @@ const metaConfig: MetaConfig = {
                     BusinessPageComponent,
                     RecruiterPromoComponent,
                     CandidatePromoComponent,
+                    DefineNewPasswordComponent,
                     NotificationsComponent ],
     imports:      [ RouterModule,
                     HttpModule,
