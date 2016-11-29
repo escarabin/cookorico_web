@@ -66,4 +66,33 @@ export class JobComponent {
             this.router.navigate(['/profil/annonces']);
         });
     }
+
+    signIn() {
+        this.hideSignInOrUpModal();
+        document.getElementById('main-login-btn').click();
+    }
+
+    signUp() {
+        this.hideSignInOrUpModal();
+        this.router.navigate(['/inscription-candidat']);
+    }
+
+    /**
+     * ng2-bootstrap issue workaround (11/10/16) v1.1.6
+     * See https://github.com/valor-software/ng2-bootstrap/issues/986
+     */
+    public openSignInOrUpModal() {
+        this.showModalBackdrop();
+        document.getElementById("sign-in-or-up-modal").style.display = "block";
+    }
+    public hideSignInOrUpModal() {
+        this.hideModalBackdrop();
+        document.getElementById("sign-in-or-up-modal").style.display = "none";
+    }
+    public showModalBackdrop() {
+        document.getElementById("modal-backdrop-replacement").style.display = "block";
+    }
+    public hideModalBackdrop() {
+        document.getElementById("modal-backdrop-replacement").style.display = "none";
+    }
 }
