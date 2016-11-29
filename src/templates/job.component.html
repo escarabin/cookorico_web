@@ -74,12 +74,15 @@
             <span *ngIf="!job.is_hosting_employee"><label>Non</label></span>
         </div>
         <div class="col-md-6 job-info start_date">
-            <i class="ton-li-clock-1"></i> &nbsp;Début :
+            <i class="ton-li-clock-1"></i>
             <span *ngIf="job.is_urgent">
-                Dés que possible
+                <span class="fa fa-warning"></span> &nbsp; URGENT
+            </span>
+            <span *ngIf="job.is_asap">
+                Début dés que possible
             </span>
             <span *ngIf="job.start_date && job.start_date != '0000-00-00 00:00:00' && job.start_date != '-0001-11-30'">
-                <label>{{ job.start_date | date:"dd/MM/yy" }}</label>
+                <label>Début le {{ job.start_date | date:"dd/MM/yy" }}</label>
             </span>
         </div>
         <div class="col-md-6 job-info end_date" *ngIf="job.end_date && job.end_date != '-0001-11-30'">
