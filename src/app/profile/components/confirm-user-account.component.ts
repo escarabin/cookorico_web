@@ -15,6 +15,8 @@ export class ConfirmUserAccountComponent {
             router.navigate(['/profil']);
         }
         else {
+            this.user.is_active = true;
+            localStorage.setItem('user', JSON.stringify(this.user));
             location.reload();
         }
     }
