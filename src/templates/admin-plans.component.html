@@ -127,97 +127,62 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Établissement</th>
-            <th>Credits</th>
-            <th>Emplac.</th>
-            <th>Contacts</th>
-            <th>Illimité</th>
-            <th>Durée (mois)</th>
-            <th>Sauv.</th>
-            <th>Suppr.</th>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Ville</th>
+            <th>CP</th>
+            <th>Pack</th>
+            <th>Admin</th>
+            <th>Utilisateurs.</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let plan of plans">
             <th scope="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 item" *ngIf="plan.business">
-                    #{{ plan.business.id }}<br />
-                    <span class="fa fa-home"></span> &nbsp; {{ plan.business.title }}<br />
-                    <span class="fa fa-envelope"></span> &nbsp; {{ plan.business.email }}<br />
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12 item" *ngIf="plan.user">
-                    <span class="fa fa-user"></span> &nbsp; {{ plan.user.lastName }}<br />
-                    <span class="fa fa-envelope"></span> &nbsp; {{ plan.user.email }}
-                </div>
+                <span *ngIf="plan.business">#{{ plan.business.id }}</span><br />
             </th>
             <td>
-                <input type="number"
-                       class="form-control"
-                       [(ngModel)]="plan.credits"
-                       ngControl="plan.credits"
-                       name="planCredits"
-                       [disabled]="plan.is_unlimited"
-                       [class.disabled]="plan.is_unlimited"
-                       value="{{ plan.credits }}"
-                       placeholder="Crédits"/>
+                <span *ngIf="plan.business">
+                    <a routerLink="/profil/etablissement/editer/{{ plan.business.id }}">
+                        {{ plan.business.title }}
+                    </a>
+                </span><br />
             </td>
             <td>
-                <input type="number"
-                       [(ngModel)]="plan.spaces"
-                       ngControl="plan.spaces"
-                       name="planSpaces"
-                       class="form-control"
-                       value="{{ plan.spaces }}"
-                       placeholder="Emplacements"/>
+                <span *ngIf="plan.business">{{ plan.business.place.city }}</span><br />
             </td>
             <td>
-                <input type="number"
-                       [(ngModel)]="plan.daily_contacts"
-                       ngControl="plan.daily_contacts"
-                       name="listPlanDailyContacts"
-                       class="form-control"
-                       value="{{ plan.daily_contacts }}"
-                       placeholder="Contacts"/>
-            </td>
-            <td>
-                <input type="checkbox"
-                       [(ngModel)]="plan.is_unlimited"
-                       ngControl="plan.is_unlimited"
-                       name="listPlanIsUnlimited"
-                       [checked]="plan.is_unlimited"/>
-                <span *ngIf="plan.ends_at">
-                    <input type="text"
-                           style="width: 200px;"
-                           value="{{ plan.ends_at }}"
-                           class="form-control"
-                           placeholder="Date de fin"/>
-                </span>
-                <input type="date"
-                       *ngIf="!plan.ends_at"
-                       [(ngModel)]="plan.ends_at"
-                       ngControl="plan.ends_at"
-                       [disabled]="!plan.is_unlimited"
-                       value="{{ plan.ends_at }}"
-                       name="listPlanUnlimitedEndsAt"
-                       class="form-control"
-                       placeholder="Date de fin"/>
-            </td>
-            <td>
-                <input type="number"
-                       class="form-control"
-                       [disabled]="plan.credits != -1"
-                       [(ngModel)]="plan.duration"
-                       ngControl="plan.duration"
-                       name="listPlanDuration"
-                       [class.disabled]="plan.credits != -1"
-                       value="{{ plan.duration }}"
-                       placeholder="Durée (mois)"/>
+                <span *ngIf="plan.business">{{ plan.business.place.postalCode }}</span><br />
             </td>
             <td>
                 <button class="btn btn-default"
+                        (click)="openModalWithPlan(plan)">
+                    Pack
+                </button>
+            </td>
+            <td>
+                <span *ngIf="plan.business && plan.business.users">
+                    <span *ngIf="plan.business.users[0]">
+                        <a (click)="loginUsingId(plan.business.users[0].id)">
+                            {{ plan.business.users[0].firstName }} {{ plan.business.users[0].lastName }}
+                        </a>
+                    </span>
+                </span>
+            </td>
+            <td>
+                <ul *ngIf="plan.business">
+                    <li *ngFor="let businessUser of plan.business.users; let i = index">
+                        <span *ngIf="i > 0">
+                            <a (click)="loginUsingId(businessUser.id)">
+                                {{ businessUser.firstName }} {{ businessUser.lastName }}
+                            </a>
+                        </span>
+                    </li>
+                </ul>
+                <!--<button class="btn btn-default"
                         (click)="updatePlan(plan.id, plan.credits, plan.daily_contacts, plan.spaces, plan.pull_up_credits, plan.duration, plan.is_unlimited, plan.ends_at)">
                     <span class="fa fa-save"></span>
-                </button>
+                </button>-->
             </td>
             <td>
                 <button class="btn btn-danger"
@@ -230,16 +195,99 @@
     </table>
 </div>
 
-<div class="col-md-12 list-container">
-    <ul>
-        <li class="row" *ngFor="let plan of plans | paginate: { itemsPerPage: 20, currentPage: p }">
-            <div class="col-md-12 col-sm-12 col-xs-12 item" *ngIf="plan.business">
-                {{ plan.business.title }}
-            </div>
-        </li>
-    </ul>
 
-    <pagination-controls #pagination (pageChange)="p = $event" (click)="pageChanged()">
-        <!-- <custom-pagination [pagination]="pagination"></custom-pagination>-->
-    </pagination-controls>
+<div bsModal
+     #planSettingsModal="bs-modal"
+     id="plan-settings-modal"
+     class="modal fade in"
+     tabindex="-1"
+     role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body row" *ngIf="currentPlan">
+                <div class="col-md-2">
+                    <label>Crédits</label>
+                    <input type="number"
+                           class="form-control"
+                           [(ngModel)]="currentPlan.credits"
+                           ngControl="currentPlan.credits"
+                           name="planCredits"
+                           [disabled]="currentPlan.is_unlimited"
+                           [class.disabled]="currentPlan.is_unlimited"
+                           value="{{ currentPlan.credits }}"
+                           placeholder="Crédits"/>
+                </div>
+                <div class="col-md-2">
+                    <label>Contacts</label>
+                    <input type="number"
+                           [(ngModel)]="currentPlan.daily_contacts"
+                           ngControl="currentPlan.daily_contacts"
+                           name="listPlanDailyContacts"
+                           class="form-control"
+                           value="{{ currentPlan.daily_contacts }}"
+                           placeholder="Contacts"/>
+                </div>
+                <div class="col-md-2">
+                    <label>Emplacements</label>
+                    <input type="number"
+                           [(ngModel)]="currentPlan.spaces"
+                           ngControl="currentPlan.spaces"
+                           name="planSpaces"
+                           class="form-control"
+                           value="{{ currentPlan.spaces }}"
+                           placeholder="Emplacements"/>
+                </div>
+                <div class="col-md-2">
+                    <label>Remonter</label>
+                    <input type="number"
+                           [(ngModel)]="currentPlan.pull_up_credits"
+                           ngControl="currentPlan.pull_up_credits"
+                           name="planPullUpCredits"
+                           class="form-control"
+                           value="{{ currentPlan.pull_up_credits }}"
+                           placeholder="Crédits remonter"/>
+                </div>
+                <div class="col-md-4">
+                    <label>Illimité</label>
+                    <input type="checkbox"
+                           [(ngModel)]="currentPlan.is_unlimited"
+                           ngControl="plan.is_unlimited"
+                           name="listPlanIsUnlimited"
+                           [checked]="currentPlan.is_unlimited"/>
+                    <input type="date"
+                           [(ngModel)]="currentPlan.ends_at"
+                           ngControl="currentPlan.ends_at"
+                           [disabled]="!currentPlan.is_unlimited"
+                           value="{{ currentPlan.ends_at }}"
+                           name="listPlanUnlimitedEndsAt"
+                           class="form-control"
+                           placeholder="Date de fin"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default"
+                        (click)="hidePlanModal()">
+                    Fermer
+                </button>
+                <button class="btn btn-primary"
+                        (click)="updatePlan()">
+                    Sauvegarder
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TODO : this is a workaround, we have to change it in near future -->
+<div id="modal-backdrop-replacement"
+     style="background: rgba(0,0,0,0.7);
+             position: fixed;
+             display: none;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             z-index: 10;">
+
 </div>

@@ -13,7 +13,7 @@
                 <h1>{{ job.title }}</h1>
                 <div class="adress">
                     <a routerLink="/recherche/{{ job.business.place.googlePlaceId }}/0/0/0">
-                        <i class="fa fa-map-marker"></i> &nbsp; {{ job.business.place.adress }}
+                        <i class="fa fa-map-marker"></i> &nbsp; {{ job.business.place.postalCode }} - {{ job.business.place.city }}
                     </a>
                 </div>
             </div>
@@ -78,19 +78,19 @@
             <span *ngIf="job.is_urgent">
                 Dés que possible
             </span>
-            <span *ngIf="job.start_date">
+            <span *ngIf="job.start_date && job.start_date != '0000-00-00 00:00:00' && job.start_date != '-0001-11-30'">
                 <label>{{ job.start_date | date:"dd/MM/yy" }}</label>
             </span>
         </div>
         <div class="col-md-6 job-info end_date" *ngIf="job.end_date && job.end_date != '-0001-11-30'">
             <i class="ton-li-clock-2"></i> &nbsp;Fin : <label>{{ job.end_date | date:"dd/MM/yy" }}</label>
         </div>
-        <div class="col-md-6 job-info languages" *ngIf="job.languages">
+        <!--<div class="col-md-6 job-info languages" *ngIf="job.languages">
             <i class="ton-li-speech-buble-4"></i>
             <span *ngFor="let language of job.languages; let i = index">
                 <label>{{ language.title }}<span *ngIf="i < job.languages.length">,</span></label>
             </span>
-        </div>
+        </div>-->
         <div class="col-md-6 job-info education" *ngIf="job.study_level">
             <i class="ton-li-id"></i> &nbsp;<label>{{ job.study_level.title }}</label>
         </div>

@@ -101,8 +101,6 @@ export class PlanService {
         if (planIsUnlimited) {
             planCredits = -1;
         }
-        console.log('plan ends at ' + planEndsAt);
-
         let requestBody = JSON.stringify({ planCredits,
             planContacts,
             planSpaces,

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 // Services
 import { UserService } from '../../services/user.service';
@@ -19,6 +20,7 @@ export class AdminPlansComponent {
     searchEmail: string;
     searchId: string;
     searchName: string;
+    currentPlan: any;
 
     /**
      * New plan data
@@ -33,6 +35,7 @@ export class AdminPlansComponent {
 
     constructor(private userService: UserService,
                 private planService: PlanService,
+                private router: Router,
                 private notificationService: NotificationsService) {
         this.retrievePlans();
     }
@@ -82,32 +85,46 @@ export class AdminPlansComponent {
         });
     }
 
-    updatePlan(planId: number,
-               credits: number,
-               contacts: number,
-               spaces: number,
-               pullUpCredits: number,
-               duration: number,
-               isUnlimited: boolean,
-               endsAt: string) {
-        console.log('plan ends at ' + endsAt);
-
+    updatePlan() {
         let __this = this;
-        this.planService.update(planId,
-            credits,
-            contacts,
-            spaces,
-            pullUpCredits,
-            duration,
-            isUnlimited,
-            endsAt).subscribe((res: Response) => {
-            console.log('updated');
-
+        this.planService.update(this.currentPlan.id,
+            this.currentPlan.credits,
+            this.currentPlan.daily_contacts,
+            this.currentPlan.spaces,
+            this.currentPlan.pull_up_credits,
+            this.currentPlan.duration,
+            this.currentPlan.is_unlimited,
+            this.currentPlan.ends_at).subscribe((res: Response) => {
             __this.retrievePlans();
 
             __this.notificationService.show(
                 new Notification('success', 'Cet abonnement a bien été modifié')
             );
+
+            __this.hidePlanModal();
+        });
+    }
+
+    public openModalWithPlan(plan: any) {
+        this.currentPlan = plan;
+        this.showModalBackdrop();
+        document.getElementById("plan-settings-modal").style.display = "block";
+    }
+    public hidePlanModal() {
+        this.hideModalBackdrop();
+        document.getElementById("plan-settings-modal").style.display = "none";
+    }
+    public showModalBackdrop() {
+        document.getElementById("modal-backdrop-replacement").style.display = "block";
+    }
+    public hideModalBackdrop() {
+        document.getElementById("modal-backdrop-replacement").style.display = "none";
+    }
+
+    loginUsingId(userId: number) {
+        this.userService.loginUsingId(userId).subscribe((user: Response) => {
+            localStorage.setItem('user', JSON.stringify(user.json()));
+            this.router.navigate(['/accueil']);
         });
     }
 }

@@ -14,7 +14,7 @@ class PlanController extends Controller
      * @return mixed
      */
     public function getAll() {
-        $plans = Plan::all()->load('pricingPlan', 'user', 'business');
+        $plans = Plan::all()->load('pricingPlan', 'user', 'business', 'business.users', 'business.place');
 
         return $plans;
     }
