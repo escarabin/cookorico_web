@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { NotificationsService } from '../../services/notification.service';
 import { JobPostService } from '../../services/job-post.service';
+import { SellsyService } from '../../services/sellsy.service';
 
 // Models
 import { Notification } from '../../models/notification';
@@ -28,6 +29,7 @@ export class MyJobPostsComponent {
 
     constructor(private userService: UserService,
                 private jobPostService: JobPostService,
+                private sellsyService: SellsyService,
                 private router: Router,
                 private notificationService: NotificationsService) {
         let __this = this;
@@ -180,6 +182,10 @@ export class MyJobPostsComponent {
                 new Notification('error', 'Veuillez souscrire à un pack pour poster une annonce')
             );
         }
+    }
+
+    openContactBox() {
+        this.sellsyService.openContactBox();
     }
 
     getJobPostsCount(statusTitle: string) {

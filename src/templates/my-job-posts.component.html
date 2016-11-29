@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <h2>Vous avez {{ items.length }} annonce(s) au total</h2>
+    <h2>Vous avez {{ getJobPostsCount('is_accepted') }} annonce(s) en ligne</h2>
     <br />
 </div>
 
@@ -158,7 +158,8 @@
         <div class="about-us">
             <h3>Besoin d'emplacements supplémentaires ?</h3>
             <br />
-            <button class="btn btn-default">
+            <button class="btn btn-default"
+                    (click)="openContactBox()">
                 <span class="fa fa-envelope"></span> &nbsp; Contactez-nous
             </button>
             <button class="btn btn-default"
