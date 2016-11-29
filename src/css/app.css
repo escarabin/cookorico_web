@@ -512,6 +512,9 @@ define-new-password {
   max-width: 1200px;
   margin: auto; }
 
+admin-plans input[type=number] {
+  width: 100px; }
+
 create-business .logo {
   height: 90px;
   background-size: contain;

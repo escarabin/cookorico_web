@@ -47,6 +47,8 @@ export class JobSearchSidebarComponent {
                 private searchService: SearchService) {
         let __this = this;
 
+        Object.values = Object.values || (obj => Object.keys(obj).map(key => obj[key]));
+
         /**
          * Subscribe to new search parameters coming from other components
          */

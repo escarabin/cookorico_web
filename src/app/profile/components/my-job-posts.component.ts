@@ -56,30 +56,45 @@ export class MyJobPostsComponent {
                 }
             }
 
-            /**
-             * Defined how many job posts the user is now able to post
-             */
-            for (let i = 0; i < (5 - activeItems.length); i++) {
-                this.jobPlacementsLeftNum.push(1);
-            }
-        });
+            this.userService.getPlans(this.user.id).subscribe((res: Response) => {
+                let plans = res.json();
 
-        this.userService.getPlans(this.user.id).subscribe((res: Response) => {
-            let plans = res.json();
+                /**
+                 * Loop through plans to see if user is able to pull up job post
+                 */
+                let numberOfSpaces = 0;
+                for (let i = 0; i < plans.length; i++) {
+                    let plan = plans[i];
 
-            /**
-             * Loop through plans to see if user is able to pull up job post
-             */
-            for (let i = 0; i < plans.length; i++) {
-                let plan = plans[i];
-
-                if (plan.pull_up_job_credits < 0 || plan.pull_up_job_credits > 0) {
-                    __this.userCanPullUpJobPost = true;
+                    if (plan.spaces > numberOfSpaces) {
+                        numberOfSpaces = plan.spaces;
+                    }
+                    if (plan.pull_up_job_credits < 0 || plan.pull_up_job_credits > 0) {
+                        __this.userCanPullUpJobPost = true;
+                    }
+                    if (plan.credits > 0 || plan.credits == -1) {
+                        __this.userCanPostJob = true;
+                    }
                 }
-                if (plan.credits > 0 || plan.credits == -1) {
-                    __this.userCanPostJob = true;
+
+                /**
+                 * Defined how many job posts the user is now able to post
+                 */
+                for (let i = 0; i < (numberOfSpaces - activeItems.length); i++) {
+                    this.jobPlacementsLeftNum.push(1);
                 }
-            }
+
+                /**
+                 * TODO remove it
+                 */
+                if (this.jobPlacementsLeftNum == 0) {
+                    this.jobPlacementsLeftNum.push(1);
+                    this.jobPlacementsLeftNum.push(1);
+                    this.jobPlacementsLeftNum.push(1);
+                    this.jobPlacementsLeftNum.push(1);
+                    this.jobPlacementsLeftNum.push(1);
+                }
+            });
         });
     }
 

@@ -19,26 +19,55 @@
         </div>
         <div [class.col-md-10]="business.logo"
              [class.col-md-12]="!business.logo">
-            <label>Nom de votre établissement</label>
+            <label>
+                Nom de votre établissement
+                <a (click)="isManualCreation = true" *ngIf="business.title && business.title.length > 3 && !isAddressParsed && !isManualCreation" class="danger">
+                    (Vous ne trouvez pas votre établissement dans la liste ?)
+                    <span class="fa fa-external-link"></span>
+                </a>
+            </label>
             <input type="text"
-                   [class.disabled]="isAddressParsed"
+                   [class.disabled]="isAddressParsed && !isManualCreation"
                    class="form-control bold"
                    required
                    [disabled]="business.id"
                    [(ngModel)]="business.title"
+                   ngControl="business.title"
                    name="business_title"
+                   *ngIf="!isManualCreation && !business.id"
                    placeholder="exemple : hôtel de la plage, Paris"
                    (setAddress)="parseAdress($event)"
                    googleplace/>
+
+            <input type="text"
+                   class="form-control bold"
+                   required
+                   [(ngModel)]="business.title"
+                   ngControl="business.title"
+                   name="business_title"
+                   *ngIf="isManualCreation || business.id"
+                   placeholder="exemple : hôtel de la plage, Paris"/>
         </div>
-        <div *ngIf="business.id || isAddressParsed">
+        <div *ngIf="business.id || isAddressParsed || isManualCreation">
             <div class="col-md-6">
                 <label>Adresse</label>
+                <div class="alert alert-info" *ngIf="!isAddressParsed">
+                    Merci de choisir une adresse dans la liste proposée
+                </div>
                 <input type="text"
                        required
-                       [disabled]="lockLocationData"
+                       *ngIf="!isManualCreation"
                        class="form-control"
                        placeholder="Adresse"
+                       [(ngModel)]="business.place['adress']"
+                       name="business_adress"/>
+                <input type="text"
+                       required
+                       *ngIf="isManualCreation"
+                       googleplace
+                       class="form-control"
+                       placeholder="Adresse"
+                       (setAddress)="parseAdress($event, true)"
                        [(ngModel)]="business.place['adress']"
                        name="business_adress"/>
             </div>
@@ -46,7 +75,7 @@
                 <label>Code postal</label>
                 <input type="text"
                        required
-                       [disabled]="lockLocationData"
+                       [disabled]="!isAddressParsed"
                        class="form-control"
                        placeholder="Code postal"
                        [(ngModel)]="business.place['postalCode']"
@@ -56,7 +85,7 @@
                 <label>Ville</label>
                 <input type="text"
                        required
-                       [disabled]="lockLocationData"
+                       [disabled]="!isAddressParsed"
                        class="form-control"
                        placeholder="Ville"
                        [(ngModel)]="business.place['city']"
@@ -96,7 +125,7 @@
             </div>
             <div class="col-md-6">
                 <label>Email</label>
-                <div class="alert alert-danger">
+                <div class="alert alert-info">
                     Merci d'indiquer l'email de la personne qui recevra les CV des candidats
                 </div>
                 <input type="text"
@@ -172,14 +201,13 @@
         <div class="col-md-6"
              *ngIf="!user.is_active">
             <button class="btn btn-default submit-btn"
-                    [class.disabled]="!isAddressParsed"
                     (click)="resetForm()">
                 Réinitialiser
             </button>
         </div>
         <div class="col-md-6">
             <button class="btn btn-primary submit-btn"
-                    [class.disabled]="!isAddressParsed || !createBusinessForm.valid || isLoading"
+                    [class.disabled]="!createBusinessForm.valid || isLoading || !isAddressParsed"
                     (click)="submitBusiness()">
                 Sauvegarder &nbsp; <span class="fa fa-spinner fa-spin" *ngIf="isLoading"></span>
             </button>

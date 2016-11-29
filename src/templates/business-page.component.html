@@ -41,7 +41,7 @@
     </p>
     <br />
     <br />
-    <div class="col-md-4 col-md-offset-4" *ngIf="!user">
+    <div class="col-md-4 col-md-offset-4" *ngIf="!user || user.user_type_id == 3">
         <a routerLink="/inscription-candidat">
             <button class="btn btn-primary full-width">
                 Candidature spontanée

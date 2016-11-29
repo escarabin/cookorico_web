@@ -431,7 +431,19 @@ class JobController extends Controller
      * Daily generate an XML file with all offers for indeed, lbc etc...
      */
     public function generateXmlFile() {
-        $allJobs = $this->getAll();
+        $newFilePath = 'xml/jobs.xml';
+        $dirName = dirname($newFilePath);
+
+        /**
+         * If directory is not yet created, do it
+         */
+        if (!is_dir(dirname($newFilePath))) {
+            mkdir($dirName, 0755, true);
+        }
+
+        $ifp = fopen($newFilePath, "wb");
+
+        $allJobs = $this->getAll(false);
 
         $xmlFileContent = '<?xml version="1.0" encoding="UTF-8"?>
                                 <source>
@@ -466,6 +478,9 @@ class JobController extends Controller
 
         $xmlFileContent .= '    </source>
                             </xml>';
+
+        fwrite($ifp, $xmlFileContent);
+        fclose($ifp);
 
         return $xmlFileContent;
     }

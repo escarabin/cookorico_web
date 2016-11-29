@@ -10,7 +10,8 @@
                 {{ plan.credits }} crédits
             </div>
             <div class="col-md-12 plan-credits" *ngIf="plan.credits == -1">
-                Pack illimité
+                Pack illimité<br />
+                <span *ngIf="plan.ends_at">Valable jusq'au {{ plan.ends_at | date:"dd/MM/yyyy" }}</span>
             </div>
             <div class="col-md-12 plan-infos">
                 {{ plan.daily_contacts }} contacts disponibles<br />
@@ -121,6 +122,12 @@
            routerLinkActive="active">
             <i class="icon-like"></i> &nbsp; Recommandations
         </a>-->
+        <a *ngIf="user.user_type_id == 1"
+           routerLink="/profil/packs"
+           [class.visible]="isMobileMenuVisible"
+           routerLinkActive="active">
+            <i class="icon-tag"></i> &nbsp; Packs
+        </a>
         <a *ngIf="user.user_type_id == 1"
            routerLink="/profil/mail-templates"
            [class.visible]="isMobileMenuVisible"

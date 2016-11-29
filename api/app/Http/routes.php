@@ -269,6 +269,16 @@ Route::get('/user/plans/all/{userId?}', 'UserController@getPlans')
     ->name('getAllPlans');
 Route::post('/plan/payment/save', 'UserController@savePayment')
     ->name('savePayment');
+Route::get('/plans/all', 'PlanController@getAll')
+    ->name('getAllPlans');
+Route::get('/plans/search/{searchId?}/{searchName?}/{searchEmail?}', 'PlanController@search')
+    ->name('searchPlanByEmail');
+Route::post('/plan/create', 'PlanController@create')
+    ->name('createPlan');
+Route::post('/plan/update/{planId}', 'PlanController@update')
+    ->name('createPlan');
+Route::get('/plan/delete/{planId}', 'PlanController@delete')
+    ->name('deletePlan');
 
 // Applicants
 Route::get('/applicants/all/{userId?}', 'UserController@getApplicants')
@@ -309,6 +319,7 @@ Route::get('/password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::get('/password/email/{email}', 'UserController@sendResetPasswordMail');
 
 Route::get('/payline', 'UserController@doPaylinePayment');
+Route::get('/generate-xml', 'JobController@generateXmlFile');
 
 Route::get('/import-db', 'ImportController@importDB')
     ->name('importDB');

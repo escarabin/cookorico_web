@@ -29,6 +29,7 @@ export class CreateBusinessComponent {
     isIntepretingFile: boolean = false;
     lockLocationData: boolean = false;
     isAddressParsed: boolean = false;
+    isManualCreation: boolean = false;
     public adress: Object;
     public photoUploader:FileUploader = new FileUploader({url: URL});
     public hasBaseDropZoneOver:boolean = false;
@@ -96,7 +97,7 @@ export class CreateBusinessComponent {
         this.place = new Place();
     }
 
-    parseAdress(place:Object) {
+    parseAdress(place:Object, keepTitle: boolean) {
         this.isAddressParsed = true;
         this.lockLocationData = true;
 
@@ -113,7 +114,9 @@ export class CreateBusinessComponent {
         this.business.phone = place['formatted_phone_number'];
         this.business.website = place['website'];
         this.business.place.adress = place['formatted_address'];
-        this.business.title = place['name'];
+        if (!keepTitle) {
+            this.business.title = place['name'];
+        }
 
         /**
          * Loop through existing photos to remove

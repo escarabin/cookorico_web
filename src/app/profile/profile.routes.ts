@@ -30,6 +30,7 @@ import { ClubsManagementComponent } from './components/clubs-management.componen
 import { BusinessContactsListComponent } from './components/business-contacts-list.component';
 import { RecruitersAdminComponent } from './components/recruiters-admin.component';
 import { ConfirmUserAccountComponent } from "./components/confirm-user-account.component";
+import { AdminPlansComponent } from "./components/admin-plans.component";
 
 const profileRoutes: Routes = [
     {
@@ -120,6 +121,7 @@ const profileRoutes: Routes = [
 
             // Admin
             {path: 'recruteurs-admin', component: RecruitersAdminComponent},
+            {path: 'packs', component: AdminPlansComponent},
 
             {
                 path: '',

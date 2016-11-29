@@ -25,6 +25,15 @@ class Plan extends Model
     }
 
     /**
+     * Get the business that subscribed for this plan
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function business()
+    {
+        return $this->belongsTo(Business::class);
+    }
+
+    /**
      * Get current plan's pricing
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

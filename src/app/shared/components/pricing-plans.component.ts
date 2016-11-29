@@ -72,56 +72,58 @@ export class PricingPlansComponent {
         /**
          * Get the active plans subscribed to
          */
-        this.userService.getPlans(this.user.id).subscribe((res: Response) => {
-            let newPlans = res.json();
+        if (this.user) {
+            this.userService.getPlans(this.user.id).subscribe((res: Response) => {
+                let newPlans = res.json();
 
-            Date.isLeapYear = function (year) {
-                return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
-            };
+                Date.isLeapYear = function (year) {
+                    return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
+                };
 
-            Date.getDaysInMonth = function (year, month) {
-                return [31, (Date.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
-            };
+                Date.getDaysInMonth = function (year, month) {
+                    return [31, (Date.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+                };
 
-            Date.prototype.isLeapYear = function () {
-                return Date.isLeapYear(this.getFullYear());
-            };
+                Date.prototype.isLeapYear = function () {
+                    return Date.isLeapYear(this.getFullYear());
+                };
 
-            Date.prototype.getDaysInMonth = function () {
-                return Date.getDaysInMonth(this.getFullYear(), this.getMonth());
-            };
+                Date.prototype.getDaysInMonth = function () {
+                    return Date.getDaysInMonth(this.getFullYear(), this.getMonth());
+                };
 
-            Date.prototype.addMonths = function (value) {
-                var n = this.getDate();
-                this.setDate(1);
-                this.setMonth(this.getMonth() + value);
-                this.setDate(Math.min(n, this.getDaysInMonth()));
-                return this;
-            };
+                Date.prototype.addMonths = function (value) {
+                    var n = this.getDate();
+                    this.setDate(1);
+                    this.setMonth(this.getMonth() + value);
+                    this.setDate(Math.min(n, this.getDaysInMonth()));
+                    return this;
+                };
 
-            for (let i=0; i < newPlans.length; i++) {
-                if (newPlans[i]['credits'] > 0) {
-                    __this.plans.push(newPlans[i]);
-                }
-                else if (newPlans[i]['credits'] == -1) {
-                    /**
-                     * Pack illimité
-                     */
-
-                    console.log('plan is ', newPlans[i]);
-                    if (newPlans[i]['pricing_plan']) {
-                        let duration = newPlans[i]['pricing_plan']['duration'];
-                        let purchaseDate = new Date(newPlans[i]['created_at']);
-                        let expireDate = purchaseDate.addMonths(duration);
-                        newPlans[i]['expire_date'] = expireDate;
+                for (let i=0; i < newPlans.length; i++) {
+                    if (newPlans[i]['credits'] > 0) {
                         __this.plans.push(newPlans[i]);
-                        i = 10000;
+                    }
+                    else if (newPlans[i]['credits'] == -1) {
+                        /**
+                         * Pack illimité
+                         */
+
+                        console.log('plan is ', newPlans[i]);
+                        if (newPlans[i]['pricing_plan']) {
+                            let duration = newPlans[i]['pricing_plan']['duration'];
+                            let purchaseDate = new Date(newPlans[i]['created_at']);
+                            let expireDate = purchaseDate.addMonths(duration);
+                            newPlans[i]['expire_date'] = expireDate;
+                            __this.plans.push(newPlans[i]);
+                            i = 10000;
+                        }
                     }
                 }
-            }
 
-            __this.onlyServices = false;
-        });
+                __this.onlyServices = false;
+            });
+        }
     }
 
     openContactBox() {
