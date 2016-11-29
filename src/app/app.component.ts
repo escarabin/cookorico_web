@@ -1,6 +1,7 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import { MetaService } from 'ng2-meta';
 import { Router } from '@angular/router';
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 
 @Component({
     selector: 'app',
@@ -13,6 +14,7 @@ export class AppComponent {
 
     public constructor(viewContainerRef:ViewContainerRef,
                        private router: Router,
+                       angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
                        private metaService: MetaService) {
         // You need this small hack in order to catch application root view container ref
         this.viewContainerRef = viewContainerRef;

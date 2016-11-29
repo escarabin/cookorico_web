@@ -45,6 +45,15 @@ export class PlanService {
      * @returns {Observable<Response>}
      */
     search(searchId: string, searchName: string, searchEmail: string) {
+        if (searchId == '') {
+            searchId = 'undefined';
+        }
+        if (searchName == '') {
+            searchName = 'undefined';
+        }
+        if (searchEmail == '') {
+            searchEmail = 'undefined';
+        }
         return this.http.get(this.searchByEmailUrl + '/' + searchId + '/' + searchName + '/' + searchEmail);
     }
 

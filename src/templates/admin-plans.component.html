@@ -140,6 +140,7 @@
         <tr *ngFor="let plan of plans">
             <th scope="row">
                 <span *ngIf="plan.business">#{{ plan.business.id }}</span><br />
+                <span *ngIf="plan.user">{{ plan.user.id }}</span><br />
             </th>
             <td>
                 <span *ngIf="plan.business">
@@ -150,6 +151,7 @@
             </td>
             <td>
                 <span *ngIf="plan.business">{{ plan.business.place.city }}</span><br />
+                <span *ngIf="plan.user">{{ plan.user.firstName }} {{ plan.user.lastName }}</span><br />
             </td>
             <td>
                 <span *ngIf="plan.business">{{ plan.business.place.postalCode }}</span><br />

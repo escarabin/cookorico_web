@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AgmCoreModule } from 'angular2-google-maps/core/index';
 import { FormsModule } from '@angular/forms';
 import { ReCaptchaModule } from 'angular2-recaptcha';
+import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 
 // Services
 import { NotificationsService } from './services/notification.service';
@@ -70,6 +71,9 @@ const metaConfig: MetaConfig = {
                     FormsModule,
                     ReCaptchaModule,
                     BrowserModule,
+                    Angulartics2Module.forRoot([
+                        Angulartics2GoogleAnalytics
+                    ]),
                     AgmCoreModule.forRoot({
                         apiKey: googleMapsApiKey
                     }),

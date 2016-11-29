@@ -29,26 +29,29 @@ class PlanController extends Controller
     public function search($searchId = null, $searchName = null, $searchEmail = null) {
         $plans = array();
 
-        if ($searchId != "undefined") {
+        if ($searchId != "undefined" || $searchId == "null") {
             $business = Business::find($searchId);
 
-            $plans = $business->plans->load('business');
+            $plans = $business->plans->load('business')
+                ->load('pricingPlan', 'user', 'business.users', 'business.place');
         }
-        if ($searchName != "undefined") {
+        if ($searchName != "undefined" || $searchName == "null") {
             $businesses = Business::where('name', 'LIKE', '%'.$searchName.'%')->get()->load('plans');
 
             foreach ($businesses as $business) {
                 if ($business->plans) {
-                    $plans[] = $business->plans->load('business');
+                    $plans[] = $business->plans->load('business')
+                        ->load('pricingPlan', 'user', 'business.users', 'business.place');
                 }
             }
         }
-        if ($searchEmail != "undefined") {
+        if ($searchEmail != "undefined" || $searchEmail == "null") {
             $businesses = Business::where('email', 'LIKE', '%'.$searchEmail.'%')->get()->load('plans');
 
             foreach ($businesses as $business) {
                 if ($business->plans) {
-                    $plans[] = $business->plans->load('business');
+                    $plans[] = $business->plans->load('business')
+                        ->load('pricingPlan', 'user', 'business.users', 'business.place');
                 }
             }
         }
@@ -73,9 +76,11 @@ class PlanController extends Controller
         $plan->business_id = $business->id;
         $plan->spaces = $planData['planPullUpPost'];
         $plan->pull_up_credits = $planData['planPullUpPost'];
-        $plan->is_unlimited = $planData['planIsUnlimited'];
-        $plan->ends_at = $planData['planEndsAt'];
+        if (array_key_exists('planEndsAt', $planData)) {
+            $plan->ends_at = $planData['planEndsAt'];
+        }
         if ($planData['planIsUnlimited']) {
+            $plan->is_unlimited = $planData['planIsUnlimited'];
             $plan->duration = 12;
         }
 

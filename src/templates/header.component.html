@@ -17,7 +17,7 @@
 
             </sign-in>
 
-            <!-- User is connected -->
+            <!-- User is not connected -->
             <li *ngIf="!user"
                 class="recruiter_btn">
                 <a routerLink="/accueil-recruteur">
@@ -60,6 +60,19 @@
 <div class="mobile-menu"
      [class.shown]="isMobileMenuShown">
     <ul>
+        <!-- User is connected -->
+        <li *ngIf="!user">
+            <a routerLink="/accueil-recruteur">
+                Recruteur
+            </a>
+        </li>
+
+        <li *ngIf="!user">
+            <a routerLink="/accueil-candidat">
+                Candidat
+            </a>
+        </li>
+
         <li *ngIf="user && user.is_active" (click)="isMobileMenuShown = false">
             <!-- If user is an admin, create a link to website editor -->
             <a *ngIf="user.user_type_id == 1"
