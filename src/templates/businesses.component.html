@@ -81,6 +81,14 @@
     </pagination-controls>
 </div>
 
+<div class="col-md-12 add-item-container centered"
+     *ngIf="user.user_type_id == 4 || user.user_type_id == 5"
+     routerLink="/profil/etablissement/creer">
+    <button class="btn btn-primary full-width">
+        <span class="fa fa-plus"></span> &nbsp; Ajouter un nouvel établissement
+    </button>
+</div>
+
 <div class="col-md-12 centered">
     <br />
     <br />

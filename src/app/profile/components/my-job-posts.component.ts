@@ -173,7 +173,7 @@ export class MyJobPostsComponent {
     }
 
     createJobPost() {
-        if (this.userCanPostJob) {
+        if (this.userCanPostJob || this.user.user_type_id == 4 || this.user.user_type_id == 5) {
             this.router.navigate(['/profil/annonce/creer']);
         }
         else {

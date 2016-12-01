@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PricingPlan;
 use Illuminate\Support\Facades\Request;
 use App\Models\Plan;
 use App\Models\Business;
@@ -60,6 +61,15 @@ class PlanController extends Controller
     }
 
     /**
+     * GET a listing of all pricing plans
+     */
+    public function getAllPricingPlans() {
+        $pricingPlans = PricingPlan::all();
+
+        return $pricingPlans;
+    }
+
+    /**
      * Create new plan
      * @param Request $request
      * @return Plan
@@ -76,6 +86,7 @@ class PlanController extends Controller
         $plan->business_id = $business->id;
         $plan->spaces = $planData['planPullUpPost'];
         $plan->pull_up_credits = $planData['planPullUpPost'];
+        $plan->pricing_plan_id = $planData['planPricingId'];
         if (array_key_exists('planEndsAt', $planData)) {
             $plan->ends_at = $planData['planEndsAt'];
         }
@@ -106,6 +117,7 @@ class PlanController extends Controller
         $plan->pull_up_credits = $newPlanData['planPullUpPost'];
         $plan->is_unlimited = $newPlanData['planIsUnlimited'];
         $plan->ends_at = $newPlanData['planEndsAt'];
+        $plan->pricing_plan_id = $newPlanData['planPricingId'];
 
         $plan->save();
 

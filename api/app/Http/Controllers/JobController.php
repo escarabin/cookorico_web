@@ -456,7 +456,7 @@ class JobController extends Controller
                                     <title><![CDATA['.$job->title.']]></title>
                                     <date><![CDATA['.$job->created_at.']]></date>
                                     <referencenumber><![CDATA['.$job->id.']]></referencenumber>
-                                    <url><![CDATA[http://cookorico.com/#/recherche/annonce/'.$job->id.']]></url>
+                                    <url><![CDATA[http://cookorico.com/recherche/annonce/'.$job->id.']]></url>
                                     <company><![CDATA['.$job->business->title.']]></company>
                                     <city><![CDATA['.$job->business->place->city.']]></city>
                                     <postalcode><![CDATA['.$job->business->place->postalCode.']]></postalcode>

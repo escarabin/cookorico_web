@@ -21,6 +21,7 @@ export class AdminPlansComponent {
     searchId: string;
     searchName: string;
     currentPlan: any;
+    pricingPlans: any;
 
     /**
      * New plan data
@@ -32,12 +33,17 @@ export class AdminPlansComponent {
     planSpaces: number = 0;
     planPullUpPost: number = 0;
     planIsUnlimited: boolean = 0;
+    planPricingId: number = 0;
 
     constructor(private userService: UserService,
                 private planService: PlanService,
                 private router: Router,
                 private notificationService: NotificationsService) {
         this.retrievePlans();
+
+        this.planService.getAllPricingPlans().subscribe((res: Response) => {
+            this.pricingPlans = res.json();
+        });
     }
 
     search() {
@@ -66,7 +72,8 @@ export class AdminPlansComponent {
                                 this.planSpaces,
                                 this.planPullUpPost,
                                 this.planIsUnlimited,
-                                this.planEndsAt).subscribe((res: Response) => {
+                                this.planEndsAt,
+                                this.planPricingId).subscribe((res: Response) => {
             this.retrievePlans();
 
             this.notificationService.show(
@@ -94,7 +101,8 @@ export class AdminPlansComponent {
             this.currentPlan.pull_up_credits,
             this.currentPlan.duration,
             this.currentPlan.is_unlimited,
-            this.currentPlan.ends_at).subscribe((res: Response) => {
+            this.currentPlan.ends_at,
+            this.currentPlan.pricing_plan_id).subscribe((res: Response) => {
             __this.retrievePlans();
 
             __this.notificationService.show(

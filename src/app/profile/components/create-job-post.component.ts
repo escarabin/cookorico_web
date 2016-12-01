@@ -60,7 +60,7 @@ export class CreateJobPostComponent {
          * If user is on the web site for the first time,
          * he can post a free job offer
          */
-        if (!this.user.is_active) {
+        if (!this.user.is_active || this.user.user_type_id == 4 || this.user.user_type_id == 5) {
             __this.userCanPostJob = true;
         }
 

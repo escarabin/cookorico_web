@@ -57,7 +57,19 @@
                [(ngModel)]="planIsUnlimited"
                ngControl="planIsUnlimited"/>
     </div>
-    <div class="col-md-4 col-md-offset-4">
+    <div class="col-md-4">
+        <select class="form-control"
+                [(ngModel)]="planPricingId"
+                ngControl="planPricingId"
+                name="planPricingId">
+            <option>-- Choisissez un pack --</option>
+            <option *ngFor="let pricingPlan of pricingPlans"
+                    value="{{ pricingPlan.id }}">
+                {{ pricingPlan.title }}
+            </option>
+        </select>
+    </div>
+    <div class="col-md-4">
         <label>Date de fin</label>
         <input type="date"
                [(ngModel)]="planEndsAt"
@@ -265,6 +277,19 @@
                            name="listPlanUnlimitedEndsAt"
                            class="form-control"
                            placeholder="Date de fin"/>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <br />
+                    <label>PACK</label>
+                    <select class="form-control"
+                            [(ngModel)]="currentPlan.pricing_plan_id"
+                            ngControl="currentPlan.pricing_plan_id"
+                            name="currentPricingPlanId">
+                        <option *ngFor="let pricingPlan of pricingPlans"
+                                value="{{ pricingPlan.id }}">
+                            {{ pricingPlan.title }}
+                        </option>
+                    </select>
                 </div>
             </div>
             <div class="modal-footer">

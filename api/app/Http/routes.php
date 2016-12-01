@@ -279,6 +279,8 @@ Route::post('/plan/update/{planId}', 'PlanController@update')
     ->name('createPlan');
 Route::get('/plan/delete/{planId}', 'PlanController@delete')
     ->name('deletePlan');
+Route::get('/pricing-plans/all', 'PlanController@getAllPricingPlans')
+    ->name('getAllPricingPlans');
 
 // Applicants
 Route::get('/applicants/all/{userId?}', 'UserController@getApplicants')

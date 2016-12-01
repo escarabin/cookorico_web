@@ -114,7 +114,7 @@ export class ProfilePreviewComponent {
                     /**
                      * If user is not a candidate, get him out of this place
                      */
-                    if (this.user.user_type_id == 2) {
+                    if (this.user.user_type_id == 2 || this.user.user_type_id == 4 || this.user.user_type_id == 5) {
                         this.router.navigate(['/profil/annonces']);
                     }
                     else if (this.user.user_type_id == 1) {

@@ -43,6 +43,16 @@
                    routerLink="/profil/annonces">
                     Espace recruteur
                 </a>
+                <!-- If user is a club, create a link to his job posts -->
+                <a *ngIf="user.user_type_id == 4"
+                   routerLink="/profil/annonces">
+                    Espace club
+                </a>
+                <!-- If user is a group, create a link to his job posts -->
+                <a *ngIf="user.user_type_id == 5"
+                   routerLink="/profil/annonces">
+                    Espace groupe
+                </a>
                 <!-- If user is a candidate, create a link to his profile preview -->
                 <a *ngIf="user.user_type_id == 3"
                    routerLink="/profil/apercu">

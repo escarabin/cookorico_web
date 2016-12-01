@@ -6,6 +6,7 @@ import { apiUrl } from '../globals';
 export class PlanService {
     savePaymentUrl = apiUrl + '/plan/payment/save';
     getAllPlansUrl = apiUrl + '/plans/all';
+    getAllPricingPlansUrl = apiUrl + '/pricing-plans/all';
     createPlanUrl = apiUrl + '/plan/create';
     searchByEmailUrl = apiUrl + '/plans/search';
     deletePlanUrl = apiUrl + '/plan/delete';
@@ -34,6 +35,14 @@ export class PlanService {
      */
     getAll() {
         return this.http.get(this.getAllPlansUrl);
+    }
+
+    /**
+     * GET a listing of all possible pricing plans
+     * @returns {Observable<Response>}
+     */
+    getAllPricingPlans() {
+        return this.http.get(this.getAllPricingPlansUrl);
     }
 
 
@@ -66,6 +75,7 @@ export class PlanService {
      * @param planPullUpPost
      * @param planIsUnlimited
      * @param planEndsAt
+     * @param planPricingId
      * @returns {Observable<Response>}
      */
     create(planEmail: string,
@@ -74,14 +84,16 @@ export class PlanService {
            planSpaces: number,
            planPullUpPost: number,
            planIsUnlimited: boolean,
-           planEndsAt: boolean) {
+           planEndsAt: boolean,
+           planPricingId: number) {
         let requestBody = JSON.stringify({  planEmail,
                                             planCredits,
                                             planContacts,
                                             planSpaces,
                                             planPullUpPost,
                                             planIsUnlimited,
-                                            planEndsAt });
+                                            planEndsAt,
+                                            planPricingId });
         return this.http.post(this.createPlanUrl, requestBody, this.postRequestOptions);
     }
 
@@ -96,6 +108,7 @@ export class PlanService {
      * @param planDuration
      * @param planIsUnlimited
      * @param planEndsAt
+     * @param planPricingId
      * @returns {Observable<Response>}
      */
     update(planId: number,
@@ -105,7 +118,8 @@ export class PlanService {
            planPullUpPost: number,
            planDuration: number,
            planIsUnlimited: boolean,
-           planEndsAt: string) {
+           planEndsAt: string,
+           planPricingId: number) {
 
         if (planIsUnlimited) {
             planCredits = -1;
@@ -116,7 +130,8 @@ export class PlanService {
             planPullUpPost,
             planDuration,
             planIsUnlimited,
-            planEndsAt });
+            planEndsAt,
+            planPricingId });
         return this.http.post(this.updatePlanUrl + '/' + planId, requestBody, this.postRequestOptions);
     }
 

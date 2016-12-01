@@ -128,7 +128,7 @@ export class JobSearchResultsComponent {
                 let infoContentString = '<strong>' + __this.jobs[i]["title"] + '</strong><br /> ' +
                     '<p>' + __this.jobs[i]["business"]["title"] + '</p> ' +
                     '<p>' + __this.jobs[i]["business"]["place"]["city"] + '</p> ' +
-                    '<a href="/#/recherche/annonce/' + __this.jobs[i]['id'] + '"><button class="btn btn-primary full-width">' +
+                    '<a href="/recherche/annonce/' + __this.jobs[i]['id'] + '"><button class="btn btn-primary full-width">' +
                     'Voir l\'offre ' +
                     '</button></a>';
 

@@ -1,11 +1,11 @@
 <!-- User is connected -->
 <div class="user-infos row hidden-xs"
      [class.hidden]="isUserPartOfAGroup"
-     *ngIf="user.user_type_id == 2">
+     *ngIf="user.user_type_id == 2 || user.user_type_id == 4 || user.user_type_id == 5">
     <div *ngFor="let plan of plans"
          class="col-md-12">
         <div class="plan"
-             *ngIf="(plan.credits > 0 || plan.credits == -1) && user.user_type_id == 2">
+             *ngIf="(plan.credits > 0 || plan.credits == -1) && user.user_type_id == 2 || user.user_type_id == 4 || user.user_type_id == 5">
             <div class="col-md-12 plan-credits" *ngIf="plan.credits > 0">
                 {{ plan.credits }} crédits
             </div>
@@ -80,7 +80,7 @@
            routerLinkActive="active">
             <i class="icon-like"></i> &nbsp; Recommandations
         </a>-->
-        <a *ngIf="user.user_type_id == 2"
+        <a *ngIf="user.user_type_id == 2 || user.user_type_id == 4 || user.user_type_id == 5"
            routerLink="/profil/annonces"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
@@ -92,19 +92,19 @@
            routerLinkActive="active">
             <i class="icon-list"></i> &nbsp; Annonces
         </a>
-        <a *ngIf="user.user_type_id == 2"
+        <a *ngIf="user.user_type_id == 2 || user.user_type_id == 4 || user.user_type_id == 5"
            routerLink="/profil/postulants"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
             <i class="icon-user-following"></i> &nbsp; Postulants
         </a>
-        <a *ngIf="user.user_type_id == 2"
+        <a *ngIf="user.user_type_id == 2 || user.user_type_id == 4 || user.user_type_id == 5"
            routerLink="/profil/profils-correspondants"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
             <i class="icon-user"></i> &nbsp; Profils correspondants
         </a>
-        <a *ngIf="user.user_type_id == 1 || user.user_type_id == 2"
+        <a *ngIf="user.user_type_id == 1 || user.user_type_id == 2 || user.user_type_id == 4 || user.user_type_id == 5"
            routerLink="/profil/etablissements"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
@@ -116,7 +116,7 @@
            routerLinkActive="active">
             <i class="icon-users"></i> &nbsp; Recruteurs
         </a>
-        <!--<a *ngIf="user.user_type_id == 2"
+        <!--<a *ngIf="user.user_type_id == 2 || user.user_type_id == 4 || user.user_type_id == 5"
            routerLink="/profil/demandes_de_recommandation"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">

@@ -1205,7 +1205,7 @@ class UserController extends Controller
         $pricingPlan = PricingPlan::find(11);
 
         $plan = new Plan();
-        $plan->user_id = $user->id;
+        $plan->business_id = $user->businesses[0]->id;
         $plan->credits = $pricingPlan->credits;
         $plan->pricing_plan_id = $pricingPlan->id;
         $plan->daily_contacts = $pricingPlan->daily_contacts;
