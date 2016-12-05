@@ -1,11 +1,16 @@
-import { Component, ViewContainerRef } from '@angular/core';
+import { Component, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { MetaService } from 'ng2-meta';
 import { Router } from '@angular/router';
 import { Angulartics2GoogleAnalytics } from 'angulartics2';
 
 @Component({
     selector: 'app',
-    templateUrl: '../templates/app.component.html'
+    templateUrl: '../templates/app.component.html',
+    styleUrls: ['../assets/sass/app.scss',
+                '../css/font-awesome.min.css',
+                '../css/simple-line-icons.css',
+                '../css/tonicons.css'],
+    encapsulation: ViewEncapsulation.None
 })
 
 export class AppComponent {

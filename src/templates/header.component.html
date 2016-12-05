@@ -9,7 +9,7 @@
          (click)="isMobileMenuShown=!isMobileMenuShown">
         <i class="icon-user"></i>
     </div>
-    <div class="col-md-9 col-sm-9 hidden-xs">
+    <div class="col-md-9 col-sm-9">
         <ul>
             <sign-in (userSignedIn)="handleUserSignedIn($event)"
                      (userSignedOut)="handleUserSignedOut($event)"
@@ -17,48 +17,50 @@
 
             </sign-in>
 
-            <!-- User is not connected -->
-            <li *ngIf="!user"
-                class="recruiter_btn">
-                <a routerLink="/accueil-recruteur">
-                    Recruteur
-                </a>
-            </li>
+            <span class="hidden-xs">
+                <!-- User is not connected -->
+                <li *ngIf="!user"
+                    class="recruiter_btn">
+                    <a routerLink="/accueil-recruteur">
+                        Recruteur
+                    </a>
+                </li>
 
 
-            <li *ngIf="!user">
-                <a routerLink="/accueil-candidat">
-                    Candidat
-                </a>
-            </li>
+                <li *ngIf="!user">
+                    <a routerLink="/accueil-candidat">
+                        Candidat
+                    </a>
+                </li>
 
-            <li *ngIf="user && user.is_active">
-                <!-- If user is an admin, create a link to website editor -->
-                <a *ngIf="user.user_type_id == 1"
-                   routerLink="/profil/recruteurs-admin">
-                    Administration
-                </a>
-                <!-- If user is a recruiter, create a link to his job posts -->
-                <a *ngIf="user.user_type_id == 2"
-                   routerLink="/profil/annonces">
-                    Espace recruteur
-                </a>
-                <!-- If user is a club, create a link to his job posts -->
-                <a *ngIf="user.user_type_id == 4"
-                   routerLink="/profil/annonces">
-                    Espace club
-                </a>
-                <!-- If user is a group, create a link to his job posts -->
-                <a *ngIf="user.user_type_id == 5"
-                   routerLink="/profil/annonces">
-                    Espace groupe
-                </a>
-                <!-- If user is a candidate, create a link to his profile preview -->
-                <a *ngIf="user.user_type_id == 3"
-                   routerLink="/profil/apercu">
-                    Mon compte
-                </a>
-            </li>
+                <li *ngIf="user && user.is_active">
+                    <!-- If user is an admin, create a link to website editor -->
+                    <a *ngIf="user.user_type_id == 1"
+                       routerLink="/profil/recruteurs-admin">
+                        Administration
+                    </a>
+                    <!-- If user is a recruiter, create a link to his job posts -->
+                    <a *ngIf="user.user_type_id == 2"
+                       routerLink="/profil/annonces">
+                        Espace recruteur
+                    </a>
+                    <!-- If user is a club, create a link to his job posts -->
+                    <a *ngIf="user.user_type_id == 4"
+                       routerLink="/profil/annonces">
+                        Espace club
+                    </a>
+                    <!-- If user is a group, create a link to his job posts -->
+                    <a *ngIf="user.user_type_id == 5"
+                       routerLink="/profil/annonces">
+                        Espace groupe
+                    </a>
+                    <!-- If user is a candidate, create a link to his profile preview -->
+                    <a *ngIf="user.user_type_id == 3"
+                       routerLink="/profil/apercu">
+                        Mon compte
+                    </a>
+                </li>
+            </span>
         </ul>
     </div>
 </div>
@@ -68,21 +70,9 @@
      [class.hidden]="!isMobileMenuShown"></div>
 
 <div class="mobile-menu"
+     (click)="isMobileMenuShown = false"
      [class.shown]="isMobileMenuShown">
     <ul>
-        <!-- User is connected -->
-        <li *ngIf="!user">
-            <a routerLink="/accueil-recruteur">
-                Recruteur
-            </a>
-        </li>
-
-        <li *ngIf="!user">
-            <a routerLink="/accueil-candidat">
-                Candidat
-            </a>
-        </li>
-
         <li *ngIf="user && user.is_active" (click)="isMobileMenuShown = false">
             <!-- If user is an admin, create a link to website editor -->
             <a *ngIf="user.user_type_id == 1"

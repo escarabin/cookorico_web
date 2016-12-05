@@ -18,7 +18,7 @@ import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 export class ClubsManagementComponent {
     clubs: any = [];
-    club: any = {};
+    club: any = {'plans': [{}]};
     @ViewChild('cropper', undefined) cropper: ImageCropperComponent;
     cropper:ImageCropperComponent;
     public profilePictureUploader:FileUploader = new FileUploader({url: URL});
@@ -139,6 +139,9 @@ export class ClubsManagementComponent {
         });
     }
 
+    editClub(clubToEdit: any) {
+        this.club = clubToEdit;
+    }
 
     refreshData() {
         /**

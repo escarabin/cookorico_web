@@ -557,6 +557,16 @@ class UserController extends Controller
 
         $user->save();
 
+        /**
+         * If user does not have plans, create some
+         */
+        if ($user->plans && $user->user_type_id == 2) {
+            $plan = new Plan();
+            $plan->business_id = $user->businesses[0]->id;
+            $plan->credits = 0;
+            $plan->save();
+        }
+
         return $user;
     }
 

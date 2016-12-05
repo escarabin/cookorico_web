@@ -448,7 +448,7 @@ class JobController extends Controller
         $xmlFileContent = '<?xml version="1.0" encoding="UTF-8"?>
                                 <source>
                                     <publisher>cookorico.com</publisher>
-                                    <publisherurl>http://cookorico.com/</publisherurl>
+                                    <publisherurl>https://cookorico.com/</publisherurl>
                                     <lastBuildDate>'.date("D M j G:i:s T Y").'</lastBuildDate>';
 
         foreach ($allJobs as $job) {
@@ -456,7 +456,7 @@ class JobController extends Controller
                                     <title><![CDATA['.$job->title.']]></title>
                                     <date><![CDATA['.$job->created_at.']]></date>
                                     <referencenumber><![CDATA['.$job->id.']]></referencenumber>
-                                    <url><![CDATA[http://cookorico.com/recherche/annonce/'.$job->id.']]></url>
+                                    <url><![CDATA[https://cookorico.com/recherche/annonce/'.$job->id.']]></url>
                                     <company><![CDATA['.$job->business->title.']]></company>
                                     <city><![CDATA['.$job->business->place->city.']]></city>
                                     <postalcode><![CDATA['.$job->business->place->postalCode.']]></postalcode>
@@ -465,19 +465,21 @@ class JobController extends Controller
                                     <category><![CDATA['.$job->jobNaming->title.']]></category>';
 
             if ($job->studyLevel) {
-                $xmlFileContent .= "<education><![CDATA['.$job->studyLevel->title.']]></education>";
+                $title = $job->studyLevel->title;
+                $xmlFileContent .= '<education><![CDATA['.$title.']]></education>';
             }
             if ($job->jobXpLevel) {
-                $xmlFileContent .= "<experience><![CDATA['.$job->jobXpLevel->title.']]></experience>";
+                $title = $job->jobXpLevel->title;
+                $xmlFileContent .= '<experience><![CDATA['.$title.']]></experience>';
             }
             if ($job->contractType) {
-                $xmlFileContent .= "<jobtype><![CDATA['.$job->contractType->title.']]></jobtype>";
+                $title = $job->contractType->title;
+                $xmlFileContent .= '<jobtype><![CDATA['.$title.']]></jobtype>';
             }
             $xmlFileContent .= '</job>';
         }
 
-        $xmlFileContent .= '    </source>
-                            </xml>';
+        $xmlFileContent .= '    </source>';
 
         fwrite($ifp, $xmlFileContent);
         fclose($ifp);

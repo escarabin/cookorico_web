@@ -52,7 +52,10 @@ class ClubController extends Controller
      * @return mixed
      */
     public function getAllGroups() {
-        $groups = User::where('user_type_id', 5)->orderBy('username', 'ASC')->get()->load('businesses');
+        $groups = User::where('user_type_id', 5)
+                    ->orderBy('username', 'ASC')
+                    ->get()
+                    ->load('businesses', 'plans');
 
         foreach ($groups as $group) {
             $i = 0;
@@ -98,7 +101,12 @@ class ClubController extends Controller
     public function create(Request $request) {
         $clubData = $request::get('club');
 
-        $club = new User();
+        if (array_key_exists('id', $clubData)) {
+            $club = new User();
+        }
+        else {
+            $club = Club::find($clubData['id']);
+        }
         $club->user_type_id = 4;
         $club->is_active = 1;
         $club->is_verified = 1;
@@ -122,8 +130,15 @@ class ClubController extends Controller
             /**
              * Create a group plan with required spaces
              */
-            $plan = new Plan();
-            $plan->spaces = $request::get('groupSpacesAmount');
+            if (array_key_exists('id', $clubData)) {
+                $plan = new Plan();
+            }
+            else {
+                $plan = Plan::where('user_id', $club->id)->first();
+            }
+            $plan->spaces = $request::get('plans')[0]->spaces;
+            $plan->daily_contacts = $request::get('plans')[0]->daily_contacts;
+            $plan->daily_remaining_contacts = $request::get('plans')[0]->daily_contacts;
             $plan->user_id = $club->id;
             $plan->save();
         }
