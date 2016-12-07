@@ -96,6 +96,10 @@ header {
 
 @media (max-width: $mobileWidth) {
   header {
+    :not(.mobile-menu) sign-in .main-login-btn {
+      display: none;
+    }
+
     .header-wrapper {
       height: $headerHeight - 30;
     }

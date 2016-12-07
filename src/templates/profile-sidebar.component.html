@@ -22,12 +22,14 @@
         </div>
     </div>
     <div class="col-md-12">
-        <button class="btn btn-primary full-width"
-                routerLink="/profil/mon_abonnement">
-            Gérer ma formule
-        </button>
-        <br />
-        <br />
+        <div *ngIf="user.user_type_id == 4 || user.user_type_id == 5">
+            <button class="btn btn-primary full-width"
+                    routerLink="/profil/mon_abonnement">
+                Gérer ma formule
+            </button>
+            <br />
+            <br />
+        </div>
         <button class="btn btn-default full-width"
                 (click)="openChangePasswordModal()">
             Modifier mot de passe

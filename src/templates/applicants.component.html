@@ -1,15 +1,56 @@
 <h2 class="centered">{{ items.length }} postulants</h2>
 <hr />
+
+<div class="col-md-12">
+    <select class="form-control"
+            [(ngModel)]="businessId"
+            ngControl="businessId">
+        <option value="0">
+            -- Sélectionnez un établissement --
+        </option>
+        <option *ngFor="let business of userBusinesses"
+                value="{{ business.id }}">
+            {{ business.title }}
+        </option>
+    </select>
+    <br />
+</div>
+
+<!-- Multi businesses -->
+<div *ngIf="userBusinesses.length > 1 && businessId != 0">
+   <div *ngFor="let business of userBusinesses">
+        <div *ngIf="business.id == businessId || businessId == 0">
+            <span *ngIf="business.jobs.length == 0">
+                Aucune offre d'emploi pour cet établissement
+            </span>
+            <select class="form-control"
+                    name="jobPostId"
+                    ngControl="jobPostId"
+                    *ngIf="business.jobs.length > 0"
+                    [(ngModel)]="jobPostId">
+                <option selected disabled value="0">-- Sélectionnez une offre d'emploi --</option>
+                <option *ngFor="let jobPost of business.jobs"
+                        value="{{ jobPost.id }}">
+                    REF{{ jobPost.id }} {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- Single business -->
 <select class="form-control"
         name="jobPostId"
         ngControl="jobPostId"
+        *ngIf="userBusinesses.length == 1"
         [(ngModel)]="jobPostId">
     <option selected disabled value="null">-- Sélectionnez une offre d'emploi --</option>
-    <option *ngFor="let jobPost of jobPosts"
+    <option *ngFor="let jobPost of userBusinesses[0].jobs"
             value="{{ jobPost.id }}">
-        {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
+        REF{{ jobPost.id }} {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
     </option>
 </select>
+
 <hr />
 <div class="col-md-12 list-container">
     <!-- <div class="col-md-6 col-md-offset-3"
@@ -38,58 +79,60 @@
     <ul>
         <div *ngFor="let item of items">
             <li class="row" *ngIf="item.job_id == jobPostId || !jobPostId">
-                <div class="col-md-12 col-sm-12 col-xs-11 item"
-                     [class.photo]="item.user.profilePictureUrl">
-                    <div class="col-md-2">
-                        <img src="{{ item.user.profilePictureUrl }}"/>
-                    </div>
-                    <div class="col-md-4">
-                        <h3>{{ item.user.firstName }}</h3>
-                        <span *ngIf="item.user.xpLevel">
-                             {{ item.user.xpLevel.title }}<br />
-                        </span>
-                        <span *ngIf="item.user.languages.length > 0">
-                            Langues parlées :
-                            <span *ngFor="let language of item.user.languages">
-                                {{ language.title }},
+                <div *ngIf="(businessId != 0 && item.job.business.id == businessId) || businessId == 0">
+                    <div class="col-md-12 col-sm-12 col-xs-11 item"
+                         [class.photo]="item.user.profilePictureUrl">
+                        <div class="col-md-2">
+                            <img src="{{ item.user.profilePictureUrl }}"/>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{{ item.user.firstName }}</h3>
+                            <span *ngIf="item.user.xpLevel">
+                                 {{ item.user.xpLevel.title }}<br />
                             </span>
-                            <br />
-                        </span>
-                        <strong>{{ item.job.title }}</strong><br />
-                        <span class="date">
-                            <span class="fa fa-clock-o"></span>
-                            A postulé le {{ item.created_at | date:"dd/MM/yyyy" }}
-                        </span>
-                    </div>
-                    <div class="col-md-2" *ngIf="!item.is_interested">
-                        <button class="btn btn-primary full-width"
-                                [disabled]="item.is_interested || item.is_rejected"
-                                (click)="acceptApplication(item.id)"
-                                tooltipPlacement="bottom" tooltipHtml="{{ item.acceptedTemplate }}">
-                            <span class="icon-envelope-letter"></span><br />
-                            Intéressé
-                        </button>
-                    </div>
-                    <div class="col-md-2" *ngIf="!item.is_interested">
-                        <button class="btn btn-danger full-width"
-                                [disabled]="item.is_interested || item.is_rejected"
-                                (click)="rejectApplication(item.id)"
-                                tooltipPlacement="bottom" tooltipHtml="{{ item.rejectedTemplate }}">
-                            <span class="icon-envelope-letter"></span><br />
-                            Refuser
-                        </button>
-                    </div>
-                    <div class="col-md-4 centered" *ngIf="item.is_interested">
-                        <br />
-                        <strong>Ce profil vous intéresse</strong>
-                    </div>
-                    <div class="col-md-2">
-                        <a routerLink="/profil/apercu/{{ item.user.id }}/complet">
-                            <button class="btn btn-default full-width">
-                                <span class="icon-eye"></span><br />
-                                Voir
+                            <span *ngIf="item.user.languages.length > 0">
+                                Langues parlées :
+                                <span *ngFor="let language of item.user.languages">
+                                    {{ language.title }},
+                                </span>
+                                <br />
+                            </span>
+                            <strong>{{ item.job.title }}</strong><br />
+                            <span class="date">
+                                <span class="fa fa-clock-o"></span>
+                                A postulé le {{ item.created_at | date:"dd/MM/yyyy" }}
+                            </span>
+                        </div>
+                        <div class="col-md-2" *ngIf="!item.is_interested">
+                            <button class="btn btn-primary full-width"
+                                    [disabled]="item.is_interested || item.is_rejected"
+                                    (click)="acceptApplication(item.id)"
+                                    tooltipPlacement="bottom" tooltipHtml="{{ item.acceptedTemplate }}">
+                                <span class="icon-envelope-letter"></span><br />
+                                Intéressé
                             </button>
-                        </a>
+                        </div>
+                        <div class="col-md-2" *ngIf="!item.is_interested">
+                            <button class="btn btn-danger full-width"
+                                    [disabled]="item.is_interested || item.is_rejected"
+                                    (click)="rejectApplication(item.id)"
+                                    tooltipPlacement="bottom" tooltipHtml="{{ item.rejectedTemplate }}">
+                                <span class="icon-envelope-letter"></span><br />
+                                Refuser
+                            </button>
+                        </div>
+                        <div class="col-md-4 centered" *ngIf="item.is_interested">
+                            <br />
+                            <strong>Ce profil vous intéresse</strong>
+                        </div>
+                        <div class="col-md-2">
+                            <a routerLink="/profil/apercu/{{ item.user.id }}/complet">
+                                <button class="btn btn-default full-width">
+                                    <span class="icon-eye"></span><br />
+                                    Voir
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </li>

@@ -1,0 +1,2225 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Avenir Light";
+  src: url("/fonts/Avenir-Light.ttf"); }
+@font-face {
+  font-family: "Avenir Book";
+  src: url("/fonts/Avenir-Book.ttf"); }
+@font-face {
+  font-family: "Avenir Medium";
+  src: url("/fonts/Avenir-Medium.ttf"); }
+@font-face {
+  font-family: "Avenir Heavy";
+  src: url("/fonts/Avenir-Heavy.ttf"); }
+.form-control {
+  height: 50px;
+  box-shadow: none;
+  -webkit-appearance: none;
+  border-radius: 4px;
+  border: 1px solid #b9b9b9;
+  transition-duration: 250ms;
+  transition-property: all;
+  font-size: 18px; }
+  .form-control:focus {
+    box-shadow: none; }
+  .form-control.error, .form-control.wrong {
+    border-color: #E13543;
+    background: #fbf1f2; }
+
+.input-error {
+  background-image: url("/img/input-error-cross.png");
+  background-position: 95% center;
+  background-repeat: no-repeat; }
+
+.input-group-addon:first-child {
+  background: white;
+  border: none;
+  border-bottom: 1px solid #CCC;
+  border-radius: 0;
+  font-size: 2em; }
+
+input[type="file"] {
+  border: none; }
+
+.input-group input {
+  border: 0;
+  color: #9c9c9c; }
+
+select[required].ng-invalid, input[required].ng-invalid {
+  border-color: #E13543;
+  background: #fbf1f2; }
+
+label {
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-family: "Avenir Heavy", sans-serif; }
+  label.success {
+    color: #34ba47; }
+  label.danger {
+    color: #E13543; }
+  label.info {
+    color: #35B6E1; }
+  label.warning {
+    color: #E47F1B; }
+
+md-checkbox.dark-bg .md-checkbox-frame {
+  border-color: white; }
+md-checkbox.md-checkbox-checked .md-checkbox-background {
+  background-color: #35B6E1; }
+md-checkbox.md-checkbox-focused .md-ink-ripple {
+  background-color: rgba(53, 182, 225, 0.25); }
+md-checkbox .md-checkbox-frame {
+  border: 2px solid rgba(0, 0, 0, 0.36); }
+
+ng-select .ui-select-choices-row {
+  padding: 5px 10px; }
+
+.breadcrumb {
+  background: #f7f7f8;
+  margin-bottom: 0; }
+  .breadcrumb a, .breadcrumb span {
+    text-transform: capitalize; }
+
+@media (max-width: 765px) {
+  .breadcrumb {
+    display: none; } }
+button, input[type=button] {
+  height: 40px;
+  font-family: "Avenir Heavy", sans-serif; }
+  button i, input[type=button] i {
+    font-size: 1.4em;
+    position: absolute;
+    margin-left: -20px; }
+  button.btn-primary, input[type=button].btn-primary {
+    border-radius: 4px;
+    background-color: #35B6E1;
+    color: white;
+    border: none; }
+
+header {
+  width: 100%;
+  background-color: white; }
+  header .mobile-menu {
+    position: fixed;
+    background: #35B6E1;
+    z-index: 100;
+    overflow: hidden;
+    top: 70px;
+    width: 100%;
+    max-height: 0;
+    height: auto;
+    transition-duration: 500ms;
+    transition-property: all;
+    display: none; }
+    header .mobile-menu a {
+      color: white; }
+    header .mobile-menu ul {
+      padding: 0; }
+      header .mobile-menu ul li {
+        width: 100%; }
+    header .mobile-menu.shown {
+      max-height: 100%;
+      overflow: visible; }
+  header .header-wrapper {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    height: 100px;
+    background-color: #003c50;
+    /* Transparent header on home page */ }
+    header .header-wrapper.transparent {
+      background: none;
+      color: white; }
+      header .header-wrapper.transparent a {
+        color: white; }
+  header .logo {
+    background-image: url("/img/cookorico_logo.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    width: 190px;
+    height: 75px;
+    margin: 10px 25px; }
+  header ul a {
+    color: white;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: 400; }
+  header ul li {
+    float: right;
+    padding: 40px;
+    text-transform: uppercase;
+    font-family: "Avenir Medium", sans-serif; }
+    header ul li .recruiter_btn a {
+      border: 2px solid white;
+      border-radius: 4px;
+      padding: 10px 15px 10px 15px;
+      font-weight: 600;
+      background: white;
+      color: #1a1f38; }
+  header .mobile-menu-toggle {
+    color: white;
+    font-size: 2em;
+    padding: 20px 25px;
+    text-align: right; }
+
+@media (max-width: 765px) {
+  header .header-wrapper {
+    height: 70px; }
+  header .logo {
+    background-image: url("/img/cookorico_picto.png");
+    width: 25px;
+    height: 45px;
+    margin: 10px 5px; }
+  header .mobile-menu-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #031014;
+    opacity: 0.8;
+    z-index: 1; }
+  header .mobile-menu {
+    display: block; } }
+home {
+  width: 100%;
+  display: block; }
+  home .heading {
+    color: white;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 100px;
+    width: 100%;
+    background-image: url("/img/home_bg.jpg");
+    background-size: cover;
+    background-position: center top; }
+  home .job-search {
+    margin: 0; }
+
+@media (max-width: 765px) {
+  home .heading {
+    padding-top: 50px; }
+    home .heading h1 {
+      margin: 0;
+      font-size: 2em;
+      letter-spacing: 1.3px;
+      padding: 0 20px; }
+    home .heading h2 {
+      display: none; }
+    home .heading .job-search {
+      margin: 15px; } }
+pricing-plans, businesses, my-job-posts {
+  /* ==========================================================================
+    [10. PRICE TABLE]
+========================================================================== */
+  /* 10.1 General styles ================================== */
+  /* 10.2 Summary ================================== */
+  /* 10.3 Features  ================================== */
+  /* 10.4 Colorful ================================== */
+  /* 10.5 Table ================================== */ }
+  pricing-plans .plans-container, businesses .plans-container, my-job-posts .plans-container {
+    max-width: 990px;
+    width: 100%;
+    margin: auto; }
+  pricing-plans .plan, businesses .plan, my-job-posts .plan {
+    box-shadow: 0px 0px 40px 0px #c0d0d6;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 35px; }
+    pricing-plans .plan p, businesses .plan p, my-job-posts .plan p {
+      height: 80px; }
+    pricing-plans .plan h3, businesses .plan h3, my-job-posts .plan h3 {
+      color: #333; }
+    pricing-plans .plan.plan-0 h2, businesses .plan.plan-0 h2, my-job-posts .plan.plan-0 h2 {
+      color: #F18B06; }
+    pricing-plans .plan.plan-0 button, businesses .plan.plan-0 button, my-job-posts .plan.plan-0 button {
+      background-color: #F18B06; }
+    pricing-plans .plan.plan-1 h2, businesses .plan.plan-1 h2, my-job-posts .plan.plan-1 h2 {
+      color: #48CFAD; }
+    pricing-plans .plan.plan-1 button, businesses .plan.plan-1 button, my-job-posts .plan.plan-1 button {
+      background-color: #48CFAD; }
+    pricing-plans .plan.plan-2 h2, businesses .plan.plan-2 h2, my-job-posts .plan.plan-2 h2 {
+      color: #9375AE; }
+    pricing-plans .plan.plan-2 button, businesses .plan.plan-2 button, my-job-posts .plan.plan-2 button {
+      background-color: #9375AE; }
+  pricing-plans .group-info h2, businesses .group-info h2, my-job-posts .group-info h2 {
+    color: #35B6E1;
+    font-size: 2em; }
+  pricing-plans .about-us, businesses .about-us, my-job-posts .about-us {
+    padding: 25px;
+    background: #35B6E1;
+    color: white;
+    border-radius: 4px; }
+    pricing-plans .about-us h3, pricing-plans .about-us h2, businesses .about-us h3, businesses .about-us h2, my-job-posts .about-us h3, my-job-posts .about-us h2 {
+      color: white;
+      font-size: 2em; }
+    pricing-plans .about-us h2, businesses .about-us h2, my-job-posts .about-us h2 {
+      margin-top: 0;
+      margin-bottom: 10px; }
+    pricing-plans .about-us h3, businesses .about-us h3, my-job-posts .about-us h3 {
+      margin: 0; }
+    pricing-plans .about-us button, businesses .about-us button, my-job-posts .about-us button {
+      margin-left: 15px;
+      font-size: 1.2em; }
+  pricing-plans h3, businesses h3, my-job-posts h3 {
+    font-family: "Avenir Heavy", sans-serif;
+    color: #234484; }
+  pricing-plans .price.odometer.odometer-auto-theme, businesses .price.odometer.odometer-auto-theme, my-job-posts .price.odometer.odometer-auto-theme {
+    margin-left: -55px; }
+  pricing-plans .pricing-table h4, pricing-plans .pricing-table h3, pricing-plans .pricing-table .pricing-title, businesses .pricing-table h4, businesses .pricing-table h3, businesses .pricing-table .pricing-title, my-job-posts .pricing-table h4, my-job-posts .pricing-table h3, my-job-posts .pricing-table .pricing-title {
+    font-weight: 700; }
+  pricing-plans .pricing-table .pricing-title, businesses .pricing-table .pricing-title, my-job-posts .pricing-table .pricing-title {
+    font-size: 18px;
+    display: block; }
+  pricing-plans .pricing-table p, businesses .pricing-table p, my-job-posts .pricing-table p {
+    line-height: 1.5em; }
+  pricing-plans .pricing-table .pricing-plan, businesses .pricing-table .pricing-plan, my-job-posts .pricing-table .pricing-plan {
+    padding: 30px 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 30px; }
+  pricing-plans .pricing-table .pricing-plan.best-value, businesses .pricing-table .pricing-plan.best-value, my-job-posts .pricing-table .pricing-plan.best-value {
+    border: 2px solid #fe3f51; }
+  pricing-plans .pricing-table .icon, businesses .pricing-table .icon, my-job-posts .pricing-table .icon {
+    font-size: 3.5em; }
+  pricing-plans .pricing-table .pricing-header, businesses .pricing-table .pricing-header, my-job-posts .pricing-table .pricing-header {
+    padding: 50px 0;
+    border-radius: 3px 3px 0 0;
+    background-color: #1abc9c;
+    text-align: center; }
+  pricing-plans .pricing-table .pricing-header .icon, businesses .pricing-table .pricing-header .icon, my-job-posts .pricing-table .pricing-header .icon {
+    color: #86eeda; }
+  pricing-plans .pricing-table .pricing-header h3, businesses .pricing-table .pricing-header h3, my-job-posts .pricing-table .pricing-header h3 {
+    color: #c4cad6; }
+  pricing-plans .pricing-table .pricing-header p, businesses .pricing-table .pricing-header p, my-job-posts .pricing-table .pricing-header p {
+    color: #86eeda; }
+  pricing-plans .pricing-table .pricing-include, businesses .pricing-table .pricing-include, my-job-posts .pricing-table .pricing-include {
+    color: #6aa74c; }
+  pricing-plans .pricing-table .pricing-exclude, businesses .pricing-table .pricing-exclude, my-job-posts .pricing-table .pricing-exclude {
+    color: #767676; }
+  pricing-plans .pricing-table .list-features, businesses .pricing-table .list-features, my-job-posts .pricing-table .list-features {
+    margin: 30px 0; }
+  pricing-plans .pricing-table .list-features li, businesses .pricing-table .list-features li, my-job-posts .pricing-table .list-features li {
+    padding: 1em;
+    margin: 0 -15px; }
+  pricing-plans .pricing-table .pricing-details, businesses .pricing-table .pricing-details, my-job-posts .pricing-table .pricing-details {
+    margin-top: 30px; }
+  pricing-plans .pricing-table .pricing-include,
+  pricing-plans .pricing-table .pricing-exclude, businesses .pricing-table .pricing-include,
+  businesses .pricing-table .pricing-exclude, my-job-posts .pricing-table .pricing-include,
+  my-job-posts .pricing-table .pricing-exclude {
+    margin-right: 10px; }
+  pricing-plans .pricing-price, businesses .pricing-price, my-job-posts .pricing-price {
+    font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 49px;
+    color: #242a34; }
+  pricing-plans .pricing-price sup, pricing-plans .pricing-price .price:before, pricing-plans .pricing-price .price:after, businesses .pricing-price sup, businesses .pricing-price .price:before, businesses .pricing-price .price:after, my-job-posts .pricing-price sup, my-job-posts .pricing-price .price:before, my-job-posts .pricing-price .price:after {
+    font-size: 0.3em;
+    font-weight: 300;
+    font-style: italic; }
+  pricing-plans .pricing-price .price > div, businesses .pricing-price .price > div, my-job-posts .pricing-price .price > div {
+    float: left; }
+  pricing-plans .pricing-price .price:before, businesses .pricing-price .price:before, my-job-posts .pricing-price .price:before {
+    content: '€'; }
+  pricing-plans .pricing-price .price:after, businesses .pricing-price .price:after, my-job-posts .pricing-price .price:after {
+    color: #505c73; }
+  pricing-plans .pricing-price.price-lg, businesses .pricing-price.price-lg, my-job-posts .pricing-price.price-lg {
+    font-size: 73.5px; }
+  @media (max-width: 991px) {
+    pricing-plans .pricing-price, businesses .pricing-price, my-job-posts .pricing-price {
+      /*span {
+              display: block;
+          }*/ } }
+  pricing-plans .pricing-table-colorful .pricing-plan, businesses .pricing-table-colorful .pricing-plan, my-job-posts .pricing-table-colorful .pricing-plan {
+    padding: 0; }
+  pricing-plans .pricing-table-colorful .pricing-plan.best-value, businesses .pricing-table-colorful .pricing-plan.best-value, my-job-posts .pricing-table-colorful .pricing-plan.best-value {
+    border-color: #1abc9c; }
+  pricing-plans .pricing-table-colorful .pricing-plan .pricing-details, businesses .pricing-table-colorful .pricing-plan .pricing-details, my-job-posts .pricing-table-colorful .pricing-plan .pricing-details {
+    padding: 15px; }
+  pricing-plans .pricing-table .pricing-table-tabs, businesses .pricing-table .pricing-table-tabs, my-job-posts .pricing-table .pricing-table-tabs {
+    width: 100%; }
+  pricing-plans .pricing-table .pricing-table-tabs label, businesses .pricing-table .pricing-table-tabs label, my-job-posts .pricing-table .pricing-table-tabs label {
+    width: 33.33%;
+    padding: 12px 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  pricing-plans .pricing-table .pricing-details, businesses .pricing-table .pricing-details, my-job-posts .pricing-table .pricing-details {
+    margin-top: 0; }
+  pricing-plans .pricing-table table, businesses .pricing-table table, my-job-posts .pricing-table table {
+    margin-top: 60px; }
+  pricing-plans .pricing-table table th, pricing-plans .pricing-table table td, businesses .pricing-table table th, businesses .pricing-table table td, my-job-posts .pricing-table table th, my-job-posts .pricing-table table td {
+    padding: 10px 15px !important;
+    vertical-align: middle !important;
+    border: 1px solid #ddd !important; }
+  pricing-plans .pricing-table table th, businesses .pricing-table table th, my-job-posts .pricing-table table th {
+    background-color: whitesmoke;
+    font-weight: normal; }
+  pricing-plans .pricing-table table td, businesses .pricing-table table td, my-job-posts .pricing-table table td {
+    text-align: center; }
+  pricing-plans .pricing-table table thead th, businesses .pricing-table table thead th, my-job-posts .pricing-table table thead th {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  pricing-plans .pricing-table table tbody.pricing-details th, businesses .pricing-table table tbody.pricing-details th, my-job-posts .pricing-table table tbody.pricing-details th {
+    background-color: transparent; }
+  pricing-plans .pricing-table table tfoot, businesses .pricing-table table tfoot, my-job-posts .pricing-table table tfoot {
+    font-size: 0.8em; }
+  pricing-plans .pricing-table table tfoot td, businesses .pricing-table table tfoot td, my-job-posts .pricing-table table tfoot td {
+    border: 0; }
+  pricing-plans .pricing-table table .pricing-prev, businesses .pricing-table table .pricing-prev, my-job-posts .pricing-table table .pricing-prev {
+    float: left; }
+  pricing-plans .pricing-table table .pricing-next, businesses .pricing-table table .pricing-next, my-job-posts .pricing-table table .pricing-next {
+    float: right; }
+  pricing-plans .pricing-table table .visible-cell, businesses .pricing-table table .visible-cell, my-job-posts .pricing-table table .visible-cell {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s; }
+  @media (max-width: 767px) {
+    pricing-plans .pricing-table table thead th, businesses .pricing-table table thead th, my-job-posts .pricing-table table thead th {
+      display: none; }
+    pricing-plans .pricing-table table td[headers*='ph-'], businesses .pricing-table table td[headers*='ph-'], my-job-posts .pricing-table table td[headers*='ph-'] {
+      display: none; }
+    pricing-plans .pricing-table table tbody th, businesses .pricing-table table tbody th, my-job-posts .pricing-table table tbody th {
+      width: 60%; } }
+
+testimonial-requests .header-container {
+  background-color: #35B6E1 !important;
+  height: 60px !important;
+  font-size: 0.9em !important; }
+  testimonial-requests .header-container.greyed {
+    background-color: #b9b9b9 !important; }
+testimonial-requests .btn-danger {
+  background-color: #E13543 !important; }
+
+my-job-posts .job-stats, my-job-posts .job-applications {
+  font-family: "Avenir Medium", sans-serif;
+  text-align: left;
+  padding-left: 20px; }
+my-job-posts .job-stats {
+  margin-top: 0.5%; }
+my-job-posts .matching-profiles {
+  padding-top: 10px; }
+my-job-posts .header-container {
+  height: auto !important;
+  border-top: 1px solid #e6e6e6 !important; }
+my-job-posts .list-container ul li a {
+  color: #35B6E1;
+  text-decoration: underline !important; }
+my-job-posts .list-container ul li .btn-danger {
+  background-color: #E13543 !important; }
+my-job-posts .list-container ul li button {
+  height: 30px !important;
+  padding: 5px !important;
+  margin-top: 5px !important; }
+my-job-posts .list-container ul li h3, my-job-posts .list-container ul li .ref {
+  color: #3a63a0 !important;
+  font-family: "Avenir Heavy", sans-serif !important; }
+my-job-posts .list-container ul li.free-job-placement {
+  padding: 30px;
+  margin: 10px 15px;
+  width: 97%;
+  background: #f7f7f8;
+  border-radius: 4px;
+  border: 1px dashed #CCC; }
+  my-job-posts .list-container ul li.free-job-placement h3 {
+    text-transform: uppercase;
+    color: #3a63a0; }
+  my-job-posts .list-container ul li.free-job-placement:nth-child(odd) {
+    background: #f7f7f8; }
+  my-job-posts .list-container ul li.free-job-placement .show-post {
+    color: #35B6E1;
+    text-decoration: underline; }
+  my-job-posts .list-container ul li.free-job-placement .job-filled {
+    color: #E13543; }
+
+job {
+  display: inline-block;
+  background: white;
+  padding: 10px; }
+  job .social-btn {
+    width: 40px;
+    margin-right: 7px;
+    float: left; }
+  job h1 {
+    text-transform: uppercase;
+    font-family: "Avenir Heavy", sans-serif;
+    color: #35B6E1;
+    margin: 10px 0 5px 0;
+    font-size: 1.8em; }
+  job .job-stats {
+    padding: 0 15px; }
+    job .job-stats .job-filled {
+      color: #E13543; }
+  job .other-job-posts {
+    padding: 20px; }
+  job .description-heading {
+    margin: 10px 70px;
+    padding: 15px 0;
+    border-bottom: 1px solid #DDD;
+    width: 85%; }
+  job .job-description {
+    padding: 10px 70px; }
+  job .job-infos-list {
+    color: #333;
+    background: #f7f7f8;
+    padding: 30px 70px; }
+    job .job-infos-list .job-info {
+      margin-bottom: 10px;
+      height: 30px; }
+      job .job-infos-list .job-info i {
+        font-size: 1.7em;
+        color: #b9b9b9;
+        position: relative;
+        top: 5px;
+        width: 30px;
+        display: inline-block; }
+  job .sign-up-btn {
+    width: 100%; }
+  job .logo {
+    float: left;
+    margin: 20px 20px 0 0;
+    padding: 0 35px; }
+    job .logo img {
+      width: 100%;
+      max-height: 200px; }
+  job .business .name a, job .business .adress a {
+    color: #333; }
+  job .business .name h3, job .business .adress h3 {
+    font-size: 1.5em;
+    margin: 10px 0 0 0; }
+
+@media (max-width: 765px) {
+  job {
+    padding: 0; }
+    job .description-heading {
+      margin: 10px; }
+    job .job-description {
+      padding: 10px; }
+    job .logo {
+      float: none;
+      text-align: center;
+      padding: 10px 65px; }
+      job .logo img {
+        width: 60%; }
+    job .job-infos-list {
+      padding: 10px; }
+      job .job-infos-list .job-info {
+        height: auto; } }
+define-new-password {
+  padding-top: 100px;
+  display: block;
+  max-width: 1200px;
+  margin: auto; }
+
+admin-plans input[type=number] {
+  width: 100px; }
+
+create-business .logo {
+  height: 90px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat; }
+  create-business .logo img {
+    width: 100%;
+    padding-top: 20px; }
+
+new-application-form {
+  display: inline-block;
+  padding-top: 20px; }
+
+new-application-form .back-btn-container,
+new-application-form .apply-btn-container {
+  margin-top: 15px; }
+
+new-application-form .back-btn-container button,
+new-application-form .apply-btn-container button {
+  width: 100%;
+  height: 40px; }
+
+business-select {
+  display: inline-block;
+  width: 100%; }
+  business-select .no-results-label {
+    background: white;
+    position: absolute;
+    top: -40px;
+    box-shadow: 0px 0px 40px 0px #c0d0d6;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer; }
+
+search {
+  max-width: 1200px;
+  margin: auto;
+  display: block; }
+  search .scrolled-down {
+    margin-top: 230px;
+    display: inline-block; }
+  search .user-not-logged-in {
+    padding-top: 150px; }
+  search .user-logged-in {
+    padding-top: 40px; }
+  search .router-outlet-container {
+    width: 70%;
+    float: left;
+    margin-left: 3%; }
+  search .seo-data-container {
+    padding: 25px;
+    color: white;
+    margin: 2%;
+    width: 96%;
+    text-align: center;
+    background-color: #1a8aaf;
+    border-radius: 4px; }
+
+@media (max-width: 765px) {
+  search {
+    width: 100%;
+    padding-top: 0; }
+    search .scrolled-down {
+      margin-top: 110px; }
+      search .scrolled-down job-search-sidebar {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        margin: 0; }
+    search .user-not-logged-in {
+      padding-top: 40px; }
+    search .router-outlet-container {
+      width: 100%;
+      margin: 0; }
+    search .seo-data-container {
+      margin: 0;
+      width: 100%;
+      background-color: #3a3a3a;
+      border-radius: 0; } }
+post-preview {
+  display: block;
+  border: 1px solid #ececec;
+  padding: 25px;
+  background: whitesmoke;
+  transition-property: all;
+  transition-duration: 250ms; }
+  post-preview .logo {
+    position: relative;
+    top: -5px; }
+  post-preview .logo img {
+    max-width: 90px;
+    max-height: 90px;
+    float: left;
+    margin-right: 30px; }
+  post-preview .business_name {
+    font-size: 1.2em;
+    font-family: "Avenir Heavy", sans-serif;
+    margin-bottom: 5px; }
+  post-preview .title, post-preview .business_adress {
+    color: #333; }
+  post-preview:hover {
+    background-color: #e7f6fb;
+    border-color: #35B6E1; }
+
+post-preview:nth-child(odd) {
+  background: white; }
+  post-preview:nth-child(odd):hover {
+    background-color: #e7f6fb; }
+
+matching-profiles .show-profile button {
+  border-radius: 4px;
+  background: #025589;
+  border: none;
+  padding: 10px;
+  margin-top: 25px;
+  color: white;
+  font-family: "Avenir Medium", sans-serif; }
+
+sign-in a {
+  color: white !important; }
+
+#sign-in-modal .modal-dialog {
+  max-width: 400px;
+  width: 100%; }
+
+#sign-in-modal a {
+  color: #333; }
+
+#sign-in-modal form {
+  margin-bottom: 0; }
+
+#sign-in-modal button, #sign-in-modal input[type=button] {
+  width: 100%;
+  font-family: "Avenir Heavy", sans-serif;
+  padding: 15px 0px 15px 0px;
+  font-size: 1.2em;
+  height: 55px; }
+
+#sign-in-modal input[type=button]:hover {
+  background: #333;
+  color: white; }
+
+#sign-in-modal input[type=text],
+#sign-in-modal input[type=email],
+#sign-in-modal input[type=password] {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 60px;
+  font-size: 1.4em;
+  color: #333;
+  border: 1px solid #CCC; }
+
+#sign-in-modal button.close-sign-in-modal, #sign-in-modal input.back-to-login {
+  background: transparent;
+  border: 1px solid #CCC;
+  color: #CCC; }
+
+#sign-in-modal .remember-me, #sign-in-modal .forgot-password {
+  padding: 20px;
+  margin-bottom: 15px;
+  height: 50px;
+  color: #333;
+  cursor: pointer; }
+
+#sign-in-modal .forgot-password {
+  text-align: right;
+  text-decoration: underline; }
+
+#sign-in-modal .facebook-login, #sign-in-modal .linkedin-login {
+  text-align: center;
+  padding: 25px;
+  margin-left: 4%;
+  margin-top: 20px;
+  width: 92%;
+  color: white;
+  font-size: 1.3em;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: "Avenir Heavy", sans-serif; }
+
+#sign-in-modal .facebook-login:hover, #sign-in-modal .linkedin-login:hover {
+  opacity: 0.9; }
+
+#sign-in-modal .linkedin-login {
+  background: #0077B5;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+#sign-in-modal .facebook-login {
+  background: #3b5998;
+  margin-bottom: 5px; }
+
+#sign-in-modal .email-sent, #sign-in-modal .loading {
+  color: #333;
+  text-align: center;
+  margin-left: -10px; }
+
+profile-sidebar {
+  display: block;
+  border-radius: 4px;
+  width: 20%;
+  float: left; }
+  profile-sidebar .user-infos {
+    text-align: left;
+    margin: 0 15px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 15px 0; }
+    profile-sidebar .user-infos .plan .plan-infos {
+      padding: 5px 0; }
+    profile-sidebar .user-infos .plan .plan-credits {
+      font-size: 1.5em;
+      padding: 0;
+      font-family: "Avenir Medium", sans-serif;
+      color: #35B6E1; }
+      profile-sidebar .user-infos .plan .plan-credits hr {
+        margin: 5px; }
+  profile-sidebar .new-job-post-btn {
+    background-color: white;
+    color: #333;
+    font-family: "Avenir Heavy", sans-serif;
+    border: none;
+    height: 45px;
+    margin-top: 20px; }
+  profile-sidebar .profile-sidebar-menu {
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    max-height: 70px;
+    transition-property: all;
+    transition-duration: 350ms; }
+    profile-sidebar .profile-sidebar-menu a {
+      color: #333;
+      display: inline-block;
+      width: 100%;
+      padding: 15px;
+      background: white;
+      font-size: 1.15em;
+      margin: 5px 0;
+      border-radius: 4px;
+      border-left: 4px solid transparent; }
+      profile-sidebar .profile-sidebar-menu a.active {
+        font-family: "Avenir Heavy", sans-serif;
+        border-color: #35B6E1; }
+      profile-sidebar .profile-sidebar-menu a:hover {
+        border-color: #35B6E1; }
+  profile-sidebar .mobile-menu-toggle {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5em;
+    color: #35B6E1; }
+
+@media (max-width: 1024px) {
+  profile-sidebar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 25px;
+    position: fixed;
+    background: #f7f7f8;
+    z-index: 10;
+    border-radius: 0; }
+    profile-sidebar.scrolled-down {
+      position: fixed;
+      top: 0;
+      margin: 0 !important;
+      -moz-box-shadow: 0px 5px 10px 0px #c0c0c0;
+      -webkit-box-shadow: 0px 5px 10px 0px #c0c0c0;
+      -o-box-shadow: 0px 5px 10px 0px #c0c0c0;
+      box-shadow: 0px 5px 10px 0px #c0c0c0;
+      filter: progid:DXImageTransform.Microsoft.Shadow(color=#c0c0c0, Direction=180, Strength=10); }
+    profile-sidebar .profile-sidebar-menu {
+      margin: 0; }
+      profile-sidebar .profile-sidebar-menu.full-height {
+        max-height: 500px; }
+      profile-sidebar .profile-sidebar-menu a {
+        display: none; }
+        profile-sidebar .profile-sidebar-menu a.active, profile-sidebar .profile-sidebar-menu a.visible {
+          display: inline-block; }
+    profile-sidebar .mobile-menu-toggle {
+      display: inline-block; } }
+applications {
+  display: block; }
+  applications .application.accepted {
+    background-color: #ebfbec !important; }
+  applications .application.sent {
+    background-color: #e3f7fd !important; }
+  applications .application.rejected {
+    background-color: #fdf3f4 !important; }
+  applications ul li {
+    border-bottom: 1px solid #d4d4d4 !important; }
+    applications ul li .item button {
+      background: white !important;
+      color: #333 !important; }
+    applications ul li .item .logo {
+      top: 0 !important; }
+  applications .header-container {
+    background: white !important;
+    height: auto !important; }
+  applications h3 {
+    margin: 10px 0 5px 0 !important; }
+  applications .date {
+    margin-left: 20px; }
+
+candidate-dashboard .profile-stats {
+  background-color: #f7f7f8;
+  border-radius: 4px;
+  padding: 25px;
+  margin-top: 20px; }
+candidate-dashboard input, candidate-dashboard select {
+  margin-bottom: 15px; }
+candidate-dashboard .current-status {
+  background-color: #f7f7f8;
+  padding: 20px; }
+candidate-dashboard .infos-container {
+  margin: 0; }
+
+candidate-sign-up {
+  display: block;
+  background: white;
+  border-radius: 4px;
+  max-width: 990px;
+  margin: auto;
+  padding: 25px;
+  padding-top: 150px; }
+  candidate-sign-up h1 {
+    color: #35B6E1;
+    font-family: "Avenir Heavy", sans-serif; }
+  candidate-sign-up input, candidate-sign-up select {
+    margin-bottom: 15px; }
+  candidate-sign-up canvas {
+    fill: white; }
+
+job-search-sidebar {
+  width: 25%;
+  float: left; }
+  job-search-sidebar .sidebar-container {
+    padding-top: 35px; }
+  job-search-sidebar .google-maps-container {
+    padding: 0 15px 15px 15px;
+    margin-top: 0;
+    margin-bottom: 30px; }
+    job-search-sidebar .google-maps-container .sebm-google-map-container, job-search-sidebar .google-maps-container #google-map {
+      height: 200px;
+      display: block; }
+  job-search-sidebar .params-container .badge {
+    margin-left: 15px; }
+  job-search-sidebar .search-summary {
+    font-size: 1.2em;
+    margin-bottom: 35px;
+    text-align: center; }
+    job-search-sidebar .search-summary .badge {
+      color: white;
+      margin: 5px;
+      text-transform: lowercase;
+      max-width: 250px;
+      overflow: hidden; }
+      job-search-sidebar .search-summary .badge .remove {
+        color: white; }
+      job-search-sidebar .search-summary .badge.job-badge {
+        background-color: #35B6E1; }
+      job-search-sidebar .search-summary .badge.location-badge {
+        background-color: #07ad70;
+        text-transform: capitalize; }
+      job-search-sidebar .search-summary .badge.contract-type-badge {
+        background-color: #E47F1B; }
+      job-search-sidebar .search-summary .badge.study-level-badge {
+        background-color: #752794; }
+  job-search-sidebar h3 {
+    cursor: pointer;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    font-family: "Avenir Heavy", sans-serif;
+    padding: 10px 7px;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 10px 0; }
+  job-search-sidebar .collapse {
+    padding: 0; }
+  job-search-sidebar label {
+    font-weight: inherit; }
+  job-search-sidebar ul {
+    padding: 10px;
+    background: white; }
+    job-search-sidebar ul li {
+      padding: 10px 10px 10px 10px;
+      font-family: "Avenir Medium", sans-serif;
+      color: #6d6d6d;
+      cursor: pointer; }
+      job-search-sidebar ul li .group {
+        font-family: "Avenir Heavy", sans-serif; }
+      job-search-sidebar ul li .title-container {
+        padding-left: 0;
+        color: #333; }
+      job-search-sidebar ul li:hover, job-search-sidebar ul li.active {
+        background-color: #f0f0f0; }
+      job-search-sidebar ul li.active {
+        font-family: "Avenir Heavy", sans-serif; }
+
+@media (max-width: 765px) {
+  job-search-sidebar {
+    background-color: rgba(0, 0, 0, 0.61);
+    margin: 30px 0 0 0;
+    width: 100%; }
+    job-search-sidebar .visible {
+      display: block !important; }
+    job-search-sidebar .mobile-search-toggle {
+      font-size: 1.5em; }
+    job-search-sidebar .params-container,
+    job-search-sidebar .google-maps-container,
+    job-search-sidebar .location-input-container {
+      display: none; }
+    job-search-sidebar .sidebar-container {
+      padding: 20px; }
+      job-search-sidebar .sidebar-container.shown {
+        display: block; }
+    job-search-sidebar .search-summary {
+      color: white;
+      margin: 0; }
+      job-search-sidebar .search-summary.mobile-menu-open {
+        margin-bottom: 25px; } }
+businesses .list-container .btn-primary {
+  height: 30px;
+  padding: 5px;
+  margin-top: 5px; }
+
+job-preview {
+  display: inline-block;
+  width: 100%;
+  border-left: 4px solid transparent;
+  padding: 25px;
+  background: whitesmoke;
+  transition-property: all;
+  transition-duration: 250ms; }
+  job-preview .logo {
+    position: relative;
+    top: -5px; }
+  job-preview .logo img {
+    max-width: 80px;
+    max-height: 80px;
+    float: left;
+    margin-right: 30px;
+    width: 100%; }
+  job-preview .basic-infos {
+    float: left; }
+    job-preview .basic-infos .title {
+      font-size: 1.2em;
+      font-family: "Avenir Heavy", sans-serif;
+      margin-bottom: 5px; }
+    job-preview .basic-infos .business_name, job-preview .basic-infos .business_adress {
+      color: #333; }
+  job-preview .additional_infos .contract_type {
+    font-family: "Avenir Heavy", sans-serif;
+    text-transform: uppercase;
+    font-size: 1.2em; }
+  job-preview .additional_infos .post_date {
+    color: #333;
+    padding-top: 10px; }
+  job-preview:hover {
+    background-color: #f0f0f0;
+    border-color: #35B6E1; }
+
+job-preview:nth-child(odd) {
+  background: white; }
+  job-preview:nth-child(odd):hover {
+    background-color: #f0f0f0; }
+
+@media (max-width: 765px) {
+  job-preview {
+    padding: 20px 10px; }
+    job-preview .additional_infos .contract_type {
+      font-family: "Avenir Heavy", sans-serif;
+      text-transform: uppercase;
+      font-size: 1.2em; } }
+job-search-results {
+  background: white;
+  display: block;
+  border-radius: 4px;
+  padding: 5px 10px; }
+  job-search-results job-search-bar {
+    margin-top: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: 100% !important; }
+  job-search-results .no-results {
+    text-align: center;
+    padding: 150px; }
+  job-search-results .sebm-google-map-container, job-search-results #google-map-results {
+    height: 900px;
+    padding: 0 15px;
+    width: 98%;
+    display: block; }
+  job-search-results .jobs-count {
+    text-align: center;
+    padding: 15px;
+    margin: 0 15px;
+    color: white;
+    font-size: 2em;
+    background-color: #35B6E1; }
+  job-search-results h2 {
+    padding-left: 20px; }
+
+@media (max-width: 765px) {
+  job-search-results {
+    box-shadow: none;
+    padding: 0; }
+    job-search-results .row {
+      margin: 0; }
+    job-search-results .search-results-container {
+      padding: 0; }
+    job-search-results .jobs-count {
+      margin: 0;
+      font-size: 1.2em; } }
+profile {
+  padding-top: 40px;
+  display: block;
+  max-width: 1200px;
+  margin: auto; }
+  profile .scrolled-down {
+    margin-top: 230px; }
+  profile .add-item-container {
+    padding: 15px 0; }
+    profile .add-item-container button {
+      font-size: 1.4em;
+      height: 66px; }
+  profile .router-outlet-container {
+    width: 75%;
+    float: left;
+    margin-left: 3%;
+    padding: 10px; }
+    profile .router-outlet-container.full-width {
+      width: 100%;
+      margin-left: 0; }
+  profile .header-container {
+    height: 80px;
+    border-bottom: 1px solid #e6e6e6;
+    text-align: center;
+    background: white;
+    padding: 0; }
+    profile .header-container select {
+      height: 59px; }
+    profile .header-container .filter {
+      border-right: 1px solid #e6e6e6;
+      padding: 15px;
+      float: left;
+      text-transform: uppercase;
+      font-family: "Avenir Heavy", sans-serif;
+      cursor: pointer; }
+      profile .header-container .filter label {
+        cursor: pointer; }
+      profile .header-container .filter:hover {
+        background-color: whitesmoke; }
+      profile .header-container .filter.active {
+        background-color: #35B6E1; }
+        profile .header-container .filter.active label {
+          color: white; }
+    profile .header-container .items-count {
+      text-align: center;
+      font-family: "Avenir Heavy", sans-serif;
+      font-size: 2em;
+      color: white;
+      padding: 15px; }
+    profile .header-container .main-checkbox-container {
+      padding: 22px;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      background: #35B6E1;
+      border-top-left-radius: 4px; }
+      profile .header-container .main-checkbox-container md-checkbox {
+        pointer-events: none; }
+      profile .header-container .main-checkbox-container.selected {
+        background-color: #35B6E1; }
+    profile .header-container .actions-container {
+      padding: 0;
+      text-align: right; }
+      profile .header-container .actions-container button {
+        width: 60px;
+        height: 69px;
+        background: transparent;
+        border: none;
+        color: white; }
+        profile .header-container .actions-container button:hover {
+          background: transparent; }
+  profile h2 {
+    text-align: center;
+    font-size: 2em;
+    font-family: "Avenir Heavy", sans-serif; }
+  profile form .submit-btn, profile form .back-btn {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    height: 60px; }
+  profile form label {
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-bottom: 5px; }
+  profile .router-outlet-container {
+    background: white;
+    border-radius: 4px; }
+  profile .page-title-container h3 {
+    padding: 25px;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    color: #a4acb3;
+    text-align: center; }
+  profile .dynamic_data {
+    font-family: "Avenir Medium", sans-serif;
+    color: #1a1f38; }
+  profile .list-container {
+    padding: 0; }
+    profile .list-container .checkbox-container {
+      float: left;
+      padding: 40px 0;
+      text-align: center;
+      border-right: 1px solid #e6e6e6;
+      cursor: pointer; }
+    profile .list-container ul {
+      padding: 0;
+      margin-bottom: 0; }
+      profile .list-container ul li {
+        background: whitesmoke;
+        padding: 0;
+        margin: 0;
+        transition-property: all;
+        transition-duration: 150ms;
+        border-left: 4px solid transparent;
+        display: inline-block;
+        width: 100%; }
+        profile .list-container ul li .trash-container {
+          color: #CCC;
+          padding-top: 10px;
+          cursor: pointer; }
+          profile .list-container ul li .trash-container:hover {
+            color: #333; }
+        profile .list-container ul li .small-btn {
+          height: 40px !important;
+          padding: 0 !important;
+          background: white !important;
+          border: 1px solid #CCC !important;
+          color: black !important; }
+        profile .list-container ul li a {
+          text-decoration: none; }
+        profile .list-container ul li .matching-profiles {
+          text-decoration: underline; }
+        profile .list-container ul li button {
+          border: none;
+          border-radius: 4px;
+          color: white;
+          height: 50px;
+          padding: 15px;
+          margin-top: 10px;
+          background-color: #3a63a0;
+          text-decoration: none; }
+        profile .list-container ul li md-checkbox {
+          pointer-events: none; }
+        profile .list-container ul li:nth-child(odd) {
+          background: white; }
+        profile .list-container ul li:hover {
+          background-color: #f0f0f0;
+          border-color: #35B6E1; }
+        profile .list-container ul li.selected {
+          background: #35B6E1;
+          color: white; }
+          profile .list-container ul li.selected .checkbox-container {
+            background: #35B6E1; }
+          profile .list-container ul li.selected .item-desc, profile .list-container ul li.selected h3 {
+            color: white; }
+          profile .list-container ul li.selected md-checkbox .md-checkbox-frame {
+            border: none; }
+        profile .list-container ul li a {
+          color: #333; }
+        profile .list-container ul li h3 {
+          font-family: "Avenir Medium", sans-serif;
+          max-height: 20px;
+          overflow: hidden;
+          color: #1a1f38;
+          margin: 5px 0; }
+        profile .list-container ul li .date {
+          color: #a9a9a9;
+          font-family: "Avenir Medium", sans-serif;
+          font-size: 0.9em; }
+        profile .list-container ul li .item {
+          padding: 10px;
+          display: inline-block; }
+          profile .list-container ul li .item .item-desc {
+            float: left;
+            padding-left: 10px; }
+          profile .list-container ul li .item .item-action-btn {
+            border: none;
+            background: none;
+            position: absolute;
+            right: 50px; }
+          profile .list-container ul li .item.logo img, profile .list-container ul li .item.photo img {
+            max-width: 80px;
+            max-height: 80px; }
+
+@media (max-width: 1024px) {
+  profile .list-container ul li .date {
+    display: none; }
+  profile .router-outlet-container {
+    width: 100%;
+    margin-left: 0;
+    padding: 105px 0 0 0; } }
+experiences {
+  display: block; }
+  experiences .like-container {
+    padding-top: 10px;
+    color: #35B6E1; }
+
+alerts {
+  display: block; }
+
+.alert-default {
+  background: #f7f7f8; }
+
+testimonials {
+  display: block; }
+
+.photo-preview {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 15px;
+  background-size: cover;
+  background-position: center center;
+  border: 7px solid #f5f5f5;
+  border-radius: 3px;
+  cursor: pointer; }
+  .photo-preview.logo {
+    height: 135px;
+    margin-bottom: 10px;
+    border-color: #35B6E1; }
+
+.photo-title {
+  text-align: center;
+  font-family: "Avenir Medium", sans-serif; }
+
+.delete-photo {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #1a1f38;
+  color: white;
+  position: absolute;
+  top: -10px;
+  right: 0;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer; }
+
+#business-photos {
+  margin-top: 15px;
+  padding: 0; }
+
+.business-select-container {
+  padding: 0; }
+
+.toggle-business-creation-container {
+  padding: 15px;
+  text-align: center;
+  cursor: pointer; }
+
+notifications {
+  position: relative;
+  z-index: 10000; }
+  notifications .notification-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #35B6E1;
+    color: white;
+    text-align: center;
+    padding: 17px;
+    height: 60px;
+    font-size: 1.3em;
+    font-family: "Avenir Medium", sans-serif;
+    z-index: 100;
+    animation: show-note 250ms;
+    transition-property: all;
+    transition-duration: 250ms; }
+    notifications .notification-container.success {
+      background-color: #34ba47; }
+    notifications .notification-container.warning {
+      background-color: #E47F1B; }
+    notifications .notification-container.error {
+      background-color: #E13543; }
+    notifications .notification-container.info {
+      background-color: #35B6E1; }
+    notifications .notification-container .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer; }
+    notifications .notification-container button {
+      position: absolute;
+      right: 50px;
+      top: 10px;
+      border-radius: 4px;
+      border: none;
+      background-color: white;
+      color: #333;
+      padding: 0px 15px; }
+
+.notification-container a {
+  position: absolute;
+  left: 30px; }
+
+.notification-container.success a {
+  color: black; }
+
+.notification-container.warning a {
+  color: black; }
+
+.notification-container.error a {
+  color: black; }
+
+.notification-container.info a {
+  color: black; }
+
+.notification-container.shown {
+  bottom: 0; }
+
+@-webkit-keyframes show-note {
+  0% {
+    bottom: -85px; }
+  100% {
+    bottom: 0; } }
+@-moz-keyframes show-note {
+  0% {
+    bottom: -85px; }
+  100% {
+    bottom: 0; } }
+@-o-keyframes show-note {
+  0% {
+    bottom: -85px; }
+  100% {
+    bottom: 0; } }
+@keyframes show-note {
+  0% {
+    bottom: -85px; }
+  100% {
+    bottom: 0; } }
+@media (max-width: 765px) {
+  notifications .notification-container {
+    text-align: left; } }
+applicants .header-container {
+  padding: 0;
+  height: 70px;
+  border-bottom: 1px solid #e6e6e6;
+  background: #35B6E1; }
+  applicants .header-container select {
+    height: 59px;
+    border: none;
+    border-right: 1px solid white;
+    background: #35B6E1;
+    color: white; }
+  applicants .header-container .filter {
+    border-right: 1px solid #e6e6e6;
+    padding: 20px;
+    float: left;
+    text-transform: uppercase;
+    font-family: "Avenir Heavy", sans-serif;
+    cursor: pointer; }
+    applicants .header-container .filter label {
+      cursor: pointer; }
+    applicants .header-container .filter:hover {
+      background-color: whitesmoke; }
+    applicants .header-container .filter.active {
+      background-color: #35B6E1; }
+      applicants .header-container .filter.active label {
+        color: white; }
+  applicants .header-container .items-count {
+    text-align: center;
+    font-family: "Avenir Heavy", sans-serif;
+    font-size: 2em;
+    color: white;
+    padding: 15px; }
+  applicants .header-container .main-checkbox-container {
+    padding: 22px;
+    text-align: center;
+    border-right: 1px solid #e6e6e6;
+    background: #35B6E1;
+    border-top-left-radius: 4px; }
+    applicants .header-container .main-checkbox-container md-checkbox {
+      pointer-events: none; }
+    applicants .header-container .main-checkbox-container.selected {
+      background-color: #35B6E1; }
+  applicants .header-container .actions-container {
+    padding: 0;
+    text-align: right; }
+    applicants .header-container .actions-container button {
+      width: 60px;
+      height: 69px;
+      background: transparent;
+      border: none;
+      color: white; }
+      applicants .header-container .actions-container button:hover {
+        background: transparent; }
+applicants h2 {
+  text-align: center;
+  font-size: 2.3em; }
+applicants form .submit-btn, applicants form .back-btn {
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  height: 60px; }
+applicants form label {
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-bottom: 5px; }
+applicants .router-outlet-container {
+  background: white;
+  border-radius: 4px; }
+applicants .page-title-container h3 {
+  padding: 25px;
+  border-top: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
+  color: #a4acb3;
+  text-align: center; }
+applicants .dynamic_data {
+  font-family: "Avenir Medium", sans-serif;
+  color: #1a1f38; }
+applicants .list-container {
+  padding: 0; }
+  applicants .list-container .checkbox-container {
+    float: left;
+    padding: 40px 0;
+    text-align: center;
+    border-right: 1px solid #e6e6e6;
+    cursor: pointer; }
+  applicants .list-container ul {
+    padding: 0;
+    margin-bottom: 0; }
+    applicants .list-container ul li {
+      background: whitesmoke;
+      padding: 0;
+      margin: 0;
+      transition-property: all;
+      transition-duration: 150ms;
+      border-left: 4px solid transparent; }
+      applicants .list-container ul li a {
+        text-decoration: underline; }
+      applicants .list-container ul li button {
+        border: none;
+        border-radius: 4px;
+        color: white;
+        background-color: #35B6E1;
+        height: 50px;
+        padding: 15px;
+        margin-top: 10px; }
+      applicants .list-container ul li md-checkbox {
+        pointer-events: none; }
+      applicants .list-container ul li:nth-child(odd) {
+        background: white; }
+      applicants .list-container ul li:hover {
+        background-color: #f0f0f0;
+        border-color: #35B6E1; }
+      applicants .list-container ul li.selected {
+        background: #35B6E1;
+        color: white; }
+        applicants .list-container ul li.selected .checkbox-container {
+          background: #35B6E1; }
+        applicants .list-container ul li.selected .item-desc, applicants .list-container ul li.selected h3 {
+          color: white; }
+        applicants .list-container ul li.selected md-checkbox .md-checkbox-frame {
+          border: none; }
+      applicants .list-container ul li a {
+        color: #333; }
+      applicants .list-container ul li h3 {
+        font-family: "Avenir Medium", sans-serif;
+        max-height: 20px;
+        overflow: hidden;
+        color: #1a1f38;
+        margin: 5px 0; }
+      applicants .list-container ul li .date {
+        color: #a9a9a9;
+        font-family: "Avenir Medium", sans-serif;
+        font-size: 0.9em; }
+      applicants .list-container ul li .item {
+        padding: 10px;
+        display: inline-block; }
+        applicants .list-container ul li .item .item-desc {
+          float: left;
+          padding-left: 10px; }
+        applicants .list-container ul li .item .item-action-btn {
+          border: none;
+          background: none;
+          position: absolute;
+          right: 50px; }
+        applicants .list-container ul li .item.logo img, applicants .list-container ul li .item.photo img {
+          max-width: 80px;
+          max-height: 80px; }
+applicants .btn-default, applicants .btn-danger, applicants .btn-primary {
+  padding: 10px !important;
+  height: 60px !important; }
+  applicants .btn-default span, applicants .btn-danger span, applicants .btn-primary span {
+    font-size: 1.5em; }
+applicants .btn-danger {
+  background-color: #E13543 !important; }
+applicants .btn-primary {
+  background-color: #34ba47 !important; }
+
+@media (max-width: 1024px) {
+  applicants .list-container ul li .date {
+    display: none; }
+  applicants .router-outlet-container {
+    width: 100%;
+    margin-left: 0;
+    padding-top: 140px; } }
+.cropping-result {
+  position: absolute;
+  margin-left: 20px; }
+
+.file-drop-zone {
+  text-align: center;
+  background-color: white;
+  border: 2px dashed #d0d0d0;
+  font-family: "Avenir Medium", sans-serif;
+  padding: 15px; }
+  .file-drop-zone.nv-file-over {
+    color: #35B6E1;
+    border: 2px solid #35B6E1; }
+
+profile-preview .no-description, candidate-dashboard .no-description {
+  border: 1px dashed #CCC;
+  padding: 25px;
+  cursor: pointer; }
+profile-preview h2, candidate-dashboard h2 {
+  text-transform: uppercase;
+  text-align: left;
+  font-family: "Avenir Heavy", sans-serif;
+  color: #35B6E1;
+  font-size: 1.3em;
+  padding: 5px;
+  border-bottom: 1px solid #CCC;
+  margin: 20px 0 0 0 !important; }
+profile-preview .looking_for_job_naming_list, candidate-dashboard .looking_for_job_naming_list {
+  list-style-type: circle; }
+profile-preview h3, candidate-dashboard h3 {
+  font-size: 1.3em; }
+profile-preview .badge, candidate-dashboard .badge {
+  background-color: #f7f7f8; }
+profile-preview .alert, candidate-dashboard .alert {
+  text-align: center; }
+  profile-preview .alert h3, candidate-dashboard .alert h3 {
+    color: #333;
+    font-size: 1.5em; }
+profile-preview .row.scrolled-down, candidate-dashboard .row.scrolled-down {
+  margin-top: 200px; }
+profile-preview .form-control[input], candidate-dashboard .form-control[input] {
+  height: 35px;
+  width: auto; }
+profile-preview .profile-picture-container, candidate-dashboard .profile-picture-container {
+  padding: 10px 15px; }
+  profile-preview .profile-picture-container .profile-picture, candidate-dashboard .profile-picture-container .profile-picture {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    background-size: cover;
+    background-position: center center; }
+    profile-preview .profile-picture-container .profile-picture .edit-profile-picture, candidate-dashboard .profile-picture-container .profile-picture .edit-profile-picture {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      padding: 10px;
+      color: black;
+      background: #35B6E1;
+      opacity: .5;
+      cursor: pointer; }
+      profile-preview .profile-picture-container .profile-picture .edit-profile-picture:hover, candidate-dashboard .profile-picture-container .profile-picture .edit-profile-picture:hover {
+        opacity: .8; }
+profile-preview .list-container ul, candidate-dashboard .list-container ul {
+  padding: 25px; }
+profile-preview .user-basic-infos, candidate-dashboard .user-basic-infos {
+  padding-top: 10px;
+  line-height: 23px; }
+  profile-preview .user-basic-infos li, candidate-dashboard .user-basic-infos li {
+    font-family: "Avenir Heavy", sans-serif;
+    padding-top: 5px; }
+  profile-preview .user-basic-infos h3, candidate-dashboard .user-basic-infos h3 {
+    font-size: 1.1em; }
+  profile-preview .user-basic-infos .user-identity, candidate-dashboard .user-basic-infos .user-identity {
+    font-size: 1.5em;
+    font-family: "Avenir Heavy", sans-serif;
+    color: #1a1f38;
+    text-transform: uppercase; }
+    profile-preview .user-basic-infos .user-identity h2, candidate-dashboard .user-basic-infos .user-identity h2 {
+      padding: 0 !important;
+      margin: 0 !important;
+      border: none !important; }
+  profile-preview .user-basic-infos h3, candidate-dashboard .user-basic-infos h3 {
+    margin-top: 5px; }
+profile-preview .resume-container, candidate-dashboard .resume-container {
+  text-align: center;
+  padding: 25px;
+  margin: 0 -15px; }
+  profile-preview .resume-container .edit-button, candidate-dashboard .resume-container .edit-button {
+    background: #35B6E1;
+    border-radius: 4px;
+    padding: 10px 15px;
+    color: white;
+    height: 45px;
+    border: none; }
+  profile-preview .resume-container a, candidate-dashboard .resume-container a {
+    color: #333;
+    cursor: pointer; }
+  profile-preview .resume-container .icon, candidate-dashboard .resume-container .icon {
+    font-size: 3em; }
+profile-preview .user-secondary-infos, candidate-dashboard .user-secondary-infos {
+  background: #f7f7f8;
+  padding: 20px; }
+profile-preview .description, candidate-dashboard .description {
+  margin: 0 25px;
+  padding: 15px;
+  pointer-events: none; }
+profile-preview .editable, candidate-dashboard .editable {
+  pointer-events: all;
+  cursor: pointer;
+  border-radius: 4px; }
+profile-preview .editable:hover, candidate-dashboard .editable:hover {
+  background: rgba(53, 182, 225, 0.3);
+  color: #10566d; }
+profile-preview #resume-preview-modal iframe, candidate-dashboard #resume-preview-modal iframe {
+  height: 500px;
+  width: 100%; }
+
+@media (max-width: 1024px) {
+  profile-preview .description {
+    margin: 0; } }
+custom-pagination .pagination-previous, custom-pagination .page, custom-pagination .pagination-next {
+  float: left;
+  cursor: pointer; }
+custom-pagination .pagination-previous, custom-pagination .pagination-next {
+  width: 15%;
+  text-align: center;
+  padding: 15px;
+  font-family: "Avenir Heavy", sans-serif; }
+custom-pagination .pagination-next {
+  position: absolute;
+  right: 0;
+  display: inline-block; }
+custom-pagination .pages {
+  display: inline-block; }
+  custom-pagination .pages .page {
+    padding: 15px; }
+
+right-sidebar {
+  display: inline-block;
+  width: 18%;
+  margin-left: 3%; }
+
+.badge {
+  position: relative;
+  top: -2px;
+  background-color: white;
+  color: #333;
+  font-size: 1em;
+  padding: 5px 15px;
+  border-radius: 4px; }
+  .badge.inactive {
+    color: #CCC; }
+  .badge.danger {
+    background-color: #E13543;
+    color: white; }
+  .badge.info {
+    background-color: #35B6E1;
+    color: white; }
+
+.spinner {
+  margin: auto;
+  display: block;
+  margin-top: 15%;
+  animation: rotator 1.4s linear infinite; }
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(270deg); } }
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite; }
+
+@keyframes colors {
+  0% {
+    stroke: #35B6E1; }
+  25% {
+    stroke: #4c87d3; }
+  50% {
+    stroke: #35B6E1; }
+  75% {
+    stroke: #4c87d3; }
+  100% {
+    stroke: #35B6E1; } }
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187; }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg); }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg); } }
+job-search-bar {
+  max-width: 650px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 0 10px;
+  background: white;
+  display: inline-block;
+  border-radius: 4px;
+  -moz-box-shadow: 0px 0px 40px 0px #343434;
+  -webkit-box-shadow: 0px 0px 40px 0px #343434;
+  -o-box-shadow: 0px 0px 40px 0px #343434;
+  box-shadow: 0px 0px 40px 0px #343434;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=NaN, Strength=40); }
+  job-search-bar .input-container {
+    float: left; }
+    job-search-bar .input-container select, job-search-bar .input-container input {
+      border: none;
+      border-radius: 0;
+      height: 70px;
+      color: #333;
+      -webkit-appearance: none; }
+    job-search-bar .input-container button {
+      height: 60px;
+      width: 100%; }
+  job-search-bar .find-btn {
+    width: 100%;
+    font-size: 18px; }
+  job-search-bar .input-group-addon {
+    border-bottom: none !important; }
+
+@media (max-width: 765px) {
+  job-search-bar .input-container.btn {
+    width: 100%; } }
+profile-sub-header {
+  background: #35B6E1;
+  display: inline-block;
+  width: 100%;
+  color: white;
+  padding: 15px;
+  height: 130px;
+  margin-top: 100px;
+  /**
+    Fixed profile-sub-header style
+  */ }
+  profile-sub-header.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    margin: 0;
+    height: 80px; }
+    profile-sub-header.fixed .progress-radial {
+      width: 51px;
+      height: 51px; }
+      profile-sub-header.fixed .progress-radial .overlay {
+        width: 40px;
+        height: 40px; }
+        profile-sub-header.fixed .progress-radial .overlay .img {
+          width: 40px;
+          height: 40px; }
+    profile-sub-header.fixed .complete-profile {
+      top: -10px; }
+    profile-sub-header.fixed .profile-picture {
+      padding-top: 0;
+      top: -10px; }
+    profile-sub-header.fixed i, profile-sub-header.fixed h2 {
+      display: none; }
+    profile-sub-header.fixed h3 {
+      margin: 0; }
+  profile-sub-header .sub-header-wrapper {
+    max-width: 1200px;
+    margin: auto; }
+    profile-sub-header .sub-header-wrapper .profile-picture {
+      padding-top: 5px; }
+      profile-sub-header .sub-header-wrapper .profile-picture .img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center center;
+        margin: auto; }
+    profile-sub-header .sub-header-wrapper h2 {
+      margin: 0;
+      margin-top: 7px;
+      font-size: 2.1em; }
+    profile-sub-header .sub-header-wrapper h3 {
+      font-size: 1em;
+      text-transform: uppercase;
+      font-family: "Avenir Medium", sans-serif; }
+    profile-sub-header .sub-header-wrapper a.active {
+      color: #003c50 !important; }
+    profile-sub-header .sub-header-wrapper a:focus {
+      text-decoration: none; }
+    profile-sub-header .sub-header-wrapper .sub-header-menu-item {
+      text-align: center;
+      margin-top: 15px; }
+      profile-sub-header .sub-header-wrapper .sub-header-menu-item a {
+        color: white; }
+      profile-sub-header .sub-header-wrapper .sub-header-menu-item i {
+        font-size: 2em; }
+
+@media (max-width: 765px) {
+  profile-sub-header {
+    display: none; } }
+/* -------------------------------------
+ * Bar container
+ * ------------------------------------- */
+.progress-radial {
+  float: left;
+  position: relative;
+  width: 91px;
+  height: 91px;
+  border-radius: 50%;
+  margin-left: 30%;
+  background-color: white; }
+
+/* -------------------------------------
+ * Optional centered circle w/text
+ * ------------------------------------- */
+.progress-radial .overlay {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  background-color: #fffde8;
+  border-radius: 50%;
+  margin-left: 6px;
+  margin-top: 6px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 16px; }
+
+/* -------------------------------------
+ * Mixin for progress-% class
+ * ------------------------------------- */
+.progress-0 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(90deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-5 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(108deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-10 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(126deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-15 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(144deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-20 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(162deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-25 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(180deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-30 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(198deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-35 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(216deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-40 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(234deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-45 {
+  background-image: linear-gradient(90deg, #35B6E1 50%, transparent 50%, transparent), linear-gradient(252deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-50 {
+  background-image: linear-gradient(-90deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-55 {
+  background-image: linear-gradient(-72deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-60 {
+  background-image: linear-gradient(-54deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-65 {
+  background-image: linear-gradient(-36deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-70 {
+  background-image: linear-gradient(-18deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-75 {
+  background-image: linear-gradient(0deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-80 {
+  background-image: linear-gradient(18deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-85 {
+  background-image: linear-gradient(36deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-90 {
+  background-image: linear-gradient(54deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-95 {
+  background-image: linear-gradient(72deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+.progress-100 {
+  background-image: linear-gradient(90deg, white 50%, transparent 50%, transparent), linear-gradient(270deg, white 50%, #35B6E1 50%, #35B6E1); }
+
+recruiter-promo, candidate-promo {
+  padding-top: 100px;
+  display: block; }
+  recruiter-promo .btn-primary, candidate-promo .btn-primary {
+    font-size: 1.7em;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    max-height: 200px;
+    height: 50px; }
+  recruiter-promo .candidate-promo-heading, candidate-promo .candidate-promo-heading {
+    background-image: url("/img/header-home-candidat.jpg") !important;
+    background-position: center -100px; }
+  recruiter-promo .recruiter-promo-heading, recruiter-promo .candidate-promo-heading, candidate-promo .recruiter-promo-heading, candidate-promo .candidate-promo-heading {
+    display: inline-block;
+    width: 100%;
+    padding: 50px 0;
+    background-image: url("/img/header-home-recruteur.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; }
+    recruiter-promo .recruiter-promo-heading h1, recruiter-promo .recruiter-promo-heading h2, recruiter-promo .candidate-promo-heading h1, recruiter-promo .candidate-promo-heading h2, candidate-promo .recruiter-promo-heading h1, candidate-promo .recruiter-promo-heading h2, candidate-promo .candidate-promo-heading h1, candidate-promo .candidate-promo-heading h2 {
+      color: white;
+      margin-top: 200px; }
+    recruiter-promo .recruiter-promo-heading h2, recruiter-promo .candidate-promo-heading h2, candidate-promo .recruiter-promo-heading h2, candidate-promo .candidate-promo-heading h2 {
+      margin-top: 0;
+      margin-bottom: 25px; }
+    recruiter-promo .recruiter-promo-heading .promo-container, recruiter-promo .candidate-promo-heading .promo-container, candidate-promo .recruiter-promo-heading .promo-container, candidate-promo .candidate-promo-heading .promo-container {
+      max-width: 990px;
+      width: auto;
+      margin: auto; }
+      recruiter-promo .recruiter-promo-heading .promo-container .promo-label, recruiter-promo .candidate-promo-heading .promo-container .promo-label, candidate-promo .recruiter-promo-heading .promo-container .promo-label, candidate-promo .candidate-promo-heading .promo-container .promo-label {
+        padding-top: 100px; }
+      recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box, recruiter-promo .recruiter-promo-heading .promo-container .login-box, recruiter-promo .candidate-promo-heading .promo-container .sign-up-box, recruiter-promo .candidate-promo-heading .promo-container .login-box, candidate-promo .recruiter-promo-heading .promo-container .sign-up-box, candidate-promo .recruiter-promo-heading .promo-container .login-box, candidate-promo .candidate-promo-heading .promo-container .sign-up-box, candidate-promo .candidate-promo-heading .promo-container .login-box {
+        border-radius: 4px;
+        background: white;
+        padding: 25px 10px; }
+        recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box h2, recruiter-promo .recruiter-promo-heading .promo-container .login-box h2, recruiter-promo .candidate-promo-heading .promo-container .sign-up-box h2, recruiter-promo .candidate-promo-heading .promo-container .login-box h2, candidate-promo .recruiter-promo-heading .promo-container .sign-up-box h2, candidate-promo .recruiter-promo-heading .promo-container .login-box h2, candidate-promo .candidate-promo-heading .promo-container .sign-up-box h2, candidate-promo .candidate-promo-heading .promo-container .login-box h2 {
+          color: #333; }
+        recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box input, recruiter-promo .recruiter-promo-heading .promo-container .login-box input, recruiter-promo .candidate-promo-heading .promo-container .sign-up-box input, recruiter-promo .candidate-promo-heading .promo-container .login-box input, candidate-promo .recruiter-promo-heading .promo-container .sign-up-box input, candidate-promo .recruiter-promo-heading .promo-container .login-box input, candidate-promo .candidate-promo-heading .promo-container .sign-up-box input, candidate-promo .candidate-promo-heading .promo-container .login-box input {
+          margin-bottom: 15px; }
+      recruiter-promo .recruiter-promo-heading .promo-container .sign-up-box, recruiter-promo .candidate-promo-heading .promo-container .sign-up-box, candidate-promo .recruiter-promo-heading .promo-container .sign-up-box, candidate-promo .candidate-promo-heading .promo-container .sign-up-box {
+        margin-top: 25px; }
+  recruiter-promo .recruiter-promo-container, candidate-promo .recruiter-promo-container {
+    max-width: 990px;
+    width: 100%;
+    margin: auto; }
+    recruiter-promo .recruiter-promo-container h2, candidate-promo .recruiter-promo-container h2 {
+      color: #35B6E1; }
+    recruiter-promo .recruiter-promo-container .screen-description, candidate-promo .recruiter-promo-container .screen-description {
+      padding-top: 100px;
+      font-size: 1.4em; }
+    recruiter-promo .recruiter-promo-container .step-by-step, candidate-promo .recruiter-promo-container .step-by-step {
+      margin-top: 50px; }
+      recruiter-promo .recruiter-promo-container .step-by-step .step .icon, candidate-promo .recruiter-promo-container .step-by-step .step .icon {
+        padding: 15px;
+        text-align: center;
+        border-radius: 50%;
+        color: white; }
+        recruiter-promo .recruiter-promo-container .step-by-step .step .icon strong, candidate-promo .recruiter-promo-container .step-by-step .step .icon strong {
+          font-family: "Avenir Heavy", sans-serif;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          margin-top: 15px; }
+      recruiter-promo .recruiter-promo-container .step-by-step .line, candidate-promo .recruiter-promo-container .step-by-step .line {
+        height: 5px;
+        background: white;
+        border: 1px solid #CCC;
+        position: relative;
+        top: 10px;
+        z-index: -1;
+        width: 78%;
+        margin: auto; }
+    recruiter-promo .recruiter-promo-container .step-number, candidate-promo .recruiter-promo-container .step-number {
+      font-size: 45px;
+      color: #35B6E1; }
+  recruiter-promo .free-job-post, candidate-promo .free-job-post {
+    width: 100%;
+    padding: 20px;
+    background-color: #35B6E1;
+    text-align: center;
+    color: white;
+    font-size: 1.7em;
+    letter-spacing: 2px; }
+  recruiter-promo .screen-container, candidate-promo .screen-container {
+    padding-top: 100px; }
+  recruiter-promo .partners-container, candidate-promo .partners-container {
+    background-color: white; }
+    recruiter-promo .partners-container .partners, candidate-promo .partners-container .partners {
+      max-width: 990px;
+      width: 100%;
+      margin: auto; }
+      recruiter-promo .partners-container .partners .full-width, candidate-promo .partners-container .partners .full-width {
+        width: 80%; }
+  recruiter-promo .founder-picture, candidate-promo .founder-picture {
+    border-radius: 50%; }
+  recruiter-promo .testimonial-container, candidate-promo .testimonial-container {
+    background: white;
+    margin-top: 10px; }
+    recruiter-promo .testimonial-container .about, candidate-promo .testimonial-container .about {
+      max-width: 990px;
+      margin: auto;
+      padding: 50px 0; }
+  recruiter-promo .about-container, candidate-promo .about-container {
+    background: white;
+    margin-top: 150px; }
+    recruiter-promo .about-container .about, candidate-promo .about-container .about {
+      max-width: 990px;
+      margin: auto;
+      padding: 50px 0; }
+
+sign-up-steps {
+  display: block; }
+  sign-up-steps .steps {
+    margin: auto;
+    display: block;
+    width: 250px; }
+    sign-up-steps .steps .steps-line {
+      position: relative;
+      top: 42px;
+      z-index: 1;
+      border: 1px solid #d2c5dd;
+      width: 70%; }
+    sign-up-steps .steps .step {
+      float: left;
+      margin: 0 20px;
+      z-index: 1;
+      position: relative; }
+      sign-up-steps .steps .step .step-number {
+        padding: 10px;
+        text-align: center;
+        background-color: #d2c5dd;
+        color: white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-family: "Avenir Heavy", sans-serif; }
+      sign-up-steps .steps .step.active .step-number {
+        background-color: #9375AE; }
+
+website-editor .delete-url {
+  padding: 15px; }
+website-editor .description-preview {
+  margin: 15px;
+  padding: 25px;
+  border-radius: 4px;
+  background: #35B6E1;
+  width: 96%;
+  color: white; }
+
+business-page {
+  padding-top: 50px;
+  display: block; }
+  business-page .business-desc, business-page .business-infos, business-page .business-photos, business-page .jobs-listing {
+    max-width: 800px;
+    width: 100%;
+    margin: 25px auto;
+    background: white;
+    border-radius: 4px;
+    padding: 20px; }
+  business-page .business-infos {
+    margin-top: 0; }
+  business-page .user-not-logged-in {
+    margin-top: 150px; }
+  business-page .jobs-listing {
+    padding: 0; }
+    business-page .jobs-listing h2 {
+      padding-left: 15px; }
+  business-page .business-photos .photo-container {
+    height: 100px;
+    overflow: hidden;
+    margin: 15px 0; }
+
+admin-job-posts .items-count {
+  color: #333 !important; }
+
+footer {
+  display: inline-block;
+  width: 100%;
+  padding: 40px 0;
+  margin-top: 200px;
+  background-image: url("/img/footer_bg.jpg");
+  background-size: cover;
+  background-position: center center; }
+  footer .row {
+    color: white;
+    max-width: 990px;
+    width: 100%;
+    margin: auto; }
+    footer .row .logo {
+      background-image: url("/img/cookorico_logo.png");
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      width: 190px;
+      height: 67px; }
+    footer .row a {
+      color: white; }
+    footer .row i {
+      font-size: 2em;
+      margin: 0 10px 0 0; }
+
+@media (max-width: 765px) {
+  footer {
+    margin: 0; }
+    footer .row {
+      margin: 0; } }
+clubs-management .create-club {
+  background: #35B6E1;
+  color: white;
+  margin: 0;
+  padding: 25px; }
+clubs-management input, clubs-management select {
+  margin-bottom: 15px; }
+clubs-management ul li .logo-container {
+  height: 120px;
+  overflow: hidden; }
+clubs-management ul li.business {
+  background-color: #f7f7f8; }
+  clubs-management ul li.business:nth-child(odd) {
+    background: white; }
+
+confirm-account-creation {
+  display: block;
+  padding: 25px; }
+
+body {
+  background-color: #f7f7f8;
+  font-family: "Avenir Book", sans-serif;
+  color: #333;
+  -webkit-font-smoothing: antialiased; }
+
+h1 {
+  font-family: "Avenir Heavy", sans-serif; }
+
+h2 {
+  font-size: 1.7em; }
+
+h3 {
+  font-size: 1.3em; }
+
+h4 {
+  font-family: "Avenir Heavy", sans-serif; }
+
+ul {
+  list-style-type: none; }
+
+b, strong {
+  font-family: "Avenir Heavy", sans-serif;
+  font-weight: normal; }
+
+a:hover {
+  text-decoration: none; }
+
+.modal-backdrop {
+  z-index: 9; }
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed; }
+
+.centered {
+  text-align: center; }
+
+.underlined {
+  text-decoration: underline;
+  color: #333; }
+
+.full-width {
+  width: 100%; }
+
+.no-padding {
+  padding: 0; }
+
+.no-margin {
+  margin: 0; }
+
+re-captcha > div > div {
+  margin: auto; }
+
+.progress-bar {
+  background-color: #35B6E1;
+  box-shadow: none; }
+
+.success {
+  color: #34ba47; }
+
+.warning {
+  color: #E47F1B; }
+
+.danger {
+  color: #E13543; }
+
+.bold {
+  font-family: "Avenir Heavy", sans-serif; }
+
+.not-visible {
+  visibility: hidden;
+  height: 0; }
+
+#main {
+  display: inline-block;
+  width: 100%;
+  min-height: 300px; }
+
+/*# sourceMappingURL=app.css.map */

@@ -85,6 +85,7 @@ class JobController extends Controller
 
         $jobs = Job::where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
             ->where('is_active', 1)
+            ->where('is_rejected', 0)
             ->orderBy('created_at', 'DESC')
             ->get()
             ->load('business',

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 // Services
 import { ClubService } from '../../services/club.service';
+import { UserService } from '../../services/user.service';
 
 // Image cropping
 import { CropperSettings, ImageCropperComponent } from 'ng2-img-cropper';
@@ -26,11 +27,13 @@ export class ClubsManagementComponent {
     public hasBaseDropZoneOver:boolean = false;
     public hasAnotherDropZoneOver:boolean = false;
     profilePictureData: any;
+    businessIdList: any = [];
     isSavingClub: boolean = false;
     isGroupEdtingMode: boolean = false;
     groupSpacesAmount: number;
 
     constructor(private clubService: ClubService,
+                private userService: UserService,
                 private route: ActivatedRoute) {
         this.route.params.subscribe(params => {
             if (params['type'] == 'groupes') {
@@ -157,5 +160,12 @@ export class ClubsManagementComponent {
                 this.clubs = clubs.json();
             });
         }
+    }
+
+    loginUsingId(userId: number) {
+        this.userService.loginUsingId(userId).subscribe((user: Response) => {
+            localStorage.setItem('user', JSON.stringify(user.json()));
+            document.location.hash = '/';
+        });
     }
 }

@@ -26,6 +26,8 @@ export class MyJobPostsComponent {
     userCanPullUpJobPost: boolean = false;
     userCanPostJob: boolean = false;
     user: any = {};
+    businessId: number = 0;
+    userBusinesses: any;
 
     constructor(private userService: UserService,
                 private jobPostService: JobPostService,
@@ -35,6 +37,10 @@ export class MyJobPostsComponent {
         let __this = this;
 
         this.user = JSON.parse(localStorage.getItem('user'));
+
+        this.userService.getBusinesses(this.user.id).subscribe((res: Response) => {
+            __this.userBusinesses = res.json();
+        });
 
         this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
             __this.items = res.json();
@@ -193,28 +199,30 @@ export class MyJobPostsComponent {
         let todayDate = new Date();
 
         for (let i = 0; i < this.items.length; i++) {
-            if (statusTitle == "is_accepted") {
-                if (this.items[i]['dayDiff'] < 30 && this.items[i]['is_accepted'] && this.items[i]['is_active']) {
+            if (this.businessId == 0 || this.businessId == this.items[i]['business_id']) {
+                if (statusTitle == "is_accepted") {
+                    if (this.items[i]['dayDiff'] < 30 && this.items[i]['is_accepted'] && this.items[i]['is_active']) {
+                        count += 1;
+                    }
+                }
+                else if (statusTitle == "is_reviewing") {
+                    if (!this.items[i]['is_accepted'] && !this.items[i]['is_rejected'] && this.items[i]['dayDiff'] < 30) {
+                        count += 1;
+                    }
+                }
+                else if (statusTitle == "is_expired") {
+                    if (this.items[i]['dayDiff'] > 30) {
+                        count += 1;
+                    }
+                }
+                else if (statusTitle == "is_inactive") {
+                    if (this.items[i]['is_accepted'] && this.items[i]['dayDiff'] < 30 && !this.items[i]['is_active']) {
+                        count += 1;
+                    }
+                }
+                else if (this.items[i][statusTitle]) {
                     count += 1;
                 }
-            }
-            else if (statusTitle == "is_reviewing") {
-                if (!this.items[i]['is_accepted'] && !this.items[i]['is_rejected'] && this.items[i]['dayDiff'] < 30) {
-                    count += 1;
-                }
-            }
-            else if (statusTitle == "is_expired") {
-                if (this.items[i]['dayDiff'] > 30) {
-                    count += 1;
-                }
-            }
-            else if (statusTitle == "is_inactive") {
-                if (this.items[i]['is_accepted'] && this.items[i]['dayDiff'] < 30 && !this.items[i]['is_active']) {
-                    count += 1;
-                }
-            }
-            else if (this.items[i][statusTitle]) {
-                count += 1;
             }
         }
 

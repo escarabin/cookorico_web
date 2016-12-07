@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Input;
 use App\Models\User;
 use App\Models\Application;
 use App\Models\Experience;
+use App\Models\Job;
 use App\Models\Alert;
 
 class UserController extends Controller
@@ -737,7 +738,7 @@ class UserController extends Controller
         }
 
         $businesses = User::find($userId)->businesses
-                        ->load('type', 'place');
+                        ->load('type', 'place', 'jobs', 'jobs.jobNaming', 'jobs.business', 'jobs.applications');
 
         return $businesses;
     }
@@ -797,7 +798,17 @@ class UserController extends Controller
             $userId = Auth::user()->id;
         }
 
-        $jobPosts = User::find($userId)->jobPosts
+        /**
+         * First, get user businesses
+         */
+        $businesses = User::find($userId)->businesses;
+        $businessIds = array();
+
+        foreach ($businesses as $business) {
+            $businessIds[] = $business->id;
+        }
+
+        $jobPosts = Job::whereIn('business_id', $businessIds)->get()
                     ->load('jobNaming', 'business', 'contractType', 'applications');
 
         foreach ($jobPosts as $jobPost) {

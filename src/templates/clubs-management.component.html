@@ -1,12 +1,12 @@
 <ul>
     <li class="row"
-        *ngFor="let club of clubs">
+        *ngFor="let club of clubs; let i = index">
         <div class="col-md-2 col-sm-2 hidden-xs">
             <img src="{{ club.profilePictureUrl }}"
                  *ngIf="club.profilePictureUrl"
                  class="full-width"/>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-4">
             <h3>{{ club.username }}</h3>
             <span class="fa fa-user"></span> &nbsp; {{ club.firstName }} {{ club.lastName }}<br />
             <span *ngIf="club.phone">
@@ -15,6 +15,19 @@
             <span class="fa fa-envelope"></span> &nbsp; {{ club.email }}
         </div>
         <div class="col-md-3 centered">
+            <br />
+            <button class="btn btn-default"
+                    (click)="loginUsingId(club.id)">
+                Accéder
+            </button>
+            <br />
+            <button class="btn btn-primary"
+                    routerLink="/club/{{ club.id }}">
+                Page emploi
+            </button>
+        </div>
+        <div class="col-md-3 centered">
+            <br />
             <button class="btn btn-warning"
                     (click)="deleteClub(club.id)">
                 Supprimer ce
@@ -27,20 +40,33 @@
                 <span *ngIf="!isGroupEdtingMode">club</span>
                 <span *ngIf="isGroupEdtingMode">groupe</span>
             </button>
-            <br />
-            <button class="btn btn-primary"
-                    routerLink="/club/{{ club.id }}">
-                Page emploi
-            </button>
         </div>
         <div class="col-md-12">
-            <div class="col-md-10 col-md-offset-2">
+            <hr />
+            <div class="col-md-12">
                 <business-select [isRequired]="true"
                                  (businessIdChange)="handleBusinessIdChange($event, club.id)">
 
                 </business-select>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-10">
+                <br />
+                <label>ID de l'établissement</label>
+                <input type="text"
+                       [(ngModel)]="businessIdList[i]"
+                       ngControl="businessIdList[i]"
+                       class="form-control"
+                       placeholder="ID de l'établissement"/>
+            </div>
+            <div class="col-md-2">
+                <br/>
+                <br/>
+                <button class="btn btn-primary"
+                        (click)="handleBusinessIdChange(businessIdList[i], club.id)">
+                    Ajouter
+                </button>
+            </div>
+            <div class="col-md-12" style="border-top: 1px solid #CCC">
                 <ul>
                     <li *ngFor="let business of club.businesses"
                         class="row business">
@@ -65,7 +91,7 @@
                             <br />
                             <button class="btn btn-default"
                                     (click)="detachBusinessFromClub(club.id, business.id)">
-                                <span class="icon-trash"></span>
+                                Détacher
                             </button>
                         </div>
                     </li>
@@ -151,7 +177,8 @@
                    placeholder="Email du contact"
                    class="form-control"/>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6"
+             *ngIf="club.id">
             <label>Mot de passe</label>
             <input type="password"
                    [(ngModel)]="club.password"

@@ -3,6 +3,21 @@
     <br />
 </div>
 
+<div class="col-md-12">
+    <select class="form-control"
+            [(ngModel)]="businessId"
+            ngControl="businessId">
+        <option value="0">
+            -- Tous les établissements --
+        </option>
+        <option *ngFor="let business of userBusinesses"
+                value="{{ business.id }}">
+            {{ business.title }}
+        </option>
+    </select>
+    <br />
+</div>
+
 <div class="col-md-12 no-padding">
     <div class="col-md-12 header-container">
         <div class="filter"
@@ -61,78 +76,81 @@
                        || (item['dayDiff'] > 30 && postStatus == 'is_expired')
                        || (postStatus == 'is_reviewing' && !item.is_accepted && !item.is_rejected && item['dayDiff'] < 30)
                        || (postStatus == 'is_inactive' && item.is_accepted && !item.is_active && item['dayDiff'] < 30)
+                       || (postStatus == 'is_rejected' && item.is_rejected)
                        || postStatus == null">
-                <div class="col-md-12 col-sm-12 col-xs-12 item"
-                     [class.logo]="item.business.logo">
-                    <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
-                        <img src="{{ item.business.logo }}"
-                             class="full-width"/>
-                    </div>
-                    <div [class.col-md-5]="item.business.logo"
-                         [class.col-md-7]="!item.business.logo"
-                         [class.col-sm-5]="item.business.logo"
-                         [class.col-sm-7]="!item.business.logo"
-                         class="col-xs-8">
-                        <h3 routerLink="/profil/annonce/editer/{{ item.id }}">
-                            {{ item.job_naming.title.substr(0, 33) }}<span *ngIf="item.job_naming.title.length > 33">...</span>
-                        </h3>
-                        {{ item.contract_type.title }} - {{ item.week_work_hours }}h<br />
-                        <strong>{{ item.business.title }}</strong><br />
-                        <span *ngIf="!item.on_top_of_listing">Publiée</span>
-                        <span *ngIf="item.on_top_of_listing">Remontée</span>
-                        le {{ item.created_at | date:"dd/MM/yyyy" }}<br />
-
-                        <button class="btn btn-primary"
-                                (click)="pullUpJobPost()"
-                                *ngIf="item.is_active && item.is_accepted && postStatus == 'is_accepted'">
-                            Remonter l'offre
-                        </button>
-                        <!--<span *ngIf="item.is_accepted" class="alert-success">En ligne</span>
-                        <span *ngIf="!item.is_accepted && !item.is_rejected" class="alert-warning">En validation</span>
-                        <span *ngIf="item.is_rejected" class="alert-danger">Rejetée</span>
-                        <span *ngIf="!item.is_active" class="alert-danger">Désactivée</span>-->
-                        <!-- <span class="date">
-                            {{ item.start_date }} &nbsp;
-                            <span class="fa fa-arrow-right"></span> &nbsp;
-                            {{ item.end_date }}
-                        </span> -->
-                    </div>
-                    <div class="col-md-3 col-sm-3 hidden-xs job-stats">
-                        <b class="ref">REF{{ item.id }}</b><br />
-                        <span  *ngIf="item.is_active && item.is_accepted">
-                            <a routerLink="/profil/profils-correspondants/{{ item.id }}">Profils correspondants</a><br />
-                            <a routerLink="/profil/postulants/{{ item.id }}" *ngIf="item.applications.length > 0" class="bold">{{ item.applications.length }} postulants</a><br />
-                            {{ item.print_count }} vues - {{ item.click_count }} clics<br />
-                        </span>
-                    </div>
-                    <div class="col-md-2 col-sm-2 centered hidden-xs"  *ngIf="item.is_rejected">
-                        <div class="alert alert-danger">
-                            Rejetée par l'équipe Cookorico
+                <div *ngIf="(businessId != 0 && businessId == item.business_id) || businessId == 0">
+                    <div class="col-md-12 col-sm-12 col-xs-12 item"
+                         [class.logo]="item.business.logo">
+                        <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
+                            <img src="{{ item.business.logo }}"
+                                 class="full-width"/>
                         </div>
-                    </div>
-                    <div class="col-md-2 col-sm-2 centered hidden-xs"  *ngIf="!item.is_rejected">
-                        <a routerLink="/recherche/annonce/{{ item.id }}">
-                            <button class="full-width">
-                                Voir l'offre
+                        <div [class.col-md-5]="item.business.logo"
+                             [class.col-md-7]="!item.business.logo"
+                             [class.col-sm-5]="item.business.logo"
+                             [class.col-sm-7]="!item.business.logo"
+                             class="col-xs-8">
+                            <h3 routerLink="/profil/annonce/editer/{{ item.id }}">
+                                {{ item.job_naming.title.substr(0, 33) }}<span *ngIf="item.job_naming.title.length > 33">...</span>
+                            </h3>
+                            {{ item.contract_type.title }} - {{ item.week_work_hours }}h<br />
+                            <strong>{{ item.business.title }}</strong><br />
+                            <span *ngIf="!item.on_top_of_listing">Publiée</span>
+                            <span *ngIf="item.on_top_of_listing">Remontée</span>
+                            le {{ item.created_at | date:"dd/MM/yyyy" }}<br />
+
+                            <button class="btn btn-primary"
+                                    (click)="pullUpJobPost()"
+                                    *ngIf="item.is_active && item.is_accepted && postStatus == 'is_accepted'">
+                                Remonter l'offre
                             </button>
-                        </a>
-                        <a routerLink="/profil/annonce/editer/{{ item.id }}">
-                            <button class="full-width">
-                                Modifier l'offre
-                            </button>
-                        </a><br />
-                        <a (click)="deactivateJobPost(item.id)"
-                           *ngIf="item.is_accepted && item.is_active">
-                            <button class="btn btn-danger full-width">
-                                Offre pourvue
-                            </button>
-                        </a>
-                        <a (click)="activateJobPost(item.id)"
-                           *ngIf="!item.is_active">
-                            <button class="btn btn-success full-width">
-                                Ré-activer l'offre
-                            </button>
-                        </a>
+                            <!--<span *ngIf="item.is_accepted" class="alert-success">En ligne</span>
+                            <span *ngIf="!item.is_accepted && !item.is_rejected" class="alert-warning">En validation</span>
+                            <span *ngIf="item.is_rejected" class="alert-danger">Rejetée</span>
+                            <span *ngIf="!item.is_active" class="alert-danger">Désactivée</span>-->
+                            <!-- <span class="date">
+                                {{ item.start_date }} &nbsp;
+                                <span class="fa fa-arrow-right"></span> &nbsp;
+                                {{ item.end_date }}
+                            </span> -->
+                        </div>
+                        <div class="col-md-3 col-sm-3 hidden-xs job-stats">
+                            <b class="ref">REF{{ item.id }}</b><br />
+                            <span  *ngIf="item.is_active && item.is_accepted">
+                                <a routerLink="/profil/profils-correspondants/{{ item.id }}">Profils correspondants</a><br />
+                                <a routerLink="/profil/postulants/{{ item.id }}" *ngIf="item.applications.length > 0" class="bold">{{ item.applications.length }} postulants</a><br />
+                                {{ item.print_count }} vues - {{ item.click_count }} clics<br />
+                            </span>
+                        </div>
+                        <div class="col-md-2 col-sm-2 centered hidden-xs"  *ngIf="item.is_rejected">
+                            <div class="alert alert-danger">
+                                Rejetée par l'équipe Cookorico
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 centered hidden-xs"  *ngIf="!item.is_rejected">
+                            <a routerLink="/recherche/annonce/{{ item.id }}">
+                                <button class="full-width">
+                                    Voir l'offre
+                                </button>
+                            </a>
+                            <a routerLink="/profil/annonce/editer/{{ item.id }}">
+                                <button class="full-width">
+                                    Modifier l'offre
+                                </button>
+                            </a><br />
+                            <a (click)="deactivateJobPost(item.id)"
+                               *ngIf="item.is_accepted && item.is_active">
+                                <button class="btn btn-danger full-width">
+                                    Offre pourvue
+                                </button>
+                            </a>
+                            <a (click)="activateJobPost(item.id)"
+                               *ngIf="!item.is_active">
+                                <button class="btn btn-success full-width">
+                                    Ré-activer l'offre
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </li>

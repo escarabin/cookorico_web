@@ -18,10 +18,12 @@ import { Notification } from '../../models/notification';
 export class ApplicantsComponent {
     items: any = [];
     jobPosts: any = [];
-    jobPostId: number = null;
+    jobPostId: number = 0;
+    businessId: number = 0;
     allItemsChecked: boolean;
     checkedItemsList: any = [];
     user: any = {};
+    userBusinesses: any = [];
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService,
@@ -30,6 +32,10 @@ export class ApplicantsComponent {
         let __this = this;
 
         this.user = JSON.parse(localStorage.getItem('user'));
+
+        this.userService.getBusinesses(this.user.id).subscribe((res: Response) => {
+            __this.userBusinesses = res.json();
+        });
 
         this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
             __this.jobPosts = res.json();

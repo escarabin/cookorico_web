@@ -28,6 +28,7 @@ export class MatchingProfilesComponent {
         this.userService.getMatchingProfiles(this.user.id).subscribe((res: Response) => {
             __this.items = res.json();
             __this.isLoadingProfiles = false;
+
         });
 
         this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
