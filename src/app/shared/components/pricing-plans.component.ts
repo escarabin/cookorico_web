@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 
@@ -32,6 +32,19 @@ export class PricingPlansComponent {
                 private router: Router,
                 private notificationService: NotificationsService) {
         let __this = this;
+
+        router.events.subscribe((event) => {
+            if (event.url == "/profil/confirmation-paiement/false") {
+                this.notificationService.show(
+                    new Notification('error', 'Erreur de paiement, merci de nous contacter à hello@cookorico.com ou au 02 97 21 59 23', 'Contact', false)
+                );
+            }
+            else if (event.url == "/profil/confirmation-paiement/true") {
+                this.notificationService.show(
+                    new Notification('success', 'Votre paiement a bien été pris en compte')
+                );
+            }
+        });
 
         this.user = JSON.parse(localStorage.getItem('user'));
 

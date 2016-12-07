@@ -1074,7 +1074,13 @@ class UserController extends Controller
         return 'test';
     }
 
-    /**
+    public function savePaylinePayment($token, $serviceId, $userId) {
+        header('Location: https://cookorico.com/profil/confirmation-paiement/false');
+
+        exit();
+    }
+
+        /**
      * Save user's payment after validation
      */
     public function savePayment(Request $request) {

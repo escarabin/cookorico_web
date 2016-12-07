@@ -119,6 +119,9 @@ const profileRoutes: Routes = [
             // Website editor
             {path: 'website-editor', component: WebsiteEditorComponent},
 
+            // Payment
+            {path: 'confirmation-paiement/:success', redirectTo: '/profil/mon_abonnement'},
+
             // Admin
             {path: 'recruteurs-admin', component: RecruitersAdminComponent},
             {path: 'packs', component: AdminPlansComponent},

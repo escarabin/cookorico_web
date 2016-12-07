@@ -21,6 +21,10 @@ if(isset($_POST['version'])){
 
 // RESPONSE FORMAT
 $response = $payline->getWebPaymentDetails($array);
+
+echo $response['order']['ref'];
+exit();
+
 if(isset($response['transaction']['id'])){
 	$res = insertTransactionData(
     $response['payment']['contractNumber'],
