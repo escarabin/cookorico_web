@@ -50,17 +50,34 @@
             {{ service.formatted_unitAmount }}
         </h2>
         <br />
-        <button class="btn btn-primary full-width"
-                (click)="payWithPaypal(service)"
-                *ngIf="!onlyServices"
-                id="pay-with-paypal-btn-{{ i }}">
-            <span class="fa fa-paypal"></span> &nbsp; Souscrire
-        </button>
+
         <button class="btn btn-primary full-width"
                 (click)="focusOnSignUp()"
                 *ngIf="onlyServices">
             Je m'inscris
         </button>
+
+        <form action="https://cookorico.com/api/payline/examples/demos/web.php" ngNoForm method="post" class="payline-form">
+            <div style="display: none">
+                <input type="text" name="ref" id="ref" value="{{ service.id }}">
+                <input type="text" name="amount" id="amount" value="{{ service.refAmount * 100 }}">
+                <input type="text" name="currency" id="currency" value="978">
+                <select name="data-template" id="data-template">
+                    <option value="redirect" selected>redirect</option>
+                    <option value="lightbox">lightbox</option>
+                    <option value="tab">in-shop tab</option>
+                    <option value="column">in-shop column</option>
+                </select>
+            </div>
+            <button class="btn btn-primary full-width"
+                    *ngIf="!onlyServices"
+                    type="submit"
+                    name="submit"
+                    value="doWebPayment"
+                    id="pay-with-paypal-btn-{{ i }}">
+                <span class="fa fa-credit-card"></span> &nbsp; Souscrire
+            </button>
+        </form>
     </div>
 </div>
 

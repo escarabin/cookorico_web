@@ -1,5 +1,5 @@
 <?php
-include 'initSDK.php';
+include '../initSDK.php';
 
 // GET TOKEN
 if(isset($_POST['token'])){

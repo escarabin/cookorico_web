@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { apiUrl } from '../globals';
+import { paymentUrl } from '../globals';
 
 @Injectable()
 export class PlanService {
@@ -11,6 +12,7 @@ export class PlanService {
     searchByEmailUrl = apiUrl + '/plans/search';
     deletePlanUrl = apiUrl + '/plan/delete';
     updatePlanUrl = apiUrl + '/plan/update';
+    doWebPaymentUrl = paymentUrl;
     postId: number;
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
@@ -142,4 +144,18 @@ export class PlanService {
     deletePlan(planId: number) {
         return this.http.get(this.deletePlanUrl + '/' + planId);
     }
+
+    /**
+     * Do webpayment request to Payline SDK
+     * @returns {Observable<Response>}
+
+    doWebPayment() {
+        const formData = new FormData();
+
+        formData.append('ref', 'PHP-1481130727');
+        formData.append('amount', '33300');
+        formData.append('currency', '978');
+
+        return this.http.post(this.doWebPaymentUrl + '/' + planId, formData);
+    }*/
 }

@@ -1,5 +1,5 @@
 <?php
-include 'initSDK.php';
+include '../initSDK.php';
 use Payline\PaylineSDK;
 
 //VERSION
