@@ -97,6 +97,11 @@ a:hover {
   cursor: not-allowed;
 }
 
+.not-allowed {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 .centered {
   text-align: center;
 }

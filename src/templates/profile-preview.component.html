@@ -17,7 +17,8 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-sm-6 col-xs-9 user-basic-infos">
+    <div class="col-md-6 col-sm-6 col-xs-9 user-basic-infos"
+         [class.not-allowed]="!editableProfile">
         <br />
         <span class="user-identity">
             <h2>
@@ -32,7 +33,7 @@
         </span>
         <div *ngIf="editableProfile || userInfosAccessible">
             Né(e) le
-            <b class="editable"
+            <b [class.editable]="editableProfile"
                *ngIf="!editingItems['birthDate']"
                (click)="editingItems['birthDate'] = true">
                 {{ user.birthDate | date:"dd/MM/yyyy" }}
@@ -45,7 +46,7 @@
             <br />
             <span *ngIf="user.place">
                 Habite
-                <b class="editable"
+                <b [class.editable]="editableProfile"
                    *ngIf="!editingAdress"
                    (click)="editingAdress = true">
                     {{ user.place.adress }}
@@ -61,7 +62,7 @@
         <div *ngIf="editableProfile || userInfosAccessible">
             <span *ngIf="user.phone">
                 <span *ngIf="!editingItems['phone']">Tél : </span>
-                <b class="editable"
+                <b [class.editable]="editableProfile"
                    *ngIf="!editingItems['phone']"
                    (click)="editingItems['phone'] = true">
                     {{ user.phone }}
@@ -75,7 +76,7 @@
             <br />
 
             <span *ngIf="!editingItems['new_email']">E-mail : </span>
-            <b class="editable"
+            <b [class.editable]="editableProfile"
                *ngIf="!editingItems['new_email']"
                (click)="editingItems['new_email'] = true">
                 {{ user.email }}
@@ -146,7 +147,7 @@
             </h2>
             <h3 (click)="startEditingDescription()"
                 class="no-description"
-                *ngIf="!user.description || user.description.length == 0">
+                *ngIf="(!user.description || user.description.length == 0) && editableProfile">
                 Cliquez ici pour saisir votre présentation
             </h3>
             <div class="description"

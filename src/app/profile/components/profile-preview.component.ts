@@ -121,8 +121,10 @@ export class ProfilePreviewComponent {
                         this.router.navigate(['/profil/recruteurs-admin']);
                     }
 
-                    // The profile is logged user's one so he is able to edit it
-                    __this.editableProfile = true;
+                    // The profile is logged user and he is a candidate so he is able to edit it
+                    if (this.user.user_type_id == 3) {
+                        __this.editableProfile = true;
+                    }
                 }
                 else {
                     __this.user.id = __this.userIdRouteParam;
@@ -164,6 +166,8 @@ export class ProfilePreviewComponent {
                 this.userInfosAccessible = true;
             }
         });
+
+        console.log('user acces is', this.editableProfile);
 
         /**
          * Image cropper settings

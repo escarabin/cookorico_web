@@ -1,4 +1,4 @@
-<h2 class="centered">{{ items.length }} postulants</h2>
+<h2 class="centered">{{ filteredApplicants.length }} postulants</h2>
 <hr />
 
 <div class="col-md-12">
@@ -27,6 +27,7 @@
                     name="jobPostId"
                     ngControl="jobPostId"
                     *ngIf="business.jobs.length > 0"
+                    (change)="filterApplicants()"
                     [(ngModel)]="jobPostId">
                 <option selected disabled value="0">-- Sélectionnez une offre d'emploi --</option>
                 <option *ngFor="let jobPost of business.jobs"
@@ -77,62 +78,60 @@
         <br /><br />
     </div>
     <ul>
-        <div *ngFor="let item of items">
-            <li class="row" *ngIf="item.job_id == jobPostId || !jobPostId">
-                <div *ngIf="(businessId != 0 && item.job.business.id == businessId) || businessId == 0">
-                    <div class="col-md-12 col-sm-12 col-xs-11 item"
-                         [class.photo]="item.user.profilePictureUrl">
-                        <div class="col-md-2">
-                            <img src="{{ item.user.profilePictureUrl }}"/>
-                        </div>
-                        <div class="col-md-4">
-                            <h3>{{ item.user.firstName }}</h3>
-                            <span *ngIf="item.user.xpLevel">
-                                 {{ item.user.xpLevel.title }}<br />
+        <div *ngFor="let item of filteredApplicants">
+            <li class="row">
+                <div class="col-md-12 col-sm-12 col-xs-11 item"
+                     [class.photo]="item.user.profilePictureUrl">
+                    <div class="col-md-2">
+                        <img src="{{ item.user.profilePictureUrl }}"/>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>{{ item.user.firstName }}</h3>
+                        <span *ngIf="item.user.xpLevel">
+                             {{ item.user.xpLevel.title }}<br />
+                        </span>
+                        <span *ngIf="item.user.languages.length > 0">
+                            Langues parlées :
+                            <span *ngFor="let language of item.user.languages">
+                                {{ language.title }},
                             </span>
-                            <span *ngIf="item.user.languages.length > 0">
-                                Langues parlées :
-                                <span *ngFor="let language of item.user.languages">
-                                    {{ language.title }},
-                                </span>
-                                <br />
-                            </span>
-                            <strong>{{ item.job.title }}</strong><br />
-                            <span class="date">
-                                <span class="fa fa-clock-o"></span>
-                                A postulé le {{ item.created_at | date:"dd/MM/yyyy" }}
-                            </span>
-                        </div>
-                        <div class="col-md-2" *ngIf="!item.is_interested">
-                            <button class="btn btn-primary full-width"
-                                    [disabled]="item.is_interested || item.is_rejected"
-                                    (click)="acceptApplication(item.id)"
-                                    tooltipPlacement="bottom" tooltipHtml="{{ item.acceptedTemplate }}">
-                                <span class="icon-envelope-letter"></span><br />
-                                Intéressé
-                            </button>
-                        </div>
-                        <div class="col-md-2" *ngIf="!item.is_interested">
-                            <button class="btn btn-danger full-width"
-                                    [disabled]="item.is_interested || item.is_rejected"
-                                    (click)="rejectApplication(item.id)"
-                                    tooltipPlacement="bottom" tooltipHtml="{{ item.rejectedTemplate }}">
-                                <span class="icon-envelope-letter"></span><br />
-                                Refuser
-                            </button>
-                        </div>
-                        <div class="col-md-4 centered" *ngIf="item.is_interested">
                             <br />
-                            <strong>Ce profil vous intéresse</strong>
-                        </div>
-                        <div class="col-md-2">
-                            <a routerLink="/profil/apercu/{{ item.user.id }}/complet">
-                                <button class="btn btn-default full-width">
-                                    <span class="icon-eye"></span><br />
-                                    Voir
-                                </button>
-                            </a>
-                        </div>
+                        </span>
+                        <strong>{{ item.job.title }}</strong><br />
+                        <span class="date">
+                            <span class="fa fa-clock-o"></span>
+                            A postulé le {{ item.created_at | date:"dd/MM/yyyy" }}
+                        </span>
+                    </div>
+                    <div class="col-md-2" *ngIf="!item.is_interested">
+                        <button class="btn btn-primary full-width"
+                                [disabled]="item.is_interested || item.is_rejected"
+                                (click)="acceptApplication(item.id)"
+                                tooltipPlacement="bottom" tooltipHtml="{{ item.acceptedTemplate }}">
+                            <span class="icon-envelope-letter"></span><br />
+                            Intéressé
+                        </button>
+                    </div>
+                    <div class="col-md-2" *ngIf="!item.is_interested">
+                        <button class="btn btn-danger full-width"
+                                [disabled]="item.is_interested || item.is_rejected"
+                                (click)="rejectApplication(item.id)"
+                                tooltipPlacement="bottom" tooltipHtml="{{ item.rejectedTemplate }}">
+                            <span class="icon-envelope-letter"></span><br />
+                            Refuser
+                        </button>
+                    </div>
+                    <div class="col-md-4 centered" *ngIf="item.is_interested">
+                        <br />
+                        <strong>Ce profil vous intéresse</strong>
+                    </div>
+                    <div class="col-md-2">
+                        <a routerLink="/profil/apercu/{{ item.user.id }}/complet">
+                            <button class="btn btn-default full-width">
+                                <span class="icon-eye"></span><br />
+                                Voir
+                            </button>
+                        </a>
                     </div>
                 </div>
             </li>

@@ -24,6 +24,7 @@ export class ApplicantsComponent {
     checkedItemsList: any = [];
     user: any = {};
     userBusinesses: any = [];
+    filteredApplicants: any = [];
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService,
@@ -41,8 +42,6 @@ export class ApplicantsComponent {
             __this.jobPosts = res.json();
         });
 
-        this.retrieveApplicants();
-
         /**
          * Get current jobPostId
          */
@@ -51,6 +50,8 @@ export class ApplicantsComponent {
                 __this.jobPostId = parseInt(params["jobPostId"]);
             }
         });
+
+        this.retrieveApplicants();
     }
 
     retrieveApplicants() {
@@ -87,6 +88,22 @@ export class ApplicantsComponent {
                 }
             }
         });
+    }
+
+    /**
+     * Fiter applicants regarding user params
+     * @param businessId
+     * @param jobPostId
+     */
+    filterApplicants() {
+        this.filteredApplicants = [];
+        for (let i = 0; i < this.items.length; i++) {
+            let applicant = this.items[i];
+
+            if (applicant.job.business.id == this.businessId && applicant.job_id == this.jobPostId) {
+                this.filteredApplicants.push(applicant);
+            }
+        }
     }
 
     /**
