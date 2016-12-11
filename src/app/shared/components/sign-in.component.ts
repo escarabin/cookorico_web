@@ -27,6 +27,7 @@ export class SignInComponent {
     @Output() userSignedIn: EventEmitter = new EventEmitter();
     @Output() userSignedOut: EventEmitter = new EventEmitter();
     @Input() user: any;
+    @Input() isMobile: any;
 
     constructor (private userService: UserService,
                  private notificationService: NotificationsService,

@@ -43,28 +43,33 @@
         </div>
         <div class="col-md-12">
             <hr />
-            <div class="col-md-12">
-                <business-select [isRequired]="true"
-                                 (businessIdChange)="handleBusinessIdChange($event, club.id)">
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <business-select [isRequired]="true"
+                                     (businessIdChange)="handleBusinessIdChange($event, club.id)">
 
-                </business-select>
+                    </business-select>
+                </div>
+                <div class="col-md-10">
+                    <br />
+                    <label>ID de l'établissement</label>
+                    <input type="text"
+                           [(ngModel)]="businessIdList[i]"
+                           ngControl="businessIdList[i]"
+                           class="form-control"
+                           placeholder="ID de l'établissement"/>
+                </div>
+                <div class="col-md-2">
+                    <br/>
+                    <br/>
+                    <button class="btn btn-primary"
+                            (click)="handleBusinessIdChange(businessIdList[i], club.id)">
+                        Ajouter
+                    </button>
+                </div>
             </div>
-            <div class="col-md-10">
-                <br />
-                <label>ID de l'établissement</label>
-                <input type="text"
-                       [(ngModel)]="businessIdList[i]"
-                       ngControl="businessIdList[i]"
-                       class="form-control"
-                       placeholder="ID de l'établissement"/>
-            </div>
-            <div class="col-md-2">
-                <br/>
-                <br/>
-                <button class="btn btn-primary"
-                        (click)="handleBusinessIdChange(businessIdList[i], club.id)">
-                    Ajouter
-                </button>
+            <div class="col-md-6">
+
             </div>
             <div class="col-md-12" style="border-top: 1px solid #CCC">
                 <ul>
@@ -177,8 +182,7 @@
                    placeholder="Email du contact"
                    class="form-control"/>
         </div>
-        <div class="col-md-6"
-             *ngIf="club.id">
+        <div class="col-md-6">
             <label>Mot de passe</label>
             <input type="password"
                    [(ngModel)]="club.password"
@@ -232,7 +236,7 @@
                    [(ngModel)]="club.plans[0].daily_contacts"
                    ngControl="club.plans[0].daily_contacts"
                    name="groupSpacesAmount"
-                   placeholder="Emplacements"
+                   placeholder="Contacts"
                    class="form-control"/>
         </div>
         <div class="col-md-12 centered">
@@ -244,4 +248,80 @@
             </button>
         </div>
     </form>
+</div>
+
+<div bsModal
+     #clubContactModal="bs-modal"
+     id="club-contact-modal"
+     class="modal fade in"
+     tabindex="-1"
+     role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-md-6">
+                    <label>Email</label>
+                    <input type="text"
+                           [(ngModel)]="club.email"
+                           ngControl="club.email"
+                           name="email"
+                           required
+                           placeholder="Email du contact"
+                           class="form-control"/>
+                </div>
+                <div class="col-md-6"
+                     *ngIf="club.id">
+                    <label>Mot de passe</label>
+                    <input type="password"
+                           [(ngModel)]="club.password"
+                           ngControl="club.password"
+                           name="password"
+                           required
+                           placeholder="Mot de passe du compte"
+                           class="form-control"/>
+                </div>
+                <div class="col-md-6">
+                    <label>Nom</label>
+                    <input type="text"
+                           [(ngModel)]="club.lastName"
+                           ngControl="club.lastName"
+                           name="lastName"
+                           placeholder="Nom du contact"
+                           class="form-control"/>
+                </div>
+                <div class="col-md-6">
+                    <label>Prénom</label>
+                    <input type="text"
+                           [(ngModel)]="club.firstName"
+                           ngControl="club.firstName"
+                           name="firstName"
+                           placeholder="Prénom du contact"
+                           class="form-control"/>
+                </div>
+                <div class="col-md-6">
+                    <label>Téléphone</label>
+                    <input type="text"
+                           [(ngModel)]="club.phone"
+                           ngControl="club.phone"
+                           name="phone"
+                           placeholder="Téléphone du contact"
+                           class="form-control"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TODO : this is a workaround, we have to change it in near future -->
+<div id="modal-backdrop-replacement"
+     style="background: rgba(0,0,0,0.7);
+             position: fixed;
+             display: none;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             z-index: 10;">
+
 </div>

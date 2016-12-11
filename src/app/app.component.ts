@@ -7,6 +7,7 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2';
     selector: 'app',
     templateUrl: '../templates/app.component.html',
     styleUrls: ['../assets/sass/app.scss',
+                '../bootstrap/css/bootstrap.min.css',
                 '../css/font-awesome.min.css',
                 '../css/simple-line-icons.css',
                 '../css/tonicons.css'],

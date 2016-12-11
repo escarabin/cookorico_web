@@ -106,7 +106,7 @@
            routerLinkActive="active">
             <i class="icon-user"></i> &nbsp; Profils correspondants
         </a>
-        <a *ngIf="user.user_type_id == 1 || user.user_type_id == 2 || user.user_type_id == 4 || user.user_type_id == 5"
+        <!-- <a *ngIf="user.user_type_id == 1 || user.user_type_id == 2 || user.user_type_id == 4 || user.user_type_id == 5"
            routerLink="/profil/etablissements"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
@@ -128,7 +128,7 @@
            routerLink="/profil/packs"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
-            <i class="icon-tag"></i> &nbsp; Packs
+            <i class="icon-tag"></i> &nbsp; Gestion établissement
         </a>
         <a *ngIf="user.user_type_id == 1"
            routerLink="/profil/mail-templates"

@@ -42,7 +42,8 @@ import { SellsyService } from './../services/sellsy.service';
                     CustomPaginationComponent,
                     ApplicantsComponent,
                     PricingPlansComponent,
-                    GoogleplaceDirective ],
+                    GoogleplaceDirective
+                    ],
     exports:      [ UNITYTinyMCE,
                     JobPreviewComponent,
                     JobSearchBarComponent,

@@ -142,6 +142,21 @@ export class ClubsManagementComponent {
         });
     }
 
+    public openClubContactModal() {
+        this.showModalBackdrop();
+        document.getElementById("club-contact-modal").style.display = "block";
+    }
+    public hideClubContactModal() {
+        this.hideModalBackdrop();
+        document.getElementById("club-contact-modal").style.display = "none";
+    }
+    public showModalBackdrop() {
+        document.getElementById("modal-backdrop-replacement").style.display = "block";
+    }
+    public hideModalBackdrop() {
+        document.getElementById("modal-backdrop-replacement").style.display = "none";
+    }
+
     editClub(clubToEdit: any) {
         this.club = clubToEdit;
     }

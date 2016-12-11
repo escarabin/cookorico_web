@@ -101,7 +101,7 @@ class ClubController extends Controller
     public function create(Request $request) {
         $clubData = $request::get('club');
 
-        if (array_key_exists('id', $clubData)) {
+        if (!array_key_exists('id', $clubData)) {
             $club = new User();
         }
         else {
@@ -115,14 +115,17 @@ class ClubController extends Controller
             $club->user_type_id = 5;
         }
 
+
         foreach ($clubData as $key => $value) {
-            if ($key != 'profilePictureUrl' && $key != "place" && $key != "password") {
+            if ($key != 'profilePictureUrl' && $key != "place" && $key != "password" && !is_array($key) && $key != "plans") {
                 $club[$key] = $value;
             }
             else if ($key == 'password') {
                 $club['password'] = Hash::make($value);
             }
         }
+        Log::info('request is');
+        Log::info($request::all());
 
         $club->save();
 
@@ -130,15 +133,17 @@ class ClubController extends Controller
             /**
              * Create a group plan with required spaces
              */
-            if (array_key_exists('id', $clubData)) {
+            if (!array_key_exists('id', $clubData)) {
                 $plan = new Plan();
             }
             else {
                 $plan = Plan::where('user_id', $club->id)->first();
             }
-            $plan->spaces = $request::get('plans')[0]->spaces;
-            $plan->daily_contacts = $request::get('plans')[0]->daily_contacts;
-            $plan->daily_remaining_contacts = $request::get('plans')[0]->daily_contacts;
+
+
+            $plan->spaces = $request::get('plans')[0]['spaces'];
+            $plan->daily_contacts = $request::get('plans')[0]['daily_contacts'];
+            $plan->daily_remaining_contacts = $request::get('plans')[0]['daily_contacts'];
             $plan->user_id = $club->id;
             $plan->save();
         }
@@ -198,6 +203,7 @@ class ClubController extends Controller
          * First, remove businesses attached to this club
          */
         DB::table('business_user')->where('user_id', $clubId)->delete();
+        DB::table('plans')->where('user_id', $clubId)->delete();
 
         User::find($clubId)->delete();
     }
