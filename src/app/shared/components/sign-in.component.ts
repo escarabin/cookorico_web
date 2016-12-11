@@ -28,11 +28,15 @@ export class SignInComponent {
     @Output() userSignedOut: EventEmitter = new EventEmitter();
     @Input() user: any;
     @Input() isMobile: any;
+    isMobileScreenWidth: boolean = false;
 
     constructor (private userService: UserService,
                  private notificationService: NotificationsService,
                  private router: Router) {
-
+        /**
+         * Detect at first if window width is mobile type
+         */
+        this.windowResize();
     }
 
     login() {
@@ -124,5 +128,14 @@ export class SignInComponent {
             }
 
         });
+    }
+
+    windowResize() {
+        if (window.innerWidth < 700) {
+            this.isMobileScreenWidth = true;
+        }
+        else {
+            this.isMobileScreenWidth = false;
+        }
     }
 }

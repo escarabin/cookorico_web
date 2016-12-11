@@ -1,7 +1,8 @@
 <!-- User is not connected -->
 <a (click)="openSignInModal()"
-   [class.hidden]="!isMobile"
-    class="main-login-btn">
+   (window:resize)="windowResize()"
+   [class.hidden]="!isMobile && isMobileScreenWidth"
+   id="main-login-btn">
     <li *ngIf="!user">
         Se connecter
     </li>
