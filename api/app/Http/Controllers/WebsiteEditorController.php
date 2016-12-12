@@ -73,8 +73,6 @@ class WebsiteEditorController extends Controller
      * GET seo route infos from redirection url
      */
     public function getSeoRoute(Request $request) {
-        Log::info($request::all());
-
         $seoRoute = SeoRoute::where('redirection_url', '/#'.$request::get('redirectionUrl'))
                             ->first();
 
