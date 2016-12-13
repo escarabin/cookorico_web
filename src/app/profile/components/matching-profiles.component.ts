@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Response } from '@angular/http';
 
 // Services
@@ -20,6 +20,7 @@ export class MatchingProfilesComponent {
     user: any = {};
 
     constructor(private userService: UserService,
+                private ref: ChangeDetectorRef,
                 private referenceService: ReferenceService) {
         let __this = this;
 
@@ -32,6 +33,15 @@ export class MatchingProfilesComponent {
                 this.userService.getMatchingProfiles(this.user.id).subscribe((res: Response) => {
                     __this.items = res.json();
                     __this.isLoadingProfiles = false;
+
+                    this.ref.detectChanges();
+
+                    /**
+                     * By default, select first option if only one is available
+
+                    if (__this.jobPosts.length == 1) {
+                        __this.jobNamingId = __this.jobPosts[0].job_naming_id;
+                    }*/
                 });
             }
         });

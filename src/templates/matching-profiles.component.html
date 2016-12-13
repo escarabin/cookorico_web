@@ -1,5 +1,9 @@
 <h2 class="centered">Les profils correspondants à vos annonces</h2>
 <hr />
+<div *ngIf="!jobNamingId && jobPosts.length > 0"
+        class="col-md-4 col-md-offset-4 alert alert-warning">
+    Veuillez d'abord sélectionner une offre d'emploi
+</div>
 <div class="col-md-12 header-container">
     <div class="col-md-6 col-sm-6 col-xs-6">
         <select class="form-control"
@@ -8,7 +12,6 @@
                 [(ngModel)]="jobNamingId">
             <option value="0">-- Offre d'emploi --</option>
             <option *ngFor="let jobPost of jobPosts"
-                    [selected]="jobPosts.length == 1"
                     value="{{ jobPost.job_naming.id }}">
                 {{ jobPost.job_naming.title }} - {{ jobPost.business.title }}
             </option>
@@ -41,7 +44,7 @@
 
     <ul>
         <div *ngFor="let item of items">
-            <li class="row" *ngIf="(item.lookingForJobNamingIdList.indexOf(jobNamingId) != -1 || !jobNamingId)
+            <li class="row" *ngIf="(item.lookingForJobNamingIdList.indexOf(jobNamingId) != -1)
                                     && item.user_status_id != 2
                                     && (!item.job_xp_level || item.job_xp_level.id == xpLevelId || xpLevelId == 0)">
                 <div class="col-md-12 col-sm-12 col-xs-12 item"

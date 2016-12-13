@@ -360,7 +360,7 @@ class UserController extends Controller
                 unset($user, $userList);
             } */
 
-            if (($user->user_status_id == 1 || $user->user_status_id == 3) || $user->experiences || $user->resumeUrl) {
+            if (($user->user_status_id == 1 || $user->user_status_id == 3) && count($user->experiences) > 0 && $user->resumeUrl) {
                 Log::info('matching with user');
                 Log::info($user);
                 $userThatMatchJobsList[] = $user;
