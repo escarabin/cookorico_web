@@ -25,14 +25,15 @@ export class MatchingProfilesComponent {
 
         this.user = JSON.parse(localStorage.getItem('user'));
 
-        this.userService.getMatchingProfiles(this.user.id).subscribe((res: Response) => {
-            __this.items = res.json();
-            __this.isLoadingProfiles = false;
-
-        });
-
-        this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
+        this.userService.getJobPosts(this.user.id, false).subscribe((res: Response) => {
             __this.jobPosts = res.json();
+
+            if (__this.jobPosts.length > 0) {
+                this.userService.getMatchingProfiles(this.user.id).subscribe((res: Response) => {
+                    __this.items = res.json();
+                    __this.isLoadingProfiles = false;
+                });
+            }
         });
 
         this.referenceService.getAllJobXpLevels().subscribe((res: Response) => {

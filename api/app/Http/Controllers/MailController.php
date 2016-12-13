@@ -117,7 +117,7 @@ class MailController extends Controller
                                 ->where('alert_frequency_id', '>', 0)
                                 ->get();
 
-        $templateName = "jobs-alert";
+        $templateName = "email-jobs-alert";
         $mailTemplate = MailTemplate::where('slug', $templateName)->first();
 
         foreach ($candidateUsers as $user) {
@@ -192,8 +192,13 @@ class MailController extends Controller
                 $i = 0;
                 foreach ($userLookingForJobNamingList as $lookingForJobNaming) {
                     $jobList = Job::where('created_at', '>', $lastSentAlertDate)
+                                    ->where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
+                                    ->where('is_active', 1)
+                                    ->where('is_rejected', 0)
+                                    ->orderBy('created_at', 'DESC')
                                     ->where('job_naming_id', $lookingForJobNaming['id'])
-                                    ->get();
+                                    ->get()
+                                    ->load('contractType', 'business', 'business.place');
 
 
                     foreach ($jobList as $job) {
@@ -207,7 +212,8 @@ class MailController extends Controller
                         if ($jobPlace->lat < $userPlace->viewport_north &&
                             $jobPlace->lat > $userPlace->viewport_south &&
                             $jobPlace->lon > $userPlace->viewport_west &&
-                            $jobPlace->lon < $userPlace->viewport_east) {
+                            $jobPlace->lon < $userPlace->viewport_east &&
+                            $job->title) {
                             $interestingJobList[] = $job;
                         }
                     }

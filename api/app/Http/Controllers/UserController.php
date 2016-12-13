@@ -288,10 +288,21 @@ class UserController extends Controller
         }
 
         /**
-         * First, list all user jobs posts values
-         * & populate arrays of parameter ids
+         * First, get user businesses
          */
-        $jobPostList = $user->jobPosts->load('jobNaming');
+        $businesses = User::find($userId)->businesses;
+        $businessIds = array();
+
+        foreach ($businesses as $business) {
+            $businessIds[] = $business->id;
+        }
+
+        $jobPostList = Job::whereIn('business_id', $businessIds)
+            ->where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
+            ->where('is_active', 1)
+            ->where('is_rejected', 0)
+            ->get()
+            ->load('jobNaming');
 
         $jobNamingIdList = array();
         foreach ($jobPostList as $jobPost) {
@@ -325,7 +336,9 @@ class UserController extends Controller
          */
         $userList = User::whereIn('id', $userIdList)
                             ->get()
-                            ->load('lookingForJobNamings', 'jobXpLevel', 'place');
+                            ->load('lookingForJobNamings', 'jobXpLevel', 'place', 'experiences');
+
+        $userThatMatchJobsList = array();
 
         /**
          * Transform relationship lists to id lists
@@ -340,16 +353,21 @@ class UserController extends Controller
 
             $user->lookingForJobNamingIdList = $lookingForJobNamingIdList;
 
-            if ($user->status_id == 2) {
-                unset($user, $userList);
-            }
+            /**
+             * Remove user from listing if no experience, resume or not looking for jobs
 
-            if (!$user->experiences) {
+            if ($user->status_id == 2 || !$user->experiences || !$user->resumeUrl) {
                 unset($user, $userList);
+            } */
+
+            if (($user->user_status_id == 1 || $user->user_status_id == 3) || $user->experiences || $user->resumeUrl) {
+                Log::info('matching with user');
+                Log::info($user);
+                $userThatMatchJobsList[] = $user;
             }
         }
 
-        return $userList;
+        return $userThatMatchJobsList;
     }
 
     /**
@@ -533,11 +551,11 @@ class UserController extends Controller
      * @param $candidateId
      * @return string
      */
-    public function doRecruiterHasAccessToCandidate($candidateId) {
+    public function doRecruiterHasAccessToCandidate($candidateId, $recruiterId) {
         $isCandidateAccessible = "false";
 
         if ($access = DB::table('recruiter_candidate_access')
-            ->where('recruiter_id', Auth::user()->id)
+            ->where('recruiter_id', $recruiterId)
             ->where('candidate_id', $candidateId)
             ->first()) {
             $isCandidateAccessible = "true";
@@ -793,7 +811,7 @@ class UserController extends Controller
      * Get user's job posts
      * @param $userId
      */
-    public function getJobPosts($userId = null) {
+    public function getJobPosts($userId = null, $includeDisabled = null) {
         if ($userId == "undefined") {
             $userId = Auth::user()->id;
         }
@@ -808,8 +826,19 @@ class UserController extends Controller
             $businessIds[] = $business->id;
         }
 
-        $jobPosts = Job::whereIn('business_id', $businessIds)->get()
+        if ($includeDisabled != "false") {
+            $jobPosts = Job::whereIn('business_id', $businessIds)->get()
+                ->load('jobNaming', 'business', 'contractType', 'applications');
+        }
+        else {
+            $jobPosts = Job::whereIn('business_id', $businessIds)
+                    ->where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
+                    ->where('is_active', 1)
+                    ->where('is_rejected', 0)
+                    ->get()
                     ->load('jobNaming', 'business', 'contractType', 'applications');
+        }
+
 
         foreach ($jobPosts as $jobPost) {
             $jobPost->business->place = $jobPost->business->place;
@@ -1080,7 +1109,7 @@ class UserController extends Controller
         exit();
     }
 
-        /**
+    /**
      * Save user's payment after validation
      */
     public function savePayment(Request $request) {
@@ -1101,8 +1130,8 @@ class UserController extends Controller
             ->getService('Opportunities')
             ->call('getStepsForFunnel', array('funnelid' => 30165));
 
-        Log::info($funnels);
- */
+            Log::info($funnels);
+        */
         if ($userPlan) {
             $userPlan->user_id = Auth::user()->id;
             $userPlan->pricing_plan_id = $pricingPlan->id;

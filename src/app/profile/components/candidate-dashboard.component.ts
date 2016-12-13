@@ -36,23 +36,28 @@ export class CandidateDashboardComponent {
         this.user = JSON.parse(localStorage.getItem('user'));
 
         this.userService.getUserInfos(this.user.id).subscribe((res: Response) => {
+            console.log('user infos', res);
             this.user = res.json();
             localStorage.setItem('user', JSON.parse(this.user));
         });
 
         this.userService.getProfilePercentage(this.user.id).subscribe((res: Response) => {
+            console.log('profile percentage', res);
             this.profilePercentage = res.json();
         });
 
         this.referenceService.getAllJobNamingGroups().subscribe((res: Response) => {
+            console.log('job naming groups', res);
             this.jobNamingGroups = res.json();
         });
 
         this.referenceService.getAllCandidateStatuses().subscribe((res: Response) => {
+            console.log('candidate statuses', res);
             this.candidateStatuses = res.json();
         });
 
         this.referenceService.getAllAlertFrequencies().subscribe((res: Response) => {
+            console.log('alert frequencies', res);
             this.alertFrequencies = res.json();
         });
 
@@ -73,11 +78,16 @@ export class CandidateDashboardComponent {
                         this.userService.getUserInfos(this.user.id).subscribe((res: Response) => {
                             this.user = res.json();
 
+                            console.log('getting user infos');
+
                             let geocoder = new google.maps.Geocoder;
                             geocoder.geocode({'placeId': this.user['looking_for_job_naming_places'][i]['googlePlaceId']},
                                 function(results) {
+                                    console.log('getting results', results);
+
                                     if (results != null) {
                                         let place = results[0];
+                                        console.log('getting place', place);
                                         __this.lookingForJobNamingList[i]['place'] = place;
 
                                         __this.ref.detectChanges();

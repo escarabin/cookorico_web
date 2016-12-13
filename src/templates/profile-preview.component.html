@@ -222,7 +222,7 @@
                     <div class="item col-md-12">
                         <a *ngIf="editableProfile" routerLink="/profil/experience/editer/{{ experience.id }}">
                             <div class="item-desc">
-                                <h3>{{ experience.job_naming.title }}</h3>
+                                <h3 *ngIf="experience.job_naming">{{ experience.job_naming.title }}</h3>
                                 {{ experience.business.title }}<br />
                                 <span *ngIf="experience.testimonial && experience.testimonial.is_accepted">
                                     <span class="fa fa-thumbs-up success"></span> &nbsp;Candidat recommandé<br />
@@ -271,14 +271,14 @@
                     <div class="item">
                         <a *ngIf="editableProfile" routerLink="/profil/formation/editer/{{ study.id }}">
                             <div class="item-desc">
-                                <h3>{{ study.diploma.title }}</h3>
-                                {{ study.business.title }}
+                                <h3 *ngIf="study.diploma">{{ study.diploma.title }}</h3>
+                                <span *ngIf="study.business">{{ study.business.title }}</span>
                             </div>
                         </a>
                         <a *ngIf="!editableProfile">
                             <div class="item-desc">
-                                <h3>{{ study.diploma.title }}</h3>
-                                {{ study.business.title }}
+                                <h3 *ngIf="study.diploma">{{ study.diploma.title }}</h3>
+                                <span *ngIf="study.business">{{ study.business.title }}</span>
                             </div>
                         </a>
                     </div>

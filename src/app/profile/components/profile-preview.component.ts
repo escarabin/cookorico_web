@@ -118,7 +118,7 @@ export class ProfilePreviewComponent {
                         this.router.navigate(['/profil/annonces']);
                     }
                     else if (this.user.user_type_id == 1) {
-                        this.router.navigate(['/profil/recruteurs-admin']);
+                        this.router.navigate(['/profil/packs']);
                     }
 
                     // The profile is logged user and he is a candidate so he is able to edit it
@@ -133,7 +133,8 @@ export class ProfilePreviewComponent {
                      * User is a recruiter
                      * Check out if he has access to current candidate infos
                      */
-                    this.userService.doRecruiterHasAccessToCandidate(__this.user.id).subscribe((res: Response) => {
+                    let recruiterUser = JSON.parse(localStorage.getItem('user'));
+                    this.userService.doRecruiterHasAccessToCandidate(__this.user.id, recruiterUser.id).subscribe((res: Response) => {
                         let response = res['_body'];
 
                         if (response == "true") {

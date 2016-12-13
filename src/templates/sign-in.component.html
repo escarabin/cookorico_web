@@ -9,7 +9,8 @@
 </a>
 
 <!-- User is connected -->
-<a (click)="logout()">
+<a (click)="logout()"
+   [class.hidden]="!isMobile && isMobileScreenWidth">
     <li *ngIf="user">
         Déconnexion
     </li>

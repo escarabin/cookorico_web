@@ -40,6 +40,8 @@ export class ClubsManagementComponent {
                 this.isGroupEdtingMode = true;
                 this.clubService.getAllGroups().subscribe((clubs:Response) => {
                     this.clubs = clubs.json();
+
+                    console.log('get all clubs', this.clubs);
                 });
             }
             else {

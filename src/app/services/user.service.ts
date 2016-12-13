@@ -311,9 +311,10 @@ export class UserService {
     /**
      * Get user's job posts
      * @param userId
+     * @param includeDisabled
      */
-    getJobPosts(userId?: number) {
-        return this.http.get(this.getJobPostsUrl + '/' + userId);
+    getJobPosts(userId?: number, includeDisabled?: boolean) {
+        return this.http.get(this.getJobPostsUrl + '/' + userId + '/' + includeDisabled);
     }
 
     /**
@@ -582,8 +583,8 @@ export class UserService {
     /**
      * Check out if recruiter has access to specific candidate infos
      */
-    doRecruiterHasAccessToCandidate(candidateId: number) {
-        return this.http.get(this.doRecruiterHasAccessToCandidateUrl + '/' + candidateId);
+    doRecruiterHasAccessToCandidate(candidateId: number, recruiterId: number) {
+        return this.http.get(this.doRecruiterHasAccessToCandidateUrl + '/' + candidateId + '/' + recruiterId);
     }
 
     /**

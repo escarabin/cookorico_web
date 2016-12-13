@@ -8,6 +8,7 @@
                 [(ngModel)]="jobNamingId">
             <option value="0">-- Offre d'emploi --</option>
             <option *ngFor="let jobPost of jobPosts"
+                    [selected]="jobPosts.length == 1"
                     value="{{ jobPost.job_naming.id }}">
                 {{ jobPost.job_naming.title }} - {{ jobPost.business.title }}
             </option>
@@ -27,7 +28,12 @@
 </div>
 
 <div class="col-md-12 list-container">
-    <div *ngIf="isLoadingProfiles" class="centered">
+    <div *ngIf="jobPosts.length == 0">
+        <h2>Vous n'avez posté aucune annonce pour l'instant</h2>
+        <br /><br />
+    </div>
+
+    <div *ngIf="isLoadingProfiles && jobNamingId" class="centered">
         <br /><br />
         <span class="fa fa-spinner fa-spin"></span> &nbsp; Chargement des profils en cours...
         <br /><br />

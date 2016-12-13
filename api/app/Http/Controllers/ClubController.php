@@ -33,7 +33,7 @@ class ClubController extends Controller
      * @return mixed
      */
     public function getAll() {
-        $clubs = User::where('user_type_id', 4)->orderBy('username', 'ASC')->get()->load('businesses');
+        $clubs = User::where('user_type_id', 4)->orderBy('username', 'ASC')->get()->load('businesses', 'plans');
 
         foreach ($clubs as $club) {
             $i = 0;
@@ -105,7 +105,7 @@ class ClubController extends Controller
             $club = new User();
         }
         else {
-            $club = Club::find($clubData['id']);
+            $club = User::find($clubData['id']);
         }
         $club->user_type_id = 4;
         $club->is_active = 1;
@@ -115,17 +115,20 @@ class ClubController extends Controller
             $club->user_type_id = 5;
         }
 
-
         foreach ($clubData as $key => $value) {
-            if ($key != 'profilePictureUrl' && $key != "place" && $key != "password" && !is_array($key) && $key != "plans") {
+            if ($key != 'profilePictureUrl'
+                && $key != "place"
+                && $key != "password"
+                && !is_array($key)
+                && $key != "plans"
+                && $key != "businesses") {
                 $club[$key] = $value;
             }
             else if ($key == 'password') {
                 $club['password'] = Hash::make($value);
             }
         }
-        Log::info('request is');
-        Log::info($request::all());
+
 
         $club->save();
 
@@ -140,10 +143,10 @@ class ClubController extends Controller
                 $plan = Plan::where('user_id', $club->id)->first();
             }
 
-
-            $plan->spaces = $request::get('plans')[0]['spaces'];
-            $plan->daily_contacts = $request::get('plans')[0]['daily_contacts'];
-            $plan->daily_remaining_contacts = $request::get('plans')[0]['daily_contacts'];
+            $plan->spaces = $clubData['plans'][0]['spaces'];
+            $plan->daily_contacts = $clubData['plans'][0]['daily_contacts'];
+            $plan->daily_remaining_contacts = $clubData['plans'][0]['daily_contacts'];
+            $plan->ends_at = $clubData['plans'][0]['ends_at'];
             $plan->user_id = $club->id;
             $plan->save();
         }
@@ -151,7 +154,7 @@ class ClubController extends Controller
         /**
          * Upload profile picture data
          */
-        if (array_key_exists('profilePictureUrl', $clubData)) {
+        if (array_key_exists('profilePictureUrl', $clubData) && $clubData['profilePictureUrl'] && $clubData['profilePictureUrl'] != '') {
             app('App\Http\Controllers\UserController')
                 ->uploadProfilePictureBase64($clubData['profilePictureUrl'], $club->id);
         }
@@ -159,7 +162,7 @@ class ClubController extends Controller
         /**
          * Save club place data
          */
-        if (array_key_exists('profilePictureUrl', $clubData)) {
+        if (array_key_exists('place', $clubData)) {
             $place = app('App\Http\Controllers\PlaceController')
                      ->savePlaceData($clubData['place']);
             $club->place_id = $place->id;

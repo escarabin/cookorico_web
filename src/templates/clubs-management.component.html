@@ -235,8 +235,18 @@
             <input type="number"
                    [(ngModel)]="club.plans[0].daily_contacts"
                    ngControl="club.plans[0].daily_contacts"
-                   name="groupSpacesAmount"
+                   name="groupDailyContactsAmount"
                    placeholder="Contacts"
+                   class="form-control"/>
+        </div>
+        <div class="col-md-6"
+             *ngIf="club.plans">
+            <label>Date d'expiration</label>
+            <input type="date"
+                   [(ngModel)]="club.plans[0].ends_at"
+                   ngControl="club.plans[0].ends_at"
+                   name="groupPlanEndsAt"
+                   placeholder="Date d'expiration"
                    class="form-control"/>
         </div>
         <div class="col-md-12 centered">
@@ -277,7 +287,6 @@
                            [(ngModel)]="club.password"
                            ngControl="club.password"
                            name="password"
-                           required
                            placeholder="Mot de passe du compte"
                            class="form-control"/>
                 </div>

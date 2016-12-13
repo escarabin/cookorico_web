@@ -5,10 +5,20 @@ De nouvelles opportunités s'offrent à vous, cookorico.com vous invite à prend
 <br />
 <br />
 <ul>
-@foreach ($jobsList as $job)
+@foreach ($jobs as $job)
     <li>
-        <b>{{ $job->title }} - {{ $job->contract_type->title }} - {{ $job->week_work_hours }}</b><br />
-        {{ $job->business->place->postalCode }} {{ $job->business->place->city }} - <a href="{{ env('APP_ROOT_URL') }}/recherche/annonce{{ $job->id }}">Voir le détail de l'offre</a>
+        <b>
+            {{ $job->title }} -
+            @if($job->contractType)
+                {{ $job->contractType->title }}
+            @endif
+            - {{ $job->week_work_hours }}
+        </b>
+        <br />
+        @if($job->business->place)
+            {{ $job->business->place->postalCode }} {{ $job->business->place->city }}
+        @endif
+        - <a href="{{ env('APP_ROOT_URL') }}/recherche/annonce/{{ $job->id }}">Voir le détail de l'offre</a>
     </li>
 @endforeach
 </ul>

@@ -44,7 +44,7 @@ Route::get('/jobs/all/{includeExpiredJobs?}', 'JobController@getAll')
     ->name('getAllJobs');
 Route::post('/jobs/search/', 'JobController@search')
     ->name('searchJobs');
-Route::get('/user/job-posts/all/{userId?}', 'UserController@getJobPosts')
+Route::get('/user/job-posts/all/{userId?}/{includeDisabled?}', 'UserController@getJobPosts')
     ->name('getMyJobPosts');
 Route::post('/job-post/create/{userId?}', 'JobController@create')
     ->name('createJobPost');
@@ -95,7 +95,7 @@ Route::get('/user/disable_account', 'UserController@disableAccount')
     ->name('disableAccount');
 Route::get('/user/make_candidate_accessible/{candidateId}', 'UserController@subtractProfileContact')
     ->name('subtractProfileContact');
-Route::get('/user/access_to_candidate/{candidateId}', 'UserController@doRecruiterHasAccessToCandidate')
+Route::get('/user/access_to_candidate/{candidateId}/{recruiterId}', 'UserController@doRecruiterHasAccessToCandidate')
     ->name('doRecruiterHasAccessToCandidate');
 Route::post('/user/save-job-seeking-data/{userId?}', 'UserController@saveJobSeekingData')
     ->name('saveJobSeekingData');
@@ -295,6 +295,8 @@ Route::post('/mail/edit_template', 'MailController@editTemplate')
     ->name('editMailTemplate');
 Route::get('/mail/template/{id}', 'MailController@getTemplate')
     ->name('getMailTemplate');
+Route::get('/mail/send-job-alerts', 'MailController@sendNewJobAlerts')
+    ->name('sendNewJobAlerts');
 
 // Options
 Route::post('/option/save', 'OptionController@save')
