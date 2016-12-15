@@ -26,6 +26,28 @@ home {
       display: block;
     }
   }
+
+  .partners-container {
+    background-color: white;
+    margin-top: 100px;
+    display: inline-block;
+    width: 100%;
+    padding-top: 20px;
+
+    h2 {
+      padding-bottom: 20px;
+    }
+
+    .partners {
+      max-width: 990px;
+      width: 100%;
+      margin: auto;
+
+      .full-width {
+        width: 80%;
+      }
+    }
+  }
 }
 
 @media (max-width: $mobileWidth) {

@@ -885,6 +885,15 @@ class UserController extends Controller
     }
 
     /**
+     * GET a listing of all candidates accounts
+     */
+    public function getAllCandidates() {
+        $users = User::where('user_type_id', 3)->get();
+
+        return $users;
+    }
+
+    /**
      * GET a listing of all recruiters accounts
      * @param $searchEmail
      */

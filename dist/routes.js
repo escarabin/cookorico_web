@@ -1,4 +1,53 @@
+var appRoutes = [
+    // Child routing
+    {
+        path: 'profil',
+        loadChildren: 'app/profile/profile.module#ProfileModule',
+        data: {
+            meta: {
+                title: 'Profil'
+            }
+        }
+    },
 
+    {
+        path: 'recherche',
+        loadChildren: 'app/job-search/job-search.module#JobSearchModule',
+        data: {
+            meta: {
+                title: 'Recherche d\'emploi'
+            }
+        }
+    },
+
+    // Business page
+    { path: 'etablissement/:businessId'},
+    { path: 'club/:clubId'},
+
+
+    { path: 'definir-nouveau-mot-de-passe/:userId'},
+
+    // CGU
+    { path: 'conditions-utilisations'},
+
+    // CGV
+    { path: 'conditions-vente'},
+
+    // Qui sommes-nous
+    { path: 'qui-sommes-nous'},
+
+    // User
+    { path: 'inscription-candidat'},
+
+    // Promo
+    { path: 'accueil-recruteur'},
+    { path: 'accueil-candidat'},
+
+    { path: 'accueil'},
+
+    // Root
+    { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+];
 
 /*var profileRoutes = [
     {

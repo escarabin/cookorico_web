@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Response } from '@angular/http';
 
 // Services
 import { JobService } from './../../services/job.service';
+import { SearchService } from './../../services/search.service';
+import { UserService } from './../../services/user.service';
+import { BusinessService } from './../../services/business.service';
 
 let appGlobals = require('./../../globals');
 
 @Component({
     selector: 'home',
+    providers: [ SearchService ],
     templateUrl: '../../../templates/home.component.html',
 })
 
@@ -17,6 +21,9 @@ export class HomeComponent {
     innerHeight: number;
     public map: any;
     mapMarkers: any = [];
+    parametersList: any = {};
+    candidatesCount: number;
+    businessesCount: number;
 
     /**
      * By default, populate place object with France coords
@@ -25,8 +32,22 @@ export class HomeComponent {
     mapLat: number = 46.227638;
     mapLng: number = 2.213749;
 
-    constructor(private jobService: JobService) {
+    constructor(private jobService: JobService,
+                private userService: UserService,
+                private businessService: BusinessService,
+                @Inject(SearchService) private searchService: SearchService,) {
         let __this = this;
+
+        /**
+         * Retrieve data for counters banner
+         */
+        this.userService.getAllCandidates().subscribe((res: Response) => {
+            this.candidatesCount = res.json().length;
+        });
+
+        this.businessService.getAll().subscribe((res: Response) => {
+            this.businessesCount = res.json().length;
+        });
 
         this.getLocation();
 
@@ -69,6 +90,19 @@ export class HomeComponent {
                 });
 
                 this.mapMarkers.push(marker);
+            }
+        });
+
+        searchService.resultsEmitter.subscribe((results) => {
+            let newJobs = results.json();
+            __this.jobsPreviewList = [];
+
+            console.log('new jobs', newJobs);
+
+            for (let i = 0; i < newJobs.length; i++) {
+                if (i <= 5) {
+                    __this.jobsPreviewList.push(newJobs[i]);
+                }
             }
         });
     }
@@ -114,9 +148,32 @@ export class HomeComponent {
     }
 
     centerMapOnLocation(position) {
+        let __this = this;
+
         let panPoint = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         this.map.panTo(panPoint);
         this.map.setZoom(10);
+
+        /**
+         * Get google maps data from coords using reverse geocoding
+         */
+        let geocoder = new google.maps.Geocoder;
+        let latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
+
+        geocoder.geocode({'location': latlng}, function(results) {
+            let place = results[0];
+
+            place.geometry.viewport.north = place.geometry.viewport.b.b - 0.01;
+            place.geometry.viewport.south = place.geometry.viewport.b.f + 0.01;
+            place.geometry.viewport.west = place.geometry.viewport.f.b - 0.01;
+            place.geometry.viewport.east = place.geometry.viewport.f.f + 0.01;
+
+            console.log('place is', place);
+
+            __this.parametersList['place'] = place;
+
+            // __this.searchService.search(__this.parametersList);
+        });
     }
 
     getLocation() {

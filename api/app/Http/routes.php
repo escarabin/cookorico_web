@@ -117,6 +117,8 @@ Route::get('/user/login-using-email/{email}', 'UserController@loginUsingEmail')
     ->name('loginUsingEmail');
 Route::get('/user/recruiters/all', 'UserController@getAllRecruiters')
     ->name('getAllRecruiters');
+Route::get('/user/candidates/all', 'UserController@getAllCandidates')
+    ->name('getAllCandidates');
 Route::get('/user/recruiters/search/{email}', 'UserController@searchRecruiters')
     ->name('searchRecruiters');
 

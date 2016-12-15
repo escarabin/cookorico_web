@@ -19,18 +19,42 @@
     </job-preview>
 </div>
 
-<div class="col-md-12 centered">
-    <br />
-    <br />
-    <h2>Ils nous font confiance</h2>
+<div class="col-md-12 counters">
+    <div class="col-md-4">
+        <h1>{{ candidatesCount }}</h1><br />
+        candidats
+    </div>
+    <div class="col-md-4">
+        <h1>{{ jobs.length }}</h1><br />
+        offres
+    </div>
+    <div class="col-md-4">
+        <h1>{{ businessesCount.length }}</h1><br />
+        établissements
+    </div>
+</div>
 
-    <ul>
-        <a routerLink="['ShowClub', { clubId: club.id }]"
-           *ngFor="let club of clubs">
-            <li>
-                <img src="/uploads/club/logo/{{ club.logoUrl }}"/><br />
-                {{ club.title }}
-            </li>
-        </a>
-    </ul>
+<div class="partners-container centered">
+    <h2>Ils nous font confiance</h2>
+    <div class="partners row">
+        <div class="col-md-2">
+            <img src="/img/partners/barriere.png" class="full-width"/>
+        </div>
+        <div class="col-md-2">
+            <img src="/img/partners/golden_tulip.png" class="full-width"/>
+        </div>
+        <div class="col-md-2">
+            <img src="/img/partners/novotel.png" style="width: 60%; margin-top: 10px;" class="full-width"/>
+        </div>
+        <div class="col-md-2">
+            <img src="/img/partners/pataterie.png" class="full-width"/>
+        </div>
+        <div class="col-md-2">
+            <img src="/img/partners/radisson.png" class="full-width"/>
+        </div>
+        <div class="col-md-2">
+            <img src="/img/partners/westotel.png" class="full-width"/>
+        </div>
+        <br />
+    </div>
 </div>

@@ -68,6 +68,7 @@ export class UserService {
     isUserPartOfAGroupUrl = apiUrl + '/user/is-part-of-a-group';
     skipJobCreationUrl = apiUrl + '/user/skip-job-creation';
     getAllRecruitersUrl = apiUrl + '/user/recruiters/all';
+    getAllCandidatesUrl = apiUrl + '/user/candidates/all';
     searchRecruitersUrl = apiUrl + '/user/recruiters/search';
     noExperienceUrl = apiUrl + '/user/no-experience';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
@@ -670,6 +671,13 @@ export class UserService {
      */
     getAllRecruiters() {
         return this.http.get(this.getAllRecruitersUrl);
+    }
+
+    /**
+     * GET listing of all recruiters accounts
+     */
+    getAllCandidates() {
+        return this.http.get(this.getAllCandidatesUrl);
     }
 
     /**
