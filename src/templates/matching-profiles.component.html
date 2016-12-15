@@ -9,11 +9,13 @@
         <select class="form-control"
                 name="jobNamingId"
                 ngControl="jobNamingId"
+                (change)="saveCurrentJobNamingId()"
                 [(ngModel)]="jobNamingId">
             <option value="0">-- Offre d'emploi --</option>
             <option *ngFor="let jobPost of jobPosts"
                     value="{{ jobPost.job_naming.id }}">
-                {{ jobPost.job_naming.title }} - {{ jobPost.business.title }}
+                REF{{ jobPost.id }} - {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} -
+                <span *ngIf="jobPost.business.place">{{ jobPost.business.place.postalCode }}</span>
             </option>
         </select>
     </div>

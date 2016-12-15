@@ -223,7 +223,7 @@
                         <a *ngIf="editableProfile" routerLink="/profil/experience/editer/{{ experience.id }}">
                             <div class="item-desc">
                                 <h3 *ngIf="experience.job_naming">{{ experience.job_naming.title }}</h3>
-                                {{ experience.business.title }}<br />
+                                <span *ngIf="experience.business">{{ experience.business.title }}</span><br />
                                 <span *ngIf="experience.testimonial && experience.testimonial.is_accepted">
                                     <span class="fa fa-thumbs-up success"></span> &nbsp;Candidat recommandé<br />
                                 </span>
@@ -231,8 +231,8 @@
                         </a>
                         <a *ngIf="!editableProfile">
                             <div class="item-desc">
-                                <h3>{{ experience.job_naming.title }}</h3>
-                                {{ experience.business.title }}
+                                <h3 *ngIf="experience.job_naming">{{ experience.job_naming.title }}</h3>
+                                <span *ngIf="experience.business">{{ experience.business.title }}</span>
                             </div>
                         </a>
                     </div>
@@ -305,7 +305,7 @@
                     <div class="item">
                         <a>
                             <div class="item-desc">
-                                <h3>{{ lang.language.title }}</h3>
+                                <h3 *ngIf="lang.language">{{ lang.language.title }}</h3>
                                 <span *ngIf="lang.languageLevel">{{ lang.languageLevel.title }}</span>
                             </div>
                         </a>

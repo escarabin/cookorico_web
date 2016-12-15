@@ -16,6 +16,16 @@ home {
   .job-search {
     margin: 0;
   }
+
+  .google-maps-container {
+    padding: 0;
+    margin-top: 0;
+
+    #google-map {
+      height: 800px;
+      display: block;
+    }
+  }
 }
 
 @media (max-width: $mobileWidth) {

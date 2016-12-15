@@ -137,6 +137,10 @@ Route::get('/club/attach-business/{clubId}/{businessId}', 'ClubController@attach
     ->name('attachBusinessToClub');
 Route::post('/club/create', 'ClubController@create')
     ->name('createClub');
+Route::post('/club/member/create/{clubId}', 'ClubController@createMember')
+    ->name('createClubMember');
+Route::get('/club/member/delete/{clubMemberId}', 'ClubController@deleteMember')
+    ->name('deleteClubMember');
 Route::get('/club/delete/{clubId}', 'ClubController@delete')
     ->name('createClub');
 Route::get('/club/jobs/{clubId}', 'ClubController@getJobs')
@@ -267,7 +271,7 @@ Route::get('/job_xp_levels/all', 'ReferenceController@getAllJobXpLevels')
 // Plans
 Route::get('/user/plans/all/{userId?}', 'UserController@getPlans')
     ->name('getAllPlans');
-Route::get('/plan/payment/save/{token}/{serviceId}/{userId}', 'UserController@savePaylinePayment')
+Route::get('/plan/payment/save/{token}/{serviceId}/{returnCode}', 'UserController@savePaylinePayment')
     ->name('savePayment');
 Route::post('/plan/payment/save/', 'UserController@savePayment')
     ->name('savePayment');

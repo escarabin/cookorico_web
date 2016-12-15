@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\ClubUser;
 use App\Models\Plan;
 use Illuminate\Support\Facades\Request;
 
@@ -33,7 +34,10 @@ class ClubController extends Controller
      * @return mixed
      */
     public function getAll() {
-        $clubs = User::where('user_type_id', 4)->orderBy('username', 'ASC')->get()->load('businesses', 'plans');
+        $clubs = User::where('user_type_id', 4)
+            ->orderBy('username', 'ASC')
+            ->get()
+            ->load('businesses', 'plans', 'clubMembers');
 
         foreach ($clubs as $club) {
             $i = 0;
@@ -55,7 +59,7 @@ class ClubController extends Controller
         $groups = User::where('user_type_id', 5)
                     ->orderBy('username', 'ASC')
                     ->get()
-                    ->load('businesses', 'plans');
+                    ->load('businesses', 'plans', 'clubMembers');
 
         foreach ($groups as $group) {
             $i = 0;
@@ -125,6 +129,8 @@ class ClubController extends Controller
                 $club[$key] = $value;
             }
             else if ($key == 'password') {
+                Log::info('saving new password');
+
                 $club['password'] = Hash::make($value);
             }
         }
@@ -209,5 +215,35 @@ class ClubController extends Controller
         DB::table('plans')->where('user_id', $clubId)->delete();
 
         User::find($clubId)->delete();
+    }
+
+    /**
+     * Create new member & attach him to a club
+     * @param Request $request
+     * @param $clubId
+     * @return ClubUser
+     */
+    public function createMember($clubId, Request $request) {
+        $memberData = $request::get('clubMember');
+
+        $member = new ClubUser();
+        $member->club_user_id = $clubId;
+        $member->firstName = $memberData['firstName'];
+        $member->lastName = $memberData['lastName'];
+        $member->password = $memberData['password'];
+        $member->email = $memberData['email'];
+        if (array_key_exists('isAdmin', $memberData)) {
+            $member->is_admin = $memberData['isAdmin'];
+        }
+        $member->save();
+
+        return $member;
+    }
+
+    public function deleteMember($clubMemberId) {
+        $member = ClubUser::find($clubMemberId);
+        $member->delete();
+
+        return $member;
     }
 }

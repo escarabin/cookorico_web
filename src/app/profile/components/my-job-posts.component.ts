@@ -42,6 +42,12 @@ export class MyJobPostsComponent {
             __this.userBusinesses = res.json();
         });
 
+        this.retrieveJobPosts();
+    }
+
+    retrieveJobPosts() {
+        let __this = this;
+
         this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
             __this.items = res.json();
 
@@ -138,15 +144,13 @@ export class MyJobPostsComponent {
         }
     }
 
-    pullUpJobPost() {
-        this.jobPostService.pullUpJobPost().subscribe((post: Response) => {
-            this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
-                __this.notificationService.show(
-                    new Notification('success', 'Votre annonce a bien été remontée en haut de liste')
-                );
+    pullUpJobPost(jobPostId: number) {
+        this.jobPostService.pullUpJobPost(jobPostId).subscribe((post: Response) => {
+            this.retrieveJobPosts();
 
-                __this.items = res.json();
-            });
+            this.notificationService.show(
+                new Notification('success', 'Votre annonce a bien été remontée en haut de liste')
+            );
         });
     }
 

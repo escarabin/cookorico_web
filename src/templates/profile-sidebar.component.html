@@ -14,7 +14,8 @@
                 <span *ngIf="plan.ends_at">Valable jusq'au {{ plan.ends_at | date:"dd/MM/yyyy" }}</span>
             </div>
             <div class="col-md-12 plan-infos">
-                {{ plan.daily_contacts }} contacts disponibles<br />
+                {{ plan.daily_contacts }} accès CVthèque / jour<br />
+                {{ plan.spaces }} emplacements disponibles<br />
                 <!-- TODO: ré-activer la date de facturation -->
                 <!-- Payé le {{ plan.created_at | date:"dd/MM/yyyy" }} -->
             </div>

@@ -23,6 +23,7 @@ use App\Models\Application;
 use App\Models\Experience;
 use App\Models\Job;
 use App\Models\Alert;
+use App\Models\ClubUser;
 
 class UserController extends Controller
 {
@@ -39,6 +40,17 @@ class UserController extends Controller
      */
     public function signIn($email, $password)
     {
+        /**
+         * First, verify if user is member of a club / group
+         */
+        $clubMember = ClubUser::where('email', $email)->where('password', $password)->first();
+
+        if ($clubMember) {
+            $user = $this->loginUsingId($clubMember->club_user_id);
+
+            return $user;
+        }
+
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             $user = User::where('email', $email)->first()
                         ->load('plans',
@@ -150,7 +162,15 @@ class UserController extends Controller
     public function loginUsingId($userId) {
         Auth::loginUsingId($userId);
 
-        return Auth::user();
+        $user = Auth::user()->load('plans',
+            'status',
+            'type',
+            'civility',
+            'place',
+            'lookingForJobNamings',
+            'lookingForJobNamingPlaces');
+
+        return $user;
     }
 
     /**
@@ -192,12 +212,12 @@ class UserController extends Controller
         }
 
         $user->load('plans',
-                'status',
-                'type',
-                'civility',
-                'place',
-                'lookingForJobNamings',
-                'lookingForJobNamingPlaces');
+                    'status',
+                    'type',
+                    'civility',
+                    'place',
+                    'lookingForJobNamings',
+                    'lookingForJobNamingPlaces');
 
         return $user;
     }
@@ -482,7 +502,15 @@ class UserController extends Controller
             }
         }
 
-        return $user;
+        $createdUser = User::find($user->id)->load('plans',
+            'status',
+            'type',
+            'civility',
+            'place',
+            'lookingForJobNamings',
+            'lookingForJobNamingPlaces');
+
+        return $createdUser;
     }
 
     public function sendAccountConfirmationEmail($user) {
@@ -1103,8 +1131,64 @@ class UserController extends Controller
         return 'test';
     }
 
-    public function savePaylinePayment($token, $serviceId, $userId) {
-        header('Location: https://cookorico.com/profil/confirmation-paiement/false');
+    public function savePaylinePayment($token, $serviceId, $returnCode) {
+        /**
+         * Check if payment is valid
+         */
+        if ($returnCode == '00000') {
+            $pricingPlan = PricingPlan::where('sellsy_service_id', $serviceId)->first();
+
+            /**
+             * Check if user already has a plan
+             * If so, add more credits to it
+             * If not, create a new one
+             */
+            $userPlan = Plan::where('user_id', Auth::user()->id)->first();
+
+            /* $funnels = App::make('SellsyClient')
+                ->getService('Opportunities')
+                ->call('getStepsForFunnel', array('funnelid' => 30165));
+
+                Log::info($funnels);
+            */
+            if ($userPlan) {
+                $userPlan->user_id = Auth::user()->id;
+                $userPlan->pricing_plan_id = $pricingPlan->id;
+                $userPlan->credits += $pricingPlan->credits;
+                $userPlan->daily_contacts = $pricingPlan->daily_contacts;
+                $userPlan->daily_remaining_contacts = $pricingPlan->daily_contacts;
+                $userPlan->spaces = $pricingPlan->spaces;
+
+                /**
+                 * Set plan ends date if it has a duration
+                 */
+                if ($pricingPlan->duration) {
+                    $userPlan->ends_at = date("Y-m-d H:i:s", strtotime(time().''.$pricingPlan->duration.' + months'));
+                }
+                else {
+                    $userPlan->ends_at = null;
+                }
+
+                // Update "payment date" to today
+                $userPlan->created_at = date("Y-m-d H:i:s");
+                $userPlan->save();
+            }
+            else {
+                $plan = new Plan();
+                $plan->user_id = Auth::user()->id;
+                $plan->pricing_plan_id = $pricingPlan->id;
+                $plan->credits = $pricingPlan->credits;
+                $plan->daily_contacts = $pricingPlan->daily_contacts;
+                $plan->daily_remaining_contacts = $pricingPlan->daily_contacts;
+                $plan->spaces = $pricingPlan->spaces;
+                $plan->save();
+            }
+
+            header('Location: https://cookorico.com/profil/confirmation-paiement/true');
+        }
+        else {
+            header('Location: https://cookorico.com/profil/confirmation-paiement/false');
+        }
 
         exit();
     }

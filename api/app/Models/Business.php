@@ -67,6 +67,7 @@ class Business extends Model
      */
     public function jobs() {
         return $this->hasMany(Job::class)
-                    ->where('created_at', '>', date("Y-m-d", strtotime("-1 months")));
+                    ->where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
+                    ->where('is_rejected', 0);
     }
 }

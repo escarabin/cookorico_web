@@ -43,33 +43,134 @@
         </div>
         <div class="col-md-12">
             <hr />
-            <div class="col-md-6">
-                <div class="col-md-12">
-                    <business-select [isRequired]="true"
-                                     (businessIdChange)="handleBusinessIdChange($event, club.id)">
+            <div class="col-md-12 centered">
+                <button type="button" class="btn btn-default"
+                        (click)="isBusinessesCollapsed[i] = !isBusinessesCollapsed[i]">
+                    + Ajouter un établissement
+                </button>
+                <br />
+                <br />
+                <div [collapse]="!isBusinessesCollapsed[i]"
+                     class="card card-block card-header">
+                    <div class="col-md-12">
+                        <business-select [isRequired]="true"
+                                         (businessIdChange)="handleBusinessIdChange($event, club.id)">
 
-                    </business-select>
-                </div>
-                <div class="col-md-10">
-                    <br />
-                    <label>ID de l'établissement</label>
-                    <input type="text"
-                           [(ngModel)]="businessIdList[i]"
-                           ngControl="businessIdList[i]"
-                           class="form-control"
-                           placeholder="ID de l'établissement"/>
-                </div>
-                <div class="col-md-2">
-                    <br/>
-                    <br/>
-                    <button class="btn btn-primary"
-                            (click)="handleBusinessIdChange(businessIdList[i], club.id)">
-                        Ajouter
-                    </button>
+                        </business-select>
+                    </div>
+                    <div class="col-md-10">
+                        <br />
+                        <label>ID de l'établissement</label>
+                        <input type="text"
+                               [(ngModel)]="businessIdList[i]"
+                               ngControl="businessIdList[i]"
+                               class="form-control"
+                               placeholder="ID de l'établissement"/>
+                    </div>
+                    <div class="col-md-2">
+                        <br/>
+                        <br/>
+                        <button class="btn btn-primary"
+                                (click)="handleBusinessIdChange(businessIdList[i], club.id)">
+                            Ajouter
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-
+            <div class="col-md-12">
+                <div class="col-md-12 centered">
+                    <button type="button" class="btn btn-default"
+                            (click)="isMemberCollapsed[i] = !isMemberCollapsed[i]">
+                        Membres
+                    </button>
+                </div>
+                <br />
+                <br />
+                <div [collapse]="!isMemberCollapsed[i]"
+                     class="card card-block card-header">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                            <th>Suppr.</th>
+                        </tr> </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ club.lastName }}</td>
+                                <td>{{ club.firstName }}</td>
+                                <td>{{ club.email }}</td>
+                                <td>Admin</td>
+                                <td>
+                                    <button class="btn btn-default full-width" disabled>
+                                        <span class="icon-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr *ngFor="let member of club.club_members">
+                                <td>{{ member.lastName }}</td>
+                                <td>{{ member.firstName }}</td>
+                                <td>{{ member.email }}</td>
+                                <td>Utilisateur</td>
+                                <td>
+                                    <button class="btn btn-default full-width"
+                                            (click)="deleteClubMember(member.id)">
+                                        <span class="icon-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-md-6">
+                        <label>Prénom</label>
+                        <input type="text"
+                               [(ngModel)]="newClubMember['firstName']"
+                               ngControl="newClubMemberList['firstName']"
+                               class="form-control"
+                               placeholder="Prénom"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Nom</label>
+                        <input type="text"
+                               [(ngModel)]="newClubMember['lastName']"
+                               ngControl="newClubMemberList['lastName']"
+                               class="form-control"
+                               placeholder="Nom"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Email</label>
+                        <input type="text"
+                               [(ngModel)]="newClubMember['email']"
+                               ngControl="newClubMemberList['email']"
+                               class="form-control"
+                               placeholder="Email"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Mot de passe</label>
+                        <input type="password"
+                               [(ngModel)]="newClubMember['password']"
+                               ngControl="newClubMemberList['password']"
+                               class="form-control"
+                               placeholder="Mot de passe"/>
+                    </div>
+                    <div class="col-md-12 centered">
+                        <label>
+                            Administrateur
+                            <input type="checkbox"
+                                   [(ngModel)]="newClubMember['isAdmin']"
+                                   ngControl="newClubMemberList['isAdmin']"/>
+                        </label>
+                    </div>
+                    <div class="col-md-12 centered">
+                        <button class="btn btn-primary"
+                                (click)="createClubMember(club.id)">
+                            Créer membre
+                        </button>
+                        <br /><br />
+                    </div>
+                </div>
             </div>
             <div class="col-md-12" style="border-top: 1px solid #CCC">
                 <ul>

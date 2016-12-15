@@ -29,7 +29,7 @@ export class ProfileSidebarComponent {
 
         let __this = this;
 
-        if (this.user.user_type_id == 2) {
+        if (this.user.user_type_id == 2 || this.user.user_type_id == 4 || this.user.user_type_id == 5) {
             this.userService.getPlans(this.user.id).subscribe((res: Response) => {
                 let plans = [];
 
@@ -39,6 +39,8 @@ export class ProfileSidebarComponent {
                         i = 1000;
                     }
                 }
+
+                console.log('plans are', plans);
             });
         }
     }

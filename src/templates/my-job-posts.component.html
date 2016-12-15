@@ -8,7 +8,7 @@
             [(ngModel)]="businessId"
             ngControl="businessId">
         <option value="0">
-            -- Tous les établissements --
+            -- Sélectionnez un établissement --
         </option>
         <option *ngFor="let business of userBusinesses"
                 value="{{ business.id }}">
@@ -71,14 +71,14 @@
 <div class="col-md-12 list-container">
     <ul>
         <div *ngFor="let item of items">
-            <li class="row"
-                *ngIf="(item[postStatus] && item['dayDiff'] < 30 && item['is_active'])
+            <div *ngIf="(item[postStatus] && item['dayDiff'] < 30 && item['is_active'])
                        || (item['dayDiff'] > 30 && postStatus == 'is_expired')
                        || (postStatus == 'is_reviewing' && !item.is_accepted && !item.is_rejected && item['dayDiff'] < 30)
                        || (postStatus == 'is_inactive' && item.is_accepted && !item.is_active && item['dayDiff'] < 30)
                        || (postStatus == 'is_rejected' && item.is_rejected)
                        || postStatus == null">
-                <div *ngIf="(businessId != 0 && businessId == item.business_id) || businessId == 0">
+                <li class="row"
+                    *ngIf="(businessId != 0 && businessId == item.business_id) || businessId == 0">
                     <div class="col-md-12 col-sm-12 col-xs-12 item"
                          [class.logo]="item.business.logo">
                         <div class="col-md-2 col-sm-2 hidden-xs" *ngIf="item.business.logo">
@@ -100,7 +100,7 @@
                             le {{ item.created_at | date:"dd/MM/yyyy" }}<br />
 
                             <button class="btn btn-primary"
-                                    (click)="pullUpJobPost()"
+                                    (click)="pullUpJobPost(item.id)"
                                     *ngIf="item.is_active && item.is_accepted && postStatus == 'is_accepted'">
                                 Remonter l'offre
                             </button>
@@ -152,8 +152,8 @@
                             </a>
                         </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            </div>
         </div>
         <li *ngFor="let i of jobPlacementsLeftNum" class="free-job-placement">
             <div class="col-md-9">

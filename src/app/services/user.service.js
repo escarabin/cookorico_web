@@ -271,9 +271,10 @@ var UserService = (function () {
     /**
      * Get user's job posts
      * @param userId
+     * @param includeDisabled
      */
-    UserService.prototype.getJobPosts = function (userId) {
-        return this.http.get(this.getJobPostsUrl + '/' + userId);
+    UserService.prototype.getJobPosts = function (userId, includeDisabled) {
+        return this.http.get(this.getJobPostsUrl + '/' + userId + '/' + includeDisabled);
     };
     /**
      * Delete specific user's job posts
@@ -503,8 +504,8 @@ var UserService = (function () {
     /**
      * Check out if recruiter has access to specific candidate infos
      */
-    UserService.prototype.doRecruiterHasAccessToCandidate = function (candidateId) {
-        return this.http.get(this.doRecruiterHasAccessToCandidateUrl + '/' + candidateId);
+    UserService.prototype.doRecruiterHasAccessToCandidate = function (candidateId, recruiterId) {
+        return this.http.get(this.doRecruiterHasAccessToCandidateUrl + '/' + candidateId + '/' + recruiterId);
     };
     /**
      * Accept specifc job post as admin user

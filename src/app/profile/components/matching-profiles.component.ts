@@ -37,11 +37,11 @@ export class MatchingProfilesComponent {
                     this.ref.detectChanges();
 
                     /**
-                     * By default, select first option if only one is available
-
-                    if (__this.jobPosts.length == 1) {
-                        __this.jobNamingId = __this.jobPosts[0].job_naming_id;
-                    }*/
+                     * By default, select option from localStorage
+                     */
+                    if (localStorage.getItem('currentJobNamingId')) {
+                        __this.jobNamingId = localStorage.getItem('currentJobNamingId');
+                    }
                 });
             }
         });
@@ -49,5 +49,9 @@ export class MatchingProfilesComponent {
         this.referenceService.getAllJobXpLevels().subscribe((res: Response) => {
             __this.xpLevels = res.json();
         });
+    }
+
+    saveCurrentJobNamingId() {
+        localStorage.setItem('currentJobNamingId', this.jobNamingId);
     }
 }

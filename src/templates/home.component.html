@@ -8,18 +8,20 @@
     </div>
 </div>
 
-<!--<div class="col-md-6">
-    <job-preview *ngFor="let job of jobs"
+<div class="col-md-4 google-maps-container">
+    <div id="google-map">
+
+    </div>
+</div>
+<div class="col-md-8 no-padding">
+    <job-preview *ngFor="let job of jobsPreviewList"
                  [job]="job">
     </job-preview>
 </div>
-<div class="col-md-6">
-    <post-preview *ngFor="let post of posts"
-                  [post]="post">
-    </post-preview>
-</div>
 
-<div class="col-md-12">
+<div class="col-md-12 centered">
+    <br />
+    <br />
     <h2>Ils nous font confiance</h2>
 
     <ul>
@@ -31,4 +33,4 @@
             </li>
         </a>
     </ul>
-</div>-->
+</div>

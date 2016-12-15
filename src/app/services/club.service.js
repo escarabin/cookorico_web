@@ -15,8 +15,10 @@ var ClubService = (function () {
         this.allGroupsListingUrl = globals_1.apiUrl + '/groups/all';
         this.showClubListingUrl = globals_1.apiUrl + '/club';
         this.createClubUrl = globals_1.apiUrl + '/club/create';
+        this.createClubMemberUrl = globals_1.apiUrl + '/club/member/create';
         this.detachBusinessFromClubUrl = globals_1.apiUrl + '/club/detach-business';
         this.deleteClubUrl = globals_1.apiUrl + '/club/delete';
+        this.deleteClubMemberUrl = globals_1.apiUrl + '/club/member/delete';
         this.attachBusinessToClubUrl = globals_1.apiUrl + '/club/attach-business';
         this.postRequestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.postRequestOptions = new http_1.RequestOptions({ headers: this.postRequestHeaders });
@@ -57,6 +59,16 @@ var ClubService = (function () {
         return this.http.post(this.createClubUrl, requestBody, this.postRequestOptions);
     };
     /**
+     * Create a new club member & attach him to a club
+     * @param clubMember
+     * @param clubId
+     * @returns {Observable<Response>}
+     */
+    ClubService.prototype.createClubMember = function (clubMember, clubId) {
+        var requestBody = JSON.stringify({ clubMember: clubMember });
+        return this.http.post(this.createClubMemberUrl + '/' + clubId, requestBody, this.postRequestOptions);
+    };
+    /**
      * Detach business from specific club
      * @param clubId
      * @param businessId
@@ -81,6 +93,14 @@ var ClubService = (function () {
      */
     ClubService.prototype.deleteClub = function (clubId) {
         return this.http.request(this.deleteClubUrl + '/' + clubId);
+    };
+    /**
+     * Delete specific clubMember
+     * @param clubMemberId
+     * @returns {Observable<Response>}
+     */
+    ClubService.prototype.deleteClubMember = function (clubMemberId) {
+        return this.http.request(this.deleteClubMemberUrl + '/' + clubMemberId);
     };
     ClubService = __decorate([
         core_1.Injectable()

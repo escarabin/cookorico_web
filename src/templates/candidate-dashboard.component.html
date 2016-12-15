@@ -189,7 +189,6 @@
                    [(ngModel)]="lookingForJobNamingList[0]['place']['formatted_address']"
                    ngControl="lookingForJobNamingList[0]['place']['formatted_address']"
                    name="lookingForPlace1"
-                   [class.error]="lookingForJobNamingList[0]['place'] == null"
                    (setAddress)="parseAdress($event, 0)"
                    googleplace/>
             <input type="text"

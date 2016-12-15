@@ -31,6 +31,9 @@ export class ClubsManagementComponent {
     isSavingClub: boolean = false;
     isGroupEdtingMode: boolean = false;
     groupSpacesAmount: number;
+    isMemberCollapsed: any = [];
+    isBusinessesCollapsed: any = [];
+    newClubMember: any = {};
 
     constructor(private clubService: ClubService,
                 private userService: UserService,
@@ -38,16 +41,6 @@ export class ClubsManagementComponent {
         this.route.params.subscribe(params => {
             if (params['type'] == 'groupes') {
                 this.isGroupEdtingMode = true;
-                this.clubService.getAllGroups().subscribe((clubs:Response) => {
-                    this.clubs = clubs.json();
-
-                    console.log('get all clubs', this.clubs);
-                });
-            }
-            else {
-                this.clubService.getAllClubs().subscribe((clubs:Response) => {
-                    this.clubs = clubs.json();
-                });
             }
         });
 
@@ -65,6 +58,24 @@ export class ClubsManagementComponent {
         this.cropperSettings.canvasHeight = 300;
 
         this.profilePictureData = {};
+
+        this.retrieveClubListing();
+    }
+
+    public retrieveClubListing() {
+        if (this.isGroupEdtingMode == true) {
+            this.isGroupEdtingMode = true;
+            this.clubService.getAllGroups().subscribe((clubs:Response) => {
+                this.clubs = clubs.json();
+
+                console.log('get all clubs', this.clubs);
+            });
+        }
+        else {
+            this.clubService.getAllClubs().subscribe((clubs:Response) => {
+                this.clubs = clubs.json();
+            });
+        }
     }
 
     public fileOverBase(e:any):void {
@@ -183,6 +194,22 @@ export class ClubsManagementComponent {
         this.userService.loginUsingId(userId).subscribe((user: Response) => {
             localStorage.setItem('user', JSON.stringify(user.json()));
             document.location.hash = '/';
+        });
+    }
+
+    /**
+     * Create a new member & attach him to a club
+     * @param clubId
+     */
+    createClubMember(clubId: number) {
+        this.clubService.createClubMember(this.newClubMember, clubId).subscribe((res:Response) => {
+            this.retrieveClubListing();
+        });
+    }
+
+    deleteClubMember(clubMemberId: number) {
+        this.clubService.deleteClubMember(clubMemberId).subscribe((res:Response) => {
+            this.retrieveClubListing();
         });
     }
 }

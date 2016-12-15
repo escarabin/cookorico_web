@@ -53,6 +53,9 @@
                         <h3>{{ item.title }}</h3>
                         <span *ngIf="item.place">
                             <i class="fa fa-map-marker"></i> &nbsp; {{ item.place.adress }}<br />
+                            <span *ngIf="item.place.postalCode">
+                                {{ item.place.postalCode }}
+                            </span> -
                             <span *ngIf="item.place.city">
                                 {{ item.place.city }}
                             </span>

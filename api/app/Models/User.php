@@ -164,6 +164,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get members of club if user is a club
+     * @return mixed
+     */
+    public function clubMembers() {
+        return $this->hasMany(ClubUser::class, 'club_user_id');
+    }
+
+    /**
      * Get user's job posts
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

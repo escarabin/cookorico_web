@@ -8,9 +8,20 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
+        "jquery-3.1.1.min.js",
         "assets",
         "css",
-        "favicon.ico"
+        "favicon.ico",
+        "braintree-web",
+        "bootstrap",
+        "fonts",
+        "img",
+        "tinymce",
+        "bin",
+        "app.js",
+        "routes.js",
+        "cookorico.com.key",
+        "cookorico.crt"
       ],
       "index": "index.html",
       "main": "main.ts",

@@ -8,8 +8,10 @@ export class ClubService {
     allGroupsListingUrl = apiUrl + '/groups/all';
     showClubListingUrl = apiUrl + '/club';
     createClubUrl = apiUrl + '/club/create';
+    createClubMemberUrl = apiUrl + '/club/member/create';
     detachBusinessFromClubUrl = apiUrl + '/club/detach-business';
     deleteClubUrl = apiUrl + '/club/delete';
+    deleteClubMemberUrl = apiUrl + '/club/member/delete';
     attachBusinessToClubUrl = apiUrl + '/club/attach-business';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
@@ -56,6 +58,19 @@ export class ClubService {
         return this.http.post(this.createClubUrl, requestBody, this.postRequestOptions);
     }
 
+
+    /**
+     * Create a new club member & attach him to a club
+     * @param clubMember
+     * @param clubId
+     * @returns {Observable<Response>}
+     */
+    createClubMember(clubMember: any, clubId: number) {
+        let requestBody = JSON.stringify({ clubMember });
+
+        return this.http.post(this.createClubMemberUrl + '/' + clubId, requestBody, this.postRequestOptions);
+    }
+
     /**
      * Detach business from specific club
      * @param clubId
@@ -84,5 +99,15 @@ export class ClubService {
      */
     deleteClub(clubId: number) {
         return this.http.request(this.deleteClubUrl + '/' + clubId);
+    }
+
+
+    /**
+     * Delete specific clubMember
+     * @param clubMemberId
+     * @returns {Observable<Response>}
+     */
+    deleteClubMember(clubMemberId: number) {
+        return this.http.request(this.deleteClubMemberUrl + '/' + clubMemberId);
     }
 }
