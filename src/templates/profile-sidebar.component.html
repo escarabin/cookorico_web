@@ -113,13 +113,13 @@
            routerLinkActive="active">
             <i class="icon-layers"></i> &nbsp; Établissements
         </a>
-        <!--<a *ngIf="user.user_type_id == 1"
+        <a *ngIf="user.user_type_id == 1"
            routerLink="/profil/recruteurs-admin"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">
             <i class="icon-users"></i> &nbsp; Recruteurs
         </a>
-        <a *ngIf="user.user_type_id == 2 || user.user_type_id == 4 || user.user_type_id == 5"
+        <!--<a *ngIf="user.user_type_id == 2 || user.user_type_id == 4 || user.user_type_id == 5"
            routerLink="/profil/demandes_de_recommandation"
            [class.visible]="isMobileMenuVisible"
            routerLinkActive="active">

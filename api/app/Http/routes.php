@@ -119,6 +119,8 @@ Route::get('/user/recruiters/all', 'UserController@getAllRecruiters')
     ->name('getAllRecruiters');
 Route::get('/user/candidates/all', 'UserController@getAllCandidates')
     ->name('getAllCandidates');
+Route::get('/user/candidates/count', 'UserController@getCandidatesCount')
+    ->name('getCandidatesCount');
 Route::get('/user/recruiters/search/{email}', 'UserController@searchRecruiters')
     ->name('searchRecruiters');
 
@@ -251,6 +253,8 @@ Route::get('/business/jobs/{businessId}', 'BusinessController@getJobs')
     ->name('getJobsFromBusiness');
 Route::get('/businesses/all/', 'BusinessController@getAll')
     ->name('getAllBusinesses');
+Route::get('/businesses/count/', 'BusinessController@getCount')
+    ->name('getAllBusinessesCount');
 Route::get('/business/attach-user/{userId}/{businessId}', 'BusinessController@attachUser')
     ->name('attachUserToBusiness');
 Route::get('/business/detach-user/{userId}/{businessId}', 'BusinessController@detachUser')

@@ -8,6 +8,30 @@
     </div>
 </div>
 
+<div class="col-md-12 counters centered">
+    <div class="col-md-1">
+        <span class="icon icon-user"></span>
+    </div>
+    <div class="col-md-1">
+        <h1>{{ candidatesCount }}</h1>
+        candidats
+    </div>
+    <div class="col-md-1 col-md-offset-2">
+        <span class="icon icon-docs"></span>
+    </div>
+    <div class="col-md-1">
+        <h1>{{ jobs.length }}</h1>
+        offres
+    </div>
+    <div class="col-md-1 col-md-offset-2">
+        <span class="icon icon-layers"></span>
+    </div>
+    <div class="col-md-2">
+        <h1>{{ businessesCount }}</h1>
+        établissements
+    </div>
+</div>
+
 <div class="col-md-4 google-maps-container">
     <div id="google-map">
 
@@ -17,21 +41,6 @@
     <job-preview *ngFor="let job of jobsPreviewList"
                  [job]="job">
     </job-preview>
-</div>
-
-<div class="col-md-12 counters">
-    <div class="col-md-4">
-        <h1>{{ candidatesCount }}</h1><br />
-        candidats
-    </div>
-    <div class="col-md-4">
-        <h1>{{ jobs.length }}</h1><br />
-        offres
-    </div>
-    <div class="col-md-4">
-        <h1>{{ businessesCount.length }}</h1><br />
-        établissements
-    </div>
 </div>
 
 <div class="partners-container centered">

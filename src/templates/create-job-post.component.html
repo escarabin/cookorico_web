@@ -39,7 +39,7 @@
                 <option selected disabled>-- Établissement --</option>
                 <option *ngFor="let business of businesses"
                         value="{{ business.id }}"
-                        [selected]="businessId==business.id">
+                        [selected]="businessId==business.id || businesses.length == 1">
                     {{ business.title }} - <i *ngIf="business.place">{{ business.place.city }}</i>
                 </option>
             </select>

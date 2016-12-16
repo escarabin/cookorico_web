@@ -69,6 +69,7 @@ export class UserService {
     skipJobCreationUrl = apiUrl + '/user/skip-job-creation';
     getAllRecruitersUrl = apiUrl + '/user/recruiters/all';
     getAllCandidatesUrl = apiUrl + '/user/candidates/all';
+    getCandidatesCountUrl = apiUrl + '/user/candidates/count';
     searchRecruitersUrl = apiUrl + '/user/recruiters/search';
     noExperienceUrl = apiUrl + '/user/no-experience';
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
@@ -678,6 +679,13 @@ export class UserService {
      */
     getAllCandidates() {
         return this.http.get(this.getAllCandidatesUrl);
+    }
+
+    /**
+     * GET listing of all recruiters accounts
+     */
+    getCandidatesCount() {
+        return this.http.get(this.getCandidatesCountUrl);
     }
 
     /**

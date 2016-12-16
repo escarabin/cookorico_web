@@ -22,17 +22,33 @@ home {
     margin-top: 0;
 
     #google-map {
-      height: 800px;
+      height: 820px;
       display: block;
+    }
+  }
+
+  .counters {
+    background-color: $oechrBlueColor;
+    color: white;
+    padding: 40px 0;
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    .icon {
+      font-size: 3em;
+      position: relative;
+      top: 25px;
     }
   }
 
   .partners-container {
     background-color: white;
-    margin-top: 100px;
     display: inline-block;
     width: 100%;
     padding-top: 20px;
+    padding-bottom: 40px;
 
     h2 {
       padding-bottom: 20px;

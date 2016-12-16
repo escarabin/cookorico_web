@@ -234,6 +234,16 @@ class BusinessController extends Controller
         return $businesses;
     }
 
+
+    /**
+     * Get all businesses count
+     */
+    public function getCount() {
+        $businessesCount = Business::count();
+
+        return $businessesCount;
+    }
+
     /**
      * Attach user to specific business
      * @param $userId

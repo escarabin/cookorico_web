@@ -113,7 +113,8 @@
                                 <td>{{ member.lastName }}</td>
                                 <td>{{ member.firstName }}</td>
                                 <td>{{ member.email }}</td>
-                                <td>Utilisateur</td>
+                                <td *ngIf="!member.is_admin">Utilisateur</td>
+                                <td *ngIf="member.is_admin">Admin</td>
                                 <td>
                                     <button class="btn btn-default full-width"
                                             (click)="deleteClubMember(member.id)">

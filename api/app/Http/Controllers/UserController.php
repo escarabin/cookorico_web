@@ -893,6 +893,12 @@ class UserController extends Controller
         return $users;
     }
 
+    public function getCandidatesCount() {
+        $candidatesCount = User::where('user_type_id', 3)->count();
+
+        return $candidatesCount;
+    }
+
     /**
      * GET a listing of all recruiters accounts
      * @param $searchEmail

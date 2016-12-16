@@ -14,6 +14,7 @@ export class BusinessService {
     detachUserUrl = apiUrl + "/business/detach-user";
     searchBusinessUrl = apiUrl + "/business/search";
     attachUserUrl = apiUrl + "/business/attach-user";
+    getAllBusinessesCountUrl = apiUrl + "/businesses/count";
     postRequestHeaders = new Headers({ 'Content-Type': 'application/json' });
     postRequestOptions = new RequestOptions({ headers: this.postRequestHeaders });
 
@@ -40,6 +41,14 @@ export class BusinessService {
      */
     getAll() {
         return this.http.request(this.getAllBusinessesUrl);
+    }
+
+    /**
+     * List all businesses
+     * @returns {Observable<Response>}
+     */
+    getAllCount() {
+        return this.http.request(this.getAllBusinessesCountUrl);
     }
 
     /**

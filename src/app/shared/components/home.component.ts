@@ -41,12 +41,12 @@ export class HomeComponent {
         /**
          * Retrieve data for counters banner
          */
-        this.userService.getAllCandidates().subscribe((res: Response) => {
-            this.candidatesCount = res.json().length;
+        this.userService.getCandidatesCount().subscribe((res: Response) => {
+            this.candidatesCount = res['_body'];
         });
 
-        this.businessService.getAll().subscribe((res: Response) => {
-            this.businessesCount = res.json().length;
+        this.businessService.getAllCount().subscribe((res: Response) => {
+            this.businessesCount = res['_body'];
         });
 
         this.getLocation();
@@ -96,8 +96,6 @@ export class HomeComponent {
         searchService.resultsEmitter.subscribe((results) => {
             let newJobs = results.json();
             __this.jobsPreviewList = [];
-
-            console.log('new jobs', newJobs);
 
             for (let i = 0; i < newJobs.length; i++) {
                 if (i <= 5) {
