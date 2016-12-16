@@ -16,11 +16,11 @@
                 </span>
             </li>
         </ol>
+        <router-outlet></router-outlet>
         <div class="col-md-12 seo-data-container"
              [innerHtml]="seoRouteData.description"
              *ngIf="seoRouteData">
 
         </div>
-        <router-outlet></router-outlet>
     </div>
 </div>

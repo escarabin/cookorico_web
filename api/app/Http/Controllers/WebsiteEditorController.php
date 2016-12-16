@@ -44,11 +44,12 @@ class WebsiteEditorController extends Controller
         foreach ($trafficDrivenCats as $trafficDrivenCat) {
             $title = $trafficDrivenCat['title'];
             $description = $trafficDrivenCat['description'];
+            $metaDescription = $trafficDrivenCat['metaDescription'];
             $path = $trafficDrivenCat['path'];
             $jobNamingId = $trafficDrivenCat['jobNamingId'];
             $placeId = $trafficDrivenCat['place']['place_id'];
 
-            $newUrl = '/#/recherche/'.$placeId.'/'.$jobNamingId.'/0/0';
+            $newUrl = '/recherche/'.$placeId.'/'.$jobNamingId.'/0/0';
 
             $seoRoute = new SeoRoute();
             $seoRoute->title = $title;
@@ -56,6 +57,7 @@ class WebsiteEditorController extends Controller
             $seoRoute->description = $description;
             $seoRoute->path = $path;
             $seoRoute->redirection_url = $newUrl;
+            $seoRoute->meta_description = $metaDescription;
             $seoRoute->save();
 
             $htaccessLine = PHP_EOL.'Redirect permanent '.$path.' '.$newUrl.''.PHP_EOL;

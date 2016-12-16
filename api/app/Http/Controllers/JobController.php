@@ -119,7 +119,6 @@ class JobController extends Controller
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function search(Request $request) {
-        Log::info($request::all());
         $parameters = $request::get('searchParameters');
 
         $contractTypeList = array();
@@ -188,9 +187,6 @@ class JobController extends Controller
                                         'jobXpLevel',
                                         'languages');
 
-        Log::info('search with params');
-        Log::info($parameters);
-
         /**
          * Check if job's business is inside the
          * search area
@@ -206,8 +202,6 @@ class JobController extends Controller
             $job->save();
 
             if (array_key_exists('place', $parameters)) {
-                Log::info('searching with place');
-                Log::info($parameters['place']);
                 $viewport_north = $parameters['place']['geometry']['viewport']['north'];
                 $viewport_south = $parameters['place']['geometry']['viewport']['south'];
                 $viewport_west = $parameters['place']['geometry']['viewport']['west'];

@@ -22,7 +22,6 @@ export class WebsiteEditorComponent {
     trafficDrivenCats: any = [];
 
     constructor(private websiteEditorService: WebsiteEditorService,
-                private notificationService: NotificationsService,
                 private referenceService: ReferenceService) {
         let __this = this;
 
@@ -50,8 +49,6 @@ export class WebsiteEditorComponent {
                      */
                     geocoder.geocode({'placeId': placeId}, function(results) {
                         let place = results[0];
-
-                        console.log('retrieved a place', placeId);
 
                         urlParams = { title: urlTitleAndDesc[2], description: urlTitleAndDesc[3], path: urlParams[1], jobNamingId: jobNamingId, place: place };
                         __this.trafficDrivenCats.push(urlParams);
@@ -120,5 +117,9 @@ export class WebsiteEditorComponent {
 
     catDescriptionChanged(newDesc: any, catId: number) {
         this.trafficDrivenCats[catId]['description'] = newDesc;
+    }
+
+    catMetaDescriptionChanged(newDesc: any, catId: number) {
+        this.trafficDrivenCats[catId]['metaDescription'] = newDesc;
     }
 }

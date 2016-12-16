@@ -1114,6 +1114,23 @@ class UserController extends Controller
         $user->is_active = 0;
         $user->save();
 
+        $templateName = "disabled-account";
+
+        $mailTemplate = MailTemplate::where('slug', $templateName)->first();
+
+        Mail::send('emails.'.$templateName,
+            [
+                'content' => $mailTemplate->message,
+                'user' => $user,
+            ],
+            function ($message) use ($user, $mailTemplate) {
+                $message->from(env('COMPANY_EMAIL'), env('COMPANY_NAME'));
+
+                $message->to($user->email, 'Test')
+                    ->subject($mailTemplate->subject);
+            }
+        );
+
         return $user;
     }
 
