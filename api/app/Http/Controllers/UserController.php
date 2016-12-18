@@ -1109,8 +1109,8 @@ class UserController extends Controller
     /**
      * Disable currently logged user account
      */
-    public function disableAccount() {
-        $user = Auth::user();
+    public function disableAccount($userId) {
+        $user = User::find($userId);
         $user->is_active = 0;
         $user->save();
 

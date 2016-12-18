@@ -87,6 +87,10 @@ export class CreateJobPostComponent {
         else {
             this.userService.getBusinesses(this.user.id).subscribe((res: Response) => {
                 this.businesses = res.json();
+
+                if (this.businesses.length == 1) {
+                    this.jobPost.business_id = this.businesses[0].id;
+                }
             });
         }
 

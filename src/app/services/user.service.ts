@@ -112,10 +112,11 @@ export class UserService {
 
     /**
      * Disable currently logged user account
+     * @param userId
      * @returns {Observable<Response>}
      */
-    disableAccount() {
-        return this.http.get(this.disableAccountUrl);
+    disableAccount(userId: number) {
+        return this.http.get(this.disableAccountUrl + '/' + userId);
     }
 
     /**

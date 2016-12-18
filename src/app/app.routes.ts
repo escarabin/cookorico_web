@@ -89,7 +89,10 @@ const appRoutes: Routes = [
     { path: 'inscription-candidat', component: CandidateSignUpComponent,
         data: {
             meta: {
-                title: 'Inscription candidat'
+                title: 'Inscription candidat',
+                description: "Cookorico : Le réveil de l'emploi en Hôtellerie Restauration" +
+                "Inscription en moins de 2 minutes ! Diffusez vos offres d'emploi" +
+                "Cuisinier - serveur - plongeur - réceptionniste - pâtissier..."
             }
         }
     },
@@ -98,19 +101,34 @@ const appRoutes: Routes = [
     { path: 'accueil-recruteur', component: RecruiterPromoComponent,
         data: {
             meta: {
-                title: 'Inscription recruteur'
+                title: 'Inscription recruteur',
+                description: "Cookorico : Le réveil de l'emploi en Hôtellerie Restauration" +
+                "Diffusez vos offres d'emploi auprès de candidats ciblés" +
+                "Multidiffusion - Alertes - Cv Thèque - Espace recruteur"
             }
         }
     },
     { path: 'accueil-candidat', component: CandidatePromoComponent,
         data: {
             meta: {
-                title: 'Inscription candidat'
+                title: 'Inscription candidat',
+                description: "Cookorico : Le réveil de l'emploi en Hôtellerie Restauration" +
+                "Inscription en moins de 2 minutes !" +
+                "Cuisinier - commis - plongeur - réceptionniste - pâtissier..."
             }
         }
     },
 
-    { path: 'accueil', component: HomeComponent},
+    { path: 'accueil', component: HomeComponent,
+        data: {
+            meta: {
+                title: 'Inscription candidat',
+                description: "Cookorico : Le réveil de l'emploi en Hôtellerie Restauration. " +
+                "Des centaines d'offres d'emploi de moins de 30 jours ! " +
+                "Emploi cuisinier - serveur - plongeur - réceptionniste - pâtissier..."
+            }
+        }
+    },
 
     // Root
     { path: '', redirectTo: '/accueil', pathMatch: 'full' },

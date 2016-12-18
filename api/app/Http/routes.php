@@ -91,7 +91,7 @@ Route::post('/user/save_info/{userId?}', 'UserController@saveInfo');
     ->name('createCandidate');*/
 Route::get('/user/get_profile_percentage/{userId?}', 'UserController@getProfilePercentage')
     ->name('getProfilePercentage');
-Route::get('/user/disable_account', 'UserController@disableAccount')
+Route::get('/user/disable_account/{userId}', 'UserController@disableAccount')
     ->name('disableAccount');
 Route::get('/user/make_candidate_accessible/{candidateId}', 'UserController@subtractProfileContact')
     ->name('subtractProfileContact');
