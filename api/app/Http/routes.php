@@ -325,6 +325,8 @@ Route::post('/website_editor/save_traffic_cats', 'WebsiteEditorController@saveTr
     ->name('saveTrafficDrivenCats');
 Route::post('/seo-route', 'WebsiteEditorController@getSeoRoute')
     ->name('getSeoRoute');
+Route::get('/generate-site-map', 'WebsiteEditorController@generateSiteMap')
+    ->name('generateSiteMap');
 
 // Sellsy
 Route::get('/sellsy/services/all', 'SellsyController@getServices')

@@ -18,11 +18,11 @@ var app = express();
 // view engine setup
 app.engine('html', engines.mustache);
 app.set('view engine', 'html');
+app.use(require('prerender-node').set('prerenderToken', 'kJoZP8ueWg7jkPBp3rRO'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(require('prerender-node').set('prerenderToken', 'kJoZP8ueWg7jkPBp3rRO'));
 /**
  * Basic routes
  */

@@ -80,4 +80,55 @@ class WebsiteEditorController extends Controller
 
         return $seoRoute;
     }
+
+    public function generateSiteMap() {
+        $siteMapXml = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+        $staticRoutes = ['profil',
+            'recherche',
+            'club',
+            'conditions-utilisations',
+            'conditions-vente',
+            'qui-sommes-nous',
+            'inscription-candidat',
+            'accueil-recruteur',
+            'accueil-candidat',
+            'accueil',
+            'tous-les-emplois',
+            'recherche'];
+
+        foreach ($staticRoutes as $staticRoute) {
+            $siteMapXml .= "<url>
+                                <loc>https://cookorico.com/".$staticRoute."</loc>
+                            </url>";
+        }
+
+        $jobs = app('App\Http\Controllers\JobController')
+            ->getAll(false);
+
+        foreach ($jobs as $job) {
+            $siteMapXml .= "<url>
+                                <loc>https://cookorico.com/recherche/annonce/".$job->id."</loc>
+                            </url>";
+        }
+
+        $businesses = app('App\Http\Controllers\BusinessController')
+            ->getAll();
+
+        foreach ($businesses as $business) {
+            $siteMapXml .= "<url>
+                                <loc>https://cookorico.com/etablissement/".$business->id."</loc>
+                            </url>";
+        }
+
+        $siteMapXml .= '</urlset>';
+
+        /**
+         * Save sitemap.xml
+         */
+        $siteMapFile = env('APP_INSTALL_DIR').'/sitemap.xml';
+        file_put_contents($siteMapFile, $siteMapXml);
+
+        return $siteMapXml;
+    }
 }
