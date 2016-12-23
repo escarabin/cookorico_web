@@ -58,6 +58,8 @@ export class PricingPlansComponent {
             }
         });
 
+
+
         /**
          * Pupulate sellsy services array
          */
@@ -124,7 +126,6 @@ export class PricingPlansComponent {
                          * Pack illimité
                          */
 
-                        console.log('plan is ', newPlans[i]);
                         if (newPlans[i]['pricing_plan']) {
                             let duration = newPlans[i]['pricing_plan']['duration'];
                             let purchaseDate = new Date(newPlans[i]['created_at']);
@@ -146,8 +147,6 @@ export class PricingPlansComponent {
     }
 
     focusOnSignUp() {
-        console.log('found', document.getElementById("userLastName"));
-
         document.getElementById("userLastName").focus();
         window.scrollTo(0, 0);
     }

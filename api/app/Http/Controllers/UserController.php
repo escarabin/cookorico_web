@@ -355,6 +355,8 @@ class UserController extends Controller
          * Get only users that are currently looking for a job
          */
         $userList = User::whereIn('id', $userIdList)
+                            ->where('is_active', 1)
+                            ->orderBy('updated_at', 'DESC')
                             ->get()
                             ->load('lookingForJobNamings', 'jobXpLevel', 'place', 'experiences');
 
@@ -904,8 +906,6 @@ class UserController extends Controller
      * @param $searchEmail
      */
     public function searchRecruiters($searchEmail) {
-        Log::info('search with email'.$searchEmail);
-
         $users = User::where('user_type_id', 2)
                     ->where('email', 'LIKE', '%'.$searchEmail.'%')
                     ->get()
@@ -934,19 +934,13 @@ class UserController extends Controller
                                     ->orderBy('is_interested', 'asc')
                                     ->orderBy('created_at', 'desc')
                                     ->get()
-                                    ->load('user')
-                                    ->load('job');
-
-        /**
-         * Necessary workaround to return business data
-         */
-        foreach ($applications as $application) {
-            $application->job->business = $application->job->business;
-            $application->job->jobNaming = $application->job->jobNaming;
-            $application->job->business->place = $application->job->business->place;
-            $application->user->languages = $application->user->languages;
-            $application->user->jobXpLevel = $application->user->jobXpLevel;
-        }
+                                    ->load('user',
+                                        'job',
+                                        'job.business',
+                                        'job.business.place',
+                                        'job.jobNaming',
+                                        'user.languages',
+                                        'user.jobXpLevel');
 
         return $applications;
     }
@@ -1189,6 +1183,7 @@ class UserController extends Controller
                 $userPlan->credits += $pricingPlan->credits;
                 $userPlan->daily_contacts = $pricingPlan->daily_contacts;
                 $userPlan->daily_remaining_contacts = $pricingPlan->daily_contacts;
+                $userPlan->pull_up_credits = $pricingPlan->pull_up_credits;
                 $userPlan->spaces = $pricingPlan->spaces;
 
                 /**
@@ -1212,6 +1207,7 @@ class UserController extends Controller
                 $plan->credits = $pricingPlan->credits;
                 $plan->daily_contacts = $pricingPlan->daily_contacts;
                 $plan->daily_remaining_contacts = $pricingPlan->daily_contacts;
+                $plan->pull_up_credits = $pricingPlan->pull_up_credits;
                 $plan->spaces = $pricingPlan->spaces;
                 $plan->save();
             }

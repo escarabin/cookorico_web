@@ -1,0 +1,19 @@
+about {
+  padding-top: 50px;
+  display: block;
+  max-width: 990px;
+  width: 100%;
+  margin: auto;
+  margin-top: 100px;
+
+  .about-container {
+    .founder-picture {
+      border-radius: 50%;
+    }
+
+    h2 {
+      font-weight: bold;
+      color: $oechrBlueColor;
+    }
+  }
+}

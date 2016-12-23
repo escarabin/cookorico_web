@@ -116,7 +116,7 @@
                         </div>
                         <div class="col-md-3 col-sm-3 hidden-xs job-stats">
                             <b class="ref">REF{{ item.id }}</b><br />
-                            <span  *ngIf="item.is_active && item.is_accepted">
+                            <span *ngIf="item.is_accepted">
                                 <a routerLink="/profil/profils-correspondants/{{ item.id }}">Profils correspondants</a><br />
                                 <a routerLink="/profil/postulants/{{ item.id }}" *ngIf="item.applications.length > 0" class="bold">{{ item.applications.length }} postulants</a><br />
                                 {{ item.print_count }} vues - {{ item.click_count }} clics<br />
@@ -135,11 +135,11 @@
                             </a>
                             <a routerLink="/profil/annonce/editer/{{ item.id }}">
                                 <button class="full-width">
-                                    Modifier l'offre
+                                    Modifier
                                 </button>
                             </a><br />
                             <a (click)="deactivateJobPost(item.id)"
-                               *ngIf="item.is_accepted && item.is_active">
+                               *ngIf="item.is_accepted && item.is_active && item['dayDiff'] < 30">
                                 <button class="btn btn-danger full-width">
                                     Offre pourvue
                                 </button>

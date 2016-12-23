@@ -38,9 +38,11 @@ export class ApplicantsComponent {
             __this.userBusinesses = res.json();
         });
 
-        this.userService.getJobPosts(this.user.id).subscribe((res: Response) => {
+        this.userService.getJobPosts(this.user.id, true).subscribe((res: Response) => {
             __this.jobPosts = res.json();
         });
+
+        this.retrieveApplicants();
 
         /**
          * Get current jobPostId
@@ -48,10 +50,9 @@ export class ApplicantsComponent {
         route.params.subscribe(params => {
             if (params) {
                 __this.jobPostId = parseInt(params["jobPostId"]);
+                __this.filterApplicants();
             }
         });
-
-        this.retrieveApplicants();
     }
 
     retrieveApplicants() {
@@ -87,6 +88,8 @@ export class ApplicantsComponent {
                     __this.items.push(application);
                 }
             }
+
+            this.filterApplicants();
         });
     }
 
@@ -100,8 +103,9 @@ export class ApplicantsComponent {
         for (let i = 0; i < this.items.length; i++) {
             let applicant = this.items[i];
 
-            if (applicant.job.business.id == this.businessId && applicant.job_id == this.jobPostId) {
+            if (applicant.job.business.id == this.businessId || applicant.job_id == this.jobPostId) {
                 this.filteredApplicants.push(applicant);
+                console.log('pushing applicant', applicant);
             }
         }
     }

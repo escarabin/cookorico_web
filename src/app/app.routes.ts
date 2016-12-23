@@ -122,7 +122,6 @@ const appRoutes: Routes = [
     { path: 'accueil', component: HomeComponent,
         data: {
             meta: {
-                title: 'Inscription candidat',
                 description: "Cookorico : Le réveil de l'emploi en Hôtellerie Restauration. " +
                 "Des centaines d'offres d'emploi de moins de 30 jours ! " +
                 "Emploi cuisinier - serveur - plongeur - réceptionniste - pâtissier..."

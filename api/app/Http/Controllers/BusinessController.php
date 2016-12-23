@@ -213,13 +213,12 @@ class BusinessController extends Controller
      * @param $businessId
      */
     public function getJobs($businessId) {
-        $business = Business::find($businessId);
-
-        $jobs = $business->jobs->load('business', 'contractType');
-
-        foreach ($jobs as $job) {
-            $job->business->place = $job->business->place;
-        }
+        $jobs = Job::where('business_id', $businessId)
+            ->where('created_at', '>', date("Y-m-d", strtotime("-1 month")))
+            ->where('is_active', 1)
+            ->where('is_rejected', 0)
+            ->get()
+            ->load('business', 'contractType', 'business.place');
 
         return $jobs;
     }

@@ -83,7 +83,7 @@ export class MyJobPostsComponent {
                     if (plan.spaces > numberOfSpaces) {
                         numberOfSpaces = plan.spaces;
                     }
-                    if (plan.pull_up_job_credits < 0 || plan.pull_up_job_credits > 0) {
+                    if (plan.pull_up_credits == -1 || plan.pull_up_credits > 0) {
                         __this.userCanPullUpJobPost = true;
                     }
                     if (plan.credits > 0 || plan.credits == -1) {
@@ -145,13 +145,20 @@ export class MyJobPostsComponent {
     }
 
     pullUpJobPost(jobPostId: number) {
-        this.jobPostService.pullUpJobPost(jobPostId).subscribe((post: Response) => {
-            this.retrieveJobPosts();
+        if (this.userCanPullUpJobPost) {
+            this.jobPostService.pullUpJobPost(jobPostId).subscribe((post: Response) => {
+                this.retrieveJobPosts();
 
+                this.notificationService.show(
+                    new Notification('success', 'Votre annonce a bien été remontée en haut de liste')
+                );
+            });
+        }
+        else {
             this.notificationService.show(
-                new Notification('success', 'Votre annonce a bien été remontée en haut de liste')
+                new Notification('error', 'Cette option n\'est pas incluse dans votre pack')
             );
-        });
+        }
     }
 
     deactivateJobPost(jobPostId: number) {

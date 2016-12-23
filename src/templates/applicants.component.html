@@ -1,9 +1,10 @@
-<h2 class="centered">{{ filteredApplicants.length }} postulants</h2>
+<h2 class="centered" *ngIf="filteredApplicants.length > 0">{{ filteredApplicants.length }} postulants</h2>
 <hr />
 
 <div class="col-md-12">
     <select class="form-control"
             [(ngModel)]="businessId"
+            (change)="filterApplicants()"
             ngControl="businessId">
         <option value="0">
             -- Sélectionnez un établissement --
@@ -23,13 +24,13 @@
             <span *ngIf="business.jobs.length == 0">
                 Aucune offre d'emploi pour cet établissement
             </span>
+            <label>Sélectionnez une offre d'emploi</label>
             <select class="form-control"
-                    name="jobPostId"
                     ngControl="jobPostId"
                     *ngIf="business.jobs.length > 0"
                     (change)="filterApplicants()"
                     [(ngModel)]="jobPostId">
-                <option selected disabled value="0">-- Sélectionnez une offre d'emploi --</option>
+                <option value="0">-- Sélectionnez une offre d'emploi --</option>
                 <option *ngFor="let jobPost of business.jobs"
                         value="{{ jobPost.id }}">
                     REF{{ jobPost.id }} {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
@@ -40,35 +41,22 @@
 </div>
 
 <!-- Single business -->
-<select class="form-control"
-        name="jobPostId"
-        ngControl="jobPostId"
-        *ngIf="userBusinesses.length == 1"
-        [(ngModel)]="jobPostId">
-    <option selected disabled value="null">-- Sélectionnez une offre d'emploi --</option>
-    <option *ngFor="let jobPost of userBusinesses[0].jobs"
-            value="{{ jobPost.id }}">
-        REF{{ jobPost.id }} {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
-    </option>
-</select>
+<div *ngIf="userBusinesses.length == 1">
+    <label>Sélectionnez une offre d'emploi</label>
+    <select class="form-control"
+            ngControl="jobPostId"
+            (change)="filterApplicants()"
+            [(ngModel)]="jobPostId">
+        <option value="0">-- Sélectionnez une offre d'emploi --</option>
+        <option *ngFor="let jobPost of jobPosts"
+                value="{{ jobPost.id }}">
+            REF{{ jobPost.id }} {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
+        </option>
+    </select>
+</div>
 
 <hr />
 <div class="col-md-12 list-container">
-    <!-- <div class="col-md-6 col-md-offset-3"
-         *ngIf="!jobPostId && items.length == 0">
-        <br /><br />
-        <label>Sélectionnez une offre d'emploi</label>
-        <select class="form-control"
-                name="job_post_id"
-                [(ngModel)]="jobPostId">
-            <option selected disabled value="null">-- Sélectionnez une offre d'emploi --</option>
-            <option *ngFor="let jobPost of jobPosts"
-                    value="{{ jobPost.id }}">
-                {{ jobPost.job_naming.title }} - {{ jobPost.business.title }} ({{ jobPost.applications.length }})
-            </option>
-        </select>
-        <br /><br />
-    </div> -->
     <div class="col-md-6 col-md-offset-3"
          *ngIf="items.length == 0 && jobPostId">
         <br /><br />
@@ -97,7 +85,7 @@
                             </span>
                             <br />
                         </span>
-                        <strong>{{ item.job.title }}</strong><br />
+                        <strong *ngIf="item.job">{{ item.job.title }}</strong><br />
                         <span class="date">
                             <span class="fa fa-clock-o"></span>
                             A postulé le {{ item.created_at | date:"dd/MM/yyyy" }}

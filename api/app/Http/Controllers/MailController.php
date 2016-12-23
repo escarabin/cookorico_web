@@ -111,9 +111,8 @@ class MailController extends Controller
      * Send new job alerts every day to candidates
      */
     public function sendNewJobAlerts() {
-        Log::info('sendNewJobAlerts');
-
         $candidateUsers = User::where('user_type_id', 3)
+                                ->where('is_active', 1)
                                 ->where('alert_frequency_id', '>', 0)
                                 ->get();
 

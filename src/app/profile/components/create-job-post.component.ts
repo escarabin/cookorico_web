@@ -78,13 +78,13 @@ export class CreateJobPostComponent {
 
         /**
          * If user is admin, show him every businesses
-         */
+
         if (this.user.user_type_id == 1) {
             this.businessService.getAll().subscribe((res: Response) => {
                 this.businesses = res.json();
             });
         }
-        else {
+        else {*/
             this.userService.getBusinesses(this.user.id).subscribe((res: Response) => {
                 this.businesses = res.json();
 
@@ -92,7 +92,7 @@ export class CreateJobPostComponent {
                     this.jobPost.business_id = this.businesses[0].id;
                 }
             });
-        }
+        //}
 
         this.referenceService.getAllDiplomas().subscribe((res: Response) => {
             __this.diplomas = res.json();

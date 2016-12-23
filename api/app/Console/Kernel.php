@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
         Log::info('Kernel schedule called');
 
         $schedule->call('App\Http\Controllers\MailController@sendNewJobAlerts')
-                 ->daily();
+                 ->dailyAt('18:00');
 
         $schedule->call('App\Http\Controllers\MailController@sendCandidateProfileNotCompleteMail')
                  ->monthly();

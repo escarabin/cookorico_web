@@ -22,6 +22,7 @@ export class ProfileSidebarComponent {
     isMobileMenuVisible: boolean = false;
     isSavingModal: boolean = false;
     @Output() isUserPartOfAGroup: boolean;
+    userJobPostsCount: number;
 
     constructor(private userService: UserService,
                 private notificationService: NotificationsService) {
@@ -30,17 +31,23 @@ export class ProfileSidebarComponent {
         let __this = this;
 
         if (this.user.user_type_id == 2 || this.user.user_type_id == 4 || this.user.user_type_id == 5) {
-            this.userService.getPlans(this.user.id).subscribe((res: Response) => {
-                let plans = [];
+            this.userService.getJobPosts(this.user.id, false).subscribe((res:Response) => {
+                this.userJobPostsCount = res.json().length;
+                this.userService.getPlans(this.user.id).subscribe((res:Response) => {
+                    for (let i = 0; i < res.json().length; i++) {
+                        if (res.json()[i]['credits'] == -1) {
+                            let plan = res.json()[i];
 
-                for (let i = 0; i < res.json().length; i++) {
-                    if (res.json()[i]['credits'] == -1) {
-                        __this.plans.push(res.json()[i]);
-                        i = 1000;
+                            /**
+                             * Subtract active job posts from spaces count
+                             */
+                            plan.spaces = plan.spaces - __this.userJobPostsCount;
+
+                            __this.plans.push(plan);
+                            i = 1000;
+                        }
                     }
-                }
-
-                console.log('plans are', plans);
+                });
             });
         }
     }
@@ -68,8 +75,6 @@ export class ProfileSidebarComponent {
 
         this.userService.changePassword(this.oldPassword, this.newPassword, this.user.id).subscribe((res: Response) => {
             this.isSavingModal = false;
-
-            console.log('alright');
 
             this.notificationService.show(
                 new Notification('success', 'Votre mot de passe a bien été modifié')

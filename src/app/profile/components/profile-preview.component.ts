@@ -395,10 +395,9 @@ export class ProfilePreviewComponent {
 
     /**
      * Disable currently logged user account
-     * @param userId
      */
-    disableAccount(userId: number) {
-        this.userService.disableAccount(userId).subscribe((res: Response) => {
+    disableAccount() {
+        this.userService.disableAccount(this.user.id).subscribe((res: Response) => {
             this.userService.signOut().subscribe((res: Response) => {
                 this.router.navigate(['/']);
 
