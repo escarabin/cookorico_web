@@ -228,7 +228,13 @@ class BusinessController extends Controller
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getAll() {
-        $businesses = Business::all();
+        $users = User::where('user_type_id', 2)->get();
+
+        $businesses = array();
+
+        foreach ($users as $user) {
+            $businesses[] = $user->businesses;
+        }
 
         return $businesses;
     }
@@ -238,9 +244,15 @@ class BusinessController extends Controller
      * Get all businesses count
      */
     public function getCount() {
-        $businessesCount = Business::count();
+        $users = User::where('user_type_id', 2)->get();
 
-        return $businessesCount;
+        $businesses = array();
+
+        foreach ($users as $user) {
+            $businesses[] = $user->businesses;
+        }
+
+        return count($businesses);
     }
 
     /**

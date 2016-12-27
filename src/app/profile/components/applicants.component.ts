@@ -72,13 +72,13 @@ export class ApplicantsComponent {
                     "<strong>" + application['job']['business']['title'] + "</strong> " +
                     "(" + application['job']['business']['place']['postalCode'] + " " +
                     "" + application['job']['business']['place']['city'] + ") pour le poste de : " +
-                    "<strong>" + application['job']['jobNaming']['title'] + "</strong>.<br/><br/>" +
+                    "<strong>" + application['job']['job_naming']['title'] + "</strong>.<br/><br/>" +
                     "Merci de bien vouloir prendre contact directement avec eux.";
 
                 application['rejectedTemplate'] = "Un mail sera envoyé à <u><br/>" + application['user']['email'] + "</u>" +
                     "<br/><br/>Bonjour,<br/><br/>" +
                     "Votre candidature n'a pas été retenue pour le poste de : " +
-                    "<strong>" + application['job']['jobNaming']['title'] + "</strong> dans l'établissement " +
+                    "<strong>" + application['job']['job_naming']['title'] + "</strong> dans l'établissement " +
                     "<strong>" + application['job']['business']['title'] + "</strong> (" + application['job']['business']['place']['postalCode'] + "" +
                     " " + application['job']['business']['place']['city'] + ").<br/><br/>" +
                     "Postulez à une nouvelle offre d'emploi sur " +

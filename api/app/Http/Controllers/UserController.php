@@ -935,8 +935,6 @@ class UserController extends Controller
                                     ->orderBy('created_at', 'desc')
                                     ->get()
                                     ->load('user',
-                                        'job',
-                                        'job.business',
                                         'job.business.place',
                                         'job.jobNaming',
                                         'user.languages',

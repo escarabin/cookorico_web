@@ -48,13 +48,12 @@ export class AdminJobPostsComponent {
                 if (res.json()[i]['is_accepted']) {
                     this.acceptedItems.push(res.json()[i]);
                 }
-                else if (res.json()[i]['is_rejected']) {
-                    this.rejectedItems.push(res.json()[i]);
-                }
-                if (res.json()[i]['is_active'] && !res.json()[i]['is_accepted'] && !res.json()[i]['is_rejected']) {
+                else if (res.json()[i]['is_active'] && !res.json()[i]['is_accepted'] && !res.json()[i]['is_rejected']) {
                     this.itemsToReview.push(res.json()[i]);
                 }
-
+                else {
+                    this.rejectedItems.push(res.json()[i]);
+                }
             }
         });
     }
