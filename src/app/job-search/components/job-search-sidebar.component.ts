@@ -118,33 +118,35 @@ export class JobSearchSidebarComponent {
              * Create new markers, append them to the map
              */
             for (let i = 0; i < __this.jobs.length; i++) {
-                let jobLatLng = new google.maps.LatLng(
-                    __this.jobs[i]['business']['place']['lat'],
-                    __this.jobs[i]['business']['place']['lon']
-                );
+                if (__this.jobs[i]['business']['place']) {
+                    let jobLatLng = new google.maps.LatLng(
+                        __this.jobs[i]['business']['place']['lat'],
+                        __this.jobs[i]['business']['place']['lon']
+                    );
 
-                let marker = new google.maps.Marker({
-                    position : jobLatLng,
-                    map      : this.map
-                });
+                    let marker = new google.maps.Marker({
+                        position : jobLatLng,
+                        map      : this.map
+                    });
 
-                let infoContentString = '<strong>' + __this.jobs[i]["title"] + '</strong><br /> ' +
-                    '<p><img src="' + __this.jobs[i]["business"]["logoUrl"] + '" width="100" height="100"/></p> ' +
-                    '<p>' + __this.jobs[i]["business"]["title"] + '</p> ' +
-                    '<p>' + __this.jobs[i]["business"]["place"]["city"] + '</p> ' +
-                    '<a href="/#/recherche/annonce/' + __this.jobs[i]['id'] + '"><button class="btn btn-primary full-width">' +
-                    'Voir l\'offre ' +
-                    '</button></a>';
+                    let infoContentString = '<strong>' + __this.jobs[i]["title"] + '</strong><br /> ' +
+                        '<p><img src="' + __this.jobs[i]["business"]["logo"] + '" width="50" height="50"/></p> ' +
+                        '<p>' + __this.jobs[i]["business"]["title"] + '</p> ' +
+                        '<p>' + __this.jobs[i]["business"]["place"]["city"] + '</p> ' +
+                        '<a href="/#/recherche/annonce/' + __this.jobs[i]['id'] + '"><button class="btn btn-primary full-width">' +
+                        'Voir l\'offre ' +
+                        '</button></a>';
 
-                let infowindow = new google.maps.InfoWindow({
-                    content: infoContentString
-                });
+                    let infowindow = new google.maps.InfoWindow({
+                        content: infoContentString
+                    });
 
-                marker.addListener('click', function() {
-                    infowindow.open(__this.map, marker);
-                });
+                    marker.addListener('click', function() {
+                        infowindow.open(__this.map, marker);
+                    });
 
-                this.mapMarkers.push(marker);
+                    this.mapMarkers.push(marker);
+                }
             }
         });
     }

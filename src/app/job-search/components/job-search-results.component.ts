@@ -123,7 +123,7 @@ export class JobSearchResultsComponent {
                 });
 
                 let infoContentString = '<strong>' + __this.jobs[i]["title"] + '</strong><br /> ' +
-                    '<p><img src="' + __this.jobs[i]["business"]["logoUrl"] + '" width="100" height="100"/></p> ' +
+                    '<p><img src="' + __this.jobs[i]["business"]["logo"] + '" width="50" height="50"/></p> ' +
                     '<p>' + __this.jobs[i]["business"]["title"] + '</p> ' +
                     '<p>' + __this.jobs[i]["business"]["place"]["city"] + '</p> ' +
                     '<a href="/recherche/annonce/' + __this.jobs[i]['id'] + '"><button class="btn btn-primary full-width">' +

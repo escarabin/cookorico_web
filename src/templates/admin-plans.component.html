@@ -162,11 +162,11 @@
                 </span><br />
             </td>
             <td>
-                <span *ngIf="plan.business">{{ plan.business.place.city }}</span><br />
+                <span *ngIf="plan.business && plan.business.place">{{ plan.business.place.city }}</span><br />
                 <span *ngIf="plan.user">{{ plan.user.firstName }} {{ plan.user.lastName }}</span><br />
             </td>
             <td>
-                <span *ngIf="plan.business">{{ plan.business.place.postalCode }}</span><br />
+                <span *ngIf="plan.business && plan.business.place">{{ plan.business.place.postalCode }}</span><br />
             </td>
             <td>
                 <button class="btn btn-default"
